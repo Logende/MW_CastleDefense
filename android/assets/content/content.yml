@@ -1,0 +1,4 @@
+bodyData:
+- 'content/bodyData.yml'
+shields:
+- 'content/shields.yml'

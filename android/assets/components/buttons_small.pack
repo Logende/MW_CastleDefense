@@ -1,0 +1,1741 @@
+
+buttons_small.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+controlpanel
+  rotate: false
+  xy: 1, 1947
+  size: 960, 100
+  orig: 960, 100
+  offset: 0, 0
+  index: -1
+background
+  rotate: false
+  xy: 1, 1729
+  size: 384, 216
+  orig: 384, 216
+  offset: 0, 0
+  index: -1
+action.arrow.bomb
+  rotate: false
+  xy: 963, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.fire
+  rotate: false
+  xy: 1, 1627
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.headshot
+  rotate: false
+  xy: 387, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.ice
+  rotate: false
+  xy: 1065, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.normal
+  rotate: false
+  xy: 1, 1525
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.poison
+  rotate: false
+  xy: 103, 1627
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.rain
+  rotate: false
+  xy: 387, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.random
+  rotate: false
+  xy: 489, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.strong
+  rotate: false
+  xy: 1167, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.arrow.weak
+  rotate: false
+  xy: 1, 1423
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.basic
+  rotate: false
+  xy: 103, 1525
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.brutal.1
+  rotate: false
+  xy: 205, 1627
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.brutal.2
+  rotate: false
+  xy: 489, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf1.double
+  rotate: false
+  xy: 591, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf1.ice
+  rotate: false
+  xy: 1269, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf1.quadruple
+  rotate: false
+  xy: 1, 1321
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf1.simple
+  rotate: false
+  xy: 103, 1423
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf2.1
+  rotate: false
+  xy: 205, 1525
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf2.2
+  rotate: false
+  xy: 591, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf2.3.fire
+  rotate: false
+  xy: 693, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf2.3
+  rotate: false
+  xy: 1371, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.dwarf2.4
+  rotate: false
+  xy: 1, 1219
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.god.dark.ice
+  rotate: false
+  xy: 103, 1321
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.god.dark
+  rotate: false
+  xy: 205, 1423
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.god.dark.strong
+  rotate: false
+  xy: 693, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.god.light.fire
+  rotate: false
+  xy: 795, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.god.light
+  rotate: false
+  xy: 1473, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.god.light.strong
+  rotate: false
+  xy: 1, 1117
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.human.fire
+  rotate: false
+  xy: 103, 1219
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.human.fire.strong
+  rotate: false
+  xy: 205, 1321
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.human.ice
+  rotate: false
+  xy: 795, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.human
+  rotate: false
+  xy: 897, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.kingsslayer
+  rotate: false
+  xy: 1575, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.orc.1
+  rotate: false
+  xy: 1, 1015
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.orc.2
+  rotate: false
+  xy: 103, 1117
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.wild
+  rotate: false
+  xy: 205, 1219
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.axe.wild.strong
+  rotate: false
+  xy: 897, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.bite.huge
+  rotate: false
+  xy: 999, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.bite
+  rotate: false
+  xy: 1677, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.bite.strong
+  rotate: false
+  xy: 1, 913
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.rock.1
+  rotate: false
+  xy: 103, 1015
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.rock.2
+  rotate: false
+  xy: 205, 1117
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.stone.1
+  rotate: false
+  xy: 999, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.stone.2
+  rotate: false
+  xy: 1101, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.stone.3
+  rotate: false
+  xy: 1779, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.beast.stones
+  rotate: false
+  xy: 1, 811
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.1
+  rotate: false
+  xy: 103, 913
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.2
+  rotate: false
+  xy: 205, 1015
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.3
+  rotate: false
+  xy: 1101, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.4
+  rotate: false
+  xy: 1203, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.5
+  rotate: false
+  xy: 1881, 1947
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.6
+  rotate: false
+  xy: 1, 709
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.7
+  rotate: false
+  xy: 103, 811
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.boomerang.8
+  rotate: false
+  xy: 205, 913
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.crossbow.curse
+  rotate: false
+  xy: 1203, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.crossbow.normal.double
+  rotate: false
+  xy: 1305, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.crossbow.normal
+  rotate: false
+  xy: 1, 607
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.crossbow.poison
+  rotate: false
+  xy: 103, 709
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.crossbow.strong.double
+  rotate: false
+  xy: 205, 811
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.crossbow.strong
+  rotate: false
+  xy: 1305, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.crossbow.weak
+  rotate: false
+  xy: 1407, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.1
+  rotate: false
+  xy: 1, 505
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.2
+  rotate: false
+  xy: 103, 607
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.3
+  rotate: false
+  xy: 205, 709
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.4.fire
+  rotate: false
+  xy: 1407, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.4.ice
+  rotate: false
+  xy: 1509, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.4
+  rotate: false
+  xy: 1, 403
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.5.curse
+  rotate: false
+  xy: 103, 505
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.5.fire
+  rotate: false
+  xy: 205, 607
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.hammer.6.fire
+  rotate: false
+  xy: 1509, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.basic
+  rotate: false
+  xy: 1611, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.brokensword.ice
+  rotate: false
+  xy: 1, 301
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.brokensword
+  rotate: false
+  xy: 103, 403
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.brokensword.poison
+  rotate: false
+  xy: 205, 505
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.brokensword.strong
+  rotate: false
+  xy: 1611, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.dragonwarrior.fire
+  rotate: false
+  xy: 1713, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.dragonwarrior
+  rotate: false
+  xy: 1, 199
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.mighty.1
+  rotate: false
+  xy: 103, 301
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.mighty.2
+  rotate: false
+  xy: 205, 403
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.mighty.3.fire
+  rotate: false
+  xy: 1713, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.mighty.3.ice
+  rotate: false
+  xy: 1815, 1845
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.normal.1
+  rotate: false
+  xy: 1, 97
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.normal.2
+  rotate: false
+  xy: 103, 199
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.twisted.ice
+  rotate: false
+  xy: 205, 301
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.knife.twisted
+  rotate: false
+  xy: 1815, 1743
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.energy.3
+  rotate: false
+  xy: 103, 97
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.energy.4
+  rotate: false
+  xy: 205, 199
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.energy.5
+  rotate: false
+  xy: 205, 97
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.fireball
+  rotate: false
+  xy: 307, 1627
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.fireball.rain.1
+  rotate: false
+  xy: 307, 1525
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.fireball.rain.2
+  rotate: false
+  xy: 307, 1423
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.fist.fire
+  rotate: false
+  xy: 307, 1321
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.fist.huge
+  rotate: false
+  xy: 307, 1219
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.fist
+  rotate: false
+  xy: 307, 1117
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.fist.poison
+  rotate: false
+  xy: 307, 1015
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.iceball
+  rotate: false
+  xy: 307, 913
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.icespear
+  rotate: false
+  xy: 307, 811
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.icespike.1
+  rotate: false
+  xy: 307, 709
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.icespike.2
+  rotate: false
+  xy: 307, 607
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.icespike.3
+  rotate: false
+  xy: 307, 505
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.icespike.4
+  rotate: false
+  xy: 307, 403
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.icicle
+  rotate: false
+  xy: 307, 301
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.icicle.strong
+  rotate: false
+  xy: 307, 199
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.meteorball
+  rotate: false
+  xy: 307, 97
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.poisonball
+  rotate: false
+  xy: 409, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.shadowenergy.1
+  rotate: false
+  xy: 409, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.shadowenergy.2
+  rotate: false
+  xy: 511, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.shadowenergy.3
+  rotate: false
+  xy: 409, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.shadowenergy.4
+  rotate: false
+  xy: 511, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.skull.1
+  rotate: false
+  xy: 613, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.skull.2
+  rotate: false
+  xy: 409, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.skull.3
+  rotate: false
+  xy: 511, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.snowball.normal
+  rotate: false
+  xy: 613, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.snowball.strong.ice
+  rotate: false
+  xy: 715, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.snowball.strong
+  rotate: false
+  xy: 409, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.torch.elite
+  rotate: false
+  xy: 511, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.torch
+  rotate: false
+  xy: 613, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.torch.strong
+  rotate: false
+  xy: 715, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.trickyenergy.1
+  rotate: false
+  xy: 817, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.trickyenergy.2
+  rotate: false
+  xy: 409, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.magic.trickyenergy.3
+  rotate: false
+  xy: 511, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.misc.bomb
+  rotate: false
+  xy: 613, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.misc.suicide
+  rotate: false
+  xy: 715, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.ice.1
+  rotate: false
+  xy: 817, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.ice.2
+  rotate: false
+  xy: 919, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.ice.3
+  rotate: false
+  xy: 409, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.normal.1
+  rotate: false
+  xy: 511, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.normal.2
+  rotate: false
+  xy: 613, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.normal.3
+  rotate: false
+  xy: 715, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.normal.4
+  rotate: false
+  xy: 817, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shield.normal.5
+  rotate: false
+  xy: 919, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shuriken.basic
+  rotate: false
+  xy: 1021, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shuriken.fire
+  rotate: false
+  xy: 409, 927
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shuriken.ice
+  rotate: false
+  xy: 511, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shuriken.lucky
+  rotate: false
+  xy: 613, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shuriken.poison
+  rotate: false
+  xy: 715, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.shuriken.strong
+  rotate: false
+  xy: 817, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.spear.basic
+  rotate: false
+  xy: 919, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.spear.fire
+  rotate: false
+  xy: 1021, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.spear.god
+  rotate: false
+  xy: 1123, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.spear.ice
+  rotate: false
+  xy: 409, 825
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.spear.normal
+  rotate: false
+  xy: 511, 927
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.spear.small
+  rotate: false
+  xy: 613, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.spear.strong
+  rotate: false
+  xy: 715, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.stick.brute
+  rotate: false
+  xy: 817, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.stick.pharao
+  rotate: false
+  xy: 919, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.stick
+  rotate: false
+  xy: 1021, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.stick.reapinghook
+  rotate: false
+  xy: 1123, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.goblin.suicide
+  rotate: false
+  xy: 1225, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.golem
+  rotate: false
+  xy: 409, 723
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.golem.strong
+  rotate: false
+  xy: 511, 825
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.skeleton
+  rotate: false
+  xy: 613, 927
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.skeleton.strong
+  rotate: false
+  xy: 715, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.tomb.egypt
+  rotate: false
+  xy: 817, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.zombie
+  rotate: false
+  xy: 919, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.summon.zombie.strong
+  rotate: false
+  xy: 1021, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.bandit.1
+  rotate: false
+  xy: 1123, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.bandit.2
+  rotate: false
+  xy: 1225, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.basic
+  rotate: false
+  xy: 1327, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.human.fire
+  rotate: false
+  xy: 409, 621
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.human.gold
+  rotate: false
+  xy: 511, 723
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.human.ice
+  rotate: false
+  xy: 613, 825
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.katana.1
+  rotate: false
+  xy: 715, 927
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.katana.2
+  rotate: false
+  xy: 817, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.katana.3.dark
+  rotate: false
+  xy: 919, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.katana.3.light
+  rotate: false
+  xy: 1021, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.katana.4.fire
+  rotate: false
+  xy: 1123, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.katana.4.ice
+  rotate: false
+  xy: 1225, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.mighty.cross
+  rotate: false
+  xy: 1327, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.mighty.double
+  rotate: false
+  xy: 1429, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.mighty.gold.cross
+  rotate: false
+  xy: 409, 519
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.mighty.gold.double
+  rotate: false
+  xy: 511, 621
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.mighty.gold
+  rotate: false
+  xy: 613, 723
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.mighty.gold.strong
+  rotate: false
+  xy: 715, 825
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.mighty
+  rotate: false
+  xy: 817, 927
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.orc.1
+  rotate: false
+  xy: 919, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.orc.2
+  rotate: false
+  xy: 1021, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+action.sword.twisted
+  rotate: false
+  xy: 1123, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+block
+  rotate: false
+  xy: 1225, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+block.pressed
+  rotate: false
+  xy: 1327, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+close
+  rotate: false
+  xy: 1429, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+frame.action.summon
+  rotate: false
+  xy: 1531, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+frame.skill.heavy
+  rotate: false
+  xy: 409, 417
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+frame.skill.light
+  rotate: false
+  xy: 511, 519
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+frame.skill.magic
+  rotate: false
+  xy: 613, 621
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+frame.skill
+  rotate: false
+  xy: 715, 723
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+frame.skill.shield
+  rotate: false
+  xy: 817, 825
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+move.left
+  rotate: false
+  xy: 919, 927
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+move.left.pressed
+  rotate: false
+  xy: 1021, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+move.right
+  rotate: false
+  xy: 1123, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+move.right.pressed
+  rotate: false
+  xy: 1225, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+toggle.castledefense
+  rotate: false
+  xy: 1327, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+toggle.player
+  rotate: false
+  xy: 1429, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+unknown
+  rotate: false
+  xy: 1531, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.aura
+  rotate: false
+  xy: 1633, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unique.rush
+  rotate: false
+  xy: 1633, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.drain
+  rotate: false
+  xy: 409, 315
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.follower.respawntime
+  rotate: false
+  xy: 511, 417
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.headshot
+  rotate: false
+  xy: 613, 519
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.health
+  rotate: false
+  xy: 715, 621
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.luck
+  rotate: false
+  xy: 817, 723
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.mana
+  rotate: false
+  xy: 919, 825
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.mount.drain
+  rotate: false
+  xy: 1021, 927
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.skills.durability.light
+  rotate: false
+  xy: 1123, 1029
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.skills.heavy
+  rotate: false
+  xy: 1225, 1131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.skills.light
+  rotate: false
+  xy: 1327, 1233
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.skills.magic
+  rotate: false
+  xy: 1429, 1335
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.steroids
+  rotate: false
+  xy: 1531, 1437
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unique.enemybook
+  rotate: false
+  xy: 1633, 1539
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unique.jump
+  rotate: false
+  xy: 1735, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unique.shield.big
+  rotate: false
+  xy: 409, 213
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unique.shield.enchanted
+  rotate: false
+  xy: 511, 315
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unique.skillslot
+  rotate: false
+  xy: 613, 417
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unique.walk_while_blocking
+  rotate: false
+  xy: 715, 519
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.unstoppable
+  rotate: false
+  xy: 817, 621
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.walkspeed
+  rotate: false
+  xy: 919, 723
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+move.jumpinfo
+  rotate: false
+  xy: 1, 5
+  size: 80, 90
+  orig: 80, 90
+  offset: 0, 0
+  index: -1
+move.rushinfo
+  rotate: false
+  xy: 1021, 835
+  size: 80, 90
+  orig: 80, 90
+  offset: 0, 0
+  index: -1
+arrow.left
+  rotate: false
+  xy: 1123, 958
+  size: 95, 69
+  orig: 95, 69
+  offset: 0, 0
+  index: -1
+arrow.right
+  rotate: false
+  xy: 1225, 1060
+  size: 95, 69
+  orig: 95, 69
+  offset: 0, 0
+  index: -1
+credits
+  rotate: false
+  xy: 1327, 1151
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+help
+  rotate: false
+  xy: 1429, 1253
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+infobook
+  rotate: false
+  xy: 1531, 1355
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+menu
+  rotate: false
+  xy: 1633, 1457
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+missions.fail
+  rotate: false
+  xy: 1735, 1559
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+missions
+  rotate: false
+  xy: 409, 131
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+missions.success
+  rotate: false
+  xy: 511, 233
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+news
+  rotate: false
+  xy: 613, 335
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+options
+  rotate: false
+  xy: 715, 437
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+shop
+  rotate: false
+  xy: 817, 539
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+tips
+  rotate: false
+  xy: 919, 641
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+zoom
+  rotate: false
+  xy: 83, 15
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame.black.bottom
+  rotate: false
+  xy: 165, 45
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+frame.black.top
+  rotate: false
+  xy: 267, 45
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+frame.gold.bottom
+  rotate: false
+  xy: 1021, 783
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+frame.gold.top
+  rotate: false
+  xy: 1021, 731
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+frame.purple.bottom
+  rotate: false
+  xy: 1837, 1691
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+frame.purple.top
+  rotate: false
+  xy: 1837, 1639
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+frame.red.bottom
+  rotate: false
+  xy: 1817, 1587
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+frame.red.top
+  rotate: false
+  xy: 1817, 1535
+  size: 100, 50
+  orig: 100, 50
+  offset: 0, 0
+  index: -1
+underline
+  rotate: false
+  xy: 1, 1
+  size: 56, 2
+  orig: 56, 2
+  offset: 0, 0
+  index: -1
+locked
+  rotate: false
+  xy: 1983, 1980
+  size: 46, 67
+  orig: 46, 67
+  offset: 0, 0
+  index: -1
+coin
+  rotate: false
+  xy: 1123, 931
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+frame_blue_corner
+  rotate: false
+  xy: 2031, 2031
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+frame_blue_horizontal
+  rotate: false
+  xy: 387, 1734
+  size: 17, 7
+  orig: 17, 7
+  offset: 0, 0
+  index: -1
+frame_blue_vertical
+  rotate: false
+  xy: 1225, 1041
+  size: 7, 17
+  orig: 7, 17
+  offset: 0, 0
+  index: -1
