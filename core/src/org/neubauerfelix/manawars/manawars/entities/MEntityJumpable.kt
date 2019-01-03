@@ -1,8 +1,10 @@
 package org.neubauerfelix.manawars.manawars.entities
 
+import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.GameEntityMovable
 import org.neubauerfelix.manawars.game.entities.IMovable
+import org.neubauerfelix.manawars.game.events.EntityKnockbackEvent
 import org.neubauerfelix.manawars.manawars.MConstants
 
 
@@ -92,6 +94,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
      * @return `true` if it was possible to execute the knockback.
      */
     open fun knockback(power_x: Float, power_y: Float): Boolean {
+        AManaWars.m.getEventHandler().callEvent(EntityKnockbackEvent(this, power_x, power_y))
         jumpsAmount = Math.max(1, jumpsAmount) //Knockback counts as jump when being on the ground when knocked back!
 
         if (!isKnockbacked) {

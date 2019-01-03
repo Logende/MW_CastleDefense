@@ -5,8 +5,10 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimation
+import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
+import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
 class EntityAnimationHuman(private val body: BodyHumanSmart): EntityAnimation(body, body.scale) {
 
@@ -19,6 +21,10 @@ class EntityAnimationHuman(private val body: BodyHumanSmart): EntityAnimation(bo
             MWDamageCause.SKILL -> this.body.deadlyHit(damager as IMovable)
             MWDamageCause.STATEEFFECT, MWDamageCause.SUMMON_LIMIT_EXCEEDED, MWDamageCause.TRIBE_DISPOSED -> this.body.deadlyHit()
         }
+    }
+
+    override fun playBodyEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+        this.body.playEffect(effect, weaponType)
     }
 
     override fun update() {

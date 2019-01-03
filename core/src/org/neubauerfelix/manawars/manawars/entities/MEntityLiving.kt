@@ -4,13 +4,17 @@ package org.neubauerfelix.manawars.manawars.entities
 import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.game.events.EntityDamageEvent
+import org.neubauerfelix.manawars.game.events.EntityDeathEvent
+import org.neubauerfelix.manawars.game.events.EntityHealEvent
+import org.neubauerfelix.manawars.game.events.EntitySpawnEvent
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 /**
  * This class gives entities health, the ability to take damage/die and the ability to belong to a certain team.
  * @author Felix Neubauer
  */
-abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEntityJumpable(width, height), ILiving, ITeamable, IAttacking {
+abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEntityJumpable(width, height), ILiving, ITeamable {
 
     companion object {
         fun getClosestEntity(condition: (IEntity) -> Boolean, mainEntity: IEntity, maxDistance: Double): IEntity?{
@@ -66,16 +70,19 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
 
         remove = false
         if (!AManaWars.m.screen.containsEntity(this)) {
-            //TODO EVENT?
+            AManaWars.m.getEventHandler().callEvent(EntitySpawnEvent(this, true, healthPercentage))
             spawn()
         }
         health = healthMax * healthPercentage
     }
 
     override fun heal(value: Float) {
-        if (health > 0) {
+        require(value > 0)
+
+        val healEvent = EntityHealEvent(this, value)
+        AManaWars.m.getEventHandler().callEvent(healEvent)
+        if (!healEvent.cancelled) {
             this.health = Math.min(this.health + value, this.healthMax)
-            //TODO EVENT?
         }
     }
 
@@ -85,16 +92,20 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
         }
         require(value > 0)
 
-        if (damager is IAttacking) {
-            (damager as IAttacking).dealtDamage(this, Math.min(value, health), cause)
-        }
         health = Math.max(0f, this.health - value)
-        //TODO EVENT?
-        playBloodAnimation()
+        val damageEvent = EntityDamageEvent(this, value, damager, cause, this.health == 0f)
+        AManaWars.m.getEventHandler().callEvent(damageEvent)
 
-        return if (this.health == 0f) {
-            death(damager, cause)
-        } else false
+        if (damageEvent.cancelled) {
+            return false
+        }
+
+        playBloodAnimation()
+        return if (damageEvent.deadlyDamage) {
+            this.death(damager, cause)
+        } else {
+            false
+        }
     }
 
     open fun playBloodAnimation() {
@@ -103,7 +114,7 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
 
     override fun spawn() {
         super.spawn()
-        //TODO EVENT?
+        AManaWars.m.getEventHandler().callEvent(EntitySpawnEvent(this, false, 1f))
     }
 
     /**
@@ -113,30 +124,13 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
      * @return `true` if the entity was successfully killed and `false` if something prevented the death (for example a resurrect potion).
      */
     open fun death(damager: IEntity, cause: MWDamageCause): Boolean {
-        //TODO EVENT?
+        val deathEvent = EntityDeathEvent(this, damager, cause)
+        AManaWars.m.getEventHandler().callEvent(deathEvent)
+        if (deathEvent.cancelled) {
+            return false
+        }
         remove = true
-        if (damager is IAttacking) {
-            (damager as IAttacking).killed(this, cause)
-        }
         return true
-    }
-
-    override fun killed(victim: ILiving, cause: MWDamageCause) {
-        if (this is IOwned) {
-            val owner = this.owner
-            if (owner is IAttacking) {
-                owner.killed(victim, cause)
-            }
-        }
-    }
-
-    override fun dealtDamage(l: ILiving, damage: Float, cause: MWDamageCause) {
-        if (this is IOwned) {
-            val owner = this.owner
-            if (owner is IAttacking) {
-                owner.dealtDamage(l, damage, cause)
-            }
-        }
     }
 
 

@@ -16,7 +16,7 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
 
     private var colorRestoreTime: Long = -1L
     private var needsAnimationUpdate: Boolean = false
-    val animation = animationProducer.produce(this)
+    override val animation = animationProducer.produce(this)
     init {
         propertyScale = animation.scale
     }

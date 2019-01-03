@@ -7,7 +7,7 @@ package org.neubauerfelix.manawars.game.data
  * One Asset can be used by multiple DataClasses at the same time.
  *
  * Possible assets:
- * - Skill images
+ * - Skill images / Skills
  * - Sounds
  * - Music?
  * - Castles and more?
