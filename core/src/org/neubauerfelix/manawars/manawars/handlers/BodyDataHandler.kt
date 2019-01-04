@@ -6,7 +6,6 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyDataHuman
 import org.neubauerfelix.manawars.manawars.entities.animation.human.IBodyDataHuman
 import org.neubauerfelix.manawars.manawars.enums.MWShield
-import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 import java.util.HashMap

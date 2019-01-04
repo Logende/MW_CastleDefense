@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.manawars.enums.MWStateEffectivity
 
 
-class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, mana: Float, actions: Array<IDataAction>,
+open class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, mana: Float, actions: Array<IDataAction>,
                        manaRegen: Float, val stateMultipliers: Map<MWState, MWStateEffectivity>):
         MEntityActionUser(animationProducer, health, mana, actions, manaRegen), IStateable {
 
@@ -20,14 +20,32 @@ class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Floa
 
 
 
-    override var state: MWState? = null
+    final override var state: MWState? = null
         private set
 
-    override var stateTrigger: IEntity? = null
+    final override var stateTrigger: IEntity? = null
         private set
 
     private var stateTimeLeft: Float = 0f
     private var stateActionTimeLeft: Float = 0f
+
+
+    override fun canWalk(): Boolean {
+        if (isKnockbacked) {
+            return false
+        }
+        if (state === MWState.FROZEN) {
+            return false
+        }
+        return true
+    }
+
+    override fun canPerformActions(): Boolean {
+        if (state === MWState.FROZEN) {
+            return false
+        }
+        return true
+    }
 
     /**
      * Updates the state of the entity with a certain state effect.
@@ -51,9 +69,9 @@ class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Floa
         }
         this.stateTimeLeft = duration
         this.stateTrigger = stateTrigger
+        state.start(this)
         this.state = state
         this.stateActionTimeLeft = STATE_ACTION_DELAY
-        state.start(this)
     }
 
 
@@ -73,7 +91,7 @@ class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Floa
 
     override fun getStateEffectivity(state: MWState): MWStateEffectivity {
         return if (stateMultipliers.containsKey(state)) {
-            stateMultipliers.get(state)!!
+            stateMultipliers[state]!!
         } else {
             MWStateEffectivity.NORMAL
         }
@@ -110,13 +128,6 @@ class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Floa
                 resetState()
             }
         }
-    }
-
-    override fun knockback(powerX: Float, powerY: Float): Boolean {
-        if (state !== MWState.FROZEN) { //TODO: Maybe allow knockback on frozen entities
-            return super.knockback(powerX, powerY)
-        }
-        return false
     }
 
 }

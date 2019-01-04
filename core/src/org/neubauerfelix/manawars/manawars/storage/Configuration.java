@@ -8,10 +8,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
-
-/**
- * From the Spigot / Bukkit project: https://github.com/SpigotMC/BungeeCord
- */
 public final class Configuration
 {
 

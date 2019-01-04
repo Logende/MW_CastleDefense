@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars
 
+import org.intellij.lang.annotations.Language
 import org.neubauerfelix.manawars.game.GameManaWars
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
 import org.neubauerfelix.manawars.manawars.factories.MComponentFactory
@@ -24,6 +25,8 @@ class MManaWars: GameManaWars() {
         loadHandler(ShieldHandler())
         loadHandler(BodyDataHandler())
         loadHandler(AnimationHandler())
+        loadHandler(LanguageHandler("english")) //TODO: Load language from config
+        loadHandler(UpgradeHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
@@ -56,6 +59,10 @@ class MManaWars: GameManaWars() {
 
     fun getAnimationHandler(): IAnimationHandler {
         return getHandler(AnimationHandler::class.java)
+    }
+
+    fun getLanguageHandler(): ILanguageHandler {
+        return getHandler(LanguageHandler::class.java)
     }
 
 

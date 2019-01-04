@@ -69,15 +69,15 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     override fun jump() {
         jumpsAmount++
         speedY = MConstants.JUMP_SPEED_DEFAULT
-        gravitiy()
+        gravity()
     }
 
 
     override fun knockback(power_x: Float, power_y: Float, source: IMovable): Boolean {
-        if(source is ILooking && Math.abs(source.speedX) >= MConstants.KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED) {
-            return knockback(power_x, power_y, source.direction)
+        return if (source is ILooking && Math.abs(source.speedX) >= MConstants.KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED) {
+            knockback(power_x, power_y, source.direction)
         }else{
-            return knockback(power_x, power_y, if (source.centerHorizontal > this.centerHorizontal) -1 else 1)
+            knockback(power_x, power_y, if (source.centerHorizontal > this.centerHorizontal) -1 else 1)
         }
     }
 
@@ -114,7 +114,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
             speedY = speed_ver
         }
         isKnockbacked = true
-        gravitiy()
+        gravity()
         //setLockedMovementEnd(500)
         return true
     }
@@ -126,7 +126,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     /**
      * Triggers gravity: Causes the entity to fall down if it is not on the ground already.
      */
-    fun gravitiy() {
+    fun gravity() {
         isOnGround = false
         accelerationY = MConstants.GRAVITY_ACCELERATION
     }

@@ -68,6 +68,7 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
                 if(entity.remove){
                     entities.removeAt(i)
                     last--
+                    entity.destroy()
                     continue
                 }
                 if(entity is ILogicable){

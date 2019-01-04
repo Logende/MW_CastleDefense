@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.entities
 
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.enums.MWState
+import org.neubauerfelix.manawars.manawars.enums.MWStateEffectivity
 
 
 interface IStateable: ILiving {
@@ -12,5 +13,9 @@ interface IStateable: ILiving {
     fun setState(state: MWState, duration: Float, trigger: IEntity)
     fun resetState()
     fun getStateEffectivity(state: MWState): MWStateEffectivity
+
+    fun canWalk(): Boolean
+    fun canPerformActions(): Boolean
+
 
 }

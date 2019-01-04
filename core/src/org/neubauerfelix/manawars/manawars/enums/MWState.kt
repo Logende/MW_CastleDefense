@@ -4,9 +4,10 @@ import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
+import org.neubauerfelix.manawars.manawars.entities.IAnimated
 import org.neubauerfelix.manawars.manawars.entities.IStateable
 
-enum class MWState private constructor(private val pics_name: String, private val columns: Int, val worth: Int //Defines state priorities and skill mana cost for the state (additonal cost = duration*worth).
+enum class MWState constructor(private val pics_name: String, private val columns: Int, val worth: Int //Defines state priorities and skill mana cost for the state (additonal cost = duration*worth).
 ) {
     BURNING("effect.state.burning", 3, 5) {
         override fun effect(s: IStateable, eff: Boolean) {
@@ -34,6 +35,9 @@ enum class MWState private constructor(private val pics_name: String, private va
         override fun start(s: IStateable) {}
     },
 
+    /**
+     * While frozen entities are unable to walk / execute actions. They still can be moved by knockback and other external influences.
+     */
     FROZEN("effect.state.frozen", 1, 9) {
         override fun effect(s: IStateable, eff: Boolean) {
             if (eff) {
@@ -42,31 +46,18 @@ enum class MWState private constructor(private val pics_name: String, private va
         }
 
         override fun end(s: IStateable) {
-            s.setCanMove(true)
-            s.setAnimationPaused(false)
-            if (s.hasProperty(Blockable::class.java)) {
-                val b = s.getProperty(Blockable::class.java)
-                if (b.isBlocking()) {
-                    b.stopBlocking()
-                }
+            if (s is IAnimated) {
+                s.animation.paused = false
             }
-            /*if(a instanceof EntityHumanControllable){
-					EntityHumanControllable c = (EntityHumanControllable)a;
-					if(c.getController()!=null){
-						if(c.getController() instanceof ControllerHuman){
-							ControllerHuman controller = (ControllerHuman) c.getController();
-							if(controller.isKeyPressedDown()){
-								controller.setKeyPressedDown(true); //Animation Update
-							}
-						}
-					}
-
-			}*/
         }
 
         override fun start(s: IStateable) {
-            s.setCanMove(false)
-            s.setAnimationPaused(true)
+            if (s.canWalk()) {
+                s.speedX = 0f
+            }
+            if (s is IAnimated) {
+                s.animation.paused = true
+            }
         }
     };
 
@@ -76,7 +67,7 @@ enum class MWState private constructor(private val pics_name: String, private va
     fun load() {
         val keyFrames = arrayOfNulls<TextureRegion>(columns)
         val texture = AManaWars.m.getImageHandler().getTextureRegionMain(pics_name)
-        val width = texture.getRegionWidth() / columns
+        val width = texture.regionWidth / columns
         for (i in 0 until columns) {
             keyFrames[i] = TextureRegion(texture, i * width, 0, width, -texture.getRegionHeight())
         }

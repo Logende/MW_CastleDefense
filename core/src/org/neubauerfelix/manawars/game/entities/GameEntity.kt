@@ -23,4 +23,8 @@ open class GameEntity : GameRectangle, IEntity {
     override fun spawn() {
         AManaWars.m.screen.addEntity(this)
     }
+
+    override fun destroy() {
+        //Automatically called, when an instance is destroyed
+    }
 }

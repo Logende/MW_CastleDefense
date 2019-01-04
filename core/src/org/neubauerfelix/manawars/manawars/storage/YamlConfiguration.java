@@ -27,7 +27,7 @@ public class YamlConfiguration extends ConfigurationProvider {
                         @Override
                         public Node representData(Object data)
                         {
-                            return represent( ( (Configuration) data ).self );
+                            return represent(((Configuration) data).getSelf());
                         }
                     } );
                 }
@@ -48,7 +48,7 @@ public class YamlConfiguration extends ConfigurationProvider {
 
     @Override
     public void save(Configuration config, Writer writer) {
-        yaml.get().dump(config.self, writer);
+        yaml.get().dump(config.getSelf(), writer);
     }
 
     @Override
