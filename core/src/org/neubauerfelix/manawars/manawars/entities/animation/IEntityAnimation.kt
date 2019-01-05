@@ -3,6 +3,7 @@ package org.neubauerfelix.manawars.manawars.entities.animation
 import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
@@ -26,5 +27,5 @@ interface IEntityAnimation: IDrawable, ICollidable{
      * For example when an entity starts/stop moving, jumps, lands on ground, etc.
      * The method automatically reads the current entity state and adapts the animation to it.
      */
-    fun update()
+    fun updateAnimation(sized: ISized?)
 }

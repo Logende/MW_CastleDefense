@@ -36,7 +36,7 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
             animation.color = Color.WHITE
         }
         if(needsAnimationUpdate){
-            animation.update()
+            animation.updateAnimation(null)
             needsAnimationUpdate = false
         }
         this.animation.draw(delta, batcher)

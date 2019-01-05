@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-class EntityAnimationAny(private val body: IBody): EntityAnimation(body, body.scale) {
+class EntityAnimationAny(val body: IBody): EntityAnimation(body, body.scale) {
 
 
 
@@ -27,8 +27,8 @@ class EntityAnimationAny(private val body: IBody): EntityAnimation(body, body.sc
         this.body.playEffect(effect, weaponType)
     }
 
-    override fun update() {
-        body.update()
+    override fun updateAnimation(sized: ISized?) {
+        body.updateAnimation(sized)
     }
 
     override fun draw(delta: Float, batcher: Batch) {

@@ -7,20 +7,23 @@ import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
+import org.neubauerfelix.manawars.manawars.entities.ILooking
+import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IBody
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.manawars.entities.animation.mount.BodyMountSmart
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-class BodyRider(sized: ISized, producerMount: IEntityAnimationProducer, producerHuman: IEntityAnimationProducer,
+class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, producerHuman: IEntityAnimationProducer,
                 scaleMount: Float, scaleHuman: Float):
         IBody, ISized by sized {
 
 
     private val rectMount: GameRectangle
-    private val rectHuman: GameRectangle
+    private val rectHuman: GameRectangleRider
     val mount: IEntityAnimation
     val human: IEntityAnimation
 
@@ -38,9 +41,13 @@ class BodyRider(sized: ISized, producerMount: IEntityAnimationProducer, producer
         human.playBodyEffect(effect, weaponType)
     }
 
-    override fun update() {
-        human.update()
-        mount.update()
+    override fun updateAnimation(sized: ISized?) {
+        val sized = if (sized != null) sized else this.sized
+        if (sized is ILooking) {
+            rectHuman.direction = sized.direction
+        }
+        human.updateAnimation(rectHuman)
+        mount.updateAnimation(sized)
     }
 
     override val canFly: Boolean
@@ -53,7 +60,7 @@ class BodyRider(sized: ISized, producerMount: IEntityAnimationProducer, producer
         rectMount = GameRectangle(0f,0f,producerMount.bodyWidth * scaleMount,producerMount.bodyHeight * scaleMount)
         mount = producerMount.produce(rectMount, scaleMount)
 
-        rectHuman = GameRectangle(0f,0f,producerHuman.bodyWidth * scaleHuman,producerHuman.bodyHeight * scaleHuman)
+        rectHuman = GameRectangleRider(0f,0f,producerHuman.bodyWidth * scaleHuman,producerHuman.bodyHeight * scaleHuman)
         human = producerHuman.produce(rectHuman, scaleHuman)
     }
 
@@ -78,6 +85,10 @@ class BodyRider(sized: ISized, producerMount: IEntityAnimationProducer, producer
         rectHuman.bottom = mount.top + MConstants.RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y
         mount.draw(delta, batcher)
         human.draw(delta, batcher)
-        //TODO: make human leg animation riding and redraw mount head after drawing human
+        if (mount is EntityAnimationAny) {
+            if (mount.body is BodyMountSmart) {
+                mount.body.head.draw(batcher, mount, mount.body.mirror, mount.scale)
+            }
+        }
     }
 }

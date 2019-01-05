@@ -94,7 +94,6 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
         val directionOld = direction
         if (directionNew != directionOld) {
             direction = directionNew
-            this.animation.update()
         }
     }
 

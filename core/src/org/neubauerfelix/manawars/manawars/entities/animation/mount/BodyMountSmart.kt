@@ -27,7 +27,7 @@ class BodyMountSmart(bodyData: IBodyDataMount, scale: Float = 1f, sized: ISized)
 
 
     init {
-        updateAnimationType(true, true)
+        updateAnimationType(this, true, true)
     }
 
     val isPlayingEffect: Boolean
@@ -56,15 +56,15 @@ class BodyMountSmart(bodyData: IBodyDataMount, scale: Float = 1f, sized: ISized)
     override fun playEffect(currentEffect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
         this.currentEffect = currentEffect
         this.positionBody = 0
-        this.updateAnimationType(true, false)
+        this.updateAnimationType(this, true, false)
     }
 
-    override fun update() {
-        this.updateAnimationType(true, true)
+    override fun updateAnimation(sized: ISized?) {
+        this.updateAnimationType(sized,true, true)
     }
 
-    fun updateAnimationType(updateBody: Boolean, updateLegs: Boolean){
-        val sized = this.sized
+    fun updateAnimationType(sized: ISized?, updateBody: Boolean, updateLegs: Boolean){
+        val sized = if (sized != null) sized else this.sized
 
         if (updateLegs) {
             var animationLegs = MWAnimationTypeLegs.STILL

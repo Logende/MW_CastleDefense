@@ -7,6 +7,7 @@ import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.IJumpable
 import org.neubauerfelix.manawars.manawars.entities.ILooking
+import org.neubauerfelix.manawars.manawars.entities.IRideable
 import org.neubauerfelix.manawars.manawars.entities.animation.IBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
@@ -27,7 +28,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
 
 
     init {
-        updateAnimationType(true, true)
+        updateAnimationType(this, true, true)
     }
 
     val isPlayingEffect: Boolean
@@ -63,15 +64,15 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
             this.positionCountMain = (if (currentEffect == null) BodyHumanAnimating.POSITION_COUNT_MAIN_NORMAL else currentEffect!!.positionCount)
         }
         setWeapon(weaponType)
-        this.updateAnimationType(true, false)
+        this.updateAnimationType(this, true, false)
     }
 
-    override fun update() {
-        this.updateAnimationType(true, true)
+    override fun updateAnimation(sized: ISized?) {
+        this.updateAnimationType(sized,true, true)
     }
 
-    fun updateAnimationType(updateBody: Boolean, updateLegs: Boolean){
-        val sized = this.sized
+    fun updateAnimationType(sized: ISized?, updateBody: Boolean, updateLegs: Boolean){
+        val sized = if (sized != null) sized else this.sized
 
         if (updateLegs) {
             var animationLegs = MWAnimationTypeLegs.STILL
@@ -80,7 +81,10 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
                     animationLegs = MWAnimationTypeLegs.WALK
                 }
             }
-            //TODO: Check if riding and needs LEGS_RIDE
+            if (sized is IRideable && sized.riding) {
+                System.out.println("legs ride")
+                animationLegs = MWAnimationTypeLegs.RIDE
+            }
             this.animationLegs = animationLegs
             this.positionLegs = 0
         }
@@ -90,7 +94,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
             if (currentEffect != null) {
                 animationBody = MWAnimationTypeBody.EFFECT
             } else {
-                //TODO: Check whether can block and needs shield
+               // Shields are not possible currently. Else shield code would be put in here
             }
             this.animationBody = animationBody
             this.positionBody = 0
