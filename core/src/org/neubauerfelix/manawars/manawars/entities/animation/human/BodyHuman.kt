@@ -19,8 +19,22 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
     var armL: BodyPartAttached
     var armR: BodyPartAttached
     val shield: BodyPartAttached?
-    val mirror: Boolean
+    var mirror: Boolean
         get() = head.mirror
+        set(value) {
+            head.setMirror(value)
+            body.setMirror(value)
+            armL.setMirror(value)
+            armR.setMirror(value)
+            footL.setMirror(value)
+            footR.setMirror(value)
+            if (shield != null) {
+                shield.setMirror(value)
+            }
+            if (weapon != null) {
+                weapon!!.setMirror(value)
+            }
+        }
 
     var weapon: BodyPartAnimationWeapon? = null
         protected set
@@ -98,34 +112,14 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
     }
 
 
-    /**
-     * Mirrors/Unmirrors all body parts. Mirrored body parts are inverted horizontally and point towards the left.
-     * @param b `true` to flip.
-     */
-    fun setMirror(b: Boolean) {
-        head.setMirror(b)
-        body.setMirror(b)
-        armL.setMirror(b)
-        armR.setMirror(b)
-        footL.setMirror(b)
-        footR.setMirror(b)
-        if (shield != null) {
-            shield.setMirror(b)
-        }
-        if (weapon != null) {
-            weapon!!.setMirror(b)
-        }
+    fun updateArms(leftX: Float, leftY: Float, leftRot: Float, rightX: Float, rightY: Float, rightRot: Float) {
+        armL.update(leftX, leftY, leftRot)
+        armR.update(rightX, rightY, rightRot)
     }
 
-
-    fun updateArms(leftX: Float, leftY: Float, left_rot: Float, rightX: Float, rightY: Float, right_rot: Float) {
-        armL.update(leftX, leftY, left_rot)
-        armR.update(rightX, rightY, right_rot)
-    }
-
-    fun updateArms(left_rot: Float, right_rot: Float) {
-        armL.update(left_rot)
-        armR.update(right_rot)
+    fun updateArms(leftRot: Float, rightRot: Float) {
+        armL.update(leftRot)
+        armR.update(rightRot)
     }
 
 

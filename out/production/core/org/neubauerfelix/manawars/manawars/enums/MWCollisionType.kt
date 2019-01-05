@@ -9,6 +9,7 @@ enum class MWCollisionType {
     SHIELD,
     MOUNT_HEAD,
     MOUNT_BODY,
+    MOUNT_FOOT,
     PET,
     SKILL,
     NONE,

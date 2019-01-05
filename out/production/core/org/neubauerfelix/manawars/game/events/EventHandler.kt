@@ -5,23 +5,30 @@ import org.neubauerfelix.manawars.game.IResetable
 
 class EventHandler: IEventHandler, IResetable {
 
-    private val listeners: MutableMap<Class<Event>, ArrayList<Listener>> = HashMap()
+    private val listeners: MutableMap<String, ArrayList<Listener>> = HashMap()
     private val listenersToRemove: ArrayList<Listener> = ArrayList()
 
-
-    override fun registerListener(eventClass: Class<Event>, listener: Listener){
+    override fun registerListener(eventClassName: String, listener: Listener) {
         synchronized(listeners){
-            if(!listeners.containsKey(eventClass)){
-                listeners.put(eventClass, ArrayList())
+            if(!listeners.containsKey(eventClassName)){
+                listeners.put(eventClassName, ArrayList())
             }
-            listeners.get(eventClass)!!.add(listener)
+            listeners.get(eventClassName)!!.add(listener)
+        }
+    }
+
+    override fun removeListener(eventClassName: String, listener: Listener) {
+        synchronized(listeners) {
+            require(listeners.containsKey(eventClassName))
+            require(listeners.get(eventClassName)!!.contains(listener))
+            listeners.get(eventClassName)!!.remove(listener)
         }
     }
 
     override fun callEvent(event: Event){
         synchronized(listeners) {
-            if (listeners.containsKey(event.javaClass)) {
-                for (listener in listeners.get(event.javaClass)!!) {
+            if (listeners.containsKey(event.javaClass.name)) {
+                for (listener in listeners.get(event.javaClass.name)!!) {
                     listener.handleEvent(event)
                     if (listener.isDestroyListener()) {
                         listenersToRemove.add(listener)
@@ -31,7 +38,7 @@ class EventHandler: IEventHandler, IResetable {
             synchronized(listenersToRemove) {
                 if (!listenersToRemove.isEmpty()) {
                     for (listenerToRemove in listenersToRemove) {
-                        listeners.get(event.javaClass)!!.remove(listenerToRemove)
+                        listeners.get(event.javaClass.name)!!.remove(listenerToRemove)
                     }
                     listenersToRemove.clear()
                 }

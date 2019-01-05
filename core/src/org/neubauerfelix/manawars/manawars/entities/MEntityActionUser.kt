@@ -15,13 +15,15 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
 
     init {
         //actions.sortWith({a : IDataAction, b: IDataAction -> 1})
-        actions.sortWith(object: Comparator<IDataAction>{
-            override fun compare(a1: IDataAction, a2: IDataAction): Int = when {
-                a1.manaCost > a2.manaCost -> 1
-                a1.manaCost == a2.manaCost -> 0
-                else -> -1
-            }
-        }, 0, 4)
+        if (!actions.isEmpty()) {
+            actions.sortWith(object : Comparator<IDataAction> {
+                override fun compare(a1: IDataAction, a2: IDataAction): Int = when {
+                    a1.manaCost > a2.manaCost -> 1
+                    a1.manaCost == a2.manaCost -> 0
+                    else -> -1
+                }
+            }, 0, actions.size)
+        }
     }
 
     fun addMana(value: Float) {

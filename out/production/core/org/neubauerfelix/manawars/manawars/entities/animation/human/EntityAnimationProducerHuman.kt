@@ -5,20 +5,16 @@ import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.entities.IAnimated
+import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 
 class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimationProducer, IBodyDataHuman by bodyDataHuman{
 
 
-    override val width: Float
-        get() = bodyWidth.toFloat()
-    override val height: Float
-        get() = bodyHeight.toFloat()
-
-    override fun produce(entity: IAnimated, scale: Float): IEntityAnimation {
+    override fun produce(entity: ISized, scale: Float): IEntityAnimation {
         val body = BodyHumanSmart(this, entity, scale)
-        return EntityAnimationHuman(body)
+        return EntityAnimationAny(body)
     }
 
     override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
@@ -28,6 +24,6 @@ class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimat
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyHumanSmart(this, rectangle, scale)
-        return EntityAnimationHuman(body)
+        return EntityAnimationAny(body)
     }
 }

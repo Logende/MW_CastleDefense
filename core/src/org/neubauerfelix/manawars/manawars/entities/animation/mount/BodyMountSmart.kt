@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.manawars.entities.animation.human
+package org.neubauerfelix.manawars.manawars.entities.animation.mount
 
 
 import com.badlogic.gdx.graphics.g2d.Batch
@@ -8,20 +8,20 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.IJumpable
 import org.neubauerfelix.manawars.manawars.entities.ILooking
 import org.neubauerfelix.manawars.manawars.entities.animation.IBody
+import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanAnimating
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeLegs
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-
-class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0f): BodyHumanAnimating(bodyData, scale, sized), IBody {
+class BodyMountSmart(bodyData: IBodyDataMount, scale: Float = 1f, sized: ISized) : BodyMountAnimating(bodyData, scale, sized), IBody {
 
     private var positionBody = 0
     private var positionLegs = 0
     private var animationBody = MWAnimationTypeBody.NORMAL
     private var animationLegs = MWAnimationTypeLegs.STILL
 
-    private var next = MConstants.HUMAN_ANIMATION_SPEED
+    private var next = 0f
 
     private var currentEffect: MWAnimationTypeBodyEffect? = null //Type of short animation. Null if none is played at the moment.
 
@@ -33,7 +33,6 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
     val isPlayingEffect: Boolean
         get() = currentEffect != null
 
-
     override val canFly: Boolean
         get() = false
 
@@ -41,28 +40,22 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
     override fun draw(delta: Float, batcher: Batch) {
         next -= delta
         if (next < 0) {
-            next = MConstants.HUMAN_ANIMATION_SPEED
+            next = MConstants.MOUNT_ANIMATION_SPEED
             nextPosition()
         }
         super.draw(delta, batcher)
     }
 
 
+
     /**
      * Plays a short animation.
      * @param currentEffect Animation to play.
-     * @param weaponType Weapontype used by the animation. Can be null.
      */
     @Synchronized
     override fun playEffect(currentEffect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
         this.currentEffect = currentEffect
         this.positionBody = 0
-        if (weaponType != null) {
-            this.positionCountMain = weaponType!!.positionCount
-        } else {
-            this.positionCountMain = (if (currentEffect == null) BodyHumanAnimating.POSITION_COUNT_MAIN_NORMAL else currentEffect!!.positionCount)
-        }
-        setWeapon(weaponType)
         this.updateAnimationType(true, false)
     }
 
@@ -123,8 +116,6 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         this.positionLegs = positionLegs
         animate(animationLegs, positionLegs, animationBody, positionBody, currentEffect)
     }
-
-
 
 
 }

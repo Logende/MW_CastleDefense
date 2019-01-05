@@ -64,7 +64,7 @@ class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized:
         val factor = sprite.width / bodyPartData.bodyData.bodyWidth
         this.speedX = (speedX * factor + if (additional) speedX else 0f)
         this.speedY = (speedY * factor + if (additional) speedY else 0f)
-        gravitiy()
+        gravity()
         if(rotation) {
             startRotation(if (speedX > 0) 1 else -1)
         }

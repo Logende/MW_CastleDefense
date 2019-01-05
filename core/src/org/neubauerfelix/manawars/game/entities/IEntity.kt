@@ -6,5 +6,4 @@ interface IEntity: ISized {
     var propertyScale: Float
 
     fun spawn()
-    fun destroy()
 }

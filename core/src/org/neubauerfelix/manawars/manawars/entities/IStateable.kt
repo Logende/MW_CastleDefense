@@ -10,7 +10,7 @@ interface IStateable: ILiving {
     val stateTrigger: IEntity?
     val state: MWState?
 
-    fun setState(state: MWState, duration: Float, trigger: IEntity)
+    fun setState(state: MWState, duration: Float, stateTrigger: IEntity)
     fun resetState()
     fun getStateEffectivity(state: MWState): MWStateEffectivity
 

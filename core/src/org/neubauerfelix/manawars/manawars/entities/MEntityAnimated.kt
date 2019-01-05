@@ -11,12 +11,14 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
-open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: Float) : MEntityLiving(animationProducer.width * animationProducer.defaultScale, animationProducer.height * animationProducer.defaultScale, health), IAnimated, ICollidable {
+open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: Float) :
+        MEntityLiving(animationProducer.bodyWidth * animationProducer.defaultScale,
+                animationProducer.bodyHeight * animationProducer.defaultScale, health), IAnimated, ICollidable {
 
 
     private var colorRestoreTime: Long = -1L
     private var needsAnimationUpdate: Boolean = false
-    override val animation = animationProducer.produce(this)
+    final override val animation = animationProducer.produce(this)
     init {
         propertyScale = animation.scale
     }
@@ -64,7 +66,7 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
     override var speedX: Float
         get() = super.speedX
         set(value) {
-            if((super.speedX == 0f && value != 0f) || (super.speedX != 0f && value == 0f)){ //started/stopped moving
+            if((super.speedX == 0f && value != 0f) || (super.speedX != 0f && value == 0f)){ // started/stopped moving
                 needsAnimationUpdate = true
             }
             super.speedX = value
@@ -88,7 +90,8 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
         needsAnimationUpdate = true
     }
 
-    override var direction = 1
+    override var direction
+        get() = super.direction
         set(value){
             if(value != direction){
                 needsAnimationUpdate = true
@@ -96,6 +99,10 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
             super.direction = value
         }
 
+
+    override fun canFly(): Boolean {
+        return this.animation.canFly
+    }
 
 
 }

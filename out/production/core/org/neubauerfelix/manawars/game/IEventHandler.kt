@@ -5,6 +5,7 @@ import org.neubauerfelix.manawars.game.events.Listener
 
 interface IEventHandler: IHandler {
 
-    fun registerListener(eventClass: Class<Event>, listener: Listener)
+    fun registerListener(eventClassName: String, listener: Listener)
+    fun removeListener(eventClassName: String, listener: Listener)
     fun callEvent(event: Event)
 }

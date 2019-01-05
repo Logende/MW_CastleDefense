@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.manawars.entities.animation.human
+package org.neubauerfelix.manawars.manawars.entities.animation
 
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.entities.IEntity
@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-class EntityAnimationHuman(private val body: BodyHumanSmart): EntityAnimation(body, body.scale) {
+class EntityAnimationAny(private val body: IBody): EntityAnimation(body, body.scale) {
 
 
 
@@ -28,7 +28,7 @@ class EntityAnimationHuman(private val body: BodyHumanSmart): EntityAnimation(bo
     }
 
     override fun update() {
-        body.updateAnimationType(true, true)
+        body.update()
     }
 
     override fun draw(delta: Float, batcher: Batch) {
@@ -38,4 +38,7 @@ class EntityAnimationHuman(private val body: BodyHumanSmart): EntityAnimation(bo
     override fun getCollisionType(intersection: ISized): MWCollisionType {
         return body.getCollisionType(intersection)
     }
+
+    override val canFly: Boolean
+        get() = false
 }

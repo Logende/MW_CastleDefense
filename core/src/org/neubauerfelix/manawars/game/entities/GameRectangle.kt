@@ -2,11 +2,10 @@ package org.neubauerfelix.manawars.game.entities
 
 
 
-open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : GameLocation(x, y), ISized {
-    constructor(width: Float, height: Float) : this(0f, 0f, width, height)
+open class GameRectangle(x: Float, y: Float, override var width: Float, override var height: Float):
+        GameLocation(x, y), ISized {
 
-    override var height: Float = height
-    override var width: Float = width
+    constructor(width: Float, height: Float) : this(0f, 0f, width, height)
 
 
     override var centerHorizontal: Float
@@ -37,15 +36,9 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : Game
         set(f) {x = f}
 
     override var top: Float
-        get() = y
+        get() = y + height
         set(f) {y = f - height}
 
-
-
-    init {
-        this.width = width
-        this.height = height
-    }
 
 
     fun pasteRectangle(e: ISized, onlyTemporaryValues: Boolean) {
@@ -62,21 +55,21 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : Game
     }
 
 
-    override fun getDistanceHor(px: Float): Float {
-        return if (px < this.x) {
-            Math.abs(this.x - px)
-        } else if (px > this.right) {
-            Math.abs(px - this.right)
+    override fun getDistanceHor(x: Float): Float {
+        return if (x < this.x) {
+            Math.abs(this.x - x)
+        } else if (x > this.right) {
+            Math.abs(x - this.right)
         } else {
             0f
         }
     }
 
-    override fun getDistanceVer(py: Float): Float {
-        return if (py < this.y) {
-            Math.abs(this.y - py)
-        } else if (py > this.bottom) {
-            Math.abs(py - this.bottom)
+    override fun getDistanceVer(y: Float): Float {
+        return if (y < this.y) {
+            Math.abs(this.y - y)
+        } else if (y > this.bottom) {
+            Math.abs(y - this.bottom)
         } else {
             0f
         }

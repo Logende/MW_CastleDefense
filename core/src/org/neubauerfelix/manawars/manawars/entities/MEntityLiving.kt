@@ -42,15 +42,12 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
 
     var healthMax: Float = health
         private set(value) {
-            this.healthMax = value
+            field = value
             if (this.health > this.healthMax)
                 this.health = this.healthMax
         }
 
     var bloodColor: Color = Color.FIREBRICK
-        set(c) {
-            this.bloodColor = c
-        }
 
     override var team = -1
 
@@ -86,14 +83,14 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
         }
     }
 
-    override fun damage(value: Float, damager: IEntity, cause: MWDamageCause): Boolean {
-        if (remove || value == 0f) {
+    override fun damage(damage: Float, damager: IEntity, cause: MWDamageCause): Boolean {
+        if (remove || damage == 0f) {
             return false
         }
-        require(value > 0)
+        require(damage > 0)
 
-        health = Math.max(0f, this.health - value)
-        val damageEvent = EntityDamageEvent(this, value, damager, cause, this.health == 0f)
+        health = Math.max(0f, this.health - damage)
+        val damageEvent = EntityDamageEvent(this, damage, damager, cause, this.health == 0f)
         AManaWars.m.getEventHandler().callEvent(damageEvent)
 
         if (damageEvent.cancelled) {

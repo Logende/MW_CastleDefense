@@ -43,9 +43,9 @@ class BodyDataHuman(override val skinName: String, textureRegion: TextureRegion,
                 0, 0, 0, 0)
         armR = BodyPartData(trArmR, 65f, height -100f - trArmR.regionHeight, 9f, trArmR.regionHeight - 6f, 0f, this,
                 0, 0, 0, 0)
-        footL = BodyPartData(trFootL, 30f, height -150f - trFootL.regionHeight, 8f, trFootL.regionWidth.toFloat(), 0f, this,
+        footL = BodyPartData(trFootL, 30f, height -150f - trFootL.regionHeight, 8f, trFootL.regionHeight.toFloat(), 0f, this,
                 0, 0, 0, 0)
-        footR = BodyPartData(trFootR, 60f, height -150f - trFootR.regionHeight, 8f, trFootR.regionWidth.toFloat(), 0f, this,
+        footR = BodyPartData(trFootR, 60f, height -150f - trFootR.regionHeight, 8f, trFootR.regionHeight.toFloat(), 0f, this,
                 0, 0, 0, 0)
         shield = when{
             shieldType != null -> shieldType.createBodyPartData(this)

@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWStateEffectivity
 
 
 open class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, mana: Float, actions: Array<IDataAction>,
-                       manaRegen: Float, val stateMultipliers: Map<MWState, MWStateEffectivity>):
+                       manaRegen: Float, private val stateMultipliers: Map<MWState, MWStateEffectivity>):
         MEntityActionUser(animationProducer, health, mana, actions, manaRegen), IStateable {
 
 
@@ -45,6 +45,10 @@ open class MEntityStateable(animationProducer: IEntityAnimationProducer, health:
             return false
         }
         return true
+    }
+
+    override fun canFly(): Boolean {
+        return this.canWalk() && super.canFly()
     }
 
     /**
@@ -105,12 +109,12 @@ open class MEntityStateable(animationProducer: IEntityAnimationProducer, health:
         }
     }
 
-    override fun damage(value: Float, damager: IEntity, cause: MWDamageCause): Boolean {
-        var value = value
+    override fun damage(damage: Float, damager: IEntity, cause: MWDamageCause): Boolean {
+        var damage = damage
         if (state === MWState.SLAGGED) {
-            value *= if (getStateEffectivity(MWState.SLAGGED) === MWStateEffectivity.EFFECTIVE) 2f else 1.5f
+            damage *= if (getStateEffectivity(MWState.SLAGGED) === MWStateEffectivity.EFFECTIVE) 2f else 1.5f
         }
-        return super.damage(value, damager, cause)
+        return super.damage(damage, damager, cause)
     }
 
 

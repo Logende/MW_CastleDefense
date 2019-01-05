@@ -12,9 +12,9 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
 
 
     override var direction = 1
-        set(i){
-            assert(Math.abs(i) != 1)
-            field = i
+        set(value){
+            assert(Math.abs(value) == 1)
+            field = value
         }
 
     override var flying: Boolean = false
@@ -38,8 +38,8 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     override var speedX: Float
         get() = super.speedX
         set(value) {
-            if(value * speedX < 0){ //new direction because of different algebraic signs
-                this.direction = if (value > 0) 1 else -1
+            if(value * super.speedX < 0){ //new direction because of different algebraic signs
+                this.direction = if (value > 0) { 1 } else { -1 }
             }
             super.speedX = value
         }

@@ -15,6 +15,8 @@ interface IEntityAnimation: IDrawable, ICollidable{
     val scale: Float
     var color: Color
 
+    val canFly: Boolean
+
     fun playDeathAnimation(damager: IEntity?, cause: MWDamageCause)
 
     fun playBodyEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?)

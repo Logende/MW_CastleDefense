@@ -1,5 +1,5 @@
 #<skinname>:<shieldname>|none
-bodyData:
+bodyDataHuman:
 - goblin.1.1:none
 - goblin.2.1:none
 - goblin.3.1:none
@@ -94,7 +94,7 @@ bodyData:
 - brute.5.3:none
 - dwarf.2.1:none
 - dwarf.3.2:none
-- dwarf.1.1:none:0.2
+- dwarf.1.1:none:1
 - dwarf.3.1:none
 - dwarf.4.1:none
 - dwarf.5.1:none
@@ -202,7 +202,7 @@ bodyData:
 - shadowarmy.shadowmage.4.2:none
 - heaven.knight:none
 - heaven.boss:none
-mount_skins:
+bodyDataMount:
 - wolf
 - wolf.armor
 - tiger

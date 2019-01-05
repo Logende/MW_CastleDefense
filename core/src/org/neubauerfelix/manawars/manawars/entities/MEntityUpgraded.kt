@@ -13,7 +13,7 @@ open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
                       stateMultipliers: Map<MWState, MWStateEffectivity> = HashMap(),
                       val skillMultipliers: Map<MWSkillClass, Float> = HashMap(),
                       val skillDurabilityMultipliers: Map<MWSkillClass, Float> = HashMap(),
-                      override val drainMultiplier: Float = 0f):
+                           final override val drainMultiplier: Float = 0f):
         MEntityStateable(animationProducer, health, mana, actions, manaRegen, stateMultipliers), IUpgraded {
 
 

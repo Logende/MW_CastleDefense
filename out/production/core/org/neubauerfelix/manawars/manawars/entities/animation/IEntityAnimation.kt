@@ -5,6 +5,8 @@ import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
+import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
+import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
 interface IEntityAnimation: IDrawable, ICollidable{
 
@@ -13,7 +15,11 @@ interface IEntityAnimation: IDrawable, ICollidable{
     val scale: Float
     var color: Color
 
+    val canFly: Boolean
+
     fun playDeathAnimation(damager: IEntity?, cause: MWDamageCause)
+
+    fun playBodyEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?)
 
     /**
      * Needs to be called, whenever the type of animation requires to be updated.

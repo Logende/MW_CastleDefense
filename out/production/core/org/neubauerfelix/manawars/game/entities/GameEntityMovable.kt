@@ -2,12 +2,11 @@ package org.neubauerfelix.manawars.game.entities
 
 import com.badlogic.gdx.math.Vector2
 
-open class GameEntityMovable : GameEntity, IMovable, ILogicable {
+open class GameEntityMovable(width: Float, height: Float): GameEntity(width, height), IMovable, ILogicable {
 
     private var speed = Vector2()
     private var acceleration = Vector2()
 
-    constructor(width: Float, height: Float) : super(width, height)
 
     fun pasteMovable(e: IMovable, onlyTemporaryValues: Boolean) {
         super.pasteEntity(e, onlyTemporaryValues)

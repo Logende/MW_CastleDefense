@@ -7,13 +7,14 @@ import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.IJumpable
 import org.neubauerfelix.manawars.manawars.entities.ILooking
+import org.neubauerfelix.manawars.manawars.entities.animation.IBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeLegs
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
 
-class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0f): BodyHumanAnimating(bodyData, scale, sized) {
+class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0f): BodyHumanAnimating(bodyData, scale, sized), IBody {
 
     private var positionBody = 0
     private var positionLegs = 0
@@ -33,6 +34,9 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         get() = currentEffect != null
 
 
+    override val canFly: Boolean
+        get() = false
+
 
     override fun draw(delta: Float, batcher: Batch) {
         next -= delta
@@ -50,7 +54,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
      * @param weaponType Weapontype used by the animation. Can be null.
      */
     @Synchronized
-    fun playEffect(currentEffect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+    override fun playEffect(currentEffect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
         this.currentEffect = currentEffect
         this.positionBody = 0
         if (weaponType != null) {
@@ -62,6 +66,9 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         this.updateAnimationType(true, false)
     }
 
+    override fun update() {
+        this.updateAnimationType(true, true)
+    }
 
     fun updateAnimationType(updateBody: Boolean, updateLegs: Boolean){
         val sized = this.sized
@@ -89,7 +96,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
             this.positionBody = 0
         }
 
-        setMirror(if (sized is ILooking) sized.direction==-1 else false)
+        mirror = (if (sized is ILooking) sized.direction==-1 else false)
         next = MConstants.HUMAN_ANIMATION_SPEED
     }
 

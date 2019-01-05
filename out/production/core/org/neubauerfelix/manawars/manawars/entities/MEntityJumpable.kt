@@ -1,8 +1,10 @@
 package org.neubauerfelix.manawars.manawars.entities
 
+import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.GameEntityMovable
 import org.neubauerfelix.manawars.game.entities.IMovable
+import org.neubauerfelix.manawars.game.events.EntityKnockbackEvent
 import org.neubauerfelix.manawars.manawars.MConstants
 
 
@@ -10,9 +12,9 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
 
 
     override var direction = 1
-        set(i){
-            assert(Math.abs(i) != 1)
-            field = i
+        set(value){
+            assert(Math.abs(value) == 1)
+            field = value
         }
 
     override var flying: Boolean = false
@@ -36,8 +38,8 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     override var speedX: Float
         get() = super.speedX
         set(value) {
-            if(value * speedX < 0){ //new direction because of different algebraic signs
-                this.direction = if (value > 0) 1 else -1
+            if(value * super.speedX < 0){ //new direction because of different algebraic signs
+                this.direction = if (value > 0) { 1 } else { -1 }
             }
             super.speedX = value
         }
@@ -67,15 +69,15 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     override fun jump() {
         jumpsAmount++
         speedY = MConstants.JUMP_SPEED_DEFAULT
-        gravitiy()
+        gravity()
     }
 
 
     override fun knockback(power_x: Float, power_y: Float, source: IMovable): Boolean {
-        if(source is ILooking && Math.abs(source.speedX) >= MConstants.KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED) {
-            return knockback(power_x, power_y, source.direction)
+        return if (source is ILooking && Math.abs(source.speedX) >= MConstants.KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED) {
+            knockback(power_x, power_y, source.direction)
         }else{
-            return knockback(power_x, power_y, if (source.centerHorizontal > this.centerHorizontal) -1 else 1)
+            knockback(power_x, power_y, if (source.centerHorizontal > this.centerHorizontal) -1 else 1)
         }
     }
 
@@ -92,6 +94,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
      * @return `true` if it was possible to execute the knockback.
      */
     open fun knockback(power_x: Float, power_y: Float): Boolean {
+        AManaWars.m.getEventHandler().callEvent(EntityKnockbackEvent(this, power_x, power_y))
         jumpsAmount = Math.max(1, jumpsAmount) //Knockback counts as jump when being on the ground when knocked back!
 
         if (!isKnockbacked) {
@@ -111,7 +114,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
             speedY = speed_ver
         }
         isKnockbacked = true
-        gravitiy()
+        gravity()
         //setLockedMovementEnd(500)
         return true
     }
@@ -123,7 +126,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     /**
      * Triggers gravity: Causes the entity to fall down if it is not on the ground already.
      */
-    fun gravitiy() {
+    fun gravity() {
         isOnGround = false
         accelerationY = MConstants.GRAVITY_ACCELERATION
     }

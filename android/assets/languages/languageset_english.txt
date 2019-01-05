@@ -1,0 +1,5 @@
+main_currency: Gold
+main_upgradecurrency: Crystals
+main_kills: Kills
+main_stage: Stage
+main_score: Score

@@ -3,12 +3,10 @@ package org.neubauerfelix.manawars.game.entities
 import org.neubauerfelix.manawars.game.AManaWars
 
 
-open class GameEntity : GameRectangle, IEntity {
+open class GameEntity(width: Float, height: Float): GameRectangle(width, height), IEntity {
 
     override var remove: Boolean = false
     override var propertyScale: Float = 1f
-
-    constructor(width: Float, height: Float) : super(width, height)
 
 
 
@@ -24,7 +22,4 @@ open class GameEntity : GameRectangle, IEntity {
         AManaWars.m.screen.addEntity(this)
     }
 
-    override fun destroy() {
-        //Automatically called, when an instance is destroyed
-    }
 }

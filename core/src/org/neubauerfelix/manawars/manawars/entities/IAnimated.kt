@@ -5,4 +5,5 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 
 interface IAnimated: ILiving, IDrawable {
     val animation: IEntityAnimation
+    fun canFly(): Boolean
 }

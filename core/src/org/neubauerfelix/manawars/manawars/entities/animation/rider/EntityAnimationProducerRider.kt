@@ -1,19 +1,32 @@
-package org.neubauerfelix.manawars.manawars.entities.animation.human
+package org.neubauerfelix.manawars.manawars.entities.animation.rider
 
 import org.neubauerfelix.manawars.game.entities.GameEntity
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.IAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyDataHuman
+import org.neubauerfelix.manawars.manawars.entities.animation.human.IBodyDataHuman
+import org.neubauerfelix.manawars.manawars.entities.animation.mount.IBodyDataMount
 
-class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimationProducer, IBodyDataHuman by bodyDataHuman{
+class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, val producerHuman: IEntityAnimationProducer):
+        IEntityAnimationProducer {
 
+    override val bodyWidth: Int
+        get() = MConstants.BODY_RIDER_WIDTH
+
+    override val bodyHeight: Int
+        get() = MConstants.BODY_RIDER_HEIGHT
+
+    override val defaultScale: Float
+        get() = 1f
 
     override fun produce(entity: ISized, scale: Float): IEntityAnimation {
-        val body = BodyHumanSmart(this, entity, scale)
+        val body = BodyRider(entity, producerMount, producerHuman, scale, scale)
         return EntityAnimationAny(body)
     }
 
@@ -23,7 +36,7 @@ class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimat
         val offsetY = (availableHeight - bodyHeight * scale) / 2f
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
-        val body = BodyHumanSmart(this, rectangle, scale)
+        val body = BodyRider(rectangle, producerMount, producerHuman, scale, scale)
         return EntityAnimationAny(body)
     }
 }
