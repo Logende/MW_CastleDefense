@@ -1,14 +1,16 @@
 package org.neubauerfelix.manawars.manawars.entities
 
-import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
+import org.neubauerfelix.manawars.game.entities.IEntity
 
 
-interface IActionUser: ILooking, ITeamable {
+interface IActionUser: ILooking, ITeamable, IEntity {
 
 
     val mana: Float
     val manaMax: Float
     val manaRegen: Float
-    val actions: Array<IDataAction>
+
+    fun executeAction(id: Int): Boolean
+    fun canPerformActions(): Boolean
 
 }

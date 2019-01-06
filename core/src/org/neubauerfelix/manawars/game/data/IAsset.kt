@@ -19,6 +19,7 @@ package org.neubauerfelix.manawars.game.data
 interface IAsset {
 
     fun loadAsset()
+    fun loadedAsset()
     fun disposeAsset()
 
 }

@@ -15,7 +15,6 @@ interface IStateable: ILiving {
     fun getStateEffectivity(state: MWState): MWStateEffectivity
 
     fun canWalk(): Boolean
-    fun canPerformActions(): Boolean
 
 
 }

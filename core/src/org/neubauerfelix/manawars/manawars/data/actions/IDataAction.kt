@@ -45,7 +45,7 @@ interface IDataAction : IDataPresentable, IAsset {
      * Returns the short animation played when the action is executed.
      * @return short animation. Can be `null`.
      */
-    val ownerAnimationEffect: MWAnimationTypeBodyEffect?
+    val animationEffect: MWAnimationTypeBodyEffect?
 
 
     /**
@@ -55,11 +55,6 @@ interface IDataAction : IDataPresentable, IAsset {
     val weaponType: MWWeaponType?
 
 
-    /**
-     * Returns the rarity of the action (influences the font color and drop chance of the action).
-     * @return action rarity.
-     */
-    val rarity: MWRarity
 
 
     /**
@@ -69,21 +64,8 @@ interface IDataAction : IDataPresentable, IAsset {
     val actionDependencies: Array<IDataAction>
 
 
-    /**
-     * Get maximum skill range. Used by KI.
-     * @param scale Scale of the owner which will result in the scale of the skill.
-     * @return maximum range.
-     */
-    fun getRangeMax(scale: Float): Int
-
-
-
-    /**
-     * Get minimum action range. Used by KI.
-     * @param scale Scale of the owner which will result in the scale of the action.
-     * @return minimum range.
-     */
-    fun getRangeMin(scale: Float): Int
+    val rangeMax: Int
+    val rangeMin: Int
 
     /**
      * Executes the defined action.

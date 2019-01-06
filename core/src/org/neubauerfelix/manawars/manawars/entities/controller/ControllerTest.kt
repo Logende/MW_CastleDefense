@@ -13,7 +13,7 @@ class ControllerTest: IController {
 
     override fun doLogic(delta: Float) {
         if (controlled.x > 1500 || dir == -1 && controlled.x > 200) {
-            controlled.walkLeft(800f)
+            controlled.walkLeft(200f)
             dir = -1
         }
         if (controlled.x < 200 || dir == 1 && controlled.x < 1500) {

@@ -13,7 +13,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, scale: Float, private val color: Color? = null) : GameEntityMovable(animation.keyFrames[0].regionWidth * scale, animation.keyFrames[0].regionHeight * scale), IDrawable, ICollidable {
 
 
-    var isMirror: Boolean = false
+    var mirror: Boolean = false
     var isAnimationPaused: Boolean = false
     private var stateTime: Float = 0.toFloat()
 
@@ -35,7 +35,7 @@ abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, s
             if (color != null) {
                 batcher.color = color
             }
-            if (isMirror) {
+            if (mirror) {
                 batcher.draw(animation.getKeyFrame(stateTime, true), x + width, y, -width, height)
             } else {
                 batcher.draw(animation.getKeyFrame(stateTime, true), x, y, width, height)

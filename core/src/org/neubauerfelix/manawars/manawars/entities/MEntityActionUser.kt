@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 
 
-open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health: Float, mana: Float, override val actions: Array<IDataAction>,
+open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health: Float, mana: Float, val actions: Array<IDataAction>,
                         override val manaRegen: Float): MEntityAnimated(animationProducer, health), IActionUser {
 
     override val manaMax: Float = mana
@@ -35,11 +35,14 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
         this.mana -= value
     }
 
-    fun executeAction(id: Int): Boolean {
+    override fun executeAction(id: Int): Boolean {
         require(actions.size > id)
 
         val action = actions[id]
         if (mana < action.manaCost) {
+            return false
+        }
+        if (!this.canPerformActions()) {
             return false
         }
         if (!action.canUse(this)) {
@@ -47,12 +50,15 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
         }
         if (action.action(this)) {
             takeMana(action.manaCost.toFloat())
-            this.animation.playBodyEffect(action.ownerAnimationEffect, action.weaponType)
+            this.animation.playBodyEffect(action.animationEffect, action.weaponType)
             return true
         }
         return false
     }
 
+    override fun canPerformActions(): Boolean {
+        return !this.animation.playingBodyEffect
+    }
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)

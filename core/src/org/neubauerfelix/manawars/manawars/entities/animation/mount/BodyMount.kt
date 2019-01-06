@@ -68,11 +68,11 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
     override fun getCollisionType(intersection: ISized): MWCollisionType {
         if (body.collides(sized, mirror, scale, intersection)) {
             latestHitBodyPart = body
-            return MWCollisionType.HUMAN_BODY
+            return MWCollisionType.MOUNT_BODY
         }
         if (head.collides(sized, mirror, scale, intersection)) {
             latestHitBodyPart = head
-            return MWCollisionType.HUMAN_HEAD
+            return MWCollisionType.MOUNT_HEAD
         }
         if (footBL.collides(sized, mirror, scale, intersection)) {
             latestHitBodyPart = footBL

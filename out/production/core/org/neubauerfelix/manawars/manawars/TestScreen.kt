@@ -9,7 +9,7 @@ import org.neubauerfelix.manawars.manawars.entities.controller.ControllerTest
 
 class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
-    private val background: MBackground = MBackground(GameConstants.PATH_LOADING_SCREEN, 0, true, getGame().getAssetLoader())
+    private val background: MBackground = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", 0, true, getGame().getAssetLoader())
 
     override fun loadScreen(): Boolean {
         background.load()
@@ -29,11 +29,13 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         e.spawn()
         e.gravity()
 
+
         return false
     }
 
     override fun loadedScreen() {
         background.loadedAssets()
+        addBackground(background)
 
     }
 

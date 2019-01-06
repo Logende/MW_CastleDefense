@@ -82,7 +82,6 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
                 }
             }
             if (sized is IRideable && sized.riding) {
-                System.out.println("legs ride")
                 animationLegs = MWAnimationTypeLegs.RIDE
             }
             this.animationLegs = animationLegs
@@ -128,7 +127,6 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         animate(animationLegs, positionLegs, animationBody, positionBody, currentEffect)
     }
 
-
-
-
+    override val playingBodyEffect: Boolean
+        get() = this.isPlayingEffect
 }

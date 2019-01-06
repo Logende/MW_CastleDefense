@@ -16,6 +16,7 @@ class GameConstants {
 
         val PATH_ATLAS_BUTTONS = "components/buttons_small.pack"
         val PATH_ATLAS_MAIN = "main/main.pack"
-        val PATH_LOADING_SCREEN = "backgrounds/1/loading.jpg"
+        val PATH_BACKGROUND = "backgrounds/1/"
+        val PATH_LOADING_SCREEN = PATH_BACKGROUND + "loading.jpg"
     }
 }

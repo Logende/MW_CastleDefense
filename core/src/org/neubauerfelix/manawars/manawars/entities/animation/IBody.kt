@@ -21,5 +21,6 @@ interface IBody: ICollidable, IDrawable {
 
     val canFly: Boolean
     val scale: Float
+    val playingBodyEffect: Boolean
 
 }

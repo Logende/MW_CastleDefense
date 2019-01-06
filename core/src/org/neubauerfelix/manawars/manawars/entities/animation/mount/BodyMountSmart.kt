@@ -117,5 +117,8 @@ class BodyMountSmart(bodyData: IBodyDataMount, scale: Float = 1f, sized: ISized)
         animate(animationLegs, positionLegs, animationBody, positionBody, currentEffect)
     }
 
+    override val playingBodyEffect: Boolean
+        get() = this.isPlayingEffect
+
 
 }

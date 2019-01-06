@@ -91,4 +91,7 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
             }
         }
     }
+
+    override val playingBodyEffect: Boolean
+        get() = this.human.playingBodyEffect
 }

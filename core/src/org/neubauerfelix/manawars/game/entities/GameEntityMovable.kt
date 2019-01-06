@@ -39,17 +39,17 @@ open class GameEntityMovable(width: Float, height: Float): GameEntity(width, hei
 
     override fun move(delta: Float) {
         if (this.acceleration.x != 0.0f) {
-            speedX = this.speed.x + this.acceleration.x * delta
+            speedX = this.speed.x + this.acceleration.x * delta * this.propertyScale
         }
         if (this.acceleration.y != 0.0f) {
-            speedY = this.speed.y + this.acceleration.y * delta
+            speedY = this.speed.y + this.acceleration.y * delta * this.propertyScale
         }
 
         if (this.speed.x != 0.0f) {
-            x += this.speed.x * delta
+            x += this.speed.x * delta * this.propertyScale
         }
         if (this.speed.y != 0.0f) {
-            y += this.speed.y * delta
+            y += this.speed.y * delta * this.propertyScale
         }
 
     }

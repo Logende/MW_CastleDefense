@@ -41,4 +41,7 @@ class EntityAnimationAny(val body: IBody): EntityAnimation(body, body.scale) {
 
     override val canFly: Boolean
         get() = false
+
+    override val playingBodyEffect: Boolean
+        get() = body.playingBodyEffect
 }
