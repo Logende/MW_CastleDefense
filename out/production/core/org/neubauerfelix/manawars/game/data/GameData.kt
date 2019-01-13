@@ -12,46 +12,92 @@ abstract class GameData: IAsset{
 
     private var loadCount: Int = 0
     private val assets: MutableList<IAsset> = ArrayList()
+    var loaded: Boolean = false
+        private set
 
 
-    @Synchronized private fun addAsset(asset: IAsset){
-        synchronized(assets){
-            if(assets.contains(asset)){
-                throw IllegalArgumentException("Can not add asset to GameData: Asset already contained in assets list.")
+    fun addAsset(asset: IAsset) {
+        synchronized(assets) {
+            synchronized(loadCount) {
+                if (assets.contains(asset)) {
+                    throw IllegalArgumentException("Can not add asset to GameData: Asset already contained in assets list.")
+                }
+                assets.add(asset)
+                for(i in 1..loadCount) {
+                    asset.loadAsset()
+                }
             }
-            assets.add(asset)
-        }
-        for(i in 1..loadCount){
-            asset.loadAsset()
         }
     }
 
-    @Synchronized private fun removeAsset(asset: IAsset){
-        synchronized(assets){
-            if(!assets.contains(asset)){
-                throw IllegalArgumentException("Can not remove asset from GameData: Asset not contained in assets list.")
+    fun removeAsset(asset: IAsset) {
+        synchronized(assets) {
+            synchronized(loadCount) {
+                if (!assets.contains(asset)) {
+                    throw IllegalArgumentException("Can not remove asset from GameData: Asset not contained in assets list.")
+                }
+                assets.remove(asset)
+                for(i in 1..loadCount){
+                    asset.disposeAsset()
+                }
             }
-            assets.remove(asset)
-        }
-        for(i in 1..loadCount){
-            asset.disposeAsset()
         }
     }
 
-    @Synchronized override fun loadAsset() {
-        loadCount++
-        synchronized(assets){
-            assets.onEach { asset -> asset.loadAsset() }
+    override fun loadAsset() {
+        synchronized(loadCount) {
+            synchronized(assets) {
+                loadCount++
+                this.load()
+                assets.onEach { asset -> asset.loadAsset() }
+            }
         }
     }
 
-    @Synchronized override fun disposeAsset() {
-        if(loadCount == 0){
-            throw RuntimeException("Can not dispose asset: zero times loaded.")
-        }
-        loadCount--
-        synchronized(assets){
-            assets.onEach { asset -> asset.disposeAsset() }
+    override fun disposeAsset() {
+        synchronized(loaded) {
+            synchronized(loadCount) {
+                synchronized(assets) {
+                    require(loadCount > 0)
+                    loadCount--
+                    if (loadCount == 0) {
+                        loaded = false
+                        this.disposed()
+                    }
+                    this.dispose()
+                    assets.onEach { asset -> asset.disposeAsset() }
+                }
+            }
         }
     }
+
+    override fun loadedAsset() {
+        synchronized(loaded) {
+            synchronized(loadCount) {
+                synchronized(assets) {
+                    require(loadCount > 0)
+                    assets.onEach { asset -> asset.loadedAsset() }
+                    if (!loaded) {
+                        this.loaded()
+                        loaded = true
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    abstract fun dispose() // decreased load count and disposes of reaching load count 0
+    abstract fun load() // increases load count and loads if not loaded already
+    abstract fun loaded() // once called when loaded for first time after not loaded / disposed
+    abstract fun disposed() // called when load count reaches 0. Used to destroy asset
+
+    /**
+     * Called once after GameData instance is created and before it is loaded. Used to add asset dependencies
+     * Should be called after all assets of the whole game are instantiated.
+     * This way all assets can connect with each other.
+     */
+    abstract fun init() //
 }

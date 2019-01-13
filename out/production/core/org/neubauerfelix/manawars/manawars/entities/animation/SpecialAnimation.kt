@@ -9,14 +9,14 @@ import org.neubauerfelix.manawars.manawars.entities.MEntityAnimationSimple
 
 open class SpecialAnimation
 
-@JvmOverloads constructor(animation: Animation<TextureRegion>, filter: Color? = null) : MEntityAnimationSimple(animation, 1f, filter) {
+@JvmOverloads constructor(animation: Animation<TextureRegion>, filter: Color? = null) : MEntityAnimationSimple(animation, 1f, filter, 0f, PlayMode.NORMAL) {
 
     init {
         animation.playMode = PlayMode.NORMAL
     }
 
 
-    override fun newAnimationStart() {
+    override fun finishedAnimation() {
         remove = true
     }
 }

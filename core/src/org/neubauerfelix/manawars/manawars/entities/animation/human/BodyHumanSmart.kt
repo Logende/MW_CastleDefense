@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.IJumpable
 import org.neubauerfelix.manawars.manawars.entities.ILooking
-import org.neubauerfelix.manawars.manawars.entities.IRideable
+import org.neubauerfelix.manawars.manawars.entities.IRidable
 import org.neubauerfelix.manawars.manawars.entities.animation.IBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
@@ -81,7 +81,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
                     animationLegs = MWAnimationTypeLegs.WALK
                 }
             }
-            if (sized is IRideable && sized.riding) {
+            if (sized is IRidable && sized.riding) {
                 animationLegs = MWAnimationTypeLegs.RIDE
             }
             this.animationLegs = animationLegs

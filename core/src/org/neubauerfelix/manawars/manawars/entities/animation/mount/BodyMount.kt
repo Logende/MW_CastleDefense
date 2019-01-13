@@ -65,28 +65,28 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
         footFR.update(frontRightRot)
     }
 
-    override fun getCollisionType(intersection: ISized): MWCollisionType {
-        if (body.collides(sized, mirror, scale, intersection)) {
+    override fun getCollisionType(other: ISized): MWCollisionType {
+        if (body.overlaps(other)) {
             latestHitBodyPart = body
             return MWCollisionType.MOUNT_BODY
         }
-        if (head.collides(sized, mirror, scale, intersection)) {
+        if (head.overlaps(other)) {
             latestHitBodyPart = head
             return MWCollisionType.MOUNT_HEAD
         }
-        if (footBL.collides(sized, mirror, scale, intersection)) {
+        if (footBL.overlaps(other)) {
             latestHitBodyPart = footBL
             return MWCollisionType.MOUNT_FOOT
         }
-        if (footBR.collides(sized, mirror, scale, intersection)) {
+        if (footBR.overlaps(other)) {
             latestHitBodyPart = footBR
             return MWCollisionType.MOUNT_FOOT
         }
-        if (footFL.collides(sized, mirror, scale, intersection)) {
+        if (footFL.overlaps(other)) {
             latestHitBodyPart = footFL
             return MWCollisionType.MOUNT_FOOT
         }
-        if (footFR.collides(sized, mirror, scale, intersection)) {
+        if (footFR.overlaps(other)) {
             latestHitBodyPart = footFR
             return MWCollisionType.MOUNT_FOOT
         }

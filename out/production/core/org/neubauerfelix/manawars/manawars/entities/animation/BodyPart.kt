@@ -8,6 +8,7 @@ import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.ISized
 
 open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectangle(0f, 0f, 0f, 0f) {
+    // TODO: make body parts of different people have different sizes due to transparent pixels. That is required because transparent pixels are no longer included in collision check
 
     var sprite: Sprite = bodyPartData.createSprite()
     var enabled = true
@@ -117,14 +118,14 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
     }
 
 
-    fun collides(sized: ISized, mirror: Boolean, scale: Float, intersection: ISized): Boolean {
+    /*fun collides(sized: ISized, mirror: Boolean, scale: Float, intersection: ISized): Boolean {
         return if (!enabled) {
             false
         } else intersection.overlaps(calculateX(sized.x, mirror, scale) + bodyPartData.transparentPixelColumnsLeft * scale,
                 calculateY(sized.y, scale) + bodyPartData.transparentPixelRowsBottom,
                 width - ((bodyPartData.transparentPixelColumnsLeft + bodyPartData.transparentPixelColumnsRight) * scale),
                 height - ((bodyPartData.transparentPixelRowsTop + bodyPartData.transparentPixelRowsBottom) * scale))
-    }
+    }*/
 
 
 }

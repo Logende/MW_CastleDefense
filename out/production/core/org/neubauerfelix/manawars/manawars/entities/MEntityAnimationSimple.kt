@@ -7,15 +7,27 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.GameEntityMovable
+import org.neubauerfelix.manawars.game.entities.GameLocation
+import org.neubauerfelix.manawars.game.entities.ILocated
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 
-abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, scale: Float, private val color: Color? = null) : GameEntityMovable(animation.keyFrames[0].regionWidth * scale, animation.keyFrames[0].regionHeight * scale), IDrawable, ICollidable {
+abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, scale: Float, private val color: Color? = null,
+                                      val rotationDuration: Float, playMode: PlayMode) :
+        GameEntityMovable(animation.keyFrames[0].regionWidth * scale, animation.keyFrames[0].regionHeight * scale),
+        IDrawable, ICollidable {
 
 
-    var isMirror: Boolean = false
+    var mirror: Boolean = false
     var isAnimationPaused: Boolean = false
     private var stateTime: Float = 0.toFloat()
+
+    init {
+        animation.playMode = playMode
+        if (animation.keyFrames.size == 1) {
+            animation.frameDuration = Float.MAX_VALUE
+        }
+    }
 
 
     fun setDrawRandomImageOnly() {
@@ -23,6 +35,12 @@ abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, s
         stateTime = (Math.random() * animation.animationDuration).toFloat()
     }
 
+    override fun doLogic(delta: Float) {
+        super.doLogic(delta)
+        if (rotationDuration != 0f) {
+            rotation = (stateTime % rotationDuration) / rotationDuration * 360f
+        }
+    }
 
     override fun draw(delta: Float, batcher: Batch) {
         if (!isAnimationPaused) {
@@ -30,19 +48,19 @@ abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, s
         }
         if (animation.playMode == PlayMode.NORMAL) {
             if (animation.isAnimationFinished(stateTime)) {
-                newAnimationStart()
+                finishedAnimation()
             }
-            if (color != null) {
-                batcher.color = color
-            }
-            if (isMirror) {
-                batcher.draw(animation.getKeyFrame(stateTime, true), x + width, y, -width, height)
-            } else {
-                batcher.draw(animation.getKeyFrame(stateTime, true), x, y, width, height)
-            }
-            if (color != null) {
-                batcher.color = Color.WHITE
-            }
+        }
+        if (color != null) {
+            batcher.color = color
+        }
+        if (mirror) {
+            batcher.draw(animation.getKeyFrame(stateTime, true), x + width, y, -width/2, height/2f,  -width, height, 1f, 1f, rotation)
+        } else {
+            batcher.draw(animation.getKeyFrame(stateTime, true), x, y, width/2, height/2f, width, height, 1f, 1f, rotation)
+        }
+        if (color != null) {
+            batcher.color = Color.WHITE
         }
     }
 
@@ -51,10 +69,8 @@ abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, s
         return MWCollisionType.UNDEFINED
     }
 
-    open fun newAnimationStart() {
-        stateTime = 0f
+    open fun finishedAnimation() {
         //Can be overidden
     }
-
 
 }

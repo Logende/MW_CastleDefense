@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.data.actions
 
 import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWRarity
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
@@ -72,7 +73,7 @@ interface IDataAction : IDataPresentable, IAsset {
      * @param owner Entity executing the action.
      * @return 'true' if the action was successful and 'false' if it was not.
      */
-    fun action(owner: IEntity): Boolean
+    fun action(owner: IActionUser): Boolean
 
 
     /**

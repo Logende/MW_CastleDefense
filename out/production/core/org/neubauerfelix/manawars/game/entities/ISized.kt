@@ -1,8 +1,12 @@
 package org.neubauerfelix.manawars.game.entities
 
-interface ISized : ILocated {
+import com.badlogic.gdx.math.Polygon
 
+interface ISized {
 
+    val polygon: Polygon
+    var x: Float
+    var y: Float
     var width: Float
     var height: Float
     var centerHorizontal: Float
@@ -11,48 +15,34 @@ interface ISized : ILocated {
     var bottom: Float
     var left: Float
     var top: Float
+    var rotation: Float
+    var originX: Float
+    var originY: Float
+
 
     /**
-     * Checks if two rectangles are intersecting.
+     * Overwrite the location of the object
+     * @param x new x coordinate.
+     * Set the y coordinate of the object.
+     * @param y new y coordinate.
+     */
+    fun setLocation(x: Float, y: Float)
+
+
+    /**
+     * Overwrite the location of the object
+     * @param l New location.
+     */
+    fun setLocation(l: ILocated)
+
+    /**
+     * Checks if two rectangles are intersecting. Includes rotation of rectangles.
      *
      * @param r2 Rectangle to check intersection with.
      * @return `true` if they do intersect.
      */
     fun overlaps(r2: ISized): Boolean
 
-    /**
-     * Checks if two rectangles are intersecting. The given coordinates represent the second rectangle.
-     *
-     * @param rx x coordinate of the second rectangle.
-     * @param ry y coordinate of the second rectangle.
-     * @param rw width of the second rectangle.
-     * @param rh height of the second rectangle.
-     * @return `true` if they do intersect.
-     */
-    fun overlaps(rx: Float, ry: Float, rw: Float, rh: Float): Boolean
-
-    /**
-     * Calculates which pixels of this rectangle and `r2` overlap and writes the collision bounds into the `bounds` rectangle.
-     * Requires an intersection of both rectangles in order to work properly.
-     *
-     * @param r2     The collision bounds of `this` and `r2` are returned.
-     * @param bounds collision bounds are stored here.
-     * @return bounds of the overlapping pixels.
-     */
-    fun getIntersection(r2: ISized, bounds: GameRectangle)
-
-    /**
-     * Calculates which pixels of this rectangle and the given one overlap and writes the collision bounds into the `bounds` rectangle.
-     * Requires an intersection of both rectangles in order to work properly.
-     *
-     * @param rx     x coordinate of the second rectangle.
-     * @param ry     y coordinate of the second rectangle.
-     * @param rw     width of the second rectangle.
-     * @param rh     height of the second rectangle.
-     * @param bounds collision bounds are stored here.
-     * @return bounds of the overlapping pixels.
-     */
-    fun getIntersection(rx: Float, ry: Float, rw: Float, rh: Float, bounds: GameRectangle)
 
     /**
      * Get the distance between this rectangle and an other sized object.
@@ -78,6 +68,21 @@ interface ISized : ILocated {
      * @return real distance.
      */
     fun getDistanceVer(s: ISized): Float
+
+
+    /**
+     * Returns the horizontal distance between the x coordinate of this object and the given coordinate.
+     * @param x coordinate to compare with.
+     * @return distance between both coordinates.
+     */
+    fun getDistanceHor(x: Float): Float
+
+    /**
+     * Returns the vertical distance between the y coordinate of this object and the given coordinate.
+     * @param y coordinate to compare with.
+     * @return distance between both coordinates.
+     */
+    fun getDistanceVer(y: Float): Float
 
 
     /**

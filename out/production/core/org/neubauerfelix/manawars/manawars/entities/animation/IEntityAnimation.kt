@@ -18,6 +18,8 @@ interface IEntityAnimation: IDrawable, ICollidable{
 
     val canFly: Boolean
 
+    val playingBodyEffect: Boolean
+
     fun playDeathAnimation(damager: IEntity?, cause: MWDamageCause)
 
     fun playBodyEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?)

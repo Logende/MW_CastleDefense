@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.data.GameData
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.entities.IActionUser
 
 
 abstract class DataSkill : GameData(), IDataSkill {
@@ -34,7 +35,8 @@ abstract class DataSkill : GameData(), IDataSkill {
         val textureWidth = texture.width / this.textureColumns
         val textureHeight = texture.height / this.textureRows
 
-        val frames = com.badlogic.gdx.utils.Array<TextureRegion>(textureColumns * textureRows)
+        val frames = com.badlogic.gdx.utils.Array<TextureRegion>(TextureRegion::class.java)
+        frames.setSize(textureColumns * textureRows)
         for (x in 0 until textureColumns) {
             for (y in 0 until textureRows) {
                 frames[x + y * textureColumns] = TextureRegion(texture, x * textureWidth, y * textureHeight, textureWidth, textureHeight)
@@ -63,5 +65,8 @@ abstract class DataSkill : GameData(), IDataSkill {
         this.animation = null
     }
 
+    override fun action(owner: IActionUser): Boolean {
+        return this.spawnSkill(owner) != null
+    }
 
 }

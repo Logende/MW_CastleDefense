@@ -123,26 +123,26 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
     }
 
 
-    override fun getCollisionType(intersection: ISized): MWCollisionType {
+    override fun getCollisionType(other: ISized): MWCollisionType {
         if (this.shield != null) {
-            if (shield.collides(sized, mirror, scale, intersection)) {
+            if (shield.overlaps(other)) {
                 latestHitBodyPart = shield
                 return MWCollisionType.SHIELD
             }
         }
-        if (body.collides(sized, mirror, scale, intersection)) {
+        if (body.overlaps(other)) {
             latestHitBodyPart = body
             return MWCollisionType.HUMAN_BODY
         }
-        if (head.collides(sized, mirror, scale, intersection)) {
+        if (head.overlaps(other)) {
             latestHitBodyPart = head
             return MWCollisionType.HUMAN_HEAD
         }
-        if (footL.collides(sized, mirror, scale, intersection)) {
+        if (footL.overlaps(other)) {
             latestHitBodyPart = footL
             return MWCollisionType.HUMAN_FOOT
         }
-        if (footR.collides(sized, mirror, scale, intersection)) {
+        if (footR.overlaps(other)) {
             latestHitBodyPart = footR
             return MWCollisionType.HUMAN_FOOT
         }

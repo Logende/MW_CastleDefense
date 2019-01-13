@@ -11,7 +11,6 @@ interface IAnimationHandler: IHandler {
 
 
     fun playAnimation(animation: Animation<TextureRegion>, x: Float, y: Float, color: Color?): ISized
-    fun playAnimationDamaging(animation: Animation<TextureRegion>, x: Float, y: Float, owner: IEntity, damage: Float, variableDamage: Boolean): ISized
     fun playBloodAnimation(x: Float, y: Float, color: Color? = null): ISized
     fun playBloodAnimation(d: IEntity, color: Color? = null): ISized
 

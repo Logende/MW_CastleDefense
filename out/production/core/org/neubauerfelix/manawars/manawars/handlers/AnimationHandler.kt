@@ -9,7 +9,6 @@ import org.neubauerfelix.manawars.game.ILoadableAsync
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.entities.animation.SpecialAnimation
-import org.neubauerfelix.manawars.manawars.entities.animation.SpecialAnimationDamaging
 
 class AnimationHandler: IAnimationHandler, ILoadableAsync {
 
@@ -40,13 +39,6 @@ class AnimationHandler: IAnimationHandler, ILoadableAsync {
         return a
     }
 
-    override fun playAnimationDamaging(animation: Animation<TextureRegion>, x: Float, y: Float, owner: IEntity, damage: Float, variableDamage: Boolean): ISized {
-        val a = SpecialAnimationDamaging(animation, owner, damage, variableDamage)
-        a.x = (x - a.width / 2f)
-        a.y = (y - a.height / 2f)
-        a.spawn()
-        return a
-    }
 
     override fun playBloodAnimation(x: Float, y: Float, color: Color?): ISized {
         return playAnimation(particles, x, y, color)

@@ -1,11 +1,48 @@
 package org.neubauerfelix.manawars.game.entities
 
+import com.badlogic.gdx.math.Intersector
+import com.badlogic.gdx.math.Polygon
 
 
-open class GameRectangle(x: Float, y: Float, override var width: Float, override var height: Float):
-        GameLocation(x, y), ISized {
+open class GameRectangle(x: Float, y: Float, width: Float, height: Float): ISized {
 
     constructor(width: Float, height: Float) : this(0f, 0f, width, height)
+
+    override var x: Float
+        get() = polygon.x
+        set(value) {
+            polygon.setPosition(value, y)
+        }
+
+    override var y: Float
+        get() = polygon.y
+        set(value) {
+            polygon.setPosition(x, value)
+        }
+
+    override var width: Float = width
+        @Deprecated("Resizing rectangles requires creating a new Polygon instance every time")
+        set(value) {
+            polygon = Polygon(floatArrayOf(0f, 0f, value, 0f, value, height, 0f, height))
+            polygon.setPosition(x, y)
+            field = value
+        }
+
+    override var height: Float = height
+        @Deprecated("Resizing rectangles requires creating a new Polygon instance every time")
+        set(value) {
+            polygon = Polygon(floatArrayOf(0f, 0f, width, 0f, width, value, 0f, value))
+            polygon.setPosition(x, y)
+            field = value
+        }
+
+    final override var polygon: Polygon
+        private set
+
+    init {
+        polygon = Polygon(floatArrayOf(0f, 0f, width, 0f, width, height, 0f, height))
+        polygon.setPosition(x, y)
+    }
 
 
     override var centerHorizontal: Float
@@ -40,20 +77,52 @@ open class GameRectangle(x: Float, y: Float, override var width: Float, override
         set(f) {y = f - height}
 
 
+    fun setRotationOrigin(originX: Float, originY: Float) {
+        polygon.setOrigin(originX, originY)
+    }
+
+    override var originX: Float
+        get() = polygon.originX
+        set(value) { polygon.setOrigin(value, polygon.originY) }
+
+    override var originY: Float
+        get() = polygon.originY
+        set(value) { polygon.setOrigin(polygon.originX, value) }
+
+    override var rotation: Float
+        get() = polygon.rotation
+        set(value) {
+            polygon.rotation = value
+        }
+
+
 
     fun pasteRectangle(e: ISized, onlyTemporaryValues: Boolean) {
-        super.pasteLocated(e, onlyTemporaryValues)
+        x = e.x
+        y = e.y
+        rotation = e.rotation
         if(!onlyTemporaryValues) {
             width = e.width
             height = e.height
+            originX = e.originX
+            originY = e.originY
         }
     }
 
+    @Deprecated("Resizing rectangles requires creating a new Polygon instance every time")
     fun setSize(width: Float, height: Float) {
         this.width = width
         this.height = height
     }
 
+    override fun setLocation(x: Float, y: Float) {
+        this.x = x
+        this.y = y
+    }
+
+    override fun setLocation(l: ILocated) {
+        this.setLocation(l.x, l.y)
+    }
 
     override fun getDistanceHor(x: Float): Float {
         return if (x < this.x) {
@@ -100,31 +169,14 @@ open class GameRectangle(x: Float, y: Float, override var width: Float, override
     }
 
 
-    override fun getIntersection(r2: ISized, bounds: GameRectangle) {
-        getIntersection(r2.x, r2.y, r2.width, r2.height, bounds)
-    }
 
-    override fun getIntersection(rx: Float, ry: Float, rw: Float, rh: Float, bounds: GameRectangle) {
-        val left = Math.max(x, rx)
-        val bottom = Math.max(y, ry)
-        val right = Math.min(x + width, rx + rw)
-        val top = Math.min(y + height, ry + rh)
-        bounds.x = left
-        bounds.y = top
-        bounds.width = right - left
-        bounds.height = bottom - top
-    }
-
-    override fun overlaps(r2: ISized): Boolean { //unable to handle zoomed objects atm
-        return overlaps(r2.x, r2.y, r2.width, r2.height)
-    }
-
-    override fun overlaps(rx: Float, ry: Float, rw: Float, rh: Float): Boolean {
-        return !(y + height < ry || y > ry + rh || x + width < rx || x > rx + rw)
+    override fun overlaps(r2: ISized): Boolean {
+        return Intersector.overlapConvexPolygons(polygon, r2.polygon)
     }
 
     override fun isInside(px: Float, py: Float): Boolean {
-        return (x <= px && px <= x + width && y <= py && py <= y + height)
+        val vertices = polygon.transformedVertices
+        return Intersector.isPointInPolygon(vertices, 0, vertices.size, px, py)
     }
 
 

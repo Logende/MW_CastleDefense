@@ -1,13 +1,16 @@
 package org.neubauerfelix.manawars.manawars.entities.skills
 
+import com.badlogic.gdx.graphics.g2d.Animation
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
-import org.neubauerfelix.manawars.manawars.entities.IActionUser
-import org.neubauerfelix.manawars.manawars.entities.MEntityAnimationSimple
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.entities.*
+import org.neubauerfelix.manawars.game.entities.IMovable
+import org.neubauerfelix.manawars.manawars.enums.*
 
 
-class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale, data.color) {
+class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale, data.color, data.animationRotationDuration, Animation.PlayMode.LOOP) {
 
     var health: Int
     var direction: Int = 1
@@ -22,6 +25,11 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
     var lifeTimeLeft: Float
 
     val target: IEntity?
+
+    var inactive: Boolean = false
+
+    val active: Boolean
+        get() = !this.idle && !this.inactive
 
     init {
         // Set up basic values
@@ -80,6 +88,87 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
                 this.remove = true
             }
         }
+    }
+
+
+    fun collisionEnemy(e: ILiving, collisionType: MWCollisionType) {
+        if (!this.active) {
+            return
+        }
+
+
+        var damageFactor = 1f
+        //damageFactor *= e.getSkillEffectivity(getSkillClass(), collision_type) TODO
+
+        if (owner is IUpgraded) {
+            damageFactor += owner.getSkillMultiplier(data.skillClass)
+        }
+
+        if (damageFactor == 0f) { //If entity is immune to skill type
+            knockbackSkill(e, MWSkillKnockbackReason.ARMOR)
+            return
+        }
+        if (e.invincible) {
+            if (data.skillClass !== MWSkillClass.SHIELD) {
+                knockbackSkill(e, MWSkillKnockbackReason.INVINCIBLE)
+            }
+            return
+        }
+
+
+        // Knockback
+        if (e is IJumpable) {
+            val knockbackFactor = Math.pow(damageFactor.toDouble(), 0.3) as Float * data.knockbackFactor * this.propertyScale
+            val knockbackX = Math.abs(speedX / 3) + 60
+            val knockbackY = Math.abs(speedY / 3) + 30 // Was speedX before instead of speedY
+            e.knockback(knockbackX * knockbackFactor, knockbackY * Math.abs(knockbackFactor), direction)
+        }
+
+        // Damage
+        val damage = ((Math.random() * (data.damageMax - data.damageMin) + data.damageMin) * this.propertyScale) as Float
+        val killed = e.damage(damage * damageFactor, this, MWDamageCause.SKILL)
+
+        // State effect
+        if (!killed) {
+            if (data.stateEffect != null) {
+                if (e is IStateable) {
+                    e.setState(data.stateEffect!!, data.stateEffectDuration, this)
+                }
+            }
+        }
+
+        // Damage skill itself
+        val skillDamage = Math.min(MConstants.MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT, e.health as Int)
+        // Skill damage
+        if (!killed) {
+            this.damage(Math.max(skillDamage, MConstants.MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL), e)
+        } else {
+            this.damage(skillDamage, e)
+            //if (s.getEnemiesKilled() >= 2 && getSkillClass() !== MWSkillClass.SHIELD && collision_type === EntityAnimationHuman.COLLISION_TYPE_HEAD) {
+              //  ManaWarsGame.g.getSlowMotionHandler().slowDown() TODO
+        }
+    }
+
+
+    fun knockbackSkill(cause: IMovable, reason: MWSkillKnockbackReason) {
+        this.inactive = true
+
+        var dir = if (this.centerHorizontal > cause.centerHorizontal) 1 else -1
+            if (this.speedY == 0f && this.accelerationY == 0f) {
+                dir = -this.direction
+            }
+        direction = dir
+    }
+
+
+    fun damage(value: Int, damager: IEntity): Boolean {
+        var i = value / propertyScale
+        this.health -= i as Int
+        if (this.health <= 0) {
+            remove = true
+            return true
+        }
+        return false
     }
 
 

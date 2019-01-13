@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
 import org.neubauerfelix.manawars.manawars.enums.MWState
 
@@ -23,7 +24,8 @@ interface IDataSkill : IDataAction {
     val pickOneFrame: Boolean // If enabled instead of showing the whole skill animation one frame is randomly chosen and drawn per skill
     val animationFrequency: Float
     val animation: Animation<TextureRegion>?
-    val color: Color
+    val animationRotationDuration: Float
+    val color: Color?
 
     val soundPath: String
 
@@ -40,8 +42,8 @@ interface IDataSkill : IDataAction {
     val skillStrength: Int
     val damageMin: Int
     val damageMax: Int
-    val stateEffect: MWState
-    val stateEffectDuration: Int
+    val stateEffect: MWState?
+    val stateEffectDuration: Float
     val knockbackFactor: Float
     val spawnOnImpact: String? // spawns certain action on impact with enemy
 
@@ -84,7 +86,7 @@ interface IDataSkill : IDataAction {
      * @param owner Skill owner.
      * @return returns the created skill. If multiple skills were spawned only one of them is returned. In case of failure null is returned.
      */
-    fun spawnSkill(owner: IEntity): IEntity
+    fun spawnSkill(owner: IActionUser): IEntity
 
 
 }

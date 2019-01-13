@@ -1,6 +1,6 @@
 package org.neubauerfelix.manawars.manawars.entities
 
-interface IRideable {
+interface IRidable {
 
 
     val riding: Boolean

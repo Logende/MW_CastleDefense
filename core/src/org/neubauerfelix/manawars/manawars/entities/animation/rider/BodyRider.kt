@@ -38,6 +38,10 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
     }
 
     override fun playEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+        //TODO: Bei Abspielen von Effekt scheint der Mensch den falschen Mirror zu übernehmen
+        if (sized is ILooking) {
+            rectHuman.direction = sized.direction
+        }
         human.playBodyEffect(effect, weaponType)
     }
 
