@@ -125,24 +125,24 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
 
     override fun getCollisionType(other: ISized): MWCollisionType {
         if (this.shield != null) {
-            if (shield.overlaps(other)) {
+            if (ISized.overlaps(shield, other)) {
                 latestHitBodyPart = shield
                 return MWCollisionType.SHIELD
             }
         }
-        if (body.overlaps(other)) {
+        if (ISized.overlaps(body, other)) {
             latestHitBodyPart = body
             return MWCollisionType.HUMAN_BODY
         }
-        if (head.overlaps(other)) {
+        if (ISized.overlaps(head, other)) {
             latestHitBodyPart = head
             return MWCollisionType.HUMAN_HEAD
         }
-        if (footL.overlaps(other)) {
+        if (ISized.overlaps(footL, other)) {
             latestHitBodyPart = footL
             return MWCollisionType.HUMAN_FOOT
         }
-        if (footR.overlaps(other)) {
+        if (ISized.overlaps(footR, other)) {
             latestHitBodyPart = footR
             return MWCollisionType.HUMAN_FOOT
         }
@@ -173,13 +173,26 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
             val ySpeedOffset = (-200 - if (latestHitBodyPart == head) 400 else 0).toFloat()
             latestHitBodyPart!!.detach(sized, killer.speedX * 0.5f, killer.speedY + ySpeedOffset)
         }
+
+        if (head != latestHitBodyPart)
         head.detach(sized, killer, 0.5f, 0.5f)
+
+        if (body != latestHitBodyPart)
         body.detach(sized, killer, 0.5f, 0.5f)
+
+        if (armL != latestHitBodyPart)
         armL.detach(sized, killer, 0.5f, 0.5f)
+
+        if (armR != latestHitBodyPart)
         armR.detach(sized, killer, 0.5f, 0.5f)
+
+        if (footL != latestHitBodyPart)
         footL.detach(sized, killer, 0.5f, 0.5f)
+
+        if (footR != latestHitBodyPart)
         footR.detach(sized, killer, 0.5f, 0.5f)
-        if (shield != null && shield.enabled) {
+
+        if (shield != null && shield.enabled && shield != latestHitBodyPart) {
             shield.detach(sized, killer, 0.5f, 0.5f)
         }
         bodyPartsAttached = false

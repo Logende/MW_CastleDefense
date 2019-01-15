@@ -55,8 +55,9 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
 
 
     override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
-        if(super.death(damager, cause)){
+        if (super.death(damager, cause)) {
             animation.color = bloodColor
+            System.out.println("play death animation")
             animation.playDeathAnimation(damager, cause)
             return true
         }
@@ -72,8 +73,8 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
             super.speedX = value
         }
 
-    override fun knockback(power_x: Float, power_y: Float): Boolean {
-        val success = super.knockback(power_x, power_y)
+    override fun knockback(powerX: Float, powerY: Float): Boolean {
+        val success = super.knockback(powerX, powerY)
         if (success) {
             needsAnimationUpdate = true
         }

@@ -16,15 +16,11 @@ interface ITeamable {
                 return true
             }
             //One peaceful?
-            if(a is ITeamable){
-                if(a.team == MConstants.TEAM_PEACEFUL){
-                    return true
-                }
+            if(a is ITeamable && a.team == MConstants.TEAM_PEACEFUL){
+                return true
             }
-            if(b is ITeamable){
-                if(b.team == MConstants.TEAM_PEACEFUL){
-                    return true
-                }
+            if(b is ITeamable && b.team == MConstants.TEAM_PEACEFUL){
+                return true
             }
             //Both have certain teams
             if(a is ITeamable && b is ITeamable){

@@ -10,7 +10,11 @@ import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.enums.*
 
 
-class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale, data.color, data.animationRotationDuration, Animation.PlayMode.LOOP) {
+
+
+class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale, data.color, data.animationRotationDuration, Animation.PlayMode.LOOP), IOwned {
+
+    override var owner: IEntity? = o
 
     var health: Int
     var direction: Int = 1
@@ -34,14 +38,14 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
     init {
         // Set up basic values
         health = data.skillStrength
-        direction = owner.direction * (if (data.startSpeedX > 0) 1 else -1)
+        direction = o.direction * (if (data.startSpeedX > 0) 1 else -1)
         idleTimeLeft = data.idleTime
         lifeTimeLeft = data.lifeTime
 
-        target = MManaWars.m.getSkillSetupHandler().findTarget(this, data, owner)
-        MManaWars.m.getSkillSetupHandler().setupLocation(this, data, owner, target)
+        target = MManaWars.m.getSkillSetupHandler().findTarget(this, data, o)
+        MManaWars.m.getSkillSetupHandler().setupLocation(this, data, o, target)
         if (! this.idle) {
-            MManaWars.m.getSkillSetupHandler().setupMovement(this, data, owner, target)
+            MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
         }
 
         if (data.pickOneFrame) {
@@ -61,7 +65,7 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
             // Idle
             this.idleTimeLeft -= delta
             if (!this.idle) {
-                MManaWars.m.getSkillSetupHandler().setupMovement(this, data, owner, target)
+                MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
             }
         } else {
             // Not Idle -> active
@@ -90,6 +94,11 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
         }
     }
 
+    fun collisionSkill(s: Skill) {
+        val healthS = s.health
+        s.damage(health, this)
+        this.damage(healthS, s)
+    }
 
     fun collisionEnemy(e: ILiving, collisionType: MWCollisionType) {
         if (!this.active) {
@@ -100,8 +109,8 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
         var damageFactor = 1f
         //damageFactor *= e.getSkillEffectivity(getSkillClass(), collision_type) TODO
 
-        if (owner is IUpgraded) {
-            damageFactor += owner.getSkillMultiplier(data.skillClass)
+        if (o is IUpgraded) {
+            damageFactor += o.getSkillMultiplier(data.skillClass)
         }
 
         if (damageFactor == 0f) { //If entity is immune to skill type
@@ -118,14 +127,14 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
 
         // Knockback
         if (e is IJumpable) {
-            val knockbackFactor = Math.pow(damageFactor.toDouble(), 0.3) as Float * data.knockbackFactor * this.propertyScale
+            val knockbackFactor = Math.pow(damageFactor.toDouble(), 0.3).toFloat() * data.knockbackFactor * this.propertyScale
             val knockbackX = Math.abs(speedX / 3) + 60
-            val knockbackY = Math.abs(speedY / 3) + 30 // Was speedX before instead of speedY
+            val knockbackY = Math.abs(speedX / 3) + 50 // Was speedX before instead of speedY
             e.knockback(knockbackX * knockbackFactor, knockbackY * Math.abs(knockbackFactor), direction)
         }
 
         // Damage
-        val damage = ((Math.random() * (data.damageMax - data.damageMin) + data.damageMin) * this.propertyScale) as Float
+        val damage = ((Math.random() * (data.damageMax - data.damageMin) + data.damageMin) * this.propertyScale).toFloat()
         val killed = e.damage(damage * damageFactor, this, MWDamageCause.SKILL)
 
         // State effect
@@ -138,7 +147,7 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
         }
 
         // Damage skill itself
-        val skillDamage = Math.min(MConstants.MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT, e.health as Int)
+        val skillDamage = Math.min(MConstants.MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT, e.health.toInt())
         // Skill damage
         if (!killed) {
             this.damage(Math.max(skillDamage, MConstants.MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL), e)
@@ -163,7 +172,7 @@ class Skill(val data: IDataSkill, val owner: IActionUser): MEntityAnimationSimpl
 
     fun damage(value: Int, damager: IEntity): Boolean {
         var i = value / propertyScale
-        this.health -= i as Int
+        this.health -= i.toInt()
         if (this.health <= 0) {
             remove = true
             return true

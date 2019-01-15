@@ -3,6 +3,7 @@ package org.neubauerfelix.manawars.manawars
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
+import org.neubauerfelix.manawars.game.entities.IEntity
 
 class TestScreenLoad(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
@@ -23,5 +24,8 @@ class TestScreenLoad(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun getIngameWindowX(): Float {
         return 1f
+    }
+
+    override fun logic(delta: Float, entities: List<IEntity>) {
     }
 }

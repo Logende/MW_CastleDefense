@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.manawars.entities.IAnimated
 import org.neubauerfelix.manawars.manawars.entities.IStateable
 
-enum class MWState constructor(private val pics_name: String, private val columns: Int, val worth: Int //Defines state priorities and skill mana cost for the state (additonal cost = duration*worth).
+enum class MWState constructor(private val imageName: String, private val columns: Int, val worth: Int //Defines state priorities and skill mana cost for the state (additonal cost = duration*worth).
 ) {
     BURNING("effect.state.burning", 3, 5) {
         override fun effect(s: IStateable, eff: Boolean) {
@@ -66,7 +66,7 @@ enum class MWState constructor(private val pics_name: String, private val column
 
     fun load() {
         val keyFrames = arrayOfNulls<TextureRegion>(columns)
-        val texture = AManaWars.m.getImageHandler().getTextureRegionMain(pics_name)
+        val texture = AManaWars.m.getImageHandler().getTextureRegionMain(imageName)
         val width = texture.regionWidth / columns
         for (i in 0 until columns) {
             keyFrames[i] = TextureRegion(texture, i * width, 0, width, -texture.getRegionHeight())

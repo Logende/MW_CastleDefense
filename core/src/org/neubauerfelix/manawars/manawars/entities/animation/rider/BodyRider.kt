@@ -15,6 +15,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.entities.animation.mount.BodyMountSmart
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
+import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
 class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, producerHuman: IEntityAnimationProducer,
@@ -29,12 +30,21 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
 
 
     override fun explode() {
+        System.out.println("rider explode")
+        mount.playDeathAnimation(null, MWDamageCause.ANIMATION)
+        human.playDeathAnimation(null, MWDamageCause.ANIMATION)
     }
 
     override fun deadlyHit(killer: IMovable) {
+        System.out.println("rider hit 1")
+        mount.playDeathAnimation(killer, MWDamageCause.SKILL)
+        human.playDeathAnimation(killer, MWDamageCause.SKILL)
     }
 
     override fun deadlyHit() {
+        System.out.println("rider hit 2")
+        mount.playDeathAnimation(null, MWDamageCause.STATEEFFECT)
+        human.playDeathAnimation(null, MWDamageCause.STATEEFFECT)
     }
 
     override fun playEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {

@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Polygon
 
 
-open class GameRectangle(x: Float, y: Float, width: Float, height: Float): ISized {
+open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISized {
 
     constructor(width: Float, height: Float) : this(0f, 0f, width, height)
 
@@ -41,6 +41,7 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float): ISize
 
     init {
         polygon = Polygon(floatArrayOf(0f, 0f, width, 0f, width, height, 0f, height))
+        polygon.setOrigin(width /2, height / 2)
         polygon.setPosition(x, y)
     }
 
@@ -169,10 +170,6 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float): ISize
     }
 
 
-
-    override fun overlaps(r2: ISized): Boolean {
-        return Intersector.overlapConvexPolygons(polygon, r2.polygon)
-    }
 
     override fun isInside(px: Float, py: Float): Boolean {
         val vertices = polygon.transformedVertices

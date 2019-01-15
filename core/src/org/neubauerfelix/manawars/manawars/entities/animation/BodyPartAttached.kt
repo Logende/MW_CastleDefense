@@ -38,10 +38,8 @@ class BodyPartAttached(bodyPartData: IBodyPartData, scale: Float) : BodyPart(bod
     }
 
     private fun detach(sized: ISized, despawnTime: Int): BodyPartEntity {
-        var despawnTime = despawnTime
-        check(attached && enabled)
+        check(attached)
         attached = false
-        enabled = false
 
         val e = BodyPartEntity(bodyPartData, sized, sprite, despawnTime)
         e.x = this.x
@@ -58,7 +56,11 @@ class BodyPartAttached(bodyPartData: IBodyPartData, scale: Float) : BodyPart(bod
         e.knockback(knockbackX, knockbackY, false)
         e.startRotation()
 
-        e.spawn()
+        if (enabled) {
+            e.spawn()
+        }
+
+        enabled = false
         return e
     }
 

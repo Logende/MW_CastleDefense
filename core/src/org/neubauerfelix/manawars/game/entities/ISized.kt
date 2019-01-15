@@ -1,8 +1,16 @@
 package org.neubauerfelix.manawars.game.entities
 
+import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Polygon
 
 interface ISized {
+
+
+    companion object {
+        fun overlaps(r1: ISized, r2: ISized): Boolean {
+            return Intersector.overlapConvexPolygons(r1.polygon, r2.polygon)
+        }
+    }
 
     val polygon: Polygon
     var x: Float
@@ -34,15 +42,6 @@ interface ISized {
      * @param l New location.
      */
     fun setLocation(l: ILocated)
-
-    /**
-     * Checks if two rectangles are intersecting. Includes rotation of rectangles.
-     *
-     * @param r2 Rectangle to check intersection with.
-     * @return `true` if they do intersect.
-     */
-    fun overlaps(r2: ISized): Boolean
-
 
     /**
      * Get the distance between this rectangle and an other sized object.

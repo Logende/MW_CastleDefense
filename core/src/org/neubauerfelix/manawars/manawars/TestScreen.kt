@@ -4,11 +4,17 @@ import com.badlogic.gdx.utils.Timer
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
+import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.data.actions.DataSkillExample
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
+import org.neubauerfelix.manawars.manawars.entities.ICollidable
+import org.neubauerfelix.manawars.manawars.entities.ILiving
+import org.neubauerfelix.manawars.manawars.entities.ITeamable
 import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerTest
+import org.neubauerfelix.manawars.manawars.entities.skills.Skill
+import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 
 class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
@@ -41,38 +47,44 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
 
         val controller = ControllerTest()
-        val e = MEntityControlled(animationProducerRider, 100f, 1000f, arrayOf(skill), 100f, controller = controller)
-        controller.controlled = e
-        e.setLocation(300f, 0f)
-        e.spawn()
-        e.gravity()
+        val a = MEntityControlled(animationProducerRider, 100f, 1000f, arrayOf(skill), 100f, controller = controller)
+        controller.controlled = a
+        a.setLocation(300f, 0f)
+        a.spawn()
+        a.team = MConstants.TEAM_BOT
+        a.gravity()
+
+        val b = MEntityControlled(animationProducerRider, 100f, 1000f, arrayOf(skill), 100f, controller = controller)
+        controller.controlled = b
+        b.setLocation(200f, 0f)
+        b.spawn()
+        b.gravity()
         Timer.schedule(object : Timer.Task() {
             override fun run() {
-                e.executeAction(0)
+                a.executeAction(0)
             }
         }, 5f)
         Timer.schedule(object : Timer.Task() {
             override fun run() {
-                e.executeAction(0)
+                a.executeAction(0)
             }
         }, 10f)
         Timer.schedule(object : Timer.Task() {
             override fun run() {
-                e.executeAction(0)
+                a.executeAction(0)
             }
         }, 15f)
         Timer.schedule(object : Timer.Task() {
             override fun run() {
-                e.executeAction(0)
+                a.executeAction(0)
             }
-        }, 20f, 2f)
+        }, 2f, 0.5f)
+        b.team = MConstants.TEAM_PLAYER
 
-        Timer.schedule(object : Timer.Task() {
-            override fun run() {
-                e.animation.updateAnimation(e)
-            }
-        }, 1f, 2f)
+    }
 
+    override fun logic(delta: Float, entities: List<IEntity>) {
+        MManaWars.m.getCollisionHandler().updateCollisions(entities)
     }
 
     override fun disposeScreen() {

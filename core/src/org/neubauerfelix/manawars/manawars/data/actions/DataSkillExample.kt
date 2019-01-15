@@ -65,9 +65,9 @@ class DataSkillExample : DataSkill() {
     override val xOffset: Float
         get() = 0f
     override val yOffset: Float
-        get() = 0f
+        get() = 140f
     override val startSpeedX: Float
-        get() = 200f
+        get() = 400f
     override val startSpeedY: Float
         get() = 0f
     override val accelerationX: Float
@@ -94,7 +94,6 @@ class DataSkillExample : DataSkill() {
         get() =0f
 
     override fun spawnSkill(owner: IActionUser): IEntity {
-        System.out.println("creating skill with animation ${animation!!.keyFrames}")
         val s = Skill(this, owner)
         s.spawn()
         return s

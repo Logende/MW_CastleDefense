@@ -38,7 +38,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     override var speedX: Float
         get() = super.speedX
         set(value) {
-            if(value * super.speedX < 0){ //new direction because of different algebraic signs
+            if(value * super.speedX < 0 && !isKnockbacked){ //new direction because of different algebraic signs
                 this.direction = if (value > 0) { 1 } else { -1 }
             }
             super.speedX = value
@@ -89,31 +89,29 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
      * Causes knockback. While being knocked back the entity is unable to walk.
      * Includes the entity scale: Bigger entities suffer less knockback (proportional).
      * If the entity is on ground while knocked back the knockback counts as first jump.
-     * @param power_x Knockback in x direction.
-     * @param power_y Knockback in y direction.
+     * @param powerX Knockback in x direction.
+     * @param powerY Knockback in y direction.
      * @return `true` if it was possible to execute the knockback.
      */
-    open fun knockback(power_x: Float, power_y: Float): Boolean {
-        AManaWars.m.getEventHandler().callEvent(EntityKnockbackEvent(this, power_x, power_y))
+    open fun knockback(powerX: Float, powerY: Float): Boolean {
+        AManaWars.m.getEventHandler().callEvent(EntityKnockbackEvent(this, powerX, powerY))
         jumpsAmount = Math.max(1, jumpsAmount) //Knockback counts as jump when being on the ground when knocked back!
 
-        if (!isKnockbacked) {
-            speedX = power_x / propertyScale //Bigger entities suffer less knockback
-            speedY = power_y * -1 / propertyScale
-        } else { //Already knocked back: Add speed to existing knockback speed
-            val same_dir_hor = speedX > 0 == power_x > 0
-            if (same_dir_hor) {
-                val dir_hor = direction
-                val speed_hor = Math.max(Math.abs(speedX), Math.abs(power_x / propertyScale)) //Set speed to max of both speeds but do not add together
-                speedX = speed_hor * dir_hor
-            } else {
-                speedX = speedX + power_x / propertyScale
-            }
-
-            val speed_ver = Math.min(speedY, power_y * -1.0f / propertyScale)
-            speedY = speed_ver
-        }
         isKnockbacked = true
+        if (!isKnockbacked) {
+            speedX = powerX / propertyScale //Bigger entities suffer less knockback
+            speedY = powerY * 1 / propertyScale
+        } else { //Already knocked back: Add speed to existing knockback speed
+            val sameDirHor = speedX > 0 == powerX > 0
+            if (sameDirHor) {
+                val dirHor = direction
+                val speedHor = Math.max(Math.abs(speedX), Math.abs(powerX / propertyScale)) //Set speed to max of both speeds but do not add together
+                speedX = speedHor * dirHor
+            } else {
+                speedX = speedX + powerX / propertyScale
+            }
+            speedY = Math.max(speedY, powerY / propertyScale)
+        }
         gravity()
         //setLockedMovementEnd(500)
         return true

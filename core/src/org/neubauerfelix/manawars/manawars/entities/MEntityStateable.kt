@@ -105,6 +105,7 @@ open class MEntityStateable(animationProducer: IEntityAnimationProducer, health:
     override fun draw(delta: Float, batcher: Batch) {
         super.draw(delta, batcher)
         if (state != null) {
+            require(state!!.animation != null)
             batcher.draw(state!!.animation!!.getKeyFrame(this.stateTimeLeft), x, y, width, height)
         }
     }

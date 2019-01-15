@@ -59,6 +59,7 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
             deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
             delta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
         }
+        delta *= timeSpeedModifier
 
         synchronized(entities){
             var last = entities.size-1
@@ -79,10 +80,11 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
                 i++
             }
         }
-
-        game.getCamera().render(delta * timeSpeedModifier, backgrounds, drawBackgroundsStatic, getIngameWindowX(),
+        this.logic(delta, entities)
+        game.getCamera().render(delta, backgrounds, drawBackgroundsStatic, getIngameWindowX(),
                 entities, components)
     }
+
 
 
     @Synchronized override fun load() {
@@ -208,6 +210,7 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
     abstract fun loadedScreen()
     abstract fun disposeScreen()
     abstract fun getIngameWindowX(): Float
+    abstract fun logic(delta: Float, entities: List<IEntity>)
 
 
     override fun getInputProcessor(): InputProcessor {

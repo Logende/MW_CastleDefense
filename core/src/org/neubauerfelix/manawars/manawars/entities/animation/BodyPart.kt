@@ -117,6 +117,7 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
         }
     }
 
+    // TODO: update rectangle rotation when sprite is rotated
 
     /*fun collides(sized: ISized, mirror: Boolean, scale: Float, intersection: ISized): Boolean {
         return if (!enabled) {

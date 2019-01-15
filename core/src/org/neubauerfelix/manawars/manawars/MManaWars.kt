@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars
 
 import org.neubauerfelix.manawars.game.GameManaWars
+import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
 import org.neubauerfelix.manawars.manawars.factories.MComponentFactory
 import org.neubauerfelix.manawars.manawars.handlers.*
@@ -27,13 +28,16 @@ class MManaWars: GameManaWars() {
         loadHandler(LanguageHandler("english")) //TODO: Load language from config
         loadHandler(UpgradeHandler())
         loadHandler(SkillHandler())
+        loadHandler(CollisionHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
 
+
     override fun loadedGame() {
         assert(!loaded)
         print("loaded")
+        MWState.values().forEach { state -> state.load() }
         startScreen(TestScreen(this), true)
     }
 
@@ -71,6 +75,10 @@ class MManaWars: GameManaWars() {
 
     fun getSkillAnalysisHandler(): ISkillAnalysisHandler {
         return getHandler(SkillHandler::class.java)
+    }
+
+    fun getCollisionHandler(): ICollisionHandler {
+        return getHandler(CollisionHandler::class.java)
     }
 
 

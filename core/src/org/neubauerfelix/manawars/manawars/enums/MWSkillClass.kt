@@ -8,7 +8,7 @@ enum class MWSkillClass private constructor(val durabilityUpgrade: MWUpgrade, va
     LIGHT(MWUpgrade.SKILLS_DURABILITY_LIGHT, MWUpgrade.SKILLS_LIGHT, 0),
     HEAVY(MWUpgrade.SKILLS_DURABILITY_HEAVY, MWUpgrade.SKILLS_HEAVY, 1),
     MAGIC(MWUpgrade.SKILLS_DURABILITY_MAGIC, MWUpgrade.SKILLS_MAGIC, 0),
-    SHIELD(null!!, null!!, 2);
+    SHIELD(MWUpgrade.SKILLS_DURABILITY_SHIELD, MWUpgrade.SKILLS_SHIELD, 2);
 
     val displayName: String
         get() = MManaWars.m.getLanguageHandler().getMessage("information_skillclass_" + name.toLowerCase())

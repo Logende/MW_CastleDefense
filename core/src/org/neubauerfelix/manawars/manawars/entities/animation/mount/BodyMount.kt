@@ -66,27 +66,27 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
     }
 
     override fun getCollisionType(other: ISized): MWCollisionType {
-        if (body.overlaps(other)) {
+        if (ISized.overlaps(body, other)) {
             latestHitBodyPart = body
             return MWCollisionType.MOUNT_BODY
         }
-        if (head.overlaps(other)) {
+        if (ISized.overlaps(head, other)) {
             latestHitBodyPart = head
             return MWCollisionType.MOUNT_HEAD
         }
-        if (footBL.overlaps(other)) {
+        if (ISized.overlaps(footBL, other)) {
             latestHitBodyPart = footBL
             return MWCollisionType.MOUNT_FOOT
         }
-        if (footBR.overlaps(other)) {
+        if (ISized.overlaps(footBR, other)) {
             latestHitBodyPart = footBR
             return MWCollisionType.MOUNT_FOOT
         }
-        if (footFL.overlaps(other)) {
+        if (ISized.overlaps(footFL, other)) {
             latestHitBodyPart = footFL
             return MWCollisionType.MOUNT_FOOT
         }
-        if (footFR.overlaps(other)) {
+        if (ISized.overlaps(footFR, other)) {
             latestHitBodyPart = footFR
             return MWCollisionType.MOUNT_FOOT
         }
@@ -114,11 +114,22 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
             val ySpeedOffset = (-200 - if (latestHitBodyPart == head) 400 else 0).toFloat()
             latestHitBodyPart!!.detach(sized, killer.speedX * 0.5f, killer.speedY + ySpeedOffset)
         }
+        if (head != latestHitBodyPart)
         head.detach(sized, killer, 0.5f, 0.5f)
+
+        if (body != latestHitBodyPart)
         body.detach(sized, killer, 0.5f, 0.5f)
+
+        if (footBL != latestHitBodyPart)
         footBL.detach(sized, killer, 0.5f, 0.5f)
+
+        if (footBR != latestHitBodyPart)
         footBR.detach(sized, killer, 0.5f, 0.5f)
+
+        if (footFL != latestHitBodyPart)
         footFL.detach(sized, killer, 0.5f, 0.5f)
+
+        if (footFR != latestHitBodyPart)
         footFR.detach(sized, killer, 0.5f, 0.5f)
         bodyPartsAttached = false
     }

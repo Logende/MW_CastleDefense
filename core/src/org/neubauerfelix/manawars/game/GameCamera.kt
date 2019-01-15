@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.game
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
@@ -10,6 +11,7 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.game.entities.ISized
 
 class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
 
@@ -121,6 +123,18 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
                 if (drawableComponent is IShapeDrawable) {
                     drawableComponent.draw(delta, shapeRenderer)
                 }
+            }
+        }
+        shapeRenderer.end()
+
+        // Debugging Code
+        shapeRenderer.projectionMatrix = cameraIngame.combined
+        shapeRenderer.begin()
+        shapeRenderer.set(ShapeRenderer.ShapeType.Line)
+        shapeRenderer.color = Color.RED
+        synchronized(toDraw2Ingame) {
+            for (drawableIngame in toDraw2Ingame) {
+                shapeRenderer.polygon(drawableIngame.polygon.transformedVertices)
             }
         }
         shapeRenderer.end()

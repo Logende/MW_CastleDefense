@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.GameEntityMovable
-import org.neubauerfelix.manawars.game.entities.GameLocation
-import org.neubauerfelix.manawars.game.entities.ILocated
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 
@@ -65,7 +63,7 @@ abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, s
     }
 
 
-    override fun getCollisionType(intersection: ISized): MWCollisionType {
+    override fun getCollisionType(other: ISized): MWCollisionType {
         return MWCollisionType.UNDEFINED
     }
 
