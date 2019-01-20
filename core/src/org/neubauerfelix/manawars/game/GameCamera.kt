@@ -12,6 +12,7 @@ import com.badlogic.gdx.utils.viewport.Viewport
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
+import org.neubauerfelix.manawars.manawars.entities.IAnimated
 
 class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
 
@@ -135,6 +136,9 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
         synchronized(toDraw2Ingame) {
             for (drawableIngame in toDraw2Ingame) {
                 shapeRenderer.polygon(drawableIngame.polygon.transformedVertices)
+                if (drawableIngame is IAnimated) {
+                    drawableIngame.animation.drawDebugging(shapeRenderer)
+                }
             }
         }
         shapeRenderer.end()

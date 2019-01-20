@@ -19,9 +19,9 @@ import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 class DataSkillExample : DataSkill() {
 
     override val texturePath: String
-        get() = "skills/magic.fireball.png"
+        get() = "skills/axe.brutal.2.png"
     override val textureColumns: Int
-        get() = 2
+        get() = 1
     override val textureRows: Int
         get() = 1
     override val pickOneFrame: Boolean
@@ -35,13 +35,13 @@ class DataSkillExample : DataSkill() {
     override val soundPath: String
         get() = ""
     override val textureWidth: Int
-        get() = 200
+        get() = 54
     override val textureHeight: Int
-        get() = 100
+        get() = 107
     override val textureScale: Float
         get() = 1f
     override val skillClass: MWSkillClass
-        get() = MWSkillClass.MAGIC
+        get() = MWSkillClass.HEAVY
     override val skillStrength: Int
         get() = 10
     override val damageMin: Int
@@ -49,7 +49,7 @@ class DataSkillExample : DataSkill() {
     override val damageMax: Int
         get() = 10
     override val stateEffect: MWState
-        get() = MWState.BURNING
+        get() = MWState.SLAGGED
     override val stateEffectDuration: Float
         get() = 3f
     override val knockbackFactor: Float
@@ -67,23 +67,23 @@ class DataSkillExample : DataSkill() {
     override val yOffset: Float
         get() = 140f
     override val startSpeedX: Float
-        get() = 400f
-    override val startSpeedY: Float
         get() = 0f
+    override val startSpeedY: Float
+        get() = 800f
     override val accelerationX: Float
         get() = 0f
     override val accelerationY: Float
-        get() = 0f
+        get() = -1000f
     override val stopOnGround: Boolean
         get() = false
     override val adaptiveSpeedX: Boolean
-        get() = false
+        get() = true
     override val fixManaCost: Int
         get() = -1
     override val targetEnemy: Boolean
-        get() = false
+        get() = true
     override val targetRange: Float
-        get() = 0f
+        get() = 10000f
     override val xRelativeToTarget: Boolean
         get() = false
     override val yRelativeToTarget: Boolean
@@ -91,13 +91,8 @@ class DataSkillExample : DataSkill() {
     override val targetSpeedX: Float
         get() = 0f
     override val targetSpeedY: Float
-        get() =0f
+        get() = 0f
 
-    override fun spawnSkill(owner: IActionUser): IEntity {
-        val s = Skill(this, owner)
-        s.spawn()
-        return s
-    }
 
     override val name: String
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
@@ -116,10 +111,6 @@ class DataSkillExample : DataSkill() {
     override val rangeMin: Int
         get() = 0
 
-
-    override fun canUse(owner: IEntity): Boolean {
-        return true
-    }
 
     override fun generateInfo(x: Int, y: Int, width: Int, height: Int): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

@@ -1,16 +1,12 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
-import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 
-class BodyPartDataShield(val textureRegion: TextureRegion, override val bodyData: IBodyData, val scale: Float): IBodyPartData {
+class BodyPartDataShield(override val textureRegion: TextureRegion, override val bodyData: IBodyData, val scale: Float) :
+        IBodyPartData {
 
 
-    override fun createSprite(): Sprite {
-        val sprite = Sprite(textureRegion)
-        sprite.setSize(sprite.width * scale, sprite.height * scale)
-        return sprite
-    }
+
 
     override val relativeX: Float
         get() = bodyData.bodyWidth + 14f - textureRegion.regionWidth * scale

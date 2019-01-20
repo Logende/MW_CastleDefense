@@ -22,17 +22,17 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
     var mirror: Boolean
         get() = head.mirror
         set(value) {
-            head.setMirror(value)
-            body.setMirror(value)
-            armL.setMirror(value)
-            armR.setMirror(value)
-            footL.setMirror(value)
-            footR.setMirror(value)
+            head.mirror = value
+            body.mirror = value
+            armL.mirror = value
+            armR.mirror = value
+            footL.mirror = value
+            footR.mirror = value
             if (shield != null) {
-                shield.setMirror(value)
+                shield.mirror = value
             }
             if (weapon != null) {
-                weapon!!.setMirror(value)
+                weapon!!.mirror = value
             }
         }
 
@@ -47,17 +47,17 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
     var color: Color = Color.WHITE
         set(c) {
             this.color = c
-            head.setColor(c)
-            body.setColor(c)
-            armL.setColor(c)
-            armR.setColor(c)
-            footL.setColor(c)
-            footR.setColor(c)
+            head.color = c
+            body.color = c
+            armL.color = c
+            armR.color = c
+            footL.color = c
+            footR.color = c
             if (shield != null) {
-                shield.setColor(c)
+                shield.color = c
             }
             if (weapon != null) {
-                weapon!!.setColor(c)
+                weapon!!.color = c
             }
         }
 

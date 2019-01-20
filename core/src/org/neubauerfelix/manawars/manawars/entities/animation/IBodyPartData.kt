@@ -1,10 +1,10 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
-import com.badlogic.gdx.graphics.g2d.Sprite
+import com.badlogic.gdx.graphics.g2d.TextureRegion
 
 interface IBodyPartData {
 
-    fun createSprite(): Sprite
+    val textureRegion: TextureRegion
     val relativeX: Float
     val relativeY: Float
     val rotationOriginX: Float

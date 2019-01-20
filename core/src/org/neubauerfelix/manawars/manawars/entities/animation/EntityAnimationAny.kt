@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
 import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
@@ -33,6 +34,10 @@ class EntityAnimationAny(val body: IBody): EntityAnimation(body, body.scale) {
 
     override fun draw(delta: Float, batcher: Batch) {
         body.draw(delta, batcher)
+    }
+
+    override fun drawDebugging(shapeRenderer: ShapeRenderer) {
+        body.drawDebugging(shapeRenderer)
     }
 
     override fun getCollisionType(intersection: ISized): MWCollisionType {

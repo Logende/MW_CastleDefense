@@ -3,31 +3,49 @@ package org.neubauerfelix.manawars.manawars.entities.animation
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
-import com.badlogic.gdx.graphics.g2d.Sprite
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.ISized
 
 open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectangle(0f, 0f, 0f, 0f) {
     // TODO: make body parts of different people have different sizes due to transparent pixels. That is required because transparent pixels are no longer included in collision check
 
-    var sprite: Sprite = bodyPartData.createSprite()
+    var tr = bodyPartData.textureRegion
     var enabled = true
 
+    var color: Color = Color.WHITE
 
     var relativeX: Float = 0f
         private set
     var relativeY: Float = 0f
         private set
 
-    val mirror: Boolean
-        get() = sprite.isFlipX
+    open var mirror: Boolean = false
+        set(value) {
+            if (field != value) {
+                super.rotation *= -1
+                super.originX = if (mirror) width-super.originX else (super.originX-width)*(-1)
+                field = value
+            }
+        }
+
+
+    override var rotation: Float
+        get() = super.rotation
+        set(value) {
+            super.rotation = value * (if (mirror) -1 else 1)
+        }
+    override var originX: Float
+        get() = super.originX
+        set(value) {
+            super.originX = if (mirror) width-value else value
+        }
+
 
     init {
         this.relativeX = x
         this.relativeY = y
-        sprite.setSize(sprite.width * scale, sprite.height * scale)
-        setSize(sprite.width, sprite.height)
-        sprite.setOrigin(bodyPartData.rotationOriginX * scale, bodyPartData.rotationOriginY * scale)
+        setSize(tr.regionWidth * scale, tr.regionHeight * scale)
+        setRotationOrigin(bodyPartData.rotationOriginX * scale, bodyPartData.rotationOriginY * scale)
         update(bodyPartData.rotation)
     }
 
@@ -38,8 +56,13 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
         }
         x = calculateX(sized.x, mirror, scale)
         y = calculateY(sized.y, scale)
-        sprite.setPosition(x, y)
-        sprite.draw(batcher)
+        batcher.color = color
+        batcher.draw(tr, if (mirror) x+width else x, y,
+                if (mirror) originX-width else originX, originY,
+                if (mirror) -width else width, height,
+                1f, 1f,
+                rotation)
+        batcher.color = Color.WHITE
     }
 
     /**
@@ -51,7 +74,7 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
      */
     fun calculateX(sizedX: Float, mirror: Boolean, scale: Float): Float {
         return if (mirror) {
-            (sizedX + (bodyPartData.bodyData.bodyWidth - relativeX - sprite.regionWidth) * scale)
+            (sizedX + (bodyPartData.bodyData.bodyWidth - relativeX - tr.regionWidth) * scale)
         } else {
             (sizedX + relativeX * scale)
         }
@@ -84,8 +107,7 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
      * @param rotation Rotation in degree.
      */
     open fun update(rotation: Float) {
-        val mirror = sprite.isFlipX
-        sprite.rotation = rotation * if (mirror) -1 else 1
+        this.rotation = rotation * if (mirror) -1 else 1
     }
 
     /**
@@ -98,35 +120,7 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
         this.relativeY += y
     }
 
-    /**
-     * Updates the color of the body part. Can be `null`. In that case the original texture without color filter is drawn (default).
-     * @param c New color.
-     */
-    fun setColor(c: Color) {
-        sprite.color = c
-    }
 
-    /**
-     * Allows mirroring the body part.
-     * @param b If `true` the body part is flipped horizontally.
-     */
-    open fun setMirror(b: Boolean) {
-        if (mirror != b) {
-            sprite.flip(true, false)
-            sprite.setOrigin(sprite.width - sprite.originX, sprite.originY) //mirror rotation centre
-        }
-    }
-
-    // TODO: update rectangle rotation when sprite is rotated
-
-    /*fun collides(sized: ISized, mirror: Boolean, scale: Float, intersection: ISized): Boolean {
-        return if (!enabled) {
-            false
-        } else intersection.overlaps(calculateX(sized.x, mirror, scale) + bodyPartData.transparentPixelColumnsLeft * scale,
-                calculateY(sized.y, scale) + bodyPartData.transparentPixelRowsBottom,
-                width - ((bodyPartData.transparentPixelColumnsLeft + bodyPartData.transparentPixelColumnsRight) * scale),
-                height - ((bodyPartData.transparentPixelRowsTop + bodyPartData.transparentPixelRowsBottom) * scale))
-    }*/
 
 
 }

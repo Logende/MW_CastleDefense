@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.entities.animation.human
 
 
 import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -48,6 +49,16 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         super.draw(delta, batcher)
     }
 
+    override fun drawDebugging(shapeRenderer: ShapeRenderer) {
+        shapeRenderer.polygon(head.polygon.transformedVertices)
+        shapeRenderer.polygon(body.polygon.transformedVertices)
+        shapeRenderer.polygon(footL.polygon.transformedVertices)
+        shapeRenderer.polygon(footR.polygon.transformedVertices)
+        shapeRenderer.polygon(armL.polygon.transformedVertices)
+        shapeRenderer.polygon(armR.polygon.transformedVertices)
+        if (shield != null)
+        shapeRenderer.polygon(shield!!.polygon.transformedVertices)
+    }
 
     /**
      * Plays a short animation.

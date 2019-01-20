@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
@@ -21,6 +22,7 @@ interface IEntityAnimation: IDrawable, ICollidable{
     val playingBodyEffect: Boolean
 
     fun playDeathAnimation(damager: IEntity?, cause: MWDamageCause)
+    fun drawDebugging(shapeRenderer: ShapeRenderer)
 
     fun playBodyEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?)
 

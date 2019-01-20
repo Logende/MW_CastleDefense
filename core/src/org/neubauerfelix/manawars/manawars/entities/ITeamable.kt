@@ -10,40 +10,41 @@ import org.neubauerfelix.manawars.manawars.MConstants
 interface ITeamable {
 
     companion object {
-        fun isTeamed(a: IEntity, b: IEntity): Boolean{
+        fun isTeamed(a: IEntity, b: IEntity) : Boolean {
+            if (a is IOwned && a.owner != null) {
+                return isTeamed(a.owner!!, b)
+            }
+            if (b is IOwned && b.owner != null) {
+                return isTeamed(a, b.owner!!)
+            }
             //Both identical?
-            if(a == b){
+            if (a == b) {
                 return true
             }
             //One peaceful?
-            if(a is ITeamable && a.team == MConstants.TEAM_PEACEFUL){
-                return true
-            }
-            if(b is ITeamable && b.team == MConstants.TEAM_PEACEFUL){
+                if (a is ITeamable && a.team == MConstants.TEAM_PEACEFUL) {
+                    return true
+                }
+            if (b is ITeamable && b.team == MConstants.TEAM_PEACEFUL) {
                 return true
             }
             //Both have certain teams
-            if(a is ITeamable && b is ITeamable){
+            if (a is ITeamable && b is ITeamable) {
                 val teamA = a.team
                 val teamB = b.team
                 //Both bots
-                if(teamA == MConstants.TEAM_BOT || teamA == MConstants.TEAM_BOT_NEUTRAL){
-                    if(teamB == MConstants.TEAM_BOT || teamB == MConstants.TEAM_BOT_NEUTRAL){
+                if (teamA == MConstants.TEAM_BOT || teamA == MConstants.TEAM_BOT_NEUTRAL) {
+                    if(teamB == MConstants.TEAM_BOT || teamB == MConstants.TEAM_BOT_NEUTRAL) {
                         return true
                     }
                 }
                 //Both alone
-                if(teamA == MConstants.TEAM_ALONE || teamB == MConstants.TEAM_ALONE){
+                if (teamA == MConstants.TEAM_ALONE || teamB == MConstants.TEAM_ALONE) {
                     return false
                 }
 
                 //Same team?
                 return teamA == teamB
-            }
-
-            //Not both have teams. Is one owned by the other?
-            if(IOwned.isOwnerOf(a, b, true) || IOwned.isOwnerOf(b, a, true)){
-                return true
             }
             return false
         }

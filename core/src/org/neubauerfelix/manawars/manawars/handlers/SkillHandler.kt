@@ -23,13 +23,13 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun findTarget(skill: IMovable, data: IDataSkill, owner: IActionUser): IEntity?{
+    override fun findTarget(data: IDataSkill, owner: IActionUser): IEntity?{
         if (data.targetEnemy) {
             val entities = AManaWars.m.screen.getEntities{e ->
                 // only pick enemies in the direction the owner is looking to
                 ! ITeamable.isTeamed(owner,e)
                         && (e.centerHorizontal - owner.centerHorizontal) * owner.direction > 0f
-                        && e.getDistanceHor(owner) < data.targetRange * skill.propertyScale
+                        && e.getDistanceHor(owner) < data.targetRange * owner.propertyScale
             }
             if (!entities.isEmpty()) {
                 return entities.sortedByDescending { e -> e.getDistanceHor(owner) }.first()

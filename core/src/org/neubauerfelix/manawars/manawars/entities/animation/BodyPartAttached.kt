@@ -41,7 +41,7 @@ class BodyPartAttached(bodyPartData: IBodyPartData, scale: Float) : BodyPart(bod
         check(attached)
         attached = false
 
-        val e = BodyPartEntity(bodyPartData, sized, sprite, despawnTime)
+        val e = BodyPartEntity(bodyPartData, sized, tr, despawnTime, mirror)
         e.x = this.x
         e.y = this.y
 
@@ -67,7 +67,7 @@ class BodyPartAttached(bodyPartData: IBodyPartData, scale: Float) : BodyPart(bod
     fun reattach(enable: Boolean, rotation: Float) {
         assert(!attached)
         attached = true
-        sprite.rotation = rotation
+        this.rotation = rotation
         enabled = enable
     }
 

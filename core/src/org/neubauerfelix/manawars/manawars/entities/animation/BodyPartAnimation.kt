@@ -18,7 +18,6 @@ open class BodyPartAnimation(private val sprites: Array<Sprite>, bodyPartData: I
         for (i in 0 until sprites.size) {
             sprites[i].setSize(sprites[i].regionWidth * scale, sprites[i].regionHeight * scale)
         }
-        this.sprite = sprites[0]
     }
 
 
@@ -48,12 +47,14 @@ open class BodyPartAnimation(private val sprites: Array<Sprite>, bodyPartData: I
         }
     }
 
-    override fun setMirror(b: Boolean) {
-        for (sprite in sprites) {
-            if (sprite.isFlipX != b) {
-                sprite.flip(true, false)
+    override var mirror: Boolean = false
+        set(value) {
+            super.mirror = value
+            for (sprite in sprites) {
+                if (sprite.isFlipX != value) {
+                    sprite.flip(true, false)
+                }
             }
         }
-    }
 
 }

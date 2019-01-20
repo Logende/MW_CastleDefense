@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.entities.animation.mount
 
 
 import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -46,6 +47,14 @@ class BodyMountSmart(bodyData: IBodyDataMount, scale: Float = 1f, sized: ISized)
         super.draw(delta, batcher)
     }
 
+    override fun drawDebugging(shapeRenderer: ShapeRenderer) {
+        shapeRenderer.polygon(head.polygon.transformedVertices)
+        shapeRenderer.polygon(body.polygon.transformedVertices)
+        shapeRenderer.polygon(footBL.polygon.transformedVertices)
+        shapeRenderer.polygon(footBR.polygon.transformedVertices)
+        shapeRenderer.polygon(footFL.polygon.transformedVertices)
+        shapeRenderer.polygon(footFR.polygon.transformedVertices)
+    }
 
 
     /**

@@ -11,7 +11,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWShield
 interface ISkillSetupHandler: IHandler {
 
 
-    fun findTarget(skill: IMovable, data: IDataSkill, owner: IActionUser): IEntity?
+    fun findTarget(data: IDataSkill, owner: IActionUser): IEntity?
     fun setupLocation(skill: IMovable, data: IDataSkill, owner: IActionUser, target: IEntity?)
     fun setupMovement(skill: IMovable, data: IDataSkill, owner: IActionUser, target: IEntity?)
 

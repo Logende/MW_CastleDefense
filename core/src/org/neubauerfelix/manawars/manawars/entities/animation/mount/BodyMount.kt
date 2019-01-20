@@ -20,12 +20,12 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
     var mirror: Boolean
         get() = head.mirror
         set(value) {
-            head.setMirror(value)
-            body.setMirror(value)
-            footBL.setMirror(value)
-            footBR.setMirror(value)
-            footFL.setMirror(value)
-            footFR.setMirror(value)
+            head.mirror = value
+            body.mirror = value
+            footBL.mirror = value
+            footBR.mirror = value
+            footFL.mirror = value
+            footFR.mirror = value
         }
 
     var scale: Float = scale
@@ -37,12 +37,12 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
     var color: Color = Color.WHITE
         set(c) {
             this.color = c
-            head.setColor(c)
-            body.setColor(c)
-            footBL.setColor(c)
-            footBL.setColor(c)
-            footFL.setColor(c)
-            footFR.setColor(c)
+            head.color = c
+            body.color = c
+            footBL.color = c
+            footBL.color = c
+            footFL.color = c
+            footFR.color = c
         }
 
     var bodyPartsAttached = true

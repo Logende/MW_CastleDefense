@@ -42,7 +42,7 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
         idleTimeLeft = data.idleTime
         lifeTimeLeft = data.lifeTime
 
-        target = MManaWars.m.getSkillSetupHandler().findTarget(this, data, o)
+        target = MManaWars.m.getSkillSetupHandler().findTarget( data, o)
         MManaWars.m.getSkillSetupHandler().setupLocation(this, data, o, target)
         if (! this.idle) {
             MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)

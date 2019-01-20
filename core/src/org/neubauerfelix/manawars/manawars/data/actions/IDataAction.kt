@@ -81,7 +81,7 @@ interface IDataAction : IDataPresentable, IAsset {
      * @param entity Entity to check usage-ability.
      * @return `true` if the entity can use the action.
      */
-    fun canUse(owner: IEntity): Boolean
+    fun canUse(owner: IActionUser): Boolean
 
 
 }

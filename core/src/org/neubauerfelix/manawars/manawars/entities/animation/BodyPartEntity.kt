@@ -2,15 +2,17 @@ package org.neubauerfelix.manawars.manawars.entities.animation
 
 
 import com.badlogic.gdx.graphics.g2d.Batch
-import com.badlogic.gdx.graphics.g2d.Sprite
+import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
+import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityJumpable
 
-class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized: ISized, private val sprite: Sprite, duration: Int,
-                     private val maxRotationAngle: Float = MConstants.BODY_PART_DETACH_MAX_ROTATION_ANGLE) : MEntityJumpable(sprite.width, sprite.height), IDrawable {
+class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized: ISized, private val textureRegion: TextureRegion, duration: Int,
+                     private val mirror: Boolean, private val maxRotationAngle: Float = MConstants.BODY_PART_DETACH_MAX_ROTATION_ANGLE) :
+        MEntityJumpable(textureRegion.regionWidth.toFloat(), textureRegion.regionHeight.toFloat()), IDrawable {
 
     private var currentRotationSummand: Float = 0f
     private val despawnTime: Long = AManaWars.m.screen.getGameTime() + duration
@@ -23,14 +25,17 @@ class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized:
 
 
     private fun startRotation(rotation: Float) {
-        sprite.setOrigin((sprite.regionWidth / 2).toFloat(), 0f)
+        setRotationOrigin((textureRegion.regionWidth / 2).toFloat(), 0f)
         currentRotationSummand = rotation
     }
 
 
     override fun draw(delta: Float, batcher: Batch) {
-        sprite.setPosition(x, y)
-        sprite.draw(batcher)
+        batcher.draw(textureRegion, if (mirror) x+width else x, y,
+                if (mirror) -originX else originX, originY,
+                if (mirror) -width else width, height,
+                1f, 1f,
+                rotation * if (mirror) -1 else 1)
     }
 
     override fun doLogic(delta: Float) {
@@ -44,10 +49,9 @@ class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized:
 
         if(time >= bloodTime){
             bloodTime = time + MConstants.BODY_PART_BLOOD_DELAY
-            //TODO: Play blood animation
+            MManaWars.m.getAnimationHandler().playBloodAnimation(this)
         }
-        if (Math.abs(sprite.rotation) < maxRotationAngle && currentRotationSummand > 0.001) {
-           // sprite.rotation = sprite.rotation + currentRotationSummand
+        if (Math.abs(rotation) < maxRotationAngle && currentRotationSummand > 0.001) {
             currentRotationSummand *= 0.9f
         }
     }
@@ -61,7 +65,7 @@ class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized:
      * else the speed will be completely overwritten.
      */
     fun knockback(speedX: Float, speedY: Float, additional: Boolean, rotation: Boolean = true) {
-        val factor = sprite.width / bodyPartData.bodyData.bodyWidth
+        val factor = textureRegion.regionWidth / bodyPartData.bodyData.bodyWidth
         this.speedX = (speedX * factor + if (additional) speedX else 0f)
         this.speedY = (speedY * factor + if (additional) speedY else 0f)
         gravity()

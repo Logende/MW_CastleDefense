@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities.animation.rider
 
 import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IMovable
@@ -104,6 +105,11 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
                 mount.body.head.draw(batcher, mount, mount.body.mirror, mount.scale)
             }
         }
+    }
+
+    override fun drawDebugging(shapeRenderer: ShapeRenderer) {
+        mount.drawDebugging(shapeRenderer)
+        human.drawDebugging(shapeRenderer)
     }
 
     override val playingBodyEffect: Boolean
