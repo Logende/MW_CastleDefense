@@ -43,7 +43,7 @@ class BodyDataHandler: IBodyDataHandler, ILoadableContent {
     override fun loadContent(gameConfig: Configuration) {
         val handlerConfigNames = gameConfig.getStringList("bodyData")
         for(handlerConfigName in handlerConfigNames){
-            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load(handlerConfigName, true)
+            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
             for(bodyData in handlerConfig.getStringList("bodyDataHuman")){
                 val parts = bodyData.split(":")
                 val skinName = parts[0]

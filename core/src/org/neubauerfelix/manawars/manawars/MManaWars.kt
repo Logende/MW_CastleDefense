@@ -28,6 +28,7 @@ class MManaWars: GameManaWars() {
         loadHandler(LanguageHandler("english")) //TODO: Load language from config
         loadHandler(UpgradeHandler())
         loadHandler(SkillHandler())
+        loadHandler(ActionHandler())
         loadHandler(CollisionHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
@@ -75,6 +76,10 @@ class MManaWars: GameManaWars() {
 
     fun getSkillAnalysisHandler(): ISkillAnalysisHandler {
         return getHandler(SkillHandler::class.java)
+    }
+
+    fun getActionHandler(): IActionHandler {
+        return getHandler(ActionHandler::class.java)
     }
 
     fun getCollisionHandler(): ICollisionHandler {

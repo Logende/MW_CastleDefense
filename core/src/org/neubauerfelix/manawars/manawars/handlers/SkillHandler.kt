@@ -20,7 +20,15 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
     }
 
     override fun analyse(skill: IDataSkill): ISkillAnalysis {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // TODO
+        return object : ISkillAnalysis{
+            override val rangeMax: Int = 1000
+            override val rangeMin: Int = 0
+            override val manaCost: Int = 0
+            override val lifeTime: Float = 100000f
+            override val width: Int = 200
+            override val height: Int = 200
+        }
     }
 
     override fun findTarget(data: IDataSkill, owner: IActionUser): IEntity?{

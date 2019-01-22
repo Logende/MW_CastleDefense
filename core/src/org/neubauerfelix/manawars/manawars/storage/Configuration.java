@@ -8,12 +8,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
-public final class Configuration
+public class Configuration
 {
 
     private static final char SEPARATOR = '.';
-    final Map<String, Object> self;
-    private final Configuration defaults;
+    protected final Map<String, Object> self;
+    protected final Configuration defaults;
 
     public Configuration()
     {

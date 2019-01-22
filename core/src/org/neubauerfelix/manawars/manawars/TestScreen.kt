@@ -5,7 +5,7 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
 import org.neubauerfelix.manawars.game.entities.IEntity
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkillExample
+import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
 import org.neubauerfelix.manawars.manawars.entities.ILiving
@@ -20,12 +20,12 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     private val background: MBackground = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", 0, true, getGame().getAssetLoader())
 
-    private lateinit var skill: IDataSkill
+    private lateinit var skill: IDataAction
 
     override fun loadScreen(): Boolean {
         background.load()
 
-        skill = DataSkillExample()
+        skill = MManaWars.m.getActionHandler().getAction("arrow_weak")!!
         skill.loadAsset()
 
 

@@ -2,14 +2,21 @@ package org.neubauerfelix.manawars.manawars.data.actions
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Colors
+import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
+import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataSkillLoaded(config: Configuration) : DataSkill() {
+class DataSkillLoaded(override val name: String, config: Configuration) : DataSkill() {
 
+    companion object {
+        const val ACC_FACTOR = 16f
+    }
+
+    override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("skill_${name}_name")
 
     /**
      * Appearance: Animation, sound, etc.
@@ -22,9 +29,9 @@ class DataSkillLoaded(config: Configuration) : DataSkill() {
     override val textureRows: Int
     init {
         val animation = config.getString("animation").split(":")
-        animationFrequency = animation[1].toFloat()
-        textureColumns = animation[2].toInt()
-        textureRows = animation[3].toInt()
+        animationFrequency = animation[0].toFloat()
+        textureColumns = animation[1].toInt()
+        textureRows = animation[2].toInt()
     }
 
     override val pickOneFrame: Boolean = config.getBoolean("pick_one_frame")
@@ -37,8 +44,6 @@ class DataSkillLoaded(config: Configuration) : DataSkill() {
             }
 
     override val soundPath: String = config.getString("sound")
-    override val textureWidth: Int
-    override val textureHeight: Int
     override val textureScale: Float = config.getFloat("scale")
 
     override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
@@ -85,16 +90,17 @@ class DataSkillLoaded(config: Configuration) : DataSkill() {
     override val accelerationY: Float
     init {
         val offset = config.getString("location").split(":")
-        xOffset = offset[0].toFloat()
-        yOffset = offset[1].toFloat()
+        xOffset = if (!offset[0].isEmpty()) { offset[0].toFloat() } else { 0f }
+        yOffset = if (offset.size >= 2 &&! offset[1].isEmpty()) { offset[1].toFloat() } else { 0f }
 
         val speed = config.getString("speed").split(":")
         startSpeedX = speed[0].toFloat()
         startSpeedY = speed[1].toFloat()
+        // TODO: support for more calculations
 
-        val acceleration = config.getString("acceleration").split(":")
-        accelerationX = acceleration[0].toFloat()
-        accelerationY = acceleration[1].toFloat()
+        val acceleration = config.getString("acceleration").replace("A", ACC_FACTOR.toString()).split(":")
+        accelerationX = MathUtils.calc(acceleration[0]).toFloat()
+        accelerationY = MathUtils.calc(acceleration[1]).toFloat()
     }
 
     override val stopOnGround: Boolean = config.getBoolean("stop_on_ground")
@@ -130,8 +136,28 @@ class DataSkillLoaded(config: Configuration) : DataSkill() {
      * Classification: Skillclass, range and other properties
      */
     override val skillClass: MWSkillClass = MWSkillClass.valueOf(config.getString("skillclass"))
-    override val name: String
-    override val actionDependencies: Array<IDataAction> // TODO
 
+    override val actionDependencies: Array<IDataAction>
+
+    init {
+        val actionDependencies = mutableListOf<IDataAction>()
+        for (name in config.getStringList("actionDependencies")) {
+            val action = MManaWars.m.getActionHandler().getAction(name)
+            require(action != null)
+            actionDependencies.add(action!!)
+        }
+        this.actionDependencies = actionDependencies.toTypedArray()
+    }
+
+
+
+    val analysis: ISkillAnalysis = MManaWars.m.getSkillAnalysisHandler().analyse(this) // TODO load from already generated, instead of generating new
+
+    override val lifeTime: Float = analysis.lifeTime // TODO: generate good lifetime
+    override val manaCost: Int = analysis.manaCost
+    override val rangeMax: Int = analysis.rangeMax
+    override val rangeMin: Int = analysis.rangeMin
+    override val textureWidth: Int = analysis.width
+    override val textureHeight: Int = analysis.height
 
 }

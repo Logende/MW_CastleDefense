@@ -47,7 +47,7 @@ class ShieldHandler: IShieldHandler, ILoadableContent {
     override fun loadContent(gameConfig: Configuration) {
         val handlerConfigNames = gameConfig.getStringList("shields")
         for(handlerConfigName in handlerConfigNames){
-            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load(handlerConfigName, true)
+            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
             for(shieldData in handlerConfig.getStringList("shields")){
                 val parts = shieldData.split(":")
                 val textureName = parts[0]

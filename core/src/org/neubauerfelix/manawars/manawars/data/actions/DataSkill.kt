@@ -16,29 +16,18 @@ abstract class DataSkill : GameData(), IDataSkill {
     final override var animation: Animation<TextureRegion>? = null
         private set
 
-    override val displayName: String
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-
-    override val lifeTime: Float // TODO: generate good lifetime
-
-    override val manaCost: Int
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-
-    override val rangeMax: Int
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val rangeMin: Int
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
     override fun init() {
         // TODO add sound and skill dependencies to asset list
     }
 
     override fun load() {
-        AManaWars.m.getAssetLoader().loadTexture(this.texturePath)
+        // TODO: load dependencies
+        AManaWars.m.getAssetLoader().loadTexture("skills/$texturePath.png")
     }
 
     override fun loaded() {
-        val texture = AManaWars.m.getAssetLoader().getTexture(this.texturePath)
+        val texture = AManaWars.m.getAssetLoader().getTexture("skills/$texturePath.png")
         // texture.textureData.prepare()
         // val pixmap = texture.textureData.consumePixmap()
 
@@ -58,7 +47,7 @@ abstract class DataSkill : GameData(), IDataSkill {
     }
 
     override fun dispose() {
-        AManaWars.m.getAssetLoader().unloadAsset(this.texturePath)
+        AManaWars.m.getAssetLoader().unloadAsset("skills/$texturePath.png")
     }
 
     override fun disposed() {
