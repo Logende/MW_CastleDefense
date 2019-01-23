@@ -1,4 +1,6 @@
 bodyData:
-- 'content/bodyData.yml'
+- 'bodyData.yml'
 shields:
-- 'content/shields.yml'
+- 'shields.yml'
+actions:
+- 'skills/skills_arrow.yml'

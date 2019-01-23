@@ -129,19 +129,21 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
         shapeRenderer.end()
 
         // Debugging Code
-        shapeRenderer.projectionMatrix = cameraIngame.combined
-        shapeRenderer.begin()
-        shapeRenderer.set(ShapeRenderer.ShapeType.Line)
-        shapeRenderer.color = Color.RED
-        synchronized(toDraw2Ingame) {
-            for (drawableIngame in toDraw2Ingame) {
-                shapeRenderer.polygon(drawableIngame.polygon.transformedVertices)
-                if (drawableIngame is IAnimated) {
-                    drawableIngame.animation.drawDebugging(shapeRenderer)
+        if (GameConstants.DEBUG_BOUNDING_BOXES) {
+            shapeRenderer.projectionMatrix = cameraIngame.combined
+            shapeRenderer.begin()
+            shapeRenderer.set(ShapeRenderer.ShapeType.Line)
+            shapeRenderer.color = Color.RED
+            synchronized(toDraw2Ingame) {
+                for (drawableIngame in toDraw2Ingame) {
+                    shapeRenderer.polygon(drawableIngame.polygon.transformedVertices)
+                    if (drawableIngame is IAnimated) {
+                        drawableIngame.animation.drawDebugging(shapeRenderer)
+                    }
                 }
             }
+            shapeRenderer.end()
         }
-        shapeRenderer.end()
     }
 
     override fun renderLoadingScreen(delta: Float) {

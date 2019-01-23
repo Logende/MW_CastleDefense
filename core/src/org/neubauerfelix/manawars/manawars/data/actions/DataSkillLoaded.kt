@@ -35,7 +35,7 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
     }
 
     override val pickOneFrame: Boolean = config.getBoolean("pick_one_frame")
-    override val animationRotationDuration: Float = config.getFloat("rotation_duration", 2f)
+    override val animationRotationDuration: Float = config.getFloat("rotation_duration", if (textureColumns * textureRows > 1) 0f else 2f)
     override val color: Color? =
             if (config.contains("color")) {
                 Colors.get(config.getString("color"))
@@ -44,7 +44,7 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
             }
 
     override val soundPath: String = config.getString("sound")
-    override val textureScale: Float = config.getFloat("scale")
+    override val textureScale: Float = config.getFloat("scale", 1f)
 
     override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
     override val weaponType: MWWeaponType? = if (config.contains("weapon")) { null } else { null } // TODO!!

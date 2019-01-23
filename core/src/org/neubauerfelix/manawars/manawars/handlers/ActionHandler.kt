@@ -37,24 +37,25 @@ class ActionHandler: IActionHandler, ILoadableContent {
         val handlerConfigNames = gameConfig.getStringList("actions")
         for(handlerConfigName in handlerConfigNames){
             val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
-            this.loadAction(handlerConfig, null)
+            this.loadAction(handlerConfig, null, null)
         }
     }
 
 
-    fun loadAction(config: Configuration, parent: IDataAction?) {
-        for (key in config.keys) {
-            var section = ConfigurationDecoratorInheritance(config.getSection(key), config)
-            val action = DataSkillLoaded(key, section)
+    fun loadAction(configActions: Configuration, configParentAction: Configuration?, parent: IDataAction?) {
+        for (key in configActions.keys) {
+            val sectionAction: Configuration = if (configParentAction == null) configActions.getSection(key) else ConfigurationDecoratorInheritance(configActions.getSection(key), configParentAction)
+            val action = DataSkillLoaded(key, sectionAction)
             actions[key] = action
             System.out.println("loaded action $key")
             if (parent != null) {
                 this.parents[action] = parent
             }
 
-            if (section.contains("children")) {
-                section = ConfigurationDecoratorInheritance(config.getSection("children"), section)
-                loadAction(section, action)
+            if ((sectionAction !is ConfigurationDecoratorInheritance && sectionAction.contains("children")) ||
+                    (sectionAction is ConfigurationDecoratorInheritance && sectionAction.containsSelf("children"))) {
+                val sectionActionChildren = sectionAction.getSection("children")
+                loadAction(sectionActionChildren, sectionAction, action)
             }
         }
     }

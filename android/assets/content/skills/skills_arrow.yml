@@ -1,0 +1,197 @@
+#Arrowrain single
+
+arrowrain_single:
+  owner_animation: 'SUMMON_BIG'
+  texture: 'arrow.rain'
+  animation: '1:4:1'
+  sound: 'skill.arrowrain'
+  skillclass: 'LIGHT'
+  speed: '0:-1000'
+  acceleration: '0:0'
+  offset: '500:1000'
+  idle_time: 1200
+  strength: 4
+  damage: '1-4'
+  knockback: 0.4
+  children:
+    arrowrain_single_first:
+      idle_time: 0
+
+arrow_weak:
+  type: normal
+  owner_animation: 'WEAPON'
+  weapon: 'bow:normal_blue'
+  texture: 'arrow.weak'
+  animation: '1:4:1'
+  sound: 'skill.arrow'
+  skillclass: 'LIGHT'
+  speed: '1000:0'
+  acceleration: '0:-5*A'
+  offset: '-40:-20'
+  strength: 7
+  damage: '3-7'
+  knockback: 1.0
+  children:
+  
+    arrow_normal:
+      weapon: 'bow:normal_red'
+      texture: 'arrow.normal'
+      speed: '1000:30'
+      strength: 9
+      damage: '5-7'
+      children:
+      
+        arrow_strong:
+          weapon: 'bow:dark'
+          texture: 'arrow.strong'
+          speed: '1200:30'
+          strength: 14
+          damage: '7-10'
+          children:
+          
+            crossbow_weak:
+              weapon: 'crossbow:simple'
+              texture: 'crossbowbolt'
+              preview: 'crossbow.weak'
+              speed: '1600:0'
+              acceleration: '0:-2*A'
+              strength: 14
+              damage: '9-12'
+              children:
+                crossbow_normal:
+                  weapon: 'crossbow:dark'
+                  texture: 'crossbowbolt'
+                  preview: 'crossbow.normal'
+                  strength: 18
+                  offset: '10:-20'
+                  damage: '12-14'
+                  children:
+                    crossbow_strong:
+                      weapon: 'crossbow:elite'
+                      texture: 'crossbowbolt.strong'
+                      preview: 'crossbow.strong'
+                      strength: 22
+                      damage: '18-24'
+                      children:                      
+                        crossbow_strong_double:
+                          type: mix
+                          weapon: 'crossbow:elite.double'
+                          sound: ''
+                          preview: 'crossbow.strong.double'
+                          manacost_factor: 0.8
+                          parts:
+                          - 'crossbow_strong:0:-8:0:-30'
+                          - 'crossbow_strong:0:+8:0:30'
+                      
+                    crossbow_poison:
+                      weapon: 'crossbow:skull'
+                      texture: 'crossbowbolt.poison'
+                      preview: 'crossbow.poison'
+                      strength: 16
+                      effect: 'POISONED:4'
+                      
+                    crossbow_curse:
+                      weapon: 'crossbow:dark.strong'
+                      texture: 'crossbowbolt.curse'
+                      preview: 'crossbow.curse'
+                      strength: 16
+                      effect: 'SLAGGED:4'
+                                        
+                    crossbow_normal_double:
+                      type: mix
+                      weapon: 'crossbow:dark.double'
+                      preview: 'crossbow.normal.double'
+                      sound: ''
+                      manacost_factor: 0.8
+                      parts:
+                      - 'crossbow_normal:0:-8:0:-30'
+                      - 'crossbow_normal:0:+8:0:30'
+          
+            arrowrain_1:
+              type: mix
+              owner_animation: 'SUMMON_SMALL'
+              weapon: ''
+              sound: ''
+              preview: 'arrow.rain'
+              manacost_factor: 1.0
+              parts:
+              - 'arrowrain_single_first'
+              - 'arrowrain_single:-100+200*r:-25+50*r'
+              - 'arrowrain_single:-100+200*r:-25+50*r'
+              - 'arrowrain_single:-100+200*r:-25+50*r'
+              - 'arrowrain_single:-100+200*r:-25+50*r'
+              - 'arrowrain_single:-100+200*r:-25+50*r'
+              children:
+                arrowrain_2:
+                  parts:
+                  - 'arrowrain_single_first'
+                  - 'arrowrain_single:-120+240*r:-25+50*r'
+                  - 'arrowrain_single:-120+240*r:-25+50*r'
+                  - 'arrowrain_single:-120+240*r:-25+50*r'
+                  - 'arrowrain_single:-120+240*r:-25+50*r'
+                  - 'arrowrain_single:-120+240*r:-25+50*r'
+                  - 'arrowrain_single:-120+240*r:-25+50*r'
+                  children:
+                    arrowrain_3:
+                      parts:
+                      - 'arrowrain_single_first'
+                      - 'arrowrain_single:-130+260*r:-25+50*r'
+                      - 'arrowrain_single:-130+260*r:-25+50*r'
+                      - 'arrowrain_single:-130+260*r:-25+50*r'
+                      - 'arrowrain_single:-130+260*r:-25+50*r'
+                      - 'arrowrain_single:-130+260*r:-25+50*r'
+                      - 'arrowrain_single:-130+260*r:-25+50*r'
+                      - 'arrowrain_single:-130+260*r:-25+50*r'
+                      children:
+                        arrowrain_4:
+                          parts:
+                          - 'arrowrain_single_first'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+                          - 'arrowrain_single:-250+500*r:-25+50*r'
+              
+            arrow_headshot:
+              weapon: 'bow:goldspikes'
+              texture: 'arrow.headshot'
+              strength: 15
+              damage: '4-8'
+                            
+        arrow_random:
+          weapon: 'bow:wild'
+          texture: 'arrow.random'
+          speed: '1200:30'
+          strength: 11
+          damage: '3-16'
+                        
+        arrow_fire:
+          weapon: 'bow:red'
+          texture: 'arrow.fire'
+          speed: '1200:30'
+          strength: 11
+          damage: '3-9'
+          effect: 'BURNING:5'
+                    
+        arrow_ice:
+          weapon: 'bow:light'
+          texture: 'arrow.ice'
+          speed: '1200:30'
+          strength: 11
+          damage: '3-8'
+          effect: 'FROZEN:3'
+                        
+        arrow_poison:
+          weapon: 'bow:bones'
+          texture: 'arrow.poison'
+          speed: '1200:30'
+          strength: 12
+          damage: '4-10'
+          effect: 'POISONED:4'
+                    
+      
