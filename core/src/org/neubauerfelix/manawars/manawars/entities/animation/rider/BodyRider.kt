@@ -31,19 +31,16 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
 
 
     override fun explode() {
-        System.out.println("rider explode")
         mount.playDeathAnimation(null, MWDamageCause.ANIMATION)
         human.playDeathAnimation(null, MWDamageCause.ANIMATION)
     }
 
     override fun deadlyHit(killer: IMovable) {
-        System.out.println("rider hit 1")
         mount.playDeathAnimation(killer, MWDamageCause.SKILL)
         human.playDeathAnimation(killer, MWDamageCause.SKILL)
     }
 
     override fun deadlyHit() {
-        System.out.println("rider hit 2")
         mount.playDeathAnimation(null, MWDamageCause.STATEEFFECT)
         human.playDeathAnimation(null, MWDamageCause.STATEEFFECT)
     }
@@ -53,6 +50,7 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
         if (sized is ILooking) {
             rectHuman.direction = sized.direction
         }
+        System.out.println("human play effect $effect with weapontype $weaponType")
         human.playBodyEffect(effect, weaponType)
     }
 

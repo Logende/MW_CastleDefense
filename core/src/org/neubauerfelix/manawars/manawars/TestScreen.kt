@@ -25,7 +25,7 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadScreen(): Boolean {
         background.load()
 
-        skill = MManaWars.m.getActionHandler().getAction("crossbow_normal_double")!!
+        skill = MManaWars.m.getActionHandler().getAction("arrow_weak")!!
         skill.loadAsset()
 
 
@@ -47,7 +47,7 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
 
         val controller = ControllerTest()
-        val a = MEntityControlled(animationProducerRider, 100f, 1000f, arrayOf(skill), 100f, controller = controller)
+        val a = MEntityControlled(animationProducer, 100f, 1000f, arrayOf(skill), 100f, controller = controller)
         controller.controlled = a
         a.setLocation(300f, 0f)
         a.spawn()

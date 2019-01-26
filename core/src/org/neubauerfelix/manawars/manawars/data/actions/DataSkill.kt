@@ -18,11 +18,11 @@ abstract class DataSkill : GameData(), IDataSkill {
 
 
     override fun init() {
-        // TODO add sound and skill dependencies to asset list
+        // TODO add sound
+        this.actionDependencies.forEach { dependency -> this.addAsset(dependency) }
     }
 
     override fun load() {
-        // TODO: load dependencies
         AManaWars.m.getAssetLoader().loadTexture("skills/$texturePath.png")
     }
 

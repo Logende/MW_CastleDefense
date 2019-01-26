@@ -14,9 +14,9 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
 
     var color: Color = Color.WHITE
 
-    var relativeX: Float = 0f
+    var relativeX: Float = bodyPartData.relativeX
         private set
-    var relativeY: Float = 0f
+    var relativeY: Float = bodyPartData.relativeY
         private set
 
     open var mirror: Boolean = false
@@ -42,11 +42,9 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
 
 
     init {
-        this.relativeX = x
-        this.relativeY = y
         setSize(tr.regionWidth * scale, tr.regionHeight * scale)
         setRotationOrigin(bodyPartData.rotationOriginX * scale, bodyPartData.rotationOriginY * scale)
-        update(bodyPartData.rotation)
+        this.rotation = rotation * if (mirror) -1 else 1
     }
 
 

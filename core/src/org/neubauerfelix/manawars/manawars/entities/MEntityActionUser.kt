@@ -49,7 +49,6 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
             return false
         }
         if (action.action(this)) {
-            System.out.println("spawn skill ${action.name}")
             takeMana(action.manaCost.toFloat())
             this.animation.playBodyEffect(action.animationEffect, action.weaponType)
             return true

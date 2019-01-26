@@ -46,7 +46,7 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
 
     var color: Color = Color.WHITE
         set(c) {
-            this.color = c
+            field = c
             head.color = c
             body.color = c
             armL.color = c
@@ -105,6 +105,8 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
         if (weaponType != null) {
             if (currentWeapon == null || weaponType !== currentWeapon.weaponType) { //Only update weapon if it is different from the current one
                 this.weapon = weaponType.createBodyPart(bodyDataHuman, this.scale)
+                this.weapon!!.mirror = this.mirror
+                this.weapon!!.rotation = this.rotation
             }
         } else {
             //Do not remove weapon here: It does  not harm to keep it and it might be re-used.

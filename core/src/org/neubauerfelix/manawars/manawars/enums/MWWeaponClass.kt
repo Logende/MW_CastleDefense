@@ -3,7 +3,7 @@ package org.neubauerfelix.manawars.manawars.enums
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
-import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.animation.BodyPartData
 import org.neubauerfelix.manawars.manawars.entities.animation.IBodyData
 import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanAnimating
@@ -12,10 +12,10 @@ import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyPartAnim
 
 enum class MWWeaponClass {
     BOW {
-        override fun createBodyPart(weapontype: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
-            val sprites = generateSprites("char.bow." + weapontype.textureName, 4)
-            val bodyPartData = BodyPartData(sprites[0], 47f, 54f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
-            return BodyPartAnimationWeapon(weapontype, sprites, bodyPartData, scale)
+        override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
+            val textures = generateTextures("char.bow." + weaponType.textureName, 4)
+            val bodyPartData = BodyPartData(textures[0], 47f, 0f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
+            return BodyPartAnimationWeapon(weaponType, textures, bodyPartData, scale)
         }
 
         override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
@@ -49,10 +49,10 @@ enum class MWWeaponClass {
         }
     },
     CROSSBOW {
-        override fun createBodyPart(weapontype: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
-            val sprites = generateSprites("char.crossbow." + weapontype.textureName, 4)
+        override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
+            val sprites = generateTextures("char.crossbow." + weaponType.textureName, 4)
             val bodyPartData = BodyPartData(sprites[0], 81f, 50f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
-            return BodyPartAnimationWeapon(weapontype, sprites, bodyPartData, scale)
+            return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
         }
 
         override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
@@ -90,10 +90,10 @@ enum class MWWeaponClass {
         override val positionCount: Int
             get() = 16
 
-        override fun createBodyPart(weapontype: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
-            val sprites = generateSprites("char.horn." + weapontype.textureName, 4)
+        override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
+            val sprites = generateTextures("char.horn." + weaponType.textureName, 4)
             val bodyPartData = BodyPartData(sprites[0], 81f, 50f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
-            return BodyPartAnimationWeapon(weapontype, sprites, bodyPartData, scale)
+            return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
         }
 
         override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
@@ -133,13 +133,13 @@ enum class MWWeaponClass {
         get() = 4
 
 
-    abstract fun createBodyPart(weapontype: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon
+    abstract fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon
     abstract fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int)
 
-    protected fun generateSprites(texturename: String, columns: Int): Array<Sprite> {
-        val all = AManaWars.m.getImageHandler().getTextureRegionMain(texturename)
+    protected fun generateTextures(textureName: String, columns: Int): Array<TextureRegion> {
+        val all = AManaWars.m.getImageHandler().getTextureRegionMain(textureName)
         val width = all.regionWidth / columns
         val height = all.regionHeight
-        return Array(columns){ i -> Sprite(all, width * i, 0, width, height)}
+        return Array(columns){ i -> TextureRegion(all, width * i, 0, width, height) }
     }
 }

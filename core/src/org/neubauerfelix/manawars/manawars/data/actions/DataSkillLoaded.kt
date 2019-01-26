@@ -3,12 +3,10 @@ package org.neubauerfelix.manawars.manawars.data.actions
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Colors
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
-import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
-import org.neubauerfelix.manawars.manawars.enums.MWState
-import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
+import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
+
 
 class DataSkillLoaded(override val name: String, config: Configuration) : DataSkill() {
 
@@ -47,7 +45,18 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
     override val textureScale: Float = config.getFloat("scale", 1f)
 
     override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
-    override val weaponType: MWWeaponType? = if (config.contains("weapon")) { null } else { null } // TODO!!
+    override val weaponType: MWWeaponType?
+    init {
+        if (config.contains("weapon")) {
+            val weaponParts = config.getString("weapon").split(":")
+            val weaponClass = MWWeaponClass.valueOf(weaponParts[0].toUpperCase())
+            val textureName = weaponParts[1].replace("_", ".")
+            weaponType = MWWeaponType(weaponClass, textureName)
+        } else {
+            weaponType = null
+        }
+        System.out.println("loaded weapon $weaponType of skill $name")
+    }
 
 
     /**

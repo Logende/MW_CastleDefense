@@ -4,17 +4,17 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IBodyData
 import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanAnimating
 import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyPartAnimationWeapon
 
-class MWWeaponType(private val weaponclass: MWWeaponClass, val textureName: String) {
+class MWWeaponType(private val weaponClass: MWWeaponClass, val textureName: String) {
 
 
     val positionCount: Int
-        get() = weaponclass.positionCount
+        get() = weaponClass.positionCount
 
     fun createBodyPart(bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
-        return weaponclass.createBodyPart(this, bodyData, scale)
+        return weaponClass.createBodyPart(this, bodyData, scale)
     }
 
     fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
-        weaponclass.animateBodyEffect(body, weapon, position)
+        weaponClass.animateBodyEffect(body, weapon, position)
     }
 }

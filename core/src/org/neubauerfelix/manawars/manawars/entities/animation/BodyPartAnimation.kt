@@ -1,33 +1,27 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
-import com.badlogic.gdx.graphics.g2d.Sprite
+import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.entities.ISized
 
 /**
  * Represents animated human body parts. For example used by bows.
  * @author Felix Neubauer
  */
-open class BodyPartAnimation(private val sprites: Array<Sprite>, bodyPartData: IBodyPartData, scale: Float) : BodyPart(bodyPartData, scale) {
+open class BodyPartAnimation(private val textures: Array<TextureRegion>, bodyPartData: IBodyPartData, scale: Float) : BodyPart(bodyPartData, scale) {
 
     private var position: Int = 0
-
-
-    init {
-        for (i in 0 until sprites.size) {
-            sprites[i].setSize(sprites[i].regionWidth * scale, sprites[i].regionHeight * scale)
-        }
-    }
 
 
     /**
      * Updates the animation image.
      * @param i Index of the image to show.
-     * @pre `0 <= i < sprites.length`
+     * @pre `0 <= i < textures.length`
      */
     fun setPosition(pos: Int) {
-        assert(pos in 0 until sprites.size)
+        assert(pos in 0 until textures.size)
         this.position = pos
     }
 
@@ -36,25 +30,17 @@ open class BodyPartAnimation(private val sprites: Array<Sprite>, bodyPartData: I
         if (!enabled) {
             return
         }
-        sprites[position].setPosition(calculateX(sized.x, mirror, scale), calculateY(sized.y, scale))
-        sprites[position].draw(batcher)
+        x = calculateX(sized.x, mirror, scale)
+        System.out.println("calculated x $x with relativeX $relativeX and rl ${bodyPartData.relativeX}")
+        y = calculateY(sized.y, scale)
+        batcher.color = color
+        batcher.draw(textures[position], if (mirror) x+width else x, y,
+                if (mirror) originX-width else originX, originY,
+                if (mirror) -width else width, height,
+                1f, 1f,
+                rotation)
+        batcher.color = Color.WHITE
     }
 
-
-    override fun update(rotation: Float) {
-        for (sprite in sprites) {
-            sprite.rotation = rotation
-        }
-    }
-
-    override var mirror: Boolean = false
-        set(value) {
-            super.mirror = value
-            for (sprite in sprites) {
-                if (sprite.isFlipX != value) {
-                    sprite.flip(true, false)
-                }
-            }
-        }
 
 }
