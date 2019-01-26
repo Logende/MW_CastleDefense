@@ -25,7 +25,7 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadScreen(): Boolean {
         background.load()
 
-        skill = MManaWars.m.getActionHandler().getAction("crossbow_curse")!!
+        skill = MManaWars.m.getActionHandler().getAction("crossbow_normal_double")!!
         skill.loadAsset()
 
 

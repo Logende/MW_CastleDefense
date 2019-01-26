@@ -39,7 +39,6 @@ abstract class DataSkill : GameData(), IDataSkill {
         for (x in 0 until textureColumns) {
             for (y in 0 until textureRows) {
                 frames[x + y * textureColumns] = TextureRegion(texture, x * textureWidth, y * textureHeight, textureWidth, textureHeight)
-                frames[x + y * textureColumns].flip(false, true)
             }
         }
         val animationspeed = 1f / (textureColumns * textureRows * animationFrequency)

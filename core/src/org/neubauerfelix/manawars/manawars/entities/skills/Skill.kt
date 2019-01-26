@@ -45,6 +45,7 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
         target = MManaWars.m.getSkillSetupHandler().findTarget( data, o)
         MManaWars.m.getSkillSetupHandler().setupLocation(this, data, o, target)
         if (! this.idle) {
+            System.out.println("is idle no movement set up")
             MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
         }
 
@@ -61,10 +62,12 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
+        System.out.println("idle time $idleTimeLeft")
         if (idle) {
             // Idle
             this.idleTimeLeft -= delta
             if (!this.idle) {
+                System.out.println("idle time over set movement")
                 MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
             }
         } else {
