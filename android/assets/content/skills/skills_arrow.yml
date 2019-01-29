@@ -1,5 +1,4 @@
 #Arrowrain single
-
 arrowrain_single:
   owner_animation: 'SUMMON_BIG'
   texture: 'arrow.rain'
@@ -8,8 +7,11 @@ arrowrain_single:
   skillclass: 'LIGHT'
   speed: '0:-1000'
   acceleration: '0:0'
-  offset: '500:1000'
-  idle_time: 1200
+  location: '0:1400'
+  spawn_relative_to_target: 'true:false'
+  target_range: 2000
+  y_relative_to_ground: true
+  idle_time: 1.2
   strength: 4
   damage: '1-4'
   knockback: 0.4
@@ -63,7 +65,7 @@ arrow_weak:
                   texture: 'crossbowbolt'
                   preview: 'crossbow.normal'
                   strength: 18
-                  offset: '10:-20'
+                  location: '10:-20'
                   damage: '12-14'
                   children:
                     crossbow_strong:

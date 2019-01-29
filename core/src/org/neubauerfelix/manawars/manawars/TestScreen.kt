@@ -25,7 +25,7 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadScreen(): Boolean {
         background.load()
 
-        skill = MManaWars.m.getActionHandler().getAction("arrow_weak")!!
+        skill = MManaWars.m.getActionHandler().getAction("crossbow_strong_double")!!
         skill.loadAsset()
 
 
@@ -53,6 +53,7 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         a.spawn()
         a.team = MConstants.TEAM_BOT
         a.gravity()
+        a.animation.updateAnimation(a)
 
         val b = MEntityControlled(animationProducerRider, 100f, 1000f, arrayOf(skill), 100f, controller = controller)
         controller.controlled = b
@@ -78,7 +79,7 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
             override fun run() {
                 a.executeAction(0)
             }
-        }, 2f, 0.5f)
+        }, 2f, 4f)
         b.team = MConstants.TEAM_PLAYER
 
     }

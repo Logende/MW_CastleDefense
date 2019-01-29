@@ -44,7 +44,7 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
     init {
         setSize(tr.regionWidth * scale, tr.regionHeight * scale)
         setRotationOrigin(bodyPartData.rotationOriginX * scale, bodyPartData.rotationOriginY * scale)
-        this.rotation = rotation * if (mirror) -1 else 1
+        this.rotation = bodyPartData.rotation
     }
 
 
@@ -105,7 +105,7 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
      * @param rotation Rotation in degree.
      */
     open fun update(rotation: Float) {
-        this.rotation = rotation * if (mirror) -1 else 1
+        this.rotation = rotation
     }
 
     /**

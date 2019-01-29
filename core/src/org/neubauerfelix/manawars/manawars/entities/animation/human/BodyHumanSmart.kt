@@ -75,7 +75,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
             this.positionCountMain = (if (currentEffect == null) BodyHumanAnimating.POSITION_COUNT_MAIN_NORMAL else currentEffect!!.positionCount)
         }
         setWeapon(weaponType)
-        this.updateAnimationType(this, true, false)
+        this.updateAnimationType(this.sized, true, false)
     }
 
     override fun updateAnimation(sized: ISized?) {

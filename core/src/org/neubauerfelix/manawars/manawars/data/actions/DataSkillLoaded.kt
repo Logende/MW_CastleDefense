@@ -47,7 +47,7 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
     override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
     override val weaponType: MWWeaponType?
     init {
-        if (config.contains("weapon")) {
+        if (config.contains("weapon") && animationEffect == MWAnimationTypeBodyEffect.WEAPON) {
             val weaponParts = config.getString("weapon").split(":")
             val weaponClass = MWWeaponClass.valueOf(weaponParts[0].toUpperCase())
             val textureName = weaponParts[1].replace("_", ".")
@@ -55,7 +55,6 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
         } else {
             weaponType = null
         }
-        System.out.println("loaded weapon $weaponType of skill $name")
     }
 
 

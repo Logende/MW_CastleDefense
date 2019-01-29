@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
+import org.neubauerfelix.manawars.manawars.enums.MWWeaponClass
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
@@ -45,8 +46,17 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
             * config.getFloat("manacost_factor", 0.7f)).toInt()
 
     override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
-    override val weaponType: MWWeaponType? = if (config.contains("weapon")) { null } else { null } // TODO!!
-
+    override val weaponType: MWWeaponType?
+    init {
+        if (config.contains("weapon") && animationEffect == MWAnimationTypeBodyEffect.WEAPON) {
+            val weaponParts = config.getString("weapon").split(":")
+            val weaponClass = MWWeaponClass.valueOf(weaponParts[0].toUpperCase())
+            val textureName = weaponParts[1].replace("_", ".")
+            weaponType = MWWeaponType(weaponClass, textureName)
+        } else {
+            weaponType = null
+        }
+    }
 
 
     override val rangeMax: Int

@@ -4,6 +4,7 @@ package org.neubauerfelix.manawars.manawars.entities.animation.human
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.ISized
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeLegs
@@ -54,7 +55,10 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
             //do not update shield height here because it is never changed
         }
         if (weapon != null) {
-            weapon!!.enabled = false
+            weapon!!.setPosition(0)
+            if (!MConstants.ALWAYS_EQUIP_WEAPONS) {
+                weapon!!.enabled = false
+            }
         }
     }
 

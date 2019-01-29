@@ -1,8 +1,12 @@
 package org.neubauerfelix.manawars.manawars.entities
 
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
+import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanAnimating
+import org.neubauerfelix.manawars.manawars.entities.animation.rider.BodyRider
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 
@@ -23,6 +27,18 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
                     else -> -1
                 }
             }, 0, actions.size)
+            if (MConstants.ALWAYS_EQUIP_WEAPONS && actions[0].weaponType != null) {
+                if (this.animation is EntityAnimationAny) {
+                    if (this.animation.body is BodyHumanAnimating) {
+                        this.animation.body.setWeapon(actions[0].weaponType)
+
+                    } else if (this.animation.body is BodyRider) {
+                        if (this.animation.body.human is BodyHumanAnimating) {
+                            this.animation.body.human.setWeapon(actions[0].weaponType)
+                        }
+                    }
+                }
+            }
         }
     }
 

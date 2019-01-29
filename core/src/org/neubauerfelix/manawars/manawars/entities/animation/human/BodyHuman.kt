@@ -109,7 +109,7 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
                 this.weapon!!.rotation = this.rotation
             }
         } else {
-            //Do not remove weapon here: It does  not harm to keep it and it might be re-used.
+            //Do not remove weapon here: It does not harm to keep it and it might be re-used.
         }
     }
 

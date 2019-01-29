@@ -87,6 +87,8 @@ class MConstants {
         const val BODY_RIDER_WIDTH = BODY_MOUNT_WIDTH
         const val BODY_RIDER_HEIGHT = BODY_MOUNT_HEIGHT + RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y + BODY_HUMAN_HEIGHT
 
+        const val ALWAYS_EQUIP_WEAPONS = true
+
         // skills
         const val MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT = 25
         const val MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL = 100 // Minimum damage dealt to the skill when it does not kill its target

@@ -31,7 +31,6 @@ open class BodyPartAnimation(private val textures: Array<TextureRegion>, bodyPar
             return
         }
         x = calculateX(sized.x, mirror, scale)
-        System.out.println("calculated x $x with relativeX $relativeX and rl ${bodyPartData.relativeX}")
         y = calculateY(sized.y, scale)
         batcher.color = color
         batcher.draw(textures[position], if (mirror) x+width else x, y,
