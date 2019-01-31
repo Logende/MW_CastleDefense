@@ -1,0 +1,67 @@
+boomerang_1:
+  type: normal
+  owner_animation: 'THROW'
+  texture: 'boomerang.1'
+  animation: '1:1:1'
+  sound: 'skill.boomerang'
+  skillclass: 'LIGHT'
+  speed: '700:200'
+  acceleration: '0-35*A:-12*A'
+  strength: 6
+  damage: '4-6'
+  knockback: 1.0
+  children:
+  
+    boomerang_2:
+      texture: 'boomerang.2'
+      speed: '790:200'
+      acceleration: '0-35*A:-12*A'
+      strength: 8
+      damage: '5-8'
+      children:
+      
+        boomerang_3:
+          texture: 'boomerang.3'
+          speed: '820:210'
+          acceleration: '0-35*A:-12*A'
+          strength: 10
+          damage: '7-10'
+          children:
+          
+            boomerang_4:
+              texture: 'boomerang.4'
+              speed: '820:320'
+              acceleration: '0-35*A:-19*A'
+              strength: 14
+              damage: '9-12'
+              children:
+              
+                boomerang_5:
+                  texture: 'boomerang.5'
+                  speed: '900:320'
+                  acceleration: '0-39*A:-19*A'
+                  strength: 18
+                  damage: '11-14'
+                  children:
+                  
+                    boomerang_6:
+                      texture: 'boomerang.6'
+                      speed: '940:340'
+                      acceleration: '0-39*A:-19*A'
+                      damage: '14-17'
+                      children:
+
+                        boomerang_7:
+                          texture: 'boomerang.7'
+                          speed: '1000:350'
+                          acceleration: '0-40*A:-18*A'
+                          strength: 26
+                          damage: '15-22'
+                          children:
+
+                            boomerang_8:
+                              texture: 'boomerang.8'
+                              speed: '1100:400'
+                              acceleration: '0-55*A:-25*A'
+                              strength: 35
+                              damage: '20-25'

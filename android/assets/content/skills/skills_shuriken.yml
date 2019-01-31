@@ -1,0 +1,46 @@
+shuriken_basic:
+  type: normal
+  owner_animation: 'SUMMON_SMALL'
+  texture: 'shuriken.basic'
+  animation: '1:1:1'
+  sound: 'skill.shuriken'
+  skillclass: 'LIGHT'
+  speed: '700:0'
+  acceleration: '0:0'
+  location: '0:10'
+  strength: 5
+  damage: '1-5'
+  knockback: 0.5
+  children:
+  
+    shuriken_strong:
+      texture: 'shuriken.strong'
+      speed: '750:0'
+      strength: 7
+      damage: '3-7'
+      children:
+      
+        shuriken_ice:
+          texture: 'shuriken.ice'
+          speed: '800:0'
+          strength: 8
+          damage: '4-8'
+          effect: 'FROZEN:3'
+      
+        shuriken_poison:
+          texture: 'shuriken.poison'
+          speed: '800:0'
+          strength: 8
+          damage: '4-8'
+          effect: 'POISONED:4'
+      
+        shuriken_lucky:
+          texture: 'shuriken.lucky'
+          speed: '800:0'
+          strength: 9
+          damage: '1-16'
+          
+    shuriken_fire:
+      texture: 'shuriken.fire'
+      strength: 6
+      effect: 'BURNING:3'
