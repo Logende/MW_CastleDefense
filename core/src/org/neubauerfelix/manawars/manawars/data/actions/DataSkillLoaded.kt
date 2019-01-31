@@ -72,7 +72,7 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
     override val stateEffect: MWState?
     override val stateEffectDuration: Float
     init {
-        if (config.contains("effect")) {
+        if (!config.getString("effect").isEmpty()) {
             val effect = config.getString("effect").split(":")
             stateEffect = MWState.valueOf(effect[0])
             stateEffectDuration = effect[1].toFloat()

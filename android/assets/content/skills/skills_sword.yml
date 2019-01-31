@@ -1,0 +1,115 @@
+sword_basic:
+  owner_animation: 'SUMMON_SMALL'
+  texture: 'sword.basic'
+  animation: '1:1:1'
+  sound: 'skill.wind'
+  skillclass: 'HEAVY'
+  speed: '1200:-400'
+  acceleration: '-70*A:50*A'
+  offset_y: 50
+  strength: 10
+  damage: '6'
+  knockback: 1.5
+  children:
+  
+    sword_human_gold:
+      texture: 'sword.human.gold'
+      speed: '1200:-200'
+      acceleration: '-70*A:20*A'
+      strength: 12
+      damage: '8'
+      children:
+        sword_human_fire:
+          texture: 'sword.human.fire'
+          strength: 20
+          damage: '10'
+          effect: 'BURNING:5'
+          
+        sword_human_ice:
+          texture: 'sword.human.ice'
+          strength: 20
+          damage: '10'
+          effect: 'FROZEN:3'
+          
+          
+    sword_bandit_1:
+      texture: 'sword.bandit.1'
+      sound: 'skill.rost'
+      speed: '1500:-250'
+      offset_y: 100
+      acceleration: '-100*A:15*A'
+      strength: 14
+      damage: '5-11'
+      children:
+        sword_bandit_2:
+          texture: 'sword.bandit.2'
+          strength: 18
+          damage: '8-15'
+          
+    sword_katana_1:
+      texture: 'sword.katana.1'
+      sound: 'skill.wind'
+      offset_y: 100
+      speed: '700:-250'
+      acceleration: '0:20*A'
+      strength: 12
+      damage: '5-8'
+      children:
+        sword_katana_2:
+          texture: 'sword.katana.2'
+          strength: 15
+          damage: '9-12'
+          children:
+            sword_katana_3_dark:
+              texture: 'sword.katana.3.dark'
+              strength: 18
+              damage: '8-20'
+              children:
+                sword_katana_4_ice:
+                  texture: 'sword.katana.4.ice'
+                  strength: 24
+                  damage: '10-24'
+                  effect: 'FROZEN:3'
+                  
+            sword_katana_3_light:
+              texture: 'sword.katana.3.light'
+              strength: 18
+              damage: '14'
+              children:
+                sword_katana_4_fire:
+                  texture: 'sword.katana.4.fire'
+                  strength: 24
+                  damage: '17'
+                  effect: 'BURNING:5'
+                  children:
+                    sword_katana_5:
+                      texture: 'sword.katana.5'
+                      strength: 35
+                      damage: '25'
+                      effect: ''
+                      
+    sword_orc_1:
+      skillclass: 'LIGHT'
+      texture: 'sword.orc.1'
+      sound: 'skill.rost'
+      speed: '250:0'
+      offset_y: 20
+      acceleration: '0:0'
+      strength: 9
+      damage: '1-9'
+      children:
+        sword_orc_2:
+          skillclass: 'HEAVY'
+          texture: 'sword.orc.2'
+          speed: '400:0'
+          strength: 11
+          damage: '4-12'
+          
+    sword_samurai:
+      texture: 'sword.samurai'
+      sound: 'skill.wind'
+      speed: '660:0'
+      offset_y: 40
+      acceleration: '0:0'
+      strength: 16
+      damage: '12-16'

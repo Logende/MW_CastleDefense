@@ -95,10 +95,8 @@ enum class MWWeaponClass {
         }
 
         override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
-            var position = position
-            position = position % 4
             body.armR.update(-90f)
-            when (position) {
+            when (position % 4) {
                 0 -> {
                     weapon.setPosition(0)
                     return
