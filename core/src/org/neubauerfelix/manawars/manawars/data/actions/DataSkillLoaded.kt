@@ -2,13 +2,14 @@ package org.neubauerfelix.manawars.manawars.data.actions
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Colors
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 
-class DataSkillLoaded(override val name: String, config: Configuration) : DataSkill() {
+open class DataSkillLoaded(override val name: String, config: Configuration) : DataSkill() {
 
     companion object {
         const val ACC_FACTOR = 16f
@@ -33,7 +34,7 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
     }
 
     override val pickOneFrame: Boolean = config.getBoolean("pick_one_frame")
-    override val animationRotationDuration: Float = config.getFloat("rotation_duration", if (textureColumns * textureRows > 1) 0f else 2f)
+    override val animationRotationDuration: Float = config.getFloat("rotation_duration", if (textureColumns * textureRows > 1) 0f else 1.35f)
     override val color: Color? =
             if (config.contains("color")) {
                 Colors.get(config.getString("color"))
@@ -106,13 +107,16 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
         startSpeedY = speed[1].toFloat()
         // TODO: support for more calculations
 
-        val acceleration = config.getString("acceleration").replace("A", ACC_FACTOR.toString()).split(":")
+        val acceleration = config.getString("acceleration")
+                .replace("A", ACC_FACTOR.toString())
+                .replace("G", MConstants.GRAVITY_ACCELERATION.toString())
+                .split(":")
         accelerationX = MathUtils.calc(acceleration[0]).toFloat()
         accelerationY = MathUtils.calc(acceleration[1]).toFloat()
     }
 
     override val stopOnGround: Boolean = config.getBoolean("stop_on_ground")
-    override val adaptiveSpeedX: Boolean = config.getBoolean("adaptive_speed_x")
+    override val allowMovementScaling: Boolean = config.getBoolean("allow_movement_scaling")
     override val fixManaCost: Int = config.getInt("manacost", -1)
     override val targetEnemy: Boolean = config.contains("target_range") || config.contains("target_speed") || config.contains("adaptive_speed_x")
     override val targetRange: Float = config.getFloat("target_range", 900f)
@@ -139,6 +143,7 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
         }
     }
 
+    override val skillLimit: Int = config.getInt("limit", -1)
 
     /**
      * Classification: Skillclass, range and other properties
@@ -163,8 +168,21 @@ class DataSkillLoaded(override val name: String, config: Configuration) : DataSk
 
     override val lifeTime: Float = analysis.lifeTime // TODO: generate good lifetime
     override val manaCost: Int = analysis.manaCost
-    override val rangeMax: Int = analysis.rangeMax
-    override val rangeMin: Int = analysis.rangeMin
+    override val rangeMax: Int
+    override val rangeMin: Int
+
+    init {
+        if (config.contains("range")) {
+            val range = config.getString("range").split("-")
+            rangeMin = range[0].toInt()
+            rangeMax = range[1].toInt()
+        } else {
+            rangeMax = analysis.rangeMax
+            rangeMin = analysis.rangeMin
+        }
+    }
+
+
     override val textureWidth: Int = analysis.width
     override val textureHeight: Int = analysis.height
 

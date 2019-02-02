@@ -70,6 +70,13 @@ abstract class DataSkill : GameData(), IDataSkill {
                 return false
             }
         }
+        if (skillLimit > 0) {
+            if (MManaWars.m.screen.getEntities { e ->
+                        e is Skill && e.owner == owner && e.data == this }
+                            .size >= skillLimit) {
+                return false
+            }
+        }
         return true
     }
 

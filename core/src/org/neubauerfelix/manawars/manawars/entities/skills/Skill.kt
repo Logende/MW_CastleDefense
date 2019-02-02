@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities.skills
 
 import com.badlogic.gdx.graphics.g2d.Animation
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -38,7 +39,7 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
     init {
         // Set up basic values
         health = data.skillStrength
-        direction = o.direction * (if (data.startSpeedX > 0) 1 else -1)
+        direction = o.direction * (if (data.startSpeedX >= 0) 1 else -1)
         idleTimeLeft = data.idleTime
         lifeTimeLeft = data.lifeTime
 
@@ -70,12 +71,10 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
         } else {
             // Not Idle -> active
 
-            if (data.stopOnGround && this.bottom < 0f) { // Stop moving when hitting ground
+            if (data.stopOnGround && this.bottom < GameConstants.CONTROLPANEL_HEIGHT) { // Stop moving when hitting ground
                 this.speedY = 0f
-                this.speedX = 0f
-                this.accelerationX = 0f
                 this.accelerationY = 0f
-                this.bottom = 0f
+                this.bottom = GameConstants.CONTROLPANEL_HEIGHT
             }
 
             if (data.targetEnemy) {
@@ -129,7 +128,7 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
         if (e is IJumpable) {
             val knockbackFactor = Math.pow(damageFactor.toDouble(), 0.3).toFloat() * data.knockbackFactor * this.propertyScale
             val knockbackX = Math.abs(speedX / 3) + 60
-            val knockbackY = Math.abs(speedX / 3) + 50 // Was speedX before instead of speedY
+            val knockbackY = Math.abs(Math.max(speedY, speedX / 3)) + 50
             e.knockback(knockbackX * knockbackFactor, knockbackY * Math.abs(knockbackFactor), direction)
         }
 

@@ -1,0 +1,93 @@
+summon_zombie:
+  type: 'summon'
+  preview: 'summon.zombie'
+  sound: 'skill.shadowenergy'
+  manacost: 100
+  unit:
+    skin: 'zombie.1.1'
+    factors:
+      health: 1.5
+      manaregeneration: 1.0
+    actions:
+    - 'KNIFE_BASIC'
+    level: 1
+  children:
+    summon_zombie_strong:
+      preview: 'summon.zombie.strong'
+      manacost: 125
+      unit:
+        skin: 'zombie.2.1'
+        factors:
+          health: 2.0
+          manaregeneration: 1.2
+        actions:
+        - 'SPEAR_BASIC'
+      children:
+        summon_goblin_suicide:
+          preview: 'summon.goblin.suicide'
+          manacost: 80
+          rarity: 'RARE'
+          unit:
+            skin: 'goblin.1.4'
+            factors:
+              health: 2.0
+              manaregeneration: 1.0
+            actions:
+            - 'misc_explosion_small'
+            
+        summon_skeleton:
+          rarity: 'RARE'
+          preview: 'summon.skeleton'
+          manacost: 160
+          unit:
+            skin: 'skeleton.1.1'
+            factors:
+              health: 2.5
+              manaregeneration: 1.1
+            actions:
+            - 'arrow_weak'
+            bloodcolor: PURPLE
+          children:
+            summon_skeleton_strong:
+              preview: 'summon.skeleton.strong'
+              manacost: 190
+              unit:
+                skin: 'skeleton.2.1'
+                factors:
+                  health: 3.0
+                  manaregeneration: 1.2
+                actions:
+                - 'arrow_normal'
+                bloodcolor: PURPLE
+              children:
+                summon_golem:
+                  preview: 'summon.golem'
+                  manacost: 200
+                  rarity: 'VERY_RARE'
+                  unit:
+                    skin: 'golem.1.1'
+                    factors:
+                      health: 6.0
+                      manaregeneration: 1.1
+                    armor:
+                      body: 'HEAVY'
+                      head: 'HEAVY'
+                    actions:
+                    - 'beast_rock_1'
+                    bloodcolor: 'GRAY'
+                    summonlimit: 1
+                  children:
+                    summon_golem_fire:
+                      preview: 'summon.golem.strong'
+                      manacost: 240
+                      unit:
+                        skin: 'golem.1.2'
+                        factors:
+                          health: 8.0
+                          manaregeneration: 1.4
+                        armor:
+                          body: 'HEAVY'
+                          head: 'HEAVY'
+                        actions:
+                        - 'beast_rock_2'
+                        bloodcolor: 'GRAY'

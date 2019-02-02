@@ -60,17 +60,17 @@ interface IDataSkill : IDataAction {
     val stopOnGround: Boolean // most skills just fall through ground but some can stop and stay there (shield)
 
     /**
-     * If enabled this will override startSpeedX by "adaptedStartSpeedX"
-     * "adaptedStartSpeedX" is a value which is calculated in realtime
+     * If enabled this will scale speed and acceleration to make the skill perfectly hit the (static) enemy
      * This will result in following skill position when skill and target collide:
      * - Skill centre is at target centre
      * - Skill has the same y coordinate as when it was spawned
      * Requires targetEnemy=true
      */
-    val adaptiveSpeedX: Boolean
+    val allowMovementScaling: Boolean
 
     // special properties
     val fixManaCost: Int // use -1 to disable fix mana cost
+    val skillLimit: Int
 
     // target properties
     val targetEnemy: Boolean // if true skill can only be used if target is there

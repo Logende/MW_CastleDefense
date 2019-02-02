@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.handlers
 
 import org.neubauerfelix.manawars.game.AManaWars
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -62,7 +63,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         if (data.targetEnemy && data.yRelativeToTarget) {
             skill.centerVertical = target!!.centerVertical + data.yOffset * skill.propertyScale
         } else if (data.yRelativeToGround) {
-            skill.bottom = 0f + data.yOffset * skill.propertyScale
+            skill.top = GameConstants.CONTROLPANEL_HEIGHT + data.yOffset * skill.propertyScale
         } else {
             skill.centerVertical = owner.centerVertical + data.yOffset * skill.propertyScale
         }
@@ -71,13 +72,17 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
     override fun setupMovement(skill: IMovable, data: IDataSkill, owner: IActionUser, target: IEntity?) {
         skill.accelerationX = data.accelerationX * owner.direction
         skill.accelerationY = data.accelerationY
-        if (data.targetEnemy && data.adaptiveSpeedX) {
-            val durationReachTarget = 2 * data.startSpeedY / (-data.accelerationY)
-            val distanceTarget = Math.abs(skill.centerHorizontal - target!!.centerHorizontal)
-            skill.speedX = distanceTarget / durationReachTarget
-        } else {
-            skill.speedX = data.startSpeedX * owner.direction
-        }
+        skill.speedX = data.startSpeedX * owner.direction
         skill.speedY = data.startSpeedY
+
+        if (data.targetEnemy && data.allowMovementScaling) {
+            val defaultRange = data.rangeMin + (data.rangeMax - data.rangeMin) / 2
+            val distanceTarget = Math.abs(skill.centerHorizontal - target!!.centerHorizontal)
+            val scale = distanceTarget / defaultRange.toFloat()
+            skill.speedX *= scale
+            skill.speedY *= scale
+            skill.accelerationX *= scale
+            skill.accelerationY *= scale
+        }
     }
 }

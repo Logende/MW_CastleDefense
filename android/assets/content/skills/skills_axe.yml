@@ -1,0 +1,353 @@
+axe_basic:
+  target_range: 400
+  allow_movement_scaling: true
+  owner_animation: 'THROW'
+  texture: 'axe.basic'
+  animation: '1:1:1'
+  sound: 'skill.throw'
+  skillclass: 'HEAVY'
+  speed: '200:700'
+  acceleration: '0:-60*A'
+  strength: 8
+  damage: '5-6'
+  knockback: 1.5
+  children:
+    
+    #Brutal
+    axe_brutal_1:
+      target_range: 440
+      texture: 'axe.brutal.1'
+      speed: '250:700'
+      strength: 12
+      damage: '5-9'
+      children:
+      
+        axe_brutal_2:
+          target_range: 600
+          texture: 'axe.brutal.2'
+          speed: '350:700'
+          strength: 18
+          damage: '5-14'
+          
+    # Dwarf1
+    axe_dwarf1_simple:
+      target_range: 600
+      texture: 'axe.dwarf1.simple'
+      sound: 'skill.throw2'
+      speed: '600:500'
+      acceleration: '0:-80*A'
+      strength: 7
+      damage: '3-7'
+      children:
+      
+        axe_dwarf1_double:
+          target_range: 630
+          texture: 'axe.dwarf1.double'
+          speed: '640:500'
+          strength: 11
+          damage: '6-10'
+          sound: 'skill.throw'
+          children:
+          
+            axe_dwarf1_quadruple:
+              target_range: 660
+              texture: 'axe.dwarf1.quadruple'
+              speed: '600:500'
+              location: '0:50'
+              strength: 24
+              damage: '10-14'
+              
+              
+            #God (children of Dwarf1)
+            axe_god_dark:
+              allow_movement_scaling: false
+              owner_animation: 'SUMMON_BIG'
+              texture: 'axe.god.dark'
+              sound: 'skill.shadowenergy'
+              speed: '-500:-250'
+              acceleration: '40*A:11*A'
+              location: '0:150'
+              strength: 28
+              damage: '5-20'
+              children:
+              
+                axe_god_dark_strong:
+                  texture: 'axe.god.dark.strong'
+                  strength: 35
+                  damage: '10-25'
+                  children:
+                  
+                    axe_god_dark_strong_ice:
+                      texture: 'axe.god.dark.ice'
+                      strength: 40
+                      damage: '16-32'
+                      effect: 'FROZEN:4'
+            axe_god_light:
+              allow_movement_scaling: false
+              owner_animation: 'SUMMON_BIG'
+              texture: 'axe.god.light'
+              sound: 'skill.mighty'
+              speed: '700:-500'
+              acceleration: '0:40*A'
+              location: '0:150'
+              strength: 28
+              damage: '12'
+              children:
+              
+                axe_god_light_strong:
+                  texture: 'axe.god.light.strong'
+                  strength: 35
+                  damage: '17'
+                  children:
+                  
+                    axe_god_light_strong_fire:
+                      texture: 'axe.god.light.fire'
+                      strength: 40
+                      damage: '24'
+                      effect: 'BURNING:7'
+              
+        axe_dwarf1_simple_ice:
+          target_range: 600
+          texture: 'axe.dwarf1.ice'
+          speed: '600:500'
+          effect: 'FROZEN:2'
+          sound: 'skill.throw'
+                                
+    # Dwarf2
+    axe_dwarf2_small:
+      target_range: 600
+      texture: 'axe.dwarf2.1'
+      speed: '500:600'
+      acceleration: '0:-80*A'
+      location: '0:50'
+      strength: 6
+      damage: '5'
+      children:
+      
+        axe_dwarf2_medium:
+          texture: 'axe.dwarf2.2'
+          strength: 9
+          damage: '7-7'
+          children:
+          
+            axe_dwarf2_big:
+              texture: 'axe.dwarf2.3'
+              strength: 14
+              damage: '10'
+              scale: 1.5
+              children:
+              
+                axe_dwarf2_huge:
+                  target_range: 730
+                  texture: 'axe.dwarf2.4'
+                  sound: 'skill.epic'
+                  acceleration: '0:-70*A'
+                  strength: 80
+                  damage: '25-30'
+                  scale: 1.0
+                  
+                axe_dwarf2_big_fire:
+                  texture: 'axe.dwarf2.3.fire'
+                  strength: 18
+                  damage: '12-14'
+                  effect: 'BURNING:4'
+                  
+    # Human
+    axe_human:
+      target_range: 340
+      texture: 'axe.human'
+      speed: '250:600'
+      acceleration: '0:-70*A'
+      strength: 10
+      damage: '6-8'
+      children:
+      
+        axe_human_fire:
+          target_range: 540
+          texture: 'axe.human.fire'
+          strength: 12
+          damage: '8-10'
+          effect: 'BURNING:4'
+          children:
+          
+            axe_human_fire_strong:
+              texture: 'axe.human.fire.strong'
+              speed: '300:600'
+              acceleration: '0:-50*A'
+              strength: 20
+              damage: '10-14'
+              effect: 'BURNING:6'
+              
+        axe_human_ice:
+          target_range: 900
+          texture: 'axe.human.ice'
+          strength: 12
+          damage: '8-10'
+          effect: 'FROZEN:3'
+    
+    
+    # Orc
+    axe_orc_1:
+      target_range: 600
+      texture: 'axe.orc.1'
+      sound: 'skill.rost'
+      speed: '600:500'
+      acceleration: '0:-80*A'
+      strength: 12
+      damage: '5-8'
+      children:
+      
+        axe_orc_2:
+          target_range: 950
+          texture: 'axe.orc.2'
+          speed: '800:600'
+          location: '0:50'
+          strength: 18
+          damage: '10-14'
+          scale: 1.2
+          
+  # Wild
+    axe_wild_1:
+      target_range: 650
+      texture: 'axe.wild'
+      speed: '400:700'
+      acceleration: '0:-60*A'
+      strength: 9
+      damage: '6-7'
+      children:
+      
+        axe_wild_2:
+          texture: 'axe.wild.strong'
+          strength: 17
+          damage: '11-14'
+          children:
+          
+            axe_wild_3:
+              strength: 25
+              damage: '15-19'
+              scale: 1.5
+              
+#stick, hammer
+stick_1:
+  owner_animation: 'SUMMON_SMALL'
+  texture: 'stick'
+  animation: '1:1:1'
+  sound: 'skill.stick'
+  skillclass: 'LIGHT'
+  speed: '200:0'
+  acceleration: '0:0'
+  location: '0:70'
+  strength: 5
+  damage: '2-4'
+  knockback: 0.4
+  children:
+    stick_2:
+      speed: '250:0'
+      strength: 7
+      damage: '4-6'
+      children:
+      
+        hammer_1:                
+          target_range: 680
+          allow_movement_scaling: true
+          skillclass: 'HEAVY'
+          owner_animation: 'THROW'
+          texture: 'hammer.1'
+          animation: '1:1:1'
+          sound: 'skill.stick'
+          speed: '400:700'
+          acceleration: '0:-60*A'
+          location: '0:70'
+          strength: 7
+          damage: '5-9'
+          knockback: 1.0
+          children:
+            hammer_2:     
+              target_range: 720
+              texture: 'hammer.2'
+              speed: '450:600'
+              strength: 8
+              damage: '7-11'
+              children:
+                hammer_3:    
+                  target_range: 800
+                  texture: 'hammer.3'
+                  sound: 'skill.rock'
+                  speed: '500:600'
+                  strength: 14
+                  damage: '9-14'
+                  children:
+                    hammer_4:
+                      texture: 'hammer.4'
+                      strength: 19
+                      damage: '11-15'
+                      children:   
+                        hammer_4_fire:    
+                          texture: 'hammer.4.fire'
+                          strength: 24
+                          damage: '14-19'
+                          effect: 'BURNING:5'
+                          children:
+                            hammer_5_fire:
+                              target_range: 920
+                              texture: 'hammer.5.fire'
+                              speed: '700:480'
+                              strength: 28
+                              damage: '17-20'
+                              effect: 'BURNING:5'
+                              children:
+                                hammer_6_fire:
+                                  texture: 'hammer.6.fire'
+                                  strength: 40
+                                  damage: '25-31'
+                                  effect: 'BURNING:5'
+                          
+                        hammer_4_ice:    
+                          target_range: 800
+                          texture: 'hammer.4.ice'
+                          strength: 24
+                          damage: '14-19'
+                          effect: 'FROZEN:3'
+                          children:
+                            hammer_5_curse:    
+                              texture: 'hammer.5.curse'
+                              strength: 30
+                              damage: '16-22'
+                              effect: 'SLAGGED:3'
+                            
+        stick_brute:    
+          target_range: 630
+          allow_movement_scaling: true
+          skillclass: 'HEAVY'
+          owner_animation: 'SUMMON_SMALL'
+          texture: 'stick.brute'
+          animation: '1:1:1'
+          sound: 'skill.stick'
+          speed: '400:500'
+          acceleration: '0:-50*A'
+          location: '0:70'
+          strength: 9
+          damage: '7-12'
+          knockback: 1.0
+          
+        stick_pharao:    
+          owner_animation: 'SUMMON_SMALL'
+          texture: 'stick.pharao'
+          animation: '1:1:1'
+          sound: 'skill.stick'
+          speed: '300:0'
+          acceleration: '40*A:5*A'
+          location: '0:-20'
+          strength: 14
+          damage: '7-10'
+          knockback: 2.0
+          effect: 'SLAGGED:2'
+          children:
+            stick_pharao_strong:    
+              owner_animation: 'SUMMON_SMALL'
+              speed: '400:0'
+              acceleration: '42*A:-6*A'
+              location: '0:100'
+              strength: 18
+              damage: '10-14'
+              effect: 'SLAGGED:4'

@@ -1,0 +1,25 @@
+#misc_bomb
+misc_bomb:
+  rarity: 'rare'
+  type: normal
+  owner_animation: 'SUMMON_SMALL'
+  texture: 'misc.bomb'
+  animation: '1:12:1'
+  sound: 'skill.bomb'
+  skillclass: 'MAGIC'
+  manacost: 75
+  speed: '200:0'
+  acceleration: '0:0'
+  offset_x: 0
+  offset_y: 0
+  strength: 1
+  damage: '0-8'
+  knockback: 4.0
+  spawn_on_impact: 'misc_explosion_small'
+  children:
+    misc_bomb_strong:
+      rarity: 'very_rare'
+      damage: '0-12'
+      manacost: 100
+      spawn_on_impact: 'misc_explosion_big'
+

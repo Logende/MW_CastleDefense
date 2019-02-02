@@ -25,8 +25,23 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadScreen(): Boolean {
         background.load()
 
-        skill = MManaWars.m.getActionHandler().getAction("shuriken_poison")!!
+        skill = MManaWars.m.getActionHandler().getAction("shield_normal_4")!!
         skill.loadAsset()
+
+        /**
+         * TODO:
+         * Prüfen, wie Äxte und andere Skills mit variabler X-Geschwindigkeit ihren Range bekommen
+         * Range, Kosten und Angriffstyp von Skills berechnen (sowie andere Skill Eigenschaften)
+         * Summon Skills einbauen
+         * Einheit Movement AI
+         * Tribes einbauen
+         * Datenklassen zu Kotlin Data Class machen
+         * Sounds einbauen
+         * Testweise Steuerung um manuell zu steuern und besser testen zu können
+         * Castles einbauen
+         *
+         *
+         */
 
 
 
@@ -79,7 +94,7 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
             override fun run() {
                 a.executeAction(0)
             }
-        }, 2f, 4f)
+        }, 2f, 0.5f)
         b.team = MConstants.TEAM_PLAYER
 
     }

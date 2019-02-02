@@ -1,0 +1,66 @@
+shield_normal_1:
+  duration: 20
+  owner_animation: 'DROP'
+  animation: '1:1:1'
+  rotation_duration: 0
+  texture: 'shield.normal.1'
+  sound: 'skill.shield'
+  skillclass: 'SHIELD'
+  limit: 1
+  acceleration: '0:G'
+  speed: '0:0'
+  stop_on_ground: true
+  strength: 50
+  damage: '3'
+  knockback: 1.0
+  children:
+    shield_normal_2:
+      duration: 25
+      texture: 'shield.normal.2'
+      strength: 70
+      damage: '5'
+      knockback: 2.0
+      children:
+        shield_normal_3:
+          duration: 30
+          texture: 'shield.normal.3'
+          strength: 90
+          damage: '7'
+          knockback: 3.0
+          children:
+            shield_normal_4:
+              duration: 35
+              texture: 'shield.normal.4'
+              strength: 110
+              damage: '8'
+              knockback: 4.0
+              
+shield_ice_1:
+  duration: 10
+  owner_animation: 'DROP'
+  animation: '1:1:1'
+  rotation_duration: 0
+  texture: 'shield.ice.1'
+  sound: 'skill.heavy'
+  skillclass: 'SHIELD'
+  limit: 1
+  acceleration: '0:G'
+  speed: '0:0'
+  stop_on_ground: true
+  strength: 60
+  damage: '1'
+  knockback: 2.0
+  effect: 'FROZEN:2'
+  children:
+    shield_ice_2:
+      duration: 20
+      texture: 'shield.ice.2'
+      strength: 90
+      effect: 'FROZEN:4'
+      children:
+        shield_ice_3:
+          duration: 40
+          texture: 'shield.ice.3'
+          strength: 120
+          effect: 'FROZEN:6'
+          #TODO: shield_ice_ULTIMATE als Zusammensetzung mehrerer Skills

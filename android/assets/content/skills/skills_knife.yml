@@ -1,0 +1,245 @@
+knife_basic:
+  owner_animation: 'SUMMON_SMALL'
+  texture: 'knife.basic'
+  animation: '1:1:1'
+  sound: 'skill.knife.weak'
+  skillclass: 'LIGHT'
+  speed: '600:0'
+  acceleration: '40*A:0'
+  strength: 4
+  damage: '1-3'
+  knockback: 0.5
+  children:
+  
+    #Normal
+    knife_normal_1:
+      texture: 'knife.normal.1'
+      speed: '400:0'
+      location: '0:20'
+      strength: 5
+      damage: '2-7'
+      children:
+        knife_normal_2:
+          texture: 'knife.normal.2'
+          speed: '300:150'
+          acceleration: '60*A:-10*A'
+          location: '0:25'
+          strength: 7
+          damage: '6'
+  
+    #Dragonwarrior
+    knife_dragonwarrior:
+      texture: 'knife.dragonwarrior'
+      speed: '700:0'
+      location: '0:40'
+      strength: 6
+      damage: '4-6'
+      children:  
+        knife_dragonwarrior_fire:
+          texture: 'knife.dragonwarrior.fire'
+          strength: 7
+          damage: '5-7'
+          effect: 'BURNING:3'
+          
+    #Twisted
+    knife_twisted:
+      texture: 'knife.twisted'
+      sound: 'skill.knife'
+      speed: '500:0'
+      location: '0:35'
+      strength: 6
+      damage: '2-5'
+      children:
+        knife_twisted_ice:
+          texture: 'knife.twisted.ice'
+          strength: 7
+          effect: 'FROZEN:3'
+        sword_twisted:
+          sound: 'skill.rost'
+          texture: 'sword.twisted'
+          sound: 'skill.wind'
+          speed: '350:0'
+          location: '0:30'
+          acceleration: '10*A:0'
+          strength: 12
+          damage: '4-12'
+              
+  
+
+    #Mighty
+    knife_mighty_1:
+      texture: 'knife.mighty.1'
+      sound: 'skill.knife'
+      speed: '900:0'
+      acceleration: '0:0'
+      location: '0:-10'
+      strength: 10
+      damage: '6-8'
+      children:      
+        knife_mighty_2:
+          texture: 'knife.mighty.2'
+          speed: '1000:0'
+          strength: 11
+          damage: '8-10'
+          children:
+            knife_mighty_3_fire:
+              texture: 'knife.mighty.3.fire'
+              strength: 12
+              effect: 'BURNING:7'              
+            knife_mighty_3_ice:
+              texture: 'knife.mighty.3.ice'
+              strength: 12
+              effect: 'FROZEN:4'
+        sword_mighty:
+          texture: 'sword.mighty'
+          sound: 'skill.wind'
+          skillclass: 'HEAVY'
+          location: '0:10'
+          speed: '-600:0'
+          acceleration: '120*A:0'
+          strength: 15
+          damage: '6-16'
+          children:            
+            sword_mighty_double:
+              texture: 'sword.mighty.double'
+              speed: '-600:0'
+              acceleration: '150*A:10*A'
+              strength: 20
+              damage: '10-24'
+              children:  
+                sword_mighty_cross:
+                  texture: 'sword.mighty.cross'
+                  location: '0:40'
+                  speed: '900:0'
+                  target_range: 1000
+                  target_speed: '0:200'
+                  acceleration: '0:0'
+                  strength: 24
+                  damage: '14-30'
+        sword_mighty_gold:
+          texture: 'sword.mighty.gold'
+          sound: 'skill.wind'
+          skillclass: 'HEAVY'
+          location: '0:10'
+          speed: '-600:0'
+          acceleration: '120*A:0'
+          strength: 15
+          damage: '11'
+          children:            
+            sword_mighty_gold_strong:
+              texture: 'sword.mighty.gold.strong'
+              location: '0:40'
+              speed: '700:100'
+              acceleration: '20*A:-7*A'
+              strength: 18
+              damage: '14'
+              
+            sword_mighty_gold_double:
+              texture: 'sword.mighty.gold.double'
+              speed: '-600:0'
+              acceleration: '150*A:10*A'
+              strength: 20
+              damage: '17'
+              children:  
+                sword_mighty_gold_cross:
+                  texture: 'sword.mighty.gold.cross'
+                  location: '0:40'
+                  speed: '900:0'
+                  target_range: 1000
+                  target_speed: '0:200'
+                  acceleration: '0:0'
+                  strength: 24
+                  damage: '22'
+                  
+    #brokensword
+    knife_brokensword:
+      texture: 'knife.brokensword'
+      sound: 'skill.knife.fast'
+      speed: '1200:290'
+      acceleration: '-60*A:-15*A'
+      location: '0:-60'
+      strength: 12
+      damage: '10-14'
+      children:      
+        knife_brokensword_strong:
+          texture: 'knife.brokensword.strong'
+          speed: '1700:330'
+          acceleration: '-90*A:-25*A'
+          strength: 14
+          damage: '14'
+        knife_brokensword_poison:
+          texture: 'knife.brokensword.poison'
+          strength: 13
+          effect: 'POISONED:3'
+        knife_brokensword_ice:
+          texture: 'knife.brokensword.ice'
+          strength: 13
+          effect: 'FROZEN:2'
+                  
+    #Rest
+    knife_army_1:
+      texture: 'knife.army.1'
+      preview: ''
+      speed: '400:0'
+      acceleration: '10*A:0'
+      location: '0:30'
+      strength: 4
+      damage: '4'
+      children: 
+        knife_army_2:
+          texture: 'knife.army.2'
+          strength: 9
+          damage: '8'  
+
+    knife_arrow:
+      texture: 'knife.arrow'
+      preview: ''
+      speed: '300:0'
+      acceleration: '40*A:0'
+      location: '0:-17'
+      strength: 6
+      damage: '2'
+      knockback: 2.0
+      
+    knife_frost:
+      texture: 'knife.frost'
+      preview: ''
+      sound: 'skill.knife'
+      speed: '200:0'
+      acceleration: '40*A:0'
+      location: '0:-25'
+      strength: 6
+      damage: '0'
+      effect: 'FROZEN:5'
+      
+    knife_gold:
+      texture: 'knife.gold'
+      preview: ''
+      sound: 'skill.knife'
+      speed: '300:0'
+      acceleration: '0:0'
+      location: '0:-5'
+      strength: 8
+      damage: '7'
+      
+    knife_sharp:
+      texture: 'knife.sharp'
+      preview: ''
+      sound: 'skill.knife'
+      speed: '380:0'
+      acceleration: '0:0'
+      location: '0:0'
+      strength: 7
+      damage: '5'
+      
+    knife_thin:
+      texture: 'knife.thin'
+      preview: ''
+      sound: 'skill.knife'
+      speed: '500:0'
+      acceleration: '0:0'
+      location: '0:20'
+      strength: 6
+      damage: '1-10'
+      
+      

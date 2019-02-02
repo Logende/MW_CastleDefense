@@ -3,4 +3,13 @@ bodyData:
 shields:
 - 'shields.yml'
 actions:
-- 'skills/skills_arrow.yml'
+  - 'skills/skills_arrow.yml'
+  - 'skills/skills_sword.yml'
+  - 'skills/skills_boomerang.yml'
+  - 'skills/skills_shuriken.yml'
+  - 'skills/skills_axe.yml'
+  - 'skills/skills_beast.yml'
+  - 'skills/skills_knife.yml'
+  - 'skills/skills_spear.yml'
+  - 'skills/skills_magic.yml'
+  - 'skills/skills_shield.yml'

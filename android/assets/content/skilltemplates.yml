@@ -1,0 +1,210 @@
+normal_short:
+  # SUMMON_SMALL/SUMMON_BIG/WEAPON/THROW/DROP
+  owner_animation: 'THROW'
+  
+  # Name of the skill texture.
+  texture: 'arrow.weak'
+  
+  # Animation: '<frequency>:<columns>:<rows>'.
+  animation: '1.0:4:1'
+  
+  # Name of the sound file.
+  sound: 'skill.arrow'
+  
+  
+  # HEAVY/LIGHT/MAGIC/SHIELD
+  skillclass: 'LIGHT'
+  
+  # Start speed: '<x>:<y>'
+  speed: '1000:0'
+  
+  # Start acceleration: '<x>:<y>'. Acceleration factor: 'A'.
+  acceleration: '0:5*A'
+  
+  # Start location offset: '<x>:<y>'.
+  location: '-40:-20'
+  
+  
+  # Skill starting health and damage.
+  strength: 10
+  
+  # Damage dealt to enemies. '<damage min>-<damage max>'.
+  damage: '2-5'
+  
+  
+  
+normal_all_properties:
+  # SUMMON_SMALL/SUMMON_BIG/WEAPON/THROW/DROP
+  owner_animation: 'WEAPON'
+  
+  # OPTIONAL
+  ### Possible bows: NORMAL_BLUE/NORMAL_RED/DARK/BONES/GOLDSPIKES/LIGHT/RED/WILD
+  ### Possible crowssbows: DARK, DARK_STRONG, ELITE_DOUBLE, ELITE, SIMPLE, SKULL
+  weapon: 'BOW:RED'
+  
+  # Name of the skill texture.
+  texture: 'arrow.weak'
+  
+  # Animation: '<frequency>:<columns>:<rows>'.
+  animation: '1.0:4:1'
+  
+  # OPTIONAL
+  # Rotation duration in seconds.
+  rotation_duration: 1.0
+  
+  # OPTIONAL
+  # Name of preview image. If empty the name of the image texture is chosen.
+  preview: 'arrow.weak'
+  
+  # Name of the sound file.
+  sound: 'skill.arrow'
+  
+  # OPTIONAL
+  # Skill size scale. For example '2.0' results in the double size. Does affect texture size and not properties.
+  scale: 2.0
+  
+  # OPTIONAL
+  # If enabled instead of showing the whole skill animation one frame is randomly chosen and drawn per skill.
+  pick_one_frame: true
+  
+  # OPTIONAL
+  # Color of the skill. Default is white.
+  color: RED
+  
+  # OPTIONAL
+  # Fix mana cost.
+  manacost: 40
+  
+  
+  
+  
+  # HEAVY/LIGHT/MAGIC/SHIELD
+  skillclass: 'LIGHT'
+  
+  # Start speed: '<x>:<y>'
+  speed: '1000:0'
+  
+  # Start acceleration: '<x>:<y>'. Acceleration factor: 'A'. Gravity: 'G'.
+  acceleration: '0:5*A'
+  
+  # Start location offset: '<x>:<y>'.
+  location: '-40:-20'
+  
+  # OPTIONAL
+  # Duration the skill will be just idle (and not damage anyone) until it is activated and starts moving.
+  idle_time: 1.5
+  
+  # OPTIONAL
+  # Whether the spawn y coordinate should be relative to the ground.
+  y_relative_to_ground: true
+  
+  # OPTIONAL
+  # Whether the skill should stop moving downwards when hitting the ground. Used for example for falling shields.
+  # Only affects Y coordinate.
+  stop_on_ground: 'true'
+  
+  # OPTIONAL
+  # Whether the skill movement should be scaled depending on the enemy distance, to make the skill hit the (static) enemy perfectly.
+  # Requires having a target.
+  allow_movement_scaling: true
+  
+  # OPTIONAL
+  # If enabled this will allow targeting enemies within the given range. The value defined is the max value.
+  target_range: 900
+  
+  # OPTIONAL
+  # Whether the spawn location should be relative to the target x/y coordinate.
+  spawn_relative_to_target: 'true:false'
+  
+  # OPTIONAL
+  # Target speed: '<x>:<y>'. Overwrites normal speed if not 0.
+  target_speed: '0:300'
+  
+  # OPTIONAL
+  # Pre-defined range: '<range min>-<range max>'. If empty a good range will be automatically calculated.
+  # Manually setting the range only makes sense for targeting skills which in theory could have any range.
+  range: '100-500'
+  
+  
+  
+  
+  # Skill starting health and damage.
+  strength: 10
+  
+  # Damage dealt to enemies. '<damage min>-<damage max>'.
+  damage: '2-5'
+  
+  # OPTIONAL
+  # BURNING/FROZEN/POISONED/SLAGGED
+  effect: 'BURNING:5'
+  
+  # OPTIONAL
+  # Knockback factor. Higher numbers result in higher knockback. 1.0 is average.
+  knockback: 1.0
+  
+  # OPTIONAL
+  # Spawn a certain action when hitting enemies: '<action name>' or '<action name>:<amount>'.
+  spawn_on_impact: 'misc_explosion_tiny'
+  
+
+
+
+  
+  
+mix:
+  # Used to identify data class.
+  type: 'mix'
+  
+  # SUMMON_SMALL/SUMMON_BIG/BOW/THROW/DROP
+  owner_animation: 'SUMMON_SMALL'
+  
+  # Name of preview image. 
+  preview: 'arrow.weak'
+  
+  # Name of the sound file. If existing this sound and the sound of all spawned skills is played.
+  sound: 'skill.arrow'
+  
+  #### Fix mana cost.
+  ###manacost: 40
+  
+  # The mana cost is the sum of all contained skills together multiplied with this factor.
+  manacost_factor: 0.7
+  
+  # List of skills included in the mix: '<skillname>:<offset x>:<offset y>:<offset speed x>:<offset speed y>'.
+  # Offset is optional and can be removed, however in order to define speed offset the location offset needs to exist.
+  parts:
+  - 'magic_fireball_1:0:-100:0:0'
+  - 'magic_fireball_1:0:0:0:0'
+  - 'magic_fireball_1:0:100:0:0'
+  
+  # HEAVY/LIGHT/MAGIC/SHIELD
+  skillclass: 'MAGIC'
+  
+  #### Pre-defined range: '<range min>-<range max>'.
+  ###range: '100-500'
+  
+summon:
+  # Used to identify data class.
+  type: 'summon'
+  # Name of preview image. If empty the name of the image texture is chosen.
+  preview: 'summon.zombie'
+  # Name of the sound file.
+  sound: 'skill.shadowenergy'
+  # Fix mana cost.
+  manacost: 100
+  # The rarity determines the loot drop chance and minimum stage required to collect the skill.
+  # COMMON/RARE/VERY_RARE/LEGENDARY or IMPOSSIBLE for KI only skills. Default is COMMON.
+  rarity: 'RARE'
+  #### Summon limit: Maximum amount of summoned minions at once per character.
+  ###summonlimit: 2
+  # Unit setup
+  #Unit name.
+  unit:
+    skin: 'brute.1.1'
+    factors:
+      health: 0.8
+      manaregeneration: 0.6
+    actions:
+    - 'ARROW_WEAK'
+    #### Level of the unit. Default is 1.
+    ###level: 1
