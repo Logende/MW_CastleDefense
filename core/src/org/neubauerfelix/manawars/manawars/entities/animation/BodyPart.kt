@@ -48,12 +48,15 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
     }
 
 
+    open fun doLogic(sized: ISized, mirror: Boolean, scale: Float) {
+        x = calculateX(sized.x, mirror, scale)
+        y = calculateY(sized.y, scale)
+    }
+
     open fun draw(batcher: Batch, sized: ISized, mirror: Boolean, scale: Float) {
         if (!enabled) {
             return
         }
-        x = calculateX(sized.x, mirror, scale)
-        y = calculateY(sized.y, scale)
         batcher.color = color
         batcher.draw(tr, if (mirror) x+width else x, y,
                 if (mirror) originX-width else originX, originY,

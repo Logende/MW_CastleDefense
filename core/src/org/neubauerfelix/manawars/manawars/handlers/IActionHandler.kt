@@ -16,5 +16,6 @@ interface IActionHandler: IHandler {
     fun putAction(action: IDataAction)
     fun getAction(name: String): IDataAction?
     fun getParent(action: IDataAction): IDataAction?
+    fun listActions(): Iterable<IDataAction>
 
 }

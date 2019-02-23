@@ -4,12 +4,12 @@ import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
-import org.neubauerfelix.manawars.manawars.entities.IAnimated
+import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
 import org.neubauerfelix.manawars.manawars.entities.IStateable
 
-enum class MWState constructor(private val imageName: String, private val columns: Int, val worth: Int //Defines state priorities and skill mana cost for the state (additonal cost = duration*worth).
+enum class MWState (private val imageName: String, private val columns: Int, val tacticalDamage: Float //Defines state priorities and skill mana cost for the state (additonal cost = duration*tacticalDamage).
 ) {
-    BURNING("effect.state.burning", 3, 5) {
+    BURNING("effect.state.burning", 3, 1.7f) {
         override fun effect(s: IStateable, eff: Boolean) {
             s.damage(1.7f * if (eff) 2f else 1f, s.stateTrigger!!, MWDamageCause.STATEEFFECT)
         }
@@ -18,7 +18,7 @@ enum class MWState constructor(private val imageName: String, private val column
         override fun start(s: IStateable) {}
     },
 
-    POISONED("effect.state.poisoned", 3, 6) {
+    POISONED("effect.state.poisoned", 3, 2.5f) {
         override fun effect(s: IStateable, eff: Boolean) {
             s.damage(2.5f * if (eff) 2f else 1f, s.stateTrigger!!, MWDamageCause.STATEEFFECT)
         }
@@ -27,7 +27,7 @@ enum class MWState constructor(private val imageName: String, private val column
         override fun start(s: IStateable) {}
     },
 
-    SLAGGED("effect.state.slagged", 3, 8) {
+    SLAGGED("effect.state.slagged", 3, 4f) {
         override fun effect(s: IStateable, eff: Boolean) {}
 
         override fun end(s: IStateable) {}
@@ -38,7 +38,7 @@ enum class MWState constructor(private val imageName: String, private val column
     /**
      * While frozen entities are unable to walk / execute actions. They still can be moved by knockback and other external influences.
      */
-    FROZEN("effect.state.frozen", 1, 9) {
+    FROZEN("effect.state.frozen", 1, 2f) {
         override fun effect(s: IStateable, eff: Boolean) {
             if (eff) {
                 s.damage(0.5f, s.stateTrigger!!, MWDamageCause.STATEEFFECT)
@@ -46,7 +46,7 @@ enum class MWState constructor(private val imageName: String, private val column
         }
 
         override fun end(s: IStateable) {
-            if (s is IAnimated) {
+            if (s is IAnimatedLiving) {
                 s.animation.paused = false
             }
         }
@@ -55,7 +55,7 @@ enum class MWState constructor(private val imageName: String, private val column
             if (s.canWalk()) {
                 s.speedX = 0f
             }
-            if (s is IAnimated) {
+            if (s is IAnimatedLiving) {
                 s.animation.paused = true
             }
         }
@@ -75,10 +75,10 @@ enum class MWState constructor(private val imageName: String, private val column
         this.animation!!.playMode = PlayMode.LOOP
     }
 
-    fun getWorth(s: IStateable): Int {
-        return if (s.getStateEffectivity(this) === MWStateEffectivity.EFFECTIVE) {
-            worth * 2
-        } else worth
+    fun getWorth(victim: IStateable): Float {
+        return if (victim.getStateEffectivity(this) === MWStateEffectivity.EFFECTIVE) {
+            tacticalDamage * 2f
+        } else tacticalDamage
     }
 
     abstract fun effect(s: IStateable, eff: Boolean)

@@ -4,18 +4,21 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-interface IEntityAnimation: IDrawable, ICollidable{
+interface IEntityAnimation: IDrawable, ILogicable, ICollidable{
 
 
     var paused: Boolean
     val scale: Float
     var color: Color
+    val entityAnimationType: MWEntityAnimationType
 
     val canFly: Boolean
 

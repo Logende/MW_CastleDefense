@@ -3,7 +3,7 @@ spear_basic:
   texture: 'spear.basic'
   animation: '1:4:1'
   sound: 'skill.spear'
-  skillclass: 'LIGHT'
+  skillclass: 'NORMAL'
   speed: '500:80'
   acceleration: '0:-30*A'
   location: '0:50'
@@ -19,7 +19,6 @@ spear_basic:
       damage: '6-8'
       children:
         spear_normal:
-          skillclass: 'HEAVY'
           texture: 'spear.normal'
           speed: '700:90'
           acceleration: '0:-25*A'

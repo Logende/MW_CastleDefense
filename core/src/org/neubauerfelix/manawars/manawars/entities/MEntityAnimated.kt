@@ -10,15 +10,17 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: Float) :
         MEntityLiving(animationProducer.bodyWidth * animationProducer.defaultScale,
-                animationProducer.bodyHeight * animationProducer.defaultScale, health), IAnimated, ICollidable {
+                animationProducer.bodyHeight * animationProducer.defaultScale, health), IAnimatedLiving, ICollidable {
 
 
     private var colorRestoreTime: Long = -1L
     private var needsAnimationUpdate: Boolean = false
     final override val animation = animationProducer.produce(this)
+
     init {
         propertyScale = animation.scale
     }
@@ -29,6 +31,13 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
             this.animation.paused = value
         }
 
+    override val entityAnimationType: MWEntityAnimationType
+        get() = this.animation.entityAnimationType
+
+    override fun doLogic(delta: Float) {
+        super.doLogic(delta)
+        this.animation.doLogic(delta)
+    }
 
     override fun draw(delta: Float, batcher: Batch) {
         if (colorRestoreTime != -1L && AManaWars.m.screen.getGameTime() > colorRestoreTime) {

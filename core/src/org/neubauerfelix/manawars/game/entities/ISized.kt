@@ -50,7 +50,7 @@ interface ISized {
      * @param s object to compare with.
      * @return real distance.
      */
-    fun getDistance(s: ISized): Double
+    fun getDistance(s: ISized): Float
 
     /**
      * Returns the real horizontal distance between this rectangle and an other sized object.
@@ -58,7 +58,7 @@ interface ISized {
      * @param s object to compare with.
      * @return real distance.
      */
-    fun getDistanceHor(s: ISized): Double
+    fun getDistanceHor(s: ISized): Float
 
     /**
      * Returns the real vertical distance between this rectangle and an other sized object.

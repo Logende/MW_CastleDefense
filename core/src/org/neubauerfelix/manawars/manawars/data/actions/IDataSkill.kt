@@ -26,13 +26,10 @@ interface IDataSkill : IDataAction {
     val animation: Animation<TextureRegion>?
     val animationRotationDuration: Float
     val color: Color?
+    val textureScale: Float // affects just skill size, not other properties like damage or strength
 
     val soundPath: String
 
-    // texture size
-    val textureWidth: Int
-    val textureHeight: Int
-    val textureScale: Float // affects just skill size, not other properties like damage or strength
 
 
     // categories
@@ -71,6 +68,7 @@ interface IDataSkill : IDataAction {
     // special properties
     val fixManaCost: Int // use -1 to disable fix mana cost
     val skillLimit: Int
+    val loaded: Boolean
 
     // target properties
     val targetEnemy: Boolean // if true skill can only be used if target is there

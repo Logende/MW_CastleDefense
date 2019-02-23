@@ -31,9 +31,9 @@ class ActionHandler: IActionHandler, ILoadableContent {
         return parents[action]
     }
 
-
-
-
+    override fun listActions(): Iterable<IDataAction> {
+        return actions.values
+    }
 
     override fun loadContent(gameConfig: Configuration) {
         val handlerConfigNames = gameConfig.getStringList("actions")
@@ -57,7 +57,7 @@ class ActionHandler: IActionHandler, ILoadableContent {
                 throw RuntimeException("Unknown action type $type.")
             }
             actions[key] = action
-            System.out.println("loaded action $key")
+            System.out.println("created action $key")
             if (parent != null) {
                 this.parents[action] = parent
             }

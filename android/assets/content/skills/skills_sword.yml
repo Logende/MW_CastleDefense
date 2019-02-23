@@ -3,7 +3,7 @@ sword_basic:
   texture: 'sword.basic'
   animation: '1:1:1'
   sound: 'skill.wind'
-  skillclass: 'HEAVY'
+  skillclass: 'NORMAL'
   speed: '1200:-400'
   acceleration: '-70*A:50*A'
   offset_y: 50
@@ -89,7 +89,6 @@ sword_basic:
                       effect: ''
                       
     sword_orc_1:
-      skillclass: 'LIGHT'
       texture: 'sword.orc.1'
       sound: 'skill.rost'
       speed: '250:0'
@@ -99,7 +98,6 @@ sword_basic:
       damage: '1-9'
       children:
         sword_orc_2:
-          skillclass: 'HEAVY'
           texture: 'sword.orc.2'
           speed: '400:0'
           strength: 11

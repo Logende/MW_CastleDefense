@@ -24,15 +24,17 @@ public abstract class ConfigurationProvider {
     }
 
     /*------------------------------------------------------------------------*/
-    public abstract void save(Configuration config, FileHandle file) throws IOException;
+    public abstract void save(Configuration config, String fileName, boolean internal);
+
+    public abstract void save(Configuration config, FileHandle file);
 
     public abstract void save(Configuration config, Writer writer);
 
-    public abstract Configuration load(String fileName, boolean internal) throws IOException;
+    public abstract Configuration load(String fileName, boolean internal);
 
-    public abstract Configuration load(FileHandle file) throws IOException;
+    public abstract Configuration load(FileHandle file);
 
-    public abstract Configuration load(FileHandle file, Configuration defaults) throws IOException;
+    public abstract Configuration load(FileHandle file, Configuration defaults);
 
     public abstract Configuration load(Reader reader);
 

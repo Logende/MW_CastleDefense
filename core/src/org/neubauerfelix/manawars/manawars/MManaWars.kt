@@ -27,9 +27,9 @@ class MManaWars: GameManaWars() {
         loadHandler(AnimationHandler())
         loadHandler(LanguageHandler("english")) //TODO: Load language from config
         loadHandler(UpgradeHandler())
-        loadHandler(SkillHandler())
         loadHandler(ActionHandler())
         loadHandler(CollisionHandler())
+        loadHandler(SkillHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }

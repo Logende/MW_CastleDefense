@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanAnimating
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.BodyRider
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
-
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 
 open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health: Float, mana: Float, val actions: Array<IDataAction>,
@@ -17,13 +17,14 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
     override val manaMax: Float = mana
     override var mana: Float = mana / 2f
 
+
     init {
         //actions.sortWith({a : IDataAction, b: IDataAction -> 1})
         if (!actions.isEmpty()) {
             actions.sortWith(object : Comparator<IDataAction> {
                 override fun compare(a1: IDataAction, a2: IDataAction): Int = when {
-                    a1.manaCost > a2.manaCost -> 1
-                    a1.manaCost == a2.manaCost -> 0
+                    a1.getActionProperties(entityAnimationType).manaCost > a2.getActionProperties(entityAnimationType).manaCost -> 1
+                    a1.getActionProperties(entityAnimationType).manaCost == a2.getActionProperties(entityAnimationType).manaCost -> 0
                     else -> -1
                 }
             }, 0, actions.size)
@@ -55,7 +56,7 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
         require(actions.size > id)
 
         val action = actions[id]
-        if (mana < action.manaCost) {
+        if (mana < action.getActionProperties(entityAnimationType).manaCost) {
             return false
         }
         if (!this.canPerformActions()) {
@@ -65,7 +66,7 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
             return false
         }
         if (action.action(this)) {
-            takeMana(action.manaCost.toFloat())
+            takeMana(action.getActionProperties(entityAnimationType).manaCost.toFloat())
             this.animation.playBodyEffect(action.animationEffect, action.weaponType)
             return true
         }

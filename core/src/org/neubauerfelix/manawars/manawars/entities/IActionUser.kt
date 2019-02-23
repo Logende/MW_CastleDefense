@@ -3,7 +3,7 @@ package org.neubauerfelix.manawars.manawars.entities
 import org.neubauerfelix.manawars.game.entities.IEntity
 
 
-interface IActionUser: ILooking, ITeamable, IEntity {
+interface IActionUser: ILooking, ITeamable, IEntity, IAnimated {
 
 
     val mana: Float
@@ -12,5 +12,6 @@ interface IActionUser: ILooking, ITeamable, IEntity {
 
     fun executeAction(id: Int): Boolean
     fun canPerformActions(): Boolean
+
 
 }

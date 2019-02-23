@@ -4,7 +4,7 @@ boomerang_1:
   texture: 'boomerang.1'
   animation: '1:1:1'
   sound: 'skill.boomerang'
-  skillclass: 'LIGHT'
+  skillclass: 'NORMAL'
   speed: '700:200'
   acceleration: '0-35*A:-12*A'
   strength: 6

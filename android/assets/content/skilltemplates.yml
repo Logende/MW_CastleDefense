@@ -104,8 +104,7 @@ normal_all_properties:
   stop_on_ground: 'true'
   
   # OPTIONAL
-  # Whether the skill movement should be scaled depending on the enemy distance, to make the skill hit the (static) enemy perfectly.
-  # Requires having a target.
+  # Whether the skill movement can be scaled down, depending on the enemy distance, to make the skill hit the (static) enemy perfectly.
   allow_movement_scaling: true
   
   # OPTIONAL
@@ -145,6 +144,12 @@ normal_all_properties:
   # OPTIONAL
   # Spawn a certain action when hitting enemies: '<action name>' or '<action name>:<amount>'.
   spawn_on_impact: 'misc_explosion_tiny'
+  
+  # OPTIONAL
+  # Limit of skills to be alive from one owner at a time. Default is -1 which disables the limit.
+  limit: 1
+  
+  
   
 
 

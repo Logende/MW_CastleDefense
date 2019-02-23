@@ -6,7 +6,7 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 enum class MWSkillClass private constructor(val durabilityUpgrade: MWUpgrade, val damageUpgrade: MWUpgrade, val type: Int //0: Normal & blocked by shield. 1: Can go through normal shields and blocked by heavy skills. 2: Can go through all shields.
 ) {
     LIGHT(MWUpgrade.SKILLS_DURABILITY_LIGHT, MWUpgrade.SKILLS_LIGHT, 0),
-    HEAVY(MWUpgrade.SKILLS_DURABILITY_HEAVY, MWUpgrade.SKILLS_HEAVY, 1),
+    NORMAL(MWUpgrade.SKILLS_DURABILITY_NORMAL, MWUpgrade.SKILLS_NORMAL, 1),
     MAGIC(MWUpgrade.SKILLS_DURABILITY_MAGIC, MWUpgrade.SKILLS_MAGIC, 0),
     SHIELD(MWUpgrade.SKILLS_DURABILITY_SHIELD, MWUpgrade.SKILLS_SHIELD, 2);
 

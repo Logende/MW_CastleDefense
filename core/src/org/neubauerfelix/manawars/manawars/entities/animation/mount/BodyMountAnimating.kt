@@ -3,12 +3,13 @@ package org.neubauerfelix.manawars.manawars.entities.animation.mount
 
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.IDrawable
+import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeLegs
 
-open class BodyMountAnimating(bodyDataMount: IBodyDataMount, scale: Float, sized: ISized) : BodyMount(bodyDataMount, scale, sized), IDrawable {
+open class BodyMountAnimating(bodyDataMount: IBodyDataMount, scale: Float, sized: ISized) : BodyMount(bodyDataMount, scale, sized), IDrawable, ILogicable {
 
     companion object {
         val POSITION_COUNT_MAIN_NORMAL = 4
@@ -17,7 +18,17 @@ open class BodyMountAnimating(bodyDataMount: IBodyDataMount, scale: Float, sized
     protected var positionCountMain = 4 //Can be changed by short animations and is reset when normal movements are animated
     protected var positionCountLegs = 4
 
-    
+
+    override fun doLogic(delta: Float) {
+        val mirror = this.mirror
+        footBL.doLogic(sized, mirror, scale)
+        footBR.doLogic(sized, mirror, scale)
+        body.doLogic(sized, mirror, scale)
+        head.doLogic(sized, mirror, scale)
+        footFL.doLogic(sized, mirror, scale)
+        footFR.doLogic(sized, mirror, scale)
+    }
+
     override fun draw(delta: Float, batcher: Batch) {
         val mirror = this.mirror
         footBL.draw(batcher, sized, mirror, scale)

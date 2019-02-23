@@ -55,7 +55,6 @@ knife_basic:
           strength: 7
           effect: 'FROZEN:3'
         sword_twisted:
-          sound: 'skill.rost'
           texture: 'sword.twisted'
           sound: 'skill.wind'
           speed: '350:0'
@@ -93,7 +92,7 @@ knife_basic:
         sword_mighty:
           texture: 'sword.mighty'
           sound: 'skill.wind'
-          skillclass: 'HEAVY'
+          skillclass: 'NORMAL'
           location: '0:10'
           speed: '-600:0'
           acceleration: '120*A:0'
@@ -119,7 +118,7 @@ knife_basic:
         sword_mighty_gold:
           texture: 'sword.mighty.gold'
           sound: 'skill.wind'
-          skillclass: 'HEAVY'
+          skillclass: 'NORMAL'
           location: '0:10'
           speed: '-600:0'
           acceleration: '120*A:0'

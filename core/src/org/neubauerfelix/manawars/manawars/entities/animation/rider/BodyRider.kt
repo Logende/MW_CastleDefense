@@ -92,10 +92,6 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
     }
 
     override fun draw(delta: Float, batcher: Batch) {
-        rectMount.x = this.x
-        rectMount.bottom = this.bottom
-        rectHuman.centerHorizontal = this.centerHorizontal + MConstants.RIDER_CENTRE_MOUNT_CENTRE_OFFSET_X
-        rectHuman.bottom = mount.top + MConstants.RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y
         mount.draw(delta, batcher)
         human.draw(delta, batcher)
         if (mount is EntityAnimationAny) {
@@ -103,6 +99,15 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
                 mount.body.head.draw(batcher, mount, mount.body.mirror, mount.scale)
             }
         }
+    }
+
+    override fun doLogic(delta: Float) {
+        rectMount.x = this.x
+        rectMount.bottom = this.bottom
+        rectHuman.centerHorizontal = this.centerHorizontal + MConstants.RIDER_CENTRE_MOUNT_CENTRE_OFFSET_X
+        rectHuman.bottom = mount.top + MConstants.RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y
+        human.doLogic(delta)
+        mount.doLogic(delta)
     }
 
     override fun drawDebugging(shapeRenderer: ShapeRenderer) {

@@ -1,7 +1,6 @@
 package org.neubauerfelix.manawars.manawars.entities.animation.human
 
 
-import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
@@ -40,14 +39,16 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         get() = false
 
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun doLogic(delta: Float) {
         next -= delta
         if (next < 0) {
             next = MConstants.HUMAN_ANIMATION_SPEED
             nextPosition()
         }
-        super.draw(delta, batcher)
+        super.doLogic(delta)
     }
+
+
 
     override fun drawDebugging(shapeRenderer: ShapeRenderer) {
         shapeRenderer.polygon(head.polygon.transformedVertices)

@@ -1,13 +1,12 @@
 package org.neubauerfelix.manawars.manawars.entities.animation.mount
 
 import org.neubauerfelix.manawars.game.entities.GameEntity
-import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
-import org.neubauerfelix.manawars.manawars.entities.IAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 class EntityAnimationProducerMount(bodyDataMount: IBodyDataMount): IEntityAnimationProducer, IBodyDataMount by bodyDataMount{
 
@@ -15,7 +14,7 @@ class EntityAnimationProducerMount(bodyDataMount: IBodyDataMount): IEntityAnimat
 
     override fun produce(entity: ISized, scale: Float): IEntityAnimation {
         val body = BodyMountSmart(this, scale, entity)
-        return EntityAnimationAny(body)
+        return EntityAnimationAny(body, MWEntityAnimationType.MOUNT)
     }
 
     override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
@@ -25,6 +24,6 @@ class EntityAnimationProducerMount(bodyDataMount: IBodyDataMount): IEntityAnimat
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyMountSmart(this, scale, rectangle)
-        return EntityAnimationAny(body)
+        return EntityAnimationAny(body, MWEntityAnimationType.MOUNT)
     }
 }

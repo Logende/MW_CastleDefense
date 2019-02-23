@@ -1,17 +1,13 @@
 package org.neubauerfelix.manawars.manawars.entities.animation.rider
 
 import org.neubauerfelix.manawars.game.entities.GameEntity
-import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.entities.IAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
-import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyDataHuman
-import org.neubauerfelix.manawars.manawars.entities.animation.human.IBodyDataHuman
-import org.neubauerfelix.manawars.manawars.entities.animation.mount.IBodyDataMount
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, val producerHuman: IEntityAnimationProducer):
         IEntityAnimationProducer {
@@ -27,7 +23,7 @@ class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, 
 
     override fun produce(entity: ISized, scale: Float): IEntityAnimation {
         val body = BodyRider(entity, producerMount, producerHuman, scale, scale)
-        return EntityAnimationAny(body)
+        return EntityAnimationAny(body, MWEntityAnimationType.RIDER)
     }
 
     override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
@@ -37,6 +33,6 @@ class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, 
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyRider(rectangle, producerMount, producerHuman, scale, scale)
-        return EntityAnimationAny(body)
+        return EntityAnimationAny(body, MWEntityAnimationType.RIDER)
     }
 }

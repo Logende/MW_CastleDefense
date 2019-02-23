@@ -2,13 +2,14 @@ package org.neubauerfelix.manawars.manawars.entities.animation
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.IDrawable
+import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-interface IBody: ICollidable, IDrawable {
+interface IBody: ICollidable, IDrawable, ILogicable {
 
     fun explode()
     fun deadlyHit(killer: IMovable)

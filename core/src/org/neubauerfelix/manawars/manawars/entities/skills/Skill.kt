@@ -77,12 +77,12 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
                 this.bottom = GameConstants.CONTROLPANEL_HEIGHT
             }
 
-            if (data.targetEnemy) {
+            if (data.targetEnemy && target != null) {
                 if (data.targetSpeedX != 0f) {
-                    this.speedX = if (target!!.centerHorizontal > this.centerHorizontal) data.targetSpeedX else -data.targetSpeedX
+                    this.speedX = if (target.centerHorizontal > this.centerHorizontal) data.targetSpeedX else -data.targetSpeedX
                 }
                 if (data.targetSpeedY != 0f) {
-                    this.speedY = if (target!!.centerVertical > this.centerVertical) data.targetSpeedY else -data.targetSpeedY
+                    this.speedY = if (target.centerVertical > this.centerVertical) data.targetSpeedY else -data.targetSpeedY
                 }
             }
 

@@ -25,13 +25,15 @@ open class BodyPartAnimation(private val textures: Array<TextureRegion>, bodyPar
         this.position = pos
     }
 
+    override fun doLogic(sized: ISized, mirror: Boolean, scale: Float) {
+        x = calculateX(sized.x, mirror, scale)
+        y = calculateY(sized.y, scale)
+    }
 
     override fun draw(batcher: Batch, sized: ISized, mirror: Boolean, scale: Float) {
         if (!enabled) {
             return
         }
-        x = calculateX(sized.x, mirror, scale)
-        y = calculateY(sized.y, scale)
         batcher.color = color
         batcher.draw(textures[position], if (mirror) x+width else x, y,
                 if (mirror) originX-width else originX, originY,

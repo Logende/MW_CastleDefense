@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.data.actions
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Colors
+import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.*
@@ -164,26 +165,43 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
 
 
 
-    val analysis: ISkillAnalysis = MManaWars.m.getSkillAnalysisHandler().analyse(this) // TODO load from already generated, instead of generating new
+    var analysis: MutableMap<MWEntityAnimationType, ISkillAnalysis> = HashMap()
 
-    override val lifeTime: Float = analysis.lifeTime // TODO: generate good lifetime
-    override val manaCost: Int = analysis.manaCost
-    override val rangeMax: Int
-    override val rangeMin: Int
+    // TODO: First set analysis to dummyAnalysis (infinite range and stuff) and later replace it by actual analysis. That way the analysis handler can use the dummy analysis to create a proper skill
 
     init {
-        if (config.contains("range")) {
-            val range = config.getString("range").split("-")
-            rangeMin = range[0].toInt()
-            rangeMax = range[1].toInt()
-        } else {
-            rangeMax = analysis.rangeMax
-            rangeMin = analysis.rangeMin
+        MWEntityAnimationType.values().forEach { type ->
+            analysis[type] = SkillAnalysisDummy()
         }
+
+        this.loadAsset()
+        do {
+            // wait
+        } while (!AManaWars.m.getAssetLoader().areAssetsLoaded())
+        this.loadedAsset()
+
     }
 
 
-    override val textureWidth: Int = analysis.width
-    override val textureHeight: Int = analysis.height
+    fun analyseSkill() {
+        this.loadAsset()
+        do {
+            // wait
+        } while (!AManaWars.m.getAssetLoader().areAssetsLoaded())
+        this.loadedAsset()
+        MWEntityAnimationType.values().forEach { type ->
+            analysis[type] = MManaWars.m.getSkillAnalysisHandler().analyse(this, type)
+        }
+        this.disposeAsset()
+    }
+
+    // TODO: Load skill analysis from file / save to file
+
+    override val lifeTime: Float = 1000f //analysis.getValue(MWEntityAnimationType.HUMAN).lifeTime // TODO: generate good lifetime
+
+    override fun getActionProperties(entityAnimationType: MWEntityAnimationType) : IDataActionProperties {
+        return analysis.getValue(entityAnimationType)
+    }
+
 
 }

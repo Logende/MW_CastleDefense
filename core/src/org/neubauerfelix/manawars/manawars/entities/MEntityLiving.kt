@@ -17,7 +17,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEntityJumpable(width, height), ILiving, ITeamable {
 
     companion object {
-        fun getClosestEntity(condition: (IEntity) -> Boolean, mainEntity: IEntity, maxDistance: Double): IEntity?{
+        fun getClosestEntity(condition: (IEntity) -> Boolean, mainEntity: IEntity, maxDistance: Float): IEntity?{
             var closestDistance = maxDistance
             var closestEntity: IEntity? = null
             val entities = AManaWars.m.screen.getEntities(condition)

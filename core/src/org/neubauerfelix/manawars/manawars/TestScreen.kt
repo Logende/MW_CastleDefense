@@ -5,6 +5,7 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
@@ -25,7 +26,9 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadScreen(): Boolean {
         background.load()
 
-        skill = MManaWars.m.getActionHandler().getAction("shield_normal_4")!!
+        MManaWars.m.getSkillAnalysisHandler().analyseSkills("skillanalysis.yml")
+
+        skill = MManaWars.m.getActionHandler().getAction("arrowrain_single")!!
         skill.loadAsset()
 
         /**

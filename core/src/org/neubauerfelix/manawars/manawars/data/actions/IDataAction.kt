@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWRarity
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
@@ -35,12 +36,6 @@ interface IDataAction : IDataPresentable, IAsset {
      */
     val previewTexturePath: String
 
-    /**
-     * Returns the mana cost of the action. Entities need to spend this amount of mana in order to execute it.
-     * They regenerate mana within a certain time.
-     * @return mana cost.
-     */
-    val manaCost: Int
 
     /**
      * Returns the short animation played when the action is executed.
@@ -56,8 +51,6 @@ interface IDataAction : IDataPresentable, IAsset {
     val weaponType: MWWeaponType?
 
 
-
-
     /**
      * Returns all actions this actions depends on. When the action is loaded those actions are loaded as well.
      * @return action dependencies.
@@ -65,8 +58,6 @@ interface IDataAction : IDataPresentable, IAsset {
     val actionDependencies: Array<IDataAction>
 
 
-    val rangeMax: Int
-    val rangeMin: Int
 
     /**
      * Executes the defined action.
@@ -82,6 +73,10 @@ interface IDataAction : IDataPresentable, IAsset {
      * @return `true` if the entity can use the action.
      */
     fun canUse(owner: IActionUser): Boolean
+
+
+
+    fun getActionProperties(entityAnimationType: MWEntityAnimationType) : IDataActionProperties
 
 
 }

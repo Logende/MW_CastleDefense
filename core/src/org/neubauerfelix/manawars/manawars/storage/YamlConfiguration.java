@@ -41,6 +41,11 @@ public class YamlConfiguration extends ConfigurationProvider {
     };
 
     @Override
+    public void save(Configuration config, String fileName, boolean internal) {
+        save(config, internal ? Gdx.files.internal(fileName) : Gdx.files.local(fileName) );
+    }
+
+    @Override
     public void save(Configuration config, FileHandle file) {
         BufferedWriter writer = new BufferedWriter(file.writer(false, "UTF-8"));
         save(config, writer);

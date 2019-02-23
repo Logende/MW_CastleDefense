@@ -6,12 +6,10 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimation
-import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
-import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
-import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
-import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
+import org.neubauerfelix.manawars.manawars.enums.*
 
-class EntityAnimationAny(val body: IBody): EntityAnimation(body, body.scale) {
+class EntityAnimationAny(val body: IBody, override val entityAnimationType: MWEntityAnimationType) :
+        EntityAnimation(body, body.scale) {
 
 
 
@@ -36,6 +34,10 @@ class EntityAnimationAny(val body: IBody): EntityAnimation(body, body.scale) {
         body.draw(delta, batcher)
     }
 
+    override fun doLogic(delta: Float) {
+        body.doLogic(delta)
+    }
+
     override fun drawDebugging(shapeRenderer: ShapeRenderer) {
         body.drawDebugging(shapeRenderer)
     }
@@ -49,4 +51,6 @@ class EntityAnimationAny(val body: IBody): EntityAnimation(body, body.scale) {
 
     override val playingBodyEffect: Boolean
         get() = body.playingBodyEffect
+
+
 }

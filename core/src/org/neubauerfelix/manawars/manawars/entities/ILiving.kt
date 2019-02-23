@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities
 
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
@@ -9,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
  * ILiving entities have certain health and can be damaged or even killed.
  * @author Felix Neubauer
  */
-interface ILiving : ISized, IMovable {
+interface ILiving : ISized, IMovable, ILogicable {
 
     val invincible: Boolean
     val health: Float

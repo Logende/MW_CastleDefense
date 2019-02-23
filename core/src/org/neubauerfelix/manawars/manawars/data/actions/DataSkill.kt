@@ -64,6 +64,7 @@ abstract class DataSkill : GameData(), IDataSkill {
     }
 
 
+
     override fun canUse(owner: IActionUser): Boolean {
         if (targetEnemy) {
             if (MManaWars.m.getSkillSetupHandler().findTarget(this, owner) == null) {

@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponClass
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 import org.neubauerfelix.manawars.manawars.storage.Configuration
@@ -42,8 +43,6 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         this.actionDependencies = actionDependencies.toTypedArray()
     }
 
-    override val manaCost: Int = (this.parts.map { part -> part.action.manaCost }.sum()
-            * config.getFloat("manacost_factor", 0.7f)).toInt()
 
     override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
     override val weaponType: MWWeaponType?
@@ -58,11 +57,6 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         }
     }
 
-
-    override val rangeMax: Int
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val rangeMin: Int
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
     override fun action(owner: IActionUser): Boolean {
         return parts.map { part -> part.spawnSkill(owner) }.contains(true)
@@ -91,4 +85,26 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
     override fun disposeAsset() {
         parts.forEach { part -> part.action.disposeAsset() }
     }
+
+
+    val properties: Map<MWEntityAnimationType, IDataActionProperties>
+
+    init {
+        properties = HashMap()
+        MWEntityAnimationType.values().forEach { type ->
+            properties[type] = object : IDataActionProperties{
+                override val manaCost: Int = (parts.map { part -> part.action.getActionProperties(type).manaCost }.sum()
+                        * config.getFloat("manacost_factor", 0.7f)).toInt()
+
+                override val rangeMax: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMax
+                override val rangeMin: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMin // TODO
+            }
+        }
+    }
+
+    override fun getActionProperties(entityAnimationType: MWEntityAnimationType): IDataActionProperties {
+        return properties.getValue(entityAnimationType)
+    }
+
+
 }

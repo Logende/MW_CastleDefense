@@ -145,17 +145,17 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISiz
         }
     }
 
-    override fun getDistance(s: ISized): Double {
-        return Math.sqrt(Math.pow(getDistanceHor(s), 2.0) + Math.pow(getDistanceVer(s).toDouble(), 2.0))
+    override fun getDistance(s: ISized): Float {
+        return Math.sqrt(Math.pow(getDistanceHor(s).toDouble(), 2.0) + Math.pow(getDistanceVer(s).toDouble(), 2.0)).toFloat()
     }
 
-    override fun getDistanceHor(s: ISized): Double {
+    override fun getDistanceHor(s: ISized): Float {
         return if (s.right < this.left) {
-            Math.abs(s.right - this.left).toDouble()
+            Math.abs(s.right - this.left)
         } else if (s.left > this.right) {
-            Math.abs(s.left - this.right).toDouble()
+            Math.abs(s.left - this.right)
         } else {
-            0.0
+            0f
         }
     }
 
