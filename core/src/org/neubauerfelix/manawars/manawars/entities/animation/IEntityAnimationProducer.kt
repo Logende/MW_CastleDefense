@@ -6,12 +6,14 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimationProducerHuman
 import org.neubauerfelix.manawars.manawars.entities.animation.mount.EntityAnimationProducerMount
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.EntityAnimationProducerRider
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 interface IEntityAnimationProducer: IBodyData {
 
 
     companion object {
         fun createProducerHuman(skinName: String): IEntityAnimationProducer{
+            System.out.println("get unit with skin $skinName")
             val bodyDataHuman = MManaWars.m.getBodyDataHandler().getBodyDataHuman(skinName)
             return EntityAnimationProducerHuman(bodyDataHuman)
         }
@@ -28,6 +30,9 @@ interface IEntityAnimationProducer: IBodyData {
 
     fun produce(entity: ISized, scale: Float = defaultScale): IEntityAnimation
     fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity
+
+
+    val animationType: MWEntityAnimationType
 
 
 }

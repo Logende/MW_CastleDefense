@@ -1,0 +1,8 @@
+name: testarmy
+units:
+  archer:
+    animation: 'HUMAN:human.ranger.3.1'
+    action: 'magic_fireball_3'
+    armor: 'anti_light:anti_light'
+    health: 1.0
+    mana: 1.0

@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.manawars.entities.skills
+package org.neubauerfelix.manawars.manawars.entities
 
 import com.badlogic.gdx.graphics.g2d.Animation
 import org.neubauerfelix.manawars.game.GameConstants
@@ -6,14 +6,13 @@ import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.entities.*
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.enums.*
 
 
 
 
-class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale, data.color, data.animationRotationDuration, Animation.PlayMode.LOOP), IOwned {
+class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale, data.color, data.animationRotationDuration, Animation.PlayMode.LOOP), IOwned {
 
     override var owner: IEntity? = o
 
@@ -93,7 +92,7 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
         }
     }
 
-    fun collisionSkill(s: Skill) {
+    fun collisionSkill(s: MSkill) {
         val healthS = s.health
         s.damage(health, this)
         this.damage(healthS, s)
@@ -106,7 +105,9 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
 
 
         var damageFactor = 1f
-        //damageFactor *= e.getSkillEffectivity(getSkillClass(), collision_type) TODO
+        if (e is IUpgraded) {
+            damageFactor *= e.getArmor(collisionType).getSkillEffectivity(data.skillClass).damageFactor
+        }
 
         if (o is IUpgraded) {
             damageFactor += o.getSkillMultiplier(data.skillClass)
@@ -147,7 +148,7 @@ class Skill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(da
 
         // Damage skill itself
         val skillDamage = Math.min(MConstants.MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT, e.health.toInt())
-        // Skill damage
+        // MSkill damage
         if (!killed) {
             this.damage(Math.max(skillDamage, MConstants.MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL), e)
         } else {

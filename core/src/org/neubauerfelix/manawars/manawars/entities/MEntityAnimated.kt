@@ -66,7 +66,6 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
     override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
         if (super.death(damager, cause)) {
             animation.color = bloodColor
-            System.out.println("play death animation")
             animation.playDeathAnimation(damager, cause)
             return true
         }

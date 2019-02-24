@@ -30,6 +30,11 @@ class MManaWars: GameManaWars() {
         loadHandler(ActionHandler())
         loadHandler(CollisionHandler())
         loadHandler(SkillHandler())
+
+        // can be called to generate new skill analysis file, which can manually be moved to assets folder
+        //getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME)
+
+        getSkillAnalysisHandler().loadSkillAnalyses(MConstants.SKILL_ANALYSIS_FILE_NAME)
         startScreen(TestScreenLoad(this), true)
         print("load")
     }

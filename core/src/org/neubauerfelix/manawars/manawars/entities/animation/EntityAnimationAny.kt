@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.entities.IEntity
@@ -51,6 +52,15 @@ class EntityAnimationAny(val body: IBody, override val entityAnimationType: MWEn
 
     override val playingBodyEffect: Boolean
         get() = body.playingBodyEffect
+
+
+    override var color: Color = Color.WHITE
+        set(value) {
+            field = value
+            body.color = value
+        }
+
+
 
 
 }

@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.game.data.GameData
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
-import org.neubauerfelix.manawars.manawars.entities.skills.Skill
+import org.neubauerfelix.manawars.manawars.entities.MSkill
 
 
 abstract class DataSkill : GameData(), IDataSkill {
@@ -53,8 +53,8 @@ abstract class DataSkill : GameData(), IDataSkill {
         /*val entities = GameEntityHandler.getEntities()
         synchronized(entities) {
             for (e in entities) {
-                if (e is Skill) {
-                    if ((e as Skill).getData() === this) {
+                if (e is MSkill) {
+                    if ((e as MSkill).getData() === this) {
                         e.setRemove(true)
                     }
                 }
@@ -73,7 +73,7 @@ abstract class DataSkill : GameData(), IDataSkill {
         }
         if (skillLimit > 0) {
             if (MManaWars.m.screen.getEntities { e ->
-                        e is Skill && e.owner == owner && e.data == this }
+                        e is MSkill && e.owner == owner && e.data == this }
                             .size >= skillLimit) {
                 return false
             }
@@ -86,7 +86,7 @@ abstract class DataSkill : GameData(), IDataSkill {
     }
 
     override fun spawnSkill(owner: IActionUser): IEntity {
-        val s = Skill(this, owner)
+        val s = MSkill(this, owner)
         s.spawn()
         return s
     }

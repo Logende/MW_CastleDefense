@@ -25,7 +25,7 @@ normal_short:
   location: '-40:-20'
   
   
-  # Skill starting health and damage.
+  # MSkill starting health and damage.
   strength: 10
   
   # Damage dealt to enemies. '<damage min>-<damage max>'.
@@ -60,7 +60,7 @@ normal_all_properties:
   sound: 'skill.arrow'
   
   # OPTIONAL
-  # Skill size scale. For example '2.0' results in the double size. Does affect texture size and not properties.
+  # MSkill size scale. For example '2.0' results in the double size. Does affect texture size and not properties.
   scale: 2.0
   
   # OPTIONAL
@@ -127,7 +127,7 @@ normal_all_properties:
   
   
   
-  # Skill starting health and damage.
+  # MSkill starting health and damage.
   strength: 10
   
   # Damage dealt to enemies. '<damage min>-<damage max>'.

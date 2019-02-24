@@ -5,12 +5,10 @@ import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 interface IDataActionProperties {
 
 
-    /**
-     * Returns the mana cost of the action. Entities need to spend this amount of mana in order to execute it.
-     * They regenerate mana within a certain time.
-     * @return mana cost.
-     */
-    val manaCost: Int
+    val strategicValue: Float
+    val successProbability: Float
+    val defensivePoints: Float
+    val offensivePoints: Float
 
 
     val rangeMax: Map<MWEntityAnimationType, Int>

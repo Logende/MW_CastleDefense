@@ -11,7 +11,7 @@ import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.data.actions.ISkillAnalysis
 import org.neubauerfelix.manawars.manawars.data.actions.ISkillAnalysisPart
 import org.neubauerfelix.manawars.manawars.entities.*
-import org.neubauerfelix.manawars.manawars.entities.skills.Skill
+import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.storage.Configuration
@@ -61,11 +61,11 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                     section.set("${type.name}.collisionPercentageMount", analysis.collisionsPercentageMount)
                     section.set("${type.name}.height", analysis.height)
                     section.set("${type.name}.width", analysis.width)
-                    section.set("${type.name}.hitProbability", analysis.hitProbability)
+                    section.set("${type.name}.successProbability", analysis.successProbability)
                     section.set("${type.name}.lifeTime", analysis.lifeTime)
-                    section.set("${type.name}.tacticalDamage", analysis.tacticalDamage)
-                    section.set("${type.name}.tacticalStrength", analysis.tacticalStrength)
-                    section.set("${type.name}.manaCost", analysis.manaCost)
+                    section.set("${type.name}.strategicValue", analysis.strategicValue)
+                    section.set("${type.name}.offensivePoints", analysis.offensivePoints)
+                    section.set("${type.name}.defensivePoints", analysis.defensivePoints)
                     for ( (type, range) in analysis.rangeMax) {
                         section.set("${type.name}.rangeMax.${type.name}", range)
                     }
@@ -90,11 +90,11 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                     val collisionsPercentageMount = section.getFloat("collisionsPercentageMount")
                     val height = section.getInt("height")
                     val width = section.getInt("width")
-                    val hitProbability = section.getFloat("hitProbability")
+                    val successProbability = section.getFloat("successProbability")
                     val lifeTime = section.getFloat("lifeTime")
-                    val tacticalDamage = section.getFloat("tacticalDamage")
-                    val tacticalStrength = section.getFloat("tacticalStrength")
-                    val manaCost = section.getInt("manaCost")
+                    val strategicValue = section.getFloat("strategicValue")
+                    val offensivePoints = section.getFloat("offensivePoints")
+                    val defensivePoints = section.getFloat("defensivePoints")
                     val rangeMax: MutableMap<MWEntityAnimationType, Int> = HashMap()
                     val rangeMin: MutableMap<MWEntityAnimationType, Int> = HashMap()
                     for ( (type, range) in analysisDummy.rangeMax) {
@@ -108,13 +108,13 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                         override val lifeTime: Float = lifeTime
                         override val width: Int = width
                         override val height: Int = height
-                        override val tacticalDamage: Float = tacticalDamage
-                        override val hitProbability: Float = hitProbability
-                        override val tacticalStrength: Float = tacticalStrength
+                        override val strategicValue: Float = strategicValue
+                        override val successProbability: Float = successProbability
+                        override val offensivePoints: Float = offensivePoints
+                        override val defensivePoints: Float = defensivePoints
                         override val collisionsPercentageHumanHead: Float = collisionsPercentageHumanHead
                         override val collisionsPercentageHumanBody: Float = collisionPercentageHumanBody
                         override val collisionsPercentageMount: Float = collisionsPercentageMount
-                        override val manaCost: Int = manaCost
                         override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
                         override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
                     }
@@ -129,7 +129,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
      * - Movement Score (Range, Size, etc.): "how good is this data at successfully reaching enemies.
      *   Movement Score is calculated as for example 0.7 * humanMovementScore + 0.2 * riderMovementScore + 0.1 * airMovementScore (or even stored as separate values)
      *   Preferably fast and with long range.
-     * - Attack heights (Skill attack height body/head in percentage)
+     * - Attack heights (MSkill attack height body/head in percentage)
      * - Range
      * - Attack Score (Damage, Knockback, etc.): "how powerful is the data when it hits"
      * - Defense Score (Strength, Size, etc.): "how good is this data at blocking other skills"
@@ -157,13 +157,13 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         return object : ISkillAnalysis{
             override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
             override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
-            override val manaCost: Int = manaCost.toInt()
             override val lifeTime: Float = lifetime
             override val width: Int = parts[0].width
             override val height: Int = parts[0].height
-            override val tacticalDamage: Float  = tacticalDamage.toFloat()
-            override val hitProbability: Float = hitProbability.toFloat()
-            override val tacticalStrength: Float = tacticalStrength.toFloat()
+            override val strategicValue: Float  = tacticalDamage.toFloat()
+            override val successProbability: Float = hitProbability.toFloat()
+            override val offensivePoints: Float = tacticalStrength.toFloat() // TODO: Only give offensive points, if skill actually does attack
+            override val defensivePoints: Float = tacticalStrength.toFloat()
             override val collisionsPercentageHumanHead: Float = collisionPercentageHumanHead.toFloat()
             override val collisionsPercentageHumanBody: Float = collisionPercentageHumanBody.toFloat()
             override val collisionsPercentageMount: Float = collisionPercentageMount.toFloat()
@@ -199,11 +199,11 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                 dummyTarget = targetFarAway
             }
 
-            val skill = Skill(data, owner)
+            val skill = MSkill(data, owner)
             dummyTarget = null
 
             if (data.yRelativeToTarget) {
-                throw RuntimeException("Skill property yRelativeToTarget not supported yet.")
+                throw RuntimeException("MSkill property yRelativeToTarget not supported yet.")
             }
 
 
@@ -211,7 +211,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                 target.x = 800f
                 target.doLogic(0f)
                 if (data.targetSpeedX != 0f || data.targetSpeedY != 0f) {
-                    throw RuntimeException("Skill property xRelativeToTarget combined with target speed is not supported yet.")
+                    throw RuntimeException("MSkill property xRelativeToTarget combined with target speed is not supported yet.")
                 }
 
                 skill.centerHorizontal = target.centerHorizontal + data.xOffset * owner.direction * skill.propertyScale
@@ -339,7 +339,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         // + speedXHitAvg * data.knockbackFactor / 20.0
 
 
-        //System.out.println("entity $entityAnimationType target $targetAnimationType skill ${data.name}  hit probability $hitProbability with tactical damage $tacticalDamage")
+        //System.out.println("entity $entityAnimationType target $targetAnimationType skill ${data.name}  hit probability $successProbability with tactical damage $strategicValue")
         // TODO: If has "spawn_on_impact" then consider the properties of the connected action
 
         return object : ISkillAnalysisPart{

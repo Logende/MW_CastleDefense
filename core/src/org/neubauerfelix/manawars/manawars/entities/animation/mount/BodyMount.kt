@@ -36,7 +36,7 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
 
     var color: Color = Color.WHITE
         set(c) {
-            this.color = c
+            field = c
             head.color = c
             body.color = c
             footBL.color = c

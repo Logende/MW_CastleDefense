@@ -26,4 +26,6 @@ class EntityAnimationProducerMount(bodyDataMount: IBodyDataMount): IEntityAnimat
         val body = BodyMountSmart(this, scale, rectangle)
         return EntityAnimationAny(body, MWEntityAnimationType.MOUNT)
     }
+
+    override val animationType: MWEntityAnimationType = MWEntityAnimationType.MOUNT
 }

@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
 import org.neubauerfelix.manawars.manawars.entities.IStateable
 
-enum class MWState (private val imageName: String, private val columns: Int, val tacticalDamage: Float //Defines state priorities and skill mana cost for the state (additonal cost = duration*tacticalDamage).
+enum class MWState (private val imageName: String, private val columns: Int, val tacticalDamage: Float //Defines state priorities and skill mana cost for the state (additonal cost = duration*strategicValue).
 ) {
     BURNING("effect.state.burning", 3, 1.7f) {
         override fun effect(s: IStateable, eff: Boolean) {

@@ -58,6 +58,7 @@ open class BodyPart(val bodyPartData: IBodyPartData, scale: Float) : GameRectang
             return
         }
         batcher.color = color
+       // System.out.println("draw body part in color " + color)
         batcher.draw(tr, if (mirror) x+width else x, y,
                 if (mirror) originX-width else originX, originY,
                 if (mirror) -width else width, height,

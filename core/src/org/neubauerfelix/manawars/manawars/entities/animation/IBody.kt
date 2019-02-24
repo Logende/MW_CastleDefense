@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.ILogicable
@@ -25,5 +26,6 @@ interface IBody: ICollidable, IDrawable, ILogicable {
     val canFly: Boolean
     val scale: Float
     val playingBodyEffect: Boolean
+    var color: Color
 
 }

@@ -9,9 +9,9 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.manawars.enums.MWStateEffectivity
 
 
-open class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, mana: Float, actions: Array<IDataAction>,
-                       manaRegen: Float, private val stateMultipliers: Map<MWState, MWStateEffectivity>):
-        MEntityActionUser(animationProducer, health, mana, actions, manaRegen), IStateable {
+open class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, action: IDataAction,
+                       actionCooldown: Long, private val stateMultipliers: Map<MWState, MWStateEffectivity>):
+        MEntityActionUser(animationProducer, health, action, actionCooldown), IStateable {
 
 
     companion object {
@@ -40,7 +40,7 @@ open class MEntityStateable(animationProducer: IEntityAnimationProducer, health:
         return true
     }
 
-    override fun canPerformActions(): Boolean {
+    override fun canPerformAction(): Boolean {
         if (state === MWState.FROZEN) {
             return false
         }

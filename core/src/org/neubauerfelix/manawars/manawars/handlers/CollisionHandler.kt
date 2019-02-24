@@ -5,7 +5,7 @@ import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.ITeamable
-import org.neubauerfelix.manawars.manawars.entities.skills.Skill
+import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 
 
@@ -20,14 +20,14 @@ class CollisionHandler: ICollisionHandler {
                 if (a is ICollidable && b is ICollidable) {
 
                     // If just one entity is a skill, then switch order. a should be the skill.
-                    if (b is Skill && a !is Skill) {
+                    if (b is MSkill && a !is MSkill) {
                         val tmp = a
                         a = b
                         b = tmp
                     }
 
-                    if (a is Skill) {
-                        if (b is Skill) {
+                    if (a is MSkill) {
+                        if (b is MSkill) {
                             // Two skills
                             if (!ITeamable.isTeamed(a, b)) {
                                 if (ISized.overlaps(a, b)) {

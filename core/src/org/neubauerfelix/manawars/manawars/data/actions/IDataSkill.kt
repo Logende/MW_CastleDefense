@@ -59,8 +59,8 @@ interface IDataSkill : IDataAction {
     /**
      * If enabled this will scale speed and acceleration to make the skill perfectly hit the (static) enemy
      * This will result in following skill position when skill and target collide:
-     * - Skill centre is at target centre
-     * - Skill has the same y coordinate as when it was spawned
+     * - MSkill centre is at target centre
+     * - MSkill has the same y coordinate as when it was spawned
      * Requires targetEnemy=true
      */
     val allowMovementScaling: Boolean
@@ -81,7 +81,7 @@ interface IDataSkill : IDataAction {
 
     /**
      * Executes the skill action which is for example spawning one skill or a set of other skills.
-     * @param owner Skill owner.
+     * @param owner MSkill owner.
      * @return returns the created skill. If multiple skills were spawned only one of them is returned. In case of failure null is returned.
      */
     fun spawnSkill(owner: IActionUser): IEntity

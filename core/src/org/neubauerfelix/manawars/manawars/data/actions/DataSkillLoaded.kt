@@ -166,8 +166,8 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
 
 
     var analysis: MutableMap<MWEntityAnimationType, ISkillAnalysis> = HashMap()
+        private set
 
-    // TODO: First set analysis to dummyAnalysis (infinite range and stuff) and later replace it by actual analysis. That way the analysis handler can use the dummy analysis to create a proper skill
 
     init {
         MWEntityAnimationType.values().forEach { type ->
@@ -195,9 +195,14 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
         this.disposeAsset()
     }
 
-    // TODO: Load skill analysis from file / save to file
+    fun setSkillAnalysis(analysis: MutableMap<MWEntityAnimationType, ISkillAnalysis>) {
+        this.analysis = analysis
+        this.lifeTime = analysis.map { (type, analysis) -> analysis.lifeTime}.max()!!
+    }
 
-    override val lifeTime: Float = 1000f //analysis.getValue(MWEntityAnimationType.HUMAN).lifeTime // TODO: generate good lifetime
+
+    final override var lifeTime: Float = 1000f //analysis.getValue(MWEntityAnimationType.HUMAN).lifeTime // TODO: generate good lifetime
+        private set
 
     override fun getActionProperties(entityAnimationType: MWEntityAnimationType) : IDataActionProperties {
         return analysis.getValue(entityAnimationType)

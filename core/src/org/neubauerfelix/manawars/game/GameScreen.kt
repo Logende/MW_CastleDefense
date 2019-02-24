@@ -38,7 +38,7 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
         if(state != ScreenState.RUNNING){
             if(state == ScreenState.LOADING){
                 if(game.getAssetLoader().areAssetsLoaded()){
-                    loadedScreen()
+                    loaded()
                     state = ScreenState.RUNNING
                 }
             }

@@ -25,4 +25,6 @@ class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimat
         val body = BodyHumanSmart(this, rectangle, scale)
         return EntityAnimationAny(body, MWEntityAnimationType.HUMAN)
     }
+
+    override val animationType: MWEntityAnimationType = MWEntityAnimationType.HUMAN
 }

@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.entities.animation.rider
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.IDrawable
@@ -117,4 +118,11 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
 
     override val playingBodyEffect: Boolean
         get() = this.human.playingBodyEffect
+
+    override var color: Color
+        get() = mount.color
+        set(value) {
+            mount.color = value
+            human.color = value
+        }
 }

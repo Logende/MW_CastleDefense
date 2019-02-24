@@ -35,4 +35,7 @@ class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, 
         val body = BodyRider(rectangle, producerMount, producerHuman, scale, scale)
         return EntityAnimationAny(body, MWEntityAnimationType.RIDER)
     }
+
+
+    override val animationType: MWEntityAnimationType = MWEntityAnimationType.RIDER
 }
