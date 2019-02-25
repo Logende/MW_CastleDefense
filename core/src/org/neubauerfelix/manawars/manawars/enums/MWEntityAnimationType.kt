@@ -8,14 +8,15 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerDummy
 
 // Share is the estimated percentage of units with this animation type from all battles. It is used for the skill price calculation.
-enum class MWEntityAnimationType(val width: Int, val height: Int, val share : Float) {
+enum class MWEntityAnimationType(val width: Int, val height: Int, val share : Float, val armorHolders: Iterable<MWArmorHolder>) {
 
-    HUMAN(MConstants.BODY_HUMAN_WIDTH, MConstants.BODY_HUMAN_HEIGHT, 0.9f) {
+    HUMAN(MConstants.BODY_HUMAN_WIDTH, MConstants.BODY_HUMAN_HEIGHT, 0.9f,
+            arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY)) {
         override fun createDummy(x: Float, y: Float, action: IDataAction) : IControlled {
             val skinName = "dwarf.1.1"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducer, 1f, action, 0L, controller = controller)
+            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller)
             controller.controlled = a
             a.setLocation(x, y)
             a.team = MConstants.TEAM_BOT
@@ -23,12 +24,13 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val share : Fl
             return a
         }
     },
-    MOUNT(MConstants.BODY_MOUNT_WIDTH, MConstants.BODY_MOUNT_HEIGHT, 0f) {
+    MOUNT(MConstants.BODY_MOUNT_WIDTH, MConstants.BODY_MOUNT_HEIGHT, 0f,
+            arrayListOf(MWArmorHolder.MOUNT)) {
         override fun createDummy(x: Float, y: Float, action: IDataAction) : IControlled {
             val skinNameMount = "lion"
             val animationProducerMount = IEntityAnimationProducer.createProducerMount(skinNameMount)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducerMount, 1f, action, 0L, controller = controller)
+            val a = MEntityControlled(animationProducerMount, 1f, action, 0f, controller = controller)
             controller.controlled = a
             a.setLocation(x, y)
             a.team = MConstants.TEAM_BOT
@@ -36,13 +38,14 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val share : Fl
             return a
         }
     },
-    RIDER(MConstants.BODY_RIDER_WIDTH, MConstants.BODY_RIDER_HEIGHT, 0.1f) {
+    RIDER(MConstants.BODY_RIDER_WIDTH, MConstants.BODY_RIDER_HEIGHT, 0.1f,
+            arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY, MWArmorHolder.MOUNT)) {
         override fun createDummy(x: Float, y: Float, action: IDataAction) : IControlled {
             val skinName = "dwarf.1.1"
             val skinNameMount = "lion"
             val animationProducerRider = IEntityAnimationProducer.createProducerRider(skinNameMount, skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducerRider, 1f, action, 0L, controller = controller)
+            val a = MEntityControlled(animationProducerRider, 1f, action, 0f, controller = controller)
             controller.controlled = a
             a.setLocation(x, y)
             a.team = MConstants.TEAM_BOT

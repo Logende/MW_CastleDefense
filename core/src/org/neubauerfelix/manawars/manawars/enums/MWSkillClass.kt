@@ -2,21 +2,18 @@ package org.neubauerfelix.manawars.manawars.enums
 
 import org.neubauerfelix.manawars.manawars.MManaWars
 
-
-enum class MWSkillClass private constructor(val durabilityUpgrade: MWUpgrade, val damageUpgrade: MWUpgrade, val type: Int //0: Normal & blocked by shield. 1: Can go through normal shields and blocked by heavy skills. 2: Can go through all shields.
-) {
-    LIGHT(MWUpgrade.SKILLS_DURABILITY_LIGHT, MWUpgrade.SKILLS_LIGHT, 0),
-    NORMAL(MWUpgrade.SKILLS_DURABILITY_NORMAL, MWUpgrade.SKILLS_NORMAL, 1),
-    MAGIC(MWUpgrade.SKILLS_DURABILITY_MAGIC, MWUpgrade.SKILLS_MAGIC, 0),
-    SHIELD(MWUpgrade.SKILLS_DURABILITY_SHIELD, MWUpgrade.SKILLS_SHIELD, 2);
+enum class MWSkillClass(val durabilityUpgrade: MWUpgrade, val damageUpgrade: MWUpgrade, val type: Int, val share: Float) {
+    LIGHT(MWUpgrade.SKILLS_DURABILITY_LIGHT, MWUpgrade.SKILLS_LIGHT, 0, 0.2f),
+    NORMAL(MWUpgrade.SKILLS_DURABILITY_NORMAL, MWUpgrade.SKILLS_NORMAL, 1, 0.5f),
+    MAGIC(MWUpgrade.SKILLS_DURABILITY_MAGIC, MWUpgrade.SKILLS_MAGIC, 0, 0.2f),
+    SHIELD(MWUpgrade.SKILLS_DURABILITY_SHIELD, MWUpgrade.SKILLS_SHIELD, 2, 0.1f);
 
     val displayName: String
         get() = MManaWars.m.getLanguageHandler().getMessage("information_skillclass_" + name.toLowerCase())
 
     companion object {
-
-        val TYPE_NORMAL = 0
-        val TYPE_STRONG = 1
+        val TYPE_WEAK = 0
+        val TYPE_NORMAL = 1
         val TYPE_UNDESTROYABLE = 2
     }
 }

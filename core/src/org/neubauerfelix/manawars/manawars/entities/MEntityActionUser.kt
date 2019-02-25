@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.rider.BodyRider
 
 
 open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health: Float, val action: IDataAction,
-                             override val actionCooldown: Long): MEntityAnimated(animationProducer, health), IActionUser {
+                             override val actionCooldown: Float): MEntityAnimated(animationProducer, health), IActionUser {
 
     var actionCooldownTime = 0L
 
@@ -42,7 +42,7 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
             return false
         }
         if (action.action(this)) {
-            this.actionCooldownTime = AManaWars.m.screen.getGameTime() + this.actionCooldown
+            this.actionCooldownTime = AManaWars.m.screen.getGameTime() + (this.actionCooldown * 1000).toLong()
             this.animation.playBodyEffect(action.animationEffect, action.weaponType)
             return true
         }

@@ -9,8 +9,8 @@ class SkillAnalysisDummy : ISkillAnalysis {
     override val height: Int = 300
     override val strategicValue: Float = 10f
     override val successProbability: Float = 1.0f
-    override val offensivePoints: Float = 10f
-    override val defensivePoints: Float = 10f
+    override val offensiveStrength: Float = 10f
+    override val defensiveStrength: Float = 10f
     override val collisionsPercentageHumanHead: Float = 0.2f
     override val collisionsPercentageHumanBody: Float = 0.75f
     override val collisionsPercentageMount: Float = 0.05f

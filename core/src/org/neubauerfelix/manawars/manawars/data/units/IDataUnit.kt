@@ -13,9 +13,9 @@ interface IDataUnit : IDataPresentable, IAsset {
     val name: String
     val displayName: String
     val animation: IEntityAnimationProducer
-    val armor: Map<MWCollisionType, MWArmorType>
+    val armor: Map<MWArmorHolder, MWArmorType>
     val action: IDataAction
-    val actionCooldown: Long
+    val actionCooldown: Float
 
     val health: Float
     val stateMultipliers: Map<MWState, MWStateEffectivity>

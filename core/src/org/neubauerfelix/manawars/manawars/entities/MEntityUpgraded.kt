@@ -7,12 +7,12 @@ import org.neubauerfelix.manawars.manawars.enums.*
 open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
                            health: Float,
                            action: IDataAction,
-                           actionCooldown: Long,
+                           actionCooldown: Float,
                            stateMultipliers: Map<MWState, MWStateEffectivity> = HashMap(),
                            val skillMultipliers: Map<MWSkillClass, Float> = HashMap(),
                            val skillDurabilityMultipliers: Map<MWSkillClass, Float> = HashMap(),
                            final override val drainMultiplier: Float = 0f,
-                           val armor: Map<MWCollisionType, MWArmorType> = HashMap()):
+                           val armor: Map<MWArmorHolder, MWArmorType> = HashMap()):
         MEntityStateable(animationProducer, health, action, actionCooldown, stateMultipliers), IUpgraded {
 
 
@@ -38,10 +38,11 @@ open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
     }
 
     override fun getArmor(collisionType: MWCollisionType): MWArmorType {
-        return if (armor.containsKey(collisionType)) {
-            armor[collisionType]!!
-        } else {
-            MWArmorType.NONE
+        for ((holder, armor) in this.armor) {
+            if (holder.collisionTypes.contains(collisionType)) {
+                return armor
+            }
         }
+        return MWArmorType.NONE
     }
 }

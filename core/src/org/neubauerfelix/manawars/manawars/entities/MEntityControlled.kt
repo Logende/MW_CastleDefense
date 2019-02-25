@@ -12,12 +12,12 @@ import org.neubauerfelix.manawars.manawars.enums.*
 open class MEntityControlled(animationProducer: IEntityAnimationProducer,
                              health: Float,
                              action: IDataAction,
-                             actionCooldown: Long,
+                             actionCooldown: Float,
                              stateMultipliers: Map<MWState, MWStateEffectivity> = HashMap(),
                              skillMultipliers: Map<MWSkillClass, Float> = HashMap(),
                              skillDurabilityMultipliers: Map<MWSkillClass, Float> = HashMap(),
                              drainMultiplier: Float = 0f,
-                             armor: Map<MWCollisionType, MWArmorType> = HashMap(),
+                             armor: Map<MWArmorHolder, MWArmorType> = HashMap(),
                              override var controller: IController):
         MEntityUpgraded(animationProducer, health, action, actionCooldown, stateMultipliers, skillMultipliers,
                 skillDurabilityMultipliers, drainMultiplier, armor), IControlled {

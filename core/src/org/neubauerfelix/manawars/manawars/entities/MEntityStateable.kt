@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWStateEffectivity
 
 
 open class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, action: IDataAction,
-                       actionCooldown: Long, private val stateMultipliers: Map<MWState, MWStateEffectivity>):
+                       actionCooldown: Float, private val stateMultipliers: Map<MWState, MWStateEffectivity>):
         MEntityActionUser(animationProducer, health, action, actionCooldown), IStateable {
 
 

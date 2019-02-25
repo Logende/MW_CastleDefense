@@ -14,7 +14,7 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
 
 
     override val animation: IEntityAnimationProducer
-    override val armor: Map<MWCollisionType, MWArmorType>
+    override val armor: Map<MWArmorHolder, MWArmorType>
 
     init {
         val animationParts = config.getString("animation").split(":")
@@ -34,26 +34,18 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
             }
         }
 
-        when (animationType) {
+        armor = when (animationType) {
             MWEntityAnimationType.HUMAN -> {
-                armor = hashMapOf(Pair(MWCollisionType.HUMAN_FOOT, getArmor(config, 0)),
-                        Pair(MWCollisionType.HUMAN_BODY, getArmor(config, 0)),
-                        Pair(MWCollisionType.HUMAN_ARM, getArmor(config, 0)),
-                        Pair(MWCollisionType.HUMAN_HEAD, getArmor(config, 1)))
+                hashMapOf(Pair(MWArmorHolder.HUMAN_BODY, getArmor(config, 0)),
+                        Pair(MWArmorHolder.HUMAN_HEAD, getArmor(config, 1)))
             }
             MWEntityAnimationType.RIDER -> {
-                armor = hashMapOf(Pair(MWCollisionType.MOUNT_HEAD, getArmor(config, 0)),
-                        Pair(MWCollisionType.MOUNT_BODY, getArmor(config, 0)),
-                        Pair(MWCollisionType.MOUNT_FOOT, getArmor(config, 0)),
-                        Pair(MWCollisionType.HUMAN_FOOT, getArmor(config, 1)),
-                        Pair(MWCollisionType.HUMAN_BODY, getArmor(config, 1)),
-                        Pair(MWCollisionType.HUMAN_ARM, getArmor(config, 1)),
-                        Pair(MWCollisionType.HUMAN_HEAD, getArmor(config, 2)))
+                hashMapOf(Pair(MWArmorHolder.MOUNT, getArmor(config, 0)),
+                        Pair(MWArmorHolder.HUMAN_BODY, getArmor(config, 1)),
+                        Pair(MWArmorHolder.HUMAN_HEAD, getArmor(config, 2)))
             }
             MWEntityAnimationType.MOUNT -> {
-                armor = hashMapOf(Pair(MWCollisionType.MOUNT_HEAD, getArmor(config, 0)),
-                        Pair(MWCollisionType.MOUNT_BODY, getArmor(config, 0)),
-                        Pair(MWCollisionType.MOUNT_FOOT, getArmor(config, 0)))
+                hashMapOf(Pair(MWArmorHolder.MOUNT, getArmor(config, 0)))
             }
         }
 

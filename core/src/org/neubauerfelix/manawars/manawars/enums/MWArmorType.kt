@@ -2,15 +2,15 @@ package org.neubauerfelix.manawars.manawars.enums
 
 import java.util.HashMap
 
-enum class MWArmorType { //Keep those as simple as possible!
+enum class MWArmorType(val share: Float) { //Keep those as simple as possible!
 
-    NONE {
+    NONE(0.7f) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             return hashMapOf()
         }
     },
 
-    ANTI_LIGHT {
+    ANTI_LIGHT(0.2f) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             val map = HashMap<MWSkillClass, MWSkillEffectivity>()
             map[MWSkillClass.LIGHT] = MWSkillEffectivity.IMMUNE
@@ -18,7 +18,7 @@ enum class MWArmorType { //Keep those as simple as possible!
             return map
         }
     },
-    ANTI_MAGIC_LIGHT {
+    ANTI_MAGIC_LIGHT(0.1f) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             val map = HashMap<MWSkillClass, MWSkillEffectivity>()
             map[MWSkillClass.MAGIC] = MWSkillEffectivity.IMMUNE
@@ -26,6 +26,7 @@ enum class MWArmorType { //Keep those as simple as possible!
             return map
         }
     };
+
 
     val skillEffectivities = createSkillEffectivity()
 

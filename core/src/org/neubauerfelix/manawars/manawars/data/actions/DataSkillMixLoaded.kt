@@ -98,9 +98,9 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
                     get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
                 override val successProbability: Float
                     get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-                override val defensivePoints: Float
+                override val defensiveStrength: Float
                     get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-                override val offensivePoints: Float
+                override val offensiveStrength: Float
                     get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
                 override val rangeMax: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMax
                 override val rangeMin: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMin // TODO
