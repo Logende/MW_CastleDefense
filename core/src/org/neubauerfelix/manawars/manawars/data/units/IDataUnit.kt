@@ -23,6 +23,8 @@ interface IDataUnit : IDataPresentable, IAsset {
     val skillDurabilityMultipliers: Map<MWSkillClass, Float>
     val drainMultiplier: Float
 
+    val analysis: IUnitAnalysis
+
 
     fun produce(x: Float, y: Float, controller: IController, team: Int): IControlled
 }

@@ -16,8 +16,7 @@ class ActionHandler: IActionHandler, ILoadableContent {
 
     private val actions = HashMap<String, IDataAction>()
     private val parents = HashMap<IDataAction, IDataAction>()
-
-
+    override var loadedContent: Boolean = false
 
     override fun putAction(action: IDataAction) {
         actions[action.name] = action
@@ -36,15 +35,18 @@ class ActionHandler: IActionHandler, ILoadableContent {
     }
 
     override fun loadContent(gameConfig: Configuration) {
-        val handlerConfigNames = gameConfig.getStringList("actions")
-        for(handlerConfigName in handlerConfigNames){
-            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
-            this.loadAction(handlerConfig, null, null)
+        if (!loadedContent) {
+            loadedContent = true
+            val handlerConfigNames = gameConfig.getStringList("actions")
+            for (handlerConfigName in handlerConfigNames) {
+                val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
+                this.loadAction(handlerConfig, null, null)
+            }
         }
     }
 
 
-    fun loadAction(configActions: Configuration, configParentAction: Configuration?, parent: IDataAction?) {
+    private fun loadAction(configActions: Configuration, configParentAction: Configuration?, parent: IDataAction?) {
         for (key in configActions.keys) {
             val sectionAction: Configuration = if (configParentAction == null) configActions.getSection(key) else ConfigurationDecoratorInheritance(configActions.getSection(key), configParentAction)
             val type = sectionAction.getString("type")

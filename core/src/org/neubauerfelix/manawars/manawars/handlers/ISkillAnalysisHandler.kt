@@ -17,7 +17,7 @@ interface ISkillAnalysisHandler: IHandler {
 
 
     fun analyseSkills(fileName: String)
-    fun loadSkillAnalyses(fileName: String)
+    fun loadSkillAnalysis(data: IDataSkill): Map<MWEntityAnimationType, ISkillAnalysis>
 
 
 }

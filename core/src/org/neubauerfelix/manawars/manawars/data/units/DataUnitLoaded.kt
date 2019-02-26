@@ -68,10 +68,17 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
 
     override val action: IDataAction = MManaWars.m.getActionHandler().getAction(config.getString("action"))!!
     override val health: Float = config.getFloat("health") * MConstants.UNIT_AVG_HEALTH
-    override val actionCooldown: Long = config.getLong("cooldown") * MConstants.UNIT_AVG_ACTION_COOLDOWN
+    override val actionCooldown: Float = config.getFloat("cooldown") * MConstants.UNIT_AVG_ACTION_COOLDOWN
     override val stateMultipliers: Map<MWState, MWStateEffectivity> = hashMapOf()
     override val skillMultipliers: Map<MWSkillClass, Float> = hashMapOf()
     override val skillDurabilityMultipliers: Map<MWSkillClass, Float> = hashMapOf()
     override val drainMultiplier: Float = config.getFloat("drain")
 
+    override var analysis: IUnitAnalysis = MManaWars.m.getUnitHandler().loadUnitAnalysis(this)
+        private set
+
+
+    fun analyseUnit() {
+        this.analysis = MManaWars.m.getUnitHandler().analyse(this)
+    }
 }

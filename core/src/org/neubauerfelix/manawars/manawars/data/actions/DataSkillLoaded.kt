@@ -165,22 +165,9 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
 
 
 
-    var analysis: MutableMap<MWEntityAnimationType, ISkillAnalysis> = HashMap()
+    var analysis: Map<MWEntityAnimationType, ISkillAnalysis> = MManaWars.m.getSkillAnalysisHandler().loadSkillAnalysis(this)
         private set
 
-
-    init {
-        MWEntityAnimationType.values().forEach { type ->
-            analysis[type] = SkillAnalysisDummy()
-        }
-
-        this.loadAsset()
-        do {
-            // wait
-        } while (!AManaWars.m.getAssetLoader().areAssetsLoaded())
-        this.loadedAsset()
-
-    }
 
 
     fun analyseSkill() {
@@ -189,16 +176,14 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
             // wait
         } while (!AManaWars.m.getAssetLoader().areAssetsLoaded())
         this.loadedAsset()
+        val analysis: MutableMap<MWEntityAnimationType, ISkillAnalysis> = hashMapOf()
         MWEntityAnimationType.values().forEach { type ->
             analysis[type] = MManaWars.m.getSkillAnalysisHandler().analyse(this, type)
         }
+        this.analysis = analysis
         this.disposeAsset()
     }
 
-    fun setSkillAnalysis(analysis: MutableMap<MWEntityAnimationType, ISkillAnalysis>) {
-        this.analysis = analysis
-        this.lifeTime = analysis.map { (type, analysis) -> analysis.lifeTime}.max()!!
-    }
 
 
     final override var lifeTime: Float = 1000f //analysis.getValue(MWEntityAnimationType.HUMAN).lifeTime // TODO: generate good lifetime

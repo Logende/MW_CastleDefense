@@ -6,10 +6,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
-import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
-import org.neubauerfelix.manawars.manawars.data.actions.ISkillAnalysis
-import org.neubauerfelix.manawars.manawars.data.actions.ISkillAnalysisPart
+import org.neubauerfelix.manawars.manawars.data.actions.*
 import org.neubauerfelix.manawars.manawars.entities.*
 import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.enums.*
@@ -41,16 +38,23 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
 
     private var dummyTarget: IControlled? = null // If not null, this will be the targer assigned to skills seeking for a target
 
+    /**
+     * This config file contains all prepared skill analyses. Basically when a skill is loaded, the existing analysis from this config
+     * is used. If no analysis exists yet, a dummy analysis (containing placeholder values) will be created.
+     *
+     * That way the game can run even when analyses are missing. New analyses can be generated using the
+     * #analyseSkills method, which creates a new analysis file.
+     */
+    private val config: Configuration = ConfigurationProvider.getProvider(YamlConfiguration::class.java).
+            load("content/skills/${MConstants.SKILL_ANALYSIS_FILE_NAME}", true)
 
-    init {
-        this.loadSkillAnalyses("content/skills/skillanalysis.yml")
-    }
 
 
     override fun analyseSkills(fileName: String) {
         val config = Configuration()
         for (data in MManaWars.m.getActionHandler().listActions()) {
             if (data is DataSkillLoaded) {
+                println("Analysing skill ${data.name}.")
                 val section = config.getSection(data.name)
                 data.analyseSkill()
                 val map = data.analysis
@@ -77,54 +81,59 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, fileName, false)
     }
 
-    override fun loadSkillAnalyses(fileName: String) {
-        val config = ConfigurationProvider.getProvider(YamlConfiguration::class.java).load(fileName, true)
-        for (data in MManaWars.m.getActionHandler().listActions()) {
-            if (data is DataSkillLoaded) {
-                val section = config.getSection(data.name)
-                val map = data.analysis
-                for ((type, analysisDummy) in map) {
-                    val collisionPercentageHumanBody = section.getFloat("collisionPercentageHumanBody")
-                    val collisionsPercentageHumanHead = section.getFloat("collisionsPercentageHumanHead")
-                    val collisionsPercentageMount = section.getFloat("collisionsPercentageMount")
-                    val height = section.getInt("height")
-                    val width = section.getInt("width")
-                    val successProbability = section.getFloat("successProbability")
-                    val lifeTime = section.getFloat("lifeTime")
-                    val strategicValue = section.getFloat("strategicValue")
-                    val offensivePoints = section.getFloat("offensiveStrength")
-                    val defensivePoints = section.getFloat("defensiveStrength")
-                    val rangeMaxAvg = section.getFloat("rangeMaxAvg")
-                    val rangeMax: MutableMap<MWEntityAnimationType, Int> = HashMap()
-                    val rangeMin: MutableMap<MWEntityAnimationType, Int> = HashMap()
-                    for ( (type, range) in analysisDummy.rangeMax) {
-                        rangeMax[type] = section.getInt("${type.name}.rangeMax.${type.name}")
-                    }
-                    for ( (type, range) in analysisDummy.rangeMin) {
-                        rangeMin[type] = section.getInt("${type.name}.rangeMin.${type.name}")
-                    }
 
-                    data.analysis[type] = object : ISkillAnalysis {
-                        override val lifeTime: Float = lifeTime
-                        override val width: Int = width
-                        override val height: Int = height
-                        override val strategicValue: Float = strategicValue
-                        override val successProbability: Float = successProbability
-                        override val offensiveStrength: Float = offensivePoints
-                        override val defensiveStrength: Float = defensivePoints
-                        override val collisionsPercentageHumanHead: Float = collisionsPercentageHumanHead
-                        override val collisionsPercentageHumanBody: Float = collisionPercentageHumanBody
-                        override val collisionsPercentageMount: Float = collisionsPercentageMount
-                        override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
-                        override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
-                        override val rangeMaxAvg: Float = rangeMaxAvg
-                        override val skillClass: MWSkillClass = data.skillClass
-                    }
-                }
+    override fun loadSkillAnalysis(data: IDataSkill): Map<MWEntityAnimationType, ISkillAnalysis> {
+        val map: MutableMap<MWEntityAnimationType, ISkillAnalysis> = hashMapOf()
+
+        // no analysis existing? Return dummy
+        if (! config.contains(data.name)) {
+            print("No analysis of skill ${data.name} found. Using dummy.")
+            MWEntityAnimationType.values().forEach { type ->
+                map[type] = SkillAnalysisDummy()
+                return map
             }
         }
-    }
 
+        val sectionSkill = config.getSection(data.name)
+        for (typeOwner in MWEntityAnimationType.values()) {
+            val section = sectionSkill.getSection(typeOwner.name)
+            val collisionPercentageHumanBody = section.getFloat("collisionPercentageHumanBody")
+            val collisionsPercentageHumanHead = section.getFloat("collisionsPercentageHumanHead")
+            val collisionsPercentageMount = section.getFloat("collisionsPercentageMount")
+            val height = section.getInt("height")
+            val width = section.getInt("width")
+            val successProbability = section.getFloat("successProbability")
+            val lifeTime = section.getFloat("lifeTime")
+            val strategicValue = section.getFloat("strategicValue")
+            val offensivePoints = section.getFloat("offensiveStrength")
+            val defensivePoints = section.getFloat("defensiveStrength")
+            val rangeMaxAvg = section.getFloat("rangeMaxAvg")
+            val rangeMax: MutableMap<MWEntityAnimationType, Int> = HashMap()
+            val rangeMin: MutableMap<MWEntityAnimationType, Int> = HashMap()
+            for (typeTarget in MWEntityAnimationType.values()) {
+                rangeMax[typeTarget] = section.getInt("rangeMax.${typeTarget.name}")
+                rangeMin[typeTarget] = section.getInt("rangeMin.${typeTarget.name}")
+            }
+
+            map[typeOwner] = object : ISkillAnalysis {
+                override val lifeTime: Float = lifeTime
+                override val width: Int = width
+                override val height: Int = height
+                override val strategicValue: Float = strategicValue
+                override val successProbability: Float = successProbability
+                override val offensiveStrength: Float = offensivePoints
+                override val defensiveStrength: Float = defensivePoints
+                override val collisionsPercentageHumanHead: Float = collisionsPercentageHumanHead
+                override val collisionsPercentageHumanBody: Float = collisionPercentageHumanBody
+                override val collisionsPercentageMount: Float = collisionsPercentageMount
+                override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
+                override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
+                override val rangeMaxAvg: Float = rangeMaxAvg
+                override val skillClass: MWSkillClass = data.skillClass
+            }
+        }
+        return map
+    }
 
     /**
      * Calculate:
@@ -143,7 +152,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         val rangeMax: MutableMap<MWEntityAnimationType, Int> = HashMap()
         val rangeMin: MutableMap<MWEntityAnimationType, Int> = HashMap()
         for (part in parts) {
-           //manaCost += part.manaCost + part.targetAnimationType.share TODO
+            //manaCost += part.manaCost + part.targetAnimationType.share TODO
             lifetime = Math.max(lifetime, part.lifeTime)
             rangeMax[part.targetAnimationType] = part.rangeMax
             rangeMin[part.targetAnimationType] = part.rangeMin
@@ -198,131 +207,131 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         var rangeMin = Float.MAX_VALUE
         var lifeTime = 0f
 
-            val owner = entityAnimationType.createDummy(0f, GameConstants.CONTROLPANEL_HEIGHT, data) // owner stands on left of screen (x = 0) looking towards right
-            val target = targetAnimationType.createDummy(0f, GameConstants.CONTROLPANEL_HEIGHT, data) // The target is moved with the data (target left is always on data centre); Exception: Targeting skills
-            val targetFarAway = targetAnimationType.createDummy(3000f, GameConstants.CONTROLPANEL_HEIGHT, data) // Far away. Used for targeting skills, which for example aim at the y pos of this target.
+        val owner = entityAnimationType.createDummy(0f, GameConstants.CONTROLPANEL_HEIGHT, data) // owner stands on left of screen (x = 0) looking towards right
+        val target = targetAnimationType.createDummy(0f, GameConstants.CONTROLPANEL_HEIGHT, data) // The target is moved with the data (target left is always on data centre); Exception: Targeting skills
+        val targetFarAway = targetAnimationType.createDummy(3000f, GameConstants.CONTROLPANEL_HEIGHT, data) // Far away. Used for targeting skills, which for example aim at the y pos of this target.
 
-            // If has target speed: Assign dummy target to test range of skill
+        // If has target speed: Assign dummy target to test range of skill
+        if (data.targetSpeedX != 0f || data.targetSpeedY != 0f) {
+            dummyTarget = targetFarAway
+        }
+
+        val skill = MSkill(data, owner)
+        dummyTarget = null
+
+        if (data.yRelativeToTarget) {
+            throw RuntimeException("MSkill property yRelativeToTarget not supported yet.")
+        }
+
+
+        if (data.xRelativeToTarget) {
+            target.x = 800f
+            target.doLogic(0f)
             if (data.targetSpeedX != 0f || data.targetSpeedY != 0f) {
-                dummyTarget = targetFarAway
+                throw RuntimeException("MSkill property xRelativeToTarget combined with target speed is not supported yet.")
             }
 
-            val skill = MSkill(data, owner)
-            dummyTarget = null
+            skill.centerHorizontal = target.centerHorizontal + data.xOffset * owner.direction * skill.propertyScale
 
-            if (data.yRelativeToTarget) {
-                throw RuntimeException("MSkill property yRelativeToTarget not supported yet.")
-            }
-
-
-            if (data.xRelativeToTarget) {
-                target.x = 800f
-                target.doLogic(0f)
-                if (data.targetSpeedX != 0f || data.targetSpeedY != 0f) {
-                    throw RuntimeException("MSkill property xRelativeToTarget combined with target speed is not supported yet.")
+            var i = 0
+            while (true) { // Simulate skill movement
+                if (i >= SIMULATION_MAX_STEPS
+                        || skill.bottom < SIMULATION_BORDER_BOTTOM || skill.top > SIMULATION_BORDER_TOP
+                        || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT
+                        || rangeMax >= MAX_RANGE) {
+                    lifeTime = i * SIMULATION_STEP_TIME
+                    speedXAvg /= i
+                    break // reached border
                 }
 
-                skill.centerHorizontal = target.centerHorizontal + data.xOffset * owner.direction * skill.propertyScale
-
-                var i = 0
-                while (true) { // Simulate skill movement
-                    if (i >= SIMULATION_MAX_STEPS
-                            || skill.bottom < SIMULATION_BORDER_BOTTOM || skill.top > SIMULATION_BORDER_TOP
-                            || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT
-                            || rangeMax >= MAX_RANGE) {
-                        lifeTime = i * SIMULATION_STEP_TIME
-                        speedXAvg /= i
-                        break // reached border
-                    }
-
-                    // Detect collision type and calculate range.
-                    if (skill.active) {
-                        val collisionType = (target as IAnimatedLiving).animation.getCollisionType(skill)
-                        when (collisionType) {
-                            MWCollisionType.HUMAN_ARM, MWCollisionType.HUMAN_BODY, MWCollisionType.HUMAN_FOOT -> {
-                                collisionsPercentageHumanBody += 1.0
-                            }
-
-                            MWCollisionType.HUMAN_HEAD -> {
-                                collisionsPercentageHumanHead += 1.0
-                            }
-
-                            MWCollisionType.MOUNT_FOOT, MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD -> {
-                                collisionsPercentageMount += 1.0
-                            }
-                        }
-                        if (collisionType != MWCollisionType.NONE) {
-                            break
-                        }
-                    }
-                    skill.doLogic(SIMULATION_STEP_TIME)
-                    skill.move(SIMULATION_STEP_TIME)
-                    speedXAvg += skill.speedX
-                    i++
-                }
-                rangeMin = 0f
-                rangeMax = data.targetRange
-                distanceMax = data.targetRange
-
-            } else {
-                var collisionsHumanHead = 0
-                var collisionsHumanBody = 0
-                var collisionsMount = 0
-                var collisionsOther = 0
-                var collisionsNone = 0
-                var startDistanceTimer = if (data.startSpeedX > 0f) 0 else -1 // iteration step index on which skill starts moving to right
-
-
-                var i = 0
-                while (true) { // Simulate skill movement
-                    if (i >= SIMULATION_MAX_STEPS
-                            || skill.bottom < SIMULATION_BORDER_BOTTOM || skill.top > SIMULATION_BORDER_TOP
-                            || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT
-                            || rangeMax >= MAX_RANGE) {
-                        lifeTime = i * SIMULATION_STEP_TIME
-                        speedXAvg /= i
-                        break // reached border
-                    }
-
-                    target.centerHorizontal = skill.centerHorizontal
-                    target.doLogic(0f) // updates location
-                    // Detect collision type and calculate range.
+                // Detect collision type and calculate range.
+                if (skill.active) {
                     val collisionType = (target as IAnimatedLiving).animation.getCollisionType(skill)
                     when (collisionType) {
-                        MWCollisionType.HUMAN_ARM, MWCollisionType.HUMAN_BODY, MWCollisionType.HUMAN_FOOT -> collisionsHumanBody += 1
-                        MWCollisionType.HUMAN_HEAD -> collisionsHumanHead += 1
-                        MWCollisionType.MOUNT_FOOT, MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD -> collisionsMount += 1
-                        MWCollisionType.NONE -> collisionsNone += 1
-                        else -> collisionsOther += 1
+                        MWCollisionType.HUMAN_ARM, MWCollisionType.HUMAN_BODY, MWCollisionType.HUMAN_FOOT -> {
+                            collisionsPercentageHumanBody += 1.0
+                        }
+
+                        MWCollisionType.HUMAN_HEAD -> {
+                            collisionsPercentageHumanHead += 1.0
+                        }
+
+                        MWCollisionType.MOUNT_FOOT, MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD -> {
+                            collisionsPercentageMount += 1.0
+                        }
                     }
-                    target.left = skill.centerHorizontal
-                    target.doLogic(0f) // updates location
-                    distanceMax = Math.max(distanceMax, owner.getDistanceHor(target))
                     if (collisionType != MWCollisionType.NONE) {
-                        rangeMax = Math.max(rangeMax, owner.getDistanceHor(target))
-                        target.right = skill.centerHorizontal
-                        target.doLogic(0f) // updates location
-                        rangeMin = Math.max(0f, Math.min(rangeMin, owner.getDistanceHor(target)))
-                    }
-                    skill.doLogic(SIMULATION_STEP_TIME)
-                    skill.move(SIMULATION_STEP_TIME)
-                    speedXAvg += skill.speedX
-                    i++
-                    if (startDistanceTimer == -1 && skill.speedX > 0f) { // if timer is not enabled yet but skill is moving to right: enable it
-                        startDistanceTimer = i
-                    }
-                    if (distanceInSecond == -1f && (i - startDistanceTimer) * SIMULATION_STEP_TIME >= 1f) {
-                        target.left = skill.centerHorizontal
-                        target.doLogic(0f) // updates location
-                        distanceInSecond = distanceMax
+                        break
                     }
                 }
-
-                val collisionsSum = collisionsHumanHead + collisionsHumanBody + collisionsMount + collisionsOther
-                collisionsPercentageHumanBody += collisionsHumanBody.toDouble() / collisionsSum.toDouble()
-                collisionsPercentageHumanHead += collisionsHumanHead.toDouble() / collisionsSum.toDouble()
-                collisionsPercentageMount += collisionsMount.toDouble() / collisionsSum.toDouble()
+                skill.doLogic(SIMULATION_STEP_TIME)
+                skill.move(SIMULATION_STEP_TIME)
+                speedXAvg += skill.speedX
+                i++
             }
+            rangeMin = 0f
+            rangeMax = data.targetRange
+            distanceMax = data.targetRange
+
+        } else {
+            var collisionsHumanHead = 0
+            var collisionsHumanBody = 0
+            var collisionsMount = 0
+            var collisionsOther = 0
+            var collisionsNone = 0
+            var startDistanceTimer = if (data.startSpeedX > 0f) 0 else -1 // iteration step index on which skill starts moving to right
+
+
+            var i = 0
+            while (true) { // Simulate skill movement
+                if (i >= SIMULATION_MAX_STEPS
+                        || skill.bottom < SIMULATION_BORDER_BOTTOM || skill.top > SIMULATION_BORDER_TOP
+                        || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT
+                        || rangeMax >= MAX_RANGE) {
+                    lifeTime = i * SIMULATION_STEP_TIME
+                    speedXAvg /= i
+                    break // reached border
+                }
+
+                target.centerHorizontal = skill.centerHorizontal
+                target.doLogic(0f) // updates location
+                // Detect collision type and calculate range.
+                val collisionType = (target as IAnimatedLiving).animation.getCollisionType(skill)
+                when (collisionType) {
+                    MWCollisionType.HUMAN_ARM, MWCollisionType.HUMAN_BODY, MWCollisionType.HUMAN_FOOT -> collisionsHumanBody += 1
+                    MWCollisionType.HUMAN_HEAD -> collisionsHumanHead += 1
+                    MWCollisionType.MOUNT_FOOT, MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD -> collisionsMount += 1
+                    MWCollisionType.NONE -> collisionsNone += 1
+                    else -> collisionsOther += 1
+                }
+                target.left = skill.centerHorizontal
+                target.doLogic(0f) // updates location
+                distanceMax = Math.max(distanceMax, owner.getDistanceHor(target))
+                if (collisionType != MWCollisionType.NONE) {
+                    rangeMax = Math.max(rangeMax, owner.getDistanceHor(target))
+                    target.right = skill.centerHorizontal
+                    target.doLogic(0f) // updates location
+                    rangeMin = Math.max(0f, Math.min(rangeMin, owner.getDistanceHor(target)))
+                }
+                skill.doLogic(SIMULATION_STEP_TIME)
+                skill.move(SIMULATION_STEP_TIME)
+                speedXAvg += skill.speedX
+                i++
+                if (startDistanceTimer == -1 && skill.speedX > 0f) { // if timer is not enabled yet but skill is moving to right: enable it
+                    startDistanceTimer = i
+                }
+                if (distanceInSecond == -1f && (i - startDistanceTimer) * SIMULATION_STEP_TIME >= 1f) {
+                    target.left = skill.centerHorizontal
+                    target.doLogic(0f) // updates location
+                    distanceInSecond = distanceMax
+                }
+            }
+
+            val collisionsSum = collisionsHumanHead + collisionsHumanBody + collisionsMount + collisionsOther
+            collisionsPercentageHumanBody += collisionsHumanBody.toDouble() / collisionsSum.toDouble()
+            collisionsPercentageHumanHead += collisionsHumanHead.toDouble() / collisionsSum.toDouble()
+            collisionsPercentageMount += collisionsMount.toDouble() / collisionsSum.toDouble()
+        }
 
 
 

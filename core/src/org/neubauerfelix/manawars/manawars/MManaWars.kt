@@ -1,10 +1,12 @@
 package org.neubauerfelix.manawars.manawars
 
 import org.neubauerfelix.manawars.game.GameManaWars
+import org.neubauerfelix.manawars.manawars.data.armies.DataArmyLoaded
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
 import org.neubauerfelix.manawars.manawars.factories.MComponentFactory
 import org.neubauerfelix.manawars.manawars.handlers.*
+import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 class MManaWars: GameManaWars() {
 
@@ -27,14 +29,11 @@ class MManaWars: GameManaWars() {
         loadHandler(AnimationHandler())
         loadHandler(LanguageHandler("english")) //TODO: Load language from config
         loadHandler(UpgradeHandler())
+        loadHandler(SkillHandler())
         loadHandler(ActionHandler())
         loadHandler(CollisionHandler())
-        loadHandler(SkillHandler())
-
-        // can be called to generate new skill analysis file, which can manually be moved to assets folder
-        //getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME)
-
-        getSkillAnalysisHandler().loadSkillAnalyses(MConstants.SKILL_ANALYSIS_FILE_NAME)
+        loadHandler(UnitHandler())
+        loadHandler(ArmyHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
@@ -44,6 +43,11 @@ class MManaWars: GameManaWars() {
         assert(!loaded)
         print("loaded")
         MWState.values().forEach { state -> state.load() }
+
+        // can be called to generate new skill analysis file, which can manually be moved to assets folder
+        getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME)
+        getUnitHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
+
         startScreen(TestScreen(this), true)
     }
 
@@ -85,6 +89,14 @@ class MManaWars: GameManaWars() {
 
     fun getActionHandler(): IActionHandler {
         return getHandler(ActionHandler::class.java)
+    }
+
+    fun getUnitHandler(): IUnitHandler {
+        return getHandler(UnitHandler::class.java)
+    }
+
+    fun getArmyHandler(): IArmyHandler {
+        return getHandler(ArmyHandler::class.java)
     }
 
     fun getCollisionHandler(): ICollisionHandler {

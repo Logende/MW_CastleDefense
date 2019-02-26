@@ -17,7 +17,7 @@ class BodyDataHandler: IBodyDataHandler, ILoadableContent {
 
     private val bodyDataHuman = HashMap<String, IBodyDataHuman>()
     private val bodyDataMount = HashMap<String, IBodyDataMount>()
-
+    override var loadedContent: Boolean = false
 
     fun putBodyDataHuman(name: String, shieldType: MWShield?, defaultScale: Float): IBodyDataHuman {
         val skin = BodyDataHuman(name, AManaWars.m.getImageHandler().getTextureRegionMain("char.skin.$name"), shieldType, defaultScale)
@@ -41,22 +41,25 @@ class BodyDataHandler: IBodyDataHandler, ILoadableContent {
     }
 
     override fun loadContent(gameConfig: Configuration) {
-        val handlerConfigNames = gameConfig.getStringList("bodyData")
-        for(handlerConfigName in handlerConfigNames){
-            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
-            for(bodyData in handlerConfig.getStringList("bodyDataHuman")){
-                val parts = bodyData.split(":")
-                val skinName = parts[0]
-                val shieldName = parts[1]
-                val defaultScale = if(parts.size >= 3) parts[2].toFloat() else 1f
-                val shieldType = if (shieldName.equals("none", ignoreCase = true)) null else MManaWars.m.getShieldHandler().getShield(shieldName)
-                putBodyDataHuman(skinName, shieldType, defaultScale)
-            }
-            for(bodyData in handlerConfig.getStringList("bodyDataMount")){
-                val parts = bodyData.split(":")
-                val skinName = parts[0]
-                val defaultScale = if(parts.size >= 2) parts[1].toFloat() else 1f
-                putBodyDataMount(skinName, defaultScale)
+        if (!loadedContent) {
+            loadedContent = true
+            val handlerConfigNames = gameConfig.getStringList("bodyData")
+            for (handlerConfigName in handlerConfigNames) {
+                val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
+                for (bodyData in handlerConfig.getStringList("bodyDataHuman")) {
+                    val parts = bodyData.split(":")
+                    val skinName = parts[0]
+                    val shieldName = parts[1]
+                    val defaultScale = if (parts.size >= 3) parts[2].toFloat() else 1f
+                    val shieldType = if (shieldName.equals("none", ignoreCase = true)) null else MManaWars.m.getShieldHandler().getShield(shieldName)
+                    putBodyDataHuman(skinName, shieldType, defaultScale)
+                }
+                for (bodyData in handlerConfig.getStringList("bodyDataMount")) {
+                    val parts = bodyData.split(":")
+                    val skinName = parts[0]
+                    val defaultScale = if (parts.size >= 2) parts[1].toFloat() else 1f
+                    putBodyDataMount(skinName, defaultScale)
+                }
             }
         }
     }

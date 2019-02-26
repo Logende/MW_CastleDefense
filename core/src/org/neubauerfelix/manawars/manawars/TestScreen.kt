@@ -7,6 +7,7 @@ import org.neubauerfelix.manawars.game.GameScreenScreenTimed
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.armies.DataArmyLoaded
+import org.neubauerfelix.manawars.manawars.data.armies.IDataArmy
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.ITeamable
 import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
@@ -20,12 +21,13 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     private lateinit var skill: IDataAction
 
-    val armyConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/armies/testarmy.yml", true)
-    val army = DataArmyLoaded(armyConfig)
+    var army: IDataArmy? = null
 
     override fun loadScreen(): Boolean {
         background.load()
-        army.loadAsset()
+
+        army = MManaWars.m.getArmyHandler().listArmies().first()
+        army!!.loadAsset()
 
         skill = MManaWars.m.getActionHandler().getAction("arrowrain_single")!!
         skill.loadAsset()
@@ -51,14 +53,13 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         background.loadedAssets()
         addBackground(background)
-        army.loadedAsset()
+        army!!.loadedAsset()
         skill.loadedAsset()
 
-        army.units.first().produce(100f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
-        army.units.first().produce(400f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
-        army.units.first().produce(600f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
-        army.units.first().produce(800f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
-
+        army!!.units.first().produce(100f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
+        army!!.units.first().produce(400f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
+        army!!.units.first().produce(600f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
+        army!!.units.first().produce(800f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
 
 
     }

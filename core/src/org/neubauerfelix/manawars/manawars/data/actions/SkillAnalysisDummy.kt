@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.data.actions
 
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
+import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
 
 class SkillAnalysisDummy : ISkillAnalysis {
 
@@ -16,7 +17,8 @@ class SkillAnalysisDummy : ISkillAnalysis {
     override val collisionsPercentageMount: Float = 0.05f
     override val rangeMax: Map<MWEntityAnimationType, Int>
     override val rangeMin: Map<MWEntityAnimationType, Int>
-
+    override val skillClass: MWSkillClass = MWSkillClass.NORMAL
+    override val rangeMaxAvg: Float = 1000f
 
     init {
         rangeMax = HashMap()

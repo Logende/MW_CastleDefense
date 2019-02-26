@@ -14,6 +14,7 @@ class ShieldHandler: IShieldHandler, ILoadableContent {
     private lateinit var enchantedSmall: MWShield
     private lateinit var normalBig: MWShield
     private lateinit var enchantedBig: MWShield
+    override var loadedContent: Boolean = false
 
 
 
@@ -45,31 +46,34 @@ class ShieldHandler: IShieldHandler, ILoadableContent {
 
 
     override fun loadContent(gameConfig: Configuration) {
-        val handlerConfigNames = gameConfig.getStringList("shields")
-        for(handlerConfigName in handlerConfigNames){
-            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
-            for(shieldData in handlerConfig.getStringList("shields")){
-                val parts = shieldData.split(":")
-                val textureName = parts[0]
-                val enchanted = parts[1].toBoolean()
-                putShield(textureName, enchanted)
+        if (!loadedContent) {
+            loadedContent = true
+            val handlerConfigNames = gameConfig.getStringList("shields")
+            for (handlerConfigName in handlerConfigNames) {
+                val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
+                for (shieldData in handlerConfig.getStringList("shields")) {
+                    val parts = shieldData.split(":")
+                    val textureName = parts[0]
+                    val enchanted = parts[1].toBoolean()
+                    putShield(textureName, enchanted)
+                }
+                if (handlerConfig.contains("playershields.normal_small")) {
+                    normalSmall = getShield(handlerConfig.getString("playershields.normal_small"))
+                }
+                if (handlerConfig.contains("playershields.normal_big")) {
+                    normalBig = getShield(handlerConfig.getString("playershields.normal_big"))
+                }
+                if (handlerConfig.contains("playershields.enchanted_small")) {
+                    enchantedSmall = getShield(handlerConfig.getString("playershields.enchanted_small"))
+                }
+                if (handlerConfig.contains("playershields.enchanted_big")) {
+                    enchantedBig = getShield(handlerConfig.getString("playershields.enchanted_big"))
+                }
             }
-            if(handlerConfig.contains("playershields.normal_small")){
-                normalSmall = getShield(handlerConfig.getString("playershields.normal_small"))
-            }
-            if(handlerConfig.contains("playershields.normal_big")){
-                normalBig = getShield(handlerConfig.getString("playershields.normal_big"))
-            }
-            if(handlerConfig.contains("playershields.enchanted_small")){
-                enchantedSmall = getShield(handlerConfig.getString("playershields.enchanted_small"))
-            }
-            if(handlerConfig.contains("playershields.enchanted_big")){
-                enchantedBig = getShield(handlerConfig.getString("playershields.enchanted_big"))
-            }
+            assert(::normalSmall.isInitialized)
+            assert(::normalBig.isInitialized)
+            assert(::enchantedSmall.isInitialized)
+            assert(::enchantedSmall.isInitialized)
         }
-        assert(::normalSmall.isInitialized)
-        assert(::normalBig.isInitialized)
-        assert(::enchantedSmall.isInitialized)
-        assert(::enchantedSmall.isInitialized)
     }
 }

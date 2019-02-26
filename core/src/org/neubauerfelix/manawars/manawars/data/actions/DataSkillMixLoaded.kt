@@ -94,6 +94,8 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         MWEntityAnimationType.values().forEach { type ->
             properties[type] = object : IDataActionProperties{
 
+                override val rangeMaxAvg: Float
+                    get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
                 override val strategicValue: Float
                     get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
                 override val successProbability: Float

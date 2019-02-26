@@ -13,7 +13,6 @@ interface IEntityAnimationProducer: IBodyData {
 
     companion object {
         fun createProducerHuman(skinName: String): IEntityAnimationProducer{
-            System.out.println("get unit with skin $skinName")
             val bodyDataHuman = MManaWars.m.getBodyDataHandler().getBodyDataHuman(skinName)
             return EntityAnimationProducerHuman(bodyDataHuman)
         }
