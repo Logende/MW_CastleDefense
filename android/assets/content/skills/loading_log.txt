@@ -1,0 +1,490 @@
+"C:\Program Files\Java\jdk1.8.0_191\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.2\lib\idea_rt.jar=59694:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;G:\Dokumente\DevelopmentBase\Coding_Libgdx\idea_workspace\ManaWars2\out\production\desktop;G:\Dokumente\DevelopmentBase\Coding_Libgdx\idea_workspace\ManaWars2\out\production\core;C:\Users\felix\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.9.8\a35a0076fbce873f9c2d5a1a1c8066244231bb3c\gdx-1.9.8.jar;G:\Dokumente\DevelopmentBase\Coding_Libgdx\exp4j-0.4.8.jar;G:\Dokumente\DevelopmentBase\Coding_Libgdx\snakeyaml-1.9.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-lwjgl\1.9.8\b7c138f14ed67ad830ae7597da3d86ae02b20eee\gdx-backend-lwjgl-1.9.8.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-platform\1.9.8\604a2ef2c7c92a5900114757cbd3fb4dcbb8270c\gdx-platform-1.9.8-natives-desktop.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\org.lwjgl.lwjgl\lwjgl\2.9.2\a9d80fe5935c7a9149f6584d9777cfd471f65489\lwjgl-2.9.2.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\org.lwjgl.lwjgl\lwjgl_util\2.9.2\4b9e37300a87799856e0bd15ed81663cdb6b0947\lwjgl_util-2.9.2.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\com.badlogicgames.jlayer\jlayer\1.0.1-gdx\7cca83cec5c1b2f011362f4d85aabd71a73b049d\jlayer-1.0.1-gdx.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\org.jcraft\jorbis\0.0.17\8872d22b293e8f5d7d56ff92be966e6dc28ebdc6\jorbis-0.0.17.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\org.lwjgl.lwjgl\lwjgl-platform\2.9.2\510c7d317f5e9e700b9cfaac5fd38bdebf0702e0\lwjgl-platform-2.9.2-natives-windows.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\org.lwjgl.lwjgl\lwjgl-platform\2.9.2\d276cdf61fe2b516c7b7f4aa1b8dea91dbdc8d56\lwjgl-platform-2.9.2-natives-linux.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\org.lwjgl.lwjgl\lwjgl-platform\2.9.2\d55b46b40b40249d627a83a7f7f22649709d70c3\lwjgl-platform-2.9.2-natives-osx.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput\2.0.5\39c7796b469a600f72380316f6b1f11db6c2c7c4\jinput-2.0.5.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\net.java.jutils\jutils\1.0.0\e12fe1fda814bd348c1579329c86943d2cd3c6a6\jutils-1.0.0.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\7ff832a6eb9ab6a767f1ade2b548092d0fa64795\jinput-platform-2.0.5-natives-linux.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\385ee093e01f587f30ee1c8a2ee7d408fd732e16\jinput-platform-2.0.5-natives-windows.jar;C:\Users\felix\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\53f9c919f34d2ca9de8c51fc4e1e8282029a9232\jinput-platform-2.0.5-natives-osx.jar" org.neubauerfelix.manawars2.desktop.DesktopLauncher
+[ManaWarsGame]: Setting up game...
+[ManaWarsGame]: Loaded Configuration File main_settings: 
+[language:english, graphics_high:false, selected_profile:2, volume_music:0.4, volume_sound:1.0, ingame_menu_buttons_horizontal:false, highscore_kills:244, highscore_score:3037, highscore_stages:24, starter.ICERANGER.level:3, starter.DWARF.level:4, starter.GOBLIN.level:2]
+[ManaWarsGame]: Loaded Configuration File stats: 
+[unit_goblin_axe_weak:57, unit_goblin_knife:67, unit_goblin_suicide:28, tribe_goblin:4, unit_zombie_axe:16, unit_zombie_knife:16, unit_zombie_normal:19, unit_zombie_elite:19, tribe_zombie:3, unit_human_1_axe:6, unit_bear_stick1:31, unit_bear_stick2:44, unit_bear_stone2:17, unit_bear_stone3:10, tribe_bear:4, unit_brute_axe:63, unit_brute_sword:28, unit_dwarf_axe:68, unit_dwarf_shield:18, unit_dwarf_arrow:27, unit_dwarf_mage:17, unit_dwarf_elite:15, tribe_dwarf:7, unit_brute_spear:21, unit_human_3_axe:25, unit_human_3_spear:18, unit_human_3_mage_fire:14, unit_human_3_shield:31, unit_human_3_arrow:52, unit_human_3_sword:21, tribe_human_3:3, unit_samurai_mage:12, unit_samurai_shuriken:58, unit_samurai_sword:20, unit_samurai_shield:29, unit_samurai_ranger:21, unit_samurai_mage_strong:18, tribe_samurai:5, unit_samurai_allrounder:15, unit_human_3_mage_ice:2, unit_saracene_arrow:11, unit_saracene_spear:9, unit_saracene_sword:7, unit_saracene_boomerang:15, unit_saracene_mage:4, tribe_saracene:1, unit_bear_stone1:10, unit_dwarf_spear:14, unit_human_2_shield:8, unit_human_2_axe:10, unit_human_2_mage_fire:4, unit_human_2_spear:6, unit_netherlord_shadowwarrior:22, unit_netherlord_mage:31, unit_netherlord_warrior:17, unit_netherlord_assassine:22, tribe_netherlord:3, unit_orc_axe:34, unit_orc_arrow:36, unit_summonunit_summon_zombie_strong:51, unit_panda_mage:28, unit_panda_sword_weak:18, unit_panda_shuriken:52, unit_panda_sword_normal:15, unit_panda_warrior_ice:9, unit_panda_warrior_fire:9, unit_goblin_arrow_normal:15, unit_goblin_axe_normal:11, unit_goblin_spear:4, unit_human_1_spear:3, unit_human_1_arrow:4, unit_human_1_shield:1, unit_human_1_mage_fire:1, unit_skeleton_arrow_weak:9, unit_skeleton_arrow_fire:4, tribe_skeleton:2, unit_creature_bite:13, unit_creature_shield:7, tribe_creature:4, unit_snowwalker_snowball_weak:17, unit_human_1_sword:1, unit_snowwalker_snowball:1, unit_snowwalker_boss_mage:1, tribe_snowwalker:1, unit_orc_spear:18, unit_orc_sword:12, unit_orc_mage:14, unit_orc_elite:9, unit_samurai_boss_warrior:1, unit_egypt_ranged:3, unit_dwarf_boss_warrior:4, unit_panda_wildaxe:26, unit_goblin_sword:7, tribe_panda:3, unit_bear_boss_warrior:1, unit_orc_mage_strong:4, unit_summonunit_summon_skeleton_strong:7, unit_orc_boss_warrior:1, tribe_orc:2, unit_goblin_boss_warrior:1, unit_pirate_axe:13, unit_pirate_arrow:14, unit_pirate_bomb:8, unit_pirate_elite:5, unit_brute_elite:21, unit_brute_boss_ranger:1, tribe_brute:7, unit_human_2_arrow:8, unit_zombie_boss_warrior:1, unit_human_2_sword:4, unit_human_2_mage_ice:2, tribe_human_2:2, unit_creature_rock:4, unit_creature_bite_strong:6, unit_creature_boss_warrior:2, unit_human_2_boss_ranger:1, unit_brute_boss_assassine:2, unit_pirate_sword:9, tribe_pirate:2, unit_pirate_boss_warrior:2, unit_dwarf_boss_mage:1, unit_lizard_waterball:8, unit_lizard_knife:3, unit_lizard_arrow:5, unit_lizard_fireball:7, tribe_lizard:2, unit_creature_elite:2, unit_egypt_mage_fire:3, unit_egypt_elite:2, unit_egypt_elite_2:2, unit_egypt_mage_elements:1, unit_skeleton_sword:2, unit_skeleton_arrow_normal:2, unit_panda_warrior_ice_strong:3, unit_panda_boss_warrior:2, unit_brute_bodyguard2:1, unit_brute_bodyguard1:1, unit_panda_warrior_fire_strong:3, unit_panda_bodyguard2:1, unit_human_3_bodyguard2:1, unit_netherlord_bodyguard1:2, unit_netherlord_boss_assassine:2, unit_shadowarmy_spear:24, unit_shadowarmy_ranger:28, unit_shadowarmy_shield:25, unit_shadowarmy_warrior:14, unit_shadowarmy_mage:10, unit_shadowarmy_mage_strong:9, unit_shadowarmy_elite_ice:11, unit_shadowarmy_elite_curse:8, unit_shadowarmy_bodyguard4:1, unit_shadowarmy_bodyguard1:1]
+[ManaWarsGame]: Resizing screen
+[ManaWarsGame]: loaded
+[ManaWarsGame]: loaded core data
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_misc_explosion_tiny_name': 0 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_misc_explosion_small_name': 0 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_misc_explosion_big_name': 0 Mana..
+[ManaWarsGame]: Loading skill file skills/skills_shuriken.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Basic Shuriken': 35 Mana..
+[ManaWarsGame]: Calculated skill range of shuriken_basic: 15 - 2015 and life duration 2849. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong shuriken': 50 Mana..
+[ManaWarsGame]: Calculated skill range of shuriken_strong: 18 - 2007 and life duration 2649. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frozen Shuriken': 90 Mana..
+[ManaWarsGame]: Calculated skill range of shuriken_ice: 21 - 2020 and life duration 2499. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Poisoned shuriken': 90 Mana..
+[ManaWarsGame]: Calculated skill range of shuriken_poison: 21 - 2020 and life duration 2499. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill '"Bliss"': 70 Mana..
+[ManaWarsGame]: Calculated skill range of shuriken_lucky: 21 - 2020 and life duration 2499. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Burning Shuriken': 55 Mana..
+[ManaWarsGame]: Calculated skill range of shuriken_fire: 18 - 2012 and life duration 2849. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_knife.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Simple Knife': 25 Mana..
+[ManaWarsGame]: Calculated skill range of knife_basic: 0 - 2044 and life duration 1749. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Average Knife': 30 Mana..
+[ManaWarsGame]: Calculated skill range of knife_normal_1: 0 - 2073 and life duration 1999. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Jewel Blade': 45 Mana..
+[ManaWarsGame]: Calculated skill range of knife_normal_2: 0 - 2088 and life duration 1799. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Dragonwarrior Blade': 35 Mana..
+[ManaWarsGame]: Calculated skill range of knife_dragonwarrior: 10 - 2024 and life duration 1649. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Burning Dragonwarrior Blade': 60 Mana..
+[ManaWarsGame]: Calculated skill range of knife_dragonwarrior_fire: 8 - 2027 and life duration 1649. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Twisted Knife': 35 Mana..
+[ManaWarsGame]: Calculated skill range of knife_twisted: 0 - 2015 and life duration 1849. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Twisted Ice-Knife': 65 Mana..
+[ManaWarsGame]: Calculated skill range of knife_twisted_ice: 0 - 2018 and life duration 1849. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Twisted Sword': 65 Mana..
+[ManaWarsGame]: Calculated skill range of sword_twisted: 0 - 2019 and life duration 3249. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Knife': 60 Mana..
+[ManaWarsGame]: Calculated skill range of knife_mighty_1: 13 - 2012 and life duration 2199. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Golden Knife': 70 Mana..
+[ManaWarsGame]: Calculated skill range of knife_mighty_2: 18 - 2032 and life duration 1999. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Inferno Knife': 110 Mana..
+[ManaWarsGame]: Calculated skill range of knife_mighty_3_fire: 18 - 2032 and life duration 1999. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Frost Knife': 110 Mana..
+[ManaWarsGame]: Calculated skill range of knife_mighty_3_ice: 18 - 2032 and life duration 1999. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Sword': 95 Mana..
+[ManaWarsGame]: Calculated skill range of sword_mighty: 0 - 2134 and life duration 1849. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Double Sword': 130 Mana..
+[ManaWarsGame]: Calculated skill range of sword_mighty_double: 0 - 2101 and life duration 1599. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Cross Sword': 180 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Gold Sword': 95 Mana..
+[ManaWarsGame]: Calculated skill range of sword_mighty_gold: 0 - 2134 and life duration 1849. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Almighty Gold Sword': 115 Mana..
+[ManaWarsGame]: Calculated skill range of sword_mighty_gold_strong: 0 - 2005 and life duration 1949. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Gold Double Sword': 155 Mana..
+[ManaWarsGame]: Calculated skill range of sword_mighty_gold_double: 0 - 2104 and life duration 1599. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Gold Cross Sword': 180 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Broken Soulsword': 85 Mana..
+[ManaWarsGame]: Calculated skill range of knife_brokensword: 82 - 816 and life duration 2899. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Splinter': 115 Mana..
+[ManaWarsGame]: Calculated skill range of knife_brokensword_strong: 131 - 1082 and life duration 2699. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Poisonous Broken Soulsword': 105 Mana..
+[ManaWarsGame]: Calculated skill range of knife_brokensword_poison: 82 - 816 and life duration 2899. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Freezing Broken Soulsword': 105 Mana..
+[ManaWarsGame]: Calculated skill range of knife_brokensword_ice: 82 - 816 and life duration 2899. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_knife_army_1_name': 25 Mana..
+[ManaWarsGame]: Calculated skill range of knife_army_1: 0 - 2025 and life duration 3099. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_knife_army_2_name': 50 Mana..
+[ManaWarsGame]: Calculated skill range of knife_army_2: 0 - 2021 and life duration 3099. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_knife_arrow_name': 25 Mana..
+[ManaWarsGame]: Calculated skill range of knife_arrow: 0 - 2032 and life duration 2099. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_knife_frost_name': 45 Mana..
+[ManaWarsGame]: Calculated skill range of knife_frost: 0 - 2059 and life duration 2249. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_knife_gold_name': 35 Mana..
+[ManaWarsGame]: Calculated skill range of knife_gold: 0 - 2001 and life duration 6550. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_knife_sharp_name': 35 Mana..
+[ManaWarsGame]: Calculated skill range of knife_sharp: 0 - 2006 and life duration 5200. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_knife_thin_name': 35 Mana..
+[ManaWarsGame]: Calculated skill range of knife_thin: 0 - 2004 and life duration 3949. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_sword.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Simple Sword': 50 Mana..
+[ManaWarsGame]: Calculated skill range of sword_basic: 7 - 727 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Golden Sword': 60 Mana..
+[ManaWarsGame]: Calculated skill range of sword_human_gold: 7 - 727 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Burning Sword': 115 Mana..
+[ManaWarsGame]: Calculated skill range of sword_human_fire: 4 - 730 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frozen Sword': 115 Mana..
+[ManaWarsGame]: Calculated skill range of sword_human_ice: 4 - 730 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Bandit Sword': 65 Mana..
+[ManaWarsGame]: Calculated skill range of sword_bandit_1: 0 - 792 and life duration 2199. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Sheik Sword': 85 Mana..
+[ManaWarsGame]: Calculated skill range of sword_bandit_2: 0 - 799 and life duration 2199. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Small Katana': 60 Mana..
+[ManaWarsGame]: Calculated skill range of sword_katana_1: 0 - 1359 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Katana': 85 Mana..
+[ManaWarsGame]: Calculated skill range of sword_katana_2: 0 - 1438 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Dark Katana': 105 Mana..
+[ManaWarsGame]: Calculated skill range of sword_katana_3_dark: 0 - 1438 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frost Katana': 160 Mana..
+[ManaWarsGame]: Calculated skill range of sword_katana_4_ice: 0 - 1431 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Light Katana': 105 Mana..
+[ManaWarsGame]: Calculated skill range of sword_katana_3_light: 0 - 1388 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Flame Katana': 160 Mana..
+[ManaWarsGame]: Calculated skill range of sword_katana_4_fire: 0 - 1433 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_sword_katana_5_name': 190 Mana..
+[ManaWarsGame]: Calculated skill range of sword_katana_5: 0 - 1658 and life duration 2699. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Butcher Knife': 40 Mana..
+[ManaWarsGame]: Calculated skill range of sword_orc_1: 0 - 2010 and life duration 7900. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Orc Sword': 65 Mana..
+[ManaWarsGame]: Calculated skill range of sword_orc_2: 0 - 2016 and life duration 4900. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_sword_samurai_name': 110 Mana..
+[ManaWarsGame]: Calculated skill range of sword_samurai: 0 - 2008 and life duration 2949. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_axe.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Wooden Axe': 30 Mana..
+[ManaWarsGame]: Calculated skill range of axe_basic: 203 - 358 and life duration 2249. Behavior: SHORT_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Brutal Axe': 40 Mana..
+[ManaWarsGame]: Calculated skill range of axe_brutal_1: 247 - 441 and life duration 2249. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Brutal Doubleaxe': 65 Mana..
+[ManaWarsGame]: Calculated skill range of axe_brutal_2: 367 - 595 and life duration 2249. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Dwarf Axe': 30 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf1_simple: 0 - 590 and life duration 1599. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Doublesided Dwarf Axe': 45 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf1_double: 0 - 626 and life duration 1599. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Quadruple Dwarf Axe': 105 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf1_quadruple: 0 - 657 and life duration 1649. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Dark God Axe': 125 Mana..
+[ManaWarsGame]: Calculated skill range of axe_god_dark: 0 - 1387 and life duration 3449. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Shadow God Axe': 165 Mana..
+[ManaWarsGame]: Calculated skill range of axe_god_dark_strong: 0 - 1387 and life duration 3449. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frost God Axe': 240 Mana..
+[ManaWarsGame]: Calculated skill range of axe_god_dark_strong_ice: 0 - 1387 and life duration 3449. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Light God Axe': 140 Mana..
+[ManaWarsGame]: Calculated skill range of axe_god_light: 0 - 1210 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Sun God Axe': 180 Mana..
+[ManaWarsGame]: Calculated skill range of axe_god_light_strong: 0 - 1210 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Volcano God Axe': 260 Mana..
+[ManaWarsGame]: Calculated skill range of axe_god_light_strong_fire: 0 - 1210 and life duration 2799. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frost Dwarf Axe': 45 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf1_simple_ice: 0 - 590 and life duration 1599. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Tiny Doomforge Axe': 35 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf2_small: 362 - 588 and life duration 1749. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Small Doomforge Axe': 50 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf2_medium: 362 - 588 and life duration 1749. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Novice Doomforge Axe': 75 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf2_big: 367 - 583 and life duration 1749. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Doomforge Axe': 295 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf2_huge: 0 - 722 and life duration 1949. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Burning Novice Doomforge Axe': 110 Mana..
+[ManaWarsGame]: Calculated skill range of axe_dwarf2_big_fire: 364 - 586 and life duration 1749. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Human Axe': 40 Mana..
+[ManaWarsGame]: Calculated skill range of axe_human: 0 - 337 and life duration 1899. Behavior: SHORT_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Human Fire Axe': 65 Mana..
+[ManaWarsGame]: Calculated skill range of axe_human_fire: 0 - 337 and life duration 1899. Behavior: SHORT_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Human Inferno Axe': 110 Mana..
+[ManaWarsGame]: Calculated skill range of axe_human_fire_strong: 288 - 537 and life duration 2399. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Human Ice Axe': 75 Mana..
+[ManaWarsGame]: Calculated skill range of axe_human_ice: 0 - 337 and life duration 1899. Behavior: SHORT_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Orc Axe': 55 Mana..
+[ManaWarsGame]: Calculated skill range of axe_orc_1: 0 - 609 and life duration 1599. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Brutal Orc Axe': 90 Mana..
+[ManaWarsGame]: Calculated skill range of axe_orc_2: 0 - 955 and life duration 1749. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Wild Axe': 50 Mana..
+[ManaWarsGame]: Calculated skill range of axe_wild_1: 494 - 647 and life duration 2249. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Tomahawk': 95 Mana..
+[ManaWarsGame]: Calculated skill range of axe_wild_2: 456 - 665 and life duration 2249. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Tomahawk': 135 Mana..
+[ManaWarsGame]: Calculated skill range of axe_wild_3: 456 - 665 and life duration 2249. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Wooden Stick': 25 Mana..
+[ManaWarsGame]: Calculated skill range of stick_1: 0 - 2002 and life duration 9800. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Wooden Stick': 35 Mana..
+[ManaWarsGame]: Calculated skill range of stick_2: 0 - 2004 and life duration 7850. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Basic Hammer': 45 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_1: 518 - 683 and life duration 2299. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Advanced Hammer': 55 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_2: 434 - 714 and life duration 2149. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Superior Hammer': 75 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_3: 429 - 796 and life duration 2149. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Hammer': 95 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_4: 400 - 801 and life duration 2149. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Flamehammer': 140 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_4_fire: 395 - 805 and life duration 2149. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Majestic Flamehammer': 260 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_5_fire: 0 - 917 and life duration 1999. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Holy Flamehammer': 365 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_6_fire: 0 - 917 and life duration 1999. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Frosthammer': 145 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_4_ice: 400 - 801 and life duration 2149. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Cursed Shadowhammer': 165 Mana..
+[ManaWarsGame]: Calculated skill range of hammer_5_curse: 395 - 805 and life duration 2149. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Brute Cudgel': 60 Mana..
+[ManaWarsGame]: Calculated skill range of stick_brute: 367 - 633 and life duration 2249. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Pharao Scepter': 75 Mana..
+[ManaWarsGame]: Calculated skill range of stick_pharao: 0 - 2043 and life duration 2099. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Sokar Scepter': 130 Mana..
+[ManaWarsGame]: Calculated skill range of stick_pharao_strong: 0 - 1658 and life duration 1949. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_spear.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Wooden Spear': 45 Mana..
+[ManaWarsGame]: Calculated skill range of spear_basic: 0 - 475 and life duration 2099. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Small Iron Spear': 55 Mana..
+[ManaWarsGame]: Calculated skill range of spear_small: 0 - 585 and life duration 2299. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Iron Spear': 125 Mana..
+[ManaWarsGame]: Calculated skill range of spear_normal: 0 - 670 and life duration 2299. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Burning Spear': 165 Mana..
+[ManaWarsGame]: Calculated skill range of spear_fire: 0 - 670 and life duration 2299. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frozen Spear': 160 Mana..
+[ManaWarsGame]: Calculated skill range of spear_ice: 0 - 670 and life duration 2299. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Golden Piercer': 160 Mana..
+[ManaWarsGame]: Calculated skill range of spear_strong: 0 - 875 and life duration 2449. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Gungnir': 330 Mana..
+[ManaWarsGame]: Calculated skill range of spear_god: 0 - 663 and life duration 1799. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_arrow.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_arrowrain_single_name': 20 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_arrowrain_single_first_name': 20 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Light Arrow': 55 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_weak: 0 - 701 and life duration 1999. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Feather Arrow': 65 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_normal: 0 - 1201 and life duration 1999. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Arrow': 95 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_strong: 0 - 1441 and life duration 1699. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Crossbow': 120 Mana..
+[ManaWarsGame]: Calculated skill range of crossbow_weak: 15 - 1826 and life duration 1299. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Enhanced Crossbow': 150 Mana..
+[ManaWarsGame]: Calculated skill range of crossbow_normal: 65 - 1876 and life duration 1249. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Majestic Crossbow': 210 Mana..
+[ManaWarsGame]: Calculated skill range of crossbow_strong: 65 - 1876 and life duration 1249. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Majestic Double Crossbow': 335 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Poisonous Crossbow': 180 Mana..
+[ManaWarsGame]: Calculated skill range of crossbow_poison: 65 - 1876 and life duration 1249. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Cursed Crossbow': 190 Mana..
+[ManaWarsGame]: Calculated skill range of crossbow_curse: 65 - 1876 and life duration 1249. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Enhanced Double Crossbow': 240 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Hail of Arrows': 120 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Arrow Hail': 140 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Arrow Hail': 160 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'King Arrow Hail': 220 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Hawk Arrow': 105 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_headshot: 0 - 1441 and life duration 1699. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Bloody Arrow': 90 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_random: 0 - 1441 and life duration 1699. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Burning Arrow': 110 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_fire: 0 - 1441 and life duration 1699. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frozen Arrow': 105 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_ice: 0 - 1441 and life duration 1699. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Poisoned Arrow': 115 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_poison: 0 - 1441 and life duration 1699. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Bomb Arrow': 40 Mana..
+[ManaWarsGame]: Calculated skill range of arrow_bomb_small: 0 - 1201 and life duration 1999. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_boomerang.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Wooden Boomerang': 35 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_1: 0 - 495 and life duration 3099. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Enhanced Wooden Boomerang': 45 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_2: 0 - 617 and life duration 3399. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Iron Boomerang': 60 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_3: 1 - 661 and life duration 3499. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Gold Boomerang': 75 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_4: 0 - 671 and life duration 3449. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Spiked Gold Boomerang': 95 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_5: 0 - 721 and life duration 3399. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Deadly Spiked Gold Boomerang': 110 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_6: 0 - 781 and life duration 3499. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Extreme Mad Overpowered Boomerang': 140 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_7: 455 - 853 and life duration 3599. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Soultaker': 180 Mana..
+[ManaWarsGame]: Calculated skill range of boomerang_8: 0 - 767 and life duration 2899. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_magic.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_single_1_name': 20 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_single_1: 0 - 2017 and life duration 3349. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_single_2_name': 30 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_single_2: 0 - 2010 and life duration 2849. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_single_3_name': 40 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_single_3: 0 - 2028 and life duration 2649. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill '3 Energy Orbs': 40 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill '4 Energy Orbs': 80 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill '5 Energy Orbs': 140 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Energy Wall': 115 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Crossing Energy': 140 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Fireball': 40 Mana..
+[ManaWarsGame]: Calculated skill range of magic_fireball_1: 0 - 2065 and life duration 2549. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Great Fireball': 60 Mana..
+[ManaWarsGame]: Calculated skill range of magic_fireball_2: 0 - 2009 and life duration 2199. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Fireball': 75 Mana..
+[ManaWarsGame]: Calculated skill range of magic_fireball_3: 0 - 2032 and life duration 2099. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Meteor': 105 Mana..
+[ManaWarsGame]: Calculated skill range of magic_fireball_4: 0 - 2064 and life duration 1749. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Sky Fireball': 60 Mana..
+[ManaWarsGame]: Calculated skill range of magic_fireball_rain_1: 489 - 822 and life duration 1749. Behavior: LONG_RANGE_AND_FAST. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Fire Rain': 125 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Iceball': 50 Mana..
+[ManaWarsGame]: Calculated skill range of magic_iceball_1: 0 - 2046 and life duration 2149. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frost Iceball': 70 Mana..
+[ManaWarsGame]: Calculated skill range of magic_iceball_2: 0 - 2075 and life duration 2049. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Winter Iceball': 90 Mana..
+[ManaWarsGame]: Calculated skill range of magic_iceball_3: 0 - 2004 and life duration 1849. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Icespear': 70 Mana..
+[ManaWarsGame]: Calculated skill range of magic_icespear_1: 0 - 2016 and life duration 1399. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Icespear': 100 Mana..
+[ManaWarsGame]: Calculated skill range of magic_icespear_2: 0 - 2085 and life duration 1299. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Icespike': 45 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frost Icespike': 85 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Winter Icespike': 100 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Ragnarok': 125 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Skyfist': 170 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Heavenfist': 340 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Magma Skyfist': 170 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Corrosive Skyfist': 170 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Icicle': 35 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frost Icicle': 55 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Winter Icicle': 70 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Fimbulwinter': 220 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Poisonball': 35 Mana..
+[ManaWarsGame]: Calculated skill range of magic_poisonball_1: 0 - 2009 and life duration 2549. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Poisonball': 50 Mana..
+[ManaWarsGame]: Calculated skill range of magic_poisonball_2: 0 - 2048 and life duration 2349. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Uber Poisonball': 70 Mana..
+[ManaWarsGame]: Calculated skill range of magic_poisonball_3: 0 - 2021 and life duration 2249. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_shadowenergy_single_weak_name': 50 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_shadowenergy_single_medium_name': 55 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_shadowenergy_single_strong_name': 75 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_shadowenergy_single_epic_name': 120 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_tricky_name': 50 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_tricky: 0 - 2012 and life duration 2749. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_tricky_strong_name': 85 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_tricky_strong: 17 - 2050 and life duration 2049. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_tricky_down_name': 50 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_tricky_down: 557 - 906 and life duration 2199. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_tricky_down_strong_name': 85 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_tricky_down_strong: 955 - 1278 and life duration 2299. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_tricky_up_name': 50 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_tricky_up: 5 - 906 and life duration 2499. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_energy_tricky_up_strong_name': 85 Mana..
+[ManaWarsGame]: Calculated skill range of magic_energy_tricky_up_strong: 10 - 1182 and life duration 2299. Behavior: LONG_RANGE_AND_FAST. MoveType: FAST_STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Shadowenergy': 50 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Shadowenergy': 95 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Uber Shadowenergy': 200 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Umbra': 320 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Dodgy Shadowenergy': 90 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Super Dodgy Shadowenergy': 135 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Skadi': 225 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_skillblocker_1_name': 285 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_skillblocker_2_name': 420 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_magic_skillblocker_3_name': 550 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Magic Skull': 30 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Magic Skull': 50 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Magic Skull': 75 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Single Torch': 35 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Single Hot Torch': 45 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Single Volcano Torch': 60 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Guarded Torch': 100 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Snowball': 30 Mana..
+[ManaWarsGame]: Calculated skill range of magic_snowball_1: 27 - 639 and life duration 1999. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Lucky Snowball': 45 Mana..
+[ManaWarsGame]: Calculated skill range of magic_snowball_2: 32 - 609 and life duration 2049. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Mighty Snowball': 90 Mana..
+[ManaWarsGame]: Calculated skill range of magic_snowball_3: 21 - 655 and life duration 1649. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frozen Snowball': 145 Mana..
+[ManaWarsGame]: Calculated skill range of magic_snowball_4: 26 - 725 and life duration 1649. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_beast.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Bite': 30 Mana..
+[ManaWarsGame]: Calculated skill range of beast_bite_1: 0 - 2002 and life duration 5650. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Vampire Bite': 40 Mana..
+[ManaWarsGame]: Calculated skill range of beast_bite_2: 0 - 2005 and life duration 4950. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Monstrous Bite': 265 Mana..
+[ManaWarsGame]: Calculated skill range of beast_bite_3: 0 - 2010 and life duration 9550. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Rock Roll': 100 Mana..
+[ManaWarsGame]: Calculated skill range of beast_rock_1: 0 - 2012 and life duration 3449. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'Crushing Rock Roll': 185 Mana..
+[ManaWarsGame]: Calculated skill range of beast_rock_2: 0 - 2031 and life duration 3449. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_green_single_name': 20 Mana..
+[ManaWarsGame]: Calculated skill range of beast_slime_green_single: 10 - 500 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_blue_single_name': 30 Mana..
+[ManaWarsGame]: Calculated skill range of beast_slime_blue_single: 10 - 500 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_purple_single_name': 35 Mana..
+[ManaWarsGame]: Calculated skill range of beast_slime_purple_single: 10 - 500 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_purple_strong_single_name': 45 Mana..
+[ManaWarsGame]: Calculated skill range of beast_slime_purple_strong_single: 10 - 500 and life duration 2549. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_green_1_name': 20 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_blue_1_name': 30 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_blue_2_name': 45 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_purple_2_name': 55 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_purple_3_name': 80 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_slime_purple_strong_name': 70 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_waterball_single_name': 40 Mana..
+[ManaWarsGame]: Calculated skill range of beast_waterball_single: 4 - 655 and life duration 2649. Behavior: MEDIUM_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_waterball_name': 60 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'skill_beast_waterball_2_name': 125 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Generated Mana Cost for Skill 'Rock Throw': 40 Mana..
+[ManaWarsGame]: Calculated skill range of beast_stone_1: 308 - 473 and life duration 2149. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Strong Rock Throw': 55 Mana..
+[ManaWarsGame]: Calculated skill range of beast_stone_2: 507 - 632 and life duration 2449. Behavior: MEDIUM_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Deadly Rock Throw': 75 Mana..
+[ManaWarsGame]: Calculated skill range of beast_stone_3: 705 - 848 and life duration 2449. Behavior: LONG_RANGE. MoveType: JUMP
+[ManaWarsGame]: Generated Mana Cost for Skill 'Rock Hail': 135 Mana..
+[ManaWarsGame]: calculating range of mix skill
+[ManaWarsGame]: Loading skill file skills/skills_misc.yml
+[ManaWarsGame]: Calculated skill range of misc_bomb: 0 - 2006 and life duration 9950. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Calculated skill range of misc_bomb_strong: 0 - 2006 and life duration 9950. Behavior: LONG_RANGE. MoveType: STRAIGHT
+[ManaWarsGame]: Loading skill file skills/skills_shield.yml
+[ManaWarsGame]: Generated Mana Cost for Skill 'Soldier Shield': 55 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Legionnaire Shield': 80 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Commander Shield': 195 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Baron Shield': 235 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Frost Barricade': 60 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Big Frost Barricade': 85 Mana..
+[ManaWarsGame]: Generated Mana Cost for Skill 'Winter Barricade': 115 Mana..
+[ManaWarsGame]: Loading skill file skills/skills_summon.yml
+[ManaWarsGame]: calculated worth of summonunit_summon_zombie: 10.489347017308507
+[ManaWarsGame]: calculated worth of summonunit_summon_zombie_strong: 11.932217803939677
+[ManaWarsGame]: calculated worth of summonunit_summon_goblin_suicide: 7.948657346091886
+[ManaWarsGame]: calculated worth of summonunit_summon_skeleton: 14.654342730227818
+[ManaWarsGame]: calculated worth of summonunit_summon_skeleton_strong: 18.020354879001115
+[ManaWarsGame]: calculated worth of summonunit_summon_golem: 30.64545566565482
+[ManaWarsGame]: calculated worth of summonunit_summon_golem_fire: 43.87672682507804
+[ManaWarsGame]: Loading tribe zombie.
+[ManaWarsGame]: loaded tribe 'zombie' with 9 groups, 3 bosses and 5 units.
+[ManaWarsGame]: Loading tribe bear.
+[ManaWarsGame]: loaded tribe 'bear' with 12 groups, 2 bosses and 6 units.
+[ManaWarsGame]: Loading tribe goblin.
+[ManaWarsGame]: loaded tribe 'goblin' with 18 groups, 3 bosses and 10 units.
+[ManaWarsGame]: Loading tribe snowwalker.
+[ManaWarsGame]: loaded tribe 'snowwalker' with 14 groups, 4 bosses and 7 units.
+[ManaWarsGame]: Loading tribe human_1.
+[ManaWarsGame]: loaded tribe 'human_1' with 14 groups, 3 bosses and 8 units.
+[ManaWarsGame]: Loading tribe skeleton.
+[ManaWarsGame]: loaded tribe 'skeleton' with 10 groups, 2 bosses and 7 units.
+[ManaWarsGame]: Loading tribe brute.
+[ManaWarsGame]: loaded tribe 'brute' with 10 groups, 3 bosses and 6 units.
+[ManaWarsGame]: Loading tribe dwarf.
+[ManaWarsGame]: loaded tribe 'dwarf' with 15 groups, 3 bosses and 8 units.
+[ManaWarsGame]: Loading tribe human_2.
+[ManaWarsGame]: loaded tribe 'human_2' with 14 groups, 3 bosses and 9 units.
+[ManaWarsGame]: Loading tribe creature.
+[ManaWarsGame]: loaded tribe 'creature' with 15 groups, 2 bosses and 6 units.
+[ManaWarsGame]: Loading tribe pirate.
+[ManaWarsGame]: loaded tribe 'pirate' with 14 groups, 1 bosses and 6 units.
+[ManaWarsGame]: Loading tribe lizard.
+[ManaWarsGame]: loaded tribe 'lizard' with 9 groups, 1 bosses and 5 units.
+[ManaWarsGame]: Loading tribe panda.
+[ManaWarsGame]: loaded tribe 'panda' with 19 groups, 1 bosses and 11 units.
+[ManaWarsGame]: Loading tribe egypt.
+[ManaWarsGame]: loaded tribe 'egypt' with 12 groups, 1 bosses and 7 units.
+[ManaWarsGame]: Loading tribe human_3.
+[ManaWarsGame]: loaded tribe 'human_3' with 14 groups, 6 bosses and 9 units.
+[ManaWarsGame]: Loading tribe orc.
+[ManaWarsGame]: loaded tribe 'orc' with 15 groups, 1 bosses and 8 units.
+[ManaWarsGame]: Loading tribe saracene.
+[ManaWarsGame]: loaded tribe 'saracene' with 19 groups, 1 bosses and 8 units.
+[ManaWarsGame]: Loading tribe samurai.
+[ManaWarsGame]: loaded tribe 'samurai' with 14 groups, 1 bosses and 9 units.
+[ManaWarsGame]: Loading tribe netherlord.
+[ManaWarsGame]: loaded tribe 'netherlord' with 10 groups, 2 bosses and 5 units.
+[ManaWarsGame]: Loading tribe shadowarmy.
+[ManaWarsGame]: loaded tribe 'shadowarmy' with 17 groups, 1 bosses and 12 units.
+[ManaWarsGame]: Loading tribe heaven.
+[ManaWarsGame]: loaded tribe 'heaven' with 1 groups, 1 bosses and 2 units.
+[ManaWarsGame]: Loading menu mode.
+[ManaWarsGame]: Loaded menu mode.
+[ManaWarsGame]: gamepause

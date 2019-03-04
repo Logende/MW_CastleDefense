@@ -18,6 +18,9 @@ class ControllerTest: IController {
         }
         if (controlled.x < 200 || dir == 1 && controlled.x < 1500) {
             controlled.walkRight(800f)
+            if (dir == -1) {
+                controlled.executeAction()
+            }
             dir = 1
         }
     }

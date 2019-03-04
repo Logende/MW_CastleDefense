@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars
 
+import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.game.GameManaWars
 import org.neubauerfelix.manawars.manawars.data.armies.DataArmyLoaded
 import org.neubauerfelix.manawars.manawars.enums.MWState
@@ -48,7 +49,7 @@ class MManaWars: GameManaWars() {
         getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME)
         getUnitHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
 
-        startScreen(TestScreen(this), true)
+        startScreen(CDScreen(this), true)
     }
 
     override fun isLoaded(): Boolean {
