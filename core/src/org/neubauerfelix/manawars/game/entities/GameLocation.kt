@@ -42,5 +42,16 @@ open class GameLocation(x: Float, y: Float) : ILocated {
         return getDistance(loc) <= range
     }
 
+    fun plus(l: ILocated): GameLocation {
+        this.x += l.x
+        this.y += l.y
+        return this
+    }
+    fun minus(l: ILocated): GameLocation {
+        this.x -= l.x
+        this.y -= l.y
+        return this
+    }
+
 
 }

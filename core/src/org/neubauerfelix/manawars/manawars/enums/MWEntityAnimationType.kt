@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.enums
 
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
+import org.neubauerfelix.manawars.manawars.data.units.DataUnitDummy
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
@@ -16,7 +17,8 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val share : Fl
             val skinName = "dwarf.1.1"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller)
+            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
+                    data = DataUnitDummy())
             controller.controlled = a
             a.setLocation(x, y)
             a.team = MConstants.TEAM_BOT
@@ -30,7 +32,8 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val share : Fl
             val skinNameMount = "lion"
             val animationProducerMount = IEntityAnimationProducer.createProducerMount(skinNameMount)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducerMount, 1f, action, 0f, controller = controller)
+            val a = MEntityControlled(animationProducerMount, 1f, action, 0f, controller = controller,
+                    data = DataUnitDummy())
             controller.controlled = a
             a.setLocation(x, y)
             a.team = MConstants.TEAM_BOT
@@ -45,7 +48,8 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val share : Fl
             val skinNameMount = "lion"
             val animationProducerRider = IEntityAnimationProducer.createProducerRider(skinNameMount, skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducerRider, 1f, action, 0f, controller = controller)
+            val a = MEntityControlled(animationProducerRider, 1f, action, 0f, controller = controller,
+                    data = DataUnitDummy())
             controller.controlled = a
             a.setLocation(x, y)
             a.team = MConstants.TEAM_BOT

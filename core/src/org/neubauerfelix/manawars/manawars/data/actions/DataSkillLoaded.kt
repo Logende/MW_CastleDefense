@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Colors
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
+import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysis
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
@@ -186,8 +188,9 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
 
 
 
-    final override var lifeTime: Float = 1000f //analysis.getValue(MWEntityAnimationType.HUMAN).lifeTime // TODO: generate good lifetime
-        private set
+    final override val lifeTime: Float
+        get() =  analysis.getValue(MWEntityAnimationType.HUMAN).lifeTime
+
 
     override fun getActionProperties(entityAnimationType: MWEntityAnimationType) : IDataActionProperties {
         return analysis.getValue(entityAnimationType)

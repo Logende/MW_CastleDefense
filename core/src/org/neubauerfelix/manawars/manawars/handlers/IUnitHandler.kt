@@ -1,9 +1,8 @@
 package org.neubauerfelix.manawars.manawars.handlers
 
 import org.neubauerfelix.manawars.game.IHandler
-import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
-import org.neubauerfelix.manawars.manawars.data.units.IUnitAnalysis
+import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
 
 interface IUnitHandler: IHandler {
 

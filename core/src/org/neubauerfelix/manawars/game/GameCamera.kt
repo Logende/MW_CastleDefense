@@ -157,6 +157,7 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
     private fun setWindowLocation(x: Float){
         window.x = x
         cameraIngame.position.set(window.centerHorizontal, window.centerVertical + GameConstants.CONTROLPANEL_HEIGHT * zoomIngame / 2, 0f)
+        cameraIngame.update()
     }
 
     override fun dispose() {

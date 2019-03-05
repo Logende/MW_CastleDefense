@@ -1,10 +1,12 @@
 package org.neubauerfelix.manawars.manawars.handlers
 
 import org.neubauerfelix.manawars.manawars.MConstants
+import org.neubauerfelix.manawars.manawars.analysis.AUnitAnalysis
+import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysis
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitLoaded
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
-import org.neubauerfelix.manawars.manawars.data.units.IUnitAnalysis
-import org.neubauerfelix.manawars.manawars.data.units.UnitAnalysisDummy
+import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
+import org.neubauerfelix.manawars.manawars.analysis.UnitAnalysisDummy
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.ConfigurationProvider
@@ -59,7 +61,7 @@ class UnitHandler : IUnitHandler {
         }
 
         val section = config.getSection(data.name)
-        return object : IUnitAnalysis {
+        return object : AUnitAnalysis() {
             override val actionValue: Float = section.getFloat("actionValue")
             override val survivalFactor: Float = section.getFloat("survivalFactor")
             override val defensiveStrengthPerSecond: Float = section.getFloat("defensiveStrengthPerSecond")
@@ -90,12 +92,15 @@ class UnitHandler : IUnitHandler {
 
         val survivalFactor = survivalFactorHealth * survivalFactorArmor * survivalFactorRange
 
-        return object : IUnitAnalysis {
+
+
+        return object : AUnitAnalysis() {
             override val actionValue: Float = actionAnalysis.strategicValue * actionAnalysis.successProbability / data.actionCooldown
             override val survivalFactor: Float = survivalFactor
             override val defensiveStrengthPerSecond: Float = actionAnalysis.defensiveStrength / data.actionCooldown
             override val offensiveStrengthPerSecond: Float = actionAnalysis.offensiveStrength / data.actionCooldown
             override val armor: Map<MWArmorHolder, MWArmorType> = data.armor
+
         }
     }
 

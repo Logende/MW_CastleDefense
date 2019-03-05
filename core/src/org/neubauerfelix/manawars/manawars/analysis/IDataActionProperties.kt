@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.manawars.data.actions
+package org.neubauerfelix.manawars.manawars.analysis
 
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
@@ -19,5 +19,6 @@ interface IDataActionProperties {
     val rangeMax: Map<MWEntityAnimationType, Int>
     val rangeMin: Map<MWEntityAnimationType, Int>
     val rangeMaxAvg: Float
+
 
 }

@@ -60,6 +60,12 @@ abstract class GameManaWars: AManaWars(){
 
     override fun dispose() {
         super.setScreen(null)
+        synchronized(screens){
+            for(screen in screens){
+                screen.dispose()
+            }
+            screens.clear()
+        }
         synchronized(handlers){
             for(i in handlersOrder.size-1 downTo 0){
                 val s = handlersOrder.get(i)
@@ -70,12 +76,6 @@ abstract class GameManaWars: AManaWars(){
             }
             handlersOrder.clear()
             handlers.clear()
-        }
-        synchronized(screens){
-            for(screen in screens){
-                screen.dispose()
-            }
-            screens.clear()
         }
 
     }

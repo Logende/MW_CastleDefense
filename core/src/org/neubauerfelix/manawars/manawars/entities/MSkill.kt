@@ -14,7 +14,7 @@ import org.neubauerfelix.manawars.manawars.enums.*
 
 class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale, data.color, data.animationRotationDuration, Animation.PlayMode.LOOP), IOwned {
 
-    override var owner: IEntity? = o
+    override var owner: IEntity = o
 
     var health: Int
     var direction: Int = 1

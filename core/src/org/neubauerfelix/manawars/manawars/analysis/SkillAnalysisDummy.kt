@@ -1,5 +1,6 @@
-package org.neubauerfelix.manawars.manawars.data.actions
+package org.neubauerfelix.manawars.manawars.analysis
 
+import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
 
@@ -12,9 +13,8 @@ class SkillAnalysisDummy : ISkillAnalysis {
     override val successProbability: Float = 1.0f
     override val offensiveStrength: Float = 10f
     override val defensiveStrength: Float = 10f
-    override val collisionsPercentageHumanHead: Float = 0.2f
-    override val collisionsPercentageHumanBody: Float = 0.75f
-    override val collisionsPercentageMount: Float = 0.05f
+    override val collisionsPercentages: Map<MWArmorHolder, Double> = hashMapOf(Pair(MWArmorHolder.HUMAN_HEAD, 0.2),
+            Pair(MWArmorHolder.HUMAN_BODY, 0.75), Pair(MWArmorHolder.MOUNT, 0.05))
     override val rangeMax: Map<MWEntityAnimationType, Int>
     override val rangeMin: Map<MWEntityAnimationType, Int>
     override val skillClass: MWSkillClass = MWSkillClass.NORMAL

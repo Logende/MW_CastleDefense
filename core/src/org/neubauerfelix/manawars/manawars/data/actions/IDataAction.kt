@@ -1,12 +1,9 @@
 package org.neubauerfelix.manawars.manawars.data.actions
 
 import org.neubauerfelix.manawars.game.data.IAsset
-import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
-import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
-import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
-import org.neubauerfelix.manawars.manawars.enums.MWRarity
-import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
+import org.neubauerfelix.manawars.manawars.enums.*
 
 
 /**
@@ -56,6 +53,7 @@ interface IDataAction : IDataPresentable, IAsset {
      * @return action dependencies.
      */
     val actionDependencies: Array<IDataAction>
+
 
 
 

@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
 import org.neubauerfelix.manawars.game.data.IAsset
+import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.actions.IDataPresentable
 import org.neubauerfelix.manawars.manawars.entities.IControlled

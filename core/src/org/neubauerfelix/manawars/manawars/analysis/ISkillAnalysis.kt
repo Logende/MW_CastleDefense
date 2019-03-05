@@ -1,5 +1,6 @@
-package org.neubauerfelix.manawars.manawars.data.actions
+package org.neubauerfelix.manawars.manawars.analysis
 
+import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
 
 
@@ -13,9 +14,8 @@ interface ISkillAnalysis : IDataActionProperties {
     val width: Int
     val height: Int
 
-    val collisionsPercentageHumanHead: Float
-    val collisionsPercentageHumanBody: Float
-    val collisionsPercentageMount: Float
+    val collisionsPercentages: Map<MWArmorHolder, Double>
+
 
     val skillClass: MWSkillClass
 

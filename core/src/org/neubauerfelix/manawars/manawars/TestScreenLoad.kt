@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 
 class TestScreenLoad(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
-    private val background: MBackground = MBackground(GameConstants.PATH_LOADING_SCREEN, 0, true, getGame().getAssetLoader())
+    private val background: MBackground = MBackground(GameConstants.PATH_LOADING_SCREEN, 0f, true, getGame().getAssetLoader())
 
     override fun loadScreen(): Boolean {
         background.load()

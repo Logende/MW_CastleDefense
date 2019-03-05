@@ -1,9 +1,9 @@
-package org.neubauerfelix.manawars.manawars.handlers
+package org.neubauerfelix.manawars.castledefense.handlers
 
 import org.neubauerfelix.manawars.game.ILoadableContent
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.data.armies.DataArmyLoaded
-import org.neubauerfelix.manawars.manawars.data.armies.IDataArmy
+import org.neubauerfelix.manawars.castledefense.data.DataArmyLoaded
+import org.neubauerfelix.manawars.castledefense.data.IDataArmy
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 

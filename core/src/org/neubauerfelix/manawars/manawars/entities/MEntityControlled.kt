@@ -5,6 +5,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.*
 
@@ -18,7 +19,8 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
                              skillDurabilityMultipliers: Map<MWSkillClass, Float> = HashMap(),
                              drainMultiplier: Float = 0f,
                              armor: Map<MWArmorHolder, MWArmorType> = HashMap(),
-                             override var controller: IController):
+                             override var controller: IController,
+                             override val data: IDataUnit):
         MEntityUpgraded(animationProducer, health, action, actionCooldown, stateMultipliers, skillMultipliers,
                 skillDurabilityMultipliers, drainMultiplier, armor), IControlled {
 

@@ -1,9 +1,6 @@
-package org.neubauerfelix.manawars.manawars.data.armies
+package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.game.IComponent
-import org.neubauerfelix.manawars.manawars.entities.IControlled
-import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
-import org.neubauerfelix.manawars.manawars.entities.controller.IController
 
 abstract class DataArmy : IDataArmy {
 
@@ -18,14 +15,17 @@ abstract class DataArmy : IDataArmy {
 
     override fun loadAsset() {
         units.forEach { unit -> unit.loadAsset() }
+        castle.loadAsset()
     }
 
     override fun loadedAsset() {
         units.forEach { unit -> unit.loadedAsset() }
+        castle.loadedAsset()
     }
 
     override fun disposeAsset() {
         units.forEach { unit -> unit.disposeAsset() }
+        castle.disposeAsset()
     }
 
 

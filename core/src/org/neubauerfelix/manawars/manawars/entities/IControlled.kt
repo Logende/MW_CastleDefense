@@ -1,9 +1,13 @@
 package org.neubauerfelix.manawars.manawars.entities
 
 import org.neubauerfelix.manawars.game.entities.GameRectangle
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 
 interface IControlled: IActionUser, ILiving {
+
+
+    val data: IDataUnit
 
     var controller: IController
 

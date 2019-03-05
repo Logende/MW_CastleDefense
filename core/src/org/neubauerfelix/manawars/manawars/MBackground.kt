@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.*
 
-class MBackground(fileName: String, x: Int, flipped: Boolean, assetLoader: IAssetLoader) : IBackground{
+class MBackground(fileName: String, x: Float, flipped: Boolean, assetLoader: IAssetLoader) : IBackground{
 
     private val assetLoader: IAssetLoader
     private val fileName: String

@@ -1,5 +1,6 @@
-package org.neubauerfelix.manawars.manawars.data.actions
+package org.neubauerfelix.manawars.manawars.analysis
 
+import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 
@@ -15,9 +16,7 @@ interface ISkillAnalysisPart {
     val hitProbability: Float
     val tacticalStrength: Float
 
-    val collisionsPercentageHumanHead: Float
-    val collisionsPercentageHumanBody: Float
-    val collisionsPercentageMount: Float
+    val collisionsPercentages: Map<MWArmorHolder, Double>
 
     val lifeTime: Float
     val rangeMax: Int

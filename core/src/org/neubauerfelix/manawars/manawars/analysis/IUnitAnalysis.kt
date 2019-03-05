@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.manawars.data.units
+package org.neubauerfelix.manawars.manawars.analysis
 
 import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWArmorType
@@ -17,5 +17,8 @@ interface IUnitAnalysis {
     val offensiveStrengthPerSecond: Float
 
     val armor: Map<MWArmorHolder, MWArmorType>
+
+
+    fun getDamageFactor(skillAnalysis: ISkillAnalysis) : Float
 
 }

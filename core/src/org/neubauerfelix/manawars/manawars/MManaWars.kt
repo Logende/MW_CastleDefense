@@ -1,13 +1,13 @@
 package org.neubauerfelix.manawars.manawars
 
 import org.neubauerfelix.manawars.castledefense.CDScreen
+import org.neubauerfelix.manawars.castledefense.handlers.ArmyHandler
+import org.neubauerfelix.manawars.castledefense.handlers.IArmyHandler
 import org.neubauerfelix.manawars.game.GameManaWars
-import org.neubauerfelix.manawars.manawars.data.armies.DataArmyLoaded
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
 import org.neubauerfelix.manawars.manawars.factories.MComponentFactory
 import org.neubauerfelix.manawars.manawars.handlers.*
-import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 class MManaWars: GameManaWars() {
 

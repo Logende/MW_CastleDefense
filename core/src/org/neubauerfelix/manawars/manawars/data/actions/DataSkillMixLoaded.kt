@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.data.actions
 
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
@@ -92,7 +93,7 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
     init {
         properties = HashMap()
         MWEntityAnimationType.values().forEach { type ->
-            properties[type] = object : IDataActionProperties{
+            properties[type] = object : IDataActionProperties {
 
                 override val rangeMaxAvg: Float
                     get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.

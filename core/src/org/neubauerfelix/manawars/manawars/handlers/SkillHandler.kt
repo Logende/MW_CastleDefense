@@ -6,6 +6,9 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysis
+import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysisPart
+import org.neubauerfelix.manawars.manawars.analysis.SkillAnalysisDummy
 import org.neubauerfelix.manawars.manawars.data.actions.*
 import org.neubauerfelix.manawars.manawars.entities.*
 import org.neubauerfelix.manawars.manawars.entities.MSkill
@@ -59,9 +62,6 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                 data.analyseSkill()
                 val map = data.analysis
                 for ((type, analysis) in map) {
-                    section.set("${type.name}.collisionPercentageHumanBody", analysis.collisionsPercentageHumanBody)
-                    section.set("${type.name}.collisionPercentageHumanHead", analysis.collisionsPercentageHumanHead)
-                    section.set("${type.name}.collisionPercentageMount", analysis.collisionsPercentageMount)
                     section.set("${type.name}.height", analysis.height)
                     section.set("${type.name}.width", analysis.width)
                     section.set("${type.name}.successProbability", analysis.successProbability)
@@ -69,6 +69,9 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                     section.set("${type.name}.strategicValue", analysis.strategicValue)
                     section.set("${type.name}.offensiveStrength", analysis.offensiveStrength)
                     section.set("${type.name}.defensiveStrength", analysis.defensiveStrength)
+                    for ( (type, percentage) in analysis.collisionsPercentages) {
+                        section.set("${type.name}.collisionPercentage.${type.name}", percentage)
+                    }
                     for ( (type, range) in analysis.rangeMax) {
                         section.set("${type.name}.rangeMax.${type.name}", range)
                     }
@@ -97,9 +100,6 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         val sectionSkill = config.getSection(data.name)
         for (typeOwner in MWEntityAnimationType.values()) {
             val section = sectionSkill.getSection(typeOwner.name)
-            val collisionPercentageHumanBody = section.getFloat("collisionPercentageHumanBody")
-            val collisionsPercentageHumanHead = section.getFloat("collisionsPercentageHumanHead")
-            val collisionsPercentageMount = section.getFloat("collisionsPercentageMount")
             val height = section.getInt("height")
             val width = section.getInt("width")
             val successProbability = section.getFloat("successProbability")
@@ -114,6 +114,10 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                 rangeMax[typeTarget] = section.getInt("rangeMax.${typeTarget.name}")
                 rangeMin[typeTarget] = section.getInt("rangeMin.${typeTarget.name}")
             }
+            val collisionsPercentages: MutableMap<MWArmorHolder, Double> = HashMap()
+            for (type in MWArmorHolder.values()) {
+                collisionsPercentages[type] = section.getDouble("collisionPercentage.${type.name}")
+            }
 
             map[typeOwner] = object : ISkillAnalysis {
                 override val lifeTime: Float = lifeTime
@@ -123,9 +127,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                 override val successProbability: Float = successProbability
                 override val offensiveStrength: Float = offensivePoints
                 override val defensiveStrength: Float = defensivePoints
-                override val collisionsPercentageHumanHead: Float = collisionsPercentageHumanHead
-                override val collisionsPercentageHumanBody: Float = collisionPercentageHumanBody
-                override val collisionsPercentageMount: Float = collisionsPercentageMount
+                override val collisionsPercentages: Map<MWArmorHolder, Double> = collisionsPercentages
                 override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
                 override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
                 override val rangeMaxAvg: Float = rangeMaxAvg
@@ -147,29 +149,30 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
      */
     override fun analyse(data: IDataSkill, entityAnimationType: MWEntityAnimationType): ISkillAnalysis {
         val parts = MWEntityAnimationType.values().map { type -> this.analyse(data, entityAnimationType, type) }
-        var manaCost = 0f
         var lifetime = 0f
         val rangeMax: MutableMap<MWEntityAnimationType, Int> = HashMap()
         val rangeMin: MutableMap<MWEntityAnimationType, Int> = HashMap()
         for (part in parts) {
-            //manaCost += part.manaCost + part.targetAnimationType.share TODO
             lifetime = Math.max(lifetime, part.lifeTime)
             rangeMax[part.targetAnimationType] = part.rangeMax
             rangeMin[part.targetAnimationType] = part.rangeMin
         }
 
-        var tacticalDamage = parts.sumByDouble { part -> (part.tacticalDamage * part.targetAnimationType.share).toDouble() }
-        var hitProbability = parts.sumByDouble { part -> (part.hitProbability * part.targetAnimationType.share).toDouble() }
-        var tacticalStrength = parts.sumByDouble { part -> (part.tacticalStrength * part.targetAnimationType.share).toDouble() }
-        var collisionPercentageHumanHead = parts.sumByDouble { part -> (part.collisionsPercentageHumanHead * part.targetAnimationType.share).toDouble() }
-        var collisionPercentageHumanBody = parts.sumByDouble { part -> (part.collisionsPercentageHumanBody * part.targetAnimationType.share).toDouble() }
-        var collisionPercentageMount = parts.sumByDouble { part -> (part.collisionsPercentageMount * part.targetAnimationType.share).toDouble() }
+        val tacticalDamage = parts.sumByDouble { part -> (part.tacticalDamage * part.targetAnimationType.share).toDouble() }
+        val hitProbability = parts.sumByDouble { part -> (part.hitProbability * part.targetAnimationType.share).toDouble() }
+        val tacticalStrength = parts.sumByDouble { part -> (part.tacticalStrength * part.targetAnimationType.share).toDouble() }
+
+        val collisionsPercentages: MutableMap<MWArmorHolder, Double> = hashMapOf()
+        MWArmorHolder.values().forEach {
+            val percentage = parts.sumByDouble { part -> (part.collisionsPercentages[it]!! * part.targetAnimationType.share) }
+            collisionsPercentages[it] = percentage
+        }
 
         val rangeMaxAvg = rangeMax.map { (animationType, range) ->
             animationType.share * range.toFloat()
         }.sum()
 
-        return object : ISkillAnalysis{
+        return object : ISkillAnalysis {
             override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
             override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
             override val rangeMaxAvg: Float = rangeMaxAvg
@@ -180,9 +183,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
             override val successProbability: Float = hitProbability.toFloat()
             override val offensiveStrength: Float = tacticalStrength.toFloat() // TODO: Only give offensive points, if skill actually does attack
             override val defensiveStrength: Float = tacticalStrength.toFloat()
-            override val collisionsPercentageHumanHead: Float = collisionPercentageHumanHead.toFloat()
-            override val collisionsPercentageHumanBody: Float = collisionPercentageHumanBody.toFloat()
-            override val collisionsPercentageMount: Float = collisionPercentageMount.toFloat()
+            override val collisionsPercentages: Map<MWArmorHolder, Double> = collisionsPercentages
             override val skillClass: MWSkillClass = data.skillClass
         }
     }
@@ -333,6 +334,9 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
             collisionsPercentageMount += collisionsMount.toDouble() / collisionsSum.toDouble()
         }
 
+        val collisionsPercentages: Map<MWArmorHolder, Double> = hashMapOf(Pair(MWArmorHolder.HUMAN_BODY, collisionsPercentageHumanBody),
+                Pair(MWArmorHolder.HUMAN_HEAD, collisionsPercentageHumanHead), Pair(MWArmorHolder.MOUNT, collisionsPercentageMount))
+
 
 
         val hitProbability: Float = if (data.xRelativeToTarget) {
@@ -366,13 +370,11 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         //System.out.println("entity $entityAnimationType target $targetAnimationType skill ${data.name}  hit probability $successProbability with tactical damage $strategicValue")
         // TODO: If has "spawn_on_impact" then consider the properties of the connected action
 
-        return object : ISkillAnalysisPart{
+        return object : ISkillAnalysisPart {
             override val tacticalDamage: Float = tacticalDamage
             override val hitProbability: Float = hitProbability
             override val tacticalStrength: Float = data.skillStrength.toFloat()
-            override val collisionsPercentageHumanHead: Float = collisionsPercentageHumanHead.toFloat()
-            override val collisionsPercentageHumanBody: Float = collisionsPercentageHumanBody.toFloat()
-            override val collisionsPercentageMount: Float = collisionsPercentageMount.toFloat()
+            override val collisionsPercentages: Map<MWArmorHolder, Double> = collisionsPercentages
             override val rangeMax = rangeMax.toInt()
             override val rangeMin = rangeMin.toInt()
             override val lifeTime: Float = lifeTime

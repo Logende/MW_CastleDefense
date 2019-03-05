@@ -27,5 +27,5 @@ interface IOwned {
     }
 
 
-    var owner: IEntity?
+    var owner: IEntity
 }

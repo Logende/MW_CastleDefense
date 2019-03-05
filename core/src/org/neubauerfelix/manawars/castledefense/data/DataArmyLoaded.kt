@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.manawars.data.armies
+package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitLoaded
@@ -21,4 +21,6 @@ class DataArmyLoaded(config: Configuration) : DataArmy() {
         }
         this.units = units
     }
+
+    override val castle: IDataCastle = DataCastleLoaded(config.getSection("castle"))
 }

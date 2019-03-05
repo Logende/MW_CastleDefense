@@ -1,23 +1,16 @@
 package org.neubauerfelix.manawars.manawars
 
-import com.badlogic.gdx.utils.Timer
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
-import org.neubauerfelix.manawars.manawars.data.armies.DataArmyLoaded
-import org.neubauerfelix.manawars.manawars.data.armies.IDataArmy
-import org.neubauerfelix.manawars.manawars.entities.ILiving
-import org.neubauerfelix.manawars.manawars.entities.ITeamable
-import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
-import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.castledefense.data.IDataArmy
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerTest
-import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
-    private val background: MBackground = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", 0, true, getGame().getAssetLoader())
+    private val background: MBackground = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", 0f, true, getGame().getAssetLoader())
 
     private lateinit var skill: IDataAction
 

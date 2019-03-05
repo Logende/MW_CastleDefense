@@ -1,5 +1,7 @@
 package org.neubauerfelix.manawars.castledefense
 
+import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IDisposable
 import org.neubauerfelix.manawars.game.ILoadableAsync
 import org.neubauerfelix.manawars.game.IScreen
@@ -29,6 +31,8 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val backgrounds: I
             screen.addBackground(background, backgrounds.count())
         }
         loaded = true
+        playerA.spawnCastle(true, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
+        playerB.spawnCastle(false, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
     }
 
     override fun isLoaded(): Boolean {

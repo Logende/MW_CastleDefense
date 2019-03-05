@@ -39,7 +39,7 @@ abstract class DataUnit : IDataUnit {
                 this.skillDurabilityMultipliers,
                 this.drainMultiplier,
                 this.armor,
-                controller)
+                controller, this)
         controller.controlled = entity
         entity.setLocation(x, y)
         entity.team = team
