@@ -39,6 +39,8 @@ abstract class DataUnit : IDataUnit {
                 this.skillDurabilityMultipliers,
                 this.drainMultiplier,
                 this.armor,
+                this.walkSpeedMax,
+                this.walkAcceleration,
                 controller, this)
         controller.controlled = entity
         entity.setLocation(x, y)

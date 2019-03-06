@@ -23,6 +23,8 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISiz
     override var width: Float = width
         @Deprecated("Resizing rectangles requires creating a new Polygon instance every time")
         set(value) {
+            val x = this.x
+            val y = this.y
             polygon = Polygon(floatArrayOf(0f, 0f, value, 0f, value, height, 0f, height))
             polygon.setPosition(x, y)
             field = value
@@ -31,6 +33,8 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISiz
     override var height: Float = height
         @Deprecated("Resizing rectangles requires creating a new Polygon instance every time")
         set(value) {
+            val x = this.x
+            val y = this.y
             polygon = Polygon(floatArrayOf(0f, 0f, width, 0f, width, value, 0f, value))
             polygon.setPosition(x, y)
             field = value
@@ -160,9 +164,9 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISiz
     }
 
     override fun getDistanceVer(s: ISized): Float {
-        return if (s.bottom < this.top) {
+        return if (s.bottom > this.top) {
             Math.abs(s.bottom - this.top)
-        } else if (s.top > this.bottom) {
+        } else if (s.top < this.bottom) {
             Math.abs(s.top - this.bottom)
         } else {
             0f
@@ -175,6 +179,7 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISiz
         val vertices = polygon.transformedVertices
         return Intersector.isPointInPolygon(vertices, 0, vertices.size, px, py)
     }
+
 
 
 }

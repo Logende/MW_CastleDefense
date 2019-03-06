@@ -9,21 +9,28 @@ import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.GameLocation
 import org.neubauerfelix.manawars.manawars.MManaWars
 
-class CDPlayer(override val army: IDataArmy, override val controller: ICDController, override val team: Int) : ICDPlayer {
+class CDPlayer(override val army: IDataArmy, override val controller: ICDController, override var team: Int) : ICDPlayer {
 
     override lateinit var castle: ICDEntityCastle
     override lateinit var enemy: ICDPlayer
 
+    override lateinit var formation: ICDFormation
+
     override fun spawnCastle(leftSide: Boolean, mapWidth: Float) {
         val texture = MManaWars.m.getAssetLoader().getTexture(army.castle.textureName)
-        val spawnLocation = if (leftSide) {
+        val castleLocation = if (leftSide) {
             GameLocation(CDConstants.CASTLE_BORDER_OFFSET, GameConstants.CONTROLPANEL_HEIGHT)
         } else {
             GameLocation(mapWidth - texture.width - CDConstants.CASTLE_BORDER_OFFSET, GameConstants.CONTROLPANEL_HEIGHT)
-        }.plus(army.castle.unitSpawnOffset)
+        }
+
+        val spawnLocation = GameLocation(castleLocation.x + texture.width/2, castleLocation.y).plus(army.castle.unitSpawnOffset)
         val direction = if (leftSide) 1 else -1
-        this.castle = CDEntityCastle(spawnLocation.x, spawnLocation.y, TextureRegion(texture), direction)
+        this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, TextureRegion(texture), direction, team, spawnLocation)
         this.castle.spawn()
+
+        this.formation = CDFormation(army.units, this)
+        this.formation.spawn()
     }
 }
 

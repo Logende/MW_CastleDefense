@@ -10,12 +10,11 @@ import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 
-class CDEntityCastle(x: Float, y: Float, val texture: TextureRegion, override var direction: Int) :
+class CDEntityCastle(x: Float, y: Float, val texture: TextureRegion, override var direction: Int, override var team: Int,
+                     override val unitSpawnLocation: ILocated) :
         GameRectangle(x, y, texture.regionWidth.toFloat(), texture.regionHeight.toFloat()), ICDEntityCastle {
 
 
-    override val unitSpawnLocation: ILocated
-        get() = GameLocation(centerHorizontal, GameConstants.CONTROLPANEL_HEIGHT)
 
 
     override var gold: Int = 0

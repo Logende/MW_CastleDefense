@@ -44,7 +44,7 @@ open class MEntityStateable(animationProducer: IEntityAnimationProducer, health:
         if (state === MWState.FROZEN) {
             return false
         }
-        return true
+        return super.canPerformAction()
     }
 
     override fun canFly(): Boolean {

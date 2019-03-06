@@ -35,6 +35,11 @@ class DataUnitDummy : IDataUnit {
     override val analysis: IUnitAnalysis
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
+    override val walkSpeedMax: Float
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+    override val walkAcceleration: Float
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
     override fun produce(x: Float, y: Float, controller: IController, team: Int): IControlled {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

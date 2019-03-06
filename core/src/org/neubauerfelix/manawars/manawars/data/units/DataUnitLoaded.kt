@@ -75,6 +75,9 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
     override val skillDurabilityMultipliers: Map<MWSkillClass, Float> = hashMapOf()
     override val drainMultiplier: Float = config.getFloat("drain")
 
+    override val walkSpeedMax: Float = config.getFloat("walkSpeedMax", 1f) * MConstants.UNIT_AVG_WALK_SPEED_MAX
+    override val walkAcceleration: Float = config.getFloat("walkAcceleration", 1f) * MConstants.UNIT_AVG_WALK_ACC
+
     override var analysis: IUnitAnalysis = MManaWars.m.getUnitHandler().loadUnitAnalysis(this)
         private set
 

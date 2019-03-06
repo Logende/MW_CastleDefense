@@ -5,6 +5,8 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.game.entities.ILocated
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.*
@@ -19,63 +21,15 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
                              skillDurabilityMultipliers: Map<MWSkillClass, Float> = HashMap(),
                              drainMultiplier: Float = 0f,
                              armor: Map<MWArmorHolder, MWArmorType> = HashMap(),
+                             override val walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX,
+                             override val walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC,
                              override var controller: IController,
-                             override val data: IDataUnit):
+                             override val data: IDataUnit): // data is just a reference for CD classes which need data. It is not used for the entity properties
         MEntityUpgraded(animationProducer, health, action, actionCooldown, stateMultipliers, skillMultipliers,
                 skillDurabilityMultipliers, drainMultiplier, armor), IControlled {
 
 
-    override fun walkRight(walkSpeed: Float): Boolean {
-        if (!canWalk()) {
-            return false
-        }
-        speedX = walkSpeed
-        return true
-    }
-
-    override fun walkLeft(walkSpeed: Float): Boolean {
-        if (!canWalk()) {
-            return false
-        }
-        speedX = - walkSpeed
-        return true
-    }
-
-    override fun walkStop(): Boolean {
-        if (!canWalk()) {
-            return false
-        }
-        speedX = 0f
-        return true
-    }
-
-    override fun flyDown(flySpeed: Float): Boolean {
-        return if (!canFly()) {
-            false
-        } else {
-            speedY = -flySpeed
-            return true
-        }
-    }
-
-    override fun flyUp(flySpeed: Float): Boolean {
-        return if (!canFly()) {
-            false
-        } else {
-            speedY = flySpeed
-            return true
-        }
-    }
-
-
-    override fun flyStop(): Boolean {
-        return if (!canFly()) {
-            false
-        } else {
-            speedY = 0f
-            return true
-        }
-    }
+    override var goalX: Float = Float.NaN
 
 
     override fun jump(maxJumps: Int): Boolean {
@@ -100,8 +54,41 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
 
     override fun doLogic(delta: Float) {
         controller.doLogic(delta)
+
+        if (isOnGround) {
+            if (goalX != Float.NaN) {
+                val offset = goalX - this.centerHorizontal
+                val distance = Math.abs(offset)
+                if (distance > 20f) {
+                    val slowingDistance = 100f
+                    val rampedSpeed = this.walkSpeedMax * (distance / slowingDistance)
+                    val clippedSpeed = Math.min(rampedSpeed, walkSpeedMax)
+                    val desiredVelocity = (clippedSpeed / distance) * offset
+                    accelerationX = truncate((desiredVelocity - this.speedX), walkAcceleration)
+                } else {
+                    accelerationX = 0f
+                    speedX = 0f
+                }
+            }
+        }
+
+
         super.doLogic(delta)
     }
+
+    override fun move(delta: Float) {
+        super.move(delta)
+        speedX = direction * Math.min(walkSpeedMax, Math.abs(speedX)) // truncate: do not allow more than max speed
+    }
+
+    private fun truncate(v : Float, maxLength: Float): Float {
+        return if (v > 0) {
+            Math.min(v, maxLength)
+        } else {
+            Math.max(v, -maxLength)
+        }
+    }
+
 
     override fun draw(delta: Float, batcher: Batch) {
         super.draw(delta, batcher)

@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities
 
 import org.neubauerfelix.manawars.game.AManaWars
+import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
@@ -9,10 +10,11 @@ import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanAni
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.BodyRider
 
 
-open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health: Float, val action: IDataAction,
+open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health: Float, override val action: IDataAction,
                              override val actionCooldown: Float): MEntityAnimated(animationProducer, health), IActionUser {
 
-    var actionCooldownTime = 0L
+    private var actionCooldownTime = 0L
+
 
     init {
         if (MConstants.ALWAYS_EQUIP_WEAPONS && action.weaponType != null) {
@@ -50,13 +52,13 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
     }
 
     override fun canPerformAction(): Boolean {
-        if (AManaWars.m.screen.getGameTime() > actionCooldownTime) {
+        if (AManaWars.m.screen.getGameTime() < actionCooldownTime) {
             return false
         }
         return !this.animation.playingBodyEffect
     }
 
-
-
-
+    override fun updateTarget(possibleTargets: Iterable<IEntity>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

@@ -24,6 +24,9 @@ interface IDataUnit : IDataPresentable, IAsset {
     val skillDurabilityMultipliers: Map<MWSkillClass, Float>
     val drainMultiplier: Float
 
+    val walkSpeedMax: Float
+    val walkAcceleration: Float
+
     val analysis: IUnitAnalysis
 
 

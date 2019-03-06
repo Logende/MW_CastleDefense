@@ -5,7 +5,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 
 interface ICDPlayerLiveAnalysis {
 
-    val units: List<IEntity> // sorted by position: Furthest unit from player castle is first
+    val entities: List<IEntity> // sorted by position: Furthest unit from player castle is first
     val skills: List<IEntity> // sorted by position: Furthest unit from player castle is first
     val furthestX: Float // x position of furthest unit or castle if no unit is existing +width if on left side
 
