@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities.animation
 
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
@@ -11,7 +12,8 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityJumpable
 
 class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized: ISized, private val textureRegion: TextureRegion, duration: Int,
-                     private val mirror: Boolean, private val maxRotationAngle: Float = MConstants.BODY_PART_DETACH_MAX_ROTATION_ANGLE) :
+                     private val mirror: Boolean, private val maxRotationAngle: Float = MConstants.BODY_PART_DETACH_MAX_ROTATION_ANGLE,
+                     private val bloodColor: Color) :
         MEntityJumpable(textureRegion.regionWidth.toFloat(), textureRegion.regionHeight.toFloat()), IDrawable {
 
     private var currentRotationSummand: Float = 0f
@@ -47,9 +49,9 @@ class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized:
             return
         }
 
-        if(time >= bloodTime){
+        if(time >= bloodTime && !this.isOnGround){
             bloodTime = time + MConstants.BODY_PART_BLOOD_DELAY
-            MManaWars.m.getAnimationHandler().playBloodAnimation(this)
+            MManaWars.m.getAnimationHandler().playBloodAnimation(this, bloodColor)
         }
         if (Math.abs(rotation) < maxRotationAngle && currentRotationSummand > 0.001) {
             currentRotationSummand *= 0.9f

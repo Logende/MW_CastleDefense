@@ -9,8 +9,6 @@ class DataArmyLoaded(config: Configuration) : DataArmy() {
 
     override val name: String = config.getString("name")
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("unit_${name}_name")
-
-
     override val units: List<IDataUnit>
 
     init {

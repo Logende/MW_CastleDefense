@@ -59,7 +59,6 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
         super.playBloodAnimation()
         animation.color = bloodColor
         colorRestoreTime = AManaWars.m.screen.getGameTime() + MConstants.HIT_RED_BLINK_DURATION
-        MManaWars.m.getAnimationHandler().playBloodAnimation(this, bloodColor)
     }
 
 

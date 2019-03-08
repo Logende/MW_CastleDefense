@@ -10,4 +10,5 @@ interface IDataArmy : IDataPresentable, IAsset {
     val displayName: String
     val units: List<IDataUnit> // units sorted by formation: for example shield guys should be first and long range entities last
     val castle: IDataCastle
+
 }

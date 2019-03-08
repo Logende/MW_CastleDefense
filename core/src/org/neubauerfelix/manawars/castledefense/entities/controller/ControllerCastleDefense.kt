@@ -41,8 +41,10 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
             } else {
                 actionProperties.rangeMaxAvg.toInt()
             }
-            if (closestEnemy.getDistanceHor(controlled) < range) { // If closest enemy is in range
+            if (controlled.speedX == 0f && controlled.direction != player.castle.direction) {
                 controlled.lookTo(player.castle.direction)
+            }
+            if (closestEnemy.getDistanceHor(controlled) < range && controlled.direction == player.castle.direction) { // If closest enemy is in range
                 controlled.executeAction() // tries executing the action
             }
 

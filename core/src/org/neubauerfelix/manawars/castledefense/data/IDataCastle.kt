@@ -8,6 +8,8 @@ interface IDataCastle : IAsset {
 
     val textureName: String
     val unitSpawnOffset: ILocated
+    val goldStart: Int
+    val goldPerCharge: Int
 
 
 }

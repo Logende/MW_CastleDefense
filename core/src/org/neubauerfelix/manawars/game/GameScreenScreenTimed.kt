@@ -16,9 +16,9 @@ abstract class GameScreenScreenTimed(game: AManaWars, drawBackgroundsStatic: Boo
     }
 
     override fun pause() {
-        super.pause()
         timeDurationStored = getGameTime()
         timeStart = -1
+        super.pause()
     }
 
 

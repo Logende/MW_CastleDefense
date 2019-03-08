@@ -12,5 +12,6 @@ interface ICDEntityCastle : ISized, IEntity, IDrawable, ICollidable, ILooking, I
 
     val unitSpawnLocation: ILocated
     var gold: Int
+    var goldPerCharge: Int
 
 }

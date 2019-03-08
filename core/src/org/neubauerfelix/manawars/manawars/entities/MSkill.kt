@@ -38,7 +38,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
     init {
         // Set up basic values
         health = data.skillStrength
-        direction = o.direction * (if (data.startSpeedX >= 0) 1 else -1)
+        direction = o.direction // * (if (data.startSpeedX >= 0) 1 else -1)
         idleTimeLeft = data.idleTime
         lifeTimeLeft = data.lifeTime
 
@@ -107,16 +107,18 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         var damageFactor = 1f
         if (e is IUpgraded) {
             damageFactor *= e.getArmor(collisionType).getSkillEffectivity(data.skillClass).damageFactor
+            System.out.println("hit entity with armor ${ e.getArmor(collisionType).name} with damage factor ${e.getArmor(collisionType).getSkillEffectivity(data.skillClass).damageFactor}")
+
+            if (damageFactor == 0f) { //If entity is immune to skill type
+                knockbackSkill(e, MWSkillKnockbackReason.ARMOR)
+                return
+            }
         }
 
         if (o is IUpgraded) {
             damageFactor += o.getSkillMultiplier(data.skillClass)
         }
 
-        if (damageFactor == 0f) { //If entity is immune to skill type
-            knockbackSkill(e, MWSkillKnockbackReason.ARMOR)
-            return
-        }
         if (e.invincible) {
             if (data.skillClass !== MWSkillClass.SHIELD) {
                 knockbackSkill(e, MWSkillKnockbackReason.INVINCIBLE)
@@ -167,6 +169,12 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
                 dir = -this.direction
             }
         direction = dir
+
+        speedX = Math.max(400f, cause.speedX) * direction
+        speedY = Math.min(100f, cause.speedY)
+        accelerationX = 0f
+        accelerationY = MConstants.GRAVITY_ACCELERATION
+        //setupMovement(s, 400, -100, 0, 90 * ACC_FACTOR)
     }
 
 
@@ -181,7 +189,6 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
     }
 
 
-    // TODO: Handle collisions and damage enemies when hitting
 
 
 }

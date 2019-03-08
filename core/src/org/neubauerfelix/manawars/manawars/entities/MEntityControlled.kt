@@ -55,7 +55,7 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
     override fun doLogic(delta: Float) {
         controller.doLogic(delta)
 
-        if (isOnGround) {
+        if (isOnGround && !this.isKnockbacked) {
             if (goalX != Float.NaN) {
                 val offset = goalX - this.centerHorizontal
                 val distance = Math.abs(offset)
@@ -78,7 +78,9 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
 
     override fun move(delta: Float) {
         super.move(delta)
-        speedX = direction * Math.min(walkSpeedMax, Math.abs(speedX)) // truncate: do not allow more than max speed
+        if (isOnGround && !this.isKnockbacked) {
+            speedX = direction * Math.min(walkSpeedMax, Math.abs(speedX)) // truncate: do not allow more than max speed
+        }
     }
 
     private fun truncate(v : Float, maxLength: Float): Float {

@@ -15,4 +15,8 @@ class DataCastleLoaded(config: Configuration) : DataCastle() {
         val y = unitSpawnOffsetParts[1].toFloat()
         unitSpawnOffset = GameLocation(x, y)
     }
+
+
+    override val goldStart: Int = config.getInt("goldStart")
+    override val goldPerCharge: Int = config.getInt("goldPerCharge")
 }

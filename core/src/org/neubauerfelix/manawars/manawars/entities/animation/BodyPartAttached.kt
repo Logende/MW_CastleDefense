@@ -41,7 +41,7 @@ class BodyPartAttached(bodyPartData: IBodyPartData, scale: Float) : BodyPart(bod
         check(attached)
         attached = false
 
-        val e = BodyPartEntity(bodyPartData, sized, tr, despawnTime, mirror)
+        val e = BodyPartEntity(bodyPartData, sized, tr, despawnTime, mirror, bloodColor = this.color)
         e.x = this.x
         e.y = this.y
 

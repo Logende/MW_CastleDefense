@@ -97,8 +97,8 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
         AManaWars.m.getEventHandler().callEvent(EntityKnockbackEvent(this, powerX, powerY))
         jumpsAmount = Math.max(1, jumpsAmount) //Knockback counts as jump when being on the ground when knocked back!
 
-        isKnockbacked = true
         if (!isKnockbacked) {
+            isKnockbacked = true
             speedX = powerX / propertyScale //Bigger entities suffer less knockback
             speedY = powerY * 1 / propertyScale
         } else { //Already knocked back: Add speed to existing knockback speed

@@ -8,6 +8,8 @@ import org.neubauerfelix.manawars.game.events.EntityDamageEvent
 import org.neubauerfelix.manawars.game.events.EntityDeathEvent
 import org.neubauerfelix.manawars.game.events.EntityHealEvent
 import org.neubauerfelix.manawars.game.events.EntitySpawnEvent
+import org.neubauerfelix.manawars.manawars.MConstants
+import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 /**
@@ -106,7 +108,7 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
     }
 
     open fun playBloodAnimation() {
-        //TODO
+        MManaWars.m.getAnimationHandler().playBloodAnimation(this, bloodColor)
     }
 
     override fun spawn() {

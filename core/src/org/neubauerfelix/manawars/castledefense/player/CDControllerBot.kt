@@ -8,7 +8,6 @@ class CDControllerBot : ICDController {
 
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
-    var counter = 0f
 
 
     override val playerControlled: Boolean
@@ -25,10 +24,8 @@ class CDControllerBot : ICDController {
     override fun doLogic(delta: Float) {
         analysis.update(player)
 
-        player.castle.gold += 1
-        val unit = player.army.units.first()
-        if (player.castle.gold > 100 && counter < 30) {
-            counter ++
+        val unit = player.army.units.get((Math.random() * player.army.units.size).toInt())
+        if (player.castle.gold > 100) {
             player.castle.gold = 0
             player.spawnUnit(unit)
         }

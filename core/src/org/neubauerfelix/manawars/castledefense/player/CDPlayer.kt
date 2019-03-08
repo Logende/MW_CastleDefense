@@ -26,7 +26,8 @@ class CDPlayer(override val army: IDataArmy, override val controller: ICDControl
 
         val spawnLocation = GameLocation(castleLocation.x + texture.width/2, castleLocation.y).plus(army.castle.unitSpawnOffset)
         val direction = if (leftSide) 1 else -1
-        this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, TextureRegion(texture), direction, team, spawnLocation)
+        this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, TextureRegion(texture), direction, team,
+                spawnLocation, army.castle.goldStart, army.castle.goldPerCharge)
         this.castle.spawn()
 
         this.formation = CDFormation(army.units, this)
