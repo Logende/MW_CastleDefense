@@ -70,16 +70,16 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISiz
         set(f) {x = f - width}
 
     override var bottom: Float
-        get() = y
-        set(f) {y = f}
+        get() = y + height
+        set(f) {y = f - height}
 
     override var left: Float
         get() = x
         set(f) {x = f}
 
     override var top: Float
-        get() = y + height
-        set(f) {y = f - height}
+        get() = y
+        set(f) {y = f}
 
 
     fun setRotationOrigin(originX: Float, originY: Float) {
@@ -164,9 +164,9 @@ open class GameRectangle(x: Float, y: Float, width: Float, height: Float) : ISiz
     }
 
     override fun getDistanceVer(s: ISized): Float {
-        return if (s.bottom > this.top) {
+        return if (s.bottom < this.top) {
             Math.abs(s.bottom - this.top)
-        } else if (s.top < this.bottom) {
+        } else if (s.top > this.bottom) {
             Math.abs(s.top - this.bottom)
         } else {
             0f

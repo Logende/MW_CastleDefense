@@ -5,29 +5,19 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.*
 
-class MBackground(fileName: String, x: Float, flipped: Boolean, assetLoader: IAssetLoader) : IBackground{
+class MBackground(val fileName: String, val x: Float, flipped: Boolean, val assetLoader: IAssetLoader) : IBackground {
 
-    private val assetLoader: IAssetLoader
-    private val fileName: String
     private var textureRegion: TextureRegion?
-    private val x: Float
     private val flipped: Boolean
 
     val nextX: Float
         get() = this.x + GameConstants.BACKGROUND_WIDTH
-
-    fun getX(): Float {
-        return x
-    }
 
     override fun isLoaded(): Boolean {
         return textureRegion != null;
     }
 
     init {
-        this.assetLoader = assetLoader
-        this.fileName = fileName
-        this.x = x.toFloat()
         this.textureRegion = null
         this.flipped = flipped
     }
@@ -42,15 +32,16 @@ class MBackground(fileName: String, x: Float, flipped: Boolean, assetLoader: IAs
     }
 
     override fun loadedAssets() {
-        if(!isLoaded()) {
+        if (!isLoaded()) {
             val texture = assetLoader.getTexture(fileName)
             this.textureRegion = TextureRegion(texture)
+            this.textureRegion!!.flip(false, true)
         }
     }
 
 
     override fun draw(delta: Float, batcher: Batch) {
-        batcher.draw(textureRegion, x, GameConstants.CONTROLPANEL_HEIGHT, GameConstants.BACKGROUND_WIDTH, GameConstants.BACKGROUND_HEIGHT)
+        batcher.draw(textureRegion, x, 0f, GameConstants.BACKGROUND_WIDTH, GameConstants.BACKGROUND_HEIGHT)
     }
 
 

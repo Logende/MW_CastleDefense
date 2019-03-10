@@ -57,9 +57,9 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
 
-        if (!flying && !isOnGround && speedY < 0) {
-            if (bottom <= GameConstants.CONTROLPANEL_HEIGHT) { //Reached ground
-                bottom = GameConstants.CONTROLPANEL_HEIGHT
+        if (!flying && !isOnGround && speedY > 0) {
+            if (bottom >= GameConstants.WORLD_HEIGHT) { //Reached ground
+                bottom = GameConstants.WORLD_HEIGHT
                 landOnGround()
                 return
             }
@@ -100,7 +100,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
         if (!isKnockbacked) {
             isKnockbacked = true
             speedX = powerX / propertyScale //Bigger entities suffer less knockback
-            speedY = powerY * 1 / propertyScale
+            speedY = -powerY * 1 / propertyScale
         } else { //Already knocked back: Add speed to existing knockback speed
             val sameDirHor = speedX > 0 == powerX > 0
             if (sameDirHor) {
@@ -110,7 +110,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
             } else {
                 speedX = speedX + powerX / propertyScale
             }
-            speedY = Math.max(speedY, powerY / propertyScale)
+            speedY = -Math.max(speedY, powerY / propertyScale)
         }
         gravity()
         //setLockedMovementEnd(500)

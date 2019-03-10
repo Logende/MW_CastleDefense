@@ -15,7 +15,7 @@ class MConstants {
         }
 
         //physics
-        const val GRAVITY_ACCELERATION = -3500f
+        const val GRAVITY_ACCELERATION = 3500f
         const val JUMP_SPEED_DEFAULT = 1200f
         const val KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED = 100f //If abs(speedX) >= this const value: Direction of skill is knockback direction. Else direction is side of entity the skill is further away.
         const val OUT_OF_WORLDBORDER_KNOCKBACK_POWER_X = 1500
@@ -82,7 +82,7 @@ class MConstants {
         const val MOUNT_ANIMATION_SPEED = 0.1f
 
         const val RIDER_CENTRE_MOUNT_CENTRE_OFFSET_X = 0
-        const val RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y = -80
+        const val RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y = 80
 
         const val BODY_RIDER_WIDTH = BODY_MOUNT_WIDTH
         const val BODY_RIDER_HEIGHT = BODY_MOUNT_HEIGHT + RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y + BODY_HUMAN_HEIGHT

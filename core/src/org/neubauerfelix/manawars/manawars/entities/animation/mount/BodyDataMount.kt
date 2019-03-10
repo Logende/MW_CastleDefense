@@ -27,7 +27,7 @@ class BodyDataMount(override val skinName: String, textureRegion: TextureRegion,
 
     init {
         val tx = textureRegion.regionX
-        val ty = textureRegion.regionY
+        val ty = textureRegion.regionY - textureRegion.regionHeight
         val texture = textureRegion.texture
         val trHead = TextureRegion(texture, 76 + tx, 0 + ty, 100, 87)
         val trBody = TextureRegion(texture, 0 + tx, 87 + ty, MConstants.SKIN_MOUNT_WIDTH, 71)
@@ -37,20 +37,25 @@ class BodyDataMount(override val skinName: String, textureRegion: TextureRegion,
         val trFootFL = TextureRegion(texture, 0 + tx, 46 + ty, 38, 41)
         val trFootFR = TextureRegion(texture, 38 + tx, 46 + ty, 38, 41)
 
-        val height = MConstants.BODY_MOUNT_HEIGHT
+        trHead.flip(false, true)
+        trBody.flip(false, true)
+        trFootBL.flip(false, true)
+        trFootBR.flip(false, true)
+        trFootFL.flip(false, true)
+        trFootFR.flip(false, true)
 
         //TODO: transparent pixels: pre-load from storage file
-        head = BodyPartData(trHead, 112f, height - 0f - trHead.regionHeight, 0f, 0f, 0f, this,
+        head = BodyPartData(trHead, 112f, 0f, 0f, 0f, 0f, this,
                 0, 0, 0, 0)
-        body = BodyPartData(trBody, 0f, height - 42f - trBody.regionHeight, 0f, 0f, 0f, this,
+        body = BodyPartData(trBody, 0f, 42f, 0f, 0f, 0f, this,
                 0, 0, 0, 0)
-        footBL = BodyPartData(trFootBL, 82f, height -94f - trFootBL.regionHeight, 11f, trFootBL.regionHeight - 9f, 0f, this,
+        footBL = BodyPartData(trFootBL, 82f, 94f, 11f, 9f, 0f, this,
                 0, 0, 0, 0)
-        footBR = BodyPartData(trFootBR, 145f, height -94f - trFootBR.regionHeight, 11f, trFootBR.regionHeight - 9f, 0f, this,
+        footBR = BodyPartData(trFootBR, 145f, 94f, 11f, 9f, 0f, this,
                 0, 0, 0, 0)
-        footFL = BodyPartData(trFootFL, 52f, height -94f - trFootFL.regionHeight, 11f, trFootFL.regionHeight - 9f, 0f, this,
+        footFL = BodyPartData(trFootFL, 52f, 94f, 11f, 9f, 0f, this,
                 0, 0, 0, 0)
-        footFR = BodyPartData(trFootFR, 115f, height -94f - trFootFR.regionHeight, 11f, trFootFR.regionHeight - 9f, 0f, this,
+        footFR = BodyPartData(trFootFR, 115f, 94f, 11f, 9f, 0f, this,
                 0, 0, 0, 0)
     }
 

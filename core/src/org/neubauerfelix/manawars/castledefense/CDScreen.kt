@@ -1,11 +1,14 @@
 package org.neubauerfelix.manawars.castledefense
 
 import com.badlogic.gdx.Input
+import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
+import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
+import org.neubauerfelix.manawars.game.components.GameComponent
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -41,6 +44,10 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadedScreen() {
         match.loadedAssets()
+        addComponent(CDComponentControlPanel())
+        val unit = match.playerA.army.units.first()
+        addComponent(CDComponentUnit(30f, GameConstants.WORLD_HEIGHT, GameConstants.CONTROLPANEL_BUTTON_SIZE,
+                GameConstants.CONTROLPANEL_BUTTON_SIZE, unit))
     }
 
     override fun disposeScreen() {

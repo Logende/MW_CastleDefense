@@ -16,6 +16,7 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
 
     companion object {
         const val ACC_FACTOR = 16f
+        const val INVERTED_Y = true
     }
 
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("skill_${name}_name")
@@ -103,11 +104,12 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
     init {
         val offset = config.getString("location").split(":")
         xOffset = if (!offset[0].isEmpty()) { offset[0].toFloat() } else { 0f }
-        yOffset = if (offset.size >= 2 &&! offset[1].isEmpty()) { offset[1].toFloat() } else { 0f }
+        yOffset = if (offset.size >= 2 &&! offset[1].isEmpty()) { offset[1].toFloat() } else { 0f } *
+                if (INVERTED_Y) -1f else 1f
 
         val speed = config.getString("speed").split(":")
         startSpeedX = speed[0].toFloat()
-        startSpeedY = speed[1].toFloat()
+        startSpeedY = speed[1].toFloat() * if (INVERTED_Y) -1f else 1f
         // TODO: support for more calculations
 
         val acceleration = config.getString("acceleration")
@@ -115,7 +117,7 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
                 .replace("G", MConstants.GRAVITY_ACCELERATION.toString())
                 .split(":")
         accelerationX = MathUtils.calc(acceleration[0]).toFloat()
-        accelerationY = MathUtils.calc(acceleration[1]).toFloat()
+        accelerationY = MathUtils.calc(acceleration[1]).toFloat() * if (INVERTED_Y) -1f else 1f
     }
 
     override val stopOnGround: Boolean = config.getBoolean("stop_on_ground")

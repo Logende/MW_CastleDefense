@@ -70,7 +70,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         } else {
             // Not Idle -> active
 
-            if (data.stopOnGround && this.bottom < GameConstants.CONTROLPANEL_HEIGHT) { // Stop moving when hitting ground
+            if (data.stopOnGround && this.bottom > GameConstants.WORLD_HEIGHT) { // Stop moving when hitting ground
                 this.speedY = 0f
                 this.accelerationY = 0f
                 this.bottom = GameConstants.CONTROLPANEL_HEIGHT
@@ -107,7 +107,6 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         var damageFactor = 1f
         if (e is IUpgraded) {
             damageFactor *= e.getArmor(collisionType).getSkillEffectivity(data.skillClass).damageFactor
-            System.out.println("hit entity with armor ${ e.getArmor(collisionType).name} with damage factor ${e.getArmor(collisionType).getSkillEffectivity(data.skillClass).damageFactor}")
 
             if (damageFactor == 0f) { //If entity is immune to skill type
                 knockbackSkill(e, MWSkillKnockbackReason.ARMOR)

@@ -32,6 +32,12 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
             for (t in buttons!!.textures) {
                 t.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest)
             }
+            for (r in main!!.regions) {
+                r.flip(false, true)
+            }
+            for (r in buttons!!.regions) {
+                r.flip(false, true)
+            }
             loaded = true
             println("loaded imagehandler assets")
         }
@@ -61,7 +67,9 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
             i ->
             val x = i % columns
             val y = i / columns
-            TextureRegion(texture, x * width, y * height, width, height)
+            val r = TextureRegion(texture, x * width, y * height, width, -height)
+            r.flip(false, true)
+            r
         }
     }
 

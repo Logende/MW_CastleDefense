@@ -13,6 +13,8 @@ class GameConstants {
         const val BACKGROUND_WIDTH = 1920f
         const val BACKGROUND_HEIGHT = 880f
         const val CONTROLPANEL_HEIGHT = 220f
+        const val CONTROLPANEL_TEXTURE = "controlpanel"
+        const val CONTROLPANEL_BUTTON_SIZE = 180f
         const val WORLD_HEIGHT = SCREEN_HEIGHT - CONTROLPANEL_HEIGHT
         const val BACKGROUND_HEIGHT_CUT_OFF = BACKGROUND_HEIGHT - WORLD_HEIGHT
 

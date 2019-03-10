@@ -51,7 +51,6 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
         if (sized is ILooking) {
             rectHuman.direction = sized.direction
         }
-        System.out.println("human play effect $effect with weapontype $weaponType")
         human.playBodyEffect(effect, weaponType)
     }
 

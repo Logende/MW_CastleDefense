@@ -12,12 +12,12 @@ enum class MWWeaponClass {
     BOW {
         override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
             val textures = generateTextures("char.bow." + weaponType.textureName, 4)
-            val bodyPartData = BodyPartData(textures[0], 47f, 0f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
+            val bodyPartData = BodyPartData(textures[0], 47f, 54f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
             return BodyPartAnimationWeapon(weaponType, textures, bodyPartData, scale)
         }
 
         override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
-            body.updateArms(90f, 70f)
+            body.updateArms(-90f, -70f)
             when (position) {
                 0 -> {
                     weapon.setPosition(0)
@@ -25,21 +25,21 @@ enum class MWWeaponClass {
                 }
                 1 -> {
                     weapon.setPosition(1)
-                    body.updateArms(60f, 70f)
+                    body.updateArms(-60f, -70f)
                     return
                 }
                 2 -> {
                     weapon.setPosition(2)
-                    body.updateArms(40f, 70f)
+                    body.updateArms(-40f, -70f)
                     body.head.addLocation(0, 1)
                     weapon.setPosition(3)
-                    body.updateArms(30f, 70f)
+                    body.updateArms(-30f, -70f)
                     body.head.addLocation(0, 1)
                     return
                 }
                 3 -> {
                     weapon.setPosition(3)
-                    body.updateArms(30f, 70f)
+                    body.updateArms(-30f, -70f)
                     body.head.addLocation(0, 1)
                     return
                 }
@@ -49,7 +49,7 @@ enum class MWWeaponClass {
     CROSSBOW {
         override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
             val sprites = generateTextures("char.crossbow." + weaponType.textureName, 4)
-            val bodyPartData = BodyPartData(sprites[0], 81f, 0f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
+            val bodyPartData = BodyPartData(sprites[0], 81f, 50f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
             return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
         }
 
@@ -136,6 +136,6 @@ enum class MWWeaponClass {
         val all = AManaWars.m.getImageHandler().getTextureRegionMain(textureName)
         val width = all.regionWidth / columns
         val height = all.regionHeight
-        return Array(columns){ i -> TextureRegion(all, width * i, 0, width, height) }
+        return Array(columns){ i -> TextureRegion(all, width * i, 0, width, -height) }
     }
 }

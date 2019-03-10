@@ -41,7 +41,7 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
 
     init {
         cameraIngame = OrthographicCamera()
-        cameraIngame.setToOrtho(false, GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT)
+        cameraIngame.setToOrtho(true, GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT)
         cameraIngame.position.set(cameraIngame.viewportWidth / 2f, cameraIngame.viewportHeight / 2f, 0f)
 
         cameraStatic = OrthographicCamera()
