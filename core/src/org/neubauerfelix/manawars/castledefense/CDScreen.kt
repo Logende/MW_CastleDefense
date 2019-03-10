@@ -45,7 +45,7 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         match.loadedAssets()
         addComponent(CDComponentControlPanel())
-        val unit = match.playerA.army.units.first()
+        val unit = match.playerA.army.units.last()
         addComponent(CDComponentUnit(30f, GameConstants.WORLD_HEIGHT, GameConstants.CONTROLPANEL_BUTTON_SIZE,
                 GameConstants.CONTROLPANEL_BUTTON_SIZE, unit))
     }

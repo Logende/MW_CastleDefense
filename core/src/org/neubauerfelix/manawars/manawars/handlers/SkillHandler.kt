@@ -30,9 +30,9 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         private const val SIMULATION_STEP_TIME = 1f / 50f
         private const val SIMULATION_MAX_LIFE_DURATION = 10f
         private const val SIMULATION_MAX_STEPS = (SIMULATION_MAX_LIFE_DURATION / SIMULATION_STEP_TIME).toInt()
-        private const val SIMULATION_BORDER_BOTTOM = GameConstants.CONTROLPANEL_HEIGHT - 700f
-        private const val SIMULATION_BORDER_TOP = GameConstants.CONTROLPANEL_HEIGHT + GameConstants.BACKGROUND_HEIGHT + 700f
-        private const val SIMULATION_BORDER_LEFT = -700f
+        private const val SIMULATION_BORDER_BOTTOM = GameConstants.WORLD_HEIGHT + 700f
+        private const val SIMULATION_BORDER_TOP = - 700f
+        private const val SIMULATION_BORDER_LEFT = - 700f
         private const val SIMULATION_BORDER_RIGHT = MAX_RANGE + 700
 
         private const val TACTICAL_DAMAGE_FACTOR_STATEFFECT = 0.35f
@@ -237,9 +237,8 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
             var i = 0
             while (true) { // Simulate skill movement
                 if (i >= SIMULATION_MAX_STEPS
-                        || skill.bottom < SIMULATION_BORDER_BOTTOM || skill.top > SIMULATION_BORDER_TOP
-                        || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT
-                        || rangeMax >= MAX_RANGE) {
+                        || skill.bottom > SIMULATION_BORDER_BOTTOM || skill.top < SIMULATION_BORDER_TOP
+                        || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT) {
                     lifeTime = i * SIMULATION_STEP_TIME
                     speedXAvg /= i
                     break // reached border
@@ -261,14 +260,11 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
                             collisionsPercentageMount += 1.0
                         }
                     }
-                    if (collisionType != MWCollisionType.NONE) {
-                        break
-                    }
+                    i++
                 }
                 skill.doLogic(SIMULATION_STEP_TIME)
                 skill.move(SIMULATION_STEP_TIME)
                 speedXAvg += skill.speedX
-                i++
             }
             rangeMin = 0f
             rangeMax = data.targetRange
@@ -286,7 +282,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
             var i = 0
             while (true) { // Simulate skill movement
                 if (i >= SIMULATION_MAX_STEPS
-                        || skill.bottom < SIMULATION_BORDER_BOTTOM || skill.top > SIMULATION_BORDER_TOP
+                        || skill.bottom > SIMULATION_BORDER_BOTTOM || skill.top < SIMULATION_BORDER_TOP
                         || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT
                         || rangeMax >= MAX_RANGE) {
                     lifeTime = i * SIMULATION_STEP_TIME
@@ -392,12 +388,12 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
             }
             val entities = AManaWars.m.screen.getEntities{e ->
                 // only pick enemies in the direction the owner is looking to
-                ! ITeamable.isTeamed(owner,e)
+                ! ITeamable.isTeamed(owner,e) && e is ILiving
                         && (e.centerHorizontal - owner.centerHorizontal) * owner.direction > 0f
                         && e.getDistanceHor(owner) < data.targetRange * owner.propertyScale
             }
             if (!entities.isEmpty()) {
-                return entities.sortedByDescending { e -> e.getDistanceHor(owner) }.first()
+                return entities.sortedBy { e -> e.getDistanceHor(owner) }.first()
             }
         }
         return null
@@ -419,7 +415,7 @@ class SkillHandler : ISkillAnalysisHandler, ISkillSetupHandler {
         if (data.yRelativeToTarget && target != null) {
             skill.centerVertical = target.centerVertical + data.yOffset * skill.propertyScale
         } else if (data.yRelativeToGround) {
-            skill.top = GameConstants.CONTROLPANEL_HEIGHT + data.yOffset * skill.propertyScale
+            skill.top = GameConstants.WORLD_HEIGHT + data.yOffset * skill.propertyScale
         } else {
             skill.centerVertical = owner.centerVertical + data.yOffset * skill.propertyScale
         }

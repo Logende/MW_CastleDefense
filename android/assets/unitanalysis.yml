@@ -1,5 +1,15 @@
+warrior:
+  actionValue: 6.5020523
+  survivalFactor: 1.1539342
+  defensiveStrengthPerSecond: 11.666667
+  offensiveStrengthPerSecond: 11.666667
 archer:
-  actionValue: 0.3105299
-  survivalFactor: 1.9563937
-  defensiveStrengthPerSecond: 0.43333334
-  offensiveStrengthPerSecond: 0.43333334
+  actionValue: 11.036949
+  survivalFactor: 1.9585253
+  defensiveStrengthPerSecond: 10.666667
+  offensiveStrengthPerSecond: 10.666667
+rider:
+  actionValue: 3.5249996
+  survivalFactor: 0.6923606
+  defensiveStrengthPerSecond: 26.666666
+  offensiveStrengthPerSecond: 26.666666

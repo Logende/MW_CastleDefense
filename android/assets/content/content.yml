@@ -13,3 +13,5 @@ actions:
   - 'skills/skills_spear.yml'
   - 'skills/skills_magic.yml'
   - 'skills/skills_shield.yml'
+armies:
+  - 'armies/testarmy.yml'

@@ -1,16 +1,17 @@
 package org.neubauerfelix.manawars.manawars.enums
 
+import com.badlogic.gdx.graphics.Color
 import java.util.HashMap
 
-enum class MWArmorType(val share: Float) { //Keep those as simple as possible!
+enum class MWArmorType(val share: Float, val color: Color) { //Keep those as simple as possible!
 
-    NONE(0.7f) {
+    NONE(0.7f, Color.WHITE) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             return hashMapOf()
         }
     },
 
-    ANTI_LIGHT(0.2f) {
+    ANTI_LIGHT(0.2f, Color.BROWN) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             val map = HashMap<MWSkillClass, MWSkillEffectivity>()
             map[MWSkillClass.LIGHT] = MWSkillEffectivity.IMMUNE
@@ -18,7 +19,7 @@ enum class MWArmorType(val share: Float) { //Keep those as simple as possible!
             return map
         }
     },
-    ANTI_MAGIC_LIGHT(0.1f) {
+    ANTI_MAGIC(0.1f, Color.PURPLE) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             val map = HashMap<MWSkillClass, MWSkillEffectivity>()
             map[MWSkillClass.MAGIC] = MWSkillEffectivity.IMMUNE

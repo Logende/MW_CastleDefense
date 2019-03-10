@@ -2,7 +2,26 @@ name: testarmy
 units:
   archer:
     animation: 'HUMAN:human.ranger.3.1'
-    action: 'magic_fireball_3'
-    armor: 'anti_light:anti_light'
-    health: 1.0
+    action: 'crossbow_poison'
+    cooldown: 1.0
+    health: 10.0
     mana: 1.0
+  warrior:
+    animation: 'HUMAN:human.warrior.3.1'
+    action: 'axe_god_dark_strong'
+    armor: 'anti_light:anti_light'
+    cooldown: 2.0
+    health: 3.0
+    mana: 1.0
+  rider:
+    animation: 'RIDER:wolf:human.warrior.3.1'
+    action: 'magic_skyfist_poison'
+    armor: 'none:anti_light:anti_magic'
+    cooldown: 2.0
+    health: 3.0
+    mana: 1.0
+castle:
+  texture: 'castle_wood_1'
+  spawn_offset: '0:0'
+  goldStart: 100
+  goldPerCharge: 40

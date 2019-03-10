@@ -104,8 +104,8 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
     override fun doLogic(delta: Float) {
         rectMount.x = this.x
         rectMount.bottom = this.bottom
-        rectHuman.centerHorizontal = this.centerHorizontal + MConstants.RIDER_CENTRE_MOUNT_CENTRE_OFFSET_X
-        rectHuman.bottom = mount.top + MConstants.RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y
+        rectHuman.centerHorizontal = rectMount.centerHorizontal + MConstants.RIDER_CENTRE_MOUNT_CENTRE_OFFSET_X * scale
+        rectHuman.bottom = rectMount.top + MConstants.RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y * scale
         human.doLogic(delta)
         mount.doLogic(delta)
     }

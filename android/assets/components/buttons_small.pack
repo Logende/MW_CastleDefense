@@ -1284,247 +1284,254 @@ close
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.action.summon
+frame.background
   rotate: false
   xy: 1531, 1641
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.skill.heavy
+frame
   rotate: false
   xy: 409, 417
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.skill.light
+frame.unit.human.humanbody
   rotate: false
   xy: 511, 519
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.skill.magic
+frame.unit.human.humanhead
   rotate: false
   xy: 613, 621
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.skill
+frame.unit.rider.humanbody
   rotate: false
   xy: 715, 723
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.skill.shield
+frame.unit.rider.humanhead
   rotate: false
   xy: 817, 825
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.left
+frame.unit.rider.mount
   rotate: false
   xy: 919, 927
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.left.pressed
+move.left
   rotate: false
   xy: 1021, 1029
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.right
+move.left.pressed
   rotate: false
   xy: 1123, 1131
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.right.pressed
+move.right
   rotate: false
   xy: 1225, 1233
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-toggle.castledefense
+move.right.pressed
   rotate: false
   xy: 1327, 1335
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-toggle.player
+toggle.castledefense
   rotate: false
   xy: 1429, 1437
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-unknown
+toggle.player
   rotate: false
   xy: 1531, 1539
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
+unknown
+  rotate: false
+  xy: 1633, 1641
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
 upgrade.aura
-  rotate: false
-  xy: 1633, 1641
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
-upgrade.unique.rush
-  rotate: false
-  xy: 1633, 1641
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
-upgrade.drain
   rotate: false
   xy: 409, 315
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.follower.respawntime
+upgrade.unique.rush
+  rotate: false
+  xy: 409, 315
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.drain
   rotate: false
   xy: 511, 417
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.headshot
+upgrade.follower.respawntime
   rotate: false
   xy: 613, 519
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.health
+upgrade.headshot
   rotate: false
   xy: 715, 621
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.luck
+upgrade.health
   rotate: false
   xy: 817, 723
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.mana
+upgrade.luck
   rotate: false
   xy: 919, 825
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.mount.drain
+upgrade.mana
   rotate: false
   xy: 1021, 927
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.durability.light
+upgrade.mount.drain
   rotate: false
   xy: 1123, 1029
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.heavy
+upgrade.skills.durability.light
   rotate: false
   xy: 1225, 1131
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.light
+upgrade.skills.heavy
   rotate: false
   xy: 1327, 1233
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.magic
+upgrade.skills.light
   rotate: false
   xy: 1429, 1335
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.steroids
+upgrade.skills.magic
   rotate: false
   xy: 1531, 1437
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.enemybook
+upgrade.steroids
   rotate: false
   xy: 1633, 1539
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.jump
+upgrade.unique.enemybook
   rotate: false
   xy: 1735, 1641
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.shield.big
+upgrade.unique.jump
   rotate: false
   xy: 409, 213
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.shield.enchanted
+upgrade.unique.shield.big
   rotate: false
   xy: 511, 315
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.skillslot
+upgrade.unique.shield.enchanted
   rotate: false
   xy: 613, 417
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.walk_while_blocking
+upgrade.unique.skillslot
   rotate: false
   xy: 715, 519
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unstoppable
+upgrade.unique.walk_while_blocking
   rotate: false
   xy: 817, 621
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.walkspeed
+upgrade.unstoppable
   rotate: false
   xy: 919, 723
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.walkspeed
+  rotate: false
+  xy: 1021, 825
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
@@ -1538,98 +1545,98 @@ move.jumpinfo
   index: -1
 move.rushinfo
   rotate: false
-  xy: 1021, 835
+  xy: 1123, 937
   size: 80, 90
   orig: 80, 90
   offset: 0, 0
   index: -1
 arrow.left
   rotate: false
-  xy: 1123, 958
+  xy: 1225, 1060
   size: 95, 69
   orig: 95, 69
   offset: 0, 0
   index: -1
 arrow.right
   rotate: false
-  xy: 1225, 1060
+  xy: 1327, 1162
   size: 95, 69
   orig: 95, 69
   offset: 0, 0
   index: -1
 credits
   rotate: false
-  xy: 1327, 1151
+  xy: 1429, 1253
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 help
   rotate: false
-  xy: 1429, 1253
+  xy: 1531, 1355
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 infobook
   rotate: false
-  xy: 1531, 1355
+  xy: 1633, 1457
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 menu
   rotate: false
-  xy: 1633, 1457
+  xy: 1735, 1559
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 missions.fail
   rotate: false
-  xy: 1735, 1559
+  xy: 409, 131
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 missions
   rotate: false
-  xy: 409, 131
+  xy: 511, 233
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 missions.success
   rotate: false
-  xy: 511, 233
+  xy: 613, 335
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 news
   rotate: false
-  xy: 613, 335
+  xy: 715, 437
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 options
   rotate: false
-  xy: 715, 437
+  xy: 817, 539
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 shop
   rotate: false
-  xy: 817, 539
+  xy: 919, 641
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 tips
   rotate: false
-  xy: 919, 641
+  xy: 1021, 743
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
@@ -1639,62 +1646,6 @@ zoom
   xy: 83, 15
   size: 80, 80
   orig: 80, 80
-  offset: 0, 0
-  index: -1
-frame.black.bottom
-  rotate: false
-  xy: 165, 45
-  size: 100, 50
-  orig: 100, 50
-  offset: 0, 0
-  index: -1
-frame.black.top
-  rotate: false
-  xy: 267, 45
-  size: 100, 50
-  orig: 100, 50
-  offset: 0, 0
-  index: -1
-frame.gold.bottom
-  rotate: false
-  xy: 1021, 783
-  size: 100, 50
-  orig: 100, 50
-  offset: 0, 0
-  index: -1
-frame.gold.top
-  rotate: false
-  xy: 1021, 731
-  size: 100, 50
-  orig: 100, 50
-  offset: 0, 0
-  index: -1
-frame.purple.bottom
-  rotate: false
-  xy: 1837, 1691
-  size: 100, 50
-  orig: 100, 50
-  offset: 0, 0
-  index: -1
-frame.purple.top
-  rotate: false
-  xy: 1837, 1639
-  size: 100, 50
-  orig: 100, 50
-  offset: 0, 0
-  index: -1
-frame.red.bottom
-  rotate: false
-  xy: 1817, 1587
-  size: 100, 50
-  orig: 100, 50
-  offset: 0, 0
-  index: -1
-frame.red.top
-  rotate: false
-  xy: 1817, 1535
-  size: 100, 50
-  orig: 100, 50
   offset: 0, 0
   index: -1
 underline
@@ -1713,7 +1664,7 @@ locked
   index: -1
 coin
   rotate: false
-  xy: 1123, 931
+  xy: 1917, 1920
   size: 25, 25
   orig: 25, 25
   offset: 0, 0
@@ -1734,7 +1685,7 @@ frame_blue_horizontal
   index: -1
 frame_blue_vertical
   rotate: false
-  xy: 1225, 1041
+  xy: 1837, 1724
   size: 7, 17
   orig: 7, 17
   offset: 0, 0

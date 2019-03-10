@@ -13,7 +13,7 @@ import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
 
-class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
+class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable, IHandler {
 
 
     /** Camera for everything within the playground. */
@@ -66,7 +66,7 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
 
 
     override fun render(delta: Float, toDraw1Backgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float,
-                        toDraw2Ingame: Iterable<IEntity>, toDraw3Components: Iterable<IDrawableComponent>){
+                        toDraw2Ingame: Iterable<IEntity>, toDraw3Components: Iterable<IDrawableComponent>) {
         setWindowLocation(ingameWindowX)
 
         //Make everything ready
@@ -136,6 +136,8 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
             synchronized(toDraw2Ingame) {
                 for (drawableIngame in toDraw2Ingame) {
                     shapeRenderer.polygon(drawableIngame.polygon.transformedVertices)
+                    shapeRenderer.line(drawableIngame.centerHorizontal, drawableIngame.top,
+                            drawableIngame.centerHorizontal, drawableIngame.bottom)
                     if (drawableIngame is IAnimatedLiving) {
                         drawableIngame.animation.drawDebugging(shapeRenderer)
                     }
@@ -154,7 +156,7 @@ class GameCamera(assetLoader: IAssetLoader): ICamera, IDisposable, IHandler {
         batcher.end()
     }
 
-    private fun setWindowLocation(x: Float){
+    private fun setWindowLocation(x: Float) {
         window.x = x
         cameraIngame.position.set(window.centerHorizontal, window.centerVertical + GameConstants.CONTROLPANEL_HEIGHT * zoomIngame / 2, 0f)
         cameraIngame.update()
