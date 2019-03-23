@@ -12,5 +12,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 interface ICharacterBarHandler: IHandler {
 
     fun drawStatsBar(batcher: Batch, e: IControlled)
+    fun drawArmorFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
+                       animationType: MWEntityAnimationType, armor: Map<MWArmorHolder, MWArmorType>)
 
 }

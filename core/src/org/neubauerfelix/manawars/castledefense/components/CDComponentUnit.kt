@@ -18,7 +18,6 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
 
 
     private val background: TextureRegion
-    private val frame: Map<TextureRegion, Color>
     private val text: IComponent
 
 
@@ -26,15 +25,6 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
 
     init {
         background = MManaWars.m.getImageHandler().getTextureRegionButton("frame.background")
-        frame = hashMapOf()
-        unit.armor.forEach { entry ->
-            val texturePath = "frame.unit." +
-                    "${unit.animation.animationType.name.toLowerCase().replace("_", "")}." +
-                    "${entry.key.name.toLowerCase().replace("_", "")}"
-
-             val texture = MManaWars.m.getImageHandler().getTextureRegionButton(texturePath)
-            frame[texture] = entry.value.color
-        }
         // TODO: Gold armor for boss?
         animation = unit.animation.produce(x + width * 0.1f, y + height*0.05f, width*0.8f, height*0.8f)
 
@@ -48,10 +38,8 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
 
     override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
         batcher.draw(background, x, y, width, height)
-        for ((texture, color) in this.frame) {
-            batcher.color = color
-            batcher.draw(texture, x, y, width, height)
-        }
+        MManaWars.m.getCharacterBarHandler().drawArmorFrame(batcher, x, y, width, height, unit.animation.animationType,
+                unit.armor)
         batcher.color = Color.WHITE
         (animation as IDrawable).draw(delta, batcher)
         (animation as ILogicable).doLogic(delta)

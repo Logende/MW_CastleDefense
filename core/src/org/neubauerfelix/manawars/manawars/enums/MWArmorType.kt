@@ -5,13 +5,13 @@ import java.util.HashMap
 
 enum class MWArmorType(val color: Color) { //Keep those as simple as possible!
 
-    NONE(Color.WHITE) {
+    NONE(Color.TAN) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             return hashMapOf()
         }
     },
 
-    ANTI_LIGHT(Color.BROWN) {
+    ANTI_LIGHT(MWSkillClass.LIGHT.color) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             val map = HashMap<MWSkillClass, MWSkillEffectivity>()
             map[MWSkillClass.LIGHT] = MWSkillEffectivity.IMMUNE
@@ -29,7 +29,7 @@ enum class MWArmorType(val color: Color) { //Keep those as simple as possible!
         }
     },
 
-    ANTI_MAGIC(Color.PURPLE) {
+    ANTI_MAGIC(MWSkillClass.MAGIC.color) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             val map = HashMap<MWSkillClass, MWSkillEffectivity>()
             map[MWSkillClass.MAGIC] = MWSkillEffectivity.IMMUNE
