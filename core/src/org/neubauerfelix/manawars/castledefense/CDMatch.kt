@@ -33,6 +33,8 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val backgrounds: I
         loaded = true
         playerA.spawnCastle(true, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
         playerB.spawnCastle(false, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
+        playerA.controller.showControls()
+        playerB.controller.showControls()
     }
 
     override fun isLoaded(): Boolean {
@@ -41,6 +43,8 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val backgrounds: I
 
     override fun dispose() {
         require(loaded)
+        playerA.controller.hideControls()
+        playerB.controller.hideControls()
         playerA.army.disposeAsset()
         playerB.army.disposeAsset()
         backgrounds.forEach { background ->

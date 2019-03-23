@@ -101,13 +101,11 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         }
 
         if(updateBody) {
-            var animationBody = MWAnimationTypeBody.NORMAL
-            if (currentEffect != null) {
-                animationBody = MWAnimationTypeBody.EFFECT
-            } else {
-               // Shields are not possible currently. Else shield code would be put in here
+            this.animationBody = when{
+                currentEffect != null -> MWAnimationTypeBody.EFFECT
+                shield != null -> MWAnimationTypeBody.SHIELD
+                else -> MWAnimationTypeBody.NORMAL
             }
-            this.animationBody = animationBody
             this.positionBody = 0
         }
 

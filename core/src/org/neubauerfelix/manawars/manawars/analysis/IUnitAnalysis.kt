@@ -16,6 +16,8 @@ interface IUnitAnalysis {
     val defensiveStrengthPerSecond: Float
     val offensiveStrengthPerSecond: Float
 
+    val cost: Int
+
     val armor: Map<MWArmorHolder, MWArmorType>
 
 

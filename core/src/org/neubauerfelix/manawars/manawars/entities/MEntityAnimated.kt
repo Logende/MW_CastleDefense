@@ -14,7 +14,8 @@ import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: Float) :
         MEntityLiving(animationProducer.bodyWidth * animationProducer.defaultScale,
-                animationProducer.bodyHeight * animationProducer.defaultScale, health), IAnimatedLiving, ICollidable {
+                animationProducer.bodyHeight * animationProducer.defaultScale, health), IAnimatedLiving,
+        ICollidable {
 
 
     private var colorRestoreTime: Long = -1L
@@ -33,6 +34,7 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
 
     override val entityAnimationType: MWEntityAnimationType
         get() = this.animation.entityAnimationType
+
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)

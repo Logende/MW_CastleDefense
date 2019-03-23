@@ -14,7 +14,7 @@ class EntityAnimationProducerMount(bodyDataMount: IBodyDataMount): IEntityAnimat
 
     override fun produce(entity: ISized, scale: Float): IEntityAnimation {
         val body = BodyMountSmart(this, scale, entity)
-        return EntityAnimationAny(body, MWEntityAnimationType.MOUNT)
+        return EntityAnimationAny(body, animationType)
     }
 
     override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
@@ -24,7 +24,7 @@ class EntityAnimationProducerMount(bodyDataMount: IBodyDataMount): IEntityAnimat
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyMountSmart(this, scale, rectangle)
-        return EntityAnimationAny(body, MWEntityAnimationType.MOUNT)
+        return EntityAnimationAny(body, animationType)
     }
 
     override val animationType: MWEntityAnimationType = MWEntityAnimationType.MOUNT

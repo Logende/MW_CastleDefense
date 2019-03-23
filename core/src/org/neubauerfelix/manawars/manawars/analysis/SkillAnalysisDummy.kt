@@ -13,8 +13,9 @@ class SkillAnalysisDummy : ISkillAnalysis {
     override val successProbability: Float = 1.0f
     override val offensiveStrength: Float = 10f
     override val defensiveStrength: Float = 10f
-    override val collisionsPercentages: Map<MWArmorHolder, Double> = hashMapOf(Pair(MWArmorHolder.HUMAN_HEAD, 0.2),
-            Pair(MWArmorHolder.HUMAN_BODY, 0.75), Pair(MWArmorHolder.MOUNT, 0.05))
+    override val collisionsPercentages: Map<MWEntityAnimationType, Map<MWArmorHolder, Double>> =
+            hashMapOf(Pair(MWEntityAnimationType.HUMAN, hashMapOf(Pair(MWArmorHolder.HUMAN_HEAD, 0.2),
+            Pair(MWArmorHolder.HUMAN_BODY, 0.75), Pair(MWArmorHolder.MOUNT, 0.05))))
     override val rangeMax: Map<MWEntityAnimationType, Int>
     override val rangeMin: Map<MWEntityAnimationType, Int>
     override val skillClass: MWSkillClass = MWSkillClass.NORMAL

@@ -32,7 +32,7 @@ public abstract class MComponent extends GameComponent {
 
 
 	public void click(){
-		if(isPressed()){
+		if(pressed){
 			return;
 		}
 		pressed=true;
@@ -40,7 +40,7 @@ public abstract class MComponent extends GameComponent {
 	}
 
 	public void unclick(){
-		if(!isPressed()){
+		if(!pressed){
 			return;
 		}
 		pressed=false;
@@ -67,7 +67,7 @@ public abstract class MComponent extends GameComponent {
 
 	@Override
 	public boolean release(float x, float y, int pointerId){
-		if(pointerId == pointerId){
+		if(pointerId == this.pointerId){
 			unclick();
 			this.pointerId=-1;
 			return true;

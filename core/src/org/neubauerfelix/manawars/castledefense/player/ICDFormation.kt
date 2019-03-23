@@ -11,6 +11,7 @@ interface ICDFormation : IMovable, ILooking, ITeamable {
     fun addEntity(e: IControlled)
     fun removeEntity(e: IControlled)
     fun getAssignedX(e: IControlled): Float
+    fun isContained(e: IControlled): Boolean
 
 
 

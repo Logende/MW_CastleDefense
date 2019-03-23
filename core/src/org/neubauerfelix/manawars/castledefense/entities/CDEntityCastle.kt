@@ -1,17 +1,21 @@
 package org.neubauerfelix.manawars.castledefense.entities
 
-import com.badlogic.gdx.graphics.g2d.Batch
-import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.castledefense.CDConstants
-import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.*
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
+import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
+import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 
-class CDEntityCastle(x: Float, y: Float, val texture: TextureRegion, override var direction: Int, override var team: Int,
+class CDEntityCastle(x: Float, y: Float, val textureName: String, health: Float, direction: Int, team: Int,
                      override val unitSpawnLocation: ILocated, startGold: Int, goldPerCharge: Int) :
-        GameRectangle(x, y, texture.regionWidth.toFloat(), texture.regionHeight.toFloat()), ICDEntityCastle, ILogicable {
+        MEntityAnimated(IEntityAnimationProducer.createProducerCastle(textureName), health), ICDEntityCastle {
 
+    init {
+        this.direction = direction
+        this.team = team
+        this.x = x
+        this.y = y
+    }
 
 
     override var goldPerCharge: Int = goldPerCharge
@@ -19,11 +23,19 @@ class CDEntityCastle(x: Float, y: Float, val texture: TextureRegion, override va
 
     override var gold: Int = startGold
 
-    override fun draw(delta: Float, batcher: Batch) {
-        batcher.draw(texture, x, y, width, height)
-    }
+
+    override var speedX: Float
+        get() = super.speedX
+        set(value) { }
+
+    override var speedY: Float
+        get() = super.speedX
+        set(value) { }
+
+
 
     override fun doLogic(delta: Float) {
+        super.doLogic(delta)
         if (MManaWars.m.screen.getGameTime() >= nextGoldChargeTime) {
             nextGoldChargeTime = MManaWars.m.screen.getGameTime() +
                     (1000 * CDConstants.CASTLEDEFENSE_CASTLE_GOLD_CHARGE_DELAY).toLong()
@@ -31,15 +43,5 @@ class CDEntityCastle(x: Float, y: Float, val texture: TextureRegion, override va
         }
     }
 
-    override fun getCollisionType(other: ISized): MWCollisionType {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override var remove: Boolean = false
-    override var propertyScale: Float = 1f
-
-    override fun spawn() {
-        MManaWars.m.screen.addEntity(this)
-    }
 
 }

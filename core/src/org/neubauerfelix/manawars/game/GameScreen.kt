@@ -29,7 +29,7 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
 
     init {
         camera = OrthographicCamera()
-        camera.setToOrtho(false, GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT)
+        camera.setToOrtho(true, GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT)
         camera.position.set(camera.viewportWidth / 2f, camera.viewportHeight / 2f, 0f)
     }
 

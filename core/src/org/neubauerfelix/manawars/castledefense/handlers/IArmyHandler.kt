@@ -6,7 +6,7 @@ import org.neubauerfelix.manawars.castledefense.data.IDataArmy
 interface IArmyHandler: IHandler {
 
 
-    fun putArmy(unit: IDataArmy)
+    fun putArmy(army: IDataArmy)
     fun getArmy(name: String): IDataArmy?
     fun listArmies(): Iterable<IDataArmy>
 

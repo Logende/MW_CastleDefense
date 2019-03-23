@@ -5,8 +5,8 @@ axe_basic:
   animation: '1:1:1'
   sound: 'skill.throw'
   skillclass: 'NORMAL'
-  speed: '200:700'
-  acceleration: '0:-60*A'
+  speed: '200:-700'
+  acceleration: '0:60*A'
   strength: 8
   damage: '5-6'
   knockback: 1.5
@@ -15,14 +15,14 @@ axe_basic:
     #Brutal
     axe_brutal_1:
       texture: 'axe.brutal.1'
-      speed: '250:700'
+      speed: '250:-700'
       strength: 12
       damage: '5-9'
       children:
       
         axe_brutal_2:
           texture: 'axe.brutal.2'
-          speed: '350:700'
+          speed: '350:-700'
           strength: 18
           damage: '5-14'
           
@@ -30,15 +30,15 @@ axe_basic:
     axe_dwarf1_simple:
       texture: 'axe.dwarf1.simple'
       sound: 'skill.throw2'
-      speed: '600:500'
-      acceleration: '0:-80*A'
+      speed: '600:-500'
+      acceleration: '0:80*A'
       strength: 7
       damage: '3-7'
       children:
       
         axe_dwarf1_double:
           texture: 'axe.dwarf1.double'
-          speed: '640:500'
+          speed: '640:-500'
           strength: 11
           damage: '6-10'
           sound: 'skill.throw'
@@ -46,8 +46,8 @@ axe_basic:
           
             axe_dwarf1_quadruple:
               texture: 'axe.dwarf1.quadruple'
-              speed: '600:500'
-              location: '0:50'
+              speed: '600:-500'
+              location: '0:-50'
               strength: 24
               damage: '10-14'
               
@@ -58,9 +58,9 @@ axe_basic:
               owner_animation: 'SUMMON_BIG'
               texture: 'axe.god.dark'
               sound: 'skill.shadowenergy'
-              speed: '-500:-250'
-              acceleration: '40*A:11*A'
-              location: '0:150'
+              speed: '-500:250'
+              acceleration: '40*A:-11*A'
+              location: '0:-150'
               strength: 28
               damage: '5-20'
               children:
@@ -81,9 +81,9 @@ axe_basic:
               owner_animation: 'SUMMON_BIG'
               texture: 'axe.god.light'
               sound: 'skill.mighty'
-              speed: '700:-500'
-              acceleration: '0:40*A'
-              location: '0:150'
+              speed: '700:500'
+              acceleration: '0:-40*A'
+              location: '0:-150'
               strength: 28
               damage: '12'
               children:
@@ -102,16 +102,16 @@ axe_basic:
               
         axe_dwarf1_simple_ice:
           texture: 'axe.dwarf1.ice'
-          speed: '600:500'
+          speed: '600:-500'
           effect: 'FROZEN:2'
           sound: 'skill.throw'
                                 
     # Dwarf2
     axe_dwarf2_small:
       texture: 'axe.dwarf2.1'
-      speed: '500:600'
-      acceleration: '0:-80*A'
-      location: '0:50'
+      speed: '500:-600'
+      acceleration: '0:80*A'
+      location: '0:-50'
       strength: 6
       damage: '5'
       children:
@@ -132,7 +132,7 @@ axe_basic:
                 axe_dwarf2_huge:
                   texture: 'axe.dwarf2.4'
                   sound: 'skill.epic'
-                  acceleration: '0:-70*A'
+                  acceleration: '0:70*A'
                   strength: 80
                   damage: '25-30'
                   scale: 1.0
@@ -146,8 +146,8 @@ axe_basic:
     # Human
     axe_human:
       texture: 'axe.human'
-      speed: '250:600'
-      acceleration: '0:-70*A'
+      speed: '250:-600'
+      acceleration: '0:70*A'
       strength: 10
       damage: '6-8'
       children:
@@ -161,8 +161,8 @@ axe_basic:
           
             axe_human_fire_strong:
               texture: 'axe.human.fire.strong'
-              speed: '300:600'
-              acceleration: '0:-50*A'
+              speed: '300:-600'
+              acceleration: '0:50*A'
               strength: 20
               damage: '10-14'
               effect: 'BURNING:6'
@@ -178,16 +178,16 @@ axe_basic:
     axe_orc_1:
       texture: 'axe.orc.1'
       sound: 'skill.rost'
-      speed: '600:500'
-      acceleration: '0:-80*A'
+      speed: '600:-500'
+      acceleration: '0:80*A'
       strength: 12
       damage: '5-8'
       children:
       
         axe_orc_2:
           texture: 'axe.orc.2'
-          speed: '800:600'
-          location: '0:50'
+          speed: '800:-600'
+          location: '0:-50'
           strength: 18
           damage: '10-14'
           scale: 1.2
@@ -195,8 +195,8 @@ axe_basic:
   # Wild
     axe_wild_1:
       texture: 'axe.wild'
-      speed: '400:700'
-      acceleration: '0:-60*A'
+      speed: '400:-700'
+      acceleration: '0:60*A'
       strength: 9
       damage: '6-7'
       children:
@@ -221,7 +221,7 @@ stick_1:
   sound: 'skill.stick'
   speed: '200:0'
   acceleration: '0:0'
-  location: '0:70'
+  location: '0:-70'
   strength: 5
   damage: '2-4'
   knockback: 0.4
@@ -238,23 +238,23 @@ stick_1:
           texture: 'hammer.1'
           animation: '1:1:1'
           sound: 'skill.stick'
-          speed: '400:700'
-          acceleration: '0:-60*A'
-          location: '0:70'
+          speed: '400:-700'
+          acceleration: '0:60*A'
+          location: '0:-70'
           strength: 7
           damage: '5-9'
           knockback: 1.0
           children:
             hammer_2:
               texture: 'hammer.2'
-              speed: '450:600'
+              speed: '450:-600'
               strength: 8
               damage: '7-11'
               children:
                 hammer_3:
                   texture: 'hammer.3'
                   sound: 'skill.rock'
-                  speed: '500:600'
+                  speed: '500:-600'
                   strength: 14
                   damage: '9-14'
                   children:
@@ -272,7 +272,7 @@ stick_1:
                             hammer_5_fire:
                               target_range: 920
                               texture: 'hammer.5.fire'
-                              speed: '700:480'
+                              speed: '700:-480'
                               strength: 28
                               damage: '17-20'
                               effect: 'BURNING:5'
@@ -301,9 +301,9 @@ stick_1:
           texture: 'stick.brute'
           animation: '1:1:1'
           sound: 'skill.stick'
-          speed: '400:500'
-          acceleration: '0:-50*A'
-          location: '0:70'
+          speed: '400:-500'
+          acceleration: '0:50*A'
+          location: '0:-70'
           strength: 9
           damage: '7-12'
           knockback: 1.0
@@ -314,8 +314,8 @@ stick_1:
           animation: '1:1:1'
           sound: 'skill.stick'
           speed: '300:0'
-          acceleration: '40*A:5*A'
-          location: '0:-20'
+          acceleration: '40*A:-5*A'
+          location: '0:20'
           strength: 14
           damage: '7-10'
           knockback: 2.0
@@ -324,8 +324,8 @@ stick_1:
             stick_pharao_strong:    
               owner_animation: 'SUMMON_SMALL'
               speed: '400:0'
-              acceleration: '42*A:-6*A'
-              location: '0:100'
+              acceleration: '42*A:6*A'
+              location: '0:-100'
               strength: 18
               damage: '10-14'
               effect: 'SLAGGED:4'

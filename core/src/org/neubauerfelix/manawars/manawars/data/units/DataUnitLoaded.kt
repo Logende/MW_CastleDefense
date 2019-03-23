@@ -22,7 +22,7 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
         val animationType = MWEntityAnimationType.valueOf(animationParts[0].toUpperCase())
 
         animation = when (animationType) {
-            MWEntityAnimationType.HUMAN -> {
+            MWEntityAnimationType.HUMAN, MWEntityAnimationType.HUMAN_SHIELD -> {
                 IEntityAnimationProducer.createProducerHuman(animationParts[1])
             }
             MWEntityAnimationType.MOUNT -> {
@@ -33,12 +33,20 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
             MWEntityAnimationType.RIDER -> {
                 IEntityAnimationProducer.createProducerRider(animationParts[1], animationParts[2])
             }
+            MWEntityAnimationType.CASTLE -> {
+                IEntityAnimationProducer.createProducerCastle(animationParts[1])
+            }
         }
 
         armor = when (animationType) {
             MWEntityAnimationType.HUMAN -> {
                 hashMapOf(Pair(MWArmorHolder.HUMAN_BODY, getArmor(config, 0)),
                         Pair(MWArmorHolder.HUMAN_HEAD, getArmor(config, 1)))
+            }
+            MWEntityAnimationType.HUMAN_SHIELD -> {
+                hashMapOf(Pair(MWArmorHolder.HUMAN_BODY, getArmor(config, 0)),
+                        Pair(MWArmorHolder.HUMAN_HEAD, getArmor(config, 1)),
+                        Pair(MWArmorHolder.SHIELD, MWArmorType.SHIELD))
             }
             MWEntityAnimationType.RIDER -> {
                 hashMapOf(Pair(MWArmorHolder.MOUNT, getArmor(config, 0)),
@@ -48,8 +56,10 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
             MWEntityAnimationType.MOUNT -> {
                 hashMapOf(Pair(MWArmorHolder.MOUNT, getArmor(config, 0)))
             }
+            MWEntityAnimationType.CASTLE -> {
+                hashMapOf()
+            }
         }
-
 
     }
 
@@ -78,11 +88,11 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
     override val walkSpeedMax: Float = config.getFloat("walkSpeedMax", 1f) * MConstants.UNIT_AVG_WALK_SPEED_MAX
     override val walkAcceleration: Float = config.getFloat("walkAcceleration", 1f) * MConstants.UNIT_AVG_WALK_ACC
 
-    override var analysis: IUnitAnalysis = MManaWars.m.getUnitHandler().loadUnitAnalysis(this)
+    override var analysis: IUnitAnalysis = MManaWars.m.getUnitAnalysisHandler().loadUnitAnalysis(this)
         private set
 
 
     fun analyseUnit() {
-        this.analysis = MManaWars.m.getUnitHandler().analyse(this)
+        this.analysis = MManaWars.m.getUnitAnalysisHandler().analyse(this)
     }
 }

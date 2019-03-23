@@ -126,7 +126,7 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
 
 
     override fun getCollisionType(other: ISized): MWCollisionType {
-        if (this.shield != null) {
+        if (this.shield != null && this.shield.enabled) {
             if (ISized.overlaps(shield, other)) {
                 latestHitBodyPart = shield
                 return MWCollisionType.SHIELD

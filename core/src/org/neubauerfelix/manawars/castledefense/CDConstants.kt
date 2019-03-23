@@ -8,5 +8,6 @@ class CDConstants {
         const val CASTLEDEFENSE_FORMATION_JOIN_DISTANCE = 100f // does not include unit width
         const val CASTLEDEFENSE_FORMATION_ENEMY_DISTANCE_MIN = 300f
         const val CASTLEDEFENSE_CASTLE_GOLD_CHARGE_DELAY = 5f
+        
     }
 }

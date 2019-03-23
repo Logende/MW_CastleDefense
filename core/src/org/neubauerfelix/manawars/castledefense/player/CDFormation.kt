@@ -56,6 +56,10 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
         }
     }
 
+    override fun isContained(e: IControlled): Boolean {
+        return entities.contains(e)
+    }
+
     // Entities should manually try to keep up with the assigned x
     override fun getAssignedX(e: IControlled): Float {
         require(entities.contains(e))
@@ -64,6 +68,14 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
 
     fun updateFormation(updateAnchor: Boolean) {
         if (this.entities.isEmpty()) {
+
+            val entities = player.controller.analysis.entities.filterIsInstance(IControlled::class.java)
+                    .filter { !it.remove }
+            if (entities.isNotEmpty()) {
+                addEntity(entities.first())
+                return
+            }
+
             // Empty and waiting for entities to spawn and join the formation
             this.x = player.castle.x
             this.width = player.castle.width
@@ -81,11 +93,8 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
             // 2. Assign locations to each unit
             var x = 0f
             for (e in this.entities) {
-                this.relativeX[e] = if (direction == 1) {
-                    x - e.width
-                } else {
-                    x
-                }
+                this.relativeX[e] = x - e.width/2f * direction
+
                 x += if (direction == 1) {
                     -e.width - CDConstants.CASTLEDEFENSE_FORMATION_UNIT_DISTANCE
                 } else {
@@ -124,7 +133,12 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
         val goalDistance = Math.max(CDConstants.CASTLEDEFENSE_FORMATION_ENEMY_DISTANCE_MIN, rangeBest)
-        val actualDistance = this.getDistanceHor(this.player.enemy.controller.analysis.furthestX)
+        val furthestEnemyX = if (direction == 1) {
+            Math.min(this.player.enemy.controller.analysis.furthestX, this.player.enemy.formation.left)
+        } else {
+            Math.max(this.player.enemy.controller.analysis.furthestX, this.player.enemy.formation.right)
+        }
+        val actualDistance = this.getDistanceHor(furthestEnemyX)
         speedX = if (actualDistance > goalDistance) {
              moveSpeed * direction
         } else {

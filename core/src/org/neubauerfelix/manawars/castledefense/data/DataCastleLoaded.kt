@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.game.entities.GameLocation
 import org.neubauerfelix.manawars.game.entities.ILocated
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 class DataCastleLoaded(config: Configuration) : DataCastle() {
@@ -17,6 +18,7 @@ class DataCastleLoaded(config: Configuration) : DataCastle() {
     }
 
 
-    override val goldStart: Int = config.getInt("goldStart")
-    override val goldPerCharge: Int = config.getInt("goldPerCharge")
+    override val goldStart: Int = (config.getFloat("goldStart") * MConstants.CASTLE_AVG_GOLD_START).toInt()
+    override val goldPerCharge: Int = (config.getFloat("goldPerCharge") * MConstants.CASTLE_AVG_GOLD_PER_CHARGE).toInt()
+    override val health: Float = config.getFloat("health") * MConstants.CASTLE_AVG_HEALTH
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
@@ -13,20 +14,18 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
 
     override lateinit var controlled: IControlled
-    private var inFormation = false
 
 
     override fun doLogic(delta: Float) {
         // If not in formation: Join if possible
-        if (!inFormation) {
+        if (!player.formation.isContained(controlled)) {
             if (player.formation.getDistance(this.controlled) <= CDConstants.CASTLEDEFENSE_FORMATION_JOIN_DISTANCE) {
-                inFormation = true
                 player.formation.addEntity(controlled)
             }
         }
 
         // If (now) in formation: try to keep up with assigned position
-        if (inFormation) {
+        if (player.formation.isContained(controlled)) {
             controlled.goalX = player.formation.getAssignedX(controlled)
         } else {
             controlled.goalX = player.formation.centerHorizontal
@@ -53,6 +52,7 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
     }
 
     override fun drawAbove(delta: Float, batcher: Batch) {
+        MManaWars.m.getCharacterBarHandler().drawStatsBar(batcher, controlled)
     }
 
 
@@ -60,10 +60,9 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
         return true
     }
 
-    override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
-        if (inFormation) {
+    override fun death(damager: IEntity, cause: MWDamageCause) {
+        if (player.formation.isContained(controlled)) {
             player.formation.removeEntity(controlled)
         }
-        return true
     }
 }

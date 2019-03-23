@@ -15,6 +15,6 @@ interface IController {
 
     fun damage(value: Float, damager: IEntity, cause: MWDamageCause): Boolean
 
-    fun death(damager: IEntity, cause: MWDamageCause): Boolean
+    fun death(damager: IEntity, cause: MWDamageCause)
 
 }

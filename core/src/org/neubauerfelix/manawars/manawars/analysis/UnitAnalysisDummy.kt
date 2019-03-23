@@ -9,6 +9,7 @@ class UnitAnalysisDummy : AUnitAnalysis() {
     override val survivalFactor: Float = 1f
     override val defensiveStrengthPerSecond: Float = 1f
     override val offensiveStrengthPerSecond: Float = 1f
+    override val cost: Int = 0
     override val armor: Map<MWArmorHolder, MWArmorType> = hashMapOf()
 
 

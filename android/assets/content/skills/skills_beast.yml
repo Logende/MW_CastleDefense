@@ -6,7 +6,7 @@ beast_bite_1:
   skillclass: 'MAGIC'
   speed: '350:0'
   acceleration: '0:0'
-  location: '0:40'
+  location: '0:-40'
   strength: 6
   damage: '3-6'
   knockback: 1.0
@@ -19,7 +19,7 @@ beast_bite_1:
         beast_bite_3:
           texture: 'beast.bite.huge'
           speed: '200:0'
-          location: '0:140'
+          location: '0:-140'
           strength: 80
           damage: '12-20'
 
@@ -33,7 +33,7 @@ beast_rock_1:
   skillclass: 'MAGIC'
   speed: '300:0'
   acceleration: '10*A:G'
-  location: '0:900'
+  location: '0:-900'
   strength: 20
   damage: '5-8'
   knockback: 1.0
@@ -53,9 +53,9 @@ beast_slime_green_single:
   preview: ''
   sound: ''
   skillclass: 'MAGIC'
-  speed: '600:100'
-  acceleration: '0:-20*A'
-  location: '0:-20'
+  speed: '600:-100'
+  acceleration: '0:20*A'
+  location: '0:20'
   strength: 4
   damage: '1-4'
   knockback: 0.7
@@ -127,9 +127,9 @@ beast_waterball_single:
   animation: '2.0:4:1'
   sound: ''
   skillclass: 'MAGIC'
-  speed: '550:100'
-  acceleration: '0:-20*A'
-  location: '0:50'
+  speed: '550:-100'
+  acceleration: '0:20*A'
+  location: '0:-50'
   strength: 9
   damage: '5-7'
   knockback: 0.7
@@ -162,22 +162,22 @@ beast_stone_1:
   pick_one_frame: true
   sound: 'skill.rock'
   skillclass: 'MAGIC'
-  speed: '300:600'
-  acceleration: '0:-60*A'
-  location: '0:70'
+  speed: '300:-600'
+  acceleration: '0:60*A'
+  location: '0:-70'
   strength: 5
   damage: '3-9'
   knockback: 1.0
   children:
     beast_stone_2:
       preview: 'beast.stone.2'
-      speed: '330:800'
+      speed: '330:-800'
       strength: 9
       damage: '5-12'
       children:
         beast_stone_3:
           preview: 'beast.stone.3'
-          speed: '450:800'
+          speed: '450:-800'
           strength: 12
           damage: '5-20'
           children:

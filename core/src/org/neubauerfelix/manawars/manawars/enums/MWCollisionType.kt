@@ -12,6 +12,7 @@ enum class MWCollisionType {
     MOUNT_FOOT,
     PET,
     SKILL,
+    CASTLE,
     NONE,
     UNDEFINED
 }

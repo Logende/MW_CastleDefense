@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.actions
 
+import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
@@ -19,6 +20,9 @@ interface IDataAction : IDataPresentable, IAsset {
      * @return internal skill name.
      */
     val name: String
+
+
+    val displayColor: Color
 
 
     /**

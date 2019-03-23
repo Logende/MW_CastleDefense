@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
 import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
+import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
@@ -28,8 +29,8 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         val background = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", 0f, true, getGame().getAssetLoader())
         val background2 = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", GameConstants.BACKGROUND_WIDTH*1, true, getGame().getAssetLoader())
         val background3 = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", GameConstants.BACKGROUND_WIDTH*2, true, getGame().getAssetLoader())
-        val army = MManaWars.m.getArmyHandler().listArmies().first()
-        val controllerA = CDControllerBot()
+        val army = MManaWars.m.getArmyHandler().getArmy("human_1")!!
+        val controllerA = CDControllerHuman()
         val controllerB = CDControllerBot()
         val playerA = CDPlayer(army, controllerA, MConstants.TEAM_PLAYER)
         val playerB = CDPlayer(army, controllerB, MConstants.TEAM_BOT)
@@ -43,11 +44,8 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     }
 
     override fun loadedScreen() {
-        match.loadedAssets()
         addComponent(CDComponentControlPanel())
-        val unit = match.playerA.army.units.last()
-        addComponent(CDComponentUnit(30f, GameConstants.WORLD_HEIGHT, GameConstants.CONTROLPANEL_BUTTON_SIZE,
-                GameConstants.CONTROLPANEL_BUTTON_SIZE, unit))
+        match.loadedAssets()
     }
 
     override fun disposeScreen() {

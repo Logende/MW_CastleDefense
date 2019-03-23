@@ -30,7 +30,6 @@ class ControllerTest: IController {
         return true
     }
 
-    override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
-        return true
+    override fun death(damager: IEntity, cause: MWDamageCause) {
     }
 }

@@ -5,7 +5,8 @@ enum class MWArmorHolder(val collisionTypes: Iterable<MWCollisionType>) { //Keep
 
     HUMAN_HEAD(arrayListOf(MWCollisionType.HUMAN_HEAD)),
     HUMAN_BODY(arrayListOf(MWCollisionType.HUMAN_ARM, MWCollisionType.HUMAN_BODY, MWCollisionType.HUMAN_FOOT)),
-    MOUNT(arrayListOf(MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD, MWCollisionType.MOUNT_FOOT));
+    MOUNT(arrayListOf(MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD, MWCollisionType.MOUNT_FOOT)),
+    SHIELD(arrayListOf(MWCollisionType.SHIELD));
 
 
 

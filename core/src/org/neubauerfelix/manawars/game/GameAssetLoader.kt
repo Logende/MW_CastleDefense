@@ -51,11 +51,15 @@ class GameAssetLoader: IAssetLoader, IDisposable {
 
     override fun createTextureRegion(fileName: String, x: Int, y: Int, width: Int, height: Int): TextureRegion{
         val texture = getTexture(fileName)
-        return TextureRegion(texture, x, y, width, height)
+        val t = TextureRegion(texture, x, y, width, height)
+        t.flip(false, true)
+        return t
     }
 
     override fun createTextureRegion(fileName: String): TextureRegion{
         val texture = getTexture(fileName)
-        return TextureRegion(texture)
+        val t = TextureRegion(texture)
+        t.flip(false, true)
+        return t
     }
 }

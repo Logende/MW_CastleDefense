@@ -23,7 +23,7 @@ class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, 
 
     override fun produce(entity: ISized, scale: Float): IEntityAnimation {
         val body = BodyRider(entity, producerMount, producerHuman, scale, scale)
-        return EntityAnimationAny(body, MWEntityAnimationType.RIDER)
+        return EntityAnimationAny(body, animationType)
     }
 
     override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
@@ -33,7 +33,7 @@ class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, 
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyRider(rectangle, producerMount, producerHuman, scale, scale)
-        return EntityAnimationAny(body, MWEntityAnimationType.RIDER)
+        return EntityAnimationAny(body, animationType)
     }
 
 

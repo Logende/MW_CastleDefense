@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.castledefense.player
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.data.IDataArmy
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityCastle
@@ -18,8 +17,6 @@ class CDPlayer(override val army: IDataArmy, override val controller: ICDControl
 
     override fun spawnCastle(leftSide: Boolean, mapWidth: Float) {
         val texture = MManaWars.m.getAssetLoader().getTexture(army.castle.textureName)
-        val textureRegion = TextureRegion(texture)
-        textureRegion.flip(false, true)
 
         val castleLocation = if (leftSide) {
             GameLocation(CDConstants.CASTLE_BORDER_OFFSET, GameConstants.WORLD_HEIGHT - texture.height)
@@ -32,8 +29,8 @@ class CDPlayer(override val army: IDataArmy, override val controller: ICDControl
                 plus(army.castle.unitSpawnOffset)
 
         val direction = if (leftSide) 1 else -1
-        this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, textureRegion, direction, team,
-                spawnLocation, army.castle.goldStart, army.castle.goldPerCharge)
+        this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, army.castle.textureName, army.castle.health,
+                direction, team, spawnLocation, army.castle.goldStart, army.castle.goldPerCharge)
         this.castle.spawn()
 
         this.formation = CDFormation(army.units, this)

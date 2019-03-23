@@ -13,7 +13,7 @@ class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimat
 
     override fun produce(entity: ISized, scale: Float): IEntityAnimation {
         val body = BodyHumanSmart(this, entity, scale)
-        return EntityAnimationAny(body, MWEntityAnimationType.HUMAN)
+        return EntityAnimationAny(body, animationType)
     }
 
     override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
@@ -23,8 +23,12 @@ class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimat
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyHumanSmart(this, rectangle, scale)
-        return EntityAnimationAny(body, MWEntityAnimationType.HUMAN)
+        return EntityAnimationAny(body, animationType)
     }
 
-    override val animationType: MWEntityAnimationType = MWEntityAnimationType.HUMAN
+    override val animationType: MWEntityAnimationType = if (bodyDataHuman.shield != null ) {
+        MWEntityAnimationType.HUMAN_SHIELD
+    } else {
+        MWEntityAnimationType.HUMAN
+    }
 }

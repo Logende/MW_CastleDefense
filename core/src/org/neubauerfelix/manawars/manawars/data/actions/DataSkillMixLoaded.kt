@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.actions
 
+import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
@@ -18,6 +19,7 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
 
     override val previewTexturePath: String = config.getString("preview")
 
+    override val displayColor: Color
 
     private val parts: List<DataSkillMixPart>
     override val actionDependencies: Array<IDataAction>
@@ -42,6 +44,7 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
             this.parts.add(DataSkillMixPart(action, offsetX, offsetY, offsetSpeedX, offsetSpeedY))
         }
         this.actionDependencies = actionDependencies.toTypedArray()
+        this.displayColor = parts.first().action.displayColor
     }
 
 

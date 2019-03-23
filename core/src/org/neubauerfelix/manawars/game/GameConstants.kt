@@ -4,7 +4,7 @@ class GameConstants {
 
 
     companion object {
-        const val DEBUG_BOUNDING_BOXES = true
+        const val DEBUG_BOUNDING_BOXES = false
 
         const val GAME_RENDER_FIX_TIME_STEPS_DURATION = 1f/60f
 
@@ -15,6 +15,9 @@ class GameConstants {
         const val CONTROLPANEL_HEIGHT = 220f
         const val CONTROLPANEL_TEXTURE = "controlpanel"
         const val CONTROLPANEL_BUTTON_SIZE = 180f
+        const val CONTROLPANEL_BUTTON_BORDER = 40f
+        const val CONTROLPANEL_BUTTON_DISTANCE = 20f
+
         const val WORLD_HEIGHT = SCREEN_HEIGHT - CONTROLPANEL_HEIGHT
         const val BACKGROUND_HEIGHT_CUT_OFF = BACKGROUND_HEIGHT - WORLD_HEIGHT
 

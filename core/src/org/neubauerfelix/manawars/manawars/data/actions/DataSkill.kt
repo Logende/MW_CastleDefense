@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.actions
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
@@ -16,6 +17,8 @@ abstract class DataSkill : GameData(), IDataSkill {
     final override var animation: Animation<TextureRegion>? = null
         private set
 
+    override val displayColor: Color
+        get() = skillClass.color
 
     override fun init() {
         // TODO add sound

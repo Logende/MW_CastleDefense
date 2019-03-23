@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.manawars.handlers
+package org.neubauerfelix.manawars.manawars.analysis
 
 import org.neubauerfelix.manawars.game.IHandler
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill

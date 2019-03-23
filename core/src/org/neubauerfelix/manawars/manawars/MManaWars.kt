@@ -4,12 +4,16 @@ import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.castledefense.handlers.ArmyHandler
 import org.neubauerfelix.manawars.castledefense.handlers.IArmyHandler
 import org.neubauerfelix.manawars.game.GameManaWars
+import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysisHandler
+import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysisHandler
+import org.neubauerfelix.manawars.manawars.analysis.SkillAnalysisHandler
+import org.neubauerfelix.manawars.manawars.analysis.UnitAnalysisHandler
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
 import org.neubauerfelix.manawars.manawars.factories.MComponentFactory
 import org.neubauerfelix.manawars.manawars.handlers.*
 
-class MManaWars: GameManaWars() {
+open class MManaWars: GameManaWars() {
 
     companion object {
         lateinit var m: MManaWars
@@ -30,11 +34,14 @@ class MManaWars: GameManaWars() {
         loadHandler(AnimationHandler())
         loadHandler(LanguageHandler("english")) //TODO: Load language from config
         loadHandler(UpgradeHandler())
-        loadHandler(SkillHandler())
+        loadHandler(SkillSetupHandler())
+        loadHandler(SkillAnalysisHandler())
         loadHandler(ActionHandler())
         loadHandler(CollisionHandler())
         loadHandler(UnitHandler())
+        loadHandler(UnitAnalysisHandler())
         loadHandler(ArmyHandler())
+        loadHandler(CharacterBarHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
@@ -47,7 +54,7 @@ class MManaWars: GameManaWars() {
 
         // can be called to generate new skill analysis file, which can manually be moved to assets folder
         getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME)
-        getUnitHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
+        getUnitAnalysisHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
 
         startScreen(CDScreen(this), true)
     }
@@ -81,11 +88,11 @@ class MManaWars: GameManaWars() {
     }
 
     fun getSkillSetupHandler(): ISkillSetupHandler {
-        return getHandler(SkillHandler::class.java)
+        return getHandler(SkillSetupHandler::class.java)
     }
 
     fun getSkillAnalysisHandler(): ISkillAnalysisHandler {
-        return getHandler(SkillHandler::class.java)
+        return getHandler(SkillAnalysisHandler::class.java)
     }
 
     fun getActionHandler(): IActionHandler {
@@ -96,12 +103,20 @@ class MManaWars: GameManaWars() {
         return getHandler(UnitHandler::class.java)
     }
 
+    fun getUnitAnalysisHandler(): IUnitAnalysisHandler {
+        return getHandler(UnitAnalysisHandler::class.java)
+    }
+
     fun getArmyHandler(): IArmyHandler {
         return getHandler(ArmyHandler::class.java)
     }
 
     fun getCollisionHandler(): ICollisionHandler {
         return getHandler(CollisionHandler::class.java)
+    }
+
+    fun getCharacterBarHandler(): ICharacterBarHandler {
+        return getHandler(CharacterBarHandler::class.java)
     }
 
 

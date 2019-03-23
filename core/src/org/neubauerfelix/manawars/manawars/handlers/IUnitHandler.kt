@@ -6,14 +6,6 @@ import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
 
 interface IUnitHandler: IHandler {
 
-
-    fun analyse(unit: IDataUnit): IUnitAnalysis
-
-
-    fun analyseUnits(fileName: String)
-    fun loadUnitAnalysis(data: IDataUnit): IUnitAnalysis
-
-
     fun putUnit(unit: IDataUnit)
     fun getUnit(name: String): IDataUnit?
     fun listUnits(): Iterable<IDataUnit>

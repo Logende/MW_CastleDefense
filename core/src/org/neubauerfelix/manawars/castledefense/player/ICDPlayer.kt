@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.castledefense.entities.controller.ControllerCa
 import org.neubauerfelix.manawars.castledefense.data.IDataArmy
 import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
+import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.ITeamable
 
 interface ICDPlayer : ITeamable {
@@ -16,9 +17,9 @@ interface ICDPlayer : ITeamable {
     val enemy: ICDPlayer
 
 
-    fun spawnUnit(unit: IDataUnit) {
+    fun spawnUnit(unit: IDataUnit): IControlled {
         val loc = castle.unitSpawnLocation
-        unit.produce(loc.x - unit.animation.bodyWidth/2f, loc.y - unit.animation.bodyHeight,
+        return unit.produce(loc.x - unit.animation.bodyWidth/2f, loc.y - unit.animation.bodyHeight,
                 ControllerCastleDefense(this), team)
     }
 

@@ -15,15 +15,15 @@ knife_basic:
     knife_normal_1:
       texture: 'knife.normal.1'
       speed: '400:0'
-      location: '0:20'
+      location: '0:-20'
       strength: 5
       damage: '2-7'
       children:
         knife_normal_2:
           texture: 'knife.normal.2'
-          speed: '300:150'
-          acceleration: '60*A:-10*A'
-          location: '0:25'
+          speed: '300:-150'
+          acceleration: '60*A:10*A'
+          location: '0:-25'
           strength: 7
           damage: '6'
   
@@ -31,7 +31,7 @@ knife_basic:
     knife_dragonwarrior:
       texture: 'knife.dragonwarrior'
       speed: '700:0'
-      location: '0:40'
+      location: '0:-40'
       strength: 6
       damage: '4-6'
       children:  
@@ -46,7 +46,7 @@ knife_basic:
       texture: 'knife.twisted'
       sound: 'skill.knife'
       speed: '500:0'
-      location: '0:35'
+      location: '0:-35'
       strength: 6
       damage: '2-5'
       children:
@@ -58,7 +58,7 @@ knife_basic:
           texture: 'sword.twisted'
           sound: 'skill.wind'
           speed: '350:0'
-          location: '0:30'
+          location: '0:-30'
           acceleration: '10*A:0'
           strength: 12
           damage: '4-12'
@@ -71,7 +71,7 @@ knife_basic:
       sound: 'skill.knife'
       speed: '900:0'
       acceleration: '0:0'
-      location: '0:-10'
+      location: '0:10'
       strength: 10
       damage: '6-8'
       children:      
@@ -102,13 +102,13 @@ knife_basic:
             sword_mighty_double:
               texture: 'sword.mighty.double'
               speed: '-600:0'
-              acceleration: '150*A:10*A'
+              acceleration: '150*A:-10*A'
               strength: 20
               damage: '10-24'
               children:  
                 sword_mighty_cross:
                   texture: 'sword.mighty.cross'
-                  location: '0:40'
+                  location: '0:-40'
                   speed: '900:0'
                   target_range: 1000
                   target_speed: '0:200'
@@ -119,7 +119,7 @@ knife_basic:
           texture: 'sword.mighty.gold'
           sound: 'skill.wind'
           skillclass: 'NORMAL'
-          location: '0:10'
+          location: '0:-10'
           speed: '-600:0'
           acceleration: '120*A:0'
           strength: 15
@@ -127,22 +127,22 @@ knife_basic:
           children:            
             sword_mighty_gold_strong:
               texture: 'sword.mighty.gold.strong'
-              location: '0:40'
+              location: '0:-40'
               speed: '700:100'
-              acceleration: '20*A:-7*A'
+              acceleration: '20*A:7*A'
               strength: 18
               damage: '14'
               
             sword_mighty_gold_double:
               texture: 'sword.mighty.gold.double'
               speed: '-600:0'
-              acceleration: '150*A:10*A'
+              acceleration: '150*A:-10*A'
               strength: 20
               damage: '17'
               children:  
                 sword_mighty_gold_cross:
                   texture: 'sword.mighty.gold.cross'
-                  location: '0:40'
+                  location: '0:-40'
                   speed: '900:0'
                   target_range: 1000
                   target_speed: '0:200'
@@ -154,16 +154,16 @@ knife_basic:
     knife_brokensword:
       texture: 'knife.brokensword'
       sound: 'skill.knife.fast'
-      speed: '1200:290'
-      acceleration: '-60*A:-15*A'
-      location: '0:-60'
+      speed: '1200:-290'
+      acceleration: '-60*A:15*A'
+      location: '0:60'
       strength: 12
       damage: '10-14'
       children:      
         knife_brokensword_strong:
           texture: 'knife.brokensword.strong'
-          speed: '1700:330'
-          acceleration: '-90*A:-25*A'
+          speed: '1700:-330'
+          acceleration: '-90*A:25*A'
           strength: 14
           damage: '14'
         knife_brokensword_poison:
@@ -181,7 +181,7 @@ knife_basic:
       preview: ''
       speed: '400:0'
       acceleration: '10*A:0'
-      location: '0:30'
+      location: '0:-30'
       strength: 4
       damage: '4'
       children: 
@@ -195,7 +195,7 @@ knife_basic:
       preview: ''
       speed: '300:0'
       acceleration: '40*A:0'
-      location: '0:-17'
+      location: '0:17'
       strength: 6
       damage: '2'
       knockback: 2.0
@@ -206,7 +206,7 @@ knife_basic:
       sound: 'skill.knife'
       speed: '200:0'
       acceleration: '40*A:0'
-      location: '0:-25'
+      location: '0:25'
       strength: 6
       damage: '0'
       effect: 'FROZEN:5'
@@ -217,7 +217,7 @@ knife_basic:
       sound: 'skill.knife'
       speed: '300:0'
       acceleration: '0:0'
-      location: '0:-5'
+      location: '0:5'
       strength: 8
       damage: '7'
       
@@ -237,7 +237,7 @@ knife_basic:
       sound: 'skill.knife'
       speed: '500:0'
       acceleration: '0:0'
-      location: '0:20'
+      location: '0:-20'
       strength: 6
       damage: '1-10'
       

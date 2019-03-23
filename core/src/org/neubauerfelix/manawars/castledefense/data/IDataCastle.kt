@@ -10,6 +10,7 @@ interface IDataCastle : IAsset {
     val unitSpawnOffset: ILocated
     val goldStart: Int
     val goldPerCharge: Int
+    val health: Float
 
 
 }

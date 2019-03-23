@@ -56,7 +56,7 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
         controller.doLogic(delta)
 
         if (isOnGround && !this.isKnockbacked) {
-            if (goalX != Float.NaN) {
+            if (goalX != Float.NaN && canWalk()) {
                 val offset = goalX - this.centerHorizontal
                 val distance = Math.abs(offset)
                 if (distance > 20f) {
@@ -104,10 +104,11 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
     }
 
     override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
-        if (!controller.death(damager, cause)) {
-            return false
+        val death = super.death(damager, cause)
+        if (death) {
+            controller.death(damager, cause)
         }
-        return super.death(damager, cause)
+        return death
     }
 
 

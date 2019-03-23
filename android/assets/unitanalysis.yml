@@ -1,15 +1,68 @@
-warrior:
-  actionValue: 6.5020523
-  survivalFactor: 1.1539342
-  defensiveStrengthPerSecond: 11.666667
-  offensiveStrengthPerSecond: 11.666667
-archer:
-  actionValue: 11.036949
-  survivalFactor: 1.9585253
-  defensiveStrengthPerSecond: 10.666667
-  offensiveStrengthPerSecond: 10.666667
-rider:
-  actionValue: 3.5249996
-  survivalFactor: 0.6923606
-  defensiveStrengthPerSecond: 26.666666
-  offensiveStrengthPerSecond: 26.666666
+human_1:
+  shield:
+    actionValue: 0.0
+    survivalFactor: 2.1463509
+    defensiveStrengthPerSecond: 0.0
+    offensiveStrengthPerSecond: 0.0
+    cost: 8
+  spear:
+    actionValue: 0.8957218
+    survivalFactor: 0.89048404
+    defensiveStrengthPerSecond: 3.3333335
+    offensiveStrengthPerSecond: 3.3333335
+    cost: 5
+  rider:
+    actionValue: 2.8500001
+    survivalFactor: 1.3187821
+    defensiveStrengthPerSecond: 10.666667
+    offensiveStrengthPerSecond: 10.666667
+    cost: 25
+  arrow:
+    actionValue: 1.4227598
+    survivalFactor: 1.1728929
+    defensiveStrengthPerSecond: 3.8888888
+    offensiveStrengthPerSecond: 3.8888888
+    cost: 8
+  mage_ice:
+    actionValue: 1.6260242
+    survivalFactor: 1.3236929
+    defensiveStrengthPerSecond: 4.6666665
+    offensiveStrengthPerSecond: 4.6666665
+    cost: 10
+  mage_fire:
+    actionValue: 3.6773498
+    survivalFactor: 1.3239812
+    defensiveStrengthPerSecond: 6.6666665
+    offensiveStrengthPerSecond: 6.6666665
+    cost: 17
+  sword:
+    actionValue: 0.945749
+    survivalFactor: 1.2536528
+    defensiveStrengthPerSecond: 3.3333333
+    offensiveStrengthPerSecond: 3.3333333
+    cost: 7
+  axe:
+    actionValue: 1.1893282
+    survivalFactor: 1.1439164
+    defensiveStrengthPerSecond: 5.3333335
+    offensiveStrengthPerSecond: 5.3333335
+    cost: 9
+testarmy:
+  archer:
+    actionValue: 12.175685
+    survivalFactor: 1.9585253
+    defensiveStrengthPerSecond: 10.666667
+    offensiveStrengthPerSecond: 10.666667
+    cost: 101
+  rider:
+    actionValue: 2.8500001
+    survivalFactor: 1.3187821
+    defensiveStrengthPerSecond: 10.666667
+    offensiveStrengthPerSecond: 10.666667
+    cost: 25
+  warrior:
+    actionValue: 6.176949
+    survivalFactor: 1.538579
+    defensiveStrengthPerSecond: 11.666667
+    offensiveStrengthPerSecond: 11.666667
+    cost: 40

@@ -22,7 +22,6 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
     }
 
     override fun loadedAssets() {
-        println("try loaded imagehandler assets")
         if(!loaded) {
             main = assetLoader.getAtlas(GameConstants.PATH_ATLAS_MAIN)
             for (t in main!!.textures) {
@@ -39,7 +38,6 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
                 r.flip(false, true)
             }
             loaded = true
-            println("loaded imagehandler assets")
         }
     }
 
@@ -68,7 +66,6 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
             val x = i % columns
             val y = i / columns
             val r = TextureRegion(texture, x * width, y * height, width, -height)
-            r.flip(false, true)
             r
         }
     }

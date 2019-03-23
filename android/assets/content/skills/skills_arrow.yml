@@ -5,9 +5,9 @@ arrowrain_single:
   animation: '1:4:1'
   sound: 'skill.arrowrain'
   skillclass: 'LIGHT'
-  speed: '0:-1000'
+  speed: '0:1000'
   acceleration: '0:0'
-  location: '0:1400'
+  location: '0:-1400'
   spawn_relative_to_target: 'true:false'
   target_range: 10000
   y_relative_to_ground: true
@@ -28,8 +28,8 @@ arrow_weak:
   sound: 'skill.arrow'
   skillclass: 'LIGHT'
   speed: '1000:0'
-  acceleration: '0:-5*A'
-  offset: '-40:-20'
+  acceleration: '0:5*A'
+  offset: '-40:20'
   strength: 7
   damage: '3-7'
   knockback: 1.0
@@ -38,7 +38,7 @@ arrow_weak:
     arrow_normal:
       weapon: 'bow:normal_red'
       texture: 'arrow.normal'
-      speed: '1000:30'
+      speed: '1000:-30'
       strength: 9
       damage: '5-7'
       children:
@@ -46,7 +46,7 @@ arrow_weak:
         arrow_strong:
           weapon: 'bow:dark'
           texture: 'arrow.strong'
-          speed: '1200:30'
+          speed: '1200:-30'
           strength: 14
           damage: '7-10'
           children:
@@ -56,7 +56,7 @@ arrow_weak:
               texture: 'crossbowbolt'
               preview: 'crossbow.weak'
               speed: '1600:0'
-              acceleration: '0:-2*A'
+              acceleration: '0:2*A'
               strength: 14
               damage: '9-12'
               children:
@@ -65,7 +65,7 @@ arrow_weak:
                   texture: 'crossbowbolt'
                   preview: 'crossbow.normal'
                   strength: 18
-                  location: '10:-20'
+                  location: '10:20'
                   damage: '12-14'
                   children:
                     crossbow_strong:
@@ -82,8 +82,8 @@ arrow_weak:
                           preview: 'crossbow.strong.double'
                           manacost_factor: 0.8
                           parts:
+                          - 'crossbow_strong:0:8:0:30'
                           - 'crossbow_strong:0:-8:0:-30'
-                          - 'crossbow_strong:0:+8:0:30'
                       
                     crossbow_poison:
                       weapon: 'crossbow:skull'
@@ -106,8 +106,8 @@ arrow_weak:
                       sound: ''
                       manacost_factor: 0.8
                       parts:
+                      - 'crossbow_normal:0:8:0:30'
                       - 'crossbow_normal:0:-8:0:-30'
-                      - 'crossbow_normal:0:+8:0:30'
           
             arrowrain_1:
               type: mix
@@ -169,14 +169,14 @@ arrow_weak:
         arrow_random:
           weapon: 'bow:wild'
           texture: 'arrow.random'
-          speed: '1200:30'
+          speed: '1200:-30'
           strength: 11
           damage: '3-16'
                         
         arrow_fire:
           weapon: 'bow:red'
           texture: 'arrow.fire'
-          speed: '1200:30'
+          speed: '1200:-30'
           strength: 11
           damage: '3-9'
           effect: 'BURNING:5'
@@ -184,7 +184,7 @@ arrow_weak:
         arrow_ice:
           weapon: 'bow:light'
           texture: 'arrow.ice'
-          speed: '1200:30'
+          speed: '1200:-30'
           strength: 11
           damage: '3-8'
           effect: 'FROZEN:3'
@@ -192,7 +192,7 @@ arrow_weak:
         arrow_poison:
           weapon: 'bow:bones'
           texture: 'arrow.poison'
-          speed: '1200:30'
+          speed: '1200:-30'
           strength: 12
           damage: '4-10'
           effect: 'POISONED:4'

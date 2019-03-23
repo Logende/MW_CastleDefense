@@ -3,19 +3,23 @@ package org.neubauerfelix.manawars.castledefense.components
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.MComponent
+import org.neubauerfelix.manawars.manawars.components.MTextLabel
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
+import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 
-class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, unit : IDataUnit) :
+class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit : IDataUnit, val listener: UnitClickListener) :
         MComponent(x, y, width, height) {
 
 
     private val background: TextureRegion
     private val frame: Map<TextureRegion, Color>
+    private val text: IComponent
 
 
     private val animation: IEntity
@@ -33,6 +37,13 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, unit : ID
         }
         // TODO: Gold armor for boss?
         animation = unit.animation.produce(x + width * 0.1f, y + height*0.05f, width*0.8f, height*0.8f)
+
+        val color = unit.action.displayColor
+        val colorAsHexString = String.format("#%02x%02x%02x",
+                (color.r * 255f).toInt(),
+                (color.g * 255f).toInt(),
+                (color.b * 255f).toInt())
+        text = MTextLabel(x, y, "[$colorAsHexString]${unit.analysis.cost}", FontHandler.MWFont.MAIN, 0.2f)
     }
 
     override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
@@ -44,14 +55,22 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, unit : ID
         batcher.color = Color.WHITE
         (animation as IDrawable).draw(delta, batcher)
         (animation as ILogicable).doLogic(delta)
+
+        val offsetX = (width - text.width) * 0.5f
+        val offsetY = (height - text.height) * 0.8f
+        text.draw(delta, batcher, offsetX, offsetY)
     }
 
     override fun clickAction() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        listener.clickedUnit(unit)
     }
 
     override fun unclickAction() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+
+    interface UnitClickListener {
+        fun clickedUnit(unit: IDataUnit)
     }
 }
 

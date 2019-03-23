@@ -1,0 +1,61 @@
+name: human_1
+units:
+  shield:
+    animation: 'HUMAN_SHIELD:human.shieldman.1.1'
+    armor: 'none:anti_light'
+    action: 'none'
+    cooldown: 1
+    health: 2.0
+
+  sword:
+    animation: 'HUMAN:human.guard.1.1'
+    armor: 'anti_magic:anti_magic'
+    action: 'sword_basic'
+    cooldown: 2.0
+    health: 1.0
+
+  rider:
+    animation: 'RIDER:wolf:human.warrior.3.1'
+    action: 'magic_skyfist_poison'
+    armor: 'none:anti_light:anti_magic'
+    cooldown: 2.0
+    health: 3.0
+    mana: 1.0
+
+  spear:
+    animation: 'HUMAN:human.warrior.female.1.1'
+    action: 'spear_basic'
+    cooldown: 1.8
+    health: 0.9
+
+  axe:
+    animation: 'HUMAN:human.warrior.1.1'
+    armor: 'anti_light:anti_light'
+    action: 'axe_basic'
+    cooldown: 1.0
+    health: 1.2
+
+  arrow:
+    animation: 'HUMAN:human.ranger.1.1'
+    action: 'arrow_weak'
+    cooldown: 1.2
+    health: 0.7
+
+  mage_fire:
+    animation: 'HUMAN:human.wizard.1.1'
+    action: 'magic_fireball_2'
+    cooldown: 1.0
+    health: 0.6
+
+  mage_ice:
+    animation: 'HUMAN:human.wizard.1.2'
+    action: 'magic_iceball_1'
+    cooldown: 1.0
+    health: 0.6
+
+castle:
+  texture: 'castle_wood_1'
+  spawn_offset: '0:0'
+  goldStart: 1.0
+  goldPerCharge: 1.0
+  health: 1.0

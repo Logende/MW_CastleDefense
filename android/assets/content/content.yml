@@ -12,6 +12,6 @@ actions:
   - 'skills/skills_knife.yml'
   - 'skills/skills_spear.yml'
   - 'skills/skills_magic.yml'
-  - 'skills/skills_shield.yml'
 armies:
   - 'armies/testarmy.yml'
+  - 'armies/army_human_1.yml'

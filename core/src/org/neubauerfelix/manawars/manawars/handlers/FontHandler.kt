@@ -53,7 +53,7 @@ class FontHandler : IHandler, IDisposable, ILoadable {
         fun getFont(scale: Float = 1f): BitmapFont {
             val newScale = defaultScale * scale
             if (font!!.scaleX != newScale) {
-                font!!.data.setScale(newScale, newScale)
+                font!!.data.setScale(newScale, -newScale)
             }
             return font!!
         }

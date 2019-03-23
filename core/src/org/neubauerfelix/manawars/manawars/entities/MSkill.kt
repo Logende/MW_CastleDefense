@@ -74,7 +74,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
             if (data.stopOnGround && this.bottom > GameConstants.WORLD_HEIGHT) { // Stop moving when hitting ground
                 this.speedY = 0f
                 this.accelerationY = 0f
-                this.bottom = GameConstants.CONTROLPANEL_HEIGHT
+                this.bottom = GameConstants.WORLD_HEIGHT
             }
 
             if (data.targetEnemy && target != null) {
@@ -103,7 +103,6 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         if (!this.active) {
             return
         }
-
 
         var damageFactor = 1f
         if (e is IUpgraded) {

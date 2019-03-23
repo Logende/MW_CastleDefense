@@ -4,9 +4,9 @@ sword_basic:
   animation: '1:1:1'
   sound: 'skill.wind'
   skillclass: 'NORMAL'
-  speed: '1200:-400'
-  acceleration: '-70*A:50*A'
-  offset_y: 50
+  speed: '1200:400'
+  acceleration: '-70*A:-50*A'
+  location: '0:-50'
   strength: 10
   damage: '6'
   knockback: 1.5
@@ -14,8 +14,8 @@ sword_basic:
   
     sword_human_gold:
       texture: 'sword.human.gold'
-      speed: '1200:-200'
-      acceleration: '-70*A:20*A'
+      speed: '1200:200'
+      acceleration: '-70*A:-20*A'
       strength: 12
       damage: '8'
       children:
@@ -35,9 +35,9 @@ sword_basic:
     sword_bandit_1:
       texture: 'sword.bandit.1'
       sound: 'skill.rost'
-      speed: '1500:-250'
-      offset_y: 100
-      acceleration: '-100*A:15*A'
+      speed: '1500:250'
+      location: '0:-100'
+      acceleration: '-100*A:-15*A'
       strength: 14
       damage: '5-11'
       children:
@@ -49,9 +49,9 @@ sword_basic:
     sword_katana_1:
       texture: 'sword.katana.1'
       sound: 'skill.wind'
-      offset_y: 100
-      speed: '700:-250'
-      acceleration: '0:20*A'
+      location: '0:-100'
+      speed: '700:250'
+      acceleration: '0:-20*A'
       strength: 12
       damage: '5-8'
       children:
@@ -92,7 +92,7 @@ sword_basic:
       texture: 'sword.orc.1'
       sound: 'skill.rost'
       speed: '250:0'
-      offset_y: 20
+      location: '0:-20'
       acceleration: '0:0'
       strength: 9
       damage: '1-9'
@@ -107,7 +107,7 @@ sword_basic:
       texture: 'sword.samurai'
       sound: 'skill.wind'
       speed: '660:0'
-      offset_y: 40
+      location: '0:-40'
       acceleration: '0:0'
       strength: 16
       damage: '12-16'

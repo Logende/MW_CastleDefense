@@ -9,6 +9,8 @@ class MConstants {
         const val UI_LINE_DISTANCE = 5f
         const val UI_DISTANCE_COLUMNS = 30f
         const val UI_DISTANCE_ROWS = 30f
+        const val INGAME_CHARACTERBAR_WIDTH = 100f
+        const val INGAME_CHARACTERBAR_HEIGHT = 10f
 
         fun getVisualLineHeight(font: FontHandler.MWFont, scale: Float): Float{
             return Math.abs(font.getFont(scale).capHeight) + 6f
@@ -87,6 +89,9 @@ class MConstants {
         const val BODY_RIDER_WIDTH = BODY_MOUNT_WIDTH
         const val BODY_RIDER_HEIGHT = BODY_MOUNT_HEIGHT - RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y + BODY_HUMAN_HEIGHT
 
+        const val BODY_CASTLE_WIDTH = 447 // TODO
+        const val BODY_CASTLE_HEIGHT = 383 // TODO
+
         const val ALWAYS_EQUIP_WEAPONS = true
 
         // skills
@@ -100,6 +105,11 @@ class MConstants {
         const val UNIT_ANALYSIS_FILE_NAME = "unitanalysis.yml"
         const val UNIT_AVG_WALK_SPEED_MAX = 300f
         const val UNIT_AVG_WALK_ACC = 400f
+
+        // castle
+        const val CASTLE_AVG_HEALTH = 200f
+        const val CASTLE_AVG_GOLD_START = 10f
+        const val CASTLE_AVG_GOLD_PER_CHARGE = 5f
 
 
 

@@ -30,7 +30,7 @@ magic_energy_weak:
   sound: 'skill.energy'
   manacost_factor: 0.7
   parts:
-  - 'magic_energy_single_1:0:-50:0:-25'
+  - 'magic_energy_single_1:0:50:0:-25'
   - 'magic_energy_single_1:0:0:0:0'
   - 'magic_energy_single_1:0:50:0:25'
   skillclass: 'MAGIC'
@@ -55,13 +55,13 @@ magic_energy_weak:
           manacost_factor: 0.85
           preview: 'magic.energy.5'
           parts:
-          - 'magic_energy_single_1:0:-120:0:0'
-          - 'magic_energy_single_1:0:-90:0:0'
-          - 'magic_energy_single_1:0:-60:0:0'
-          - 'magic_energy_single_1:0:-30:0:0'
-          - 'magic_energy_single_1:0:0:0:0'
-          - 'magic_energy_single_1:0:30:0:0'
+          - 'magic_energy_single_1:0:120:0:0'
+          - 'magic_energy_single_1:0:90:0:0'
           - 'magic_energy_single_1:0:60:0:0'
+          - 'magic_energy_single_1:0:30:0:0'
+          - 'magic_energy_single_1:0:0:0:0'
+          - 'magic_energy_single_1:0:-30:0:0'
+          - 'magic_energy_single_1:0:-60:0:0'
         magic_energy_crossing:
           manacost_factor: 1.2
           preview: 'magic.energy.3'
@@ -113,9 +113,9 @@ magic_fireball_1:
               texture: 'magic.fireball.rain'
               preview: 'magic.fireball.rain.1'
               animation: '1:3:1'
-              speed: '1000:-500'
+              speed: '1000:500'
               acceleration: '0:0'
-              location: '-800:900'
+              location: '-800:-900'
               strength: 12
               knockback: 0.8
               damage: '7'
@@ -182,9 +182,9 @@ magic_icespike_1:
   rotation_duration: 0
   sound: 'skill.ice'
   skillclass: 'MAGIC'
-  speed: '0:900'
+  speed: '0:-900'
   acceleration: '0:0'
-  location: '0:35'
+  location: '0:-35'
   y_relative_to_ground: true
   target_range: 1000
   spawn_relative_to_target: 'true:false'
@@ -236,9 +236,9 @@ magic_icicle_1:
   animation: '1:2:1'
   sound: 'skill.ice'
   skillclass: 'MAGIC'  
-  speed: '0:-900'
+  speed: '0:900'
   acceleration: '0:0'
-  location: '0:600'
+  location: '0:-600'
   y_relative_to_ground: true
   target_range: 1000
   spawn_relative_to_target: 'true:false'
@@ -301,28 +301,28 @@ magic_shadowenergy_single_weak:
   preview: ''
   sound: 'skill.shadowenergy'
   skillclass: 'MAGIC'
-  speed: '0:-300'
+  speed: '0:300'
   target_speed: '400:0'
   target_range: 700
-  acceleration: '0:-30*A'
+  acceleration: '0:30*A'
   strength: 3
   damage: '3-3'
   knockback: 0.6
   effect: 'SLAGGED:4'
   children:
     magic_shadowenergy_single_medium:
-      location: '0:50'
-      speed: '0:400'
+      location: '0:-50'
+      speed: '0:-400'
       children:
         magic_shadowenergy_single_strong:
-          location: '0:100'
-          speed: '0:-500'
+          location: '0:-100'
+          speed: '0:500'
           strength: 4
           damage: '4'
           children:
             magic_shadowenergy_single_epic:
-              location: '0:140'
-              speed: '0:600'
+              location: '0:-140'
+              speed: '0:-600'
               strength: 11
               damage: '7'
               scale: 1.5
@@ -335,7 +335,7 @@ magic_energy_tricky:
   skillclass: 'MAGIC'
   speed: '400:0'
   acceleration: '15*A:0'
-  location: '0:45'
+  location: '0:-45'
   strength: 8
   damage: '6-9'
   knockback: 1.0
@@ -343,30 +343,30 @@ magic_energy_tricky:
   children:
     magic_energy_tricky_strong:
       speed: '750:0'
-      location: '0:75'
+      location: '0:-75'
       scale: 1.6
       strength: 14
       damage: '11-14'
     magic_energy_tricky_down:
-      speed: '500:500'
+      speed: '500:-500'
       location: '0:0'
-      acceleration: '15*A:-50*A'
+      acceleration: '15*A:50*A'
       children:
         magic_energy_tricky_down_strong:
-          speed: '600:600'
-          acceleration: '15*A:-50*A'
+          speed: '600:-600'
+          acceleration: '15*A:50*A'
           scale: 1.6
           strength: 14
           damage: '11-14'
     magic_energy_tricky_up:
-      speed: '500:-500'
-      acceleration: '15*A:50*A'
-      location: '0:90'
+      speed: '500:500'
+      acceleration: '15*A:-50*A'
+      location: '0:-90'
       children:
         magic_energy_tricky_up_strong:
-          location: '0:150'
-          speed: '600:-600'
-          acceleration: '15*A:50*A'
+          location: '0:-150'
+          speed: '600:600'
+          acceleration: '15*A:-50*A'
           scale: 1.6
           strength: 14
           damage: '11-14'
@@ -465,9 +465,9 @@ magic_skull_1:
   sound: 'skill.skull'
   skillclass: 'MAGIC'
   speed: '500:0'
-  target_speed: '0:30'
+  target_speed: '0:-30'
   acceleration: '0:0'
-  location: '0:-50'
+  location: '0:50'
   strength: 7
   damage: '3-6'
   knockback: -2
@@ -475,14 +475,14 @@ magic_skull_1:
     magic_skull_2:
       preview: 'magic.skull.2'
       speed: '600:0'
-      target_speed: '0:-40'
+      target_speed: '0:40'
       strength: 12
       damage: '4-7'
       children:
         magic_skull_3:
           preview: 'magic.skull.3'
           speed: '700:0'
-          target_speed: '0:45'
+          target_speed: '0:-45'
           strength: 16
           damage: '4-10'
           
@@ -495,9 +495,9 @@ magic_torch_1:
   sound: 'skill.fire'
   skillclass: 'MAGIC'
   speed: '250:0'
-  targetspeed: '0:-35'
+  targetspeed: '0:35'
   acceleration: '0:0'
-  location: '0:50'
+  location: '0:-50'
   strength: 6
   damage: '2'
   knockback: 0.2
@@ -532,31 +532,31 @@ magic_snowball_1:
   animation: '1:1:1'
   sound: 'skill.knife.weak'
   skillclass: 'MAGIC'
-  speed: '700:200'
-  acceleration: '0:-40*A'
-  location: '0:30'
+  speed: '700:-200'
+  acceleration: '0:40*A'
+  location: '0:-30'
   strength: 6
   damage: '2-4'
   knockback: 0.6
   children:
     magic_snowball_2:
-      speed: '800:100'
-      acceleration: '0:-32*A'
+      speed: '800:-100'
+      acceleration: '0:32*A'
       strength: 8
       damage: '2-9'
       children:
         magic_snowball_3:
           texture: 'magic.snowball.strong'
-          speed: '900:200'
-          acceleration: '0:-55*A'
+          speed: '900:-200'
+          acceleration: '0:55*A'
           strength: 14
           damage: '8-13'
           knockback: 1.1
           children:
             magic_snowball_4:
               texture: 'magic.snowball.strong.ice'
-              speed: '1000:200'
-              acceleration: '0:-55*A'
+              speed: '1000:-200'
+              acceleration: '0:55*A'
               strength: 20
               damage: '12-17'
               knockback: 1.1

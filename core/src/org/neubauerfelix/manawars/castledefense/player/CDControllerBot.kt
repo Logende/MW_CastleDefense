@@ -1,7 +1,9 @@
 package org.neubauerfelix.manawars.castledefense.player
 
+import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
 
 class CDControllerBot : ICDController {
@@ -13,21 +15,31 @@ class CDControllerBot : ICDController {
     override val playerControlled: Boolean
         get() = false
 
+    var nextUnit: IDataUnit? = null
+
     override fun showControls() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun hideControls() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun doLogic(delta: Float) {
         analysis.update(player)
-
-        val unit = player.army.units.get((Math.random() * player.army.units.size).toInt())
-        if (player.castle.gold > 100) {
-            player.castle.gold = 0
-            player.spawnUnit(unit)
+        var nextUnit = this.nextUnit
+        if (nextUnit == null) {
+            this.chooseUnit()
+            nextUnit = this.nextUnit
         }
+
+        if (player.castle.gold >= nextUnit!!.analysis.cost) {
+            player.castle.gold -= nextUnit.analysis.cost
+            player.spawnUnit(nextUnit)
+            this.chooseUnit()
+        }
+    }
+
+    private fun chooseUnit() {
+        val ranking = player.army.units.sortedByDescending { CDManaWars.cd.getArmyAnalysisHandler().getStrategicFactor(it, player) }
+        this.nextUnit = ranking.first()!!
     }
 }

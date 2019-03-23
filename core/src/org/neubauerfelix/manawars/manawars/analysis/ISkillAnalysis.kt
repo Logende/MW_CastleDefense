@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
 import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
+import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
 
 
@@ -14,7 +15,7 @@ interface ISkillAnalysis : IDataActionProperties {
     val width: Int
     val height: Int
 
-    val collisionsPercentages: Map<MWArmorHolder, Double>
+    val collisionsPercentages: Map<MWEntityAnimationType, Map<MWArmorHolder, Double>>
 
 
     val skillClass: MWSkillClass
