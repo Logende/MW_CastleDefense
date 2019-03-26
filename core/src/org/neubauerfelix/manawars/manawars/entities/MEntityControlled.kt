@@ -59,8 +59,8 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
             if (goalX != Float.NaN && canWalk()) {
                 val offset = goalX - this.centerHorizontal
                 val distance = Math.abs(offset)
-                if (distance > 20f) {
-                    val slowingDistance = 100f
+                if (distance > 10f) {
+                    val slowingDistance = 200f
                     val rampedSpeed = this.walkSpeedMax * (distance / slowingDistance)
                     val clippedSpeed = Math.min(rampedSpeed, walkSpeedMax)
                     val desiredVelocity = (clippedSpeed / distance) * offset

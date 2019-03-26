@@ -110,7 +110,7 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
             moveSpeed = Float.MAX_VALUE
             // 3. Upgrade formation ranges
             relativeX.forEach { e, x ->
-                val range = e.data.action.getActionProperties(e.entityAnimationType).rangeMaxAvg - e.getDistanceHor(anchorX)
+                val range = e.data.action.getActionProperties(e.entityAnimationType).rangeMaxAvg - Math.abs(x)
                 rangeFirst = Math.max(rangeFirst, range)
                 rangeBest = Math.min(rangeBest, range)
                 moveSpeed = Math.min(moveSpeed, e.walkSpeedMax)

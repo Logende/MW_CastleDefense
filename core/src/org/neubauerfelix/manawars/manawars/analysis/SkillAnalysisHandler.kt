@@ -166,8 +166,8 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
         parts.forEach { collisionsPercentages[it.targetAnimationType] = it.collisionsPercentages }
 
         val rangeMaxAvg = rangeMax.map { (animationType, range) ->
-            MAnalysisConstants.ANIMATION_TYPE_SHARES[animationType]!! * range.toFloat()
-        }.sum()
+            range.toFloat()
+        }.min()!! // UPDATED: Replaced avg. by min value
 
         val offensiveStrength: Float = if (data.skillClass == MWSkillClass.SHIELD) 0f else tacticalStrength.toFloat()
 

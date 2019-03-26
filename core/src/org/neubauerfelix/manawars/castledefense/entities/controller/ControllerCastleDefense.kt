@@ -26,7 +26,7 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
         // If (now) in formation: try to keep up with assigned position
         if (player.formation.isContained(controlled)) {
-            controlled.goalX = player.formation.getAssignedX(controlled)
+            controlled.goalX = player.formation.getAssignedX(controlled)+ player.castle.direction * 15f
         } else {
             controlled.goalX = player.formation.centerHorizontal
         }

@@ -77,8 +77,8 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
 
         // 1 action value = 1 damage per second
         val actionValue: Float = actionAnalysis.strategicValue * actionAnalysis.successProbability / data.actionCooldown
-        val defensiveStrengthPerSecond: Float = actionAnalysis.defensiveStrength / data.actionCooldown
-        val offensiveStrengthPerSecond: Float = actionAnalysis.offensiveStrength / data.actionCooldown
+        val defensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.defensiveStrength / data.actionCooldown)
+        val offensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.offensiveStrength / data.actionCooldown)
 
 
         val cost = survivalFactor * (actionValue * 2.0

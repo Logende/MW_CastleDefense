@@ -85,8 +85,25 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
     override val skillDurabilityMultipliers: Map<MWSkillClass, Float> = hashMapOf()
     override val drainMultiplier: Float = config.getFloat("drain")
 
-    override val walkSpeedMax: Float = config.getFloat("walkSpeedMax", 1f) * MConstants.UNIT_AVG_WALK_SPEED_MAX
-    override val walkAcceleration: Float = config.getFloat("walkAcceleration", 1f) * MConstants.UNIT_AVG_WALK_ACC
+    override val walkSpeedMax: Float = if (config.contains("walkSpeedMax")) {
+        config.getFloat("walkSpeedMax", 1f) * MConstants.UNIT_AVG_WALK_SPEED_MAX
+    } else {
+        if (animation.animationType == MWEntityAnimationType.RIDER) {
+            MConstants.UNIT_AVG_WALK_SPEED_MAX * 2f
+        } else {
+            MConstants.UNIT_AVG_WALK_SPEED_MAX * 1f
+        }
+    }
+
+    override val walkAcceleration: Float = if (config.contains("walkAcceleration")) {
+        config.getFloat("walkAcceleration", 1f) * MConstants.UNIT_AVG_WALK_ACC
+    } else {
+        if (animation.animationType == MWEntityAnimationType.RIDER) {
+            MConstants.UNIT_AVG_WALK_ACC * 2f
+        } else {
+            MConstants.UNIT_AVG_WALK_ACC * 1f
+        }
+    }
 
     override var analysis: IUnitAnalysis = MManaWars.m.getUnitAnalysisHandler().loadUnitAnalysis(this)
         private set
