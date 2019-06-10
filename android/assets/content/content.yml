@@ -12,6 +12,7 @@ actions:
   - 'skills/skills_knife.yml'
   - 'skills/skills_spear.yml'
   - 'skills/skills_magic.yml'
-armies:
-  - 'armies/testarmy.yml'
-  - 'armies/army_human_1.yml'
+  - 'skills/skills_castle.yml'
+  - 'skills/skills_misc.yml'
+leagues:
+   - 'leagues/bronze.yml'

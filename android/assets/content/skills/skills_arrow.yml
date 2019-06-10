@@ -1,24 +1,3 @@
-#Arrowrain single
-arrowrain_single:
-  owner_animation: 'SUMMON_BIG'
-  texture: 'arrow.rain'
-  animation: '1:4:1'
-  sound: 'skill.arrowrain'
-  skillclass: 'LIGHT'
-  speed: '0:1000'
-  acceleration: '0:0'
-  location: '0:-1400'
-  spawn_relative_to_target: 'true:false'
-  target_range: 10000
-  y_relative_to_ground: true
-  idle_time: 1.2
-  strength: 4
-  damage: '1-4'
-  knockback: 0.4
-  children:
-    arrowrain_single_first:
-      idle_time: 0
-
 arrow_weak:
   type: normal
   owner_animation: 'WEAPON'
@@ -108,57 +87,6 @@ arrow_weak:
                       parts:
                       - 'crossbow_normal:0:8:0:30'
                       - 'crossbow_normal:0:-8:0:-30'
-          
-            arrowrain_1:
-              type: mix
-              owner_animation: 'SUMMON_SMALL'
-              range: 1000
-              weapon: ''
-              sound: ''
-              preview: 'arrow.rain'
-              manacost_factor: 1.0
-              parts:
-              - 'arrowrain_single_first'
-              - 'arrowrain_single:-100+200*r:-25+50*r'
-              - 'arrowrain_single:-100+200*r:-25+50*r'
-              - 'arrowrain_single:-100+200*r:-25+50*r'
-              - 'arrowrain_single:-100+200*r:-25+50*r'
-              - 'arrowrain_single:-100+200*r:-25+50*r'
-              children:
-                arrowrain_2:
-                  parts:
-                  - 'arrowrain_single_first'
-                  - 'arrowrain_single:-120+240*r:-25+50*r'
-                  - 'arrowrain_single:-120+240*r:-25+50*r'
-                  - 'arrowrain_single:-120+240*r:-25+50*r'
-                  - 'arrowrain_single:-120+240*r:-25+50*r'
-                  - 'arrowrain_single:-120+240*r:-25+50*r'
-                  - 'arrowrain_single:-120+240*r:-25+50*r'
-                  children:
-                    arrowrain_3:
-                      parts:
-                      - 'arrowrain_single_first'
-                      - 'arrowrain_single:-130+260*r:-25+50*r'
-                      - 'arrowrain_single:-130+260*r:-25+50*r'
-                      - 'arrowrain_single:-130+260*r:-25+50*r'
-                      - 'arrowrain_single:-130+260*r:-25+50*r'
-                      - 'arrowrain_single:-130+260*r:-25+50*r'
-                      - 'arrowrain_single:-130+260*r:-25+50*r'
-                      - 'arrowrain_single:-130+260*r:-25+50*r'
-                      children:
-                        arrowrain_4:
-                          parts:
-                          - 'arrowrain_single_first'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
-                          - 'arrowrain_single:-250+500*r:-25+50*r'
               
             arrow_headshot:
               weapon: 'bow:goldspikes'

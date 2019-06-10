@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars
 
+import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
@@ -19,8 +20,6 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadScreen(): Boolean {
         background.load()
 
-        army = MManaWars.m.getArmyHandler().listArmies().first()
-        army!!.loadAsset()
 
         skill = MManaWars.m.getActionHandler().getAction("arrowrain_single")!!
         skill.loadAsset()

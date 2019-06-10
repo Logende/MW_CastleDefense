@@ -1,0 +1,42 @@
+name: frost
+army:
+  multiplier: 1f
+  units:
+    knife:
+      animation: 'human:l1.frost.1'
+      armor: 'none:none'
+      action: 'knife_frost'
+      cooldown: 2.5
+      health: 0.5
+
+    arrow:
+      animation: 'human:l1.frost.2'
+      armor: 'none:none'
+      action: 'arrow_weak'
+      cooldown: 1.5
+      health: 0.8
+
+    snowball:
+      animation: 'human:l1.frost.3'
+      armor: 'anti_light:none'
+      action: 'snowball_1'
+      cooldown: 2.0
+      health: 1.0
+
+    iceball:
+      animation: 'human:l1.frost.4'
+      armor: 'none:anti_light'
+      action: 'magic_iceball_1'
+      cooldown: 1.5
+      health: 1.2
+
+    boss_snowball:
+      animation: 'human:l1.frost.b1'
+      armor: 'none:none'
+      action: 'snowball_2'
+      cooldown: 1.0
+      health: 1.0
+      boss: true
+
+
+castle: wood_1

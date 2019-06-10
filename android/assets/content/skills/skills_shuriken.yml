@@ -4,7 +4,7 @@ shuriken_basic:
   texture: 'shuriken.basic'
   animation: '1:1:1'
   sound: 'skill.shuriken'
-  skillclass: 'LIGHT'
+  skillclass: 'NORMAL'
   speed: '700:0'
   acceleration: '0:0'
   location: '0:10'

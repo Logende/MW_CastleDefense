@@ -16,6 +16,9 @@ class MAnalysisConstants {
         // avg survival duration during fight
         const val UNIT_AVG_SURVIVAL_DURATION = 10f
 
+        // average probability of a skill of a unit hitting an enemy
+        const val UNIT_AVG_SKILL_HIT_PROBABILITY = 0.2f
+
         val ARMOR_TYPE_SHARES = HashMap<MWArmorType, Float>()
         init {
             ARMOR_TYPE_SHARES[MWArmorType.NONE] = 0.7f

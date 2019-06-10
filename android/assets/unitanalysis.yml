@@ -1,68 +1,68 @@
-human_1:
-  shield:
-    actionValue: 0.0
-    survivalFactor: 2.1463509
-    defensiveStrengthPerSecond: 0.0
-    offensiveStrengthPerSecond: 0.0
-    cost: 8
-  spear:
-    actionValue: 0.8957218
-    survivalFactor: 0.89048404
-    defensiveStrengthPerSecond: 3.3333335
-    offensiveStrengthPerSecond: 3.3333335
-    cost: 5
-  rider:
-    actionValue: 2.8500001
-    survivalFactor: 1.3187821
-    defensiveStrengthPerSecond: 10.666667
-    offensiveStrengthPerSecond: 10.666667
-    cost: 25
-  arrow:
-    actionValue: 1.4227598
-    survivalFactor: 1.1728929
-    defensiveStrengthPerSecond: 3.8888888
-    offensiveStrengthPerSecond: 3.8888888
-    cost: 8
-  mage_ice:
-    actionValue: 1.6260242
-    survivalFactor: 1.3236929
-    defensiveStrengthPerSecond: 4.6666665
-    offensiveStrengthPerSecond: 4.6666665
-    cost: 10
-  mage_fire:
-    actionValue: 3.6773498
-    survivalFactor: 1.3239812
-    defensiveStrengthPerSecond: 6.6666665
-    offensiveStrengthPerSecond: 6.6666665
-    cost: 17
+zombie:
+  boss_fireball:
+    actionValue: 2.021394
+    survivalFactor: 0.93805784
+    defensiveStrengthPerSecond: 4.0
+    offensiveStrengthPerSecond: 4.0
+    cost: 60
   sword:
-    actionValue: 0.945749
-    survivalFactor: 1.2536528
-    defensiveStrengthPerSecond: 3.3333333
-    offensiveStrengthPerSecond: 3.3333333
-    cost: 7
+    actionValue: 1.2609986
+    survivalFactor: 0.97506326
+    defensiveStrengthPerSecond: 4.4444447
+    offensiveStrengthPerSecond: 4.4444447
+    cost: 18
   axe:
-    actionValue: 1.1893282
-    survivalFactor: 1.1439164
+    actionValue: 0.8841788
+    survivalFactor: 0.9521137
+    defensiveStrengthPerSecond: 3.5555556
+    offensiveStrengthPerSecond: 3.5555556
+    cost: 14
+  arrow:
+    actionValue: 0.8536559
+    survivalFactor: 0.8870764
+    defensiveStrengthPerSecond: 2.3333333
+    offensiveStrengthPerSecond: 2.3333333
+    cost: 12
+  boss_arrow:
+    actionValue: 4.28666
+    survivalFactor: 1.1215909
+    defensiveStrengthPerSecond: 10.0
+    offensiveStrengthPerSecond: 10.0
+    cost: 63
+  knife:
+    actionValue: 0.7715581
+    survivalFactor: 0.8972727
+    defensiveStrengthPerSecond: 2.6666667
+    offensiveStrengthPerSecond: 2.6666667
+    cost: 12
+frost:
+  snowball:
+    actionValue: 0.39660636
+    survivalFactor: 0.9513012
+    defensiveStrengthPerSecond: 2.0
+    offensiveStrengthPerSecond: 2.0
+    cost: 14
+  arrow:
+    actionValue: 1.1382079
+    survivalFactor: 0.9108677
+    defensiveStrengthPerSecond: 3.1111112
+    offensiveStrengthPerSecond: 3.1111112
+    cost: 12
+  knife:
+    actionValue: 0.579243
+    survivalFactor: 0.8646446
+    defensiveStrengthPerSecond: 1.6
+    offensiveStrengthPerSecond: 1.6
+    cost: 7
+  iceball:
+    actionValue: 1.0840162
+    survivalFactor: 1.0120752
+    defensiveStrengthPerSecond: 3.1111112
+    offensiveStrengthPerSecond: 3.1111112
+    cost: 18
+  boss_snowball:
+    actionValue: 1.6916484
+    survivalFactor: 0.9054528
     defensiveStrengthPerSecond: 5.3333335
     offensiveStrengthPerSecond: 5.3333335
-    cost: 9
-testarmy:
-  archer:
-    actionValue: 12.175685
-    survivalFactor: 1.9585253
-    defensiveStrengthPerSecond: 10.666667
-    offensiveStrengthPerSecond: 10.666667
-    cost: 101
-  rider:
-    actionValue: 2.8500001
-    survivalFactor: 1.3187821
-    defensiveStrengthPerSecond: 10.666667
-    offensiveStrengthPerSecond: 10.666667
-    cost: 25
-  warrior:
-    actionValue: 6.176949
-    survivalFactor: 1.538579
-    defensiveStrengthPerSecond: 11.666667
-    offensiveStrengthPerSecond: 11.666667
-    cost: 40
+    cost: 57

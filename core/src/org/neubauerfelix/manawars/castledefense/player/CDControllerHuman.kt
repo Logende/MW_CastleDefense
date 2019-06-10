@@ -24,7 +24,7 @@ class CDControllerHuman : ICDController {
         val size = GameConstants.CONTROLPANEL_BUTTON_SIZE
         var x = GameConstants.CONTROLPANEL_BUTTON_BORDER
         var y = GameConstants.WORLD_HEIGHT + (GameConstants.CONTROLPANEL_HEIGHT - size) / 2f
-        for (unit in player.army.units) {
+        for (unit in player.tribe.army.units) {
             val button = CDComponentUnit(x, y, size, size, unit, object: CDComponentUnit.UnitClickListener {
                 override fun clickedUnit(unit: IDataUnit) {
                     if (player.castle.gold >= unit.analysis.cost) {

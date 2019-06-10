@@ -6,9 +6,9 @@ import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
 interface ICDPlayerLiveAnalysis {
 
-    val entities: List<IEntity> // sorted by position: Furthest unit from player castle is first
-    val units: LinkedHashMap<IDataUnit, Int> // unit and their count. Sorted by position: Furthest unit from player castle is first
-    val skills: List<IEntity> // sorted by position: Furthest unit from player castle is first
+    val entities: List<IEntity> // sorted by position: Furthest unit from tribe castle is first
+    val units: LinkedHashMap<IDataUnit, Int> // unit and their count. Sorted by position: Furthest unit from tribe castle is first
+    val skills: List<IEntity> // sorted by position: Furthest unit from tribe castle is first
     val furthestX: Float // x position of furthest unit or castle if no unit is existing +width if on left side
 
     val totalActionValue: Float // sum of action value of all units

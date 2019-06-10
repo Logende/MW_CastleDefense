@@ -13,19 +13,20 @@ interface IDataUnit : IDataPresentable, IAsset {
 
     val name: String
     val displayName: String
+    val boss: Boolean
     val animation: IEntityAnimationProducer
     val armor: Map<MWArmorHolder, MWArmorType>
     val action: IDataAction
-    val actionCooldown: Float
+    var actionCooldown: Float
 
-    val health: Float
-    val stateMultipliers: Map<MWState, MWStateEffectivity>
-    val skillMultipliers: Map<MWSkillClass, Float>
-    val skillDurabilityMultipliers: Map<MWSkillClass, Float>
-    val drainMultiplier: Float
+    var health: Float
+    val stateMultipliers: MutableMap<MWState, MWStateEffectivity>
+    val skillMultipliers: MutableMap<MWSkillClass, Float>
+    val skillDurabilityMultipliers: MutableMap<MWSkillClass, Float>
+    var drainMultiplier: Float
 
-    val walkSpeedMax: Float
-    val walkAcceleration: Float
+    var walkSpeedMax: Float
+    var walkAcceleration: Float
 
     val analysis: IUnitAnalysis
 

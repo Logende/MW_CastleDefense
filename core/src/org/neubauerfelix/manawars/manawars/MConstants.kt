@@ -30,17 +30,17 @@ class MConstants {
         const val TEAM_ALONE = -1
 
         /**
-         * Team of the player.
+         * Team of the tribe.
          */
         const val TEAM_PLAYER = 1
 
         /**
-         * Team of all regular bots and against the player.
+         * Team of all regular bots and against the tribe.
          */
         const val TEAM_BOT = 8
 
         /**
-         * Team of bots. Allied with other bots and only attacks the player if attacked by the player.
+         * Team of bots. Allied with other bots and only attacks the tribe if attacked by the tribe.
          */
         const val TEAM_BOT_NEUTRAL = 9
 
@@ -100,16 +100,11 @@ class MConstants {
         const val SKILL_ANALYSIS_FILE_NAME = "skillanalysis.yml"
 
         // units
-        const val UNIT_AVG_HEALTH = 20f
         const val UNIT_AVG_ACTION_COOLDOWN = 1.5f
         const val UNIT_ANALYSIS_FILE_NAME = "unitanalysis.yml"
         const val UNIT_AVG_WALK_SPEED_MAX = 300f
         const val UNIT_AVG_WALK_ACC = 400f
 
-        // castle
-        const val CASTLE_AVG_HEALTH = 200f
-        const val CASTLE_AVG_GOLD_START = 10f
-        const val CASTLE_AVG_GOLD_PER_CHARGE = 5f
 
 
 

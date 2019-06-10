@@ -5,7 +5,7 @@ axe_basic:
   animation: '1:1:1'
   sound: 'skill.throw'
   skillclass: 'NORMAL'
-  speed: '200:-700'
+  speed: '300:-700'
   acceleration: '0:60*A'
   strength: 8
   damage: '5-6'
@@ -15,14 +15,14 @@ axe_basic:
     #Brutal
     axe_brutal_1:
       texture: 'axe.brutal.1'
-      speed: '250:-700'
+      speed: '350:-700'
       strength: 12
       damage: '5-9'
       children:
       
         axe_brutal_2:
           texture: 'axe.brutal.2'
-          speed: '350:-700'
+          speed: '400:-700'
           strength: 18
           damage: '5-14'
           
@@ -146,7 +146,7 @@ axe_basic:
     # Human
     axe_human:
       texture: 'axe.human'
-      speed: '250:-600'
+      speed: '350:-600'
       acceleration: '0:70*A'
       strength: 10
       damage: '6-8'
@@ -161,7 +161,7 @@ axe_basic:
           
             axe_human_fire_strong:
               texture: 'axe.human.fire.strong'
-              speed: '300:-600'
+              speed: '400:-600'
               acceleration: '0:50*A'
               strength: 20
               damage: '10-14'

@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
+import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
@@ -8,10 +9,11 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataUnitLoaded(override val name: String, config: Configuration) : DataUnit() {
+class DataUnitLoaded(override val name: String, config: Configuration, val league: IDataLeague) : DataUnit() {
 
 
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("unit_${name}_name")
+    override val boss: Boolean = config.getBoolean("boss")
 
 
     override val animation: IEntityAnimationProducer
@@ -78,14 +80,16 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
 
 
     override val action: IDataAction = MManaWars.m.getActionHandler().getAction(config.getString("action"))!!
-    override val health: Float = config.getFloat("health") * MConstants.UNIT_AVG_HEALTH
-    override val actionCooldown: Float = config.getFloat("cooldown") * MConstants.UNIT_AVG_ACTION_COOLDOWN
-    override val stateMultipliers: Map<MWState, MWStateEffectivity> = hashMapOf()
-    override val skillMultipliers: Map<MWSkillClass, Float> = hashMapOf()
-    override val skillDurabilityMultipliers: Map<MWSkillClass, Float> = hashMapOf()
-    override val drainMultiplier: Float = config.getFloat("drain")
+    override var health: Float = config.getFloat("health") *
+            if (boss) league.bossHealthAvg else league.unitHealthAvg
 
-    override val walkSpeedMax: Float = if (config.contains("walkSpeedMax")) {
+    override var actionCooldown: Float = config.getFloat("cooldown") * MConstants.UNIT_AVG_ACTION_COOLDOWN
+    override val stateMultipliers: MutableMap<MWState, MWStateEffectivity> = hashMapOf()
+    override val skillMultipliers: MutableMap<MWSkillClass, Float> = hashMapOf()
+    override val skillDurabilityMultipliers: MutableMap<MWSkillClass, Float> = hashMapOf()
+    override var drainMultiplier: Float = config.getFloat("drain")
+
+    override var walkSpeedMax: Float = if (config.contains("walkSpeedMax")) {
         config.getFloat("walkSpeedMax", 1f) * MConstants.UNIT_AVG_WALK_SPEED_MAX
     } else {
         if (animation.animationType == MWEntityAnimationType.RIDER) {
@@ -95,7 +99,7 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
         }
     }
 
-    override val walkAcceleration: Float = if (config.contains("walkAcceleration")) {
+    override var walkAcceleration: Float = if (config.contains("walkAcceleration")) {
         config.getFloat("walkAcceleration", 1f) * MConstants.UNIT_AVG_WALK_ACC
     } else {
         if (animation.animationType == MWEntityAnimationType.RIDER) {
@@ -110,6 +114,6 @@ class DataUnitLoaded(override val name: String, config: Configuration) : DataUni
 
 
     fun analyseUnit() {
-        this.analysis = MManaWars.m.getUnitAnalysisHandler().analyse(this)
+        this.analysis = MManaWars.m.getUnitAnalysisHandler().analyse(this, league)
     }
 }

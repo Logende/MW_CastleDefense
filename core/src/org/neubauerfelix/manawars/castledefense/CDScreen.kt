@@ -29,11 +29,12 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         val background = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", 0f, true, getGame().getAssetLoader())
         val background2 = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", GameConstants.BACKGROUND_WIDTH*1, true, getGame().getAssetLoader())
         val background3 = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", GameConstants.BACKGROUND_WIDTH*2, true, getGame().getAssetLoader())
-        val army = MManaWars.m.getArmyHandler().getArmy("human_1")!!
+        val army1 = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.getTribe("frost")!!
+        val army2 = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.getTribe("zombie")!!
         val controllerA = CDControllerHuman()
         val controllerB = CDControllerBot()
-        val playerA = CDPlayer(army, controllerA, MConstants.TEAM_PLAYER)
-        val playerB = CDPlayer(army, controllerB, MConstants.TEAM_BOT)
+        val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
+        val playerB = CDPlayer(army2, controllerB, MConstants.TEAM_BOT)
         controllerA.player = playerA
         controllerB.player = playerB
         playerA.enemy = playerB

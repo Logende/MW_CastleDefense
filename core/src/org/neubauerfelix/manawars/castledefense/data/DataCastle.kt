@@ -3,7 +3,7 @@ package org.neubauerfelix.manawars.castledefense.data
 import org.neubauerfelix.manawars.manawars.MManaWars
 
 
-abstract class DataCastle() : IDataCastle {
+abstract class DataCastle : IDataCastle {
 
     override fun loadAsset() {
         MManaWars.m.getAssetLoader().loadTexture(textureName)

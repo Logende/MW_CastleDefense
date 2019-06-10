@@ -1,8 +1,6 @@
 package org.neubauerfelix.manawars.manawars
 
 import org.neubauerfelix.manawars.castledefense.CDScreen
-import org.neubauerfelix.manawars.castledefense.handlers.ArmyHandler
-import org.neubauerfelix.manawars.castledefense.handlers.IArmyHandler
 import org.neubauerfelix.manawars.game.GameManaWars
 import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysisHandler
 import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysisHandler
@@ -40,7 +38,6 @@ open class MManaWars: GameManaWars() {
         loadHandler(CollisionHandler())
         loadHandler(UnitHandler())
         loadHandler(UnitAnalysisHandler())
-        loadHandler(ArmyHandler())
         loadHandler(CharacterBarHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
@@ -105,10 +102,6 @@ open class MManaWars: GameManaWars() {
 
     fun getUnitAnalysisHandler(): IUnitAnalysisHandler {
         return getHandler(UnitAnalysisHandler::class.java)
-    }
-
-    fun getArmyHandler(): IArmyHandler {
-        return getHandler(ArmyHandler::class.java)
     }
 
     fun getCollisionHandler(): ICollisionHandler {

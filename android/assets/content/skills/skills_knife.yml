@@ -3,7 +3,7 @@ knife_basic:
   texture: 'knife.basic'
   animation: '1:1:1'
   sound: 'skill.knife.weak'
-  skillclass: 'LIGHT'
+  skillclass: 'NORMAL'
   speed: '600:0'
   acceleration: '40*A:0'
   strength: 4
@@ -92,7 +92,6 @@ knife_basic:
         sword_mighty:
           texture: 'sword.mighty'
           sound: 'skill.wind'
-          skillclass: 'NORMAL'
           location: '0:10'
           speed: '-600:0'
           acceleration: '120*A:0'
@@ -118,7 +117,6 @@ knife_basic:
         sword_mighty_gold:
           texture: 'sword.mighty.gold'
           sound: 'skill.wind'
-          skillclass: 'NORMAL'
           location: '0:-10'
           speed: '-600:0'
           acceleration: '120*A:0'

@@ -20,24 +20,31 @@ class DataUnitDummy : IDataUnit {
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override val action: IDataAction
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val actionCooldown: Float
+    override var actionCooldown: Float
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val health: Float
+        set(value) {}
+    override var health: Float
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val stateMultipliers: Map<MWState, MWStateEffectivity>
+        set(value) {}
+    override val stateMultipliers: MutableMap<MWState, MWStateEffectivity>
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val skillMultipliers: Map<MWSkillClass, Float>
+    override val skillMultipliers: MutableMap<MWSkillClass, Float>
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val skillDurabilityMultipliers: Map<MWSkillClass, Float>
+    override val skillDurabilityMultipliers: MutableMap<MWSkillClass, Float>
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val drainMultiplier: Float
+    override var drainMultiplier: Float
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        set(value) {}
+    override var walkSpeedMax: Float
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        set(value) {}
+    override var walkAcceleration: Float
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        set(value) {}
     override val analysis: IUnitAnalysis
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
-    override val walkSpeedMax: Float
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val walkAcceleration: Float
+    override val boss: Boolean
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
     override fun produce(x: Float, y: Float, controller: IController, team: Int): IControlled {

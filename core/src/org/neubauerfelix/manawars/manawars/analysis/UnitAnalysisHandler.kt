@@ -1,10 +1,10 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
+import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitLoaded
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
-import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimationProducerHuman
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.ConfigurationProvider
@@ -52,12 +52,10 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
     }
 
 
-    override fun analyse(data: IDataUnit): IUnitAnalysis {
+    override fun analyse(data: IDataUnit, league: IDataLeague): IUnitAnalysis {
         val actionAnalysis = data.action.getActionProperties(data.animation.animationType)
         val animation = data.animation
 
-
-        val survivalFactorHealth = 1.0f + (data.health - MConstants.UNIT_AVG_HEALTH) / 400.0f
 
         // Calculates the average damage factor for every armor and multiplies the factors
         // Avg damage factors of armor are calculated via share and effectivity of every skillclass
@@ -68,25 +66,26 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
             }.sum()
             avgDamageFactor * MAnalysisConstants.ARMOR_HOLDER_HIT_SHARES[animation.animationType]!!.get(armorHolder)!!
         }.sum()
-
         val survivalFactorRange = 0.755f + actionAnalysis.rangeMaxAvg / 3401f
+        val defensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.defensiveStrength / data.actionCooldown)
+        val survivalFactorStrength = 0.8f + defensiveStrengthPerSecond * 0.03f
+        val survivalFactor = survivalFactorArmor * survivalFactorRange * survivalFactorStrength
 
+        val attackFactorDuration = MAnalysisConstants.UNIT_AVG_SURVIVAL_DURATION *
+                MAnalysisConstants.UNIT_AVG_SKILL_HIT_PROBABILITY
+        val offensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.offensiveStrength / data.actionCooldown)
+        val attackFactorStrength = 0.8f + offensiveStrengthPerSecond * 0.03f
+        val attackFactor = attackFactorDuration * attackFactorStrength
 
-        val survivalFactor = survivalFactorHealth * survivalFactorArmor * survivalFactorRange
 
 
         // 1 action value = 1 damage per second
         val actionValue: Float = actionAnalysis.strategicValue * actionAnalysis.successProbability / data.actionCooldown
-        val defensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.defensiveStrength / data.actionCooldown)
-        val offensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.offensiveStrength / data.actionCooldown)
 
+        // cost = healthOfUnit * survivalFactor + damage * attack factor
+        val cost = survivalFactor * data.health + actionValue * attackFactor
 
-        val cost = survivalFactor * (actionValue * 2.0
-                + offensiveStrengthPerSecond * 0.35f
-                + defensiveStrengthPerSecond * 0.35f
-                + data.health / MAnalysisConstants.UNIT_AVG_SURVIVAL_DURATION)
-
-
+        println("Generated cost of unit ${data.name}: $cost with survF $survivalFactor, health ${data.health}, aV $actionValue aF $attackFactor")
 
         return object : AUnitAnalysis() {
             override val actionValue: Float = actionValue

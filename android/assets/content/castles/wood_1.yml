@@ -1,0 +1,6 @@
+name: wood_1
+texture: 'castle_wood_1'
+spawn_offset: '0:0'
+goldStart: 0.5
+goldPerCharge: 0.5
+health: 0.5

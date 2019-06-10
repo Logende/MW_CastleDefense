@@ -23,3 +23,37 @@ misc_bomb:
       manacost: 100
       spawn_on_impact: 'misc_explosion_big'
 
+snowball_1:
+  owner_animation: 'THROW'
+  texture: 'magic.snowball.normal'
+  animation: '1:1:1'
+  sound: 'skill.knife.weak'
+  skillclass: 'NORMAL'
+  speed: '700:-200'
+  acceleration: '0:40*A'
+  location: '0:-30'
+  strength: 6
+  damage: '2-4'
+  knockback: 0.6
+  children:
+    snowball_2:
+      speed: '800:-100'
+      acceleration: '0:32*A'
+      strength: 8
+      damage: '2-9'
+      children:
+        snowball_3:
+          texture: 'magic.snowball.strong'
+          speed: '900:-200'
+          acceleration: '0:55*A'
+          strength: 14
+          damage: '8-13'
+          knockback: 1.1
+          children:
+            snowball_4:
+              texture: 'magic.snowball.strong.ice'
+              speed: '1000:-200'
+              acceleration: '0:55*A'
+              strength: 20
+              damage: '12-17'
+              knockback: 1.1

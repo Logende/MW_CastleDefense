@@ -23,8 +23,11 @@ class ActionHandler: IActionHandler, ILoadableContent {
         actions[action.name] = action
     }
 
-    override fun getAction(name: String): IDataAction? {
-        return actions[name]
+    override fun getAction(name: String): IDataAction {
+        if (!actions.containsKey(name)) {
+            throw RuntimeException("Action '$name' not found.")
+        }
+        return actions[name]!!
     }
 
     override fun getParent(action: IDataAction): IDataAction? {

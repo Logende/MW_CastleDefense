@@ -22,7 +22,7 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolde
             arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY),
             arrayListOf(0.5f, 0.5f)) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
-            val skinName = "dwarf.1.1"
+            val skinName = "l1.zombie.1"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
@@ -39,7 +39,7 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolde
             arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY, MWArmorHolder.SHIELD),
             arrayListOf(0.5f, 0.5f, 0f)) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
-            val skinName = "human.shieldman.1.1"
+            val skinName = "dummy.shield"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
@@ -76,7 +76,7 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolde
             arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY, MWArmorHolder.MOUNT),
             arrayListOf(0.27f, 0.25f, 0.48f)) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
-            val skinName = "dwarf.1.1"
+            val skinName = "l1.zombie.1"
             val skinNameMount = "lion"
             val animationProducerRider = IEntityAnimationProducer.createProducerRider(skinNameMount, skinName)
             val controller = ControllerDummy()

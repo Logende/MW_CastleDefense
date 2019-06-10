@@ -95,19 +95,23 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
 
     init {
         properties = HashMap()
+
+
         MWEntityAnimationType.values().forEach { type ->
+
+            val rangeMaxAvg = parts.map { it.action.getActionProperties(type).rangeMaxAvg }.min()!!
+            val strategicValue = parts.map { it.action.getActionProperties(type).strategicValue }.average()
+            val successProbability = parts.map { it.action.getActionProperties(type).successProbability }.sum() * 0.8f
+            val defensiveStrength = parts.map { it.action.getActionProperties(type).defensiveStrength }.sum()
+            val offensiveStrength = parts.map { it.action.getActionProperties(type).offensiveStrength }.sum()
+
             properties[type] = object : IDataActionProperties {
 
-                override val rangeMaxAvg: Float
-                    get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-                override val strategicValue: Float
-                    get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-                override val successProbability: Float
-                    get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-                override val defensiveStrength: Float
-                    get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-                override val offensiveStrength: Float
-                    get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+                override val rangeMaxAvg: Float = rangeMaxAvg
+                override val strategicValue: Float = strategicValue.toFloat()
+                override val successProbability: Float = successProbability
+                override val defensiveStrength: Float = defensiveStrength
+                override val offensiveStrength: Float = offensiveStrength
                 override val rangeMax: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMax
                 override val rangeMin: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMin // TODO
             }

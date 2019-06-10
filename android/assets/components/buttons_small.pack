@@ -1368,7 +1368,7 @@ toggle.castledefense
   orig: 100, 100
   offset: 0, 0
   index: -1
-toggle.player
+toggle.tribe
   rotate: false
   xy: 1531, 1539
   size: 100, 100

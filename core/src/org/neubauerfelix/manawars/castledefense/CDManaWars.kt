@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.analysis.ArmyAnalysisHandler
 import org.neubauerfelix.manawars.castledefense.analysis.IArmyAnalysisHandler
+import org.neubauerfelix.manawars.castledefense.handlers.*
 import org.neubauerfelix.manawars.manawars.MManaWars
 
 class CDManaWars : MManaWars() {
@@ -14,13 +15,18 @@ class CDManaWars : MManaWars() {
         CDManaWars.cd = this
     }
 
-    override fun load() {
-        super.load()
-        this.loadHandler(ArmyAnalysisHandler())
+    override fun loadGame() {
+        super.loadGame()
+        loadHandler(LeagueHandler())
+        loadHandler(ArmyAnalysisHandler())
     }
 
     fun getArmyAnalysisHandler(): IArmyAnalysisHandler {
         return getHandler(ArmyAnalysisHandler::class.java)
+    }
+
+    fun getLeagueHandler(): ILeagueHandler {
+        return getHandler(LeagueHandler::class.java)
     }
 
 }

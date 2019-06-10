@@ -21,7 +21,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
         private const val SIMULATION_MAX_LIFE_DURATION = 10f
         private const val SIMULATION_MAX_STEPS = (SIMULATION_MAX_LIFE_DURATION / SIMULATION_STEP_TIME).toInt()
         private const val SIMULATION_BORDER_BOTTOM = GameConstants.WORLD_HEIGHT + 700f
-        private const val SIMULATION_BORDER_TOP = - 700f
+        private const val SIMULATION_BORDER_TOP = - 1000f
         private const val SIMULATION_BORDER_LEFT = - 700f
         private const val SIMULATION_BORDER_RIGHT = MAX_RANGE + 700
 
@@ -267,6 +267,9 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                             MWCollisionType.SHIELD -> {
                                 collisionsPercentageShield += 1.0
                             }
+
+                            MWCollisionType.NONE, MWCollisionType.CASTLE, MWCollisionType.UNDEFINED, MWCollisionType.PET, MWCollisionType.SKILL -> {
+                            }
                         }
                     }
                     i++
@@ -384,6 +387,9 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
         if (data.skillClass == MWSkillClass.SHIELD) {
             rangeMin = 0f
             rangeMax = 500f
+        }
+        if (data.targetRange > 0) {
+            rangeMax = Math.min(rangeMax, data.targetRange)
         }
 
         return object : ISkillAnalysisPart {

@@ -26,7 +26,7 @@ interface IDataAction : IDataPresentable, IAsset {
 
 
     /**
-     * Returns the action display name shown to the current player (in proper language).
+     * Returns the action display name shown to the current tribe (in proper language).
      * @return action display name.
      */
     val displayName: String
