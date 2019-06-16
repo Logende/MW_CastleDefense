@@ -26,7 +26,7 @@ class DataLeagueLoaded(config: Configuration) : DataLeague() {
         val castleConfigNames = config.getStringList("castles")
         for (castleConfigName in castleConfigNames) {
             val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$castleConfigName", true)
-            castles.add(DataCastleLoaded(handlerConfig))
+            castles.add(DataCastleLoaded(handlerConfig, this))
         }
 
         tribes = ArrayList()

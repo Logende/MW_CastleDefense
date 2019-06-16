@@ -26,7 +26,7 @@ class SkillSetupHandler : ISkillSetupHandler {
     }
 
     override fun findTarget(data: IDataSkill, owner: IActionUser): IEntity? {
-        if (data.targetEnemy) {
+        if (data.model.targetEnemy) {
             if (dummyTarget != null) {
                 return dummyTarget
             }
@@ -34,7 +34,7 @@ class SkillSetupHandler : ISkillSetupHandler {
                 // only pick enemies in the direction the owner is looking to
                 ! ITeamable.isTeamed(owner,e) && e is ILiving
                         && (e.centerHorizontal - owner.centerHorizontal) * owner.direction > 0f
-                        && e.getDistanceHor(owner) < data.targetRange * owner.propertyScale
+                        && e.getDistanceHor(owner) < data.model.targetRange * owner.propertyScale
             }
             if (!entities.isEmpty()) {
                 return entities.sortedBy { e -> e.getDistanceHor(owner) }.first()
@@ -45,33 +45,33 @@ class SkillSetupHandler : ISkillSetupHandler {
 
     override fun setupLocation(skill: IMovable, data: IDataSkill, owner: IActionUser, target: IEntity?) {
         // X
-        if (data.xRelativeToTarget && target != null) {
-            skill.centerHorizontal = target.centerHorizontal + data.xOffset * owner.direction * skill.propertyScale
+        if (data.model.xRelativeToTarget && target != null) {
+            skill.centerHorizontal = target.centerHorizontal + data.model.xOffset * owner.direction * skill.propertyScale
         } else {
             if (owner.direction == 1) {
-                skill.x = owner.right - skill.width/2 + data.xOffset * skill.propertyScale
+                skill.x = owner.right - skill.width/2 + data.model.xOffset * skill.propertyScale
             } else {
-                skill.x = owner.left - skill.width/2 - data.xOffset * skill.propertyScale
+                skill.x = owner.left - skill.width/2 - data.model.xOffset * skill.propertyScale
             }
         }
 
         // Y
-        if (data.yRelativeToTarget && target != null) {
-            skill.centerVertical = target.centerVertical + data.yOffset * skill.propertyScale
-        } else if (data.yRelativeToGround) {
-            skill.top = GameConstants.WORLD_HEIGHT + data.yOffset * skill.propertyScale
+        if (data.model.yRelativeToTarget && target != null) {
+            skill.centerVertical = target.centerVertical + data.model.yOffset * skill.propertyScale
+        } else if (data.model.yRelativeToGround) {
+            skill.top = GameConstants.WORLD_HEIGHT + data.model.yOffset * skill.propertyScale
         } else {
-            skill.centerVertical = owner.centerVertical + data.yOffset * skill.propertyScale
+            skill.centerVertical = owner.centerVertical + data.model.yOffset * skill.propertyScale
         }
     }
 
     override fun setupMovement(skill: IMovable, data: IDataSkill, owner: IActionUser, target: IEntity?) {
-        skill.accelerationX = data.accelerationX * owner.direction
-        skill.accelerationY = data.accelerationY
-        skill.speedX = data.startSpeedX * owner.direction
-        skill.speedY = data.startSpeedY
+        skill.accelerationX = data.model.accelerationX * owner.direction
+        skill.accelerationY = data.model.accelerationY
+        skill.speedX = data.model.startSpeedX * owner.direction
+        skill.speedY = data.model.startSpeedY
 
-        if (data.targetEnemy && data.allowMovementScaling && target != null && target is IAnimated) {
+        if (data.model.targetEnemy && data.model.allowMovementScaling && target != null && target is IAnimated) {
             val rangeMin = data.getActionProperties(owner.entityAnimationType).rangeMin.getValue(target.entityAnimationType)
             val rangeMax = data.getActionProperties(owner.entityAnimationType).rangeMax.getValue(target.entityAnimationType)
             val defaultRange = rangeMin + (rangeMax - rangeMin) / 2

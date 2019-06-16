@@ -127,7 +127,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
                 override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
                 override val rangeMaxAvg: Float = rangeMaxAvg
-                override val skillClass: MWSkillClass = data.skillClass
+                override val skillClass: MWSkillClass = data.model.skillClass
             }
         }
         return map
@@ -169,7 +169,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             range.toFloat()
         }.min()!! // UPDATED: Replaced avg. by min value
 
-        val offensiveStrength: Float = if (data.skillClass == MWSkillClass.SHIELD) 0f else tacticalStrength.toFloat()
+        val offensiveStrength: Float = if (data.model.skillClass == MWSkillClass.SHIELD) 0f else tacticalStrength.toFloat()
 
         return object : ISkillAnalysis {
             override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
@@ -183,14 +183,14 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             override val offensiveStrength: Float = offensiveStrength
             override val defensiveStrength: Float = tacticalStrength.toFloat()
             override val collisionsPercentages = collisionsPercentages
-            override val skillClass: MWSkillClass = data.skillClass
+            override val skillClass: MWSkillClass = data.model.skillClass
         }
     }
 
 
 
     private fun analyse(data: IDataSkill, entityAnimationType: MWEntityAnimationType, targetAnimationType: MWEntityAnimationType): ISkillAnalysisPart {
-        require(data.loaded)
+        require(data.model.loaded)
 
         // Average speed values
         var speedXAvg = 0f
@@ -215,26 +215,26 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
 
         // If has target speed: Assign dummy target to test range of skill
-        if (data.targetSpeedX != 0f || data.targetSpeedY != 0f) {
+        if (data.model.targetSpeedX != 0f || data.model.targetSpeedY != 0f) {
             MManaWars.m.getSkillSetupHandler().setDummyTarget(targetFarAway)
         }
 
         val skill = MSkill(data, owner)
         MManaWars.m.getSkillSetupHandler().setDummyTarget(null)
 
-        if (data.yRelativeToTarget) {
+        if (data.model.yRelativeToTarget) {
             throw RuntimeException("MSkill property yRelativeToTarget not supported yet.")
         }
 
 
-        if (data.xRelativeToTarget) {
+        if (data.model.xRelativeToTarget) {
             target.x = 800f
             target.doLogic(0f)
-            if (data.targetSpeedX != 0f || data.targetSpeedY != 0f) {
+            if (data.model.targetSpeedX != 0f || data.model.targetSpeedY != 0f) {
                 throw RuntimeException("MSkill property xRelativeToTarget combined with target speed is not supported yet.")
             }
 
-            skill.centerHorizontal = target.centerHorizontal + data.xOffset * owner.direction * skill.propertyScale
+            skill.centerHorizontal = target.centerHorizontal + data.model.xOffset * owner.direction * skill.propertyScale
 
             var i = 0
             while (true) { // Simulate skill movement
@@ -279,8 +279,8 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 speedXAvg += skill.speedX
             }
             rangeMin = 0f
-            rangeMax = data.targetRange
-            distanceMax = data.targetRange
+            rangeMax = data.model.targetRange
+            distanceMax = data.model.targetRange
 
         } else {
             var collisionsHumanHead = 0
@@ -289,7 +289,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             var collisionsMount = 0
             var collisionsOther = 0
             var collisionsNone = 0
-            var startDistanceTimer = if (data.startSpeedX > 0f) 0 else -1 // iteration step index on which skill starts moving to right
+            var startDistanceTimer = if (data.model.startSpeedX > 0f) 0 else -1 // iteration step index on which skill starts moving to right
 
 
             var i = 0
@@ -352,44 +352,44 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
 
 
-        val hitProbability: Float = if (data.xRelativeToTarget) {
+        val hitProbability: Float = if (data.model.xRelativeToTarget) {
             Math.max(1f, (skill.width / target.width)) * 0.9f // if skill size is as big as multiple entities: increase hit probability
         } else {
             val rangeFactor = 0.41f + rangeMax / 4000.0f // linear; results in 0.8 for 400 range and 0.9 for 2000 range
             val speedFactor = 0.784f + distanceInSecond / 3817.0f // linear; results in 0.8 for 100 and 1.2 for 1600
             val sizeFactor = 1.0f // TODO ?
-            val strengthFactor = 0.47f + data.skillStrength / 22.0f
+            val strengthFactor = 0.47f + data.effect.skillStrength / 22.0f
             rangeFactor * sizeFactor * speedFactor * strengthFactor
         }
 
         // Attack Score
-        val tacticalDamageDamage = data.damageMin + (data.damageMax - data.damageMin) / 2f
+        val tacticalDamageDamage = data.effect.damageMin + (data.effect.damageMax - data.effect.damageMin) / 2f
         val damageSkillClassFactor = MWArmorType.values().map { t ->
-            MAnalysisConstants.ARMOR_TYPE_SHARES[t]!! * t.getSkillEffectivity(data.skillClass).damageFactor
+            MAnalysisConstants.ARMOR_TYPE_SHARES[t]!! * t.getSkillEffectivity(data.model.skillClass).damageFactor
         }.sum()
 
 
-        val tacticalDamageEffect: Float = if (data.stateEffect == null) {
+        val tacticalDamageEffect: Float = if (data.effect.stateEffect == null) {
             0f
         } else {
-            data.stateEffect!!.tacticalDamage * data.stateEffectDuration
+            data.effect.stateEffect!!.tacticalDamage * data.effect.stateEffectDuration
         }
 
 
         val tacticalDamage = tacticalDamageDamage * damageSkillClassFactor + tacticalDamageEffect * TACTICAL_DAMAGE_FACTOR_STATEFFECT
-        // + speedXHitAvg * data.knockbackFactor / 20.0
-        val tacticalStrength: Float = data.skillStrength.toFloat() *
-                ( if (data.xRelativeToTarget) TACTICAL_STRENGTH_FACTOR_VERTICAL_SKILL else 1f)
+        // + speedXHitAvg * data.effect.knockbackFactor / 20.0
+        val tacticalStrength: Float = data.effect.skillStrength.toFloat() *
+                ( if (data.model.xRelativeToTarget) TACTICAL_STRENGTH_FACTOR_VERTICAL_SKILL else 1f)
 
         //System.out.println("entity $entityAnimationType target $targetAnimationType skill ${data.name}  hit probability $successProbability with tactical damage $strategicValue")
         // TODO: If has "spawn_on_impact" then consider the properties of the connected action
 
-        if (data.skillClass == MWSkillClass.SHIELD) {
+        if (data.model.skillClass == MWSkillClass.SHIELD) {
             rangeMin = 0f
             rangeMax = 500f
         }
-        if (data.targetRange > 0) {
-            rangeMax = Math.min(rangeMax, data.targetRange)
+        if (data.model.targetRange > 0) {
+            rangeMax = Math.min(rangeMax, data.model.targetRange)
         }
 
         return object : ISkillAnalysisPart {

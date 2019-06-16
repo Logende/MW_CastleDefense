@@ -7,13 +7,15 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.game.entities.IMovable
+import org.neubauerfelix.manawars.manawars.data.actions.IDataSkillEffect
 import org.neubauerfelix.manawars.manawars.enums.*
 
 
 
 
-class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale,
-        data.color, data.animationRotationDuration * o.direction, Animation.PlayMode.LOOP), IOwned {
+class MSkill(val data: IDataSkill, val o: IActionUser) :
+        MEntityAnimationSimple(data.model.animation!!, data.model.textureScale, data.model.color,
+                data.model.animationRotationDuration * o.direction, Animation.PlayMode.LOOP), IOwned {
 
     override var owner: IEntity = o
 
@@ -38,9 +40,9 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
 
     init {
         // Set up basic values
-        health = data.skillStrength
+        health = data.effect.skillStrength
         direction = o.direction // * (if (data.startSpeedX >= 0) 1 else -1)
-        idleTimeLeft = data.idleTime
+        idleTimeLeft = data.model.idleTime
         lifeTimeLeft = data.lifeTime
 
         target = MManaWars.m.getSkillSetupHandler().findTarget( data, o)
@@ -49,7 +51,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
             MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
         }
 
-        if (data.pickOneFrame) {
+        if (data.model.pickOneFrame) {
             this.setDrawRandomImageOnly()
         }
 
@@ -71,18 +73,18 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         } else {
             // Not Idle -> active
 
-            if (data.stopOnGround && this.bottom > GameConstants.WORLD_HEIGHT) { // Stop moving when hitting ground
+            if (data.model.stopOnGround && this.bottom > GameConstants.WORLD_HEIGHT) { // Stop moving when hitting ground
                 this.speedY = 0f
                 this.accelerationY = 0f
                 this.bottom = GameConstants.WORLD_HEIGHT
             }
 
-            if (data.targetEnemy && target != null) {
-                if (data.targetSpeedX != 0f) {
-                    this.speedX = if (target.centerHorizontal > this.centerHorizontal) data.targetSpeedX else -data.targetSpeedX
+            if (data.model.targetEnemy && target != null) {
+                if (data.model.targetSpeedX != 0f) {
+                    this.speedX = if (target.centerHorizontal > this.centerHorizontal) data.model.targetSpeedX else -data.model.targetSpeedX
                 }
-                if (data.targetSpeedY != 0f) {
-                    this.speedY = if (target.centerVertical > this.centerVertical) data.targetSpeedY else -data.targetSpeedY
+                if (data.model.targetSpeedY != 0f) {
+                    this.speedY = if (target.centerVertical > this.centerVertical) data.model.targetSpeedY else -data.model.targetSpeedY
                 }
             }
 
@@ -106,7 +108,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
 
         var damageFactor = 1f
         if (e is IUpgraded) {
-            damageFactor *= e.getArmor(collisionType).getSkillEffectivity(data.skillClass).damageFactor
+            damageFactor *= e.getArmor(collisionType).getSkillEffectivity(data.model.skillClass).damageFactor
 
             if (damageFactor == 0f) { //If entity is immune to skill type
                 knockbackSkill(e, MWSkillKnockbackReason.ARMOR)
@@ -115,11 +117,11 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         }
 
         if (o is IUpgraded) {
-            damageFactor += o.getSkillMultiplier(data.skillClass)
+            damageFactor += o.getSkillMultiplier(data.model.skillClass)
         }
 
         if (e.invincible) {
-            if (data.skillClass !== MWSkillClass.SHIELD) {
+            if (data.model.skillClass !== MWSkillClass.SHIELD) {
                 knockbackSkill(e, MWSkillKnockbackReason.INVINCIBLE)
             }
             return
@@ -128,21 +130,21 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
 
         // Knockback
         if (e is IJumpable) {
-            val knockbackFactor = Math.pow(damageFactor.toDouble(), 0.3).toFloat() * data.knockbackFactor * this.propertyScale
+            val knockbackFactor = Math.pow(damageFactor.toDouble(), 0.3).toFloat() * data.effect.knockbackFactor * this.propertyScale
             val knockbackX = Math.abs(speedX / 3) + 60
             val knockbackY = Math.abs(Math.max(speedY, speedX / 3)) + 50
             e.knockback(knockbackX * knockbackFactor, knockbackY * Math.abs(knockbackFactor), direction)
         }
 
         // Damage
-        val damage = ((Math.random() * (data.damageMax - data.damageMin) + data.damageMin) * this.propertyScale).toFloat()
+        val damage = ((Math.random() * (data.effect.damageMax - data.effect.damageMin) + data.effect.damageMin) * this.propertyScale).toFloat()
         val killed = e.damage(damage * damageFactor, this, MWDamageCause.SKILL)
 
         // State effect
         if (!killed) {
-            if (data.stateEffect != null) {
+            if (data.effect.stateEffect != null) {
                 if (e is IStateable) {
-                    e.setState(data.stateEffect!!, data.stateEffectDuration, this)
+                    e.setState(data.effect.stateEffect!!, data.effect.stateEffectDuration, this)
                 }
             }
         }
