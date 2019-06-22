@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.manawars.data.units.DataUnitUpgrade
 import org.neubauerfelix.manawars.manawars.enums.MWUpgrade
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataCastleLoaded(config: Configuration, league: IDataLeague, multiplier: Float = 1f) : DataCastle() {
+class DataCastleLoaded(config: Configuration, multiplier: Float = 1f) : DataCastle() {
 
 
     override val buildings: IDataBuildings
@@ -27,17 +27,21 @@ class DataCastleLoaded(config: Configuration, league: IDataLeague, multiplier: F
     }
 
 
-    override val goldStart: Int = (league.startGoldAvg* multiplier * config.getFloat("goldStart")).toInt()
+    override val goldStart: Int = ((MConstants.CASTLE_GOLD_START_MIN +
+            (MConstants.CASTLE_GOLD_START_MAX - MConstants.CASTLE_GOLD_START_MIN) * multiplier) *
+            config.getFloat("goldStart")).toInt()
 
 
-    override val goldPerCharge: Int = (league.goldPerSecondAvg * multiplier *
+    override val goldPerCharge: Int = ((MConstants.CASTLE_GOLD_PER_SEC_MIN +
+            (MConstants.CASTLE_GOLD_PER_SEC_MAX - MConstants.CASTLE_GOLD_PER_SEC_MIN) * multiplier) *
             config.getFloat("goldPerCharge") * CDConstants.CASTLEDEFENSE_CASTLE_GOLD_CHARGE_DELAY).toInt()
 
     init {
         this.goldStart
     }
 
-    override val health: Float  = league.castleHealthAvg * multiplier *
+    override val health: Float  = (MConstants.CASTLE_HEALTH_MIN +
+            (MConstants.CASTLE_HEALTH_MAX - MConstants.CASTLE_HEALTH_MIN) * multiplier) *
             config.getFloat("health")
 
 
