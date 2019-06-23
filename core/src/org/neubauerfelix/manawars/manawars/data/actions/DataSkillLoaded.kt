@@ -62,33 +62,6 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
     }
 
 
-    /**
-     * Effect: Knockback, damage, state effect, etc.
-     */
-    override val skillStrength: Int
-    override val damageMin: Int
-    override val damageMax: Int
-    init {
-        val damage = config.getString("damage").split("-")
-        damageMin = damage[0].toInt()
-        damageMax = if (damage.size >=2) { damage[1].toInt() } else { damage[0].toInt() }
-        skillStrength = damageMax
-    }
-    override val stateEffect: MWState?
-    override val stateEffectDuration: Float
-    init {
-        if (!config.getString("effect").isEmpty()) {
-            val effect = config.getString("effect").split(":")
-            stateEffect = MWState.valueOf(effect[0])
-            stateEffectDuration = effect[1].toFloat()
-        } else {
-            stateEffect = null
-            stateEffectDuration = 0f
-        }
-    }
-    override val knockbackFactor: Float = config.getFloat("knockback", 1f)
-    override val spawnOnImpact: String? = if (config.contains("spawn_on_impact")) { config.getString("spawn_on_impact") } else { null }
-
 
     /**
      * Movement: speed, location offset, targets, etc.
@@ -148,6 +121,39 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
     }
 
     override val skillLimit: Int = config.getInt("limit", -1)
+
+
+
+
+    /**
+     * Effect: Knockback, damage, state effect, etc.
+     */
+    override val skillStrength: Int
+    override val damageMin: Int
+    override val damageMax: Int
+    init {
+        val damage = config.getString("damage").split("-")
+        damageMin = damage[0].toInt()
+        damageMax = if (damage.size >=2) { damage[1].toInt() } else { damage[0].toInt() }
+        skillStrength = damageMax * (if (xRelativeToTarget) 20 else 1) // vertical skills like skyfist should have a lot of strength
+    }
+    override val stateEffect: MWState?
+    override val stateEffectDuration: Float
+    init {
+        if (!config.getString("effect").isEmpty()) {
+            val effect = config.getString("effect").split(":")
+            stateEffect = MWState.valueOf(effect[0])
+            stateEffectDuration = effect[1].toFloat()
+        } else {
+            stateEffect = null
+            stateEffectDuration = 0f
+        }
+    }
+    override val knockbackFactor: Float = config.getFloat("knockback", 1f)
+    override val spawnOnImpact: String? = if (config.contains("spawn_on_impact")) { config.getString("spawn_on_impact") } else { null }
+
+
+
 
     /**
      * Classification: Skillclass, range and other properties

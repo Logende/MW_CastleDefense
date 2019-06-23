@@ -2,47 +2,47 @@ name: zombie
 army:
   multiplier: 1f
   units:
-    knife:
+    arrow:
       animation: 'human:l1.zombie.1'
       armor: 'none:none'
-      action: 'knife_basic'
-      cooldown: 1
-      health: 0.9
-
-    arrow:
-      animation: 'human:l1.zombie.2'
-      armor: 'none:none'
       action: 'arrow_weak'
-      cooldown: 2
-      health: 0.9
-
-    axe:
-      animation: 'human:l1.zombie.3'
-      armor: 'anti_light:none'
-      action: 'axe_basic'
       cooldown: 1.5
-      health: 1.0
+      health: 0.5
 
     sword:
-      animation: 'human:l1.zombie.4'
-      armor: 'none:anti_light'
-      action: 'sword_basic'
-      cooldown: 1.5
-      health: 1.2
+      animation: 'human:l1.zombie.2'
+      armor: 'none:none'
+      action: 'sword_orc_1'
+      cooldown: 2.0
+      health: 1.5
 
-    boss_fireball:
+    spear:
+      animation: 'human:l1.zombie.3'
+      armor: 'none:none'
+      action: 'spear_small'
+      cooldown: 2.0
+      health: 1.0
+
+    axe:
+      animation: 'human:l1.zombie.4'
+      armor: 'none:none'
+      action: 'axe_brutal_1'
+      cooldown: 1.0
+      health: 2
+
+    boss_skull:
       animation: 'human:l1.zombie.b1'
       armor: 'none:none'
-      action: 'magic_fireball_1'
+      action: 'magic_skull_2'
       cooldown: 1.0
       health: 1.0
       boss: true
 
-    boss_arrow:
+    boss_boomerang:
       animation: 'human:l1.zombie.b2'
       armor: 'none:none'
-      action: 'arrow_normal'
-      cooldown: 0.6
+      action: 'boomerang_5'
+      cooldown: 2.0
       health: 0.8
       boss: true
 
