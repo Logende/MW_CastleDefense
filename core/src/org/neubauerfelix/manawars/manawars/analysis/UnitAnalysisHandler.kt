@@ -71,21 +71,16 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
         val survivalFactorStrength = 0.8f + defensiveStrengthPerSecond * 0.03f
         val survivalFactor = survivalFactorArmor * survivalFactorRange * survivalFactorStrength
 
-        val attackFactorDuration = MAnalysisConstants.UNIT_AVG_SURVIVAL_DURATION *
-                MAnalysisConstants.UNIT_AVG_SKILL_HIT_PROBABILITY
         val offensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.offensiveStrength / data.actionCooldown)
-        val attackFactorStrength = 0.8f + offensiveStrengthPerSecond * 0.03f
-        val attackFactor = attackFactorDuration * attackFactorStrength
-
 
 
         // 1 action value = 1 damage per second
         val actionValue: Float = actionAnalysis.strategicValue * actionAnalysis.successProbability / data.actionCooldown
 
-        // cost = healthOfUnit * survivalFactor + damage * attack factor
-        val cost = survivalFactor * data.health + actionValue * attackFactor
+        val cost = survivalFactor * data.health +
+                actionValue * 2
 
-        println("Generated cost of unit ${data.name}: $cost with survF $survivalFactor, health ${data.health}, aV $actionValue aF $attackFactor")
+        println("Generated cost of unit ${data.name}: $cost with survF $survivalFactor, health ${data.health}")
 
         return object : AUnitAnalysis() {
             override val actionValue: Float = actionValue

@@ -7,21 +7,18 @@ beast_bite_1:
   speed: '350:0'
   acceleration: '0:0'
   location: '0:-40'
-  strength: 6
-  damage: '3-6'
+  damage: 4
   knockback: 1.0
   children:
     beast_bite_2:
       speed: '400:0'
-      strength: 8
-      damage: '6-9'
+      damage: 6
       children:
         beast_bite_3:
           texture: 'beast.bite.huge'
           speed: '200:0'
           location: '0:-140'
-          strength: 80
-          damage: '12-20'
+          damage: 18
 
 #beast_rock
 beast_rock_1:
@@ -34,90 +31,15 @@ beast_rock_1:
   speed: '300:0'
   acceleration: '10*A:G'
   location: '0:-900'
-  strength: 20
-  damage: '5-8'
+  damage: 7
   knockback: 1.0
   stop_on_ground: true
   children:
     beast_rock_2:
       texture: 'beast.rock.2'
-      strength: 40
-      damage: '8-12'
+      damage: 10
       knockback: 1.0
 
-#slime
-beast_slime_green_single:
-  owner_animation: 'THROW'
-  texture: 'beast.slime.green'
-  animation: '2.0:4:1'
-  preview: ''
-  sound: ''
-  skillclass: 'NORMAL'
-  speed: '600:-100'
-  acceleration: '0:20*A'
-  location: '0:20'
-  strength: 4
-  damage: '1-4'
-  knockback: 0.7
-  children:
-    beast_slime_blue_single:
-      texture: 'beast.slime.blue'
-      strength: 6
-      damage: '4-4'
-      children:
-        beast_slime_purple_single:
-          texture: 'beast.slime.purple'
-          strength: 7
-          damage: '4-7'
-          children:
-            beast_slime_purple_strong_single:
-              strength: 9
-              damage: '6-9'
-
-beast_slime_green_1:
-  type: 'mix'
-  owner_animation: 'THROW'
-  preview: 'beast.slime.green.1'
-  sound: 'skill.throw2'
-  manacost_factor: 1.0
-  parts:
-  - 'beast_slime_green_single:0:-45+90*r:0:-140+150*r'
-  skillclass: 'NORMAL'
-  children:
-    beast_slime_blue_1:
-      preview: 'beast.slime.blue.1'
-      manacost_factor: 1.0
-      parts:
-      - 'beast_slime_blue_single:0:-45+90*r:0:-100+110*r'
-      children:
-        beast_slime_blue_2:
-          preview: 'beast.slime.blue.2'
-          manacost_factor: 0.8
-          parts:
-          - 'beast_slime_blue_single:0:-45+90*r:0:-100+110*r'
-          - 'beast_slime_blue_single:0:-45+90*r:0:-100+110*r'
-          children:
-            beast_slime_purple_2:
-              preview: 'beast.slime.purple.2'
-              manacost_factor: 0.8
-              parts:
-              - 'beast_slime_purple_single:0:-45+90*r:0:-100+110*r'
-              - 'beast_slime_purple_single:0:-45+90*r:0:-100+110*r'
-              children:
-                beast_slime_purple_3:
-                  preview: 'beast.slime.purple.3'
-                  manacost_factor: 0.8
-                  parts:
-                  - 'beast_slime_purple_single:0:-45+90*r:0:-100+110*r'
-                  - 'beast_slime_purple_single:0:-45+90*r:0:-100+110*r'
-                  - 'beast_slime_purple_single:0:-45+90*r:0:-100+110*r'
-                  children:
-                    beast_slime_purple_strong:
-                      preview: 'beast.slime.purple.strong'
-                      manacost_factor: 0.8
-                      parts:
-                      - 'beast_slime_purple_strong_single:0:-45+90*r:0:-150+160*r'
-                      - 'beast_slime_purple_strong_single:0:-45+90*r:0:-150+160*r'
 
 #Waterball                      
 beast_waterball_single:
@@ -130,8 +52,7 @@ beast_waterball_single:
   speed: '550:-100'
   acceleration: '0:20*A'
   location: '0:-50'
-  strength: 9
-  damage: '5-7'
+  damage: 6
   knockback: 0.7
   
 beast_waterball:
@@ -165,21 +86,18 @@ beast_stone_1:
   speed: '300:-600'
   acceleration: '0:60*A'
   location: '0:-70'
-  strength: 5
-  damage: '3-9'
+  damage: 7
   knockback: 1.0
   children:
     beast_stone_2:
       preview: 'beast.stone.2'
       speed: '330:-800'
-      strength: 9
-      damage: '5-12'
+      damage: 9
       children:
         beast_stone_3:
           preview: 'beast.stone.3'
           speed: '450:-800'
-          strength: 12
-          damage: '5-20'
+          damage: 12
           children:
             beast_stones:
               type: 'mix'

@@ -7,35 +7,35 @@ army:
       armor: 'none:none'
       action: 'arrow_weak'
       cooldown: 1.5
-      health: 0.5
+      health: 8
 
     sword:
       animation: 'human:l1.zombie.2'
       armor: 'none:none'
       action: 'sword_orc_1'
       cooldown: 2.0
-      health: 1.5
+      health: 16
 
     spear:
       animation: 'human:l1.zombie.3'
       armor: 'none:none'
       action: 'spear_small'
       cooldown: 2.0
-      health: 1.0
+      health: 16
 
     axe:
       animation: 'human:l1.zombie.4'
       armor: 'none:none'
       action: 'axe_brutal_1'
       cooldown: 1.0
-      health: 2
+      health: 45
 
     boss_skull:
       animation: 'human:l1.zombie.b1'
       armor: 'none:none'
       action: 'magic_skull_2'
       cooldown: 1.0
-      health: 1.0
+      health: 100
       boss: true
 
     boss_boomerang:
@@ -43,7 +43,7 @@ army:
       armor: 'none:none'
       action: 'boomerang_5'
       cooldown: 2.0
-      health: 0.8
+      health: 100
       boss: true
 
 castle: wood_1

@@ -8,37 +8,28 @@ shuriken_basic:
   speed: '700:0'
   acceleration: '0:0'
   location: '0:10'
-  strength: 5
-  damage: '1-5'
+  damage: 3
   knockback: 0.5
   children:
   
     shuriken_strong:
       texture: 'shuriken.strong'
       speed: '750:0'
-      strength: 7
-      damage: '3-7'
+      damage: 5
       children:
       
         shuriken_ice:
           texture: 'shuriken.ice'
           speed: '800:0'
-          strength: 8
-          damage: '4-8'
+          damage: 6
           effect: 'FROZEN:3'
       
         shuriken_poison:
           texture: 'shuriken.poison'
           speed: '800:0'
-          strength: 8
-          damage: '4-8'
+          damage: 6
           effect: 'POISONED:4'
-      
-        shuriken_lucky:
-          texture: 'shuriken.lucky'
-          speed: '800:0'
-          strength: 9
-          damage: '1-16'
+
           
     shuriken_fire:
       texture: 'shuriken.fire'

@@ -12,8 +12,7 @@ misc_bomb:
   acceleration: '0:0'
   offset_x: 0
   offset_y: 0
-  strength: 1
-  damage: '0-8'
+  damage: 8
   knockback: 4.0
   spawn_on_impact: 'misc_explosion_small'
   children:
@@ -23,7 +22,7 @@ misc_bomb:
       manacost: 100
       spawn_on_impact: 'misc_explosion_big'
 
-snowball_1:
+snowball_normal:
   owner_animation: 'THROW'
   texture: 'magic.snowball.normal'
   animation: '1:1:1'
@@ -32,28 +31,20 @@ snowball_1:
   speed: '700:-200'
   acceleration: '0:40*A'
   location: '0:-30'
-  strength: 6
-  damage: '2-4'
+  damage: 3
   knockback: 0.6
   children:
-    snowball_2:
-      speed: '800:-100'
-      acceleration: '0:32*A'
-      strength: 8
-      damage: '2-9'
+    # Used by l1.frost.3
+    snowball_strong:
+      texture: 'magic.snowball.strong'
+      speed: '900:-200'
+      acceleration: '0:55*A'
+      damage: 7
+      knockback: 1.1
       children:
-        snowball_3:
-          texture: 'magic.snowball.strong'
-          speed: '900:-200'
+        snowball_4:
+          texture: 'magic.snowball.strong.ice'
+          speed: '1000:-200'
           acceleration: '0:55*A'
-          strength: 14
-          damage: '8-13'
+          damage: 15
           knockback: 1.1
-          children:
-            snowball_4:
-              texture: 'magic.snowball.strong.ice'
-              speed: '1000:-200'
-              acceleration: '0:55*A'
-              strength: 20
-              damage: '12-17'
-              knockback: 1.1

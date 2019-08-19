@@ -1,3 +1,4 @@
+# Used by l1.zombie.1
 arrow_weak:
   type: normal
   owner_animation: 'WEAPON'
@@ -9,8 +10,7 @@ arrow_weak:
   speed: '1000:0'
   acceleration: '0:5*A'
   offset: '-40:20'
-  strength: 7
-  damage: '3-7'
+  damage: 5
   knockback: 1.0
   children:
   
@@ -19,15 +19,14 @@ arrow_weak:
       texture: 'arrow.normal'
       speed: '1000:-30'
       strength: 9
-      damage: '5-7'
+      damage: 6
       children:
       
         arrow_strong:
           weapon: 'bow:dark'
           texture: 'arrow.strong'
           speed: '1200:-30'
-          strength: 14
-          damage: '7-10'
+          damage: 8
           children:
           
             crossbow_weak:
@@ -36,23 +35,20 @@ arrow_weak:
               preview: 'crossbow.weak'
               speed: '1600:0'
               acceleration: '0:2*A'
-              strength: 14
-              damage: '9-12'
+              damage: 10
               children:
                 crossbow_normal:
                   weapon: 'crossbow:dark'
                   texture: 'crossbowbolt'
                   preview: 'crossbow.normal'
-                  strength: 18
                   location: '10:20'
-                  damage: '12-14'
+                  damage: 13
                   children:
                     crossbow_strong:
                       weapon: 'crossbow:elite'
                       texture: 'crossbowbolt.strong'
                       preview: 'crossbow.strong'
-                      strength: 22
-                      damage: '18-24'
+                      damage: 21
                       children:                      
                         crossbow_strong_double:
                           type: mix
@@ -68,14 +64,12 @@ arrow_weak:
                       weapon: 'crossbow:skull'
                       texture: 'crossbowbolt.poison'
                       preview: 'crossbow.poison'
-                      strength: 16
                       effect: 'POISONED:4'
                       
                     crossbow_curse:
                       weapon: 'crossbow:dark.strong'
                       texture: 'crossbowbolt.curse'
                       preview: 'crossbow.curse'
-                      strength: 16
                       effect: 'SLAGGED:4'
                                         
                     crossbow_normal_double:
@@ -91,38 +85,28 @@ arrow_weak:
             arrow_headshot:
               weapon: 'bow:goldspikes'
               texture: 'arrow.headshot'
-              strength: 15
-              damage: '4-8'
-                            
-        arrow_random:
-          weapon: 'bow:wild'
-          texture: 'arrow.random'
-          speed: '1200:-30'
-          strength: 11
-          damage: '3-16'
-                        
+              damage: 6
+
         arrow_fire:
           weapon: 'bow:red'
           texture: 'arrow.fire'
           speed: '1200:-30'
-          strength: 11
-          damage: '3-9'
+          damage: 6
           effect: 'BURNING:5'
-                    
+
+        # Used by l1.frost.2
         arrow_ice:
           weapon: 'bow:light'
           texture: 'arrow.ice'
           speed: '1200:-30'
-          strength: 11
-          damage: '3-8'
+          damage: 6
           effect: 'FROZEN:3'
                         
         arrow_poison:
           weapon: 'bow:bones'
           texture: 'arrow.poison'
           speed: '1200:-30'
-          strength: 12
-          damage: '4-10'
+          damage: 9
           effect: 'POISONED:4'
                     
       

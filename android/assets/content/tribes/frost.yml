@@ -7,35 +7,35 @@ army:
       armor: 'none:none'
       action: 'magic_icespike_1'
       cooldown: 3
-      health: 0.3
+      health: 8
 
     arrow:
       animation: 'human:l1.frost.2'
       armor: 'none:none'
       action: 'arrow_ice'
       cooldown: 1.5
-      health: 0.5
+      health: 10
 
     snowball:
       animation: 'human:l1.frost.3'
       armor: 'none:none'
       action: 'snowball_strong'
       cooldown: 2.0
-      health: 1.0
+      health: 30
 
     sword:
       animation: 'human:l1.frost.4'
       armor: 'none:none'
       action: 'sword_mighty'
       cooldown: 1.5
-      health: 2.0
+      health: 15
 
     boss_sword:
       animation: 'human:l1.frost.b1'
       armor: 'none:none'
       action: 'sword_mighty_gold'
       cooldown: 1.0
-      health: 1.0
+      health: 100
       boss: true
 
 

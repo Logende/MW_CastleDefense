@@ -128,15 +128,7 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
     /**
      * Effect: Knockback, damage, state effect, etc.
      */
-    override val skillStrength: Int
-    override val damageMin: Int
-    override val damageMax: Int
-    init {
-        val damage = config.getString("damage").split("-")
-        damageMin = damage[0].toInt()
-        damageMax = if (damage.size >=2) { damage[1].toInt() } else { damage[0].toInt() }
-        skillStrength = damageMax * (if (xRelativeToTarget) 20 else 1) // vertical skills like skyfist should have a lot of strength
-    }
+    override val damage: Int =  config.getInt("damage")
     override val stateEffect: MWState?
     override val stateEffectDuration: Float
     init {

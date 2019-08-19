@@ -1,68 +1,68 @@
 zombie:
-  boss_fireball:
-    actionValue: 2.021394
-    survivalFactor: 0.93805784
-    defensiveStrengthPerSecond: 4.0
-    offensiveStrengthPerSecond: 4.0
-    cost: 60
-  sword:
-    actionValue: 1.2609986
-    survivalFactor: 0.97506326
-    defensiveStrengthPerSecond: 4.4444447
-    offensiveStrengthPerSecond: 4.4444447
-    cost: 18
-  axe:
-    actionValue: 0.8841788
-    survivalFactor: 0.9521137
-    defensiveStrengthPerSecond: 3.5555556
-    offensiveStrengthPerSecond: 3.5555556
+  boss_skull:
+    actionValue: 3.039546
+    survivalFactor: 0.978843
+    defensiveStrengthPerSecond: 5.3333335
+    offensiveStrengthPerSecond: 5.3333335
+    cost: 103
+  boss_boomerang:
+    actionValue: 2.313861
+    survivalFactor: 0.87332904
+    defensiveStrengthPerSecond: 4.3333335
+    offensiveStrengthPerSecond: 4.3333335
+    cost: 91
+  spear:
+    actionValue: 0.9359743
+    survivalFactor: 0.80726457
+    defensiveStrengthPerSecond: 2.3333333
+    offensiveStrengthPerSecond: 2.3333333
     cost: 14
-  arrow:
-    actionValue: 0.8536559
+  sword:
+    actionValue: 1.3485266
     survivalFactor: 0.8870764
     defensiveStrengthPerSecond: 2.3333333
     offensiveStrengthPerSecond: 2.3333333
-    cost: 12
-  boss_arrow:
-    actionValue: 4.28666
-    survivalFactor: 1.1215909
-    defensiveStrengthPerSecond: 10.0
-    offensiveStrengthPerSecond: 10.0
-    cost: 63
-  knife:
-    actionValue: 0.7715581
+    cost: 16
+  axe:
+    actionValue: 2.0319757
+    survivalFactor: 0.88089526
+    defensiveStrengthPerSecond: 5.3333335
+    offensiveStrengthPerSecond: 5.3333335
+    cost: 43
+  arrow:
+    actionValue: 1.0069267
+    survivalFactor: 0.88367766
+    defensiveStrengthPerSecond: 2.2222223
+    offensiveStrengthPerSecond: 2.2222223
+    cost: 9
+frost:
+  icespike:
+    actionValue: 0.96000004
+    survivalFactor: 0.85600936
+    defensiveStrengthPerSecond: 0.53333336
+    offensiveStrengthPerSecond: 0.53333336
+    cost: 8
+  boss_sword:
+    actionValue: 6.231968
+    survivalFactor: 1.0400206
+    defensiveStrengthPerSecond: 7.3333335
+    offensiveStrengthPerSecond: 7.3333335
+    cost: 116
+  sword:
+    actionValue: 2.5967863
+    survivalFactor: 0.9244628
+    defensiveStrengthPerSecond: 3.5555556
+    offensiveStrengthPerSecond: 3.5555556
+    cost: 19
+  snowball:
+    actionValue: 1.0503367
+    survivalFactor: 0.8272175
+    defensiveStrengthPerSecond: 2.3333333
+    offensiveStrengthPerSecond: 2.3333333
+    cost: 26
+  arrow:
+    actionValue: 2.2735407
     survivalFactor: 0.8972727
     defensiveStrengthPerSecond: 2.6666667
     offensiveStrengthPerSecond: 2.6666667
-    cost: 12
-frost:
-  snowball:
-    actionValue: 0.39660636
-    survivalFactor: 0.9513012
-    defensiveStrengthPerSecond: 2.0
-    offensiveStrengthPerSecond: 2.0
-    cost: 14
-  arrow:
-    actionValue: 1.1382079
-    survivalFactor: 0.9108677
-    defensiveStrengthPerSecond: 3.1111112
-    offensiveStrengthPerSecond: 3.1111112
-    cost: 12
-  knife:
-    actionValue: 0.579243
-    survivalFactor: 0.8646446
-    defensiveStrengthPerSecond: 1.6
-    offensiveStrengthPerSecond: 1.6
-    cost: 7
-  iceball:
-    actionValue: 1.0840162
-    survivalFactor: 1.0120752
-    defensiveStrengthPerSecond: 3.1111112
-    offensiveStrengthPerSecond: 3.1111112
-    cost: 18
-  boss_snowball:
-    actionValue: 1.6916484
-    survivalFactor: 0.9054528
-    defensiveStrengthPerSecond: 5.3333335
-    offensiveStrengthPerSecond: 5.3333335
-    cost: 57
+    cost: 13

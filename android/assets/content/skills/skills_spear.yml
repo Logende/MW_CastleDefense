@@ -7,23 +7,22 @@ spear_basic:
   speed: '500:-80'
   acceleration: '0:30*A'
   location: '0:-50'
-  strength: 9
-  damage: '5-7'
+  damage: 6
   knockback: 1.6
   children:
+    # Used by l1.zombie.3
     spear_small:
       texture: 'spear.small'
       speed: '600:-90'
       acceleration: '0:25*A'
-      strength: 10
-      damage: '6-8'
+      damage: 7
       children:
+
         spear_normal:
           texture: 'spear.normal'
           speed: '700:-90'
           acceleration: '0:25*A'
-          strength: 12
-          damage: '8-10'
+          damage: 9
           children:              
             spear_fire:
               texture: 'spear.fire'
@@ -37,13 +36,11 @@ spear_basic:
               texture: 'spear.strong'
               speed: '800:-90'
               acceleration: '0:20*A'
-              strength: 15
-              damage: '10-13'
+              damage: 12
               children:
                 spear_god:
                   texture: 'spear.god'
                   speed: '900:-90'
                   acceleration: '0:20*A'
-                  strength: 35
-                  damage: '20-24'
+                  damage: 22
               
