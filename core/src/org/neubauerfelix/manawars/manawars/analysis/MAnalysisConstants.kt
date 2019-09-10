@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
-import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWArmorType
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
@@ -22,36 +21,17 @@ class MAnalysisConstants {
         val ARMOR_TYPE_SHARES = HashMap<MWArmorType, Float>()
         init {
             ARMOR_TYPE_SHARES[MWArmorType.NONE] = 0.7f
-            ARMOR_TYPE_SHARES[MWArmorType.ANTI_LIGHT] = 0.1f
+            ARMOR_TYPE_SHARES[MWArmorType.ANTI_LIGHT] = 0.2f
             ARMOR_TYPE_SHARES[MWArmorType.ANTI_MAGIC] = 0.1f
-            ARMOR_TYPE_SHARES[MWArmorType.SHIELD] = 0.1f
-        }
-        val ARMOR_HOLDER_HIT_SHARES = HashMap<MWEntityAnimationType, HashMap<MWArmorHolder, Float>>()
-        init {
-            val hitSharesHuman = HashMap<MWArmorHolder, Float>()
-            hitSharesHuman[MWArmorHolder.HUMAN_BODY] = 0.6f
-            hitSharesHuman[MWArmorHolder.HUMAN_HEAD] = 0.4f
-            ARMOR_HOLDER_HIT_SHARES[MWEntityAnimationType.HUMAN] = hitSharesHuman
-
-            val hitSharesHumanShield = HashMap<MWArmorHolder, Float>()
-            hitSharesHumanShield[MWArmorHolder.HUMAN_BODY] = 0.05f
-            hitSharesHumanShield[MWArmorHolder.HUMAN_HEAD] = 0.25f
-            hitSharesHumanShield[MWArmorHolder.SHIELD] = 0.7f
-            ARMOR_HOLDER_HIT_SHARES[MWEntityAnimationType.HUMAN_SHIELD] = hitSharesHumanShield
-
-            val hitSharesRider = HashMap<MWArmorHolder, Float>()
-            hitSharesRider[MWArmorHolder.HUMAN_BODY] = 0.2f
-            hitSharesRider[MWArmorHolder.HUMAN_HEAD] = 0.3f
-            hitSharesRider[MWArmorHolder.MOUNT] = 0.5f
-            ARMOR_HOLDER_HIT_SHARES[MWEntityAnimationType.RIDER] = hitSharesRider
+            ARMOR_TYPE_SHARES[MWArmorType.SHIELD] = 0.0f
         }
 
         val ANIMATION_TYPE_SHARES = HashMap<MWEntityAnimationType, Float>()
         init {
-            ANIMATION_TYPE_SHARES[MWEntityAnimationType.HUMAN] = 0.8f
-            ANIMATION_TYPE_SHARES[MWEntityAnimationType.HUMAN_SHIELD] = 0.1f
+            ANIMATION_TYPE_SHARES[MWEntityAnimationType.HUMAN] = 0.85f
+            ANIMATION_TYPE_SHARES[MWEntityAnimationType.HUMAN_SHIELD] = 0.0f
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.MOUNT] = 0f
-            ANIMATION_TYPE_SHARES[MWEntityAnimationType.RIDER] = 0.1f
+            ANIMATION_TYPE_SHARES[MWEntityAnimationType.RIDER] = 0.15f
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.CASTLE] = 0f
         }
 

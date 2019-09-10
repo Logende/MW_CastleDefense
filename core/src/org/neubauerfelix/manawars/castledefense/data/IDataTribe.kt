@@ -10,5 +10,6 @@ interface IDataTribe : IAsset, IDataPresentable {
 
     val castle: IDataCastle // castle of tribe
     val army: IDataArmy // units of tribe
+    val league: IDataLeague
 
 }

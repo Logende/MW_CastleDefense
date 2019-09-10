@@ -46,7 +46,7 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
             override val defensiveStrengthPerSecond: Float = section.getFloat("defensiveStrengthPerSecond")
             override val offensiveStrengthPerSecond: Float = section.getFloat("offensiveStrengthPerSecond")
             override val cost: Int = section.getInt("cost")
-            override val armor: Map<MWArmorHolder, MWArmorType> = data.armor // little shortcut
+            override val armor: MWArmorType = data.armor // little shortcut
         }
 
     }
@@ -59,13 +59,10 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
 
         // Calculates the average damage factor for every armor and multiplies the factors
         // Avg damage factors of armor are calculated via share and effectivity of every skillclass
-        val survivalFactorArmor = 1f / animation.animationType.armorHolders.map { armorHolder ->
-            val armor = if (data.armor.containsKey(armorHolder)) data.armor[armorHolder]!! else MWArmorType.NONE
-            val avgDamageFactor = MWSkillClass.values().map { skillClass ->
-                MAnalysisConstants.SKILL_CLASS_SHARES[skillClass]!! * armor.getSkillEffectivity(skillClass).damageFactor
+        val survivalFactorArmor = 1f / MWSkillClass.values().map { skillClass ->
+                MAnalysisConstants.SKILL_CLASS_SHARES[skillClass]!! * data.armor.getSkillEffectivity(skillClass).damageFactor
             }.sum()
-            avgDamageFactor * MAnalysisConstants.ARMOR_HOLDER_HIT_SHARES[animation.animationType]!!.get(armorHolder)!!
-        }.sum()
+
         val survivalFactorRange = 0.755f + actionAnalysis.rangeMaxAvg / 3401f
         val defensiveStrengthPerSecond: Float = Math.max(0.001f, actionAnalysis.defensiveStrength / data.actionCooldown)
         val survivalFactorStrength = 0.8f + defensiveStrengthPerSecond * 0.03f
@@ -87,7 +84,7 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
             override val survivalFactor: Float = survivalFactor
             override val defensiveStrengthPerSecond: Float = defensiveStrengthPerSecond
             override val offensiveStrengthPerSecond: Float = offensiveStrengthPerSecond
-            override val armor: Map<MWArmorHolder, MWArmorType> = data.armor
+            override val armor: MWArmorType = data.armor
             override val cost: Int = cost.toInt()
 
         }
@@ -102,13 +99,7 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
         // If has skill
         if (actionPropertiesAttacker is ISkillAnalysis) {
             // Check if target has armor
-            actionFactor *= actionPropertiesAttacker.collisionsPercentages.get(target.animation.animationType)!!.map { pair ->
-                val armorHolder = pair.key
-                val percentage = pair.value
-                val armor = if (target.armor.containsKey(armorHolder)) target.armor[armorHolder]!! else MWArmorType.NONE
-                val armorFactor = armor.getSkillEffectivity(actionPropertiesAttacker.skillClass).damageFactor
-                armorFactor * percentage
-            }.sum().toFloat()
+            actionFactor *= target.armor.getSkillEffectivity(actionPropertiesAttacker.skillClass).damageFactor
         }
 
         val rangeFactor = actionPropertiesAttacker.rangeMaxAvg / actionPropertiesTarget.rangeMaxAvg

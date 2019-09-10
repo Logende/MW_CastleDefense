@@ -1,6 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
-import org.neubauerfelix.manawars.castledefense.data.IDataLeague
+import org.neubauerfelix.manawars.castledefense.data.IDataArmy
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
@@ -9,7 +9,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataUnitLoaded(override val name: String, config: Configuration, val league: IDataLeague) : DataUnit() {
+class DataUnitLoaded(override val name: String, config: Configuration, val army: IDataArmy) : DataUnit() {
 
 
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("unit_${name}_name")
@@ -17,7 +17,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val leagu
 
 
     override val animation: IEntityAnimationProducer
-    override val armor: Map<MWArmorHolder, MWArmorType>
+    override val armor: MWArmorType
 
     init {
         val animationParts = config.getString("animation").split(":")
@@ -40,43 +40,13 @@ class DataUnitLoaded(override val name: String, config: Configuration, val leagu
             }
         }
 
-        armor = when (animationType) {
-            MWEntityAnimationType.HUMAN -> {
-                hashMapOf(Pair(MWArmorHolder.HUMAN_BODY, getArmor(config, 0)),
-                        Pair(MWArmorHolder.HUMAN_HEAD, getArmor(config, 1)))
-            }
-            MWEntityAnimationType.HUMAN_SHIELD -> {
-                hashMapOf(Pair(MWArmorHolder.HUMAN_BODY, getArmor(config, 0)),
-                        Pair(MWArmorHolder.HUMAN_HEAD, getArmor(config, 1)),
-                        Pair(MWArmorHolder.SHIELD, MWArmorType.SHIELD))
-            }
-            MWEntityAnimationType.RIDER -> {
-                hashMapOf(Pair(MWArmorHolder.MOUNT, getArmor(config, 0)),
-                        Pair(MWArmorHolder.HUMAN_BODY, getArmor(config, 1)),
-                        Pair(MWArmorHolder.HUMAN_HEAD, getArmor(config, 2)))
-            }
-            MWEntityAnimationType.MOUNT -> {
-                hashMapOf(Pair(MWArmorHolder.MOUNT, getArmor(config, 0)))
-            }
-            MWEntityAnimationType.CASTLE -> {
-                hashMapOf()
-            }
-        }
-
-    }
-
-    private fun getArmor(config: Configuration, index: Int) : MWArmorType {
-        return if (!config.contains("armor")) {
+        armor = if (!config.contains("armor")) {
             MWArmorType.NONE
         } else {
-            val armorParts = config.getString("armor").split(":")
-            if (armorParts.size <= index) {
-                MWArmorType.NONE
-            } else {
-                MWArmorType.valueOf(armorParts[index].toUpperCase())
-            }
+            MWArmorType.valueOf(config.getString("armor").toUpperCase())
         }
     }
+
 
 
     override val action: IDataAction = MManaWars.m.getActionHandler().getAction(config.getString("action"))!!
@@ -113,6 +83,6 @@ class DataUnitLoaded(override val name: String, config: Configuration, val leagu
 
 
     fun analyseUnit() {
-        this.analysis = MManaWars.m.getUnitAnalysisHandler().analyse(this, league)
+        this.analysis = MManaWars.m.getUnitAnalysisHandler().analyse(this, army.tribe.league)
     }
 }

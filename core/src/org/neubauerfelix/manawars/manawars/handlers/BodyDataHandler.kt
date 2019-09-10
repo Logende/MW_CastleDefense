@@ -10,6 +10,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.mount.IBodyDataMou
 import org.neubauerfelix.manawars.manawars.enums.MWShield
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
+import java.lang.RuntimeException
 
 import java.util.HashMap
 
@@ -31,7 +32,9 @@ class BodyDataHandler: IBodyDataHandler, ILoadableContent {
     }
 
     override fun getBodyDataHuman(name: String): IBodyDataHuman {
-        assert(bodyDataHuman.containsKey(name))
+       if (!bodyDataHuman.containsKey(name)) {
+           throw RuntimeException("Skin $name not found.")
+       }
         return bodyDataHuman[name]!!
     }
 
@@ -49,7 +52,7 @@ class BodyDataHandler: IBodyDataHandler, ILoadableContent {
                 for (bodyData in handlerConfig.getStringList("bodyDataHuman")) {
                     val parts = bodyData.split(":")
                     val skinName = parts[0]
-                    val shieldName = parts[1]
+                    val shieldName = if (parts.size >= 2) parts[1] else "none"
                     val defaultScale = if (parts.size >= 3) parts[2].toFloat() else 1f
                     val shieldType = if (shieldName.equals("none", ignoreCase = true)) null else MManaWars.m.getShieldHandler().getShield(shieldName)
                     putBodyDataHuman(skinName, shieldType, defaultScale)

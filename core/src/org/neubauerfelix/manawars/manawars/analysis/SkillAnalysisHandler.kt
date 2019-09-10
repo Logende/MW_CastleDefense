@@ -59,11 +59,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                     section.set("${entityType.name}.offensiveStrength", analysis.offensiveStrength)
                     section.set("${entityType.name}.defensiveStrength", analysis.defensiveStrength)
                     section.set("${entityType.name}.rangeMaxAvg", analysis.rangeMaxAvg)
-                    for ( (targetAnimationType, percentages) in analysis.collisionsPercentages) {
-                        for ((armorHolder, percentage) in percentages) {
-                            section.set("${entityType.name}.collisionPercentage.${targetAnimationType.name}.${armorHolder.name}", percentage)
-                        }
-                    }
                     for ( (targetType, range) in analysis.rangeMax) {
                         section.set("${entityType.name}.rangeMax.${targetType.name}", range)
                     }
@@ -106,14 +101,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 rangeMax[typeTarget] = section.getInt("rangeMax.${typeTarget.name}")
                 rangeMin[typeTarget] = section.getInt("rangeMin.${typeTarget.name}")
             }
-            val collisionsPercentages: MutableMap<MWEntityAnimationType, MutableMap<MWArmorHolder, Double>> = hashMapOf()
-            for (targetAnimationType in MWEntityAnimationType.values()) {
-                collisionsPercentages[targetAnimationType] = hashMapOf()
-                for (armorHolder in MWArmorHolder.values()) {
-                    collisionsPercentages[targetAnimationType]!!.put(armorHolder,
-                            section.getDouble("collisionPercentage.${targetAnimationType.name}.${armorHolder.name}"))
-                }
-            }
 
             map[typeOwner] = object : ISkillAnalysis {
                 override val lifeTime: Float = lifeTime
@@ -123,7 +110,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 override val successProbability: Float = successProbability
                 override val offensiveStrength: Float = offensivePoints
                 override val defensiveStrength: Float = defensivePoints
-                override val collisionsPercentages: Map<MWEntityAnimationType, Map<MWArmorHolder, Double>> = collisionsPercentages
                 override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
                 override val rangeMin: Map<MWEntityAnimationType, Int> = rangeMin
                 override val rangeMaxAvg: Float = rangeMaxAvg
@@ -159,11 +145,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
         val hitProbability = parts.sumByDouble { part -> (part.hitProbability
                 * MAnalysisConstants.ANIMATION_TYPE_SHARES[part.targetAnimationType]!!).toDouble() }
-        val tacticalStrength = parts.sumByDouble { part -> (part.tacticalStrength
-                * MAnalysisConstants.ANIMATION_TYPE_SHARES[part.targetAnimationType]!!).toDouble() }
-
-        val collisionsPercentages: MutableMap<MWEntityAnimationType, Map<MWArmorHolder, Double>> = hashMapOf()
-        parts.forEach { collisionsPercentages[it.targetAnimationType] = it.collisionsPercentages }
 
         val rangeMaxAvg = rangeMax.map { (animationType, range) ->
             range.toFloat()
@@ -181,9 +162,8 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             override val strategicValue: Float  = tacticalDamage.toFloat()
             override val successProbability: Float = hitProbability.toFloat()
             override val offensiveStrength: Float = offensiveStrength
-            override val defensiveStrength: Float = tacticalStrength.toFloat()
-            override val collisionsPercentages = collisionsPercentages
-            override val skillClass: MWSkillClass = data.model.skillClass
+            override val defensiveStrength: Float = offensiveStrength
+            override val skillClass: MWSkillClass = data.skillClass
         }
     }
 
@@ -198,11 +178,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
         // Note: Skills which have big acceleration but slow start speed will likely have small distance in one second
         var distanceInSecond = -1f // Typical values: arrow 1000-1100, crossbow 1600, sword 200-700, shuriken 700, axe 120 - 800
 
-        // Collision body part share. Combined from all animationtypes, each animationtype having a different weight.
-        var collisionsPercentageHumanHead = 0.0
-        var collisionsPercentageHumanBody = 0.0
-        var collisionsPercentageMount = 0.0
-        var collisionsPercentageShield = 0.0
         var collided = false
         var rangeMax = 0f
         var distanceMax = 0f // difference to rangeMax: No collision needed for distanceMax but collision needed for rangeMax
@@ -251,26 +226,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                     if (! collided) { // only count first collision here
                         val collisionType = (target as IAnimatedLiving).animation.getCollisionType(skill)
                         collided = collisionType != MWCollisionType.NONE
-                        when (collisionType) {
-                            MWCollisionType.HUMAN_ARM, MWCollisionType.HUMAN_BODY, MWCollisionType.HUMAN_FOOT -> {
-                                collisionsPercentageHumanBody += 1.0
-                            }
-
-                            MWCollisionType.HUMAN_HEAD -> {
-                                collisionsPercentageHumanHead += 1.0
-                            }
-
-                            MWCollisionType.MOUNT_FOOT, MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD -> {
-                                collisionsPercentageMount += 1.0
-                            }
-
-                            MWCollisionType.SHIELD -> {
-                                collisionsPercentageShield += 1.0
-                            }
-
-                            MWCollisionType.NONE, MWCollisionType.CASTLE, MWCollisionType.UNDEFINED, MWCollisionType.PET, MWCollisionType.SKILL -> {
-                            }
-                        }
                     }
                     i++
                 }
@@ -307,14 +262,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 target.doLogic(0f) // updates location
                 // Detect collision type and calculate range.
                 val collisionType = (target as IAnimatedLiving).animation.getCollisionType(skill)
-                when (collisionType) {
-                    MWCollisionType.HUMAN_ARM, MWCollisionType.HUMAN_BODY, MWCollisionType.HUMAN_FOOT -> collisionsHumanBody += 1
-                    MWCollisionType.HUMAN_HEAD -> collisionsHumanHead += 1
-                    MWCollisionType.MOUNT_FOOT, MWCollisionType.MOUNT_BODY, MWCollisionType.MOUNT_HEAD -> collisionsMount += 1
-                    MWCollisionType.SHIELD -> collisionsShield += 1
-                    MWCollisionType.NONE -> collisionsNone += 1
-                    else -> collisionsOther += 1
-                }
                 target.left = skill.centerHorizontal
                 target.doLogic(0f) // updates location
                 distanceMax = Math.max(distanceMax, owner.getDistanceHor(target))
@@ -338,19 +285,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 }
             }
 
-            val collisionsSum = collisionsHumanHead + collisionsHumanBody + collisionsMount + collisionsOther + collisionsShield
-            collisionsPercentageHumanBody += collisionsHumanBody.toDouble() / collisionsSum.toDouble()
-            collisionsPercentageHumanHead += collisionsHumanHead.toDouble() / collisionsSum.toDouble()
-            collisionsPercentageMount += collisionsMount.toDouble() / collisionsSum.toDouble()
-            collisionsPercentageShield += collisionsShield.toDouble() / collisionsSum.toDouble()
         }
-
-        val collisionsPercentages: Map<MWArmorHolder, Double> = hashMapOf(Pair(MWArmorHolder.HUMAN_BODY, collisionsPercentageHumanBody),
-                Pair(MWArmorHolder.HUMAN_HEAD, collisionsPercentageHumanHead),
-                Pair(MWArmorHolder.SHIELD, collisionsPercentageShield),
-                Pair(MWArmorHolder.MOUNT, collisionsPercentageMount))
-
-
 
         val hitProbability: Float = if (data.model.xRelativeToTarget) {
             Math.max(1f, (skill.width / target.width)) * 0.9f // if skill size is as big as multiple entities: increase hit probability
@@ -395,8 +330,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
         return object : ISkillAnalysisPart {
             override val tacticalDamage: Float = tacticalDamage
             override val hitProbability: Float = hitProbability
-            override val tacticalStrength: Float = tacticalStrength
-            override val collisionsPercentages: Map<MWArmorHolder, Double> = collisionsPercentages
             override val rangeMax = rangeMax.toInt()
             override val rangeMin = rangeMin.toInt()
             override val lifeTime: Float = lifeTime

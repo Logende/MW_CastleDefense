@@ -12,7 +12,7 @@ open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
                            val skillMultipliers: Map<MWSkillClass, Float> = HashMap(),
                            val skillDurabilityMultipliers: Map<MWSkillClass, Float> = HashMap(),
                            final override val drainMultiplier: Float = 0f,
-                           val armor: Map<MWArmorHolder, MWArmorType> = HashMap()):
+                           val armor: MWArmorType = MWArmorType.NONE):
         MEntityStateable(animationProducer, health, action, actionCooldown, stateMultipliers), IUpgraded {
 
 
@@ -38,11 +38,6 @@ open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
     }
 
     override fun getArmor(collisionType: MWCollisionType): MWArmorType {
-        for ((holder, armor) in this.armor) {
-            if (holder.collisionTypes.contains(collisionType)) {
-                return armor
-            }
-        }
-        return MWArmorType.NONE
+        return armor
     }
 }

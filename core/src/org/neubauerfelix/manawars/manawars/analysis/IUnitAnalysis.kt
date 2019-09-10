@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
-import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWArmorType
 
 interface IUnitAnalysis {
@@ -18,7 +17,7 @@ interface IUnitAnalysis {
 
     val cost: Int
 
-    val armor: Map<MWArmorHolder, MWArmorType>
+    val armor: MWArmorType
 
 
     fun getDamageFactor(skillAnalysis: ISkillAnalysis) : Float

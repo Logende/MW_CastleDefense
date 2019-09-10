@@ -5,7 +5,7 @@ import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimationProducerHuman
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataArmyLoaded(config: Configuration, playerName: String, league: IDataLeague) : DataArmy() {
+class DataArmyLoaded(config: Configuration, playerName: String, override val tribe: IDataTribe) : DataArmy() {
 
     override val units: List<IDataUnit>
 
@@ -15,7 +15,7 @@ class DataArmyLoaded(config: Configuration, playerName: String, league: IDataLea
         val units = ArrayList<IDataUnit>()
         for (unit in config.getSection("units").keys) {
             val unitSection = config.getSection("units").getSection(unit)
-            units.add(DataUnitLoaded("$playerName.$unit", unitSection, league))
+            units.add(DataUnitLoaded("$playerName.$unit", unitSection, this))
         }
         this.units = units.sortedBy {
             val animation = it.animation

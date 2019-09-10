@@ -15,7 +15,7 @@ interface IDataUnit : IDataPresentable, IAsset {
     val displayName: String
     val boss: Boolean
     val animation: IEntityAnimationProducer
-    val armor: Map<MWArmorHolder, MWArmorType>
+    val armor: MWArmorType
     val action: IDataAction
     var actionCooldown: Float
 

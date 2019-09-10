@@ -8,7 +8,6 @@ import org.neubauerfelix.manawars.game.ILoadableAsync
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IControlled
-import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 
@@ -23,12 +22,10 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
     private lateinit var frame: TextureRegion
 
 
-    private val armorSymbols: MutableMap<MWEntityAnimationType, LinkedHashMap<MWArmorHolder,TextureRegion>> = hashMapOf()
-    private val armorFrames: MutableMap<MWEntityAnimationType, LinkedHashMap<MWArmorHolder,TextureRegion>> = hashMapOf()
 
 
     override fun isLoaded(): Boolean {
-        return armorSymbols.isNotEmpty()
+        return ::frame.isInitialized
     }
 
     override fun load() {
@@ -46,35 +43,7 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
             armorSymbol = imageHandler.getTextureRegionMain("symbol.armor")
             frame = imageHandler.getTextureRegionButton("frame")
 
-            armorSymbol.flip(false, true) // Undo flipping to make extracting the different parts easier
-            frame.flip(false, true) // Undo flipping to make extracting the different parts easier
-            MWEntityAnimationType.values().forEach { animationType ->
 
-                armorSymbols[animationType] = linkedMapOf()
-                armorFrames[animationType] = linkedMapOf()
-                var previousShare = 0f
-
-                for (i in 0 until animationType.armorHolders.size) {
-                    val armorHolder = animationType.armorHolders[i]
-                    val share = animationType.armorHolderShares[i]
-
-                    val heightSymbol = (armorSymbol.regionHeight * share).toInt()
-                    val widthSymbol = armorSymbol.regionWidth
-                    val ySymbol = (armorSymbol.regionHeight * previousShare).toInt()
-                    val symbolPart = TextureRegion(armorSymbol, 0, ySymbol, widthSymbol, heightSymbol)
-                    symbolPart.flip(false, true)
-                    armorSymbols[animationType]!!.put(armorHolder, symbolPart)
-
-                    val heightFrame = (frame.regionHeight * share).toInt()
-                    val widthFrame = frame.regionWidth
-                    val yFrame = (frame.regionHeight * previousShare).toInt()
-                    val framePart = TextureRegion(frame, 0, yFrame, widthFrame, heightFrame)
-                    framePart.flip(false, true)
-                    armorFrames[animationType]!!.put(armorHolder, framePart)
-
-                    previousShare += share
-                }
-            }
         }
     }
 
@@ -87,7 +56,7 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
     }
 
     fun drawStatsBar(batcher: Batch, health: Float, maxHealth: Float, middleX: Float, bottom: Float, width: Float, height: Float,
-                     animationType: MWEntityAnimationType, armor: Map<MWArmorHolder, MWArmorType>) {
+                     animationType: MWEntityAnimationType, armor: MWArmorType) {
         val x = middleX - width / 2f
         val y = bottom - height
 
@@ -101,32 +70,22 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
         batcher.draw(characterBarStatus, x, y, width * healthRatio, height)
         batcher.draw(characterBarFrame, x, y, width, height)
 
-        if (armor.values.filter { it != MWArmorType.NONE }.isNotEmpty()) {
+        if (armor != MWArmorType.NONE) {
             val yArmor = y - 10f - armorSymbol.regionHeight
-            var yOffset = 0f
-            armorSymbols[animationType]!!.forEach { armorHolder, textureRegion ->
-                val armorType = armor[armorHolder]!!
-                batcher.color = armorType.color
-                batcher.draw(textureRegion,
-                        middleX - textureRegion!!.regionWidth / 2,
-                        yArmor + yOffset)
-                yOffset += textureRegion.regionHeight
-            }
+            batcher.color = armor.color
+            batcher.draw(armorSymbol,
+                    middleX - armorSymbol!!.regionWidth / 2,
+                    yArmor)
         }
         batcher.color = Color.WHITE
     }
 
     override fun drawArmorFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
-                                animationType: MWEntityAnimationType, armor: Map<MWArmorHolder, MWArmorType>) {
-        var yOffset = 0f
-        armorFrames[animationType]!!.forEach { armorHolder, textureRegion ->
-            val armorType = armor[armorHolder]!!
-            batcher.color = armorType.color
-            val w = width * textureRegion.regionWidth / frame.regionWidth
-            val h = height * textureRegion.regionHeight / frame.regionHeight
-            batcher.draw(textureRegion, x, y + yOffset, w, h)
-            yOffset += h
-        }
+                                animationType: MWEntityAnimationType, armor: MWArmorType) {
+        batcher.color = armor.color
+        val w = width * frame.regionWidth / frame.regionWidth
+        val h = height * frame.regionHeight / frame.regionHeight
+        batcher.draw(frame, x, y , w, h)
         batcher.color = Color.WHITE
     }
 }

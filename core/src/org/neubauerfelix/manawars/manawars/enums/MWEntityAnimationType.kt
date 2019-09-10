@@ -12,17 +12,11 @@ import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanSma
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerDummy
 
 
-enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolders: List<MWArmorHolder>,
-                                 // armor holder shares are used for the generation of icons and symbols
-                                 // basically they tell how much share of the symbol an armorholder gets
-                                 // sorted from top to bottom (same order as armorHolders)
-                                 val armorHolderShares: List<Float>) {
+enum class MWEntityAnimationType(val width: Int, val height: Int) {
 
-    HUMAN(MConstants.BODY_HUMAN_WIDTH, MConstants.BODY_HUMAN_HEIGHT,
-            arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY),
-            arrayListOf(0.5f, 0.5f)) {
+    HUMAN(MConstants.BODY_HUMAN_WIDTH, MConstants.BODY_HUMAN_HEIGHT) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
-            val skinName = "l1.zombie.1"
+            val skinName = "l1.zombie.mage"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
@@ -35,9 +29,7 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolde
             return a
         }
     },
-    HUMAN_SHIELD(MConstants.BODY_HUMAN_WIDTH, MConstants.BODY_HUMAN_HEIGHT,
-            arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY, MWArmorHolder.SHIELD),
-            arrayListOf(0.5f, 0.5f, 0f)) {
+    HUMAN_SHIELD(MConstants.BODY_HUMAN_WIDTH, MConstants.BODY_HUMAN_HEIGHT) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
             val skinName = "dummy.shield"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
@@ -55,9 +47,7 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolde
             return a
         }
     },
-    MOUNT(MConstants.BODY_MOUNT_WIDTH, MConstants.BODY_MOUNT_HEIGHT,
-            arrayListOf(MWArmorHolder.MOUNT),
-            arrayListOf(1f)) {
+    MOUNT(MConstants.BODY_MOUNT_WIDTH, MConstants.BODY_MOUNT_HEIGHT) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
             val skinNameMount = "lion"
             val animationProducerMount = IEntityAnimationProducer.createProducerMount(skinNameMount)
@@ -72,11 +62,9 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolde
             return a
         }
     },
-    RIDER(MConstants.BODY_RIDER_WIDTH, MConstants.BODY_RIDER_HEIGHT,
-            arrayListOf(MWArmorHolder.HUMAN_HEAD, MWArmorHolder.HUMAN_BODY, MWArmorHolder.MOUNT),
-            arrayListOf(0.27f, 0.25f, 0.48f)) {
+    RIDER(MConstants.BODY_RIDER_WIDTH, MConstants.BODY_RIDER_HEIGHT) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
-            val skinName = "l1.zombie.1"
+            val skinName = "l1.zombie.mage"
             val skinNameMount = "lion"
             val animationProducerRider = IEntityAnimationProducer.createProducerRider(skinNameMount, skinName)
             val controller = ControllerDummy()
@@ -90,9 +78,7 @@ enum class MWEntityAnimationType(val width: Int, val height: Int, val armorHolde
             return a
         }
     },
-    CASTLE(MConstants.BODY_CASTLE_WIDTH, MConstants.BODY_CASTLE_HEIGHT,
-            arrayListOf(),
-            arrayListOf()) {
+    CASTLE(MConstants.BODY_CASTLE_WIDTH, MConstants.BODY_CASTLE_HEIGHT) {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
             val textureName = "castles/castle_wood_1.png"
             MManaWars.m.getAssetLoader().loadTexture(textureName)

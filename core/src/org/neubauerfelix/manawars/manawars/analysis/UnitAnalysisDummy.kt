@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
-import org.neubauerfelix.manawars.manawars.enums.MWArmorHolder
 import org.neubauerfelix.manawars.manawars.enums.MWArmorType
 
 class UnitAnalysisDummy : AUnitAnalysis() {
@@ -10,7 +9,7 @@ class UnitAnalysisDummy : AUnitAnalysis() {
     override val defensiveStrengthPerSecond: Float = 1f
     override val offensiveStrengthPerSecond: Float = 1f
     override val cost: Int = 0
-    override val armor: Map<MWArmorHolder, MWArmorType> = hashMapOf()
+    override val armor: MWArmorType = MWArmorType.NONE
 
 
 }

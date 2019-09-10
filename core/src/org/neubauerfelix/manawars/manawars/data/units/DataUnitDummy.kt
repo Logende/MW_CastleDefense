@@ -16,8 +16,8 @@ class DataUnitDummy : IDataUnit {
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override val animation: IEntityAnimationProducer
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val armor: Map<MWArmorHolder, MWArmorType>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+    override val armor: MWArmorType = MWArmorType.NONE
+
     override val action: IDataAction
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override var actionCooldown: Float
