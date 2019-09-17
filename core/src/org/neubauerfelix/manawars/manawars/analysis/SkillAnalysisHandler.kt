@@ -44,7 +44,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
     override fun analyseSkills(fileName: String) {
         val config = Configuration()
-        for (data in MManaWars.m.getActionHandler().listActions()) {
+                /* for (data in MManaWars.m.getActionHandler().listActions()) {
             if (data is DataSkillLoaded) {
                 println("Analysing skill ${data.name}.")
                 val section = config.getSection(data.name)
@@ -66,7 +66,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                     }
                 }
             }
-        }
+        }*/ //TODO
         ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, fileName, false)
     }
 

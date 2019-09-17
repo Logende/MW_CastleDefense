@@ -21,8 +21,8 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         background.load()
 
 
-        skill = MManaWars.m.getActionHandler().getAction("arrowrain_single")!!
-        skill.loadAsset()
+       // skill = MManaWars.m.getActionHandler().getAction("arrowrain_single")!!
+      //  skill.loadAsset()
 
         /**
          * TODO:

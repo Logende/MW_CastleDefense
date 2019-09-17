@@ -18,7 +18,6 @@ class DataActionNone : IDataAction {
     override val previewTexturePath: String = "none"
     override val animationEffect: MWAnimationTypeBodyEffect? = null
     override val weaponType: MWWeaponType? = null
-    override val actionDependencies: Array<IDataAction> = arrayOf()
 
     private val actionProperties = object : IDataActionProperties {
         override val strategicValue: Float = 0f

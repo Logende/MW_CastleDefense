@@ -1,4 +1,5 @@
 arrow_weak:
+  name: arrow_weak
   type: normal
   owner_animation: WEAPON
   weapon: bow:normal_blue
@@ -12,6 +13,7 @@ arrow_weak:
   damage: 5
   knockback: 1.0
 arrow_normal:
+  name: arrow_normal
   type: normal
   owner_animation: WEAPON
   weapon: bow:normal_red
@@ -26,6 +28,7 @@ arrow_normal:
   knockback: 1.0
   strength: 9
 arrow_strong:
+  name: arrow_strong
   type: normal
   owner_animation: WEAPON
   weapon: bow:dark
@@ -40,6 +43,7 @@ arrow_strong:
   knockback: 1.0
   strength: 9
 crossbow_weak:
+  name: crossbow_weak
   type: normal
   owner_animation: WEAPON
   weapon: crossbow:simple
@@ -55,6 +59,7 @@ crossbow_weak:
   strength: 9
   preview: crossbow.weak
 crossbow_normal:
+  name: crossbow_normal
   type: normal
   owner_animation: WEAPON
   weapon: crossbow:dark
@@ -71,6 +76,7 @@ crossbow_normal:
   preview: crossbow.normal
   location: '10:20'
 crossbow_strong:
+  name: crossbow_strong
   type: normal
   owner_animation: WEAPON
   weapon: crossbow:elite
@@ -87,6 +93,7 @@ crossbow_strong:
   preview: crossbow.strong
   location: '10:20'
 crossbow_strong_double:
+  name: crossbow_strong_double
   type: mix
   owner_animation: WEAPON
   weapon: crossbow:elite.double
@@ -108,6 +115,7 @@ crossbow_strong_double:
   - crossbow_strong:0:-8:0:-30
   recipes:
     crossbow_strong:
+      name: crossbow_strong
       type: normal
       owner_animation: WEAPON
       weapon: crossbow:elite
@@ -124,6 +132,7 @@ crossbow_strong_double:
       preview: crossbow.strong
       location: '10:20'
 crossbow_poison:
+  name: crossbow_poison
   type: normal
   owner_animation: WEAPON
   weapon: crossbow:skull
@@ -141,6 +150,7 @@ crossbow_poison:
   location: '10:20'
   effect: POISONED:4
 crossbow_curse:
+  name: crossbow_curse
   type: normal
   owner_animation: WEAPON
   weapon: crossbow:dark.strong
@@ -158,6 +168,7 @@ crossbow_curse:
   location: '10:20'
   effect: SLAGGED:4
 crossbow_normal_double:
+  name: crossbow_normal_double
   type: mix
   owner_animation: WEAPON
   weapon: crossbow:dark.double
@@ -179,6 +190,7 @@ crossbow_normal_double:
   - crossbow_normal:0:-8:0:-30
   recipes:
     crossbow_normal:
+      name: crossbow_normal
       type: normal
       owner_animation: WEAPON
       weapon: crossbow:dark
@@ -195,6 +207,7 @@ crossbow_normal_double:
       preview: crossbow.normal
       location: '10:20'
 arrow_headshot:
+  name: arrow_headshot
   type: normal
   owner_animation: WEAPON
   weapon: bow:goldspikes
@@ -209,6 +222,7 @@ arrow_headshot:
   knockback: 1.0
   strength: 9
 arrow_fire:
+  name: arrow_fire
   type: normal
   owner_animation: WEAPON
   weapon: bow:red
@@ -224,6 +238,7 @@ arrow_fire:
   strength: 9
   effect: BURNING:5
 arrow_ice:
+  name: arrow_ice
   type: normal
   owner_animation: WEAPON
   weapon: bow:light
@@ -239,6 +254,7 @@ arrow_ice:
   strength: 9
   effect: FROZEN:3
 arrow_poison:
+  name: arrow_poison
   type: normal
   owner_animation: WEAPON
   weapon: bow:bones
@@ -254,6 +270,7 @@ arrow_poison:
   strength: 9
   effect: POISONED:4
 sword_basic:
+  name: sword_basic
   owner_animation: SUMMON_SMALL
   texture: sword.basic
   animation: '1:1:1'
@@ -265,6 +282,7 @@ sword_basic:
   damage: 6
   knockback: 1.5
 sword_human_gold:
+  name: sword_human_gold
   owner_animation: SUMMON_SMALL
   texture: sword.human.gold
   animation: '1:1:1'
@@ -276,6 +294,7 @@ sword_human_gold:
   damage: 8
   knockback: 1.5
 sword_human_fire:
+  name: sword_human_fire
   owner_animation: SUMMON_SMALL
   texture: sword.human.fire
   animation: '1:1:1'
@@ -288,6 +307,7 @@ sword_human_fire:
   knockback: 1.5
   effect: BURNING:5
 sword_human_ice:
+  name: sword_human_ice
   owner_animation: SUMMON_SMALL
   texture: sword.human.ice
   animation: '1:1:1'
@@ -300,6 +320,7 @@ sword_human_ice:
   knockback: 1.5
   effect: FROZEN:3
 sword_bandit_1:
+  name: sword_bandit_1
   owner_animation: SUMMON_SMALL
   texture: sword.bandit.1
   animation: '1:1:1'
@@ -311,6 +332,7 @@ sword_bandit_1:
   damage: 7
   knockback: 1.5
 sword_bandit_2:
+  name: sword_bandit_2
   owner_animation: SUMMON_SMALL
   texture: sword.bandit.2
   animation: '1:1:1'
@@ -322,6 +344,7 @@ sword_bandit_2:
   damage: 12
   knockback: 1.5
 sword_katana_1:
+  name: sword_katana_1
   owner_animation: SUMMON_SMALL
   texture: sword.katana.1
   animation: '1:1:1'
@@ -333,6 +356,7 @@ sword_katana_1:
   damage: 6
   knockback: 1.5
 sword_katana_2:
+  name: sword_katana_2
   owner_animation: SUMMON_SMALL
   texture: sword.katana.2
   animation: '1:1:1'
@@ -344,6 +368,7 @@ sword_katana_2:
   damage: 10
   knockback: 1.5
 sword_katana_3_dark:
+  name: sword_katana_3_dark
   owner_animation: SUMMON_SMALL
   texture: sword.katana.3.dark
   animation: '1:1:1'
@@ -355,6 +380,7 @@ sword_katana_3_dark:
   damage: 14
   knockback: 1.5
 sword_katana_4_ice:
+  name: sword_katana_4_ice
   owner_animation: SUMMON_SMALL
   texture: sword.katana.4.ice
   animation: '1:1:1'
@@ -367,6 +393,7 @@ sword_katana_4_ice:
   knockback: 1.5
   effect: FROZEN:3
 sword_katana_3_light:
+  name: sword_katana_3_light
   owner_animation: SUMMON_SMALL
   texture: sword.katana.3.light
   animation: '1:1:1'
@@ -378,6 +405,7 @@ sword_katana_3_light:
   damage: 14
   knockback: 1.5
 sword_katana_4_fire:
+  name: sword_katana_4_fire
   owner_animation: SUMMON_SMALL
   texture: sword.katana.4.fire
   animation: '1:1:1'
@@ -390,6 +418,7 @@ sword_katana_4_fire:
   knockback: 1.5
   effect: BURNING:5
 sword_katana_5:
+  name: sword_katana_5
   owner_animation: SUMMON_SMALL
   texture: sword.katana.5
   animation: '1:1:1'
@@ -402,6 +431,7 @@ sword_katana_5:
   knockback: 1.5
   effect: ''
 sword_orc_1:
+  name: sword_orc_1
   owner_animation: SUMMON_SMALL
   texture: sword.orc.1
   animation: '1:1:1'
@@ -413,6 +443,7 @@ sword_orc_1:
   damage: 7
   knockback: 1.5
 sword_orc_2:
+  name: sword_orc_2
   owner_animation: SUMMON_SMALL
   texture: sword.orc.2
   animation: '1:1:1'
@@ -424,6 +455,7 @@ sword_orc_2:
   damage: 8
   knockback: 1.5
 sword_samurai:
+  name: sword_samurai
   owner_animation: SUMMON_SMALL
   texture: sword.samurai
   animation: '1:1:1'
@@ -435,6 +467,7 @@ sword_samurai:
   damage: 14
   knockback: 1.5
 boomerang_1:
+  name: boomerang_1
   type: normal
   owner_animation: THROW
   texture: boomerang.1
@@ -446,6 +479,7 @@ boomerang_1:
   damage: 5
   knockback: 1.0
 boomerang_2:
+  name: boomerang_2
   type: normal
   owner_animation: THROW
   texture: boomerang.2
@@ -457,6 +491,7 @@ boomerang_2:
   damage: 6
   knockback: 1.0
 boomerang_3:
+  name: boomerang_3
   type: normal
   owner_animation: THROW
   texture: boomerang.3
@@ -468,6 +503,7 @@ boomerang_3:
   damage: 8
   knockback: 1.0
 boomerang_4:
+  name: boomerang_4
   type: normal
   owner_animation: THROW
   texture: boomerang.4
@@ -479,6 +515,7 @@ boomerang_4:
   damage: 10
   knockback: 1.0
 boomerang_5:
+  name: boomerang_5
   type: normal
   owner_animation: THROW
   texture: boomerang.5
@@ -490,6 +527,7 @@ boomerang_5:
   damage: 13
   knockback: 1.0
 boomerang_6:
+  name: boomerang_6
   type: normal
   owner_animation: THROW
   texture: boomerang.6
@@ -501,6 +539,7 @@ boomerang_6:
   damage: 16
   knockback: 1.0
 boomerang_7:
+  name: boomerang_7
   type: normal
   owner_animation: THROW
   texture: boomerang.7
@@ -512,6 +551,7 @@ boomerang_7:
   damage: 20
   knockback: 1.0
 boomerang_8:
+  name: boomerang_8
   type: normal
   owner_animation: THROW
   texture: boomerang.8
@@ -523,6 +563,7 @@ boomerang_8:
   damage: 24
   knockback: 1.0
 shuriken_basic:
+  name: shuriken_basic
   type: normal
   owner_animation: SUMMON_SMALL
   texture: shuriken.basic
@@ -535,6 +576,7 @@ shuriken_basic:
   damage: 3
   knockback: 0.5
 shuriken_strong:
+  name: shuriken_strong
   type: normal
   owner_animation: SUMMON_SMALL
   texture: shuriken.strong
@@ -547,6 +589,7 @@ shuriken_strong:
   damage: 5
   knockback: 0.5
 shuriken_ice:
+  name: shuriken_ice
   type: normal
   owner_animation: SUMMON_SMALL
   texture: shuriken.ice
@@ -560,6 +603,7 @@ shuriken_ice:
   knockback: 0.5
   effect: FROZEN:3
 shuriken_poison:
+  name: shuriken_poison
   type: normal
   owner_animation: SUMMON_SMALL
   texture: shuriken.poison
@@ -573,6 +617,7 @@ shuriken_poison:
   knockback: 0.5
   effect: POISONED:4
 shuriken_fire:
+  name: shuriken_fire
   type: normal
   owner_animation: SUMMON_SMALL
   texture: shuriken.fire
@@ -587,6 +632,7 @@ shuriken_fire:
   strength: 6
   effect: BURNING:3
 axe_basic:
+  name: axe_basic
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.basic
@@ -598,6 +644,7 @@ axe_basic:
   damage: 6
   knockback: 1.5
 axe_brutal_1:
+  name: axe_brutal_1
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.brutal.1
@@ -609,6 +656,7 @@ axe_brutal_1:
   damage: 8
   knockback: 1.5
 axe_brutal_2:
+  name: axe_brutal_2
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.brutal.2
@@ -620,6 +668,7 @@ axe_brutal_2:
   damage: 11
   knockback: 1.5
 axe_dwarf1_simple:
+  name: axe_dwarf1_simple
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf1.simple
@@ -631,6 +680,7 @@ axe_dwarf1_simple:
   damage: 5
   knockback: 1.5
 axe_dwarf1_double:
+  name: axe_dwarf1_double
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf1.double
@@ -642,6 +692,7 @@ axe_dwarf1_double:
   damage: 8
   knockback: 1.5
 axe_dwarf1_quadruple:
+  name: axe_dwarf1_quadruple
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf1.quadruple
@@ -654,6 +705,7 @@ axe_dwarf1_quadruple:
   knockback: 1.5
   location: 0:-50
 axe_god_dark:
+  name: axe_god_dark
   allow_movement_scaling: false
   owner_animation: SUMMON_BIG
   texture: axe.god.dark
@@ -666,6 +718,7 @@ axe_god_dark:
   knockback: 1.5
   location: 0:-150
 axe_god_dark_strong:
+  name: axe_god_dark_strong
   allow_movement_scaling: false
   owner_animation: SUMMON_BIG
   texture: axe.god.dark.strong
@@ -678,6 +731,7 @@ axe_god_dark_strong:
   knockback: 1.5
   location: 0:-150
 axe_god_dark_strong_ice:
+  name: axe_god_dark_strong_ice
   allow_movement_scaling: false
   owner_animation: SUMMON_BIG
   texture: axe.god.dark.ice
@@ -691,6 +745,7 @@ axe_god_dark_strong_ice:
   location: 0:-150
   effect: FROZEN:4
 axe_god_light:
+  name: axe_god_light
   allow_movement_scaling: false
   owner_animation: SUMMON_BIG
   texture: axe.god.light
@@ -703,6 +758,7 @@ axe_god_light:
   knockback: 1.5
   location: 0:-150
 axe_god_light_strong:
+  name: axe_god_light_strong
   allow_movement_scaling: false
   owner_animation: SUMMON_BIG
   texture: axe.god.light.strong
@@ -715,6 +771,7 @@ axe_god_light_strong:
   knockback: 1.5
   location: 0:-150
 axe_god_light_strong_fire:
+  name: axe_god_light_strong_fire
   allow_movement_scaling: false
   owner_animation: SUMMON_BIG
   texture: axe.god.light.fire
@@ -728,6 +785,7 @@ axe_god_light_strong_fire:
   location: 0:-150
   effect: BURNING:7
 axe_dwarf1_simple_ice:
+  name: axe_dwarf1_simple_ice
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf1.ice
@@ -740,6 +798,7 @@ axe_dwarf1_simple_ice:
   knockback: 1.5
   effect: FROZEN:2
 axe_dwarf2_small:
+  name: axe_dwarf2_small
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf2.1
@@ -752,6 +811,7 @@ axe_dwarf2_small:
   knockback: 1.5
   location: 0:-50
 axe_dwarf2_medium:
+  name: axe_dwarf2_medium
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf2.2
@@ -764,6 +824,7 @@ axe_dwarf2_medium:
   knockback: 1.5
   location: 0:-50
 axe_dwarf2_big:
+  name: axe_dwarf2_big
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf2.3
@@ -777,6 +838,7 @@ axe_dwarf2_big:
   location: 0:-50
   scale: 1.5
 axe_dwarf2_huge:
+  name: axe_dwarf2_huge
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf2.4
@@ -790,6 +852,7 @@ axe_dwarf2_huge:
   location: 0:-50
   scale: 1.0
 axe_dwarf2_big_fire:
+  name: axe_dwarf2_big_fire
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.dwarf2.3.fire
@@ -804,6 +867,7 @@ axe_dwarf2_big_fire:
   scale: 1.5
   effect: BURNING:4
 axe_human:
+  name: axe_human
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.human
@@ -815,6 +879,7 @@ axe_human:
   damage: 7
   knockback: 1.5
 axe_human_fire:
+  name: axe_human_fire
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.human.fire
@@ -827,6 +892,7 @@ axe_human_fire:
   knockback: 1.5
   effect: BURNING:4
 axe_human_fire_strong:
+  name: axe_human_fire_strong
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.human.fire.strong
@@ -839,6 +905,7 @@ axe_human_fire_strong:
   knockback: 1.5
   effect: BURNING:6
 axe_human_ice:
+  name: axe_human_ice
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.human.ice
@@ -851,6 +918,7 @@ axe_human_ice:
   knockback: 1.5
   effect: FROZEN:3
 axe_orc_1:
+  name: axe_orc_1
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.orc.1
@@ -862,6 +930,7 @@ axe_orc_1:
   damage: 7
   knockback: 1.5
 axe_orc_2:
+  name: axe_orc_2
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.orc.2
@@ -875,6 +944,7 @@ axe_orc_2:
   location: 0:-50
   scale: 1.2
 axe_wild_1:
+  name: axe_wild_1
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.wild
@@ -886,6 +956,7 @@ axe_wild_1:
   damage: 6
   knockback: 1.5
 axe_wild_2:
+  name: axe_wild_2
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.wild.strong
@@ -897,6 +968,7 @@ axe_wild_2:
   damage: 12
   knockback: 1.5
 axe_wild_3:
+  name: axe_wild_3
   allow_movement_scaling: true
   owner_animation: THROW
   texture: axe.wild.strong
@@ -909,6 +981,7 @@ axe_wild_3:
   knockback: 1.5
   scale: 1.5
 stick_1:
+  name: stick_1
   owner_animation: SUMMON_SMALL
   texture: stick
   animation: '1:1:1'
@@ -920,6 +993,7 @@ stick_1:
   damage: 3
   knockback: 0.4
 stick_2:
+  name: stick_2
   owner_animation: SUMMON_SMALL
   texture: stick
   animation: '1:1:1'
@@ -931,6 +1005,7 @@ stick_2:
   damage: 5
   knockback: 0.4
 hammer_1:
+  name: hammer_1
   owner_animation: THROW
   texture: hammer.1
   animation: '1:1:1'
@@ -943,6 +1018,7 @@ hammer_1:
   knockback: 1.0
   allow_movement_scaling: true
 hammer_2:
+  name: hammer_2
   owner_animation: THROW
   texture: hammer.2
   animation: '1:1:1'
@@ -955,6 +1031,7 @@ hammer_2:
   knockback: 1.0
   allow_movement_scaling: true
 hammer_3:
+  name: hammer_3
   owner_animation: THROW
   texture: hammer.3
   animation: '1:1:1'
@@ -967,6 +1044,7 @@ hammer_3:
   knockback: 1.0
   allow_movement_scaling: true
 hammer_4:
+  name: hammer_4
   owner_animation: THROW
   texture: hammer.4
   animation: '1:1:1'
@@ -979,6 +1057,7 @@ hammer_4:
   knockback: 1.0
   allow_movement_scaling: true
 hammer_4_fire:
+  name: hammer_4_fire
   owner_animation: THROW
   texture: hammer.4.fire
   animation: '1:1:1'
@@ -992,6 +1071,7 @@ hammer_4_fire:
   allow_movement_scaling: true
   effect: BURNING:5
 hammer_5_fire:
+  name: hammer_5_fire
   owner_animation: THROW
   texture: hammer.5.fire
   animation: '1:1:1'
@@ -1006,6 +1086,7 @@ hammer_5_fire:
   effect: BURNING:5
   target_range: 920
 hammer_6_fire:
+  name: hammer_6_fire
   owner_animation: THROW
   texture: hammer.6.fire
   animation: '1:1:1'
@@ -1020,6 +1101,7 @@ hammer_6_fire:
   effect: BURNING:5
   target_range: 920
 hammer_4_ice:
+  name: hammer_4_ice
   owner_animation: THROW
   texture: hammer.4.ice
   animation: '1:1:1'
@@ -1033,6 +1115,7 @@ hammer_4_ice:
   allow_movement_scaling: true
   effect: FROZEN:3
 hammer_5_curse:
+  name: hammer_5_curse
   owner_animation: THROW
   texture: hammer.5.curse
   animation: '1:1:1'
@@ -1046,6 +1129,7 @@ hammer_5_curse:
   allow_movement_scaling: true
   effect: SLAGGED:3
 stick_brute:
+  name: stick_brute
   owner_animation: SUMMON_SMALL
   texture: stick.brute
   animation: '1:1:1'
@@ -1058,6 +1142,7 @@ stick_brute:
   knockback: 1.0
   allow_movement_scaling: true
 stick_pharao:
+  name: stick_pharao
   owner_animation: SUMMON_SMALL
   texture: stick.pharao
   animation: '1:1:1'
@@ -1070,6 +1155,7 @@ stick_pharao:
   knockback: 2.0
   effect: SLAGGED:2
 stick_pharao_strong:
+  name: stick_pharao_strong
   owner_animation: SUMMON_SMALL
   texture: stick.pharao
   animation: '1:1:1'
@@ -1082,6 +1168,7 @@ stick_pharao_strong:
   knockback: 2.0
   effect: SLAGGED:4
 beast_bite_1:
+  name: beast_bite_1
   owner_animation: NONE
   texture: beast.bite
   animation: 2.0:5:1
@@ -1093,6 +1180,7 @@ beast_bite_1:
   damage: 4
   knockback: 1.0
 beast_bite_2:
+  name: beast_bite_2
   owner_animation: NONE
   texture: beast.bite
   animation: 2.0:5:1
@@ -1104,6 +1192,7 @@ beast_bite_2:
   damage: 6
   knockback: 1.0
 beast_bite_3:
+  name: beast_bite_3
   owner_animation: NONE
   texture: beast.bite.huge
   animation: 2.0:5:1
@@ -1115,6 +1204,7 @@ beast_bite_3:
   damage: 18
   knockback: 1.0
 beast_rock_1:
+  name: beast_rock_1
   rotation_duration: -1
   owner_animation: SUMMON_BIG
   texture: beast.rock.1
@@ -1128,6 +1218,7 @@ beast_rock_1:
   knockback: 1.0
   stop_on_ground: true
 beast_rock_2:
+  name: beast_rock_2
   rotation_duration: -1
   owner_animation: SUMMON_BIG
   texture: beast.rock.2
@@ -1141,6 +1232,7 @@ beast_rock_2:
   knockback: 1.0
   stop_on_ground: true
 beast_waterball_single:
+  name: beast_waterball_single
   owner_animation: THROW
   texture: beast.waterball
   preview: ''
@@ -1153,6 +1245,7 @@ beast_waterball_single:
   damage: 6
   knockback: 0.7
 beast_waterball:
+  name: beast_waterball
   type: mix
   owner_animation: THROW
   preview: beast.waterball
@@ -1164,6 +1257,7 @@ beast_waterball:
   skillclass: NORMAL
   recipes:
     beast_waterball_single:
+      name: beast_waterball_single
       owner_animation: THROW
       texture: beast.waterball
       preview: ''
@@ -1176,6 +1270,7 @@ beast_waterball:
       damage: 6
       knockback: 0.7
 beast_waterball_2:
+  name: beast_waterball_2
   type: mix
   owner_animation: THROW
   preview: beast.waterball.2
@@ -1189,6 +1284,7 @@ beast_waterball_2:
   skillclass: NORMAL
   recipes:
     beast_waterball_single:
+      name: beast_waterball_single
       owner_animation: THROW
       texture: beast.waterball
       preview: ''
@@ -1201,6 +1297,7 @@ beast_waterball_2:
       damage: 6
       knockback: 0.7
 beast_stone_1:
+  name: beast_stone_1
   owner_animation: THROW
   texture: beast.stones
   preview: beast.stone.1
@@ -1214,6 +1311,7 @@ beast_stone_1:
   damage: 7
   knockback: 1.0
 beast_stone_2:
+  name: beast_stone_2
   owner_animation: THROW
   texture: beast.stones
   preview: beast.stone.2
@@ -1227,6 +1325,7 @@ beast_stone_2:
   damage: 9
   knockback: 1.0
 beast_stone_3:
+  name: beast_stone_3
   owner_animation: THROW
   texture: beast.stones
   preview: beast.stone.3
@@ -1240,6 +1339,7 @@ beast_stone_3:
   damage: 12
   knockback: 1.0
 beast_stones:
+  name: beast_stones
   owner_animation: THROW
   texture: beast.stones
   preview: beast.stones
@@ -1260,6 +1360,7 @@ beast_stones:
   - beast_stone_3
   recipes:
     beast_stone_1:
+      name: beast_stone_1
       owner_animation: THROW
       texture: beast.stones
       preview: beast.stone.1
@@ -1273,6 +1374,7 @@ beast_stones:
       damage: 7
       knockback: 1.0
     beast_stone_2:
+      name: beast_stone_2
       owner_animation: THROW
       texture: beast.stones
       preview: beast.stone.2
@@ -1286,6 +1388,7 @@ beast_stones:
       damage: 9
       knockback: 1.0
     beast_stone_3:
+      name: beast_stone_3
       owner_animation: THROW
       texture: beast.stones
       preview: beast.stone.3
@@ -1299,6 +1402,7 @@ beast_stones:
       damage: 12
       knockback: 1.0
 knife_basic:
+  name: knife_basic
   owner_animation: SUMMON_SMALL
   texture: knife.basic
   animation: '1:1:1'
@@ -1309,6 +1413,7 @@ knife_basic:
   damage: 2
   knockback: 0.5
 knife_twisted:
+  name: knife_twisted
   owner_animation: SUMMON_SMALL
   texture: knife.twisted
   animation: '1:1:1'
@@ -1320,6 +1425,7 @@ knife_twisted:
   knockback: 0.5
   location: 0:-35
 knife_twisted_ice:
+  name: knife_twisted_ice
   owner_animation: SUMMON_SMALL
   texture: knife.twisted.ice
   animation: '1:1:1'
@@ -1332,6 +1438,7 @@ knife_twisted_ice:
   location: 0:-35
   effect: FROZEN:3
 sword_twisted:
+  name: sword_twisted
   owner_animation: SUMMON_SMALL
   texture: sword.twisted
   animation: '1:1:1'
@@ -1343,6 +1450,7 @@ sword_twisted:
   knockback: 0.5
   location: 0:-30
 knife_mighty_1:
+  name: knife_mighty_1
   owner_animation: SUMMON_SMALL
   texture: knife.mighty.1
   animation: '1:1:1'
@@ -1354,6 +1462,7 @@ knife_mighty_1:
   knockback: 0.5
   location: 0:10
 knife_mighty_2:
+  name: knife_mighty_2
   owner_animation: SUMMON_SMALL
   texture: knife.mighty.2
   animation: '1:1:1'
@@ -1365,6 +1474,7 @@ knife_mighty_2:
   knockback: 0.5
   location: 0:10
 knife_mighty_3_fire:
+  name: knife_mighty_3_fire
   owner_animation: SUMMON_SMALL
   texture: knife.mighty.3.fire
   animation: '1:1:1'
@@ -1377,6 +1487,7 @@ knife_mighty_3_fire:
   location: 0:10
   effect: BURNING:7
 knife_mighty_3_ice:
+  name: knife_mighty_3_ice
   owner_animation: SUMMON_SMALL
   texture: knife.mighty.3.ice
   animation: '1:1:1'
@@ -1389,6 +1500,7 @@ knife_mighty_3_ice:
   location: 0:10
   effect: FROZEN:4
 sword_mighty:
+  name: sword_mighty
   owner_animation: SUMMON_SMALL
   texture: sword.mighty
   animation: '1:1:1'
@@ -1400,6 +1512,7 @@ sword_mighty:
   knockback: 0.5
   location: 0:10
 sword_mighty_double:
+  name: sword_mighty_double
   owner_animation: SUMMON_SMALL
   texture: sword.mighty.double
   animation: '1:1:1'
@@ -1411,6 +1524,7 @@ sword_mighty_double:
   knockback: 0.5
   location: 0:10
 sword_mighty_cross:
+  name: sword_mighty_cross
   owner_animation: SUMMON_SMALL
   texture: sword.mighty.cross
   animation: '1:1:1'
@@ -1424,6 +1538,7 @@ sword_mighty_cross:
   target_range: 1000
   target_speed: 0:200
 sword_mighty_gold:
+  name: sword_mighty_gold
   owner_animation: SUMMON_SMALL
   texture: sword.mighty.gold
   animation: '1:1:1'
@@ -1435,6 +1550,7 @@ sword_mighty_gold:
   knockback: 0.5
   location: 0:-10
 sword_mighty_gold_strong:
+  name: sword_mighty_gold_strong
   owner_animation: SUMMON_SMALL
   texture: sword.mighty.gold.strong
   animation: '1:1:1'
@@ -1446,6 +1562,7 @@ sword_mighty_gold_strong:
   knockback: 0.5
   location: 0:-40
 sword_mighty_gold_double:
+  name: sword_mighty_gold_double
   owner_animation: SUMMON_SMALL
   texture: sword.mighty.gold.double
   animation: '1:1:1'
@@ -1457,6 +1574,7 @@ sword_mighty_gold_double:
   knockback: 0.5
   location: 0:-10
 sword_mighty_gold_cross:
+  name: sword_mighty_gold_cross
   owner_animation: SUMMON_SMALL
   texture: sword.mighty.gold.cross
   animation: '1:1:1'
@@ -1470,6 +1588,7 @@ sword_mighty_gold_cross:
   target_range: 1000
   target_speed: 0:200
 knife_brokensword:
+  name: knife_brokensword
   owner_animation: SUMMON_SMALL
   texture: knife.brokensword
   animation: '1:1:1'
@@ -1481,6 +1600,7 @@ knife_brokensword:
   knockback: 0.5
   location: 0:60
 knife_brokensword_strong:
+  name: knife_brokensword_strong
   owner_animation: SUMMON_SMALL
   texture: knife.brokensword.strong
   animation: '1:1:1'
@@ -1492,6 +1612,7 @@ knife_brokensword_strong:
   knockback: 0.5
   location: 0:60
 knife_brokensword_poison:
+  name: knife_brokensword_poison
   owner_animation: SUMMON_SMALL
   texture: knife.brokensword.poison
   animation: '1:1:1'
@@ -1504,6 +1625,7 @@ knife_brokensword_poison:
   location: 0:60
   effect: POISONED:3
 knife_brokensword_ice:
+  name: knife_brokensword_ice
   owner_animation: SUMMON_SMALL
   texture: knife.brokensword.ice
   animation: '1:1:1'
@@ -1516,6 +1638,7 @@ knife_brokensword_ice:
   location: 0:60
   effect: FROZEN:2
 spear_basic:
+  name: spear_basic
   owner_animation: THROW
   texture: spear.basic
   animation: '1:4:1'
@@ -1527,6 +1650,7 @@ spear_basic:
   damage: 6
   knockback: 1.6
 spear_small:
+  name: spear_small
   owner_animation: THROW
   texture: spear.small
   animation: '1:4:1'
@@ -1538,6 +1662,7 @@ spear_small:
   damage: 7
   knockback: 1.6
 spear_normal:
+  name: spear_normal
   owner_animation: THROW
   texture: spear.normal
   animation: '1:4:1'
@@ -1549,6 +1674,7 @@ spear_normal:
   damage: 9
   knockback: 1.6
 spear_fire:
+  name: spear_fire
   owner_animation: THROW
   texture: spear.fire
   animation: '1:4:1'
@@ -1561,6 +1687,7 @@ spear_fire:
   knockback: 1.6
   effect: BURNING:4
 spear_ice:
+  name: spear_ice
   owner_animation: THROW
   texture: spear.ice
   animation: '1:4:1'
@@ -1573,6 +1700,7 @@ spear_ice:
   knockback: 1.6
   effect: FROZEN:2
 spear_strong:
+  name: spear_strong
   owner_animation: THROW
   texture: spear.strong
   animation: '1:4:1'
@@ -1584,6 +1712,7 @@ spear_strong:
   damage: 12
   knockback: 1.6
 spear_god:
+  name: spear_god
   owner_animation: THROW
   texture: spear.god
   animation: '1:4:1'
@@ -1595,6 +1724,7 @@ spear_god:
   damage: 22
   knockback: 1.6
 magic_energy_single_1:
+  name: magic_energy_single_1
   texture: magic.energy
   animation: '1:1:1'
   sound: ''
@@ -1605,6 +1735,7 @@ magic_energy_single_1:
   damage: 3
   knockback: 1.0
 magic_energy_single_2:
+  name: magic_energy_single_2
   texture: magic.energy
   animation: '1:1:1'
   sound: ''
@@ -1615,6 +1746,7 @@ magic_energy_single_2:
   damage: 5
   knockback: 1.0
 magic_energy_single_3:
+  name: magic_energy_single_3
   texture: magic.energy
   animation: '1:1:1'
   sound: ''
@@ -1625,6 +1757,7 @@ magic_energy_single_3:
   damage: 7
   knockback: 1.0
 magic_energy_weak:
+  name: magic_energy_weak
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.energy.3
@@ -1637,6 +1770,7 @@ magic_energy_weak:
   skillclass: MAGIC
   recipes:
     magic_energy_single_1:
+      name: magic_energy_single_1
       texture: magic.energy
       animation: '1:1:1'
       sound: ''
@@ -1647,6 +1781,7 @@ magic_energy_weak:
       damage: 3
       knockback: 1.0
 magic_energy_medium:
+  name: magic_energy_medium
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.energy.4
@@ -1660,6 +1795,7 @@ magic_energy_medium:
   skillclass: MAGIC
   recipes:
     magic_energy_single_2:
+      name: magic_energy_single_2
       texture: magic.energy
       animation: '1:1:1'
       sound: ''
@@ -1670,6 +1806,7 @@ magic_energy_medium:
       damage: 5
       knockback: 1.0
 magic_energy_strong:
+  name: magic_energy_strong
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.energy.5
@@ -1684,6 +1821,7 @@ magic_energy_strong:
   skillclass: MAGIC
   recipes:
     magic_energy_single_3:
+      name: magic_energy_single_3
       texture: magic.energy
       animation: '1:1:1'
       sound: ''
@@ -1694,6 +1832,7 @@ magic_energy_strong:
       damage: 7
       knockback: 1.0
 magic_energy_wall:
+  name: magic_energy_wall
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.energy.5
@@ -1710,6 +1849,7 @@ magic_energy_wall:
   skillclass: MAGIC
   recipes:
     magic_energy_single_1:
+      name: magic_energy_single_1
       texture: magic.energy
       animation: '1:1:1'
       sound: ''
@@ -1720,6 +1860,7 @@ magic_energy_wall:
       damage: 3
       knockback: 1.0
 magic_energy_crossing:
+  name: magic_energy_crossing
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.energy.3
@@ -1732,6 +1873,7 @@ magic_energy_crossing:
   skillclass: MAGIC
   recipes:
     magic_energy_single_3:
+      name: magic_energy_single_3
       texture: magic.energy
       animation: '1:1:1'
       sound: ''
@@ -1742,6 +1884,7 @@ magic_energy_crossing:
       damage: 7
       knockback: 1.0
 magic_fireball:
+  name: magic_fireball
   type: normal
   owner_animation: SUMMON_SMALL
   texture: magic.fireball
@@ -1754,6 +1897,7 @@ magic_fireball:
   knockback: 1.5
   effect: BURNING:3
 magic_meteorball:
+  name: magic_meteorball
   type: normal
   owner_animation: SUMMON_BIG
   texture: magic.meteorball
@@ -1766,6 +1910,7 @@ magic_meteorball:
   knockback: 1.5
   effect: BURNING:8
 magic_fireball_rain_1:
+  name: magic_fireball_rain_1
   type: normal
   owner_animation: SUMMON_SMALL
   texture: magic.fireball.rain
@@ -1782,6 +1927,7 @@ magic_fireball_rain_1:
   spawn_relative_to_target: true:false
   target_range: 1000
 magic_fireball_rain_2:
+  name: magic_fireball_rain_2
   type: mix
   owner_animation: SUMMON_SMALL
   texture: magic.fireball.rain
@@ -1804,6 +1950,7 @@ magic_fireball_rain_2:
   - magic_fireball_rain_1:0:140:0:0
   recipes:
     magic_fireball_rain_1:
+      name: magic_fireball_rain_1
       type: normal
       owner_animation: SUMMON_SMALL
       texture: magic.fireball.rain
@@ -1820,6 +1967,7 @@ magic_fireball_rain_2:
       spawn_relative_to_target: true:false
       target_range: 1000
 magic_iceball_1:
+  name: magic_iceball_1
   owner_animation: SUMMON_SMALL
   texture: magic.iceball
   animation: '1:4:1'
@@ -1832,6 +1980,7 @@ magic_iceball_1:
   knockback: 1.0
   effect: FROZEN:3
 magic_icespear_1:
+  name: magic_icespear_1
   owner_animation: SUMMON_BIG
   texture: magic.icespear
   animation: '1:4:1'
@@ -1844,6 +1993,7 @@ magic_icespear_1:
   knockback: 1.0
   effect: FROZEN:3
 magic_icespear_2:
+  name: magic_icespear_2
   owner_animation: SUMMON_BIG
   texture: magic.icespear
   animation: '1:4:1'
@@ -1856,6 +2006,7 @@ magic_icespear_2:
   knockback: 1.0
   effect: FROZEN:4
 magic_shadowenergy_single_weak:
+  name: magic_shadowenergy_single_weak
   owner_animation: SUMMON_BIG
   texture: magic.shadowenergy
   animation: '1:1:1'
@@ -1870,6 +2021,7 @@ magic_shadowenergy_single_weak:
   knockback: 0.6
   effect: SLAGGED:4
 magic_shadowenergy_single_medium:
+  name: magic_shadowenergy_single_medium
   owner_animation: SUMMON_BIG
   texture: magic.shadowenergy
   animation: '1:1:1'
@@ -1885,6 +2037,7 @@ magic_shadowenergy_single_medium:
   effect: SLAGGED:4
   location: 0:-50
 magic_shadowenergy_single_strong:
+  name: magic_shadowenergy_single_strong
   owner_animation: SUMMON_BIG
   texture: magic.shadowenergy
   animation: '1:1:1'
@@ -1900,6 +2053,7 @@ magic_shadowenergy_single_strong:
   effect: SLAGGED:4
   location: 0:-100
 magic_shadowenergy_single_epic:
+  name: magic_shadowenergy_single_epic
   owner_animation: SUMMON_BIG
   texture: magic.shadowenergy
   animation: '1:1:1'
@@ -1917,6 +2071,7 @@ magic_shadowenergy_single_epic:
   scale: 1.5
   targetspeed: '300:0'
 magic_energy_tricky:
+  name: magic_energy_tricky
   texture: magic.shadowenergy
   animation: '1:1:1'
   sound: ''
@@ -1928,6 +2083,7 @@ magic_energy_tricky:
   knockback: 1.0
   scale: 1.25
 magic_energy_tricky_strong:
+  name: magic_energy_tricky_strong
   texture: magic.shadowenergy
   animation: '1:1:1'
   sound: ''
@@ -1939,6 +2095,7 @@ magic_energy_tricky_strong:
   knockback: 1.0
   scale: 1.6
 magic_energy_tricky_down:
+  name: magic_energy_tricky_down
   texture: magic.shadowenergy
   animation: '1:1:1'
   sound: ''
@@ -1950,6 +2107,7 @@ magic_energy_tricky_down:
   knockback: 1.0
   scale: 1.25
 magic_energy_tricky_down_strong:
+  name: magic_energy_tricky_down_strong
   texture: magic.shadowenergy
   animation: '1:1:1'
   sound: ''
@@ -1961,6 +2119,7 @@ magic_energy_tricky_down_strong:
   knockback: 1.0
   scale: 1.6
 magic_energy_tricky_up:
+  name: magic_energy_tricky_up
   texture: magic.shadowenergy
   animation: '1:1:1'
   sound: ''
@@ -1972,6 +2131,7 @@ magic_energy_tricky_up:
   knockback: 1.0
   scale: 1.25
 magic_energy_tricky_up_strong:
+  name: magic_energy_tricky_up_strong
   texture: magic.shadowenergy
   animation: '1:1:1'
   sound: ''
@@ -1983,6 +2143,7 @@ magic_energy_tricky_up_strong:
   knockback: 1.0
   scale: 1.6
 magic_shadowenergy_weak:
+  name: magic_shadowenergy_weak
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.shadowenergy.1
@@ -1993,6 +2154,7 @@ magic_shadowenergy_weak:
   skillclass: MAGIC
   recipes:
     magic_shadowenergy_single_weak:
+      name: magic_shadowenergy_single_weak
       owner_animation: SUMMON_BIG
       texture: magic.shadowenergy
       animation: '1:1:1'
@@ -2007,6 +2169,7 @@ magic_shadowenergy_weak:
       knockback: 0.6
       effect: SLAGGED:4
 magic_shadowenergy_medium:
+  name: magic_shadowenergy_medium
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.shadowenergy.2
@@ -2018,6 +2181,7 @@ magic_shadowenergy_medium:
   skillclass: MAGIC
   recipes:
     magic_shadowenergy_single_medium:
+      name: magic_shadowenergy_single_medium
       owner_animation: SUMMON_BIG
       texture: magic.shadowenergy
       animation: '1:1:1'
@@ -2033,6 +2197,7 @@ magic_shadowenergy_medium:
       effect: SLAGGED:4
       location: 0:-50
 magic_shadowenergy_strong:
+  name: magic_shadowenergy_strong
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.shadowenergy.3
@@ -2045,6 +2210,7 @@ magic_shadowenergy_strong:
   skillclass: MAGIC
   recipes:
     magic_shadowenergy_single_strong:
+      name: magic_shadowenergy_single_strong
       owner_animation: SUMMON_BIG
       texture: magic.shadowenergy
       animation: '1:1:1'
@@ -2060,6 +2226,7 @@ magic_shadowenergy_strong:
       effect: SLAGGED:4
       location: 0:-100
 magic_shadowenergy_epic:
+  name: magic_shadowenergy_epic
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.shadowenergy.4
@@ -2072,6 +2239,7 @@ magic_shadowenergy_epic:
   skillclass: MAGIC
   recipes:
     magic_shadowenergy_single_epic:
+      name: magic_shadowenergy_single_epic
       owner_animation: SUMMON_BIG
       texture: magic.shadowenergy
       animation: '1:1:1'
@@ -2089,6 +2257,7 @@ magic_shadowenergy_epic:
       scale: 1.5
       targetspeed: '300:0'
 magic_trickyenergy_1:
+  name: magic_trickyenergy_1
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.trickyenergy.1
@@ -2100,6 +2269,7 @@ magic_trickyenergy_1:
   skillclass: MAGIC
   recipes:
     magic_energy_tricky_down:
+      name: magic_energy_tricky_down
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2111,6 +2281,7 @@ magic_trickyenergy_1:
       knockback: 1.0
       scale: 1.25
     magic_energy_tricky_up:
+      name: magic_energy_tricky_up
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2122,6 +2293,7 @@ magic_trickyenergy_1:
       knockback: 1.0
       scale: 1.25
 magic_trickyenergy_2:
+  name: magic_trickyenergy_2
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.trickyenergy.2
@@ -2134,6 +2306,7 @@ magic_trickyenergy_2:
   skillclass: MAGIC
   recipes:
     magic_energy_tricky_down:
+      name: magic_energy_tricky_down
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2145,6 +2318,7 @@ magic_trickyenergy_2:
       knockback: 1.0
       scale: 1.25
     magic_energy_tricky_up:
+      name: magic_energy_tricky_up
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2156,6 +2330,7 @@ magic_trickyenergy_2:
       knockback: 1.0
       scale: 1.25
     magic_energy_tricky:
+      name: magic_energy_tricky
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2167,6 +2342,7 @@ magic_trickyenergy_2:
       knockback: 1.0
       scale: 1.25
 magic_trickyenergy_3:
+  name: magic_trickyenergy_3
   type: mix
   owner_animation: SUMMON_BIG
   preview: magic.trickyenergy.3
@@ -2179,6 +2355,7 @@ magic_trickyenergy_3:
   skillclass: MAGIC
   recipes:
     magic_energy_tricky_down_strong:
+      name: magic_energy_tricky_down_strong
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2190,6 +2367,7 @@ magic_trickyenergy_3:
       knockback: 1.0
       scale: 1.6
     magic_energy_tricky_up_strong:
+      name: magic_energy_tricky_up_strong
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2201,6 +2379,7 @@ magic_trickyenergy_3:
       knockback: 1.0
       scale: 1.6
     magic_energy_tricky_strong:
+      name: magic_energy_tricky_strong
       texture: magic.shadowenergy
       animation: '1:1:1'
       sound: ''
@@ -2212,6 +2391,7 @@ magic_trickyenergy_3:
       knockback: 1.0
       scale: 1.6
 magic_skull_1:
+  name: magic_skull_1
   owner_animation: SUMMON_SMALL
   texture: magic.skull
   animation: '1:6:1'
@@ -2225,6 +2405,7 @@ magic_skull_1:
   damage: 5
   knockback: -2
 magic_skull_2:
+  name: magic_skull_2
   owner_animation: SUMMON_SMALL
   texture: magic.skull
   animation: '1:6:1'
@@ -2238,6 +2419,7 @@ magic_skull_2:
   damage: 8
   knockback: -2
 magic_skull_3:
+  name: magic_skull_3
   owner_animation: SUMMON_SMALL
   texture: magic.skull
   animation: '1:6:1'
@@ -2251,6 +2433,7 @@ magic_skull_3:
   damage: 4-10
   knockback: -2
 magic_torch_1:
+  name: magic_torch_1
   owner_animation: SUMMON_SMALL
   texture: magic.torch
   animation: '1:3:1'
@@ -2264,6 +2447,7 @@ magic_torch_1:
   knockback: 0.2
   effect: BURNING:5
 magic_torch_2:
+  name: magic_torch_2
   owner_animation: SUMMON_SMALL
   texture: magic.torch
   animation: '1:3:1'
@@ -2278,6 +2462,7 @@ magic_torch_2:
   effect: BURNING:7
   strength: 7
 magic_torch_3:
+  name: magic_torch_3
   owner_animation: SUMMON_SMALL
   texture: magic.torch.strong
   animation: '1:3:1'
@@ -2292,6 +2477,7 @@ magic_torch_3:
   effect: BURNING:9
   strength: 7
 magic_torch_4:
+  name: magic_torch_4
   owner_animation: SUMMON_BIG
   texture: magic.torch.strong
   animation: '1:3:1'
@@ -2314,6 +2500,7 @@ magic_torch_4:
   - magic_torch_3:0:0:0:0
   recipes:
     magic_torch_1:
+      name: magic_torch_1
       owner_animation: SUMMON_SMALL
       texture: magic.torch
       animation: '1:3:1'
@@ -2327,6 +2514,7 @@ magic_torch_4:
       knockback: 0.2
       effect: BURNING:5
     magic_torch_3:
+      name: magic_torch_3
       owner_animation: SUMMON_SMALL
       texture: magic.torch.strong
       animation: '1:3:1'
@@ -2341,6 +2529,7 @@ magic_torch_4:
       effect: BURNING:9
       strength: 7
 magic_icespike_1:
+  name: magic_icespike_1
   owner_animation: SUMMON_BIG
   texture: magic.icespike.1
   animation: '1:1:1'
@@ -2357,6 +2546,7 @@ magic_icespike_1:
   damage: 6
   knockback: 2.0
 magic_icespike_2:
+  name: magic_icespike_2
   owner_animation: SUMMON_BIG
   texture: magic.icespike.2
   animation: '1:1:1'
@@ -2373,6 +2563,7 @@ magic_icespike_2:
   damage: 8
   knockback: 2.0
 magic_icespike_3:
+  name: magic_icespike_3
   owner_animation: SUMMON_BIG
   texture: magic.icespike.3
   animation: '1:1:1'
@@ -2389,6 +2580,7 @@ magic_icespike_3:
   damage: 12
   knockback: 2.0
 magic_icespike_4:
+  name: magic_icespike_4
   owner_animation: SUMMON_BIG
   texture: magic.icespike.4
   animation: '1:1:1'
@@ -2405,6 +2597,7 @@ magic_icespike_4:
   damage: 18
   knockback: 2.0
 magic_skyfist:
+  name: magic_skyfist
   owner_animation: SUMMON_BIG
   texture: magic.fist
   animation: '1:1:1'
@@ -2421,6 +2614,7 @@ magic_skyfist:
   damage: 4-11
   knockback: 2.0
 magic_skyfist_huge:
+  name: magic_skyfist_huge
   owner_animation: SUMMON_BIG
   texture: magic.fist.huge
   animation: '1:1:1'
@@ -2437,6 +2631,7 @@ magic_skyfist_huge:
   damage: 7-16
   knockback: 2.0
 magic_skyfist_fire:
+  name: magic_skyfist_fire
   owner_animation: SUMMON_BIG
   texture: magic.fist.fire
   animation: '1:1:1'
@@ -2454,6 +2649,7 @@ magic_skyfist_fire:
   knockback: 2.0
   effect: BURNING:5
 magic_skyfist_poison:
+  name: magic_skyfist_poison
   owner_animation: SUMMON_BIG
   texture: magic.fist.poison
   animation: '1:1:1'
@@ -2471,6 +2667,7 @@ magic_skyfist_poison:
   knockback: 2.0
   effect: POISONED:4
 magic_icicle_1:
+  name: magic_icicle_1
   owner_animation: SUMMON_BIG
   texture: magic.icicle
   animation: '1:2:1'
@@ -2487,6 +2684,7 @@ magic_icicle_1:
   intersection_dependent_damage: true
   knockback: 1.5
 magic_icicle_2:
+  name: magic_icicle_2
   owner_animation: SUMMON_BIG
   texture: magic.icicle
   animation: '1:2:1'
@@ -2503,6 +2701,7 @@ magic_icicle_2:
   intersection_dependent_damage: true
   knockback: 1.5
 magic_icicle_3:
+  name: magic_icicle_3
   owner_animation: SUMMON_BIG
   texture: magic.icicle
   animation: '1:2:1'
@@ -2519,6 +2718,7 @@ magic_icicle_3:
   intersection_dependent_damage: true
   knockback: 1.5
 magic_icicle_4:
+  name: magic_icicle_4
   owner_animation: SUMMON_BIG
   texture: magic.icicle.strong
   animation: '1:2:1'
@@ -2535,6 +2735,7 @@ magic_icicle_4:
   intersection_dependent_damage: true
   knockback: 1.5
 arrowrain_single:
+  name: arrowrain_single
   owner_animation: SUMMON_BIG
   texture: arrow.rain
   animation: '1:4:1'
@@ -2550,6 +2751,7 @@ arrowrain_single:
   damage: 3
   knockback: 0.4
 arrowrain_single_first:
+  name: arrowrain_single_first
   owner_animation: SUMMON_BIG
   texture: arrow.rain
   animation: '1:4:1'
@@ -2565,6 +2767,7 @@ arrowrain_single_first:
   damage: 3
   knockback: 0.4
 arrowrain_1:
+  name: arrowrain_1
   type: mix
   owner_animation: SUMMON_SMALL
   range: 1000
@@ -2581,6 +2784,7 @@ arrowrain_1:
   - arrowrain_single:-40+160*r:-25+50*r
   recipes:
     arrowrain_single_first:
+      name: arrowrain_single_first
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2596,6 +2800,7 @@ arrowrain_1:
       damage: 3
       knockback: 0.4
     arrowrain_single:
+      name: arrowrain_single
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2611,6 +2816,7 @@ arrowrain_1:
       damage: 3
       knockback: 0.4
 arrowrain_2:
+  name: arrowrain_2
   type: mix
   owner_animation: SUMMON_SMALL
   range: 1000
@@ -2628,6 +2834,7 @@ arrowrain_2:
   - arrowrain_single:-40+200*r:-25+50*r
   recipes:
     arrowrain_single_first:
+      name: arrowrain_single_first
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2643,6 +2850,7 @@ arrowrain_2:
       damage: 3
       knockback: 0.4
     arrowrain_single:
+      name: arrowrain_single
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2658,6 +2866,7 @@ arrowrain_2:
       damage: 3
       knockback: 0.4
 arrowrain_3:
+  name: arrowrain_3
   type: mix
   owner_animation: SUMMON_SMALL
   range: 1000
@@ -2676,6 +2885,7 @@ arrowrain_3:
   - arrowrain_single:-40+240*r:-25+50*r
   recipes:
     arrowrain_single_first:
+      name: arrowrain_single_first
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2691,6 +2901,7 @@ arrowrain_3:
       damage: 3
       knockback: 0.4
     arrowrain_single:
+      name: arrowrain_single
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2706,6 +2917,7 @@ arrowrain_3:
       damage: 3
       knockback: 0.4
 arrowrain_4:
+  name: arrowrain_4
   type: mix
   owner_animation: SUMMON_SMALL
   range: 1000
@@ -2727,6 +2939,7 @@ arrowrain_4:
   - arrowrain_single:-40+400*r:-25+50*r
   recipes:
     arrowrain_single_first:
+      name: arrowrain_single_first
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2742,6 +2955,7 @@ arrowrain_4:
       damage: 3
       knockback: 0.4
     arrowrain_single:
+      name: arrowrain_single
       owner_animation: SUMMON_BIG
       texture: arrow.rain
       animation: '1:4:1'
@@ -2757,6 +2971,7 @@ arrowrain_4:
       damage: 3
       knockback: 0.4
 misc_bomb:
+  name: misc_bomb
   rarity: rare
   type: normal
   owner_animation: SUMMON_SMALL
@@ -2773,6 +2988,7 @@ misc_bomb:
   knockback: 4.0
   spawn_on_impact: misc_explosion_small
 misc_bomb_strong:
+  name: misc_bomb_strong
   rarity: very_rare
   type: normal
   owner_animation: SUMMON_SMALL
@@ -2789,6 +3005,7 @@ misc_bomb_strong:
   knockback: 4.0
   spawn_on_impact: misc_explosion_big
 snowball_normal:
+  name: snowball_normal
   owner_animation: THROW
   texture: magic.snowball.normal
   animation: '1:1:1'
@@ -2800,6 +3017,7 @@ snowball_normal:
   damage: 3
   knockback: 0.6
 snowball_strong:
+  name: snowball_strong
   owner_animation: THROW
   texture: magic.snowball.strong
   animation: '1:1:1'
@@ -2811,6 +3029,7 @@ snowball_strong:
   damage: 7
   knockback: 1.1
 snowball_4:
+  name: snowball_4
   owner_animation: THROW
   texture: magic.snowball.strong.ice
   animation: '1:1:1'

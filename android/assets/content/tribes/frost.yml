@@ -5,38 +5,97 @@ army:
     boss:
       animation: 'human:l1.frost.boss'
       armor: 'none'
-      action: 'sword_human_gold'
       cooldown: 1.5
       health: 120
       boss: true
+      action:
+        owner_animation: SUMMON_SMALL
+        texture: sword.human.gold
+        animation: '1:1:1'
+        sound: skill.wind
+        skillclass: NORMAL
+        speed: 1200:200
+        acceleration: -70*A:-20*A
+        location: 0:-50
+        damage: 8
+        knockback: 1.5
+
 
     tank:
       animation: 'human:l1.frost.tank'
       armor: 'none'
-      action: 'sword_basic'
       cooldown: 2.5
       health: 40
+      action:
+        owner_animation: SUMMON_SMALL
+        texture: sword.basic
+        animation: '1:1:1'
+        sound: skill.wind
+        skillclass: NORMAL
+        speed: 1200:400
+        acceleration: -70*A:-50*A
+        location: 0:-50
+        damage: 6
 
     melee:
       animation: 'human:l1.frost.melee'
       armor: 'anti_light'
-      action: 'snowball_strong'
       cooldown: 1.5
       health: 16
+      action:
+        owner_animation: THROW
+        texture: magic.snowball.strong
+        animation: '1:1:1'
+        sound: skill.knife.weak
+        skillclass: NORMAL
+        speed: 900:-200
+        acceleration: 0:55*A
+        location: 0:-30
+        damage: 7
+        knockback: 1.1
 
     ranged:
       animation: 'human:l1.frost.ranged'
       armor: 'none'
-      action: 'arrow_ice'
       cooldown: 2.0
       health: 10
+      action:
+        type: normal
+        owner_animation: WEAPON
+        weapon: bow:light
+        texture: arrow.ice
+        animation: '1:4:1'
+        sound: skill.arrow
+        skillclass: LIGHT
+        speed: 1200:-30
+        acceleration: 0:5*A
+        offset: '-40:20'
+        damage: 6
+        knockback: 1.0
+        strength: 9
+        effect: FROZEN:3
 
     mage:
       animation: 'human:l1.frost.mage'
       armor: 'none'
-      action: 'magic_icespike_1'
       cooldown: 2.0
       health: 8
+      action:
+        owner_animation: SUMMON_BIG
+        texture: magic.icespike.1
+        animation: '1:1:1'
+        rotation_duration: 0
+        sound: skill.ice
+        skillclass: MAGIC
+        speed: 0:-900
+        acceleration: 0:0
+        location: 0:-35
+        y_relative_to_ground: true
+        target_range: 1000
+        spawn_relative_to_target: true:false
+        idle_time: 1.0
+        damage: 6
+        knockback: 2.0
 
 
 

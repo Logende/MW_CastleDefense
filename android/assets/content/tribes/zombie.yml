@@ -5,38 +5,90 @@ army:
     boss:
       animation: 'human:l1.zombie.boss'
       armor: 'none'
-      action: 'magic_skull_2'
       cooldown: 1.0
       health: 100
       boss: true
+      action:
+        owner_animation: SUMMON_SMALL
+        texture: magic.skull
+        animation: '1:6:1'
+        preview: magic.skull.2
+        sound: skill.skull
+        skillclass: MAGIC
+        speed: '600:0'
+        target_speed: 0:40
+        acceleration: 0:0
+        location: 0:50
+        damage: 8
+        knockback: -2
 
     tank:
       animation: 'human:l1.zombie.tank'
       armor: 'none'
-      action: 'axe_brutal_1'
       cooldown: 1.0
       health: 45
+      action:
+        allow_movement_scaling: true
+        owner_animation: THROW
+        texture: axe.brutal.1
+        animation: '1:1:1'
+        sound: skill.throw
+        skillclass: NORMAL
+        speed: 350:-700
+        acceleration: 0:60*A
+        damage: 8
+        knockback: 1.5
 
     melee:
       animation: 'rider:wolf:l1.zombie.melee'
       armor: 'none'
-      action: 'axe_brutal_2'
       cooldown: 1.5
       health: 8
+      action:
+        allow_movement_scaling: true
+        owner_animation: THROW
+        texture: axe.brutal.2
+        animation: '1:1:1'
+        sound: skill.throw
+        skillclass: NORMAL
+        speed: 400:-700
+        acceleration: 0:60*A
+        damage: 11
+        knockback: 1.5
 
     ranged:
       animation: 'human:l1.zombie.ranged'
       armor: 'none'
-      action: 'sword_orc_1'
       cooldown: 2.0
       health: 16
+      action:
+        allow_movement_scaling: true
+        owner_animation: THROW
+        texture: axe.orc.1
+        animation: '1:1:1'
+        sound: skill.rost
+        skillclass: NORMAL
+        speed: 600:-500
+        acceleration: 0:80*A
+        damage: 7
+        knockback: 1.5
 
     mage:
       animation: 'human:l1.zombie.mage'
       armor: 'none'
-      action: 'spear_small'
       cooldown: 2.0
       health: 16
+      action:
+        owner_animation: THROW
+        texture: spear.small
+        animation: '1:4:1'
+        sound: skill.spear
+        skillclass: NORMAL
+        speed: 600:-90
+        acceleration: 0:25*A
+        location: 0:-50
+        damage: 7
+        knockback: 1.6
 
 
 

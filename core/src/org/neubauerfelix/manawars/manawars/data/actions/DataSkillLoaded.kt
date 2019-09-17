@@ -152,17 +152,6 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
      */
     override val skillClass: MWSkillClass = MWSkillClass.valueOf(config.getString("skillclass"))
 
-    override val actionDependencies: Array<IDataAction>
-
-    init {
-        val actionDependencies = mutableListOf<IDataAction>()
-        for (name in config.getStringList("actionDependencies")) {
-            val action = MManaWars.m.getActionHandler().getAction(name)
-            require(action != null)
-            actionDependencies.add(action!!)
-        }
-        this.actionDependencies = actionDependencies.toTypedArray()
-    }
 
 
 

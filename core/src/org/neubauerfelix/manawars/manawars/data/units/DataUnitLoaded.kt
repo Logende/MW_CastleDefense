@@ -49,7 +49,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
 
 
 
-    override val action: IDataAction = MManaWars.m.getActionHandler().getAction(config.getString("action"))!!
+    override val action: IDataAction = MManaWars.m.getActionHandler().loadAction("skill_$name", config.getSection("action"))!!
     override var health: Float = config.getFloat("health")
 
     override var actionCooldown: Float = config.getFloat("cooldown") * MConstants.UNIT_AVG_ACTION_COOLDOWN

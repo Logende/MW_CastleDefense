@@ -22,7 +22,6 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
     override val displayColor: Color
 
     val parts: List<DataSkillMixPart>
-    override val actionDependencies: Array<IDataAction>
 
     init {
         parts = ArrayList()
@@ -35,15 +34,15 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
             var offsetY = if (parts.size >= 3) parts[2] else "0"
             var offsetSpeedX = if (parts.size >= 4) parts[3] else "0"
             var offsetSpeedY = if (parts.size >= 5) parts[4] else "0"
-            val action = MManaWars.m.getActionHandler().getAction(skillname) as IDataSkill
+            val action = MManaWars.m.getActionHandler().loadAction(skillname,
+                    config.getSection("recipes").getSection("name"))
 
             if (!actionDependencies.contains(action)) {
                 actionDependencies.add(action)
             }
 
-            this.parts.add(DataSkillMixPart(action, offsetX, offsetY, offsetSpeedX, offsetSpeedY))
+            this.parts.add(DataSkillMixPart(action as IDataSkill, offsetX, offsetY, offsetSpeedX, offsetSpeedY))
         }
-        this.actionDependencies = actionDependencies.toTypedArray()
         this.displayColor = parts.first().action.displayColor
     }
 
