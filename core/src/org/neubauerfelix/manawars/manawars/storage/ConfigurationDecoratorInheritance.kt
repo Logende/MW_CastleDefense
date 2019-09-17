@@ -24,4 +24,12 @@ class ConfigurationDecoratorInheritance(val config: Configuration, val parentCon
         return b
     }
 
+    override fun getKeys() : MutableCollection<String> {
+        val keys = mutableSetOf<String>()
+        if (enabled) {
+            keys.addAll(parentConfig.keys)
+        }
+        keys.addAll(super.getKeys())
+        return keys
+    }
 }

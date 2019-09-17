@@ -12,7 +12,6 @@ interface ISkillAnalysisPart {
     val targetAnimationType : MWEntityAnimationType
 
     val tacticalDamage: Float
-    val hitProbability: Float
 
 
     val lifeTime: Float

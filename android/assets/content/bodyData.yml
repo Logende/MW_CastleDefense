@@ -1,16 +1,15 @@
 #<skinname>:<shieldname>|none
 bodyDataHuman:
-- l1.zombie.1:none
-- l1.zombie.2:none
-- l1.zombie.3:none
-- l1.zombie.4:none
-- l1.zombie.b1:none
-- l1.zombie.b2:none
-- l1.frost.1:none
-- l1.frost.2:none
-- l1.frost.3:none
-- l1.frost.4:none
-- l1.frost.b1:none
+- l1.zombie.melee
+- l1.zombie.ranged
+- l1.zombie.mage
+- l1.zombie.tank
+- l1.zombie.boss
+- l1.frost.melee
+- l1.frost.ranged
+- l1.frost.mage
+- l1.frost.tank
+- l1.frost.boss
 - dummy.shield:big.diamond
 bodyDataMount:
 - wolf

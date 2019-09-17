@@ -53,7 +53,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 for ((entityType, analysis) in map) {
                     section.set("${entityType.name}.height", analysis.height)
                     section.set("${entityType.name}.width", analysis.width)
-                    section.set("${entityType.name}.successProbability", analysis.successProbability)
                     section.set("${entityType.name}.lifeTime", analysis.lifeTime)
                     section.set("${entityType.name}.strategicValue", analysis.strategicValue)
                     section.set("${entityType.name}.offensiveStrength", analysis.offensiveStrength)
@@ -89,7 +88,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             val section = sectionSkill.getSection(typeOwner.name)
             val height = section.getInt("height")
             val width = section.getInt("width")
-            val successProbability = section.getFloat("successProbability")
             val lifeTime = section.getFloat("lifeTime")
             val strategicValue = section.getFloat("strategicValue")
             val offensivePoints = section.getFloat("offensiveStrength")
@@ -107,7 +105,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 override val width: Int = width
                 override val height: Int = height
                 override val strategicValue: Float = strategicValue
-                override val successProbability: Float = successProbability
                 override val offensiveStrength: Float = offensivePoints
                 override val defensiveStrength: Float = defensivePoints
                 override val rangeMax: Map<MWEntityAnimationType, Int> = rangeMax
@@ -143,9 +140,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
         val tacticalDamage = parts.sumByDouble { part -> (part.tacticalDamage
                 * MAnalysisConstants.ANIMATION_TYPE_SHARES[part.targetAnimationType]!!).toDouble() }
 
-        val hitProbability = parts.sumByDouble { part -> (part.hitProbability
-                * MAnalysisConstants.ANIMATION_TYPE_SHARES[part.targetAnimationType]!!).toDouble() }
-
         val rangeMaxAvg = rangeMax.map { (animationType, range) ->
             range.toFloat()
         }.min()!! // UPDATED: Replaced avg. by min value
@@ -160,7 +154,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             override val width: Int = parts[0].width
             override val height: Int = parts[0].height
             override val strategicValue: Float  = tacticalDamage.toFloat()
-            override val successProbability: Float = hitProbability.toFloat()
             override val offensiveStrength: Float = offensiveStrength
             override val defensiveStrength: Float = offensiveStrength
             override val skillClass: MWSkillClass = data.skillClass
@@ -329,7 +322,6 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
         return object : ISkillAnalysisPart {
             override val tacticalDamage: Float = tacticalDamage
-            override val hitProbability: Float = hitProbability
             override val rangeMax = rangeMax.toInt()
             override val rangeMin = rangeMin.toInt()
             override val lifeTime: Float = lifeTime

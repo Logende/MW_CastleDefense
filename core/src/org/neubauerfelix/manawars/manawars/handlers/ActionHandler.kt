@@ -1,15 +1,13 @@
 package org.neubauerfelix.manawars.manawars.handlers
 
 import org.neubauerfelix.manawars.game.ILoadableContent
-import org.neubauerfelix.manawars.manawars.data.actions.DataActionNone
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkillMixLoaded
+import org.neubauerfelix.manawars.manawars.data.actions.*
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 import java.util.HashMap
-import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.storage.ConfigurationDecoratorInheritance
+import org.neubauerfelix.manawars.manawars.storage.ConfigurationProvider
 import java.lang.RuntimeException
 
 
@@ -18,6 +16,8 @@ class ActionHandler: IActionHandler, ILoadableContent {
     private val actions = HashMap<String, IDataAction>()
     private val parents = HashMap<IDataAction, IDataAction>()
     override var loadedContent: Boolean = false
+
+    private val converterOutput: Configuration = Configuration()
 
     override fun putAction(action: IDataAction) {
         actions[action.name] = action
@@ -47,6 +47,7 @@ class ActionHandler: IActionHandler, ILoadableContent {
                 val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$handlerConfigName", true)
                 this.loadAction(handlerConfig, null, null)
             }
+            ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(converterOutput, "convertedActions.yml", false)
         }
     }
 
@@ -64,6 +65,7 @@ class ActionHandler: IActionHandler, ILoadableContent {
                 throw RuntimeException("Unknown action type $type.")
             }
             actions[key] = action
+            convertAction(sectionAction, action, converterOutput)
             System.out.println("created action $key")
             if (parent != null) {
                 this.parents[action] = parent
@@ -75,5 +77,37 @@ class ActionHandler: IActionHandler, ILoadableContent {
                 loadAction(sectionActionChildren, sectionAction, action)
             }
         }
+    }
+
+
+    private fun convertAction(sectionRead: Configuration, action: IDataAction, output: Configuration) {
+        if (action is DataSkillMixLoaded) {
+            val sectionWrite: Configuration = output.getSection(action.name)
+            for (attribute in sectionRead.keys) {
+                if (!attribute.equals("children")) {
+                    sectionWrite.set(attribute, sectionRead.get(attribute))
+                }
+            }
+
+            // Store recipes of parts
+            val sectionRecipes = sectionWrite.getSection("recipes")
+            for (part in action.parts) {
+                val sectionPart = output.getSection(part.action.name)
+                convertAction(sectionPart, part.action, sectionRecipes)
+            }
+            return
+        }
+
+        if (action is IDataSkill) {
+            val sectionWrite: Configuration = output.getSection(action.name)
+            for (attribute in sectionRead.keys) {
+                if (!attribute.equals("children")) {
+                    sectionWrite.set(attribute, sectionRead.get(attribute))
+                }
+            }
+            return
+        }
+
+        println("Action ${action.name} is not skill and not skillmix.")
     }
 }

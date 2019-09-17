@@ -2,7 +2,6 @@ package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitLoaded
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
-import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimationProducerHuman
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 class DataArmyLoaded(config: Configuration, playerName: String, override val tribe: IDataTribe) : DataArmy() {
@@ -17,7 +16,7 @@ class DataArmyLoaded(config: Configuration, playerName: String, override val tri
             val unitSection = config.getSection("units").getSection(unit)
             units.add(DataUnitLoaded("$playerName.$unit", unitSection, this))
         }
-        this.units = units.sortedBy {
+        this.units = units /*.sortedBy {
             val animation = it.animation
             val rangeFactor = it.action.getActionProperties(animation.animationType).rangeMaxAvg
             val shieldFactor = if (animation is EntityAnimationProducerHuman && animation.shield != null) {
@@ -27,7 +26,7 @@ class DataArmyLoaded(config: Configuration, playerName: String, override val tri
             }
             // TODO: Include armor?
             rangeFactor * shieldFactor
-        }
+        }*/
 
     }
 

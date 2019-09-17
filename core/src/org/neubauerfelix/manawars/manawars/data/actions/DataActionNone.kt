@@ -22,7 +22,6 @@ class DataActionNone : IDataAction {
 
     private val actionProperties = object : IDataActionProperties {
         override val strategicValue: Float = 0f
-        override val successProbability: Float = 1f
         override val defensiveStrength: Float = 0f
         override val offensiveStrength: Float = 0f
         override val rangeMaxAvg: Float = 300f

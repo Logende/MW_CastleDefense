@@ -2,41 +2,42 @@ name: frost
 army:
   multiplier: 1f
   units:
-    icespike:
-      animation: 'human:l1.frost.1'
-      armor: 'none:none'
-      action: 'magic_icespike_1'
-      cooldown: 3
-      health: 8
-
-    arrow:
-      animation: 'human:l1.frost.2'
-      armor: 'none:none'
-      action: 'arrow_ice'
+    boss:
+      animation: 'human:l1.frost.boss'
+      armor: 'none'
+      action: 'sword_human_gold'
       cooldown: 1.5
+      health: 120
+      boss: true
+
+    tank:
+      animation: 'human:l1.frost.tank'
+      armor: 'none'
+      action: 'sword_basic'
+      cooldown: 2.5
+      health: 40
+
+    melee:
+      animation: 'human:l1.frost.melee'
+      armor: 'anti_light'
+      action: 'snowball_strong'
+      cooldown: 1.5
+      health: 16
+
+    ranged:
+      animation: 'human:l1.frost.ranged'
+      armor: 'none'
+      action: 'arrow_ice'
+      cooldown: 2.0
       health: 10
 
-    snowball:
-      animation: 'human:l1.frost.3'
-      armor: 'none:none'
-      action: 'snowball_strong'
+    mage:
+      animation: 'human:l1.frost.mage'
+      armor: 'none'
+      action: 'magic_icespike_1'
       cooldown: 2.0
-      health: 30
+      health: 8
 
-    sword:
-      animation: 'human:l1.frost.4'
-      armor: 'none:none'
-      action: 'sword_mighty'
-      cooldown: 1.5
-      health: 15
-
-    boss_sword:
-      animation: 'human:l1.frost.b1'
-      armor: 'none:none'
-      action: 'sword_mighty_gold'
-      cooldown: 1.0
-      health: 100
-      boss: true
 
 
 castle: wood_1

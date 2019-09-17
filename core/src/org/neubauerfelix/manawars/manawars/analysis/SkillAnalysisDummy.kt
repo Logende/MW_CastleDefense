@@ -9,7 +9,6 @@ class SkillAnalysisDummy : ISkillAnalysis {
     override val width: Int = 300
     override val height: Int = 300
     override val strategicValue: Float = 10f
-    override val successProbability: Float = 1.0f
     override val offensiveStrength: Float = 10f
     override val defensiveStrength: Float = 10f
     override val rangeMax: Map<MWEntityAnimationType, Int>

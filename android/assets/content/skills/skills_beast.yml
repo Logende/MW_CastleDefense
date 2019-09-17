@@ -31,13 +31,13 @@ beast_rock_1:
   speed: '300:0'
   acceleration: '10*A:G'
   location: '0:-900'
-  damage: 7
+  damage: 12
   knockback: 1.0
   stop_on_ground: true
   children:
     beast_rock_2:
       texture: 'beast.rock.2'
-      damage: 10
+      damage: 25
       knockback: 1.0
 
 

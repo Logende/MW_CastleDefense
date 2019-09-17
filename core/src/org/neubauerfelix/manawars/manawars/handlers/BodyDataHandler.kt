@@ -33,12 +33,15 @@ class BodyDataHandler: IBodyDataHandler, ILoadableContent {
 
     override fun getBodyDataHuman(name: String): IBodyDataHuman {
        if (!bodyDataHuman.containsKey(name)) {
-           throw RuntimeException("Skin $name not found.")
+           throw RuntimeException("Human skin $name not found.")
        }
         return bodyDataHuman[name]!!
     }
 
     override fun getBodyDataMount(name: String): IBodyDataMount {
+        if (!bodyDataMount.containsKey(name)) {
+            throw RuntimeException("Mount skin $name not found.")
+        }
         assert(bodyDataMount.containsKey(name))
         return bodyDataMount[name]!!
     }

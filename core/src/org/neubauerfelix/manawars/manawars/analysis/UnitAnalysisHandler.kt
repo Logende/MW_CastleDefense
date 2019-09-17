@@ -72,10 +72,10 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
 
 
         // 1 action value = 1 damage per second
-        val actionValue: Float = actionAnalysis.strategicValue * actionAnalysis.successProbability / data.actionCooldown
+        val actionValue: Float = actionAnalysis.strategicValue / data.actionCooldown
 
         val cost = survivalFactor * data.health +
-                actionValue * 2
+                actionValue * 4
 
         println("Generated cost of unit ${data.name}: $cost with survF $survivalFactor, health ${data.health}")
 

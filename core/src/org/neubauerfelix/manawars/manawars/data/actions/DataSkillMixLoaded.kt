@@ -21,7 +21,7 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
 
     override val displayColor: Color
 
-    private val parts: List<DataSkillMixPart>
+    val parts: List<DataSkillMixPart>
     override val actionDependencies: Array<IDataAction>
 
     init {
@@ -100,16 +100,14 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         MWEntityAnimationType.values().forEach { type ->
 
             val rangeMaxAvg = parts.map { it.action.getActionProperties(type).rangeMaxAvg }.min()!!
-            val strategicValue = parts.map { it.action.getActionProperties(type).strategicValue }.average()
-            val successProbability = parts.map { it.action.getActionProperties(type).successProbability }.sum() * 0.8f
+            val strategicValue = parts.map { it.action.getActionProperties(type).strategicValue }.sum()
             val defensiveStrength = parts.map { it.action.getActionProperties(type).defensiveStrength }.sum()
             val offensiveStrength = parts.map { it.action.getActionProperties(type).offensiveStrength }.sum()
 
             properties[type] = object : IDataActionProperties {
 
                 override val rangeMaxAvg: Float = rangeMaxAvg
-                override val strategicValue: Float = strategicValue.toFloat()
-                override val successProbability: Float = successProbability
+                override val strategicValue: Float = strategicValue
                 override val defensiveStrength: Float = defensiveStrength
                 override val offensiveStrength: Float = offensiveStrength
                 override val rangeMax: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMax
