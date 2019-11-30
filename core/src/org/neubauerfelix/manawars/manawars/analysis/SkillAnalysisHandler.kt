@@ -1,9 +1,11 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
+import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.actions.*
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.*
 import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.enums.*
@@ -42,32 +44,40 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
 
 
-    override fun analyseSkills(fileName: String) {
+    override fun analyseSkills(fileName: String, units: Collection<IDataUnit>) {
         val config = Configuration()
-                /* for (data in MManaWars.m.getActionHandler().listActions()) {
+        for (unit in units) {
+            val data = unit.action
+
             if (data is DataSkillLoaded) {
-                println("Analysing skill ${data.name}.")
-                val section = config.getSection(data.name)
-                data.analyseSkill()
-                val map = data.analysis
-                for ((entityType, analysis) in map) {
-                    section.set("${entityType.name}.height", analysis.height)
-                    section.set("${entityType.name}.width", analysis.width)
-                    section.set("${entityType.name}.lifeTime", analysis.lifeTime)
-                    section.set("${entityType.name}.strategicValue", analysis.strategicValue)
-                    section.set("${entityType.name}.offensiveStrength", analysis.offensiveStrength)
-                    section.set("${entityType.name}.defensiveStrength", analysis.defensiveStrength)
-                    section.set("${entityType.name}.rangeMaxAvg", analysis.rangeMaxAvg)
-                    for ( (targetType, range) in analysis.rangeMax) {
-                        section.set("${entityType.name}.rangeMax.${targetType.name}", range)
-                    }
-                    for ( (targetType, range) in analysis.rangeMin) {
-                        section.set("${entityType.name}.rangeMin.${targetType.name}", range)
-                    }
-                }
+                analyseSkill(data, config)
             }
-        }*/ //TODO
+        }
         ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, fileName, false)
+    }
+
+
+    private fun analyseSkill(data: DataSkillLoaded, config: Configuration) {
+        println("Analysing skill ${data.name}.")
+        val section = config.getSection(data.name)
+        data.analyseSkill()
+        val map = data.analysis
+        for ((entityType, analysis) in map) {
+            section.set("${entityType.name}.height", analysis.height)
+            section.set("${entityType.name}.width", analysis.width)
+            section.set("${entityType.name}.lifeTime", analysis.lifeTime)
+            section.set("${entityType.name}.strategicValue", analysis.strategicValue)
+            section.set("${entityType.name}.offensiveStrength", analysis.offensiveStrength)
+            section.set("${entityType.name}.defensiveStrength", analysis.defensiveStrength)
+            section.set("${entityType.name}.rangeMaxAvg", analysis.rangeMaxAvg)
+            for ((targetType, range) in analysis.rangeMax) {
+                section.set("${entityType.name}.rangeMax.${targetType.name}", range)
+            }
+            for ((targetType, range) in analysis.rangeMin) {
+                section.set("${entityType.name}.rangeMin.${targetType.name}", range)
+            }
+
+        }
     }
 
 

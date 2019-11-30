@@ -33,7 +33,7 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
                 (color.r * 255f).toInt(),
                 (color.g * 255f).toInt(),
                 (color.b * 255f).toInt())
-        text = MTextLabel(x, y, "[$colorAsHexString]${unit.analysis.cost}", FontHandler.MWFont.MAIN, 0.2f)
+        text = MTextLabel(x, y, "[$colorAsHexString]${unit.cost}", FontHandler.MWFont.MAIN, 0.2f)
     }
 
     override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {

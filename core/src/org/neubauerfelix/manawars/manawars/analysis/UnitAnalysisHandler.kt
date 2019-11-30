@@ -27,7 +27,6 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
                 section.set("survivalFactor", analysis.survivalFactor)
                 section.set("defensiveStrengthPerSecond", analysis.defensiveStrengthPerSecond)
                 section.set("offensiveStrengthPerSecond", analysis.offensiveStrengthPerSecond)
-                section.set("cost", analysis.cost)
             }
         }
         ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, fileName, false)
@@ -45,7 +44,6 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
             override val survivalFactor: Float = section.getFloat("survivalFactor")
             override val defensiveStrengthPerSecond: Float = section.getFloat("defensiveStrengthPerSecond")
             override val offensiveStrengthPerSecond: Float = section.getFloat("offensiveStrengthPerSecond")
-            override val cost: Int = section.getInt("cost")
             override val armor: MWArmorType = data.armor // little shortcut
         }
 
@@ -74,10 +72,6 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
         // 1 action value = 1 damage per second
         val actionValue: Float = actionAnalysis.strategicValue / data.actionCooldown
 
-        val cost = survivalFactor * data.health +
-                actionValue * 4
-
-        println("Generated cost of unit ${data.name}: $cost with survF $survivalFactor, health ${data.health}")
 
         return object : AUnitAnalysis() {
             override val actionValue: Float = actionValue
@@ -85,7 +79,6 @@ class UnitAnalysisHandler : IUnitAnalysisHandler {
             override val defensiveStrengthPerSecond: Float = defensiveStrengthPerSecond
             override val offensiveStrengthPerSecond: Float = offensiveStrengthPerSecond
             override val armor: MWArmorType = data.armor
-            override val cost: Int = cost.toInt()
 
         }
     }

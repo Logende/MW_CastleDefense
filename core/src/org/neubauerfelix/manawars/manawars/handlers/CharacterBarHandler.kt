@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.manawars.enums.MWArmorType
 import com.badlogic.gdx.graphics.g2d.Batch
+import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.game.ILoadableAsync
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -49,7 +50,8 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
 
 
     override fun drawStatsBar(batcher: Batch, e: IControlled) {
-        val width = MConstants.INGAME_CHARACTERBAR_WIDTH
+        val width = Math.min(MConstants.INGAME_CHARACTERBAR_WIDTH,
+                e.width + CDConstants.CASTLEDEFENSE_FORMATION_UNIT_DISTANCE)
         val height = MConstants.INGAME_CHARACTERBAR_HEIGHT
         this.drawStatsBar(batcher, e.health, e.data.health, e.centerHorizontal, e.top - 5f, width, height,
                 e.entityAnimationType, e.data.armor)

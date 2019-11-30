@@ -51,7 +51,7 @@ class ArmyAnalysisHandler : IArmyAnalysisHandler {
         var offenseStrength = fix(1f / this.calculateDefenseFactorWeighted(player.enemy.tribe.army, analysisEnemy.units,
                 unitsPlayer , defenseRatioEnemy), 1000f)
 
-        val costFactor = 1f / Math.pow(proposedUnit.analysis.cost.toDouble(), 0.1).toFloat()
+        val costFactor = 1f / Math.pow(proposedUnit.cost.toDouble(), 0.1).toFloat()
         return (0.5f * defenseStrength + 0.5f * offenseStrength)// * costFactor
     }
 

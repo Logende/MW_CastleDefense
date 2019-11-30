@@ -36,7 +36,7 @@ class SimulationUnits(entities: Iterable<IEntity>, formation: ICDFormation, val 
         val walkToFormationTime = Math.max(0f, castle.unitSpawnLocation.getDistanceHor(formation.centerHorizontal) / data.walkSpeedMax +
                 data.walkSpeedMax / data.walkAcceleration)
 
-        val saveMoneyTime = Math.max(0f, (data.analysis.cost - castle.gold) * castle.goldPerCharge /
+        val saveMoneyTime = Math.max(0f, (data.cost - castle.gold) * castle.goldPerCharge /
                 CDConstants.CASTLEDEFENSE_CASTLE_GOLD_CHARGE_DELAY)
 
         this.addUnit(SimulationUnit(data, data.health, walkToFormationTime + saveMoneyTime))

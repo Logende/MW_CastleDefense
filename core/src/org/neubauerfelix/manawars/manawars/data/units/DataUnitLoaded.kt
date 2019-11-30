@@ -14,6 +14,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
 
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("unit_${name}_name")
     override val boss: Boolean = config.getBoolean("boss")
+    override val cost: Int = config.getInt("cost")
 
 
     override val animation: IEntityAnimationProducer
@@ -50,6 +51,8 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
 
 
     override val action: IDataAction = MManaWars.m.getActionHandler().loadAction("skill_$name", config.getSection("action"))!!
+
+
     override var health: Float = config.getFloat("health")
 
     override var actionCooldown: Float = config.getFloat("cooldown") * MConstants.UNIT_AVG_ACTION_COOLDOWN

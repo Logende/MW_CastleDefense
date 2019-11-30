@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars
 
+import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.game.GameManaWars
 import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysisHandler
@@ -50,7 +51,9 @@ open class MManaWars: GameManaWars() {
         MWState.values().forEach { state -> state.load() }
 
         // can be called to generate new skill analysis file, which can manually be moved to assets folder
-        getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME)
+        val units = CDManaWars.cd.getLeagueHandler().listLeagues().flatMap {
+            league -> league.tribes.flatMap { tribe -> tribe.army.units } }
+        getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME, units)
         getUnitAnalysisHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
 
         startScreen(CDScreen(this), true)

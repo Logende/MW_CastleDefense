@@ -36,8 +36,8 @@ class CDControllerBot : ICDController {
             System.out.println("choose ${nextUnit.name}")
         }
 
-        if (player.castle.gold >= nextUnit.analysis.cost) {
-            player.castle.gold -= nextUnit.analysis.cost
+        if (player.castle.gold >= nextUnit.cost) {
+            player.castle.gold -= nextUnit.cost
             player.spawnUnit(nextUnit)
             this.chooseUnit()
         }

@@ -5,12 +5,87 @@ army:
     boss:
       animation: 'human:l1.zombie.boss'
       armor: 'none'
-      cooldown: 1.0
-      health: 100
+      cooldown: 1.5
+      health: 120
       boss: true
+      cost: 120
+      action:
+        type: normal
+        owner_animation: THROW
+        texture: l1.zombie.boss
+        animation: '1:1:1'
+        sound: skill.boomerang
+        skillclass: NORMAL
+        speed: 900:-320
+        acceleration: 0-39*A:19*A
+        damage: 10
+        knockback: 1.0
+
+    tank:
+      animation: 'human:l1.zombie.tank'
+      armor: 'none'
+      cooldown: 2.5
+      health: 40
+      cost: 30
+      action:
+        allow_movement_scaling: true
+        owner_animation: THROW
+        texture: l1.zombie.tank
+        animation: '1:1:1'
+        sound: skill.throw
+        skillclass: NORMAL
+        speed: 350:-700
+        acceleration: 0:60*A
+        damage: 6
+        knockback: 1.5
+
+    melee:
+      animation: 'rider:wolf:l1.zombie.melee'
+      armor: 'none'
+      cooldown: 1.5
+      health: 16
+      cost: 15
+      action:
+        owner_animation: THROW
+        texture: l1.zombie.melee
+        animation: '1:4:1'
+        sound: skill.spear
+        skillclass: NORMAL
+        speed: 600:-90
+        acceleration: 0:25*A
+        location: 0:-50
+        damage: 5
+        knockback: 1.6
+
+    ranged:
+      animation: 'human:l1.zombie.ranged'
+      armor: 'none'
+      cooldown: 2.0
+      health: 10
+      cost: 15
+      action:
+        type: normal
+        owner_animation: WEAPON
+        weapon: bow:normal_blue
+        texture: l1.zombie.ranged
+        animation: '1:4:1'
+        sound: skill.arrow
+        skillclass: LIGHT
+        speed: '1000:0'
+        acceleration: 0:5*A
+        offset: '-40:20'
+        damage: 4
+        knockback: 1.0
+
+    mage:
+      animation: 'human:l1.zombie.mage'
+      armor: 'none'
+      cooldown: 2.5
+      health: 5
+      cost: 15
       action:
         owner_animation: SUMMON_SMALL
-        texture: magic.skull
+        texture: l1.zombie.mage
         animation: '1:6:1'
         preview: magic.skull.2
         sound: skill.skull
@@ -19,76 +94,8 @@ army:
         target_speed: 0:40
         acceleration: 0:0
         location: 0:50
-        damage: 8
+        damage: 7
         knockback: -2
-
-    tank:
-      animation: 'human:l1.zombie.tank'
-      armor: 'none'
-      cooldown: 1.0
-      health: 45
-      action:
-        allow_movement_scaling: true
-        owner_animation: THROW
-        texture: axe.brutal.1
-        animation: '1:1:1'
-        sound: skill.throw
-        skillclass: NORMAL
-        speed: 350:-700
-        acceleration: 0:60*A
-        damage: 8
-        knockback: 1.5
-
-    melee:
-      animation: 'rider:wolf:l1.zombie.melee'
-      armor: 'none'
-      cooldown: 1.5
-      health: 8
-      action:
-        allow_movement_scaling: true
-        owner_animation: THROW
-        texture: axe.brutal.2
-        animation: '1:1:1'
-        sound: skill.throw
-        skillclass: NORMAL
-        speed: 400:-700
-        acceleration: 0:60*A
-        damage: 11
-        knockback: 1.5
-
-    ranged:
-      animation: 'human:l1.zombie.ranged'
-      armor: 'none'
-      cooldown: 2.0
-      health: 16
-      action:
-        allow_movement_scaling: true
-        owner_animation: THROW
-        texture: axe.orc.1
-        animation: '1:1:1'
-        sound: skill.rost
-        skillclass: NORMAL
-        speed: 600:-500
-        acceleration: 0:80*A
-        damage: 7
-        knockback: 1.5
-
-    mage:
-      animation: 'human:l1.zombie.mage'
-      armor: 'none'
-      cooldown: 2.0
-      health: 16
-      action:
-        owner_animation: THROW
-        texture: spear.small
-        animation: '1:4:1'
-        sound: skill.spear
-        skillclass: NORMAL
-        speed: 600:-90
-        acceleration: 0:25*A
-        location: 0:-50
-        damage: 7
-        knockback: 1.6
 
 
 

@@ -28,6 +28,8 @@ interface IDataUnit : IDataPresentable, IAsset {
     var walkSpeedMax: Float
     var walkAcceleration: Float
 
+    val cost: Int
+
     val analysis: IUnitAnalysis
 
 

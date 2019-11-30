@@ -10,6 +10,8 @@ import org.neubauerfelix.manawars.manawars.enums.*
 
 class DataUnitDummy : IDataUnit {
 
+    override val cost: Int
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override val name: String
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override val displayName: String

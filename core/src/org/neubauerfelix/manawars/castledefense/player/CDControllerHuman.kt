@@ -27,8 +27,8 @@ class CDControllerHuman : ICDController {
         for (unit in player.tribe.army.units) {
             val button = CDComponentUnit(x, y, size, size, unit, object: CDComponentUnit.UnitClickListener {
                 override fun clickedUnit(unit: IDataUnit) {
-                    if (player.castle.gold >= unit.analysis.cost) {
-                        player.castle.gold -= unit.analysis.cost
+                    if (player.castle.gold >= unit.cost) {
+                        player.castle.gold -= unit.cost
                         player.spawnUnit(unit)
                     }
                 }

@@ -35,7 +35,7 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
             var offsetSpeedX = if (parts.size >= 4) parts[3] else "0"
             var offsetSpeedY = if (parts.size >= 5) parts[4] else "0"
             val action = MManaWars.m.getActionHandler().loadAction(skillname,
-                    config.getSection("recipes").getSection("name"))
+                    config.getSection("recipes").getSection(skillname))
 
             if (!actionDependencies.contains(action)) {
                 actionDependencies.add(action)

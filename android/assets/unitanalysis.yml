@@ -1,62 +1,52 @@
 zombie:
   ranged:
-    actionValue: 3.3333333
-    survivalFactor: 0.944128
-    defensiveStrengthPerSecond: 3.3333333
-    offensiveStrengthPerSecond: 3.3333333
-    cost: 28
+    actionValue: 1.0666667
+    survivalFactor: 0.84833056
+    defensiveStrengthPerSecond: 1.0666667
+    offensiveStrengthPerSecond: 1.0666667
   tank:
-    actionValue: 6.6666665
-    survivalFactor: 1.0490311
-    defensiveStrengthPerSecond: 6.6666665
-    offensiveStrengthPerSecond: 6.6666665
-    cost: 73
+    actionValue: 1.6000001
+    survivalFactor: 0.7781241
+    defensiveStrengthPerSecond: 1.6000001
+    offensiveStrengthPerSecond: 1.6000001
   mage:
-    actionValue: 3.3333333
-    survivalFactor: 0.944128
-    defensiveStrengthPerSecond: 3.3333333
-    offensiveStrengthPerSecond: 3.3333333
-    cost: 28
+    actionValue: 1.6800001
+    survivalFactor: 0.8670917
+    defensiveStrengthPerSecond: 1.6800001
+    offensiveStrengthPerSecond: 1.6800001
   melee:
+    actionValue: 2.2222223
+    survivalFactor: 0.788882
+    defensiveStrengthPerSecond: 2.2222223
+    offensiveStrengthPerSecond: 2.2222223
+  boss:
     actionValue: 4.4444447
-    survivalFactor: 0.97909576
+    survivalFactor: 0.87645924
     defensiveStrengthPerSecond: 4.4444447
     offensiveStrengthPerSecond: 4.4444447
-    cost: 25
-  boss:
-    actionValue: 6.6666665
-    survivalFactor: 1.0490311
-    defensiveStrengthPerSecond: 6.6666665
-    offensiveStrengthPerSecond: 6.6666665
-    cost: 131
 frost:
   melee:
-    actionValue: 4.4444447
-    survivalFactor: 1.305461
-    defensiveStrengthPerSecond: 4.4444447
-    offensiveStrengthPerSecond: 4.4444447
-    cost: 38
+    actionValue: 2.2222223
+    survivalFactor: 1.0987308
+    defensiveStrengthPerSecond: 2.2222223
+    offensiveStrengthPerSecond: 2.2222223
   boss:
     actionValue: 4.4444447
-    survivalFactor: 0.97909576
+    survivalFactor: 0.877557
     defensiveStrengthPerSecond: 4.4444447
     offensiveStrengthPerSecond: 4.4444447
-    cost: 135
   mage:
-    actionValue: 3.3333333
-    survivalFactor: 0.944128
-    defensiveStrengthPerSecond: 3.3333333
-    offensiveStrengthPerSecond: 3.3333333
-    cost: 20
+    actionValue: 1.6800001
+    survivalFactor: 0.8920961
+    defensiveStrengthPerSecond: 1.6800001
+    offensiveStrengthPerSecond: 1.6800001
   tank:
-    actionValue: 2.6666667
-    survivalFactor: 0.9231474
-    defensiveStrengthPerSecond: 2.6666667
-    offensiveStrengthPerSecond: 2.6666667
-    cost: 47
+    actionValue: 1.6000001
+    survivalFactor: 0.79732317
+    defensiveStrengthPerSecond: 1.6000001
+    offensiveStrengthPerSecond: 1.6000001
   ranged:
-    actionValue: 3.3333333
-    survivalFactor: 0.944128
-    defensiveStrengthPerSecond: 3.3333333
-    offensiveStrengthPerSecond: 3.3333333
-    cost: 22
+    actionValue: 1.7666668
+    survivalFactor: 0.86974275
+    defensiveStrengthPerSecond: 1.7666668
+    offensiveStrengthPerSecond: 1.7666668
