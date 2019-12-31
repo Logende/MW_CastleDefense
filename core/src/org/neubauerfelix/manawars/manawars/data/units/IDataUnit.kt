@@ -13,7 +13,8 @@ interface IDataUnit : IDataPresentable, IAsset {
 
     val name: String
     val displayName: String
-    val boss: Boolean
+    val unitType: MWUnitType
+    val unitRarity: MWUnitRarity
     val animation: IEntityAnimationProducer
     val armor: MWArmorType
     val action: IDataAction

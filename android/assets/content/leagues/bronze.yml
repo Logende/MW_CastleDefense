@@ -4,12 +4,6 @@ castles:
 tribes:
   - 'tribes/zombie.yml'
   - 'tribes/frost.yml'
-unit_health_average: 14
-unit_skill_damage_average: 6
-unit_cost_average: 20
-boss_health_average: 60
-boss_skill_damage_average: 12
-boss_cost_average: 100
 castle_gold_start_average: 80
 castle_gold_per_second_average: 4
 castle_health_average: 200

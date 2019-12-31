@@ -100,7 +100,6 @@ class MConstants {
         const val SKILL_ANALYSIS_FILE_NAME = "skillanalysis.yml"
 
         // units
-        const val UNIT_AVG_ACTION_COOLDOWN = 1.5f
         const val UNIT_ANALYSIS_FILE_NAME = "unitanalysis.yml"
         const val UNIT_AVG_WALK_SPEED_MAX = 300f
         const val UNIT_AVG_WALK_ACC = 400f

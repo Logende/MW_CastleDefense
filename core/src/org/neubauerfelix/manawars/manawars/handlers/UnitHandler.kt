@@ -1,11 +1,11 @@
 package org.neubauerfelix.manawars.manawars.handlers
 
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
+import java.util.*
 
 class UnitHandler : IUnitHandler {
 
-    private val units = java.util.HashMap<String, IDataUnit>()
-
+    private val units = HashMap<String, IDataUnit>()
 
     override fun putUnit(unit: IDataUnit) {
         units[unit.name] = unit

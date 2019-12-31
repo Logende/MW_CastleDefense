@@ -12,15 +12,7 @@ interface IDataLeague : IAsset {
     fun getCastle(name: String): IDataCastle?
 
 
-    // not used by units, but used by humans who define values of units
-    val unitHealthAvg: Float
-    val bossHealthAvg: Float
-    val unitSkillDamageAvg: Float
-    val bossSkillDamageAvg: Float
-    val unitCostAvg: Float
-    val bossCostAvg: Float
     val startGoldAvg: Float
     val goldPerSecondAvg: Float
     val castleHealthAvg: Float
-
 }

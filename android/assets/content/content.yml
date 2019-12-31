@@ -1,7 +1,9 @@
 bodyData:
-- 'bodyData.yml'
+  - 'bodyData.yml'
 shields:
-- 'shields.yml'
+  - 'shields.yml'
+stats:
+  - 'stats.yml'
 actions:
   - 'skills/skills_arrow.yml'
   - 'skills/skills_sword.yml'

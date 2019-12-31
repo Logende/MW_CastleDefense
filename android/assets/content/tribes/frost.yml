@@ -1,14 +1,11 @@
 name: frost
 army:
-  multiplier: 1f
   units:
+
     boss:
       animation: 'human:l1.frost.boss'
       armor: 'none'
-      cooldown: 1.5
-      health: 120
-      boss: true
-      cost: 120
+      rarity: common
       action:
         owner_animation: SUMMON_SMALL
         texture: l1.frost.boss
@@ -18,16 +15,12 @@ army:
         speed: 1200:200
         acceleration: -70*A:-20*A
         location: 0:-50
-        damage: 10
         knockback: 1.5
-
 
     tank:
       animation: 'human:l1.frost.tank'
       armor: 'none'
-      cooldown: 2.5
-      health: 40
-      cost: 30
+      rarity: common
       action:
         owner_animation: SUMMON_SMALL
         texture: l1.frost.tank
@@ -37,14 +30,11 @@ army:
         speed: 1200:400
         acceleration: -70*A:-50*A
         location: 0:-50
-        damage: 6
 
     melee:
       animation: 'human:l1.frost.melee'
       armor: 'anti_light'
-      cooldown: 1.5
-      health: 16
-      cost: 15
+      rarity: common
       action:
         owner_animation: THROW
         texture: l1.frost.melee
@@ -54,15 +44,12 @@ army:
         speed: 900:-200
         acceleration: 0:55*A
         location: 0:-30
-        damage: 5
         knockback: 1.1
 
-    ranged:
+    ranger:
       animation: 'human:l1.frost.ranged'
       armor: 'none'
-      cooldown: 2.0
-      health: 10
-      cost: 15
+      rarity: common
       action:
         type: normal
         owner_animation: WEAPON
@@ -74,16 +61,13 @@ army:
         speed: 1200:-30
         acceleration: 0:5*A
         offset: '-40:20'
-        damage: 4
         knockback: 1.0
         effect: FROZEN:3
 
     mage:
       animation: 'human:l1.frost.mage'
       armor: 'none'
-      cooldown: 2.5
-      health: 5
-      cost: 15
+      rarity: common
       action:
         owner_animation: SUMMON_BIG
         texture: l1.frost.mage
@@ -98,7 +82,6 @@ army:
         target_range: 1000
         spawn_relative_to_target: true:false
         idle_time: 1.0
-        damage: 7
         knockback: 2.0
 
 

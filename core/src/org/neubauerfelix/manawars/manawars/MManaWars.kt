@@ -37,6 +37,7 @@ open class MManaWars: GameManaWars() {
         loadHandler(SkillAnalysisHandler())
         loadHandler(ActionHandler())
         loadHandler(CollisionHandler())
+        loadHandler(BaseUnitHandler())
         loadHandler(UnitHandler())
         loadHandler(UnitAnalysisHandler())
         loadHandler(CharacterBarHandler())
@@ -113,6 +114,10 @@ open class MManaWars: GameManaWars() {
 
     fun getCharacterBarHandler(): ICharacterBarHandler {
         return getHandler(CharacterBarHandler::class.java)
+    }
+
+    fun getBaseUnitHandler(): IBaseUnitHandler {
+        return getHandler(BaseUnitHandler::class.java)
     }
 
 

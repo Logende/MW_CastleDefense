@@ -128,7 +128,7 @@ open class DataSkillLoaded(override val name: String, config: Configuration) : D
     /**
      * Effect: Knockback, damage, state effect, etc.
      */
-    override val damage: Int =  config.getInt("damage")
+    override var damage: Int =  config.getInt("damage")
     override val stateEffect: MWState?
     override val stateEffectDuration: Float
     init {

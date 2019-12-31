@@ -1,14 +1,10 @@
 name: zombie
 army:
-  multiplier: 1f
   units:
     boss:
       animation: 'human:l1.zombie.boss'
       armor: 'none'
-      cooldown: 1.5
-      health: 120
-      boss: true
-      cost: 120
+      rarity: common
       action:
         type: normal
         owner_animation: THROW
@@ -18,15 +14,12 @@ army:
         skillclass: NORMAL
         speed: 900:-320
         acceleration: 0-39*A:19*A
-        damage: 10
         knockback: 1.0
 
     tank:
       animation: 'human:l1.zombie.tank'
       armor: 'none'
-      cooldown: 2.5
-      health: 40
-      cost: 30
+      rarity: common
       action:
         allow_movement_scaling: true
         owner_animation: THROW
@@ -36,15 +29,12 @@ army:
         skillclass: NORMAL
         speed: 350:-700
         acceleration: 0:60*A
-        damage: 6
         knockback: 1.5
 
     melee:
       animation: 'rider:wolf:l1.zombie.melee'
       armor: 'none'
-      cooldown: 1.5
-      health: 16
-      cost: 15
+      rarity: common
       action:
         owner_animation: THROW
         texture: l1.zombie.melee
@@ -54,15 +44,12 @@ army:
         speed: 600:-90
         acceleration: 0:25*A
         location: 0:-50
-        damage: 5
         knockback: 1.6
 
-    ranged:
+    ranger:
       animation: 'human:l1.zombie.ranged'
       armor: 'none'
-      cooldown: 2.0
-      health: 10
-      cost: 15
+      rarity: common
       action:
         type: normal
         owner_animation: WEAPON
@@ -74,15 +61,12 @@ army:
         speed: '1000:0'
         acceleration: 0:5*A
         offset: '-40:20'
-        damage: 4
         knockback: 1.0
 
     mage:
       animation: 'human:l1.zombie.mage'
       armor: 'none'
-      cooldown: 2.5
-      health: 5
-      cost: 15
+      rarity: common
       action:
         owner_animation: SUMMON_SMALL
         texture: l1.zombie.mage
@@ -94,7 +78,6 @@ army:
         target_speed: 0:40
         acceleration: 0:0
         location: 0:50
-        damage: 7
         knockback: -2
 
 

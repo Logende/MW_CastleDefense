@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitLoaded
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
+import org.neubauerfelix.manawars.manawars.enums.MWUnitType
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 class DataArmyLoaded(config: Configuration, playerName: String, override val tribe: IDataTribe) : DataArmy() {
@@ -12,9 +13,10 @@ class DataArmyLoaded(config: Configuration, playerName: String, override val tri
 
     init {
         val units = ArrayList<IDataUnit>()
-        for (unit in config.getSection("units").keys) {
-            val unitSection = config.getSection("units").getSection(unit)
-            units.add(DataUnitLoaded("$playerName.$unit", unitSection, this))
+        for (unitType in MWUnitType.values()) {
+            val unitSection = config.getSection("units").getSection(unitType.name.toLowerCase())
+            val name = "$playerName.${unitType.name.toLowerCase()}"
+            units.add(DataUnitLoaded(name, unitSection, this, unitType))
         }
         this.units = units /*.sortedBy {
             val animation = it.animation

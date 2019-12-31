@@ -1,0 +1,129 @@
+units:
+  boss:
+    common:
+      health: 120
+      damage: 10
+      cooldown: 1.5
+      cost: 120
+
+    rare:
+      health: 160
+      damage: 14
+      cooldown: 1.5
+      cost: 160
+
+    epic:
+      health: 200
+      damage: 18
+      cooldown: 1.5
+      cost: 200
+
+    legendary:
+      health: 300
+      damage: 25
+      cooldown: 1.5
+      cost: 300
+
+
+  tank:
+    common:
+      health: 40
+      damage: 6
+      cooldown: 2.5
+      cost: 30
+
+    rare:
+      health: 65
+      damage: 8
+      cooldown: 2.5
+      cost: 50
+
+    epic:
+      health: 80
+      damage: 10
+      cooldown: 2.5
+      cost: 80
+
+    legendary:
+      health: 140
+      damage: 14
+      cooldown: 2.5
+      cost: 140
+
+
+  melee:
+    common:
+      health: 16
+      damage: 5
+      cooldown: 1.5
+      cost: 15
+
+    rare:
+      health: 24
+      damage: 7
+      cooldown: 1.5
+      cost: 25
+
+    epic:
+      health: 32
+      damage: 9
+      cooldown: 1.5
+      cost: 35
+
+    legendary:
+      health: 64
+      damage: 13
+      cooldown: 1.5
+      cost: 60
+
+
+  ranger:
+    common:
+      health: 10
+      damage: 4
+      cooldown: 2
+      cost: 15
+
+    rare:
+      health: 15
+      damage: 6
+      cooldown: 2
+      cost: 25
+
+    epic:
+      health: 20
+      damage: 8
+      cooldown: 2
+      cost: 35
+
+    legendary:
+      health: 40
+      damage: 12
+      cooldown: 2
+      cost: 60
+
+
+  mage:
+    common:
+      health: 5
+      damage: 7
+      cooldown: 2.5
+      cost: 15
+
+    rare:
+      health: 10
+      damage: 9
+      cooldown: 2.5
+      cost: 25
+
+    epic:
+      health: 15
+      damage: 11
+      cooldown: 2.5
+      cost: 35
+
+    legendary:
+      health: 30
+      damage: 15
+      cooldown: 2.5
+      cost: 60

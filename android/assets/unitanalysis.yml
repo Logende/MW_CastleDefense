@@ -1,52 +1,52 @@
-zombie:
-  ranged:
-    actionValue: 1.0666667
-    survivalFactor: 0.84833056
-    defensiveStrengthPerSecond: 1.0666667
-    offensiveStrengthPerSecond: 1.0666667
-  tank:
-    actionValue: 1.6000001
-    survivalFactor: 0.7781241
-    defensiveStrengthPerSecond: 1.6000001
-    offensiveStrengthPerSecond: 1.6000001
-  mage:
-    actionValue: 1.6800001
-    survivalFactor: 0.8670917
-    defensiveStrengthPerSecond: 1.6800001
-    offensiveStrengthPerSecond: 1.6800001
-  melee:
-    actionValue: 2.2222223
-    survivalFactor: 0.788882
-    defensiveStrengthPerSecond: 2.2222223
-    offensiveStrengthPerSecond: 2.2222223
-  boss:
-    actionValue: 4.4444447
-    survivalFactor: 0.87645924
-    defensiveStrengthPerSecond: 4.4444447
-    offensiveStrengthPerSecond: 4.4444447
 frost:
+  ranger:
+    actionValue: 2.65
+    survivalFactor: 0.8967629
+    defensiveStrengthPerSecond: 2.65
+    offensiveStrengthPerSecond: 2.65
   melee:
-    actionValue: 2.2222223
-    survivalFactor: 1.0987308
-    defensiveStrengthPerSecond: 2.2222223
-    offensiveStrengthPerSecond: 2.2222223
+    actionValue: 3.3333333
+    survivalFactor: 1.1409897
+    defensiveStrengthPerSecond: 3.3333333
+    offensiveStrengthPerSecond: 3.3333333
   boss:
-    actionValue: 4.4444447
-    survivalFactor: 0.877557
-    defensiveStrengthPerSecond: 4.4444447
-    offensiveStrengthPerSecond: 4.4444447
+    actionValue: 6.6666665
+    survivalFactor: 0.9402396
+    defensiveStrengthPerSecond: 6.6666665
+    offensiveStrengthPerSecond: 6.6666665
   mage:
-    actionValue: 1.6800001
-    survivalFactor: 0.8920961
-    defensiveStrengthPerSecond: 1.6800001
-    offensiveStrengthPerSecond: 1.6800001
+    actionValue: 2.52
+    survivalFactor: 0.91853166
+    defensiveStrengthPerSecond: 2.52
+    offensiveStrengthPerSecond: 2.52
   tank:
-    actionValue: 1.6000001
-    survivalFactor: 0.79732317
-    defensiveStrengthPerSecond: 1.6000001
-    offensiveStrengthPerSecond: 1.6000001
-  ranged:
-    actionValue: 1.7666668
-    survivalFactor: 0.86974275
-    defensiveStrengthPerSecond: 1.7666668
-    offensiveStrengthPerSecond: 1.7666668
+    actionValue: 2.4
+    survivalFactor: 0.81988895
+    defensiveStrengthPerSecond: 2.4
+    offensiveStrengthPerSecond: 2.4
+zombie:
+  ranger:
+    actionValue: 1.6
+    survivalFactor: 0.8646446
+    defensiveStrengthPerSecond: 1.6
+    offensiveStrengthPerSecond: 1.6
+  tank:
+    actionValue: 2.4
+    survivalFactor: 0.8001465
+    defensiveStrengthPerSecond: 2.4
+    offensiveStrengthPerSecond: 2.4
+  mage:
+    actionValue: 2.52
+    survivalFactor: 0.8927863
+    defensiveStrengthPerSecond: 2.52
+    offensiveStrengthPerSecond: 2.52
+  melee:
+    actionValue: 3.3333333
+    survivalFactor: 0.8192236
+    defensiveStrengthPerSecond: 3.3333333
+    offensiveStrengthPerSecond: 3.3333333
+  boss:
+    actionValue: 6.6666665
+    survivalFactor: 0.9390635
+    defensiveStrengthPerSecond: 6.6666665
+    offensiveStrengthPerSecond: 6.6666665

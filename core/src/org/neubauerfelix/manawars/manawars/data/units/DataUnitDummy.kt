@@ -46,7 +46,7 @@ class DataUnitDummy : IDataUnit {
     override val analysis: IUnitAnalysis
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
-    override val boss: Boolean
+    override val unitType: MWUnitType
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
     override fun produce(x: Float, y: Float, controller: IController, team: Int): IControlled {
@@ -72,4 +72,7 @@ class DataUnitDummy : IDataUnit {
     override fun disposeAsset() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override val unitRarity: MWUnitRarity
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 }
