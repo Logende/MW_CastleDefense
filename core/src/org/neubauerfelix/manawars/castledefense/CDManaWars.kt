@@ -12,7 +12,7 @@ class CDManaWars : MManaWars() {
     }
 
     init {
-        CDManaWars.cd = this
+        cd = this
     }
 
     override fun loadGame() {
