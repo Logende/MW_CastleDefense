@@ -3,7 +3,7 @@ army:
   units:
     boss:
       animation: 'human:l1.zombie.boss'
-      armor: 'none'
+      armor: 'anti_light'
       rarity: common
       action:
         type: normal
@@ -20,6 +20,7 @@ army:
       animation: 'human:l1.zombie.tank'
       armor: 'none'
       rarity: common
+      drain: 0.5
       action:
         allow_movement_scaling: true
         owner_animation: THROW

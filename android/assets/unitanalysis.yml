@@ -11,7 +11,7 @@ frost:
     offensiveStrengthPerSecond: 3.3333333
   boss:
     actionValue: 6.6666665
-    survivalFactor: 0.9402396
+    survivalFactor: 1.2536528
     defensiveStrengthPerSecond: 6.6666665
     offensiveStrengthPerSecond: 6.6666665
   mage:
@@ -21,7 +21,7 @@ frost:
     offensiveStrengthPerSecond: 2.52
   tank:
     actionValue: 2.4
-    survivalFactor: 0.81988895
+    survivalFactor: 1.0931853
     defensiveStrengthPerSecond: 2.4
     offensiveStrengthPerSecond: 2.4
 zombie:
@@ -47,6 +47,6 @@ zombie:
     offensiveStrengthPerSecond: 3.3333333
   boss:
     actionValue: 6.6666665
-    survivalFactor: 0.9390635
+    survivalFactor: 1.2520847
     defensiveStrengthPerSecond: 6.6666665
     offensiveStrengthPerSecond: 6.6666665

@@ -37,10 +37,14 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
     }
 
     override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
+        batcher.color = if (unit.drainMultiplier > 0f) Color(175f/255f, 117f/255f, 144f/255f, 1f) else
+            Color(73f/255f, 117f/255f, 144f/255f, 1f)
         batcher.draw(background, x, y, width, height)
+        batcher.color = Color.WHITE
+
+
         MManaWars.m.getCharacterBarHandler().drawArmorFrame(batcher, x, y, width, height, unit.animation.animationType,
                 unit.armor)
-        batcher.color = Color.WHITE
         (animation as IDrawable).draw(delta, batcher)
         (animation as ILogicable).doLogic(delta)
 

@@ -40,4 +40,5 @@ open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
     override fun getArmor(collisionType: MWCollisionType): MWArmorType {
         return armor
     }
+
 }

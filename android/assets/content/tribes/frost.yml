@@ -4,7 +4,7 @@ army:
 
     boss:
       animation: 'human:l1.frost.boss'
-      armor: 'none'
+      armor: 'anti_light'
       rarity: common
       action:
         owner_animation: SUMMON_SMALL
@@ -19,7 +19,7 @@ army:
 
     tank:
       animation: 'human:l1.frost.tank'
-      armor: 'none'
+      armor: 'anti_light'
       rarity: common
       action:
         owner_animation: SUMMON_SMALL

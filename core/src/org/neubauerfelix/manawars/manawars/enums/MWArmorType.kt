@@ -5,7 +5,7 @@ import java.util.HashMap
 
 enum class MWArmorType(val color: Color) { //Keep those as simple as possible!
 
-    NONE(Color.TAN) {
+    NONE(MWSkillClass.NORMAL.color) {
         override fun createSkillEffectivity(): HashMap<MWSkillClass, MWSkillEffectivity> {
             return hashMapOf()
         }

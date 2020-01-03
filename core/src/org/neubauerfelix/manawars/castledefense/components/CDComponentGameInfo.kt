@@ -2,7 +2,6 @@ package org.neubauerfelix.manawars.castledefense.components
 
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
-import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.components.MComponent
 import org.neubauerfelix.manawars.manawars.components.MTextLabel
