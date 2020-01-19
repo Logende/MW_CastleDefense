@@ -6,10 +6,12 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 
-class CDEntityCastle(x: Float, y: Float, val textureName: String, health: Float, direction: Int, team: Int,
-                     override val unitSpawnLocation: ILocated, startGold: Int, goldPerCharge: Int) :
-        MEntityAnimated(IEntityAnimationProducer.createProducerCastle(textureName, textureName), health), ICDEntityCastle {
-// TODO: Different textures in constructor. Dead vs alive
+class CDEntityCastle(x: Float, y: Float, textureNameAlive: String, textureNameDead: String, health: Float,
+                     direction: Int, team: Int, override val unitSpawnLocation: ILocated, startGold: Int,
+                     goldPerCharge: Int) :
+        MEntityAnimated(IEntityAnimationProducer.createProducerBuilding(textureNameAlive, textureNameDead), health),
+        ICDEntityCastle {
+    
     init {
         this.direction = direction
         this.team = team

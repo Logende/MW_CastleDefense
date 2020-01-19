@@ -1,13 +1,13 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
-import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 
-interface IDataBuilding : IAsset {
+interface IDataBuilding {
 
 
-    fun produce(x: Float, y: Float, team: Int): ILiving
+    // produces and spawns the entity
+    fun produce(centreHor: Float, bottom: Float, team: Int): ILiving
 
     val health: Float
     val animationProducer: IEntityAnimationProducer

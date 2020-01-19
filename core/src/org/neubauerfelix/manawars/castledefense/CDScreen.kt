@@ -3,6 +3,7 @@ package org.neubauerfelix.manawars.castledefense
 import com.badlogic.gdx.Input
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
 import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
+import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingHeal
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
@@ -14,7 +15,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
-
+import org.neubauerfelix.manawars.manawars.entities.ITeamable
 
 
 class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
@@ -31,7 +32,7 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         val background3 = MBackground(GameConstants.PATH_BACKGROUND + "1_1_0.jpg", GameConstants.BACKGROUND_WIDTH*2, true, getGame().getAssetLoader())
         val army2 = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.getTribe("frost")!!
         val army1 = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.getTribe("zombie")!!
-        val controllerA = CDControllerBot()
+        val controllerA = CDControllerHuman()
         val controllerB = CDControllerBot()
         val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
         val playerB = CDPlayer(army2, controllerB, MConstants.TEAM_BOT)
@@ -41,6 +42,9 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         playerB.enemy = playerA
         match = CDMatch(playerA, playerB, arrayListOf(background, background2, background3), this)
         match.load()
+
+        val dataHeal = DataBuildingHeal(100f, 100f, 2L, 400f)
+        dataHeal.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
         return false
     }
 

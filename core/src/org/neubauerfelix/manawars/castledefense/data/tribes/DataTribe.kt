@@ -13,17 +13,14 @@ abstract class DataTribe : IDataTribe {
     }
 
     override fun loadAsset() {
-        castle.loadAsset()
         army.loadAsset()
     }
 
     override fun loadedAsset() {
-        castle.loadedAsset()
         army.loadedAsset()
     }
 
     override fun disposeAsset() {
-        castle.disposeAsset()
         army.disposeAsset()
     }
 }

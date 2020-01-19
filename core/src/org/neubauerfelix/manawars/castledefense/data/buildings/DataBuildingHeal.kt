@@ -1,28 +1,24 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
+import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingHeal
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerBuilding
 
-class DataBuildingHeal : IDataBuilding {
+class DataBuildingHeal(override val health: Float, override val healingPower: Float, override val cooldown: Long,
+                       override val range: Float) :
+        IDataBuildingHeal {
 
-    override val health: Float
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val animationProducer: IEntityAnimationProducer
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
-    override fun produce(x: Float, y: Float, team: Int): ILiving {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override val animationProducer: IEntityAnimationProducer =
+            EntityAnimationProducerBuilding("building.heal")
 
-    override fun loadAsset() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun loadedAsset() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun disposeAsset() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun produce(centreHor: Float, bottom: Float, team: Int): ILiving {
+        val e =  CDEntityBuildingHeal(this)
+        e.centerHorizontal = centreHor
+        e.bottom = bottom
+        e.team = team
+        e.spawn()
+        return e
     }
 }

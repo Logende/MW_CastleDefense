@@ -22,4 +22,8 @@ interface IAsset {
     fun loadedAsset()
     fun disposeAsset()
 
+
+    // TODO: Rethink this interface. Maybe everything can just be loaded at the start and no dynamic loading is necessary?
+    // At least castles, skills, buildings and units should always be loaded
+
 }

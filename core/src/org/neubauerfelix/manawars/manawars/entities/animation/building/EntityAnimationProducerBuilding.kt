@@ -11,14 +11,20 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
-open class EntityAnimationProducerBuilding(val textureNameAlive: String, val textureNameDead: String,
-                                           val animationTextureNames: List<String>, val animationFrameDuration: Float,
-                                           width: Int, height: Int, override val animationType: MWEntityAnimationType):
+open class EntityAnimationProducerBuilding(val textureNameAlive: String, val textureNameDead: String = textureNameAlive,
+                                           val animationTextureNames: List<String> = arrayListOf(),
+                                           val animationFrameDuration: Float = 0f):
         IEntityAnimationProducer {
+    override val animationType: MWEntityAnimationType = MWEntityAnimationType.BUILDING
+    override val bodyWidth: Int
+    override val bodyHeight: Int
 
-    override val bodyWidth: Int = width
+    init {
+        val texture = MManaWars.m.getImageHandler().getTextureRegionMain(textureNameAlive)
+        bodyHeight = texture.originalHeight
+        bodyWidth = texture.originalWidth
+    }
 
-    override val bodyHeight: Int = height
 
     override val defaultScale: Float
         get() = 1f
@@ -40,8 +46,8 @@ open class EntityAnimationProducerBuilding(val textureNameAlive: String, val tex
 
     override fun produce(entity: ISized, scale: Float): IEntityAnimation {
         val animation = produceAnimationFrames()
-        val body = BodyBuilding(entity, MManaWars.m.getAssetLoader().createTextureRegion(textureNameAlive),
-                MManaWars.m.getAssetLoader().createTextureRegion(textureNameDead), animation)
+        val body = BodyBuilding(entity, MManaWars.m.getImageHandler().getTextureRegionMain(textureNameAlive),
+                MManaWars.m.getImageHandler().getTextureRegionMain(textureNameDead), animation)
         return EntityAnimationAny(body, animationType)
     }
 
@@ -51,8 +57,8 @@ open class EntityAnimationProducerBuilding(val textureNameAlive: String, val tex
         val offsetY = (availableHeight - bodyHeight * scale) / 2f
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
-        val body = BodyBuilding(rectangle, MManaWars.m.getAssetLoader().createTextureRegion(textureNameAlive),
-                MManaWars.m.getAssetLoader().createTextureRegion(textureNameDead), null)
+        val body = BodyBuilding(rectangle, MManaWars.m.getImageHandler().getTextureRegionMain(textureNameAlive),
+                MManaWars.m.getImageHandler().getTextureRegionMain(textureNameDead), null)
         return EntityAnimationAny(body, animationType)
     }
 

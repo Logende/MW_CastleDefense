@@ -15,7 +15,8 @@ class DataCastleLoaded(config: Configuration, league: IDataLeague, multiplier: F
 
 
     override val name: String = config.getString("name")
-    override val textureName: String = "castles/${config.getString("texture")}.png"
+    override val textureNameAlive: String = config.getString("texture")
+    override val textureNameDead: String = config.getString("texture") + ".damaged"
     override val unitSpawnOffset: ILocated
 
     init {

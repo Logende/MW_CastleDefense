@@ -45,7 +45,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
             MWEntityAnimationType.RIDER -> {
                 IEntityAnimationProducer.createProducerRider(animationParts[1], animationParts[2])
             }
-            MWEntityAnimationType.CASTLE, MWEntityAnimationType.BUILDING_HEAL -> {
+            MWEntityAnimationType.BUILDING -> {
                 throw NotImplementedError()
             }
         }

@@ -4,10 +4,11 @@ import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildings
 import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.game.entities.ILocated
 
-interface IDataCastle : IAsset {
+interface IDataCastle {
 
     val name: String
-    val textureName: String
+    val textureNameAlive: String
+    val textureNameDead: String
     val unitSpawnOffset: ILocated
     val goldStart: Int
     val goldPerCharge: Int

@@ -81,15 +81,7 @@ enum class MWEntityAnimationType {
     },
     BUILDING {
         override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
-            val textureName = "castles/castle_wood_1.png"
-            MManaWars.m.getAssetLoader().loadTexture(textureName)
-            while (! MManaWars.m.getAssetLoader().areAssetsLoaded()){
-                // Do nothing
-            }
-            // Note: This is not the actual size of a certain building but just some example numbers to be used by
-            // the 'how much distance does a skill need to hit the entity' simulation
-            val animationProducer = EntityAnimationProducerBuilding(textureName, textureName, arrayListOf(),
-                    0f, 200, 200, this)
+            val animationProducer = EntityAnimationProducerBuilding("building.heal")
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
