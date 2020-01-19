@@ -89,12 +89,6 @@ class MConstants {
         const val BODY_RIDER_WIDTH = BODY_MOUNT_WIDTH
         const val BODY_RIDER_HEIGHT = BODY_MOUNT_HEIGHT - RIDER_BOTTOM_MOUNT_TOP_OFFSET_Y + BODY_HUMAN_HEIGHT
 
-        const val BODY_CASTLE_WIDTH = 447 // TODO
-        const val BODY_CASTLE_HEIGHT = 383 // TODO
-
-        const val BODY_BUILDING_HEAL_WIDTH = 112
-        const val BODY_BUILDING_HEAL_HEIGHT = 217
-
         const val ALWAYS_EQUIP_WEAPONS = true
 
         // skills

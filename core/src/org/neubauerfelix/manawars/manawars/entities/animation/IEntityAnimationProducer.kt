@@ -6,7 +6,6 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimationProducerHuman
 import org.neubauerfelix.manawars.manawars.entities.animation.mount.EntityAnimationProducerMount
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.EntityAnimationProducerRider
-import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerCastle
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 interface IEntityAnimationProducer: IBodyData {
@@ -25,9 +24,6 @@ interface IEntityAnimationProducer: IBodyData {
             val producerMount = createProducerMount(skinMount)
             val producerHuman = createProducerHuman(skinHuman)
             return EntityAnimationProducerRider(producerMount, producerHuman)
-        }
-        fun createProducerCastle(textureNameAlive: String, textureNameDead: String): IEntityAnimationProducer{
-            return EntityAnimationProducerCastle(textureNameAlive, textureNameDead)
         }
     }
 
