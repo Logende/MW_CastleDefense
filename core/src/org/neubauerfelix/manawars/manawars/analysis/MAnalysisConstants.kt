@@ -33,6 +33,7 @@ class MAnalysisConstants {
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.MOUNT] = 0f
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.RIDER] = 0.15f
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.CASTLE] = 0f
+            ANIMATION_TYPE_SHARES[MWEntityAnimationType.BUILDING_HEAL] = 0f
         }
 
         val SKILL_CLASS_SHARES = HashMap<MWSkillClass, Float>()

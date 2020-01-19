@@ -3,10 +3,10 @@ package org.neubauerfelix.manawars.manawars.entities.animation
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.entities.animation.castle.EntityAnimationProducerCastle
 import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimationProducerHuman
 import org.neubauerfelix.manawars.manawars.entities.animation.mount.EntityAnimationProducerMount
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.EntityAnimationProducerRider
+import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerCastle
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 interface IEntityAnimationProducer: IBodyData {
@@ -26,8 +26,8 @@ interface IEntityAnimationProducer: IBodyData {
             val producerHuman = createProducerHuman(skinHuman)
             return EntityAnimationProducerRider(producerMount, producerHuman)
         }
-        fun createProducerCastle(textureName: String): IEntityAnimationProducer{
-            return EntityAnimationProducerCastle(textureName)
+        fun createProducerCastle(textureNameAlive: String, textureNameDead: String): IEntityAnimationProducer{
+            return EntityAnimationProducerCastle(textureNameAlive, textureNameDead)
         }
     }
 

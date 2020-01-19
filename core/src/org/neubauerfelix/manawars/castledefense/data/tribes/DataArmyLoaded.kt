@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.castledefense.data
+package org.neubauerfelix.manawars.castledefense.data.tribes
 
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitLoaded
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit

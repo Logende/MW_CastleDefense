@@ -14,12 +14,14 @@ skill_zombie:
         HUMAN: 617
         CASTLE: 640
         RIDER: 617
+        BUILDING_HEAL: 640
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 87
       width: 54
@@ -34,12 +36,14 @@ skill_zombie:
         HUMAN: 626
         CASTLE: 640
         RIDER: 626
+        BUILDING_HEAL: 640
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 87
       width: 54
@@ -54,12 +58,14 @@ skill_zombie:
         HUMAN: 626
         CASTLE: 640
         RIDER: 626
+        BUILDING_HEAL: 640
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 87
       width: 54
@@ -74,12 +80,14 @@ skill_zombie:
         HUMAN: 640
         CASTLE: 640
         RIDER: 640
+        BUILDING_HEAL: 640
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 87
       width: 54
@@ -94,12 +102,36 @@ skill_zombie:
         HUMAN: 639
         CASTLE: 640
         RIDER: 639
+        BUILDING_HEAL: 640
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 87
+      width: 54
+      lifeTime: 3.08
+      strategicValue: 10.0
+      offensiveStrength: 10.0
+      defensiveStrength: 10.0
+      rangeMaxAvg: 640.0
+      rangeMax:
+        MOUNT: 640
+        HUMAN_SHIELD: 640
+        HUMAN: 640
+        CASTLE: 640
+        RIDER: 640
+        BUILDING_HEAL: 640
+      rangeMin:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   tank:
     MOUNT:
       height: 107
@@ -115,12 +147,14 @@ skill_zombie:
         HUMAN: 567
         CASTLE: 707
         RIDER: 588
+        BUILDING_HEAL: 707
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 107
       width: 33
@@ -135,12 +169,14 @@ skill_zombie:
         HUMAN: 560
         CASTLE: 707
         RIDER: 581
+        BUILDING_HEAL: 707
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 107
       width: 33
@@ -155,12 +191,14 @@ skill_zombie:
         HUMAN: 560
         CASTLE: 707
         RIDER: 581
+        BUILDING_HEAL: 707
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 107
       width: 33
@@ -175,12 +213,14 @@ skill_zombie:
         HUMAN: 511
         CASTLE: 672
         RIDER: 539
+        BUILDING_HEAL: 672
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 107
       width: 33
@@ -195,12 +235,36 @@ skill_zombie:
         HUMAN: 546
         CASTLE: 693
         RIDER: 574
+        BUILDING_HEAL: 693
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 107
+      width: 33
+      lifeTime: 1.9399999
+      strategicValue: 6.0000005
+      offensiveStrength: 6.0000005
+      defensiveStrength: 6.0000005
+      rangeMaxAvg: 497.0
+      rangeMax:
+        MOUNT: 497
+        HUMAN_SHIELD: 511
+        HUMAN: 511
+        CASTLE: 672
+        RIDER: 539
+        BUILDING_HEAL: 672
+      rangeMin:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   melee:
     MOUNT:
       height: 10
@@ -216,12 +280,14 @@ skill_zombie:
         HUMAN: 660
         CASTLE: 900
         RIDER: 744
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 10
       width: 150
@@ -236,12 +302,14 @@ skill_zombie:
         HUMAN: 636
         CASTLE: 900
         RIDER: 720
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 10
       width: 150
@@ -256,12 +324,14 @@ skill_zombie:
         HUMAN: 636
         CASTLE: 900
         RIDER: 720
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 10
       width: 150
@@ -276,12 +346,14 @@ skill_zombie:
         HUMAN: 372
         CASTLE: 900
         RIDER: 528
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 10
       width: 150
@@ -296,12 +368,36 @@ skill_zombie:
         HUMAN: 588
         CASTLE: 900
         RIDER: 684
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 10
+      width: 150
+      lifeTime: 1.9
+      strategicValue: 5.0
+      offensiveStrength: 5.0
+      defensiveStrength: 5.0
+      rangeMaxAvg: 240.0
+      rangeMax:
+        MOUNT: 240
+        HUMAN_SHIELD: 372
+        HUMAN: 372
+        CASTLE: 900
+        RIDER: 528
+        BUILDING_HEAL: 900
+      rangeMin:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   ranger:
     MOUNT:
       height: 9
@@ -317,12 +413,14 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 9
       width: 81
@@ -337,12 +435,14 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 9
       width: 81
@@ -357,12 +457,14 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 9
       width: 81
@@ -377,12 +479,14 @@ skill_zombie:
         HUMAN: 0
         CASTLE: 900
         RIDER: 840
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 2147483647
         HUMAN_SHIELD: 2147483647
         HUMAN: 2147483647
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 9
       width: 81
@@ -397,12 +501,36 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 9
+      width: 81
+      lifeTime: 2.22
+      strategicValue: 3.2
+      offensiveStrength: 3.2
+      defensiveStrength: 3.2
+      rangeMaxAvg: 0.0
+      rangeMax:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 900
+        RIDER: 840
+        BUILDING_HEAL: 900
+      rangeMin:
+        MOUNT: 2147483647
+        HUMAN_SHIELD: 2147483647
+        HUMAN: 2147483647
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   mage:
     MOUNT:
       height: 33
@@ -418,12 +546,14 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 33
       width: 30
@@ -438,12 +568,14 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 33
       width: 30
@@ -458,12 +590,14 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 33
       width: 30
@@ -478,12 +612,14 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 1144
         HUMAN_SHIELD: 848
         HUMAN: 848
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 33
       width: 30
@@ -498,12 +634,36 @@ skill_zombie:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 33
+      width: 30
+      lifeTime: 3.36
+      strategicValue: 6.3
+      offensiveStrength: 6.3
+      defensiveStrength: 6.3
+      rangeMaxAvg: 900.0
+      rangeMax:
+        MOUNT: 900
+        HUMAN_SHIELD: 900
+        HUMAN: 900
+        CASTLE: 900
+        RIDER: 900
+        BUILDING_HEAL: 900
+      rangeMin:
+        MOUNT: 1144
+        HUMAN_SHIELD: 848
+        HUMAN: 848
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
 skill_frost:
   boss:
     MOUNT:
@@ -520,12 +680,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 106
       width: 24
@@ -540,12 +702,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 106
       width: 24
@@ -560,12 +724,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 106
       width: 24
@@ -580,12 +746,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 106
       width: 24
@@ -600,12 +768,36 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 106
+      width: 24
+      lifeTime: 2.84
+      strategicValue: 10.0
+      offensiveStrength: 10.0
+      defensiveStrength: 10.0
+      rangeMaxAvg: 630.0
+      rangeMax:
+        MOUNT: 630
+        HUMAN_SHIELD: 630
+        HUMAN: 630
+        CASTLE: 630
+        RIDER: 630
+        BUILDING_HEAL: 630
+      rangeMin:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   tank:
     MOUNT:
       height: 106
@@ -621,12 +813,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 106
       width: 24
@@ -641,12 +835,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 106
       width: 24
@@ -661,12 +857,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 106
       width: 24
@@ -681,12 +879,14 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 106
       width: 24
@@ -701,12 +901,36 @@ skill_frost:
         HUMAN: 630
         CASTLE: 630
         RIDER: 630
+        BUILDING_HEAL: 630
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 106
+      width: 24
+      lifeTime: 2.76
+      strategicValue: 6.0000005
+      offensiveStrength: 6.0000005
+      defensiveStrength: 6.0000005
+      rangeMaxAvg: 630.0
+      rangeMax:
+        MOUNT: 630
+        HUMAN_SHIELD: 630
+        HUMAN: 630
+        CASTLE: 630
+        RIDER: 630
+        BUILDING_HEAL: 630
+      rangeMin:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   melee:
     MOUNT:
       height: 41
@@ -722,12 +946,14 @@ skill_frost:
         HUMAN: 738
         CASTLE: 900
         RIDER: 828
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 41
       width: 43
@@ -742,12 +968,14 @@ skill_frost:
         HUMAN: 720
         CASTLE: 900
         RIDER: 810
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 41
       width: 43
@@ -762,12 +990,14 @@ skill_frost:
         HUMAN: 720
         CASTLE: 900
         RIDER: 810
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 41
       width: 43
@@ -782,12 +1012,14 @@ skill_frost:
         HUMAN: 468
         CASTLE: 900
         RIDER: 612
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 41
       width: 43
@@ -802,12 +1034,36 @@ skill_frost:
         HUMAN: 666
         CASTLE: 900
         RIDER: 756
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 41
+      width: 43
+      lifeTime: 1.3399999
+      strategicValue: 5.0
+      offensiveStrength: 5.0
+      defensiveStrength: 5.0
+      rangeMaxAvg: 360.0
+      rangeMax:
+        MOUNT: 360
+        HUMAN_SHIELD: 468
+        HUMAN: 468
+        CASTLE: 900
+        RIDER: 612
+        BUILDING_HEAL: 900
+      rangeMin:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   ranger:
     MOUNT:
       height: 9
@@ -823,12 +1079,14 @@ skill_frost:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 9
       width: 81
@@ -843,12 +1101,14 @@ skill_frost:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 9
       width: 81
@@ -863,12 +1123,14 @@ skill_frost:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 9
       width: 81
@@ -883,12 +1145,14 @@ skill_frost:
         HUMAN: 0
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 2147483647
         HUMAN_SHIELD: 2147483647
         HUMAN: 2147483647
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 9
       width: 81
@@ -903,12 +1167,36 @@ skill_frost:
         HUMAN: 900
         CASTLE: 900
         RIDER: 900
+        BUILDING_HEAL: 900
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 9
+      width: 81
+      lifeTime: 1.86
+      strategicValue: 5.3
+      offensiveStrength: 5.3
+      defensiveStrength: 5.3
+      rangeMaxAvg: 0.0
+      rangeMax:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 900
+        RIDER: 900
+        BUILDING_HEAL: 900
+      rangeMin:
+        MOUNT: 2147483647
+        HUMAN_SHIELD: 2147483647
+        HUMAN: 2147483647
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0
   mage:
     MOUNT:
       height: 66
@@ -924,12 +1212,14 @@ skill_frost:
         HUMAN: 1000
         CASTLE: 1000
         RIDER: 1000
+        BUILDING_HEAL: 1000
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN_SHIELD:
       height: 66
       width: 17
@@ -944,12 +1234,14 @@ skill_frost:
         HUMAN: 1000
         CASTLE: 1000
         RIDER: 1000
+        BUILDING_HEAL: 1000
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     HUMAN:
       height: 66
       width: 17
@@ -964,12 +1256,14 @@ skill_frost:
         HUMAN: 1000
         CASTLE: 1000
         RIDER: 1000
+        BUILDING_HEAL: 1000
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     CASTLE:
       height: 66
       width: 17
@@ -984,12 +1278,14 @@ skill_frost:
         HUMAN: 1000
         CASTLE: 1000
         RIDER: 1000
+        BUILDING_HEAL: 1000
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
     RIDER:
       height: 66
       width: 17
@@ -1004,9 +1300,33 @@ skill_frost:
         HUMAN: 1000
         CASTLE: 1000
         RIDER: 1000
+        BUILDING_HEAL: 1000
       rangeMin:
         MOUNT: 0
         HUMAN_SHIELD: 0
         HUMAN: 0
         CASTLE: 0
         RIDER: 0
+        BUILDING_HEAL: 0
+    BUILDING_HEAL:
+      height: 66
+      width: 17
+      lifeTime: 2.02
+      strategicValue: 6.3
+      offensiveStrength: 6.3
+      defensiveStrength: 6.3
+      rangeMaxAvg: 1000.0
+      rangeMax:
+        MOUNT: 1000
+        HUMAN_SHIELD: 1000
+        HUMAN: 1000
+        CASTLE: 1000
+        RIDER: 1000
+        BUILDING_HEAL: 1000
+      rangeMin:
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        HUMAN: 0
+        CASTLE: 0
+        RIDER: 0
+        BUILDING_HEAL: 0

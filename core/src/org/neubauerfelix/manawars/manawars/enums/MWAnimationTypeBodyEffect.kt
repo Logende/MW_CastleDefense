@@ -8,7 +8,8 @@ enum class MWAnimationTypeBodyEffect(val positionCount: Int) {
     THROW(4),
     DROP(4),
     NONE(4),
-    UNBLOCK(1);
+    UNBLOCK(1),
+    BUILDING_EFFECT(4);
 
 
 }

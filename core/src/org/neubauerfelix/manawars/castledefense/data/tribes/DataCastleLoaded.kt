@@ -1,11 +1,10 @@
-package org.neubauerfelix.manawars.castledefense.data
+package org.neubauerfelix.manawars.castledefense.data.tribes
 
 import org.neubauerfelix.manawars.castledefense.CDConstants
+import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildings
+import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.game.entities.GameLocation
 import org.neubauerfelix.manawars.game.entities.ILocated
-import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.data.units.DataUnitUpgrade
-import org.neubauerfelix.manawars.manawars.enums.MWUpgrade
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 class DataCastleLoaded(config: Configuration, league: IDataLeague, multiplier: Float = 1f) : DataCastle() {

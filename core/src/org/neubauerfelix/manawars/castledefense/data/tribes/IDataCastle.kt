@@ -1,9 +1,8 @@
-package org.neubauerfelix.manawars.castledefense.data
+package org.neubauerfelix.manawars.castledefense.data.tribes
 
+import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildings
 import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.game.entities.ILocated
-import org.neubauerfelix.manawars.manawars.data.units.DataUnitUpgrade
-import org.neubauerfelix.manawars.manawars.enums.MWUpgrade
 
 interface IDataCastle : IAsset {
 

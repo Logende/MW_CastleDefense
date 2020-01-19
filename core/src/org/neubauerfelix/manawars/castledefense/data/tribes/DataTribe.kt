@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.castledefense.data
+package org.neubauerfelix.manawars.castledefense.data.tribes
 
 import org.neubauerfelix.manawars.game.IComponent
 

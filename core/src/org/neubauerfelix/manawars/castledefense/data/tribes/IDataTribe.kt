@@ -1,5 +1,6 @@
-package org.neubauerfelix.manawars.castledefense.data
+package org.neubauerfelix.manawars.castledefense.data.tribes
 
+import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.manawars.data.actions.IDataPresentable
 

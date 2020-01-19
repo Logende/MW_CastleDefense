@@ -1,12 +1,11 @@
 package org.neubauerfelix.manawars.manawars
 
-import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
-import org.neubauerfelix.manawars.castledefense.data.IDataArmy
+import org.neubauerfelix.manawars.castledefense.data.tribes.IDataArmy
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerTest
 
 class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {

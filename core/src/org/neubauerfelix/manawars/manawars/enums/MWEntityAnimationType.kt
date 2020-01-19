@@ -85,7 +85,26 @@ enum class MWEntityAnimationType(val width: Int, val height: Int) {
             while (! MManaWars.m.getAssetLoader().areAssetsLoaded()){
                 // Do nothing
             }
-            val animationProducer = IEntityAnimationProducer.createProducerCastle(textureName)
+            val animationProducer = IEntityAnimationProducer.createProducerCastle(textureName, textureName)
+            val controller = ControllerDummy()
+            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
+                    data = DataUnitDummy())
+            controller.controlled = a
+            a.setLocation(x, y)
+            a.team = MConstants.TEAM_BOT
+            a.direction = direction
+            a.animation.updateAnimation(a)
+            return a
+        }
+    },
+    BUILDING_HEAL(MConstants.BODY_CASTLE_WIDTH, MConstants.BODY_CASTLE_HEIGHT) {
+        override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
+            val textureName = "castles/castle_wood_1.png"
+            MManaWars.m.getAssetLoader().loadTexture(textureName)
+            while (! MManaWars.m.getAssetLoader().areAssetsLoaded()){
+                // Do nothing
+            }// TODO: Change castle code here into heal code
+            val animationProducer = IEntityAnimationProducer.createProducerCastle(textureName, textureName)
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())

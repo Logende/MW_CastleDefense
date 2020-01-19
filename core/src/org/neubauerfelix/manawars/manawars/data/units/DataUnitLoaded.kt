@@ -1,13 +1,11 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
-import org.neubauerfelix.manawars.castledefense.data.IDataArmy
+import org.neubauerfelix.manawars.castledefense.data.tribes.IDataArmy
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkill
 import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
-import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.storage.Configuration
@@ -47,8 +45,8 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
             MWEntityAnimationType.RIDER -> {
                 IEntityAnimationProducer.createProducerRider(animationParts[1], animationParts[2])
             }
-            MWEntityAnimationType.CASTLE -> {
-                IEntityAnimationProducer.createProducerCastle(animationParts[1])
+            MWEntityAnimationType.CASTLE, MWEntityAnimationType.BUILDING_HEAL -> {
+                throw NotImplementedError()
             }
         }
 

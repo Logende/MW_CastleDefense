@@ -1,6 +1,7 @@
-package org.neubauerfelix.manawars.manawars.entities.animation.castle
+package org.neubauerfelix.manawars.manawars.entities.animation.building
 
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
@@ -11,21 +12,43 @@ import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-class BodyCastle(val sized: ISized, val textureRegion: TextureRegion):
+class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val textureRegionDead: TextureRegion,
+                   val animation: Animation<TextureRegion>?):
         IBody, ISized by sized {
 
+    var alive = true
+    var playAnimation = false
+    var stateTime = 0f
 
+    init {
+        if (animation != null) {
+            animation.playMode = Animation.PlayMode.NORMAL
+        }
+    }
 
     override fun explode() {
     }
 
     override fun deadlyHit(killer: IMovable) {
+        alive = false
     }
 
     override fun deadlyHit() {
+        alive = false
     }
 
     override fun playEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+        if (animation == null) {
+            return
+        }
+        when (effect) {
+            null -> playAnimation = false
+            MWAnimationTypeBodyEffect.BUILDING_EFFECT -> {
+                playAnimation = true
+                stateTime = 0f
+            }
+            else -> {}
+        }
     }
 
     override fun updateAnimation(sized: ISized?) {
@@ -40,17 +63,29 @@ class BodyCastle(val sized: ISized, val textureRegion: TextureRegion):
 
 
     override fun getCollisionType(intersection: ISized): MWCollisionType {
-        return MWCollisionType.CASTLE
+        return MWCollisionType.TEXTURE
     }
 
     override fun draw(delta: Float, batcher: Batch) {
         batcher.color = color
-        batcher.draw(textureRegion, x, y, width, height)
+
+        if (playAnimation) {
+            batcher.draw(animation!!.getKeyFrame(stateTime), x, y, width, height)
+            stateTime += delta
+            if (animation!!.isAnimationFinished(stateTime)) {
+                playAnimation = false
+            }
+        } else {
+            if (alive) {
+                batcher.draw(textureRegionAlive, x, y, width, height)
+            } else {
+                batcher.draw(textureRegionDead, x, y, width, height)
+            }
+        }
         batcher.color = Color.WHITE
     }
 
     override fun doLogic(delta: Float) {
-        // TODO: If damaged show damaged animation
     }
 
     override fun drawDebugging(shapeRenderer: ShapeRenderer) {

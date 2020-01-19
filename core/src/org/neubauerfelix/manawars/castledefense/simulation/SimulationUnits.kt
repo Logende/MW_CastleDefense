@@ -1,7 +1,7 @@
 package org.neubauerfelix.manawars.castledefense.simulation
 
 import org.neubauerfelix.manawars.castledefense.CDConstants
-import org.neubauerfelix.manawars.castledefense.data.IDataArmy
+import org.neubauerfelix.manawars.castledefense.data.tribes.IDataArmy
 import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
 import org.neubauerfelix.manawars.castledefense.player.ICDFormation
 import org.neubauerfelix.manawars.game.entities.IEntity

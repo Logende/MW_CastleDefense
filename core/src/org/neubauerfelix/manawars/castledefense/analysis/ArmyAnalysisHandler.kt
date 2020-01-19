@@ -1,6 +1,6 @@
 package org.neubauerfelix.manawars.castledefense.analysis
 
-import org.neubauerfelix.manawars.castledefense.data.IDataArmy
+import org.neubauerfelix.manawars.castledefense.data.tribes.IDataArmy
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.castledefense.simulation.Simulation
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -17,7 +17,7 @@ class ArmyAnalysisHandler : IArmyAnalysisHandler {
         }
 
         // Otherwise the unit should be effective against the existing enemies
-        //val factor = this.calculateFormationValue(tribe, unit)
+        //val factor = this.calculateFormationValue(player, unit)
         val factor = this.estimateArmyScore(player, unit, 20f)
 
         println("chance of ${unit.name}: dE $factor")

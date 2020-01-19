@@ -1,5 +1,9 @@
 package org.neubauerfelix.manawars.castledefense.data
 
+import org.neubauerfelix.manawars.castledefense.data.tribes.DataCastleLoaded
+import org.neubauerfelix.manawars.castledefense.data.tribes.DataTribeLoaded
+import org.neubauerfelix.manawars.castledefense.data.tribes.IDataCastle
+import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 

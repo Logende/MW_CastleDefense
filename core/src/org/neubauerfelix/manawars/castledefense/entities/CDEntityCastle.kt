@@ -8,8 +8,8 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 
 class CDEntityCastle(x: Float, y: Float, val textureName: String, health: Float, direction: Int, team: Int,
                      override val unitSpawnLocation: ILocated, startGold: Int, goldPerCharge: Int) :
-        MEntityAnimated(IEntityAnimationProducer.createProducerCastle(textureName), health), ICDEntityCastle {
-
+        MEntityAnimated(IEntityAnimationProducer.createProducerCastle(textureName, textureName), health), ICDEntityCastle {
+// TODO: Different textures in constructor. Dead vs alive
     init {
         this.direction = direction
         this.team = team
