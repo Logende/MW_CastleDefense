@@ -43,11 +43,10 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
         }
         when (effect) {
             null -> playAnimation = false
-            MWAnimationTypeBodyEffect.BUILDING_EFFECT -> {
+            else -> {
                 playAnimation = true
                 stateTime = 0f
             }
-            else -> {}
         }
     }
 

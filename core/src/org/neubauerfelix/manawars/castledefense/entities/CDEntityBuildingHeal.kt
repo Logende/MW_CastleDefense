@@ -9,6 +9,7 @@ class CDEntityBuildingHeal(val data: IDataBuildingHeal) : CDEntityBuilding(data)
 
     var lastHealing: Long = 0
 
+    // todo: use CDEntityBuildingAction as basis and put heal into an IDataAction
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)

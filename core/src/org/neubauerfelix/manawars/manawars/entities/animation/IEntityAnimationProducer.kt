@@ -27,9 +27,9 @@ interface IEntityAnimationProducer: IBodyData {
             return EntityAnimationProducerRider(producerMount, producerHuman)
         }
         fun createProducerBuilding(textureNameAlive: String, textureNameDead: String = textureNameAlive,
-                                   animationTextureNames: List<String> = arrayListOf(),
+                                   animationTextureName: String? = null,
                                    animationFrameDuration: Float = 0f): IEntityAnimationProducer{
-            return EntityAnimationProducerBuilding(textureNameAlive, textureNameDead, animationTextureNames,
+            return EntityAnimationProducerBuilding(textureNameAlive, textureNameDead, animationTextureName,
                     animationFrameDuration)
         }
     }

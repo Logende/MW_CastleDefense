@@ -3,6 +3,7 @@ package org.neubauerfelix.manawars.castledefense
 import com.badlogic.gdx.Input
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
 import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
+import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingActionBallista
 import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingHeal
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
@@ -44,7 +45,10 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         match.load()
 
         val dataHeal = DataBuildingHeal(100f, 100f, 2L, 400f)
-        dataHeal.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
+
+        val action = playerA.tribe.army.units.get(4).action
+        val dataBa = DataBuildingActionBallista(100f, action, 1F)
+        dataBa.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
         return false
     }
 

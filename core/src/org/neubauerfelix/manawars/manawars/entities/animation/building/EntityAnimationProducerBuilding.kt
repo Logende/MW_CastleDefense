@@ -11,8 +11,11 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
+/***
+ * textureNameAnimation: the animation image is automatically split into 4 frames (horizontally split)
+ */
 open class EntityAnimationProducerBuilding(val textureNameAlive: String, val textureNameDead: String = textureNameAlive,
-                                           val animationTextureNames: List<String> = arrayListOf(),
+                                           val textureNameAnimation: String? = null,
                                            val animationFrameDuration: Float = 0f):
         IEntityAnimationProducer {
     override val animationType: MWEntityAnimationType = MWEntityAnimationType.BUILDING
@@ -31,16 +34,11 @@ open class EntityAnimationProducerBuilding(val textureNameAlive: String, val tex
 
 
     fun produceAnimationFrames(): Animation<TextureRegion>? {
-        val assetLoader = MManaWars.m.getAssetLoader()
-
-        return if (animationTextureNames.isEmpty()) {
+        return if (textureNameAnimation == null) {
             null
         } else {
-            val animationFrames = Array(animationTextureNames.size) {
-                val name = animationTextureNames[it]
-                assetLoader.createTextureRegion(name)
-            }
-            Animation(animationFrameDuration, *animationFrames)
+            val frames = MManaWars.m.getImageHandler().getTextureRegionsMain(textureNameAnimation, 4, 1)
+            Animation(animationFrameDuration, *frames)
         }
     }
 
