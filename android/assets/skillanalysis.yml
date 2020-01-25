@@ -1,5 +1,25 @@
 skill_zombie:
   boss:
+    BUILDING:
+      height: 87
+      width: 54
+      lifeTime: 3.22
+      strategicValue: 10.0
+      offensiveStrength: 10.0
+      defensiveStrength: 10.0
+      rangeMaxAvg: 639.0
+      rangeMax:
+        BUILDING: 640
+        HUMAN: 639
+        MOUNT: 640
+        HUMAN_SHIELD: 639
+        RIDER: 639
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 87
       width: 54
@@ -9,16 +29,16 @@ skill_zombie:
       defensiveStrength: 10.0
       rangeMaxAvg: 626.0
       rangeMax:
+        BUILDING: 640
         HUMAN: 626
         MOUNT: 633
         HUMAN_SHIELD: 626
-        BUILDING: 640
         RIDER: 626
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 87
@@ -29,16 +49,16 @@ skill_zombie:
       defensiveStrength: 10.0
       rangeMaxAvg: 617.0
       rangeMax:
+        BUILDING: 640
         HUMAN: 617
         MOUNT: 626
         HUMAN_SHIELD: 617
-        BUILDING: 640
         RIDER: 617
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 87
@@ -49,36 +69,16 @@ skill_zombie:
       defensiveStrength: 10.0
       rangeMaxAvg: 626.0
       rangeMax:
+        BUILDING: 640
         HUMAN: 626
         MOUNT: 633
         HUMAN_SHIELD: 626
-        BUILDING: 640
         RIDER: 626
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 87
-      width: 54
-      lifeTime: 3.22
-      strategicValue: 10.0
-      offensiveStrength: 10.0
-      defensiveStrength: 10.0
-      rangeMaxAvg: 639.0
-      rangeMax:
-        HUMAN: 639
-        MOUNT: 640
-        HUMAN_SHIELD: 639
-        BUILDING: 640
-        RIDER: 639
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 87
@@ -89,18 +89,38 @@ skill_zombie:
       defensiveStrength: 10.0
       rangeMaxAvg: 639.0
       rangeMax:
+        BUILDING: 640
         HUMAN: 639
         MOUNT: 640
         HUMAN_SHIELD: 639
-        BUILDING: 640
         RIDER: 639
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   tank:
+    BUILDING:
+      height: 107
+      width: 33
+      lifeTime: 2.0
+      strategicValue: 6.0000005
+      offensiveStrength: 6.0000005
+      defensiveStrength: 6.0000005
+      rangeMaxAvg: 539.0
+      rangeMax:
+        BUILDING: 693
+        HUMAN: 546
+        MOUNT: 539
+        HUMAN_SHIELD: 546
+        RIDER: 574
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 107
       width: 33
@@ -110,16 +130,16 @@ skill_zombie:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 553.0
       rangeMax:
+        BUILDING: 707
         HUMAN: 560
         MOUNT: 553
         HUMAN_SHIELD: 560
-        BUILDING: 707
         RIDER: 581
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 107
@@ -130,16 +150,16 @@ skill_zombie:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 553.0
       rangeMax:
+        BUILDING: 707
         HUMAN: 567
         MOUNT: 553
         HUMAN_SHIELD: 567
-        BUILDING: 707
         RIDER: 588
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 107
@@ -150,36 +170,16 @@ skill_zombie:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 553.0
       rangeMax:
+        BUILDING: 707
         HUMAN: 560
         MOUNT: 553
         HUMAN_SHIELD: 560
-        BUILDING: 707
         RIDER: 581
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 107
-      width: 33
-      lifeTime: 2.0
-      strategicValue: 6.0000005
-      offensiveStrength: 6.0000005
-      defensiveStrength: 6.0000005
-      rangeMaxAvg: 539.0
-      rangeMax:
-        HUMAN: 546
-        MOUNT: 539
-        HUMAN_SHIELD: 546
-        BUILDING: 693
-        RIDER: 574
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 107
@@ -190,18 +190,38 @@ skill_zombie:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 539.0
       rangeMax:
+        BUILDING: 693
         HUMAN: 546
         MOUNT: 539
         HUMAN_SHIELD: 546
-        BUILDING: 693
         RIDER: 574
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   melee:
+    BUILDING:
+      height: 10
+      width: 150
+      lifeTime: 2.02
+      strategicValue: 5.0
+      offensiveStrength: 5.0
+      defensiveStrength: 5.0
+      rangeMaxAvg: 528.0
+      rangeMax:
+        BUILDING: 900
+        HUMAN: 588
+        MOUNT: 528
+        HUMAN_SHIELD: 588
+        RIDER: 684
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 10
       width: 150
@@ -211,16 +231,16 @@ skill_zombie:
       defensiveStrength: 5.0
       rangeMaxAvg: 588.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 636
         MOUNT: 588
         HUMAN_SHIELD: 636
-        BUILDING: 900
         RIDER: 720
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 10
@@ -231,16 +251,16 @@ skill_zombie:
       defensiveStrength: 5.0
       rangeMaxAvg: 612.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 660
         MOUNT: 612
         HUMAN_SHIELD: 660
-        BUILDING: 900
         RIDER: 744
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 10
@@ -251,36 +271,16 @@ skill_zombie:
       defensiveStrength: 5.0
       rangeMaxAvg: 588.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 636
         MOUNT: 588
         HUMAN_SHIELD: 636
-        BUILDING: 900
         RIDER: 720
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 10
-      width: 150
-      lifeTime: 2.02
-      strategicValue: 5.0
-      offensiveStrength: 5.0
-      defensiveStrength: 5.0
-      rangeMaxAvg: 528.0
-      rangeMax:
-        HUMAN: 588
-        MOUNT: 528
-        HUMAN_SHIELD: 588
-        BUILDING: 900
-        RIDER: 684
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 10
@@ -291,18 +291,38 @@ skill_zombie:
       defensiveStrength: 5.0
       rangeMaxAvg: 528.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 588
         MOUNT: 528
         HUMAN_SHIELD: 588
-        BUILDING: 900
         RIDER: 684
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   ranger:
+    BUILDING:
+      height: 9
+      width: 81
+      lifeTime: 2.56
+      strategicValue: 3.2
+      offensiveStrength: 3.2
+      defensiveStrength: 3.2
+      rangeMaxAvg: 860.0
+      rangeMax:
+        BUILDING: 900
+        HUMAN: 900
+        MOUNT: 860
+        HUMAN_SHIELD: 900
+        RIDER: 900
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 9
       width: 81
@@ -312,16 +332,16 @@ skill_zombie:
       defensiveStrength: 3.2
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 9
@@ -332,16 +352,16 @@ skill_zombie:
       defensiveStrength: 3.2
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 9
@@ -352,36 +372,16 @@ skill_zombie:
       defensiveStrength: 3.2
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 9
-      width: 81
-      lifeTime: 2.56
-      strategicValue: 3.2
-      offensiveStrength: 3.2
-      defensiveStrength: 3.2
-      rangeMaxAvg: 860.0
-      rangeMax:
-        HUMAN: 900
-        MOUNT: 860
-        HUMAN_SHIELD: 900
-        BUILDING: 900
-        RIDER: 900
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 9
@@ -392,18 +392,38 @@ skill_zombie:
       defensiveStrength: 3.2
       rangeMaxAvg: 860.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 860
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   mage:
+    BUILDING:
+      height: 33
+      width: 30
+      lifeTime: 3.36
+      strategicValue: 6.3
+      offensiveStrength: 6.3
+      defensiveStrength: 6.3
+      rangeMaxAvg: 900.0
+      rangeMax:
+        BUILDING: 900
+        HUMAN: 900
+        MOUNT: 900
+        HUMAN_SHIELD: 900
+        RIDER: 900
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 33
       width: 30
@@ -413,16 +433,16 @@ skill_zombie:
       defensiveStrength: 6.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 33
@@ -433,16 +453,16 @@ skill_zombie:
       defensiveStrength: 6.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 33
@@ -453,36 +473,16 @@ skill_zombie:
       defensiveStrength: 6.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 33
-      width: 30
-      lifeTime: 3.36
-      strategicValue: 6.3
-      offensiveStrength: 6.3
-      defensiveStrength: 6.3
-      rangeMaxAvg: 900.0
-      rangeMax:
-        HUMAN: 900
-        MOUNT: 900
-        HUMAN_SHIELD: 900
-        BUILDING: 900
-        RIDER: 900
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 33
@@ -493,19 +493,39 @@ skill_zombie:
       defensiveStrength: 6.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
 skill_frost:
   boss:
+    BUILDING:
+      height: 106
+      width: 24
+      lifeTime: 2.6599998
+      strategicValue: 10.0
+      offensiveStrength: 10.0
+      defensiveStrength: 10.0
+      rangeMaxAvg: 630.0
+      rangeMax:
+        BUILDING: 630
+        HUMAN: 630
+        MOUNT: 630
+        HUMAN_SHIELD: 630
+        RIDER: 630
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 106
       width: 24
@@ -515,16 +535,16 @@ skill_frost:
       defensiveStrength: 10.0
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 106
@@ -535,16 +555,16 @@ skill_frost:
       defensiveStrength: 10.0
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 106
@@ -555,36 +575,16 @@ skill_frost:
       defensiveStrength: 10.0
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 106
-      width: 24
-      lifeTime: 2.6599998
-      strategicValue: 10.0
-      offensiveStrength: 10.0
-      defensiveStrength: 10.0
-      rangeMaxAvg: 630.0
-      rangeMax:
-        HUMAN: 630
-        MOUNT: 630
-        HUMAN_SHIELD: 630
-        BUILDING: 630
-        RIDER: 630
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 106
@@ -595,18 +595,38 @@ skill_frost:
       defensiveStrength: 10.0
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   tank:
+    BUILDING:
+      height: 106
+      width: 24
+      lifeTime: 2.6599998
+      strategicValue: 6.0000005
+      offensiveStrength: 6.0000005
+      defensiveStrength: 6.0000005
+      rangeMaxAvg: 630.0
+      rangeMax:
+        BUILDING: 630
+        HUMAN: 630
+        MOUNT: 630
+        HUMAN_SHIELD: 630
+        RIDER: 630
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 106
       width: 24
@@ -616,16 +636,16 @@ skill_frost:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 106
@@ -636,16 +656,16 @@ skill_frost:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 106
@@ -656,36 +676,16 @@ skill_frost:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 106
-      width: 24
-      lifeTime: 2.6599998
-      strategicValue: 6.0000005
-      offensiveStrength: 6.0000005
-      defensiveStrength: 6.0000005
-      rangeMaxAvg: 630.0
-      rangeMax:
-        HUMAN: 630
-        MOUNT: 630
-        HUMAN_SHIELD: 630
-        BUILDING: 630
-        RIDER: 630
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 106
@@ -696,18 +696,38 @@ skill_frost:
       defensiveStrength: 6.0000005
       rangeMaxAvg: 630.0
       rangeMax:
+        BUILDING: 630
         HUMAN: 630
         MOUNT: 630
         HUMAN_SHIELD: 630
-        BUILDING: 630
         RIDER: 630
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   melee:
+    BUILDING:
+      height: 41
+      width: 43
+      lifeTime: 1.42
+      strategicValue: 5.0
+      offensiveStrength: 5.0
+      defensiveStrength: 5.0
+      rangeMaxAvg: 612.0
+      rangeMax:
+        BUILDING: 900
+        HUMAN: 666
+        MOUNT: 612
+        HUMAN_SHIELD: 666
+        RIDER: 756
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 41
       width: 43
@@ -717,16 +737,16 @@ skill_frost:
       defensiveStrength: 5.0
       rangeMaxAvg: 666.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 720
         MOUNT: 666
         HUMAN_SHIELD: 720
-        BUILDING: 900
         RIDER: 810
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 41
@@ -737,16 +757,16 @@ skill_frost:
       defensiveStrength: 5.0
       rangeMaxAvg: 684.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 738
         MOUNT: 684
         HUMAN_SHIELD: 738
-        BUILDING: 900
         RIDER: 828
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 41
@@ -757,36 +777,16 @@ skill_frost:
       defensiveStrength: 5.0
       rangeMaxAvg: 666.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 720
         MOUNT: 666
         HUMAN_SHIELD: 720
-        BUILDING: 900
         RIDER: 810
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 41
-      width: 43
-      lifeTime: 1.42
-      strategicValue: 5.0
-      offensiveStrength: 5.0
-      defensiveStrength: 5.0
-      rangeMaxAvg: 612.0
-      rangeMax:
-        HUMAN: 666
-        MOUNT: 612
-        HUMAN_SHIELD: 666
-        BUILDING: 900
-        RIDER: 756
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 41
@@ -797,18 +797,38 @@ skill_frost:
       defensiveStrength: 5.0
       rangeMaxAvg: 612.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 666
         MOUNT: 612
         HUMAN_SHIELD: 666
-        BUILDING: 900
         RIDER: 756
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   ranger:
+    BUILDING:
+      height: 9
+      width: 81
+      lifeTime: 2.1399999
+      strategicValue: 5.3
+      offensiveStrength: 5.3
+      defensiveStrength: 5.3
+      rangeMaxAvg: 900.0
+      rangeMax:
+        BUILDING: 900
+        HUMAN: 900
+        MOUNT: 900
+        HUMAN_SHIELD: 900
+        RIDER: 900
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 9
       width: 81
@@ -818,16 +838,16 @@ skill_frost:
       defensiveStrength: 5.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 9
@@ -838,16 +858,16 @@ skill_frost:
       defensiveStrength: 5.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 9
@@ -858,36 +878,16 @@ skill_frost:
       defensiveStrength: 5.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 9
-      width: 81
-      lifeTime: 2.1399999
-      strategicValue: 5.3
-      offensiveStrength: 5.3
-      defensiveStrength: 5.3
-      rangeMaxAvg: 900.0
-      rangeMax:
-        HUMAN: 900
-        MOUNT: 900
-        HUMAN_SHIELD: 900
-        BUILDING: 900
-        RIDER: 900
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 9
@@ -898,18 +898,38 @@ skill_frost:
       defensiveStrength: 5.3
       rangeMaxAvg: 900.0
       rangeMax:
+        BUILDING: 900
         HUMAN: 900
         MOUNT: 900
         HUMAN_SHIELD: 900
-        BUILDING: 900
         RIDER: 900
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
   mage:
+    BUILDING:
+      height: 66
+      width: 17
+      lifeTime: 2.02
+      strategicValue: 6.3
+      offensiveStrength: 6.3
+      defensiveStrength: 6.3
+      rangeMaxAvg: 1000.0
+      rangeMax:
+        BUILDING: 1000
+        HUMAN: 1000
+        MOUNT: 1000
+        HUMAN_SHIELD: 1000
+        RIDER: 1000
+      rangeMin:
+        BUILDING: 0
+        HUMAN: 0
+        MOUNT: 0
+        HUMAN_SHIELD: 0
+        RIDER: 0
     HUMAN:
       height: 66
       width: 17
@@ -919,16 +939,16 @@ skill_frost:
       defensiveStrength: 6.3
       rangeMaxAvg: 1000.0
       rangeMax:
+        BUILDING: 1000
         HUMAN: 1000
         MOUNT: 1000
         HUMAN_SHIELD: 1000
-        BUILDING: 1000
         RIDER: 1000
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     MOUNT:
       height: 66
@@ -939,16 +959,16 @@ skill_frost:
       defensiveStrength: 6.3
       rangeMaxAvg: 1000.0
       rangeMax:
+        BUILDING: 1000
         HUMAN: 1000
         MOUNT: 1000
         HUMAN_SHIELD: 1000
-        BUILDING: 1000
         RIDER: 1000
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     HUMAN_SHIELD:
       height: 66
@@ -959,36 +979,16 @@ skill_frost:
       defensiveStrength: 6.3
       rangeMaxAvg: 1000.0
       rangeMax:
+        BUILDING: 1000
         HUMAN: 1000
         MOUNT: 1000
         HUMAN_SHIELD: 1000
-        BUILDING: 1000
         RIDER: 1000
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
-        RIDER: 0
-    BUILDING:
-      height: 66
-      width: 17
-      lifeTime: 2.02
-      strategicValue: 6.3
-      offensiveStrength: 6.3
-      defensiveStrength: 6.3
-      rangeMaxAvg: 1000.0
-      rangeMax:
-        HUMAN: 1000
-        MOUNT: 1000
-        HUMAN_SHIELD: 1000
-        BUILDING: 1000
-        RIDER: 1000
-      rangeMin:
-        HUMAN: 0
-        MOUNT: 0
-        HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0
     RIDER:
       height: 66
@@ -999,14 +999,14 @@ skill_frost:
       defensiveStrength: 6.3
       rangeMaxAvg: 1000.0
       rangeMax:
+        BUILDING: 1000
         HUMAN: 1000
         MOUNT: 1000
         HUMAN_SHIELD: 1000
-        BUILDING: 1000
         RIDER: 1000
       rangeMin:
+        BUILDING: 0
         HUMAN: 0
         MOUNT: 0
         HUMAN_SHIELD: 0
-        BUILDING: 0
         RIDER: 0

@@ -19,8 +19,8 @@ open class EntityAnimationProducerBuilding(val textureNameAlive: String, val tex
                                            val animationFrameDuration: Float = 0f):
         IEntityAnimationProducer {
     override val animationType: MWEntityAnimationType = MWEntityAnimationType.BUILDING
-    override val bodyWidth: Int
-    override val bodyHeight: Int
+    final override val bodyWidth: Int
+    final override val bodyHeight: Int
 
     init {
         val texture = MManaWars.m.getImageHandler().getTextureRegionMain(textureNameAlive)

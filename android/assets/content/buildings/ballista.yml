@@ -5,11 +5,14 @@ cooldown: 1
 health: 80
 action:
   type: normal
+  owner_animation: 'BUILDING_EFFECT'
   texture: l1.zombie.ranged
   animation: '1:4:1'
   sound: skill.arrow
-  skillclass: LIGHT
-  speed: '1000:0'
+  skillclass: NORMAL
+  speed: '2000:0'
   acceleration: 0:5*A
-  offset: '-40:20'
+  offset: '-140:-40'
   knockback: 1.0
+  damage: 6
+  scale: 2.0
