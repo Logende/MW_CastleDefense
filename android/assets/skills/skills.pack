@@ -1,0 +1,1174 @@
+
+skills.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+misc.suicide.big
+  rotate: false
+  xy: 1, 1144
+  size: 800, 900
+  orig: 800, 900
+  offset: 0, 0
+  index: -1
+beast.bite.huge
+  rotate: false
+  xy: 803, 1744
+  size: 1000, 300
+  orig: 1000, 300
+  offset: 0, 0
+  index: -1
+beast.stones
+  rotate: false
+  xy: 803, 1680
+  size: 1200, 62
+  orig: 1200, 62
+  offset: 0, 0
+  index: -1
+misc.suicide.small
+  rotate: false
+  xy: 1, 692
+  size: 400, 450
+  orig: 400, 450
+  offset: 0, 0
+  index: -1
+spear.god
+  rotate: false
+  xy: 803, 1665
+  size: 622, 13
+  orig: 622, 13
+  offset: 0, 0
+  index: -1
+magic.icicle.strong
+  rotate: false
+  xy: 803, 1548
+  size: 512, 115
+  orig: 512, 115
+  offset: 0, 0
+  index: -1
+spear.basic
+  rotate: false
+  xy: 1427, 1655
+  size: 600, 23
+  orig: 600, 23
+  offset: 0, 0
+  index: -1
+magic.meteorball
+  rotate: false
+  xy: 803, 1472
+  size: 492, 74
+  orig: 492, 74
+  offset: 0, 0
+  index: -1
+magic.icespear
+  rotate: false
+  xy: 803, 1434
+  size: 560, 36
+  orig: 560, 36
+  offset: 0, 0
+  index: -1
+spear.fire
+  rotate: false
+  xy: 803, 1420
+  size: 600, 12
+  orig: 600, 12
+  offset: 0, 0
+  index: -1
+l1.zombie.melee
+  rotate: false
+  xy: 803, 1408
+  size: 600, 10
+  orig: 600, 10
+  offset: 0, 0
+  index: -1
+spear.normal
+  rotate: false
+  xy: 803, 1396
+  size: 600, 10
+  orig: 600, 10
+  offset: 0, 0
+  index: -1
+spear.strong
+  rotate: false
+  xy: 803, 1384
+  size: 600, 10
+  orig: 600, 10
+  offset: 0, 0
+  index: -1
+spear.ice
+  rotate: false
+  xy: 803, 1372
+  size: 599, 10
+  orig: 599, 10
+  offset: 0, 0
+  index: -1
+summon.tomb.egypt
+  rotate: false
+  xy: 1805, 1855
+  size: 220, 189
+  orig: 220, 189
+  offset: 0, 0
+  index: -1
+magic.icicle
+  rotate: false
+  xy: 1, 599
+  size: 300, 91
+  orig: 300, 91
+  offset: 0, 0
+  index: -1
+arrow.bomb
+  rotate: false
+  xy: 403, 1131
+  size: 326, 11
+  orig: 326, 11
+  offset: 0, 0
+  index: -1
+arrow.fire
+  rotate: false
+  xy: 803, 1359
+  size: 326, 11
+  orig: 326, 11
+  offset: 0, 0
+  index: -1
+arrow.strong
+  rotate: false
+  xy: 403, 1118
+  size: 326, 11
+  orig: 326, 11
+  offset: 0, 0
+  index: -1
+arrow.headshot
+  rotate: false
+  xy: 803, 1348
+  size: 326, 9
+  orig: 326, 9
+  offset: 0, 0
+  index: -1
+arrow.poison
+  rotate: false
+  xy: 403, 1107
+  size: 326, 9
+  orig: 326, 9
+  offset: 0, 0
+  index: -1
+arrow.random
+  rotate: false
+  xy: 803, 1337
+  size: 326, 9
+  orig: 326, 9
+  offset: 0, 0
+  index: -1
+l1.frost.ranged
+  rotate: false
+  xy: 403, 1096
+  size: 326, 9
+  orig: 326, 9
+  offset: 0, 0
+  index: -1
+l1.zombie.ranged
+  rotate: false
+  xy: 803, 1326
+  size: 326, 9
+  orig: 326, 9
+  offset: 0, 0
+  index: -1
+arrow.normal
+  rotate: false
+  xy: 403, 1086
+  size: 326, 8
+  orig: 326, 8
+  offset: 0, 0
+  index: -1
+beast.rock.2
+  rotate: false
+  xy: 1805, 1744
+  size: 110, 109
+  orig: 110, 109
+  offset: 0, 0
+  index: -1
+beast.bite
+  rotate: false
+  xy: 1, 522
+  size: 250, 75
+  orig: 250, 75
+  offset: 0, 0
+  index: -1
+axe.dwarf2.4
+  rotate: false
+  xy: 403, 894
+  size: 118, 190
+  orig: 118, 190
+  offset: 0, 0
+  index: -1
+magic.fist.huge
+  rotate: false
+  xy: 803, 1161
+  size: 138, 163
+  orig: 138, 163
+  offset: 0, 0
+  index: -1
+magic.meteorball.small
+  rotate: false
+  xy: 1131, 1333
+  size: 246, 37
+  orig: 246, 37
+  offset: 0, 0
+  index: -1
+sword.samurai
+  rotate: false
+  xy: 2027, 1926
+  size: 20, 118
+  orig: 20, 118
+  offset: 0, 0
+  index: -1
+sword.katana.5
+  rotate: false
+  xy: 1, 286
+  size: 23, 234
+  orig: 23, 234
+  offset: 0, 0
+  index: -1
+hammer.5.fire
+  rotate: false
+  xy: 403, 744
+  size: 86, 148
+  orig: 86, 148
+  offset: 0, 0
+  index: -1
+magic.iceball
+  rotate: false
+  xy: 523, 1050
+  size: 200, 34
+  orig: 200, 34
+  offset: 0, 0
+  index: -1
+hammer.6.fire
+  rotate: false
+  xy: 943, 1176
+  size: 85, 148
+  orig: 85, 148
+  offset: 0, 0
+  index: -1
+axe.god.dark.ice
+  rotate: false
+  xy: 1917, 1744
+  size: 60, 109
+  orig: 60, 109
+  offset: 0, 0
+  index: -1
+axe.god.light.fire
+  rotate: false
+  xy: 1979, 1745
+  size: 68, 108
+  orig: 68, 108
+  offset: 0, 0
+  index: -1
+magic.fireball
+  rotate: false
+  xy: 26, 489
+  size: 200, 31
+  orig: 200, 31
+  offset: 0, 0
+  index: -1
+magic.fireball.rain
+  rotate: false
+  xy: 523, 995
+  size: 178, 53
+  orig: 178, 53
+  offset: 0, 0
+  index: -1
+magic.poisonball
+  rotate: false
+  xy: 26, 456
+  size: 200, 31
+  orig: 200, 31
+  offset: 0, 0
+  index: -1
+axe.dwarf1.quadruple
+  rotate: false
+  xy: 26, 281
+  size: 54, 173
+  orig: 54, 173
+  offset: 0, 0
+  index: -1
+hammer.4.fire
+  rotate: false
+  xy: 1030, 1177
+  size: 75, 147
+  orig: 75, 147
+  offset: 0, 0
+  index: -1
+hammer.4.ice
+  rotate: false
+  xy: 82, 308
+  size: 75, 146
+  orig: 75, 146
+  offset: 0, 0
+  index: -1
+shield.ice.2
+  rotate: false
+  xy: 523, 896
+  size: 120, 97
+  orig: 120, 97
+  offset: 0, 0
+  index: -1
+magic.fist.fire
+  rotate: false
+  xy: 1317, 1547
+  size: 100, 116
+  orig: 100, 116
+  offset: 0, 0
+  index: -1
+hammer.5.curse
+  rotate: false
+  xy: 159, 307
+  size: 74, 147
+  orig: 74, 147
+  offset: 0, 0
+  index: -1
+crossbowbolt.curse
+  rotate: false
+  xy: 1131, 1320
+  size: 204, 11
+  orig: 204, 11
+  offset: 0, 0
+  index: -1
+crossbowbolt
+  rotate: false
+  xy: 1419, 1642
+  size: 204, 11
+  orig: 204, 11
+  offset: 0, 0
+  index: -1
+crossbowbolt.poison
+  rotate: false
+  xy: 1419, 1629
+  size: 204, 11
+  orig: 204, 11
+  offset: 0, 0
+  index: -1
+crossbowbolt.strong
+  rotate: false
+  xy: 1625, 1642
+  size: 204, 11
+  orig: 204, 11
+  offset: 0, 0
+  index: -1
+l1.zombie.mage
+  rotate: false
+  xy: 1419, 1594
+  size: 180, 33
+  orig: 180, 33
+  offset: 0, 0
+  index: -1
+beast.slime.purple.strong
+  rotate: false
+  xy: 1419, 1566
+  size: 184, 26
+  orig: 184, 26
+  offset: 0, 0
+  index: -1
+beast.waterball
+  rotate: false
+  xy: 1419, 1538
+  size: 184, 26
+  orig: 184, 26
+  offset: 0, 0
+  index: -1
+magic.fist.poison
+  rotate: false
+  xy: 1107, 1202
+  size: 100, 116
+  orig: 100, 116
+  offset: 0, 0
+  index: -1
+magic.fist
+  rotate: false
+  xy: 1209, 1202
+  size: 98, 116
+  orig: 98, 116
+  offset: 0, 0
+  index: -1
+shield.ice.1
+  rotate: false
+  xy: 303, 575
+  size: 99, 115
+  orig: 99, 115
+  offset: 0, 0
+  index: -1
+sword.mighty.gold.double
+  rotate: false
+  xy: 1, 111
+  size: 13, 173
+  orig: 13, 173
+  offset: 0, 0
+  index: -1
+hammer.4
+  rotate: false
+  xy: 16, 136
+  size: 67, 143
+  orig: 67, 143
+  offset: 0, 0
+  index: -1
+beast.slime.blue
+  rotate: false
+  xy: 1107, 1178
+  size: 160, 22
+  orig: 160, 22
+  offset: 0, 0
+  index: -1
+axe.orc.2
+  rotate: false
+  xy: 491, 742
+  size: 52, 150
+  orig: 52, 150
+  offset: 0, 0
+  index: -1
+hammer.3
+  rotate: false
+  xy: 545, 758
+  size: 61, 136
+  orig: 61, 136
+  offset: 0, 0
+  index: -1
+sword.katana.2
+  rotate: false
+  xy: 2029, 1612
+  size: 18, 131
+  orig: 18, 131
+  offset: 0, 0
+  index: -1
+axe.orc.1
+  rotate: false
+  xy: 608, 756
+  size: 45, 138
+  orig: 45, 138
+  offset: 0, 0
+  index: -1
+beast.slime.green
+  rotate: false
+  xy: 1625, 1618
+  size: 160, 22
+  orig: 160, 22
+  offset: 0, 0
+  index: -1
+beast.slime.purple
+  rotate: false
+  xy: 1831, 1631
+  size: 160, 22
+  orig: 160, 22
+  offset: 0, 0
+  index: -1
+shield.normal.5
+  rotate: false
+  xy: 85, 167
+  size: 48, 139
+  orig: 48, 139
+  offset: 0, 0
+  index: -1
+magic.icespike.4
+  rotate: false
+  xy: 135, 182
+  size: 63, 123
+  orig: 63, 123
+  offset: 0, 0
+  index: -1
+magic.icespike.3
+  rotate: false
+  xy: 200, 180
+  size: 33, 125
+  orig: 33, 125
+  offset: 0, 0
+  index: -1
+shield.ice.3
+  rotate: false
+  xy: 645, 897
+  size: 83, 96
+  orig: 83, 96
+  offset: 0, 0
+  index: -1
+shield.normal.4
+  rotate: false
+  xy: 655, 757
+  size: 42, 138
+  orig: 42, 138
+  offset: 0, 0
+  index: -1
+shield.normal.3
+  rotate: false
+  xy: 699, 765
+  size: 45, 130
+  orig: 45, 130
+  offset: 0, 0
+  index: -1
+arrow.rain
+  rotate: false
+  xy: 253, 515
+  size: 48, 82
+  orig: 48, 82
+  offset: 0, 0
+  index: -1
+magic.torch.strong
+  rotate: false
+  xy: 303, 493
+  size: 90, 80
+  orig: 90, 80
+  offset: 0, 0
+  index: -1
+sword.mighty.cross
+  rotate: false
+  xy: 1309, 1194
+  size: 49, 124
+  orig: 49, 124
+  offset: 0, 0
+  index: -1
+sword.katana.4.fire
+  rotate: false
+  xy: 1360, 1197
+  size: 21, 134
+  orig: 21, 134
+  offset: 0, 0
+  index: -1
+sword.mighty.double
+  rotate: false
+  xy: 1383, 1200
+  size: 13, 170
+  orig: 13, 170
+  offset: 0, 0
+  index: -1
+sword.orc.1
+  rotate: false
+  xy: 2027, 1866
+  size: 20, 58
+  orig: 20, 58
+  offset: 0, 0
+  index: -1
+boomerang.2
+  rotate: false
+  xy: 1297, 1472
+  size: 41, 73
+  orig: 41, 73
+  offset: 0, 0
+  index: -1
+sword.katana.3.dark
+  rotate: false
+  xy: 1398, 1239
+  size: 18, 131
+  orig: 18, 131
+  offset: 0, 0
+  index: -1
+beast.rock.1
+  rotate: false
+  xy: 731, 1068
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+boomerang.7
+  rotate: false
+  xy: 807, 1091
+  size: 87, 68
+  orig: 87, 68
+  offset: 0, 0
+  index: -1
+axe.god.dark
+  rotate: false
+  xy: 1, 1
+  size: 60, 108
+  orig: 60, 108
+  offset: 0, 0
+  index: -1
+sword.katana.4.ice
+  rotate: false
+  xy: 63, 3
+  size: 18, 131
+  orig: 18, 131
+  offset: 0, 0
+  index: -1
+sword.mighty.gold.cross
+  rotate: false
+  xy: 83, 10
+  size: 49, 124
+  orig: 49, 124
+  offset: 0, 0
+  index: -1
+knife.brokensword.ice
+  rotate: false
+  xy: 1340, 1474
+  size: 49, 71
+  orig: 49, 71
+  offset: 0, 0
+  index: -1
+boomerang.8
+  rotate: false
+  xy: 1391, 1468
+  size: 87, 68
+  orig: 87, 68
+  offset: 0, 0
+  index: -1
+magic.torch
+  rotate: false
+  xy: 1480, 1494
+  size: 97, 42
+  orig: 97, 42
+  offset: 0, 0
+  index: -1
+axe.god.dark.strong
+  rotate: false
+  xy: 404, 634
+  size: 60, 108
+  orig: 60, 108
+  offset: 0, 0
+  index: -1
+axe.god.light
+  rotate: false
+  xy: 466, 632
+  size: 60, 108
+  orig: 60, 108
+  offset: 0, 0
+  index: -1
+axe.god.light.strong
+  rotate: false
+  xy: 528, 632
+  size: 60, 108
+  orig: 60, 108
+  offset: 0, 0
+  index: -1
+axe.human.fire.strong
+  rotate: false
+  xy: 590, 646
+  size: 55, 108
+  orig: 55, 108
+  offset: 0, 0
+  index: -1
+sword.bandit.2
+  rotate: false
+  xy: 647, 640
+  size: 22, 114
+  orig: 22, 114
+  offset: 0, 0
+  index: -1
+axe.brutal.2
+  rotate: false
+  xy: 671, 648
+  size: 54, 107
+  orig: 54, 107
+  offset: 0, 0
+  index: -1
+sword.katana.3.light
+  rotate: false
+  xy: 727, 649
+  size: 19, 114
+  orig: 19, 114
+  offset: 0, 0
+  index: -1
+axe.dwarf1.double
+  rotate: false
+  xy: 896, 1060
+  size: 54, 99
+  orig: 54, 99
+  offset: 0, 0
+  index: -1
+stick.brute
+  rotate: false
+  xy: 952, 1069
+  size: 41, 105
+  orig: 41, 105
+  offset: 0, 0
+  index: -1
+l1.zombie.tank
+  rotate: false
+  xy: 995, 1067
+  size: 33, 107
+  orig: 33, 107
+  offset: 0, 0
+  index: -1
+axe.human.fire
+  rotate: false
+  xy: 1030, 1080
+  size: 47, 95
+  orig: 47, 95
+  offset: 0, 0
+  index: -1
+axe.dwarf1.ice
+  rotate: false
+  xy: 1079, 1079
+  size: 30, 96
+  orig: 30, 96
+  offset: 0, 0
+  index: -1
+boomerang.4
+  rotate: false
+  xy: 1111, 1089
+  size: 55, 87
+  orig: 55, 87
+  offset: 0, 0
+  index: -1
+boomerang.6
+  rotate: false
+  xy: 1168, 1089
+  size: 55, 87
+  orig: 55, 87
+  offset: 0, 0
+  index: -1
+axe.human.ice
+  rotate: false
+  xy: 1225, 1082
+  size: 46, 94
+  orig: 46, 94
+  offset: 0, 0
+  index: -1
+hammer.2
+  rotate: false
+  xy: 1273, 1105
+  size: 34, 95
+  orig: 34, 95
+  offset: 0, 0
+  index: -1
+l1.zombie.boss
+  rotate: false
+  xy: 1309, 1105
+  size: 54, 87
+  orig: 54, 87
+  offset: 0, 0
+  index: -1
+knife.brokensword
+  rotate: false
+  xy: 404, 561
+  size: 49, 71
+  orig: 49, 71
+  offset: 0, 0
+  index: -1
+knife.brokensword.poison
+  rotate: false
+  xy: 455, 559
+  size: 49, 71
+  orig: 49, 71
+  offset: 0, 0
+  index: -1
+knife.brokensword.strong
+  rotate: false
+  xy: 506, 559
+  size: 49, 71
+  orig: 49, 71
+  offset: 0, 0
+  index: -1
+axe.human
+  rotate: false
+  xy: 1405, 1372
+  size: 44, 94
+  orig: 44, 94
+  offset: 0, 0
+  index: -1
+l1.frost.boss
+  rotate: false
+  xy: 1418, 1264
+  size: 24, 106
+  orig: 24, 106
+  offset: 0, 0
+  index: -1
+axe.dwarf1.simple
+  rotate: false
+  xy: 1451, 1372
+  size: 30, 94
+  orig: 30, 94
+  offset: 0, 0
+  index: -1
+l1.frost.tank
+  rotate: false
+  xy: 1444, 1264
+  size: 24, 106
+  orig: 24, 106
+  offset: 0, 0
+  index: -1
+sword.katana.1
+  rotate: false
+  xy: 1470, 1264
+  size: 19, 106
+  orig: 19, 106
+  offset: 0, 0
+  index: -1
+axe.dwarf2.3.fire
+  rotate: false
+  xy: 395, 494
+  size: 48, 65
+  orig: 48, 65
+  offset: 0, 0
+  index: -1
+sword.human.fire
+  rotate: false
+  xy: 1483, 1388
+  size: 26, 104
+  orig: 26, 104
+  offset: 0, 0
+  index: -1
+sword.human.ice
+  rotate: false
+  xy: 1511, 1389
+  size: 24, 103
+  orig: 24, 103
+  offset: 0, 0
+  index: -1
+sword.bandit.1
+  rotate: false
+  xy: 1537, 1392
+  size: 25, 100
+  orig: 25, 100
+  offset: 0, 0
+  index: -1
+magic.icespike.2
+  rotate: false
+  xy: 1564, 1395
+  size: 26, 97
+  orig: 26, 97
+  offset: 0, 0
+  index: -1
+sword.orc.2
+  rotate: false
+  xy: 1365, 1101
+  size: 17, 94
+  orig: 17, 94
+  offset: 0, 0
+  index: -1
+sword.twisted
+  rotate: false
+  xy: 1384, 1103
+  size: 17, 95
+  orig: 17, 95
+  offset: 0, 0
+  index: -1
+axe.dwarf2.2
+  rotate: false
+  xy: 557, 556
+  size: 46, 74
+  orig: 46, 74
+  offset: 0, 0
+  index: -1
+axe.wild.strong
+  rotate: false
+  xy: 605, 563
+  size: 39, 81
+  orig: 39, 81
+  offset: 0, 0
+  index: -1
+axe.dwarf2.3
+  rotate: false
+  xy: 445, 493
+  size: 46, 64
+  orig: 46, 64
+  offset: 0, 0
+  index: -1
+boomerang.3
+  rotate: false
+  xy: 493, 486
+  size: 41, 71
+  orig: 41, 71
+  offset: 0, 0
+  index: -1
+axe.basic
+  rotate: false
+  xy: 646, 549
+  size: 23, 89
+  orig: 23, 89
+  offset: 0, 0
+  index: -1
+hammer.1
+  rotate: false
+  xy: 671, 563
+  size: 37, 83
+  orig: 37, 83
+  offset: 0, 0
+  index: -1
+shield.normal.2
+  rotate: false
+  xy: 710, 564
+  size: 33, 82
+  orig: 33, 82
+  offset: 0, 0
+  index: -1
+knife.gold
+  rotate: false
+  xy: 228, 456
+  size: 21, 64
+  orig: 21, 64
+  offset: 0, 0
+  index: -1
+sword.mighty.gold.strong
+  rotate: false
+  xy: 235, 360
+  size: 13, 94
+  orig: 13, 94
+  offset: 0, 0
+  index: -1
+sword.mighty.gold
+  rotate: false
+  xy: 235, 264
+  size: 9, 94
+  orig: 9, 94
+  offset: 0, 0
+  index: -1
+sword.mighty
+  rotate: false
+  xy: 246, 265
+  size: 9, 93
+  orig: 9, 93
+  offset: 0, 0
+  index: -1
+boomerang.1
+  rotate: false
+  xy: 251, 442
+  size: 39, 71
+  orig: 39, 71
+  offset: 0, 0
+  index: -1
+shield.normal.1
+  rotate: false
+  xy: 250, 361
+  size: 27, 79
+  orig: 27, 79
+  offset: 0, 0
+  index: -1
+axe.dwarf2.1
+  rotate: false
+  xy: 257, 285
+  size: 27, 74
+  orig: 27, 74
+  offset: 0, 0
+  index: -1
+knife.mighty.3.fire
+  rotate: false
+  xy: 2005, 1680
+  size: 13, 63
+  orig: 13, 63
+  offset: 0, 0
+  index: -1
+stick
+  rotate: false
+  xy: 235, 178
+  size: 8, 84
+  orig: 8, 84
+  offset: 0, 0
+  index: -1
+l1.frost.mage
+  rotate: false
+  xy: 536, 491
+  size: 17, 66
+  orig: 17, 66
+  offset: 0, 0
+  index: -1
+stick.pharao
+  rotate: false
+  xy: 555, 484
+  size: 32, 70
+  orig: 32, 70
+  offset: 0, 0
+  index: -1
+knife.normal.2
+  rotate: false
+  xy: 589, 489
+  size: 13, 65
+  orig: 13, 65
+  offset: 0, 0
+  index: -1
+knife.mighty.1
+  rotate: false
+  xy: 279, 378
+  size: 13, 62
+  orig: 13, 62
+  offset: 0, 0
+  index: -1
+l1.frost.melee
+  rotate: false
+  xy: 292, 450
+  size: 43, 41
+  orig: 43, 41
+  offset: 0, 0
+  index: -1
+magic.snowball.strong.ice
+  rotate: false
+  xy: 337, 450
+  size: 43, 41
+  orig: 43, 41
+  offset: 0, 0
+  index: -1
+knife.sharp
+  rotate: false
+  xy: 294, 390
+  size: 21, 58
+  orig: 21, 58
+  offset: 0, 0
+  index: -1
+axe.wild
+  rotate: false
+  xy: 317, 400
+  size: 30, 48
+  orig: 30, 48
+  offset: 0, 0
+  index: -1
+knife.dragonwarrior.fire
+  rotate: false
+  xy: 703, 996
+  size: 18, 52
+  orig: 18, 52
+  offset: 0, 0
+  index: -1
+magic.energy
+  rotate: false
+  xy: 349, 409
+  size: 38, 39
+  orig: 38, 39
+  offset: 0, 0
+  index: -1
+magic.iceenergy
+  rotate: false
+  xy: 1579, 1497
+  size: 38, 39
+  orig: 38, 39
+  offset: 0, 0
+  index: -1
+knife.mighty.2
+  rotate: false
+  xy: 1592, 1433
+  size: 13, 62
+  orig: 13, 62
+  offset: 0, 0
+  index: -1
+knife.mighty.3.ice
+  rotate: false
+  xy: 1607, 1433
+  size: 13, 62
+  orig: 13, 62
+  offset: 0, 0
+  index: -1
+magic.shadowenergy
+  rotate: false
+  xy: 1592, 1393
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+shuriken.basic
+  rotate: false
+  xy: 1418, 1224
+  size: 40, 38
+  orig: 40, 38
+  offset: 0, 0
+  index: -1
+shuriken.ice
+  rotate: false
+  xy: 1460, 1225
+  size: 33, 37
+  orig: 33, 37
+  offset: 0, 0
+  index: -1
+misc.bomb
+  rotate: false
+  xy: 1601, 1600
+  size: 22, 27
+  orig: 22, 27
+  offset: 0, 0
+  index: -1
+knife.thin
+  rotate: false
+  xy: 1605, 1542
+  size: 16, 56
+  orig: 16, 56
+  offset: 0, 0
+  index: -1
+knife.army.1
+  rotate: false
+  xy: 745, 590
+  size: 13, 57
+  orig: 13, 57
+  offset: 0, 0
+  index: -1
+shuriken.fire
+  rotate: false
+  xy: 1993, 1619
+  size: 33, 34
+  orig: 33, 34
+  offset: 0, 0
+  index: -1
+shuriken.lucky
+  rotate: false
+  xy: 1787, 1603
+  size: 33, 37
+  orig: 33, 37
+  offset: 0, 0
+  index: -1
+shuriken.poison
+  rotate: false
+  xy: 807, 1052
+  size: 33, 37
+  orig: 33, 37
+  offset: 0, 0
+  index: -1
+shuriken.strong
+  rotate: false
+  xy: 842, 1052
+  size: 33, 37
+  orig: 33, 37
+  offset: 0, 0
+  index: -1
+knife.frost
+  rotate: false
+  xy: 877, 1039
+  size: 17, 50
+  orig: 17, 50
+  offset: 0, 0
+  index: -1
+knife.arrow
+  rotate: false
+  xy: 1491, 1338
+  size: 19, 48
+  orig: 19, 48
+  offset: 0, 0
+  index: -1
+knife.dragonwarrior
+  rotate: false
+  xy: 1491, 1286
+  size: 15, 50
+  orig: 15, 50
+  offset: 0, 0
+  index: -1
+knife.normal.1
+  rotate: false
+  xy: 1512, 1337
+  size: 15, 50
+  orig: 15, 50
+  offset: 0, 0
+  index: -1
+knife.twisted.ice
+  rotate: false
+  xy: 1508, 1285
+  size: 15, 50
+  orig: 15, 50
+  offset: 0, 0
+  index: -1
+knife.twisted
+  rotate: false
+  xy: 1529, 1337
+  size: 15, 50
+  orig: 15, 50
+  offset: 0, 0
+  index: -1
+knife.army.2
+  rotate: false
+  xy: 1525, 1288
+  size: 15, 47
+  orig: 15, 47
+  offset: 0, 0
+  index: -1
+knife.basic
+  rotate: false
+  xy: 382, 452
+  size: 12, 39
+  orig: 12, 39
+  offset: 0, 0
+  index: -1
+magic.snowball.normal
+  rotate: false
+  xy: 279, 361
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1

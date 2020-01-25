@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
-import org.neubauerfelix.manawars.game.data.IAsset
 import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.actions.IDataPresentable
@@ -9,7 +8,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.*
 
-interface IDataUnit : IDataPresentable, IAsset {
+interface IDataUnit : IDataPresentable {
 
     val name: String
     val displayName: String

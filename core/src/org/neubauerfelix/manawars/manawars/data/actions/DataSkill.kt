@@ -8,8 +8,10 @@ import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.entities.MSkill
 
 
-abstract class DataSkill : GameData(), IDataSkill {
+abstract class DataSkill : IDataSkill {
 
+    override val displayColor: Color
+        get() = skillClass.color
 
     override fun init() {
         // TODO add sound
@@ -48,7 +50,8 @@ abstract class DataSkill : GameData(), IDataSkill {
     }
 
     override fun action(owner: IActionUser): Boolean {
-        return this.spawnSkill(owner) != null
+        this.spawnSkill(owner)
+        return true
     }
 
     override fun spawnSkill(owner: IActionUser): IEntity {

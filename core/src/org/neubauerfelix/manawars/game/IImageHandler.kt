@@ -7,5 +7,6 @@ interface IImageHandler: IHandler {
 
     fun getTextureRegionMain(path: String): TextureAtlas.AtlasRegion
     fun getTextureRegionsMain(path: String, columns: Int, rows: Int): Array<TextureRegion>
+    fun getTextureRegionSkill(path: String): TextureAtlas.AtlasRegion
     fun getTextureRegionButton(path: String): TextureAtlas.AtlasRegion
 }

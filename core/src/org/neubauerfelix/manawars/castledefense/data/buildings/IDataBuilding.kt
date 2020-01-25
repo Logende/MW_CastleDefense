@@ -12,4 +12,6 @@ interface IDataBuilding {
     val health: Float
     val animationProducer: IEntityAnimationProducer
 
+    val name: String
+
 }

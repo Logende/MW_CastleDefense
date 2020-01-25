@@ -77,19 +77,6 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun loadAsset() {
-        parts.forEach { part -> part.action.loadAsset() }
-    }
-
-    override fun loadedAsset() {
-        parts.forEach { part -> part.action.loadedAsset() }
-    }
-
-    override fun disposeAsset() {
-        parts.forEach { part -> part.action.disposeAsset() }
-    }
-
-
     val properties: Map<MWEntityAnimationType, IDataActionProperties>
 
     init {

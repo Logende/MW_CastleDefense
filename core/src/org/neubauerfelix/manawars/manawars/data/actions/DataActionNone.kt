@@ -57,13 +57,4 @@ class DataActionNone : IDataAction {
     override fun generateIcon(size: Int, action: Runnable): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
-    override fun loadAsset() {
-    }
-
-    override fun loadedAsset() {
-    }
-
-    override fun disposeAsset() {
-    }
 }

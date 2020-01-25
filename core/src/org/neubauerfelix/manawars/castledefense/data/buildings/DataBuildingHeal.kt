@@ -9,7 +9,7 @@ class DataBuildingHeal(override val health: Float, override val healingPower: Fl
                        override val range: Float) :
         IDataBuildingHeal {
 
-
+    override val name: String = "heal"
     override val animationProducer: IEntityAnimationProducer =
             EntityAnimationProducerBuilding("building.heal")
 
@@ -21,4 +21,5 @@ class DataBuildingHeal(override val health: Float, override val healingPower: Fl
         e.spawn()
         return e
     }
+
 }

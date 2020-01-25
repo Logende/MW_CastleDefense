@@ -16,19 +16,6 @@ abstract class DataUnit : IDataUnit {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun loadAsset() {
-        action.loadAsset()
-    }
-
-    override fun loadedAsset() {
-        action.loadedAsset()
-    }
-
-    override fun disposeAsset() {
-        action.disposeAsset()
-    }
-
-
     override fun produce(x: Float, y: Float, controller: IController, team: Int) : IControlled {
         val entity = MEntityControlled(this.animation,
                 this.health,

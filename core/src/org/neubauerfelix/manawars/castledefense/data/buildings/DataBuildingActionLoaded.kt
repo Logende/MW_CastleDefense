@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerBuilding
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataBuildingActionLoaded(config: Configuration, name: String) :
+class DataBuildingActionLoaded(config: Configuration, override val name: String) :
         IDataBuildingAction {
 
     override val action: IDataAction = MManaWars.m.getActionHandler().
@@ -16,31 +16,27 @@ class DataBuildingActionLoaded(config: Configuration, name: String) :
     override val cooldown: Float = config.getFloat("cooldown")
     override val health: Float = config.getFloat("health")
 
-    val textureNameAlive: String
-    val textureNameDead: String
+    val textureNameAlive: String = config.getString("texture_alive")
+    val textureNameDead: String = if (config.contains("texture_dead")) {
+        config.getString("texture_dead")
+    } else {
+        textureNameAlive
+    }
     val textureNameAnimation: String?
     val animationFrameDuration: Float
 
     init {
-        val animationParts = config.getString("animation").split(":")
-        textureNameAlive = animationParts[0].trim()
-        textureNameDead = if (animationParts.size >= 2) {
-            animationParts[1].trim()
+        if (config.contains("animation")) {
+            val animationParts = config.getString("animation").split(":")
+            textureNameAnimation = animationParts[0].trim()
+            animationFrameDuration = if (animationParts.size >= 2) {
+                animationParts[1].trim().toFloat()
+            } else {
+                0.1f
+            }
         } else {
-            textureNameAlive
-        }
-
-        textureNameAnimation = if (animationParts.size >= 3) {
-            assert(animationParts.size >= 4) // because it would be stupid if animation is selected but not duration
-            animationParts[2].trim()
-        } else {
-            null
-        }
-
-        animationFrameDuration = if (animationParts.size >= 4) {
-            animationParts[3].trim().toFloat()
-        } else {
-            0f
+            textureNameAnimation = null
+            animationFrameDuration = 0f
         }
 
     }
@@ -57,4 +53,5 @@ class DataBuildingActionLoaded(config: Configuration, name: String) :
         e.spawn()
         return e
     }
+
 }

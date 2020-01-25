@@ -10,16 +10,15 @@ class ActionHandler: IActionHandler {
 
     override fun loadAction(name: String, config: Configuration) : IDataAction {
             val type = config.getString("type")
-            val action: IDataAction
-            if (type.isEmpty() || type.equals("normal", ignoreCase = true)) {
-                action = DataSkillLoaded(name, config)
+            val action: IDataAction = if (type.isEmpty() || type.equals("normal", ignoreCase = true)) {
+                DataSkillLoaded(name, config)
             } else if (type.equals("mix", ignoreCase = true)) {
-                action = DataSkillMixLoaded(name, config)
+                DataSkillMixLoaded(name, config)
             } else {
                 throw RuntimeException("Unknown action type $type.")
             }
-            System.out.println("created action ${action.name}")
-        return  action
+            println("created action ${action.name}")
+        return action
     }
 
 }

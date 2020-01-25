@@ -3,7 +3,6 @@ package org.neubauerfelix.manawars.castledefense
 import com.badlogic.gdx.Input
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
 import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
-import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingActionBallista
 import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingHeal
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
@@ -44,17 +43,20 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         match = CDMatch(playerA, playerB, arrayListOf(background, background2, background3), this)
         match.load()
 
-        val dataHeal = DataBuildingHeal(100f, 100f, 2L, 400f)
-
-        val action = playerA.tribe.army.units.get(4).action
-        val dataBa = DataBuildingActionBallista(100f, action, 1F)
-        dataBa.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
         return false
     }
 
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
+
+
+        val dataHeal = DataBuildingHeal(100f, 100f, 2L, 400f)
+
+        val building = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings.first()
+        building.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
+        building.produce(3100f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
+        building.produce(3200f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
     }
 
     override fun disposeScreen() {

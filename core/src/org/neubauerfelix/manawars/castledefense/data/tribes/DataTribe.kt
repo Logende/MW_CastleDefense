@@ -11,16 +11,4 @@ abstract class DataTribe : IDataTribe {
     override fun generateIcon(size: Int, action: Runnable): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
-    override fun loadAsset() {
-        army.loadAsset()
-    }
-
-    override fun loadedAsset() {
-        army.loadedAsset()
-    }
-
-    override fun disposeAsset() {
-        army.disposeAsset()
-    }
 }

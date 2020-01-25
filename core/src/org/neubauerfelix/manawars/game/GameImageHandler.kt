@@ -13,12 +13,14 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
     private val assetLoader = assetLoader
     private var main: TextureAtlas? = null
     private var buttons: TextureAtlas? = null
+    private var skills: TextureAtlas? = null
     private var loaded: Boolean = false
 
     override fun load() {
         imageHandler = this
         assetLoader.loadAtlas(GameConstants.PATH_ATLAS_BUTTONS)
         assetLoader.loadAtlas(GameConstants.PATH_ATLAS_MAIN)
+        assetLoader.loadAtlas(GameConstants.PATH_ATLAS_SKILLS)
     }
 
     override fun loadedAssets() {
@@ -27,16 +29,26 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
             for (t in main!!.textures) {
                 t.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest)
             }
+            for (r in main!!.regions) {
+                r.flip(false, true)
+            }
+
             buttons = assetLoader.getAtlas(GameConstants.PATH_ATLAS_BUTTONS)
             for (t in buttons!!.textures) {
                 t.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest)
             }
-            for (r in main!!.regions) {
-                r.flip(false, true)
-            }
             for (r in buttons!!.regions) {
                 r.flip(false, true)
             }
+
+            skills = assetLoader.getAtlas(GameConstants.PATH_ATLAS_SKILLS)
+            for (t in skills!!.textures) {
+                t.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest)
+            }
+            for (r in skills!!.regions) {
+                r.flip(false, true)
+            }
+
             loaded = true
         }
     }
@@ -48,12 +60,18 @@ class GameImageHandler(assetLoader: IAssetLoader): IImageHandler, ILoadableAsync
     override fun dispose() {
         assetLoader.unloadAsset(GameConstants.PATH_ATLAS_BUTTONS)
         assetLoader.unloadAsset(GameConstants.PATH_ATLAS_MAIN)
+        assetLoader.unloadAsset(GameConstants.PATH_ATLAS_SKILLS)
     }
 
 
     override fun getTextureRegionMain(path: String): TextureAtlas.AtlasRegion {
         return main!!.findRegion(path)
                 ?: throw NullPointerException("Image in main package with path '$path' not existing.")
+    }
+
+    override fun getTextureRegionSkill(path: String): TextureAtlas.AtlasRegion {
+        return skills!!.findRegion(path)
+                ?: throw NullPointerException("Image in skills package with path '$path' not existing.")
     }
 
 

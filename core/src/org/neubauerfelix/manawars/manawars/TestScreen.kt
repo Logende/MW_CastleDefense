@@ -44,8 +44,6 @@ class TestScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         background.loadedAssets()
         addBackground(background)
-        army!!.loadedAsset()
-        skill.loadedAsset()
 
         army!!.units.first().produce(100f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()
         army!!.units.first().produce(400f, GameConstants.CONTROLPANEL_HEIGHT, ControllerTest(), 1).executeAction()

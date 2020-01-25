@@ -86,7 +86,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
         // no analysis existing? Return dummy
         if (! config.contains(data.name)) {
-            print("No analysis of skill ${data.name} found. Using dummy.")
+            println("No analysis of skill ${data.name} found. Using dummy.")
             MWEntityAnimationType.values().forEach { type ->
                 map[type] = SkillAnalysisDummy()
             }
@@ -197,6 +197,7 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             MManaWars.m.getSkillSetupHandler().setDummyTarget(targetFarAway)
         }
 
+        assert(data.animation != null)
         val skill = MSkill(data, owner)
         MManaWars.m.getSkillSetupHandler().setDummyTarget(null)
 
