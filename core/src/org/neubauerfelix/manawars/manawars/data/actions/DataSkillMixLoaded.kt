@@ -15,6 +15,8 @@ import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 class DataSkillMixLoaded(override val name: String, config: Configuration) : IDataAction {
 
+    override val soundPath: String? = null
+
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("skill_${name}_name")
 
     override val previewTexturePath: String = config.getString("preview")

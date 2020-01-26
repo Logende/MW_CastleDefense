@@ -14,6 +14,8 @@ class ActionHandler: IActionHandler {
                 DataSkillLoaded(name, config)
             } else if (type.equals("mix", ignoreCase = true)) {
                 DataSkillMixLoaded(name, config)
+            } else if (type.equals("heal", ignoreCase = true)) {
+                DataActionHealLoaded(name, config)
             } else {
                 throw RuntimeException("Unknown action type $type.")
             }

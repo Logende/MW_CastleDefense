@@ -11,6 +11,9 @@ import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
 class DataActionNone : IDataAction {
 
+    override val soundPath: String? = null
+
+
     override val name: String
         get() = "none"
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("skill_${name}_name")

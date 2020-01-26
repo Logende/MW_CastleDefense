@@ -4,7 +4,9 @@ animation: "building.ballista.animation:0.1"
 cooldown: 1
 health: 80
 action:
-  type: normal
+  type: heal
+  healingPower: 10
+  healingRange: 600
   owner_animation: 'BUILDING_EFFECT'
   texture: l1.zombie.ranged
   animation: '1:4:1'

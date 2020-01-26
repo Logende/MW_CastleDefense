@@ -2,20 +2,16 @@ package org.neubauerfelix.manawars.castledefense
 
 import com.badlogic.gdx.Input
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
-import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
-import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingHeal
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
-import org.neubauerfelix.manawars.game.components.GameComponent
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.entities.ITeamable
 
 
 class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
@@ -49,9 +45,6 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
-
-
-        val dataHeal = DataBuildingHeal(100f, 100f, 2L, 400f)
 
         val building = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings.first()
         building.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)

@@ -46,6 +46,7 @@ open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health
         if (action.action(this)) {
             this.actionCooldownTime = AManaWars.m.screen.getGameTime() + (this.actionCooldown * 1000).toLong()
             this.animation.playBodyEffect(action.animationEffect, action.weaponType)
+            // todo: play sound
             return true
         }
         return false

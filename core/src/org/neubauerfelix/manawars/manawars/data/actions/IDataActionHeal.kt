@@ -22,7 +22,8 @@ interface IDataSkillModel : IAsset, IDataActionLook {
     val color: Color?
     val textureScale: Float // affects just skill size, not other properties like damage or strength
 
-    val soundPath: String
+    val healingPower: Float // health to heal
+    val healingRange: Float
 
 
 

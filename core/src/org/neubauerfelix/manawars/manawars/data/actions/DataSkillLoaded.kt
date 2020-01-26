@@ -49,10 +49,11 @@ open class DataSkillLoaded(final override val name: String, config: Configuratio
                 null
             }
 
-    final override val soundPath: String = config.getString("sound")
+    final override val soundPath: String? = config.getString("sound")
     final override val textureScale: Float = config.getFloat("scale", 1f)
 
-    final override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
+    final override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation"))
+    { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
     final override val weaponType: MWWeaponType?
     init {
         if (config.contains("weapon") && animationEffect == MWAnimationTypeBodyEffect.WEAPON) {
@@ -98,7 +99,6 @@ open class DataSkillLoaded(final override val name: String, config: Configuratio
 
     final override val stopOnGround: Boolean = config.getBoolean("stop_on_ground")
     final override val allowMovementScaling: Boolean = config.getBoolean("allow_movement_scaling")
-    final override val fixManaCost: Int = config.getInt("manacost", -1)
     final override val targetEnemy: Boolean = config.contains("target_range") || config.contains("target_speed") ||
             config.contains("adaptive_speed_x")
     final override val targetRange: Float = config.getFloat("target_range", 900f)
