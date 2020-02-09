@@ -44,10 +44,9 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
 
 
 
-    override fun analyseSkills(fileName: String, units: Collection<IDataUnit>) {
+    override fun analyseSkills(fileName: String, skills: Collection<IDataSkill>) {
         val config = Configuration()
-        for (unit in units) {
-            val data = unit.action
+        for (data in skills) {
 
             if (data is DataSkillLoaded) {
                 analyseSkill(data, config)

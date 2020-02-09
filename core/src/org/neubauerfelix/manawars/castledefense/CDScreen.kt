@@ -48,8 +48,6 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
         val building = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings.first()
         building.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
-        building.produce(3100f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
-        building.produce(3200f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
     }
 
     override fun disposeScreen() {

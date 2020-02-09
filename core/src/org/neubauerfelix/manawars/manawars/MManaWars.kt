@@ -2,11 +2,13 @@ package org.neubauerfelix.manawars.manawars
 
 import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.CDScreen
+import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildingAction
 import org.neubauerfelix.manawars.game.GameManaWars
 import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysisHandler
 import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysisHandler
 import org.neubauerfelix.manawars.manawars.analysis.SkillAnalysisHandler
 import org.neubauerfelix.manawars.manawars.analysis.UnitAnalysisHandler
+import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
 import org.neubauerfelix.manawars.manawars.factories.MComponentFactory
@@ -49,15 +51,29 @@ open class MManaWars: GameManaWars() {
     override fun loadedGame() {
         assert(!loaded)
         print("loaded")
-        MWState.values().forEach { state -> state.load() }
 
         // can be called to generate new skill analysis file, which can manually be moved to assets folder
+        analyseSkills()
+        analyseUnits()
+
+        MWState.values().forEach { state -> state.load() }
+        startScreen(CDScreen(this), true)
+    }
+
+    private fun analyseSkills() {
         val units = CDManaWars.cd.getLeagueHandler().listLeagues().flatMap {
             league -> league.tribes.flatMap { tribe -> tribe.army.units } }
-        getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME, units)
-        getUnitAnalysisHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
+        val buildings = CDManaWars.cd.getLeagueHandler().listLeagues().flatMap {
+            league -> league.buildings }
+        val actionsUnits = units.map { it.action }.filterIsInstance(IDataSkill::class.java)
+        val actionsBuildings = buildings.filterIsInstance(IDataBuildingAction::class.java).map { it.action }
+                .filterIsInstance(IDataSkill::class.java)
+        val actionsAll = actionsUnits + actionsBuildings
+        getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME, actionsAll)
+    }
 
-        startScreen(CDScreen(this), true)
+    private fun analyseUnits() {
+        getUnitAnalysisHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
     }
 
     override fun isLoaded(): Boolean {

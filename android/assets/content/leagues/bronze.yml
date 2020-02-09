@@ -5,6 +5,8 @@ tribes:
   - 'tribes/zombie.yml'
   - 'tribes/frost.yml'
 buildings:
+  - 'buildings/cannon.yml'
+  - 'buildings/heal.yml'
   - 'buildings/ballista.yml'
 castle_gold_start_average: 80
 castle_gold_per_second_average: 4

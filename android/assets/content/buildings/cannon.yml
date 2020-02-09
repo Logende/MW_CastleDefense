@@ -1,0 +1,17 @@
+texture_alive: "building.cannon"
+texture_dead: "building.cannon"
+animation: "building.cannon.animation:0.1"
+cooldown: 2
+health: 100
+action:
+  type: normal
+  owner_animation: 'BUILDING_EFFECT'
+  texture: "building.cannon"
+  animation: '1:1:1'
+  sound: skill.arrow
+  skillclass: NORMAL
+  speed: '1400:0'
+  acceleration: 0:3*A
+  offset: '10:-15'
+  knockback: 1.0
+  damage: 12

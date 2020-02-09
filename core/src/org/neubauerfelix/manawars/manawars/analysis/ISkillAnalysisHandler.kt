@@ -11,7 +11,7 @@ interface ISkillAnalysisHandler: IHandler {
     fun analyse(skill: IDataSkill, entityAnimationType: MWEntityAnimationType): ISkillAnalysis
 
 
-    fun analyseSkills(fileName: String, units: Collection<IDataUnit>)
+    fun analyseSkills(fileName: String, units: Collection<IDataSkill>)
     fun loadSkillAnalysis(data: IDataSkill): Map<MWEntityAnimationType, ISkillAnalysis>
 
 

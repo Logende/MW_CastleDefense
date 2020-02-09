@@ -1,0 +1,13 @@
+texture_alive: "building.heal"
+texture_dead: "building.heal"
+# animation: "building.heal.animation:0.1"
+cooldown: 1
+health: 80
+action:
+  type: heal
+  healingPower: 10
+  healingRange: 600
+  owner_animation: 'BUILDING_EFFECT'
+  texture: l1.zombie.ranged
+  animation: '1:4:1'
+  sound: skill.arrow
