@@ -268,7 +268,8 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
                 target.left = skill.centerHorizontal
                 target.doLogic(0f) // updates location
                 distanceMax = Math.max(distanceMax, owner.getDistanceHor(target))
-                if (collisionType != MWCollisionType.NONE) {
+                // count collision if it is detected and in case of jumping skills: only when already falling down
+                if (collisionType != MWCollisionType.NONE && (!isJumpSkill || skill.speedY > 0)) {
                     rangeMax = Math.max(rangeMax, owner.getDistanceHor(target))
                     target.right = skill.centerHorizontal
                     target.doLogic(0f) // updates location
@@ -330,6 +331,10 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             rangeMax = Math.min(rangeMax, data.model.targetRange)
         }
 
+        if (data.allowMovementScaling) {
+            lifeTime *= 4
+        }
+
         return object : ISkillAnalysisPart {
             override val tacticalDamage: Float = tacticalDamage
             override val rangeMax = rangeMax.toInt()
@@ -340,6 +345,12 @@ class SkillAnalysisHandler : ISkillAnalysisHandler {
             override val attackerAnimationType: MWEntityAnimationType = entityAnimationType
             override val targetAnimationType: MWEntityAnimationType = targetAnimationType
         }
+    }
+
+    fun isJumpSkill(data: IDataSkill) : Boolean {
+        return data.startSpeedX > 100f
+                && data.startSpeedY < -500f
+                && data.accelerationY > 5*DataSkillLoaded.ACC_FACTOR
     }
 
 }

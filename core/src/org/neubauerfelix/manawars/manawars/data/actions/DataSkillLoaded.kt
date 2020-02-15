@@ -20,6 +20,10 @@ open class DataSkillLoaded(final override val name: String, config: Configuratio
         const val ACC_FACTOR = 16f
     }
 
+    init {
+        println("Creating action $name.")
+    }
+
     final override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("skill_${name}_name")
 
     /**
@@ -72,6 +76,7 @@ open class DataSkillLoaded(final override val name: String, config: Configuratio
      * Movement: speed, location offset, targets, etc.
      */
     final override val idleTime: Float = config.getFloat("idle_time") // in seconds
+    final override val invisibleWhileIdle: Boolean = config.getBoolean("invisible_while_idle")
     final override val yRelativeToGround: Boolean = config.getBoolean("y_relative_to_ground")
     final override val xOffset: Float
     final override val yOffset: Float
@@ -100,7 +105,7 @@ open class DataSkillLoaded(final override val name: String, config: Configuratio
     final override val stopOnGround: Boolean = config.getBoolean("stop_on_ground")
     final override val allowMovementScaling: Boolean = config.getBoolean("allow_movement_scaling")
     final override val targetEnemy: Boolean = config.contains("target_range") || config.contains("target_speed") ||
-            config.contains("adaptive_speed_x")
+            config.contains("allow_movement_scaling") // todo: fix: seems like setting was renamed
     final override val targetRange: Float = config.getFloat("target_range", 900f)
     final override val xRelativeToTarget: Boolean
     final override val yRelativeToTarget: Boolean

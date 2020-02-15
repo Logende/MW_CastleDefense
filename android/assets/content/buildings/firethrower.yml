@@ -1,0 +1,18 @@
+texture_alive: "building.firethrower"
+texture_dead: "building.firethrower"
+animation: "building.firethrower.animation:0.1"
+cooldown: 2
+health: 100
+action:
+  type: normal
+  owner_animation: 'BUILDING_EFFECT'
+  texture: "building.firethrower"
+  animation: '1:4:1'
+  sound: skill.element
+  skillclass: MAGIC
+  speed: '200:0'
+  acceleration: 30*A:0
+  location: '10:-15'
+  knockback: 1.0
+  damage: 4
+  effect: BURNING:3

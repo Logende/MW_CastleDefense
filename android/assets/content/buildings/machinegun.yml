@@ -1,0 +1,27 @@
+texture_alive: "building.machinegun"
+texture_dead: "building.machinegun"
+animation: "building.machinegun.animation:0.2"
+cooldown: 1.0
+health: 80
+action:
+  type: mix
+  owner_animation: BUILDING_EFFECT
+  parts:
+    - crossbow_strong:0:0:0:0:0
+    - crossbow_strong:0:0:0:0:0.2
+    - crossbow_strong:0:0:0:0:0.4
+  recipes:
+    crossbow_strong:
+      name: crossbow_strong
+      type: normal
+      texture: building.machinegun
+      animation: '1:1:1'
+      sound: skill.arrow
+      skillclass: NORMAL
+      speed: '1600:0'
+      acceleration: 0:2*A
+      location: '-5:-20'
+      damage: 10
+      knockback: 1.0
+      invisible_while_idle: true
+      idle_time: 0.2

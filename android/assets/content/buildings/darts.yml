@@ -1,0 +1,17 @@
+texture_alive: "building.darts"
+texture_dead: "building.darts"
+animation: "building.darts.animation:0.1"
+cooldown: 0.8
+health: 100
+action:
+  type: normal
+  owner_animation: 'BUILDING_EFFECT'
+  texture: "building.darts"
+  animation: '1:4:1'
+  sound: skill.arrow
+  skillclass: LIGHT
+  speed: '1000:0'
+  acceleration: 0:3*A
+  location: '-5:-15'
+  knockback: 1.0
+  damage: 7

@@ -6,13 +6,12 @@ health: 80
 action:
   type: normal
   owner_animation: 'BUILDING_EFFECT'
-  texture: l1.zombie.ranged
+  texture: building.ballista
   animation: '1:4:1'
   sound: skill.arrow
-  skillclass: NORMAL
-  speed: '2000:0'
-  acceleration: 0:5*A
-  offset: '-140:-40'
+  skillclass: LIGHT
+  speed: '1400:0'
+  acceleration: 0:2*A
+  location: '-5:-20'
   knockback: 1.0
-  damage: 6
-  scale: 2.0
+  damage: 10

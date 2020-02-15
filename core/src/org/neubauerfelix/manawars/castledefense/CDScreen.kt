@@ -46,8 +46,11 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
 
-        val building = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings.first()
-        building.produce(3000f, GameConstants.WORLD_HEIGHT, MConstants.TEAM_PLAYER)
+        var x = 2000f
+        for (building in CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings) {
+            building.produce(x, team = MConstants.TEAM_PLAYER)
+            x += building.animationProducer.bodyWidth + 100f
+        }
     }
 
     override fun disposeScreen() {

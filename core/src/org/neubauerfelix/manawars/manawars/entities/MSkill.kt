@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.manawars.entities
 
 import com.badlogic.gdx.graphics.g2d.Animation
+import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.game.entities.IEntity
@@ -60,6 +61,12 @@ class MSkill(val data: IDataSkill, val o: IActionUser) :
     override fun spawn() {
         super.spawn()
         // TODO make sound
+    }
+
+    override fun draw(delta: Float, batcher: Batch) {
+        if (! (idle &&data.invisibleWhileIdle)) {
+            super.draw(delta, batcher)
+        }
     }
 
     override fun doLogic(delta: Float) {

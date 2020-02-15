@@ -185,6 +185,13 @@ arrow.normal
   orig: 326, 8
   offset: 0, 0
   index: -1
+building.ballista
+  rotate: false
+  xy: 803, 116
+  size: 326, 8
+  orig: 326, 8
+  offset: 0, 0
+  index: -1
 beast.bite
   rotate: false
   xy: 1719, 582
@@ -204,6 +211,13 @@ sword.samurai
   xy: 2027, 905
   size: 20, 118
   orig: 20, 118
+  offset: 0, 0
+  index: -1
+building.icethrower
+  rotate: false
+  xy: 1507, 392
+  size: 200, 34
+  orig: 200, 34
   offset: 0, 0
   index: -1
 magic.iceball
@@ -234,6 +248,13 @@ shield.normal.4
   orig: 42, 138
   offset: 0, 0
   index: -1
+building.firethrower
+  rotate: false
+  xy: 1719, 549
+  size: 200, 31
+  orig: 200, 31
+  offset: 0, 0
+  index: -1
 magic.fireball
   rotate: false
   xy: 1719, 549
@@ -255,21 +276,28 @@ magic.poisonball
   orig: 200, 31
   offset: 0, 0
   index: -1
-crossbowbolt.curse
+building.darts
   rotate: false
   xy: 329, 8
   size: 204, 11
   orig: 204, 11
   offset: 0, 0
   index: -1
-crossbowbolt
+crossbowbolt.strong
+  rotate: false
+  xy: 329, 8
+  size: 204, 11
+  orig: 204, 11
+  offset: 0, 0
+  index: -1
+crossbowbolt.curse
   rotate: false
   xy: 1507, 346
   size: 204, 11
   orig: 204, 11
   offset: 0, 0
   index: -1
-crossbowbolt.poison
+crossbowbolt
   rotate: false
   xy: 1507, 333
   size: 204, 11
@@ -283,7 +311,7 @@ l1.zombie.mage
   orig: 180, 33
   offset: 0, 0
   index: -1
-crossbowbolt.strong
+crossbowbolt.poison
   rotate: false
   xy: 1719, 536
   size: 204, 11
@@ -570,6 +598,13 @@ building.cannon
   orig: 74, 74
   offset: 0, 0
   index: -1
+building.mortar
+  rotate: false
+  xy: 1445, 16
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
 boomerang.6
   rotate: false
   xy: 1521, 3
@@ -808,9 +843,16 @@ knife.basic
   orig: 12, 39
   offset: 0, 0
   index: -1
-magic.snowball.normal
+building.machinegun
   rotate: false
   xy: 1032, 1
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+magic.snowball.normal
+  rotate: false
+  xy: 1049, 1
   size: 15, 15
   orig: 15, 15
   offset: 0, 0

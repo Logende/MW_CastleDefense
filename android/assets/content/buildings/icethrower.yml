@@ -1,0 +1,18 @@
+texture_alive: "building.icethrower"
+texture_dead: "building.icethrower"
+animation: "building.icethrower.animation:0.1"
+cooldown: 2
+health: 100
+action:
+  type: normal
+  owner_animation: 'BUILDING_EFFECT'
+  texture: "building.icethrower"
+  animation: '1:4:1'
+  sound: skill.ice
+  skillclass: MAGIC
+  speed: '200:0'
+  acceleration: 30*A:0
+  location: '10:-15'
+  knockback: 1.0
+  damage: 2
+  effect: FROZEN:3

@@ -12,6 +12,6 @@ action:
   skillclass: NORMAL
   speed: '1400:0'
   acceleration: 0:3*A
-  offset: '10:-15'
+  location: '10:-15'
   knockback: 1.0
   damage: 12

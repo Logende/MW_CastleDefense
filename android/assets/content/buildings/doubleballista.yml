@@ -1,0 +1,24 @@
+texture_alive: "building.doubleballista"
+texture_dead: "building.doubleballista"
+animation: "building.doubleballista.animation:0.1"
+cooldown: 1
+health: 80
+action:
+  type: mix
+  owner_animation: BUILDING_EFFECT
+  parts:
+    - arrow:-10:-5:0:-10:0
+    - arrow:10:5:0:10:0
+  recipes:
+    arrow:
+      name: arrow
+      type: normal
+      texture: building.ballista
+      animation: '1:4:1'
+      sound: skill.arrow
+      skillclass: LIGHT
+      speed: '1400:0'
+      acceleration: 0:2*A
+      location: '-5:-20'
+      damage: 10
+      knockback: 1.0

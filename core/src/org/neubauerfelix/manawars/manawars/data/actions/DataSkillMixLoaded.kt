@@ -10,7 +10,9 @@ import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponClass
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 import org.neubauerfelix.manawars.manawars.storage.Configuration
-
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class DataSkillMixLoaded(override val name: String, config: Configuration) : IDataAction {
@@ -32,10 +34,11 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         for (line in config.getStringList("parts")) {
             val parts = line.split(":")
             val skillname = parts[0]
-            var offsetX = if (parts.size >= 2) parts[1] else "0"
-            var offsetY = if (parts.size >= 3) parts[2] else "0"
-            var offsetSpeedX = if (parts.size >= 4) parts[3] else "0"
-            var offsetSpeedY = if (parts.size >= 5) parts[4] else "0"
+            val offsetX = if (parts.size >= 2) parts[1] else "0"
+            val offsetY = if (parts.size >= 3) parts[2] else "0"
+            val offsetSpeedX = if (parts.size >= 4) parts[3] else "0"
+            val offsetSpeedY = if (parts.size >= 5) parts[4] else "0"
+            val offsetIdleTime = if (parts.size >= 6) parts[5] else "0"
             val action = MManaWars.m.getActionHandler().loadAction(skillname,
                     config.getSection("recipes").getSection(skillname))
 
@@ -43,18 +46,22 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
                 actionDependencies.add(action)
             }
 
-            this.parts.add(DataSkillMixPart(action as IDataSkill, offsetX, offsetY, offsetSpeedX, offsetSpeedY))
+            this.parts.add(DataSkillMixPart(action as IDataSkill, offsetX, offsetY, offsetSpeedX, offsetSpeedY,
+                    offsetIdleTime))
         }
         this.displayColor = parts.first().action.displayColor
     }
 
 
-    override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) { MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation")) } else { null }
+    override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation")) {
+        MWAnimationTypeBodyEffect.valueOf(config.getString("owner_animation"))
+    } else { null }
+
     override val weaponType: MWWeaponType?
     init {
         if (config.contains("weapon") && animationEffect == MWAnimationTypeBodyEffect.WEAPON) {
             val weaponParts = config.getString("weapon").split(":")
-            val weaponClass = MWWeaponClass.valueOf(weaponParts[0].toUpperCase())
+            val weaponClass = MWWeaponClass.valueOf(weaponParts[0].toUpperCase(Locale.getDefault()))
             val textureName = weaponParts[1].replace("_", ".")
             weaponType = MWWeaponType(weaponClass, textureName)
         } else {
