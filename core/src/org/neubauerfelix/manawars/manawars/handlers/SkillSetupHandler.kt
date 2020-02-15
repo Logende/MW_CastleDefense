@@ -15,6 +15,9 @@ import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.ConfigurationProvider
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 import java.lang.RuntimeException
+import kotlin.math.abs
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 
 class SkillSetupHandler : ISkillSetupHandler {
@@ -36,7 +39,7 @@ class SkillSetupHandler : ISkillSetupHandler {
                         && (e.centerHorizontal - owner.centerHorizontal) * owner.direction > 0f
                         && e.getDistanceHor(owner) < data.model.targetRange * owner.propertyScale
             }
-            if (!entities.isEmpty()) {
+            if (entities.isNotEmpty()) {
                 return entities.sortedBy { e -> e.getDistanceHor(owner) }.first()
             }
         }
@@ -71,16 +74,11 @@ class SkillSetupHandler : ISkillSetupHandler {
         skill.speedX = data.model.startSpeedX * owner.direction
         skill.speedY = data.model.startSpeedY
 
-        if (data.model.targetEnemy && data.model.allowMovementScaling && target != null && target is IAnimated) {
-            val rangeMin = data.getActionProperties(owner.entityAnimationType).rangeMin.getValue(target.entityAnimationType)
-            val rangeMax = data.getActionProperties(owner.entityAnimationType).rangeMax.getValue(target.entityAnimationType)
-            val defaultRange = rangeMin + (rangeMax - rangeMin) / 2
-            val distanceTarget = Math.abs(skill.centerHorizontal - target!!.centerHorizontal)
-            val scale = distanceTarget / defaultRange.toFloat()
-            skill.speedX *= scale
-            skill.speedY *= scale
-            skill.accelerationX *= scale
-            skill.accelerationY *= scale
+        if (data.targetEnemy && data.allowMovementScaling && target != null && target is IAnimated) {
+            val distance = skill.getDistanceHor(target)
+            val speedFactor = sqrt(- (distance * skill.accelerationY) / ( 2* skill.speedX * skill.speedY))
+            skill.speedX *= speedFactor
+            skill.speedY *= speedFactor
         }
     }
 }
