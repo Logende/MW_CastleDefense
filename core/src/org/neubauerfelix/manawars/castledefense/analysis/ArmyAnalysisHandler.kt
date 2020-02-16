@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 class ArmyAnalysisHandler : IArmyAnalysisHandler {
 
     override fun getStrategicFactor(unit: IDataUnit, player: ICDPlayer): Float {
-        // First unit should have high survival factor and should have a skill instead of other action like heal
+      /*  // First unit should have high survival factor and should have a skill instead of other action like heal
         if (player.controller.analysis.entities.isEmpty()) {
             println("start chance of ${unit.name}: dE ${unit.analysis.survivalFactor * ( if (unit.action is IDataSkill) 1f else 0.4f)}")
             return unit.analysis.survivalFactor * ( if (unit.action is IDataSkill) 1f else 0.4f)
@@ -21,11 +21,12 @@ class ArmyAnalysisHandler : IArmyAnalysisHandler {
         val factor = this.estimateArmyScore(player, unit, 20f)
 
         println("chance of ${unit.name}: dE $factor")
-        return factor
+        return factor*/
+        return 1f
     }
 
 
-
+/*
     fun calculateFormationValue(player: ICDPlayer, proposedUnit: IDataUnit): Float {
         val analysisPlayer = player.controller.analysis
         val analysisEnemy = player.enemy.controller.analysis
@@ -132,6 +133,6 @@ class ArmyAnalysisHandler : IArmyAnalysisHandler {
         simulation.simulate(0.2f, time)
         return simulation.playerScore
     }
-
+*/
 
 }

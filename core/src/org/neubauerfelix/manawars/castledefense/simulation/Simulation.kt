@@ -5,7 +5,7 @@ import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
 class Simulation(val player: ICDPlayer) {
 
-    val unitsPlayer: SimulationUnits
+ /*   val unitsPlayer: SimulationUnits
     val unitsEnemy: SimulationUnits
 
     init {
@@ -76,5 +76,5 @@ class Simulation(val player: ICDPlayer) {
             Math.min(Math.max(f, min), max)
         }
     }
-
+*/
 }

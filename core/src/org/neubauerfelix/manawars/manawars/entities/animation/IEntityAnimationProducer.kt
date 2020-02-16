@@ -8,6 +8,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimat
 import org.neubauerfelix.manawars.manawars.entities.animation.mount.EntityAnimationProducerMount
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.EntityAnimationProducerRider
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
+import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 interface IEntityAnimationProducer: IBodyData {
 
@@ -31,6 +32,29 @@ interface IEntityAnimationProducer: IBodyData {
                                    animationFrameDuration: Float = 0f): IEntityAnimationProducer{
             return EntityAnimationProducerBuilding(textureNameAlive, textureNameDead, animationTextureName,
                     animationFrameDuration)
+        }
+
+
+        fun createProducer(configText: String) : IEntityAnimationProducer {
+            val animationParts = configText.split(":")
+            val animationType = MWEntityAnimationType.valueOf(animationParts[0].toUpperCase())
+
+            return when (animationType) {
+                MWEntityAnimationType.HUMAN, MWEntityAnimationType.HUMAN_SHIELD -> {
+                    createProducerHuman(animationParts[1])
+                }
+                MWEntityAnimationType.MOUNT -> {
+                    createProducerMount(animationParts[1])
+                }
+
+                // first mount then human skin in arguments
+                MWEntityAnimationType.RIDER -> {
+                    createProducerRider(animationParts[1], animationParts[2])
+                }
+                MWEntityAnimationType.BUILDING -> {
+                    throw NotImplementedError()
+                }
+            }
         }
     }
 

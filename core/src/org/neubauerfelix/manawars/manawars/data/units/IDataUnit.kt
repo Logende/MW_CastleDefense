@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
-import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.actions.IDataPresentable
 import org.neubauerfelix.manawars.manawars.entities.IControlled
@@ -30,7 +29,6 @@ interface IDataUnit : IDataPresentable {
 
     val cost: Int
 
-    val analysis: IUnitAnalysis
 
 
     fun produce(x: Float, y: Float, controller: IController, team: Int): IControlled

@@ -3,7 +3,6 @@ package org.neubauerfelix.manawars.manawars.data.actions
 import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
@@ -86,34 +85,8 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    val properties: Map<MWEntityAnimationType, IDataActionProperties>
-
-    init {
-        properties = HashMap()
-
-
-        MWEntityAnimationType.values().forEach { type ->
-
-            val rangeMaxAvg = parts.map { it.action.getActionProperties(type).rangeMaxAvg }.min()!!
-            val strategicValue = parts.map { it.action.getActionProperties(type).strategicValue }.sum()
-            val defensiveStrength = parts.map { it.action.getActionProperties(type).defensiveStrength }.sum()
-            val offensiveStrength = parts.map { it.action.getActionProperties(type).offensiveStrength }.sum()
-
-            properties[type] = object : IDataActionProperties {
-
-                override val rangeMaxAvg: Float = rangeMaxAvg
-                override val strategicValue: Float = strategicValue
-                override val defensiveStrength: Float = defensiveStrength
-                override val offensiveStrength: Float = offensiveStrength
-                override val rangeMax: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMax
-                override val rangeMin: Map<MWEntityAnimationType, Int> = parts.last().action.getActionProperties(type).rangeMin // TODO
-            }
-        }
-    }
-
-    override fun getActionProperties(entityAnimationType: MWEntityAnimationType): IDataActionProperties {
-        return properties.getValue(entityAnimationType)
-    }
+    override val rangeMax: Float =  parts.map { it.action.rangeMax }.min()!!
+    override val rangeMin: Float =  parts.map { it.action.rangeMin }.min()!!
 
 
 }

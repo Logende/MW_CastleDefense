@@ -3,7 +3,6 @@ package org.neubauerfelix.manawars.manawars.data.units
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataArmy
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
 import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
@@ -26,37 +25,14 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
     }
 
 
-    override val animation: IEntityAnimationProducer
-    override val armor: MWArmorType
+    override val animation: IEntityAnimationProducer = IEntityAnimationProducer
+            .createProducer(config.getString("animation"))
 
-    init {
-        val animationParts = config.getString("animation").split(":")
-        val animationType = MWEntityAnimationType.valueOf(animationParts[0].toUpperCase())
-
-        animation = when (animationType) {
-            MWEntityAnimationType.HUMAN, MWEntityAnimationType.HUMAN_SHIELD -> {
-                IEntityAnimationProducer.createProducerHuman(animationParts[1])
-            }
-            MWEntityAnimationType.MOUNT -> {
-                IEntityAnimationProducer.createProducerMount(animationParts[1])
-            }
-
-            // first mount then human skin in arguments
-            MWEntityAnimationType.RIDER -> {
-                IEntityAnimationProducer.createProducerRider(animationParts[1], animationParts[2])
-            }
-            MWEntityAnimationType.BUILDING -> {
-                throw NotImplementedError()
-            }
-        }
-
-        armor = if (!config.contains("armor")) {
-            MWArmorType.NONE
-        } else {
-            MWArmorType.valueOf(config.getString("armor").toUpperCase())
-        }
+    override val armor: MWArmorType = if (!config.contains("armor")) {
+        MWArmorType.NONE
+    } else {
+        MWArmorType.valueOf(config.getString("armor").toUpperCase())
     }
-
 
 
     override val action: IDataAction = MManaWars.m.getActionHandler().loadAction("skill_$name", config.getSection("action"))!!
@@ -108,11 +84,4 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
         }
     }
 
-    override var analysis: IUnitAnalysis = MManaWars.m.getUnitAnalysisHandler().loadUnitAnalysis(this)
-        private set
-
-
-    fun analyseUnit() {
-        this.analysis = MManaWars.m.getUnitAnalysisHandler().analyse(this, army.tribe.league)
-    }
 }

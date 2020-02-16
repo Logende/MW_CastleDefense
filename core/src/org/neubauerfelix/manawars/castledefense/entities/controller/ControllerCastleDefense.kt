@@ -34,12 +34,7 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
         if (player.enemy.controller.analysis.entities.isNotEmpty()) { // If there are enemies
             val closestEnemy = player.enemy.controller.analysis.entities.first()
-            val actionProperties = controlled.action.getActionProperties(controlled.entityAnimationType)
-            val range = if (closestEnemy is IAnimatedLiving) {
-                actionProperties.rangeMax[closestEnemy.entityAnimationType]!!
-            } else {
-                actionProperties.rangeMaxAvg.toInt()
-            }
+            val range = controlled.action.rangeMax
             if (controlled.speedX == 0f && controlled.direction != player.castle.direction) {
                 controlled.lookTo(player.castle.direction)
             }

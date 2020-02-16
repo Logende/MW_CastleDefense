@@ -39,7 +39,7 @@ interface IDataAction : IDataPresentable, IAsset, IDataActionLook {
 
 
 
-    fun getActionProperties(entityAnimationType: MWEntityAnimationType) : IDataActionProperties
-
+    val rangeMax: Float
+    val rangeMin: Float
 
 }

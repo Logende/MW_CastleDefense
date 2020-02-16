@@ -5,14 +5,12 @@ import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
-interface ISkillAnalysisHandler: IHandler {
+interface ISkillStatsHandler: IHandler {
 
 
-    fun analyse(skill: IDataSkill, entityAnimationType: MWEntityAnimationType): ISkillAnalysis
+    fun generateStats(fileName: String, skills: Collection<IDataSkill>)
 
-
-    fun analyseSkills(fileName: String, units: Collection<IDataSkill>)
-    fun loadSkillAnalysis(data: IDataSkill): Map<MWEntityAnimationType, ISkillAnalysis>
+    fun readStats(data: IDataSkill): ISkillStats
 
 
 }

@@ -15,7 +15,7 @@ class SimulationUnits(entities: Iterable<IEntity>, formation: ICDFormation, val 
     val units: MutableList<SimulationUnit> = mutableListOf()
     val castle: SimulationCastle = SimulationCastle(castleHealth)
 
-    init {
+   /* init {
         entities.forEach {
             if (it is IControlled) {
                 val walkToFormationTime = if (formation.isContained(it)) {
@@ -103,6 +103,6 @@ class SimulationUnits(entities: Iterable<IEntity>, formation: ICDFormation, val 
             print(" ${it.data.name} (${it.health}, ${it.walkToFormationTime})")
         }
         println(". $totalHealth")
-    }
+    }*/
 
 }

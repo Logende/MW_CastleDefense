@@ -11,6 +11,7 @@ interface IDataLeague {
     val tribes: List<IDataTribe> // possible enemy tribes
     val castles: List<IDataCastle> // castles the tribes can choose from
     val buildings: List<IDataBuilding>
+    val buildingPlaceholder: IDataBuilding
 
     fun getTribe(name: String): IDataTribe?
     fun getCastle(name: String): IDataCastle?

@@ -1,7 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
 import org.neubauerfelix.manawars.game.IComponent
-import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysis
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
@@ -43,8 +42,6 @@ class DataUnitDummy : IDataUnit {
     override var walkAcceleration: Float
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
         set(value) {}
-    override val analysis: IUnitAnalysis
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
     override val unitType: MWUnitType
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
@@ -63,4 +60,6 @@ class DataUnitDummy : IDataUnit {
 
     override val unitRarity: MWUnitRarity
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
+
 }

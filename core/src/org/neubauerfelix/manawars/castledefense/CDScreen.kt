@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.castledefense
 
 import com.badlogic.gdx.Input
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
+import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingPlaceholder
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
@@ -47,10 +48,12 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         match.loadedAssets()
 
         var x = 2000f
-        for (building in CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings) {
-            building.produce(x, team = MConstants.TEAM_PLAYER)
-            x += building.animationProducer.bodyWidth + 100f
-        }
+        val league = CDManaWars.cd.getLeagueHandler().getLeague("bronze")
+        league!!.buildingPlaceholder.produce(2000f, team = MConstants.TEAM_PEACEFUL)
+      //  for (building in CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings) {
+      //      building.produce(x, team = MConstants.TEAM_PLAYER)
+      //      x += building.animationProducer.bodyWidth + 100f
+      //  }<fs
     }
 
     override fun disposeScreen() {

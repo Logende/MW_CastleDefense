@@ -54,7 +54,7 @@ class CDPlayerLiveAnalysis : ICDPlayerLiveAnalysis {
 
         val furthestEntity = if (entities.isEmpty()) player.castle else entities.first()
         this.furthestX = if (player.castle.direction == 1) furthestEntity.right else furthestEntity.left
-
+/*
         totalActionValue = 0f
         synchronized(totalDefensiveStrengthPerSecond) {
             synchronized(totalOffensiveStrengthPerSecond) {
@@ -78,7 +78,7 @@ class CDPlayerLiveAnalysis : ICDPlayerLiveAnalysis {
                 }
             }
 
-        }
+        }*/
 
     }
 }

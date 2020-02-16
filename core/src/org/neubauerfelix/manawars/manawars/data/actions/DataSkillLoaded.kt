@@ -7,14 +7,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
-import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysis
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 
-open class DataSkillLoaded(final override val name: String, config: Configuration) : DataSkill() {
+final class DataSkillLoaded(final override val name: String, config: Configuration) : DataSkill() {
 
     companion object {
         const val ACC_FACTOR = 16f
@@ -165,26 +163,16 @@ open class DataSkillLoaded(final override val name: String, config: Configuratio
 
 
 
-    var analysis: Map<MWEntityAnimationType, ISkillAnalysis> = MManaWars.m.getSkillAnalysisHandler().loadSkillAnalysis(this)
-        private set
+    override val lifeTime: Float
+    override val rangeMax: Float
+    override val rangeMin: Float
 
 
-    fun analyseSkill() {
-        val analysis: MutableMap<MWEntityAnimationType, ISkillAnalysis> = hashMapOf()
-        MWEntityAnimationType.values().forEach { type ->
-            analysis[type] = MManaWars.m.getSkillAnalysisHandler().analyse(this, type)
-        }
-        this.analysis = analysis
-    }
-
-
-
-    final override val lifeTime: Float
-        get() =  analysis.getValue(MWEntityAnimationType.HUMAN).lifeTime
-
-
-    override fun getActionProperties(entityAnimationType: MWEntityAnimationType) : IDataActionProperties {
-        return analysis.getValue(entityAnimationType)
+    init {
+        val stats = MManaWars.m.getSkillStatsHandler().readStats(this)
+        lifeTime = stats.lifeTime
+        rangeMax = stats.rangeMax
+        rangeMin = stats.rangeMin
     }
 
 

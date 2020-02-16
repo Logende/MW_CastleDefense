@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingActionLoaded
+import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingPlaceholder
 import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuilding
 import org.neubauerfelix.manawars.castledefense.data.tribes.DataCastleLoaded
 import org.neubauerfelix.manawars.castledefense.data.tribes.DataTribeLoaded
@@ -15,6 +16,13 @@ class DataLeagueLoaded(config: Configuration) : DataLeague() {
     override val castles: List<IDataCastle>
     override val tribes: List<IDataTribe>
     override val buildings: List<IDataBuilding>
+    override val buildingPlaceholder: IDataBuilding
+
+    init {
+        val buildingPlaceholderTextureName = config.getString("building_placeholder_texture")
+        buildingPlaceholder = DataBuildingPlaceholder(buildingPlaceholderTextureName, "${this.name}_placeholder")
+    }
+
     override val startGoldAvg: Float = config.getFloat("castle_gold_start_average")
     override val goldPerSecondAvg: Float = config.getFloat("castle_gold_per_second_average")
     override val castleHealthAvg: Float = config.getFloat("castle_health_average")
@@ -40,7 +48,8 @@ class DataLeagueLoaded(config: Configuration) : DataLeague() {
         buildings = ArrayList()
         val buildingConfigNames = config.getStringList("buildings")
         for (buildingConfigName in buildingConfigNames) {
-            val buildingConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$buildingConfigName", true)
+            val buildingConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java)
+                    .load("content/$buildingConfigName", true)
             val building = DataBuildingActionLoaded(buildingConfig, buildingConfigName)
             buildings.add(building)
             println("Loaded building ${building.name}.")

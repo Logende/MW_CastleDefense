@@ -3,7 +3,6 @@ package org.neubauerfelix.manawars.manawars.data.actions
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Colors
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.analysis.IDataActionProperties
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponClass
@@ -41,28 +40,6 @@ class DataActionHealLoaded(override val name: String, config: Configuration) : D
     }
     override val soundPath: String? = config.getString("sound")
 
-
-    val actionProperties = object : IDataActionProperties {
-        override val strategicValue: Float = healingPower * 3 // because multiple units can be healed
-        override val defensiveStrength: Float = strategicValue
-        override val offensiveStrength: Float = 0f
-        override val rangeMax: Map<MWEntityAnimationType, Int>
-        override val rangeMin: Map<MWEntityAnimationType, Int>
-
-
-        init {
-            rangeMax = EnumMap(MWEntityAnimationType::class.java)
-            rangeMin = EnumMap(MWEntityAnimationType::class.java)
-            MWEntityAnimationType.values().forEach {
-                rangeMax[it] = Int.MAX_VALUE
-                rangeMin[it] = 0
-            }
-        }
-
-        override val rangeMaxAvg: Float = Int.MAX_VALUE.toFloat()
-    }
-
-    override fun getActionProperties(entityAnimationType: MWEntityAnimationType): IDataActionProperties {
-        return actionProperties
-    }
+    override val rangeMax: Float = Float.MAX_VALUE
+    override val rangeMin: Float = 0f
 }

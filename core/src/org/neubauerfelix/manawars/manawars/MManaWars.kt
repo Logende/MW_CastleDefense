@@ -4,10 +4,8 @@ import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildingAction
 import org.neubauerfelix.manawars.game.GameManaWars
-import org.neubauerfelix.manawars.manawars.analysis.ISkillAnalysisHandler
-import org.neubauerfelix.manawars.manawars.analysis.IUnitAnalysisHandler
-import org.neubauerfelix.manawars.manawars.analysis.SkillAnalysisHandler
-import org.neubauerfelix.manawars.manawars.analysis.UnitAnalysisHandler
+import org.neubauerfelix.manawars.manawars.analysis.ISkillStatsHandler
+import org.neubauerfelix.manawars.manawars.analysis.SkillStatsHandler
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
@@ -36,12 +34,11 @@ open class MManaWars: GameManaWars() {
         loadHandler(LanguageHandler("english")) //TODO: Load language from config
         loadHandler(UpgradeHandler())
         loadHandler(SkillSetupHandler())
-        loadHandler(SkillAnalysisHandler())
+        loadHandler(SkillStatsHandler())
         loadHandler(ActionHandler())
         loadHandler(CollisionHandler())
         loadHandler(BaseUnitHandler())
         loadHandler(UnitHandler())
-        loadHandler(UnitAnalysisHandler())
         loadHandler(CharacterBarHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
@@ -54,7 +51,6 @@ open class MManaWars: GameManaWars() {
 
         // can be called to generate new skill analysis file, which can manually be moved to assets folder
         analyseSkills()
-        analyseUnits()
 
         MWState.values().forEach { state -> state.load() }
         startScreen(CDScreen(this), true)
@@ -69,11 +65,7 @@ open class MManaWars: GameManaWars() {
         val actionsBuildings = buildings.filterIsInstance(IDataBuildingAction::class.java).map { it.action }
                 .filterIsInstance(IDataSkill::class.java)
         val actionsAll = actionsUnits + actionsBuildings
-        getSkillAnalysisHandler().analyseSkills(MConstants.SKILL_ANALYSIS_FILE_NAME, actionsAll)
-    }
-
-    private fun analyseUnits() {
-        getUnitAnalysisHandler().analyseUnits(MConstants.UNIT_ANALYSIS_FILE_NAME)
+        getSkillStatsHandler().generateStats(MConstants.SKILL_STATS_FILE, actionsAll)
     }
 
     override fun isLoaded(): Boolean {
@@ -108,8 +100,8 @@ open class MManaWars: GameManaWars() {
         return getHandler(SkillSetupHandler::class.java)
     }
 
-    fun getSkillAnalysisHandler(): ISkillAnalysisHandler {
-        return getHandler(SkillAnalysisHandler::class.java)
+    fun getSkillStatsHandler(): ISkillStatsHandler {
+        return getHandler(SkillStatsHandler::class.java)
     }
 
     fun getActionHandler(): IActionHandler {
@@ -118,10 +110,6 @@ open class MManaWars: GameManaWars() {
 
     fun getUnitHandler(): IUnitHandler {
         return getHandler(UnitHandler::class.java)
-    }
-
-    fun getUnitAnalysisHandler(): IUnitAnalysisHandler {
-        return getHandler(UnitAnalysisHandler::class.java)
     }
 
     fun getCollisionHandler(): ICollisionHandler {
