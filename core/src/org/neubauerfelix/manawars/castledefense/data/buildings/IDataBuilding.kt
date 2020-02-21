@@ -2,10 +2,11 @@ package org.neubauerfelix.manawars.castledefense.data.buildings
 
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MConstants
+import org.neubauerfelix.manawars.manawars.data.actions.IDataPresentable
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 
-interface IDataBuilding {
+interface IDataBuilding : IDataPresentable {
 
 
     // produces and spawns the entity
@@ -15,5 +16,6 @@ interface IDataBuilding {
     val animationProducer: IEntityAnimationProducer
 
     val name: String
+    val cost: Int
 
 }

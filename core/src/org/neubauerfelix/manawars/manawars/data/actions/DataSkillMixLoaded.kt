@@ -5,13 +5,11 @@ import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
-import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponClass
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 
 class DataSkillMixLoaded(override val name: String, config: Configuration) : IDataAction {
@@ -81,7 +79,7 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun generateIcon(size: Int, action: Runnable): IComponent {
+    override fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

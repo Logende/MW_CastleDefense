@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
+import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
@@ -12,8 +13,8 @@ abstract class DataUnit : IDataUnit {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun generateIcon(size: Int, action: Runnable): IComponent {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent {
+        return CDComponentUnit(x, y, width, height, this, action)
     }
 
     override fun produce(x: Float, y: Float, controller: IController, team: Int) : IControlled {

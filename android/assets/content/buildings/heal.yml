@@ -1,6 +1,6 @@
 texture_alive: "building.heal"
 texture_dead: "building.heal"
-# animation: "building.heal.animation:0.1"
+animation: "building.heal.animation:0.1"
 cooldown: 1
 health: 80
 action:

@@ -33,7 +33,7 @@ abstract class DataActionHeal : IDataActionHeal {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun generateIcon(size: Int, action: Runnable): IComponent {
+    override fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

@@ -1,7 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.actions
 
 import org.neubauerfelix.manawars.game.IComponent
-import org.neubauerfelix.manawars.game.data.GameData
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IActionUser
@@ -64,7 +63,7 @@ abstract class DataSkill : IDataSkill {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun generateIcon(size: Int, action: Runnable): IComponent {
+    override fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

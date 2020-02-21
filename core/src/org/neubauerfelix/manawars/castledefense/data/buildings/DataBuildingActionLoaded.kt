@@ -1,6 +1,9 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
+import org.neubauerfelix.manawars.castledefense.components.CDComponentBuilding
+import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingAction
+import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.ILiving
@@ -15,6 +18,7 @@ class DataBuildingActionLoaded(config: Configuration, override val name: String)
             loadAction("action_building_$name", config.getSection("action"))!!
     override val cooldown: Float = config.getFloat("cooldown")
     override val health: Float = config.getFloat("health")
+    override val cost: Int = config.getInt("cost")
 
     val textureNameAlive: String = config.getString("texture_alive")
     val textureNameDead: String = if (config.contains("texture_dead")) {
@@ -54,4 +58,11 @@ class DataBuildingActionLoaded(config: Configuration, override val name: String)
         return e
     }
 
+    override fun generateInfo(x: Int, y: Int, width: Int, height: Int): IComponent {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent {
+        return CDComponentBuilding(x, y, width, height, this, action)
+    }
 }

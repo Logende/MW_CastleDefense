@@ -10,9 +10,11 @@ import org.neubauerfelix.manawars.manawars.entities.IActionUser
 import org.neubauerfelix.manawars.manawars.entities.ITeamable
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
-import java.util.*
 
 class DataActionBuild(override val name: String, override val building: IDataBuilding) : IDataActionBuild {
+
+    // basically everything is ready, except the unit which uses the build action.
+    // probably auto-create buttons for all buildings and have units with building skills connected to those buttons
 
 
     override fun canUse(owner: IActionUser): Boolean {
@@ -44,7 +46,7 @@ class DataActionBuild(override val name: String, override val building: IDataBui
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun generateIcon(size: Int, action: Runnable): IComponent {
+    override fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

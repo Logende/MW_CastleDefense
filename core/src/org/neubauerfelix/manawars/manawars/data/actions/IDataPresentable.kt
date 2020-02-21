@@ -6,5 +6,5 @@ interface IDataPresentable {
 
 
     fun generateInfo(x: Int, y: Int, width: Int, height: Int): IComponent
-    fun generateIcon(size: Int, action: Runnable): IComponent
+    fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent
 }
