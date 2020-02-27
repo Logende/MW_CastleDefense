@@ -22,7 +22,7 @@ class ArmyAnalysisHandler : IArmyAnalysisHandler {
 
         println("chance of ${unit.name}: dE $factor")
         return factor*/
-        return 1f
+        return Math.random().toFloat()
     }
 
 

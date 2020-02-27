@@ -22,10 +22,10 @@ class CDControllerHuman : ICDController {
         get() = true
 
     override fun showControls() {
-        val size = GameConstants.CONTROLPANEL_BUTTON_SIZE
+        val size = GameConstants.CONTROLPANEL_BUTTON_SIZE * 0.4f
         var x = GameConstants.CONTROLPANEL_BUTTON_BORDER
         val y = GameConstants.WORLD_HEIGHT + (GameConstants.CONTROLPANEL_HEIGHT - size) / 2f
-        /*for (unit in player.tribe.army.units) {
+        for (unit in player.tribe.army.units) {
             val button = unit.generateIcon(x, y, size, size, Runnable {
                 if (player.castle.gold >= unit.cost) {
                     player.castle.gold -= unit.cost
@@ -35,7 +35,7 @@ class CDControllerHuman : ICDController {
             buttons.add(button)
             MManaWars.m.screen.addComponent(button)
             x += GameConstants.CONTROLPANEL_BUTTON_DISTANCE + button.width
-        }*/
+        }
 
         for (building in player.tribe.league.buildings) {
             val button = building.generateIcon(x, y, size, size, Runnable {

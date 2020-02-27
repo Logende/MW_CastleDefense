@@ -20,19 +20,19 @@ class MSkill(val data: IDataSkill, val o: IActionUser) :
 
     override var owner: IEntity = o
 
-    var health: Int
-    var direction: Int = 1
+    var health: Int = data.damage
+    var direction: Int = o.direction
         set(value) {
             this.mirror = (value == -1)
             field = value
         }
 
-    val idle: Boolean
+    private val idle: Boolean
         get() = this.idleTimeLeft > 0
-    var idleTimeLeft: Float
-    var lifeTimeLeft: Float
+    var idleTimeLeft: Float = data.idleTime
+    var lifeTimeLeft: Float = data.lifeTime
 
-    val target: IEntity?
+    private val target: IEntity? = MManaWars.m.getSkillSetupHandler().findTarget( data, o)
 
     var inactive: Boolean = false
 
@@ -55,7 +55,6 @@ class MSkill(val data: IDataSkill, val o: IActionUser) :
         if (data.model.pickOneFrame) {
             this.setDrawRandomImageOnly()
         }
-
     }
 
     override fun spawn() {
