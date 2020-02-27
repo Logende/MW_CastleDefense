@@ -44,8 +44,7 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
         batcher.color = Color.WHITE
 
 
-        MManaWars.m.getCharacterBarHandler().drawArmorFrame(batcher, x, y, width, height, unit.animation.animationType,
-                unit.armor)
+        MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x, y, width, height, unit.armor.color)
         (animation as IDrawable).draw(delta, batcher)
         (animation as ILogicable).doLogic(delta)
 

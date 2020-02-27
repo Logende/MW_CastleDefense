@@ -1,15 +1,14 @@
 package org.neubauerfelix.manawars.manawars.handlers
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.IHandler
 import org.neubauerfelix.manawars.manawars.entities.IControlled
-import org.neubauerfelix.manawars.manawars.enums.MWArmorType
-import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
 interface ICharacterBarHandler: IHandler {
 
     fun drawStatsBar(batcher: Batch, e: IControlled)
-    fun drawArmorFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
-                       animationType: MWEntityAnimationType, armor: MWArmorType)
+    fun drawFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
+                  color: Color)
 
 }

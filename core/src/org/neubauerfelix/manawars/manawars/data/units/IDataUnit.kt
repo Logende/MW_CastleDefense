@@ -12,7 +12,7 @@ interface IDataUnit : IDataPresentable {
     val name: String
     val displayName: String
     val unitType: MWUnitType
-    val unitRarity: MWUnitRarity
+    val rarity: NWRarity
     val animation: IEntityAnimationProducer
     val armor: MWArmorType
     val action: IDataAction

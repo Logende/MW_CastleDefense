@@ -11,6 +11,7 @@ bodyDataHuman:
 - l1.frost.tank
 - l1.frost.boss
 - dummy.shield:big.diamond
+- builder
 bodyDataMount:
 - wolf
 - wolf.armor

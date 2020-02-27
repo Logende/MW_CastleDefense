@@ -1,13 +1,12 @@
 texture_alive: "building.heal"
 texture_dead: "building.heal"
 animation: "building.heal.animation:0.1"
-cooldown: 1
+cooldown: 2
 health: 80
+cost: 140
+rarity: epic
 action:
   type: heal
-  healingPower: 10
+  healingPower: 6
   healingRange: 600
   owner_animation: 'BUILDING_EFFECT'
-  texture: l1.zombie.ranged
-  animation: '1:4:1'
-  sound: skill.arrow

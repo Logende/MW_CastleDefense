@@ -53,7 +53,7 @@ open class EntityAnimationProducerBuilding(val textureNameAlive: String, val tex
         val scale = Math.min(availableWidth / bodyWidth, availableHeight / bodyHeight)
         val offsetX = (availableWidth - bodyWidth * scale) / 2f
         val offsetY = (availableHeight - bodyHeight * scale) / 2f
-        val rectangle = GameEntity( availableWidth, availableHeight)
+        val rectangle = GameEntity( bodyWidth * scale, bodyHeight * scale)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyBuilding(rectangle, MManaWars.m.getImageHandler().getTextureRegionMain(textureNameAlive),
                 MManaWars.m.getImageHandler().getTextureRegionMain(textureNameDead), null)

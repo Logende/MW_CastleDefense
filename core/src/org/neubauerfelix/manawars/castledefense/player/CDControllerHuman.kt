@@ -2,9 +2,12 @@ package org.neubauerfelix.manawars.castledefense.player
 
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
+import org.neubauerfelix.manawars.castledefense.data.buildings.DataUnitBuilder
+import org.neubauerfelix.manawars.castledefense.entities.controller.ControllerBuilder
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.enums.NWRarity
 
 
 class CDControllerHuman : ICDController {
@@ -36,9 +39,10 @@ class CDControllerHuman : ICDController {
 
         for (building in player.tribe.league.buildings) {
             val button = building.generateIcon(x, y, size, size, Runnable {
-                if (player.castle.gold >= building.cost) {
-                    player.castle.gold -= building.cost
-                   // TODO player.spawnUnit(building)
+                val castle = player.castle
+                if (castle.gold >= building.cost) {
+                    castle.gold -= building.cost
+                    building.produceBuilder(castle.centerHorizontal, player = player)
                 }
             })
             buttons.add(button)

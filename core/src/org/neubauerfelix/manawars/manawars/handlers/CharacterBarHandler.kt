@@ -82,9 +82,9 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
         batcher.color = Color.WHITE
     }
 
-    override fun drawArmorFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
-                                animationType: MWEntityAnimationType, armor: MWArmorType) {
-        batcher.color = armor.color
+    override fun drawFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
+                           color: Color) {
+        batcher.color = color
         val w = width * frame.regionWidth / frame.regionWidth
         val h = height * frame.regionHeight / frame.regionHeight
         batcher.draw(frame, x, y , w, h)

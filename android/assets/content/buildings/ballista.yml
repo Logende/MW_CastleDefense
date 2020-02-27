@@ -1,8 +1,10 @@
 texture_alive: "building.ballista"
 texture_dead: "building.ballista"
 animation: "building.ballista.animation:0.1"
-cooldown: 1
-health: 80
+cooldown: 1.5
+health: 40
+rarity: common
+cost: 50
 action:
   type: normal
   owner_animation: 'BUILDING_EFFECT'
@@ -14,4 +16,4 @@ action:
   acceleration: 0:2*A
   location: '-5:-20'
   knockback: 1.0
-  damage: 10
+  damage: 6

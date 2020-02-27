@@ -1,6 +1,6 @@
 package org.neubauerfelix.manawars.manawars.enums
 
-enum class MWUnitRarity  {
+enum class NWRarity  {
 
     COMMON,
     RARE,

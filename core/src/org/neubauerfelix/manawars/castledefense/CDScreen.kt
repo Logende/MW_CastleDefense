@@ -50,11 +50,13 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         var x = 2500f
         val league = CDManaWars.cd.getLeagueHandler().getLeague("bronze")
         league!!.buildingPlaceholder.produce(2000f, team = MConstants.TEAM_PEACEFUL)
+        league!!.buildingPlaceholder.produce(3000f, team = MConstants.TEAM_PEACEFUL)
+        league!!.buildingPlaceholder.produce(2500f, team = MConstants.TEAM_PEACEFUL)
         for (building in CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings) {
-            if (building.name.contains("heal")) {
-                building.produce(x, team = MConstants.TEAM_PLAYER)
-                x += building.animationProducer.bodyWidth + 100f
-            }
+            //if (building.name.contains("heal")) {
+               // building.produce(x, team = MConstants.TEAM_PLAYER)
+                //x += building.animationProducer.bodyWidth + 100f
+          //  }
         }
     }
 

@@ -1,8 +1,10 @@
 texture_alive: "building.firethrower"
 texture_dead: "building.firethrower"
 animation: "building.firethrower.animation:0.1"
-cooldown: 2
-health: 100
+cooldown: 2.5
+health: 40
+rarity: common
+cost: 50
 action:
   type: normal
   owner_animation: 'BUILDING_EFFECT'
@@ -14,5 +16,5 @@ action:
   acceleration: 30*A:0
   location: '10:-15'
   knockback: 1.0
-  damage: 4
+  damage: 7
   effect: BURNING:3

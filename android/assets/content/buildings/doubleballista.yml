@@ -1,8 +1,10 @@
 texture_alive: "building.doubleballista"
 texture_dead: "building.doubleballista"
 animation: "building.doubleballista.animation:0.1"
-cooldown: 1
-health: 80
+cooldown: 2.0
+health: 65
+rarity: rare
+cost: 80
 action:
   type: mix
   owner_animation: BUILDING_EFFECT
@@ -20,5 +22,5 @@ action:
       speed: '1400:0'
       acceleration: 0:2*A
       location: '-5:-20'
-      damage: 10
+      damage: 6
       knockback: 1.0

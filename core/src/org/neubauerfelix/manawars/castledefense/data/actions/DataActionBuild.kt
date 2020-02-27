@@ -35,7 +35,7 @@ class DataActionBuild(override val name: String, override val building: IDataBui
 
     fun getAvailableBuildingPlaceholders(owner: IActionUser) : List<IEntity> {
         return MManaWars.m.screen.getEntities { e ->
-            e is ITeamable && e.team == owner.team &&
+            ITeamable.isTeamed(owner, e) &&
                     e.getDistanceHor(owner) == 0f &&
                     e is CDEntityBuildingPlaceholder
         }

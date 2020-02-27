@@ -1,14 +1,16 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
 import org.neubauerfelix.manawars.castledefense.components.CDComponentBuilding
-import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingAction
+import org.neubauerfelix.manawars.castledefense.entities.controller.ControllerBuilder
+import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerBuilding
+import org.neubauerfelix.manawars.manawars.enums.NWRarity
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 class DataBuildingActionLoaded(config: Configuration, override val name: String) :
@@ -49,6 +51,9 @@ class DataBuildingActionLoaded(config: Configuration, override val name: String)
             EntityAnimationProducerBuilding(textureNameAlive, textureNameDead,
                     textureNameAnimation, animationFrameDuration)
 
+    override val rarity: NWRarity = NWRarity.valueOf(config.getString("rarity").toUpperCase())
+    private val dataBuilder = DataUnitBuilder(this, this.cost, this.rarity)
+
     override fun produce(centreHor: Float, bottom: Float, team: Int): ILiving {
         val e =  CDEntityBuildingAction(this)
         e.centerHorizontal = centreHor
@@ -56,6 +61,10 @@ class DataBuildingActionLoaded(config: Configuration, override val name: String)
         e.team = team
         e.spawn()
         return e
+    }
+
+    override fun produceBuilder(centreHor: Float, bottom: Float, player: ICDPlayer): ILiving {
+        return dataBuilder.produce(centreHor, bottom, ControllerBuilder(player), player.team)
     }
 
     override fun generateInfo(x: Int, y: Int, width: Int, height: Int): IComponent {

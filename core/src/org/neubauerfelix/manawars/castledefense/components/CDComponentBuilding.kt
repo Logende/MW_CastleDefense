@@ -30,7 +30,7 @@ class CDComponentBuilding(x: Float, y: Float, width: Float, height: Float, val b
         background = MManaWars.m.getImageHandler().getTextureRegionButton("frame.background")
         // TODO: Gold armor for boss?
         animation = building.animationProducer
-                .produce(x + width * 0.1f, y + height*0.05f, width*0.8f, height*0.8f)
+                .produce(x + width * 0.15f, y + height*0.15f, width*0.7f, height*0.7f)
 
         val color = if (building is IDataBuildingAction) {
             building.action.displayColor
@@ -50,8 +50,7 @@ class CDComponentBuilding(x: Float, y: Float, width: Float, height: Float, val b
         batcher.color = Color.WHITE
 
 
-       //MManaWars.m.getCharacterBarHandler().drawArmorFrame(batcher, x, y, width, height, building.animation.animationType,
-       //         building.armor)
+       MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x, y, width, height, Color.DARK_GRAY)
         (animation as IDrawable).draw(delta, batcher)
         (animation as ILogicable).doLogic(delta)
 

@@ -13,10 +13,13 @@ class DataArmyLoaded(config: Configuration, playerName: String, override val tri
 
     init {
         val units = ArrayList<IDataUnit>()
+        val unitsSection = config.getSection("units")
         for (unitType in MWUnitType.values()) {
-            val unitSection = config.getSection("units").getSection(unitType.name.toLowerCase())
-            val name = "$playerName.${unitType.name.toLowerCase()}"
-            units.add(DataUnitLoaded(name, unitSection, this, unitType))
+            if (unitsSection.contains(unitType.name.toLowerCase())) {
+                val unitSection = unitsSection.getSection(unitType.name.toLowerCase())
+                val name = "$playerName.${unitType.name.toLowerCase()}"
+                units.add(DataUnitLoaded(name, unitSection, this, unitType))
+            }
         }
         this.units = units /*.sortedBy {
             val animation = it.animation

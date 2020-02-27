@@ -58,7 +58,7 @@ class DataUnitDummy : IDataUnit {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override val unitRarity: MWUnitRarity
+    override val rarity: NWRarity
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
 

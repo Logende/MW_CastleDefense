@@ -2,7 +2,9 @@ texture_alive: "building.icethrower"
 texture_dead: "building.icethrower"
 animation: "building.icethrower.animation:0.1"
 cooldown: 2
-health: 100
+health: 65
+rarity: rare
+cost: 80
 action:
   type: normal
   owner_animation: 'BUILDING_EFFECT'
@@ -14,5 +16,5 @@ action:
   acceleration: 30*A:0
   location: '10:-15'
   knockback: 1.0
-  damage: 2
+  damage: 7
   effect: FROZEN:3

@@ -6,5 +6,6 @@ enum class MWUnitType {
     TANK,
     MELEE,
     RANGER,
-    MAGE
+    MAGE,
+    BUILDER
 }

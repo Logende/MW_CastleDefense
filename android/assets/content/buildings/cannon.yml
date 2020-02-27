@@ -1,8 +1,10 @@
 texture_alive: "building.cannon"
 texture_dead: "building.cannon"
 animation: "building.cannon.animation:0.1"
-cooldown: 2
-health: 100
+cooldown: 4.0
+health: 80
+rarity: epic
+cost: 140
 action:
   type: normal
   owner_animation: 'BUILDING_EFFECT'
@@ -14,4 +16,4 @@ action:
   acceleration: 0:3*A
   location: '10:-15'
   knockback: 1.0
-  damage: 12
+  damage: 20

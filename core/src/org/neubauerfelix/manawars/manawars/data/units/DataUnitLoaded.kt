@@ -13,8 +13,8 @@ import java.util.*
 class DataUnitLoaded(override val name: String, config: Configuration, val army: IDataArmy,
                      override val unitType: MWUnitType) : DataUnit() {
 
-    override val unitRarity: MWUnitRarity = MWUnitRarity.valueOf(config.getString("rarity").toUpperCase())
-    private val baseUnitStats = MManaWars.m.getBaseUnitHandler().getBaseUnitStats(unitType, unitRarity)
+    override val rarity: NWRarity = NWRarity.valueOf(config.getString("rarity").toUpperCase())
+    private val baseUnitStats = MManaWars.m.getBaseUnitHandler().getBaseUnitStats(unitType, rarity)
 
 
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("unit_${name}_name")

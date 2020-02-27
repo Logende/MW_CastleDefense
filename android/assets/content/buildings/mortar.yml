@@ -1,8 +1,10 @@
 texture_alive: "building.mortar"
 texture_dead: "building.mortar"
 animation: "building.mortar.animation:0.1"
-cooldown: 1
-health: 80
+cooldown: 2.0
+health: 65
+rarity: rare
+cost: 80
 action:
   type: normal
   owner_animation: 'BUILDING_EFFECT'
@@ -15,5 +17,5 @@ action:
   allow_movement_scaling: true
   location: '-70:-40'
   knockback: 1
-  damage: 150
+  damage: 14
   target_range: 2000
