@@ -55,8 +55,8 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         league!!.buildingPlaceholder.produce(1800f, team = MConstants.TEAM_PEACEFUL)
         for (building in CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings) {
             //if (building.name.contains("heal")) {
-               // building.produce(x, team = MConstants.TEAM_PLAYER)
-                //x += building.animationProducer.bodyWidth + 100f
+                //building.produce(x, team = MConstants.TEAM_PLAYER)
+                x += building.animationProducer.bodyWidth + 100f
           //  }
         }
     }

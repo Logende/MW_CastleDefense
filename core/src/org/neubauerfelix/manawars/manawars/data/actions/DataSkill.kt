@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.actions
 
+import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -12,36 +13,17 @@ abstract class DataSkill : IDataSkill {
     override val displayColor: Color
         get() = skillClass.color
 
-    override fun init() {
-        // TODO add sound
-        this.addAsset(this.model)
-        this.actionDependencies.forEach { dependency -> this.addAsset(dependency) }
-    }
-
-    override fun load() {
-    }
-
-    override fun loaded() {
-    }
-
-    override fun dispose() {
-    }
-
-    override fun disposed() {
-    }
-
-
 
     override fun canUse(owner: IActionUser): Boolean {
-        if (model.targetEnemy) {
+        if (targetEnemy) {
             if (MManaWars.m.getSkillSetupHandler().findTarget(this, owner) == null) {
                 return false
             }
         }
-        if (model.skillLimit > 0) {
+        if (skillLimit > 0) {
             if (MManaWars.m.screen.getEntities { e ->
                         e is MSkill && e.owner == owner && e.data == this }
-                            .size >= model.skillLimit) {
+                            .size >= skillLimit) {
                 return false
             }
         }
@@ -54,7 +36,7 @@ abstract class DataSkill : IDataSkill {
     }
 
     override fun spawnSkill(owner: IActionUser): IEntity {
-        val s = MSkill(this, effect, owner)
+        val s = MSkill(this, owner)
         s.spawn()
         return s
     }

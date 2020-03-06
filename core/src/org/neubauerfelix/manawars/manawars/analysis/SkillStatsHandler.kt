@@ -16,7 +16,7 @@ import java.lang.RuntimeException
 class SkillStatsHandler : ISkillStatsHandler {
 
     companion object {
-        private const val MAX_RANGE = 1000f
+        private const val MAX_RANGE = 1400f
         private const val SIMULATION_STEP_TIME = 1f / 50f
         private const val SIMULATION_MAX_LIFE_DURATION = 10f
         private const val SIMULATION_MAX_STEPS = (SIMULATION_MAX_LIFE_DURATION / SIMULATION_STEP_TIME).toInt()
