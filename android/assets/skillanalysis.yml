@@ -12,11 +12,11 @@ skill_zombie:
     rangeMax: 636.0
     rangeMin: 0.0
   ranger:
-    lifeTime: 1.02
+    lifeTime: 1.42
     rangeMax: 900.0
     rangeMin: 0.0
   mage:
-    lifeTime: 1.6999999
+    lifeTime: 2.36
     rangeMax: 900.0
     rangeMin: 0.0
 skill_frost:
@@ -33,7 +33,7 @@ skill_frost:
     rangeMax: 720.0
     rangeMin: 0.0
   ranger:
-    lifeTime: 0.85999995
+    lifeTime: 1.1999999
     rangeMax: 900.0
     rangeMin: 0.0
   mage:
@@ -42,27 +42,27 @@ skill_frost:
     rangeMin: 0.0
 action_building_buildings/darts:
   yml:
-    lifeTime: 1.04
+    lifeTime: 1.4399999
     rangeMax: 900.0
     rangeMin: 0.0
 action_building_buildings/ballista:
   yml:
-    lifeTime: 0.74
+    lifeTime: 1.04
     rangeMax: 900.0
     rangeMin: 0.0
 action_building_buildings/firethrower:
   yml:
-    lifeTime: 1.68
+    lifeTime: 2.04
     rangeMax: 900.0
     rangeMin: 0.0
 action_building_buildings/icethrower:
   yml:
-    lifeTime: 1.68
+    lifeTime: 2.04
     rangeMax: 900.0
     rangeMin: 0.0
 action_building_buildings/cannon:
   yml:
-    lifeTime: 0.74
+    lifeTime: 1.02
     rangeMax: 900.0
     rangeMin: 0.0
 action_building_buildings/mortar:

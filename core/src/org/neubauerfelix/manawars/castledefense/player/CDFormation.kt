@@ -5,9 +5,13 @@ import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.GameEntityMovable
+import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.IControlled
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
 class CDFormation(private val units: List<IDataUnit>, private val player: ICDPlayer) :
         GameEntityMovable(0f, GameConstants.BACKGROUND_HEIGHT), ICDFormation, IDrawable {
@@ -69,16 +73,14 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
     fun updateFormation(updateAnchor: Boolean) {
         if (this.entities.isEmpty()) {
 
+            // Empty and waiting for entities to spawn and join the formation
             val entities = player.controller.analysis.entities.filterIsInstance(IControlled::class.java)
                     .filter { !it.remove }
-            if (entities.isNotEmpty()) {
-                addEntity(entities.first())
-                return
-            }
-
-            // Empty and waiting for entities to spawn and join the formation
-            this.x = player.castle.x
-            this.width = player.castle.width
+            val mostFar : IEntity = if (entities.isNotEmpty()) entities.first() else player.castle
+            val left =  min(player.castle.left, mostFar.left)
+            val right = max(player.castle.right, mostFar.right)
+            this.width = right - left
+            this.x = left
             rangeFirst = 0f
             rangeBest = 0f
             moveSpeed = 0f
@@ -86,6 +88,8 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
         } else {
             // 1. Simply sort the units in the right order
             entities.sortBy { s ->
+                if (s.remove) {
+                }
                 val priority = this.units.indexOf(s.data)
                 priority * 10000 + s.getDistanceHor(anchorX)
             }
@@ -110,10 +114,10 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
             moveSpeed = Float.MAX_VALUE
             // 3. Upgrade formation ranges
             relativeX.forEach { e, x ->
-                val range = e.data.action.rangeMax - Math.abs(x)
-                rangeFirst = Math.max(rangeFirst, range)
-                rangeBest = Math.min(rangeBest, range)
-                moveSpeed = Math.min(moveSpeed, e.walkSpeedMax)
+                val range = e.data.action.rangeMax - abs(x)
+                rangeFirst = max(rangeFirst, range)
+                rangeBest = min(rangeBest, range)
+                moveSpeed = min(moveSpeed, e.walkSpeedMax)
             }
 
             // 4. Update Formation anchor: every time the units change, the formation anchor is set to x of furthest unit
@@ -132,11 +136,11 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
-        val goalDistance = Math.max(CDConstants.CASTLEDEFENSE_FORMATION_ENEMY_DISTANCE_MIN, rangeBest)
+        val goalDistance = max(CDConstants.CASTLEDEFENSE_FORMATION_ENEMY_DISTANCE_MIN, rangeBest)
         val furthestEnemyX = if (direction == 1) {
-            Math.min(this.player.enemy.controller.analysis.furthestX, this.player.enemy.formation.left)
+            min(this.player.enemy.controller.analysis.furthestX, this.player.enemy.formation.left)
         } else {
-            Math.max(this.player.enemy.controller.analysis.furthestX, this.player.enemy.formation.right)
+            max(this.player.enemy.controller.analysis.furthestX, this.player.enemy.formation.right)
         }
         val actualDistance = this.getDistanceHor(furthestEnemyX)
         speedX = if (actualDistance > goalDistance) {
