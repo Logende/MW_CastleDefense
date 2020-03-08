@@ -4,8 +4,7 @@ class GameConstants {
 
 
     companion object {
-        const val DEBUG_BOUNDING_BOXES = true
-
+        const val DEBUG_BOUNDING_BOXES = false
         const val GAME_RENDER_FIX_TIME_STEPS_DURATION = 1f/60f
 
         const val SCREEN_WIDTH = 1920f

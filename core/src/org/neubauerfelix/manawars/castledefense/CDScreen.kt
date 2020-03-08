@@ -2,7 +2,6 @@ package org.neubauerfelix.manawars.castledefense
 
 import com.badlogic.gdx.Input
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
-import org.neubauerfelix.manawars.castledefense.data.buildings.DataBuildingPlaceholder
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
@@ -49,10 +48,10 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
         var x = 2500f
         val league = CDManaWars.cd.getLeagueHandler().getLeague("bronze")
-        league!!.buildingPlaceholder.produce(2000f, team = MConstants.TEAM_PEACEFUL)
-        league!!.buildingPlaceholder.produce(3000f, team = MConstants.TEAM_PEACEFUL)
-        league!!.buildingPlaceholder.produce(2500f, team = MConstants.TEAM_PEACEFUL)
-        league!!.buildingPlaceholder.produce(1800f, team = MConstants.TEAM_PEACEFUL)
+        league!!.buildingPlaceholder.produce(2000f, team = MConstants.TEAM_PEACEFUL, league = league)
+        league!!.buildingPlaceholder.produce(3000f, team = MConstants.TEAM_PEACEFUL, league = league)
+        league!!.buildingPlaceholder.produce(2500f, team = MConstants.TEAM_PEACEFUL, league = league)
+        league!!.buildingPlaceholder.produce(1800f, team = MConstants.TEAM_PEACEFUL, league = league)
         for (building in CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings) {
             //if (building.name.contains("heal")) {
                 //building.produce(x, team = MConstants.TEAM_PLAYER)

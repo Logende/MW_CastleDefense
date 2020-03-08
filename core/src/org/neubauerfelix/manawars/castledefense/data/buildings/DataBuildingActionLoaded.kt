@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
 import org.neubauerfelix.manawars.castledefense.components.CDComponentBuilding
+import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingAction
 import org.neubauerfelix.manawars.castledefense.entities.controller.ControllerBuilder
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
@@ -54,8 +55,8 @@ class DataBuildingActionLoaded(config: Configuration, override val name: String)
     override val rarity: NWRarity = NWRarity.valueOf(config.getString("rarity").toUpperCase())
     private val dataBuilder = DataUnitBuilder(this, this.cost, this.rarity)
 
-    override fun produce(centreHor: Float, bottom: Float, team: Int): ILiving {
-        val e =  CDEntityBuildingAction(this)
+    override fun produce(centreHor: Float, bottom: Float, team: Int, league: IDataLeague): ILiving {
+        val e =  CDEntityBuildingAction(this, league)
         e.centerHorizontal = centreHor
         e.bottom = bottom
         e.team = team
