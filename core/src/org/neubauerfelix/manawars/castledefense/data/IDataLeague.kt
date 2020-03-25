@@ -12,12 +12,13 @@ interface IDataLeague {
     val castles: List<IDataCastle> // castles the tribes can choose from
     val buildings: List<IDataBuilding>
     val buildingPlaceholder: IDataBuilding
+    val playground: IDataPlayground
 
     fun getTribe(name: String): IDataTribe?
     fun getCastle(name: String): IDataCastle?
     fun getBuilding(name: String): IDataBuilding?
 
-    val startGoldAvg: Float
-    val goldPerSecondAvg: Float
-    val castleHealthAvg: Float
+    val baseGoldStart: Float
+    val baseGoldPerSecond: Float
+    val baseHealth: Float
 }

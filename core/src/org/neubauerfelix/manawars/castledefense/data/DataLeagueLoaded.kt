@@ -10,30 +10,32 @@ import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
-class DataLeagueLoaded(config: Configuration) : DataLeague() {
+class DataLeagueLoaded(config: Configuration) : IDataLeague, ICastleProvider {
 
     override val name: String = config.getString("name")
     override val castles: List<IDataCastle>
     override val tribes: List<IDataTribe>
     override val buildings: List<IDataBuilding>
     override val buildingPlaceholder: IDataBuilding
+    override val playground: IDataPlayground
 
     init {
         val buildingPlaceholderTextureName = config.getString("building_placeholder_texture")
         buildingPlaceholder = DataBuildingPlaceholder(buildingPlaceholderTextureName, "${this.name}_placeholder")
     }
 
-    override val startGoldAvg: Float = config.getFloat("castle_gold_start_average")
-    override val goldPerSecondAvg: Float = config.getFloat("castle_gold_per_second_average")
-    override val castleHealthAvg: Float = config.getFloat("castle_health_average")
+    override val baseGoldStart: Float = config.getFloat("castle_gold_start_average")
+    override val baseGoldPerSecond: Float = config.getFloat("castle_gold_per_second_average")
+    override val baseHealth: Float = config.getFloat("castle_health_average")
 
     init {
         // castles need to be loaded before tribes, because tribes use castles
         castles = ArrayList()
         val castleConfigNames = config.getStringList("castles")
         for (castleConfigName in castleConfigNames) {
-            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).load("content/$castleConfigName", true)
-            castles.add(DataCastleLoaded(handlerConfig, this))
+            val handlerConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).
+                    load("content/$castleConfigName", true)
+            castles.add(DataCastleLoaded(handlerConfig, 1f, baseHealth, baseGoldStart, baseGoldPerSecond))
         }
 
         tribes = ArrayList()
@@ -55,6 +57,8 @@ class DataLeagueLoaded(config: Configuration) : DataLeague() {
             println("Loaded building ${building.name}.")
         }
 
+        val playgroundConfigSection = config.getSection("playground")
+        playground = DataPlaygroundLoaded(playgroundConfigSection)
     }
 
     override fun getTribe(name: String): IDataTribe? {

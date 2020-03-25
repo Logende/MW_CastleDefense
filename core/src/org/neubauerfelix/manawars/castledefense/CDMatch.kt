@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.components.CDComponentGameInfo
+import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IDisposable
@@ -9,7 +10,8 @@ import org.neubauerfelix.manawars.game.IScreen
 import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.IBackground
 
-class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val backgrounds: Iterable<IBackground>, val screen: IScreen) :
+class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDPlayer,
+              val backgrounds: Iterable<IBackground>, val screen: IScreen) :
         ILoadableAsync, IDisposable, ILogicable {
 
     var loaded = false

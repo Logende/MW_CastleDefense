@@ -15,6 +15,10 @@ buildings:
   - 'buildings/mortar.yml'
   - 'buildings/machinegun.yml'
 building_placeholder_texture: "building.placeholder"
+playground:
+  name: "bronze_playground"
+  building_placeholders:
+    - "%playground_width%/2.0"
 castle_gold_start_average: 80
 castle_gold_per_second_average: 4
 castle_health_average: 200
