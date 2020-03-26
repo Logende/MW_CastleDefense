@@ -40,6 +40,7 @@ open class MManaWars: GameManaWars() {
         loadHandler(BaseUnitHandler())
         loadHandler(UnitHandler())
         loadHandler(CharacterBarHandler())
+        loadHandler(BackgroundListHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
@@ -122,6 +123,10 @@ open class MManaWars: GameManaWars() {
 
     fun getBaseUnitHandler(): IBaseUnitHandler {
         return getHandler(BaseUnitHandler::class.java)
+    }
+
+    fun getBackgroundListHandler(): IBackgroundListHandler {
+        return getHandler(BackgroundListHandler::class.java)
     }
 
 
