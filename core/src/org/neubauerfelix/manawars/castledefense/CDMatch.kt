@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.components.CDComponentGameInfo
 import org.neubauerfelix.manawars.castledefense.data.IDataLeague
+import org.neubauerfelix.manawars.castledefense.data.IDataPlayground
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IDisposable
@@ -9,10 +10,21 @@ import org.neubauerfelix.manawars.game.ILoadableAsync
 import org.neubauerfelix.manawars.game.IScreen
 import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.IBackground
+import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.enums.MWBackgroundSubtheme
 
-class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDPlayer,
-              val backgrounds: Iterable<IBackground>, val screen: IScreen) :
+class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScreen) :
         ILoadableAsync, IDisposable, ILogicable {
+
+    val backgrounds: Iterable<IBackground>
+
+    init {
+        val backgroundData = MManaWars.m.getBackgroundComposer().composeBackgrounds(IDataPlayground.BACKGROUND_COUNT,
+                        playerA.tribe.backgroundThemes, playerB.tribe.backgroundThemes, MWBackgroundSubtheme.values().
+                toList())
+        backgrounds = backgroundData.mapIndexed { index, background ->
+            background.produce(index * GameConstants.BACKGROUND_WIDTH) }
+    }
 
     var loaded = false
 

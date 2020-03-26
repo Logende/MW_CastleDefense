@@ -7,8 +7,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
 
 interface IBackgroundComposer : IHandler {
 
-    // TODO: This background composer. Then actively use playground in CDMatch/CDScreen including using the background composer
-    fun composeBackgrounds(backgroundCount: Int, startThemes: List<MWBackgroundTheme>?,
-                           endThemes: List<MWBackgroundTheme>?, subthemes: List<MWBackgroundSubtheme>?) :
+    fun composeBackgrounds(backgroundCount: Int, startThemes: Iterable<MWBackgroundTheme>?,
+                           endThemes: Iterable<MWBackgroundTheme>?, subthemes: Iterable<MWBackgroundSubtheme>?) :
             List<IDataBackground>
 }

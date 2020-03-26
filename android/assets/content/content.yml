@@ -18,3 +18,5 @@ actions:
   - 'skills/skills_misc.yml'
 leagues:
    - 'leagues/bronze.yml'
+backgrounds:
+  - 'backgrounds.yml'

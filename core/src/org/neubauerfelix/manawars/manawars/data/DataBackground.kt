@@ -16,7 +16,11 @@ class DataBackground(val name: String, val mirror: Boolean) : IDataBackground {
         startTheme = MWBackgroundTheme.byId(parts[0].toInt())!!
         endTheme = MWBackgroundTheme.byId(parts[1].toInt())!!
         // do not care about background differentiator, which would be part with index 2
-        subtheme = MWBackgroundSubtheme.byId(parts[3].toInt())!!
+        subtheme = if (parts.size >= 4) {
+            MWBackgroundSubtheme.byId(parts[3].toInt())!!
+        } else {
+            MWBackgroundSubtheme.DEFAULT
+        }
     }
 
     override fun produce(x: Float): MBackground {
