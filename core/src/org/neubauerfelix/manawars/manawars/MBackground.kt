@@ -5,21 +5,15 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.*
 
-class MBackground(val fileName: String, val x: Float, flipped: Boolean, val assetLoader: IAssetLoader) : IBackground {
+class MBackground(val fileName: String, val x: Float, val flipped: Boolean, val assetLoader: IAssetLoader) : IBackground {
 
-    private var textureRegion: TextureRegion?
-    private val flipped: Boolean
+    private var textureRegion: TextureRegion? = null
 
     val nextX: Float
         get() = this.x + GameConstants.BACKGROUND_WIDTH
 
     override fun isLoaded(): Boolean {
         return textureRegion != null;
-    }
-
-    init {
-        this.textureRegion = null
-        this.flipped = flipped
     }
 
 
@@ -35,7 +29,7 @@ class MBackground(val fileName: String, val x: Float, flipped: Boolean, val asse
         if (!isLoaded()) {
             val texture = assetLoader.getTexture(fileName)
             this.textureRegion = TextureRegion(texture)
-            this.textureRegion!!.flip(false, true)
+            this.textureRegion!!.flip(flipped, true)
         }
     }
 

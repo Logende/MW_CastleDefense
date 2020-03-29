@@ -8,6 +8,7 @@ enum class MWBackgroundTheme(val id: Int) {
     DESERT_WOODEN_WALL(3),
     GRASSLAND_STONE_WALL(4),
     GRASSLAND_DARKSTONE_WALL(5),
+    DARK_WORLD(6),
     EXOTIC_GRASSLAND(7),
     SNOW(8),
     SNOW_STONE_WALL(9),

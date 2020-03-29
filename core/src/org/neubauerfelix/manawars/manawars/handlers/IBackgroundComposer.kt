@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
 
 interface IBackgroundComposer : IHandler {
 
-    fun composeBackgrounds(backgroundCount: Int, startThemes: Iterable<MWBackgroundTheme>?,
-                           endThemes: Iterable<MWBackgroundTheme>?, subthemes: Iterable<MWBackgroundSubtheme>?) :
+    fun composeBackgrounds(backgroundCount: Int, startThemes: Iterable<MWBackgroundTheme>,
+                           endThemes: Iterable<MWBackgroundTheme>, subthemes: Iterable<MWBackgroundSubtheme>) :
             List<IDataBackground>
 }

@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.MWBackgroundSubtheme
 import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
+import java.lang.NullPointerException
 
 class DataBackground(val name: String, val mirror: Boolean) : IDataBackground {
 
@@ -13,17 +14,24 @@ class DataBackground(val name: String, val mirror: Boolean) : IDataBackground {
 
     init {
         val parts = name.split("_")
-        startTheme = MWBackgroundTheme.byId(parts[0].toInt())!!
-        endTheme = MWBackgroundTheme.byId(parts[1].toInt())!!
-        // do not care about background differentiator, which would be part with index 2
-        subtheme = if (parts.size >= 4) {
-            MWBackgroundSubtheme.byId(parts[3].toInt())!!
-        } else {
-            MWBackgroundSubtheme.DEFAULT
+        try {
+            val startIndex = if (mirror) 1 else 0
+            val endIndex = if (mirror) 0 else 1
+            startTheme = MWBackgroundTheme.byId(parts[startIndex].toInt())!!
+            endTheme = MWBackgroundTheme.byId(parts[endIndex].toInt())!!
+            // do not care about background differentiator, which would be part with index 2
+            subtheme = if (parts.size >= 4) {
+                MWBackgroundSubtheme.byId(parts[3].toInt())!!
+            } else {
+                MWBackgroundSubtheme.DEFAULT
+            }
+        } catch (e: NullPointerException) {
+            print("Unable to find themes for background $name.")
+            throw e
         }
     }
 
     override fun produce(x: Float): MBackground {
-        return MBackground(name, x, mirror, MManaWars.m.getAssetLoader())
+        return MBackground("backgrounds/1/$name.jpg", x, mirror, MManaWars.m.getAssetLoader())
     }
 }

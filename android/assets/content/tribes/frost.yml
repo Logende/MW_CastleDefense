@@ -1,4 +1,11 @@
 name: frost
+castle: wood_1
+background_themes:
+  - SNOW
+background_subthemes:
+  - DEFAULT
+  - ICE_FORT
+  - STONE_TOWER
 army:
   units:
 
@@ -83,7 +90,3 @@ army:
         spawn_relative_to_target: true:false
         idle_time: 1.0
         knockback: 2.0
-
-
-
-castle: wood_1

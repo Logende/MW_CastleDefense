@@ -17,7 +17,7 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
     init {
         val buildingPlaceholderDefinitions = config.getStringList("building_placeholders")
         for (buildingPlaceholderDefinition in buildingPlaceholderDefinitions) {
-            val x = MathUtils.calc(buildingPlaceholderDefinition, "%playground_width%",
+            val x = MathUtils.calc(buildingPlaceholderDefinition, "playground_width",
                     IDataPlayground.PLAYGROUND_WIDTH.toDouble())
             buildingPlaceholdersX.add(x.toFloat())
         }

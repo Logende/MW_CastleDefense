@@ -1,4 +1,10 @@
 name: zombie
+background_themes:
+  - GRASSLAND
+  - COAST
+background_subthemes:
+  - DEFAULT
+
 army:
   units:
     boss:

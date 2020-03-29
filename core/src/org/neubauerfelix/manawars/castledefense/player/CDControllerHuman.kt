@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.castledefense.player
 
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
+import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.castledefense.data.buildings.DataUnitBuilder
 import org.neubauerfelix.manawars.castledefense.entities.controller.ControllerBuilder
 import org.neubauerfelix.manawars.game.GameConstants
@@ -10,7 +11,7 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.NWRarity
 
 
-class CDControllerHuman : ICDController {
+class CDControllerHuman(val league: IDataLeague) : ICDController {
 
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
@@ -37,7 +38,7 @@ class CDControllerHuman : ICDController {
             x += GameConstants.CONTROLPANEL_BUTTON_DISTANCE + button.width
         }
 
-        for (building in player.tribe.league.buildings) {
+        for (building in league.buildings) {
             val button = building.generateIcon(x, y, size, size, Runnable {
                 val castle = player.castle
                 if (castle.gold >= building.cost) {
