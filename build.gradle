@@ -89,12 +89,19 @@ project(":ios") {
 project(":core") {
     apply plugin: "kotlin"
 
-
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
         implementation "net.objecthunter:exp4j:0.4.8"
         api 'org.yaml:snakeyaml:1.12'
+
+        testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
+        testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+    }
+
+
+    test {
+        useJUnitPlatform()
     }
 }
