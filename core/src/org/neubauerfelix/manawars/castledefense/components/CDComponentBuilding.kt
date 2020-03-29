@@ -20,18 +20,14 @@ class CDComponentBuilding(x: Float, y: Float, width: Float, height: Float, val b
         MComponent(x, y, width, height) {
 
 
-    private val background: TextureRegion
+    private val background: TextureRegion = MManaWars.m.getImageHandler().getTextureRegionButton("frame.background")
     private val text: IComponent
 
 
-    private val animation: IEntity
+    private val animation: IEntity = building.animationProducer
+            .produce(x + width * 0.15f, y + height*0.15f, width*0.7f, height*0.7f)
 
     init {
-        background = MManaWars.m.getImageHandler().getTextureRegionButton("frame.background")
-        // TODO: Gold armor for boss?
-        animation = building.animationProducer
-                .produce(x + width * 0.15f, y + height*0.15f, width*0.7f, height*0.7f)
-
         val color = if (building is IDataBuildingAction) {
             building.action.displayColor
         } else {
@@ -45,9 +41,7 @@ class CDComponentBuilding(x: Float, y: Float, width: Float, height: Float, val b
     }
 
     override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
-        batcher.color = Color(73f/255f, 117f/255f, 144f/255f, 1f)
         batcher.draw(background, x, y, width, height)
-        batcher.color = Color.WHITE
 
 
        MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x, y, width, height, Color.DARK_GRAY)

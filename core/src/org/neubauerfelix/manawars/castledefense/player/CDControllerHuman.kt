@@ -23,7 +23,7 @@ class CDControllerHuman(val league: IDataLeague) : ICDController {
         get() = true
 
     override fun showControls() {
-        val size = GameConstants.CONTROLPANEL_BUTTON_SIZE * 0.4f
+        val size = GameConstants.CONTROLPANEL_BUTTON_SIZE
         var x = GameConstants.CONTROLPANEL_BUTTON_BORDER
         val y = GameConstants.WORLD_HEIGHT + (GameConstants.CONTROLPANEL_HEIGHT - size) / 2f
         for (unit in player.tribe.army.units) {

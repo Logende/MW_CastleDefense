@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.castledefense.components
 
-import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.IComponent
@@ -18,15 +17,19 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
         MComponent(x, y, width, height) {
 
 
-    private val background: TextureRegion
+    private val background: TextureRegion = if (unit.drainMultiplier == 0f) {
+        MManaWars.m.getImageHandler().getTextureRegionButton("frame.background")
+    } else {
+        MManaWars.m.getImageHandler().getTextureRegionButton("frame.background.vampire")
+    }
+
     private val text: IComponent
 
 
     private val animation: IEntity
 
     init {
-        background = MManaWars.m.getImageHandler().getTextureRegionButton("frame.background")
-        // TODO: Gold armor for boss?
+        // TODO: Gold frame for boss?
         animation = unit.animation.produce(x + width * 0.1f, y + height*0.05f, width*0.8f, height*0.8f)
 
         val color = unit.action.displayColor
@@ -38,11 +41,7 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
     }
 
     override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
-        batcher.color = if (unit.drainMultiplier > 0f) Color(175f/255f, 117f/255f, 144f/255f, 1f) else
-            Color(73f/255f, 117f/255f, 144f/255f, 1f)
         batcher.draw(background, x, y, width, height)
-        batcher.color = Color.WHITE
-
 
         MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x, y, width, height, unit.armor.color)
         (animation as IDrawable).draw(delta, batcher)
