@@ -11,7 +11,6 @@ import org.neubauerfelix.manawars.game.IScreen
 import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.IBackground
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.enums.MWBackgroundSubtheme
 
 class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScreen) :
         ILoadableAsync, IDisposable, ILogicable {
@@ -20,7 +19,9 @@ class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDP
 
     init {
         val backgroundData = MManaWars.m.getBackgroundComposer().composeBackgrounds(IDataPlayground.BACKGROUND_COUNT,
-                        playerA.tribe.backgroundThemes, playerB.tribe.backgroundThemes, MWBackgroundSubtheme.values().
+                playerA.tribe.backgroundThemes,
+                playerB.tribe.backgroundThemes,
+                playerA.tribe.backgroundSubthemes.plus(playerB.tribe.backgroundSubthemes).
                 toList())
         backgrounds = backgroundData.mapIndexed { index, background ->
             background.produce(index * GameConstants.BACKGROUND_WIDTH) }
