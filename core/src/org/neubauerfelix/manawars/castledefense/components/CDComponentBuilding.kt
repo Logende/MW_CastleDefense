@@ -44,7 +44,7 @@ class CDComponentBuilding(x: Float, y: Float, width: Float, height: Float, val b
         batcher.draw(background, x, y, width, height)
 
 
-       MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x, y, width, height, Color.DARK_GRAY)
+       MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x, y, width, height)
         (animation as IDrawable).draw(delta, batcher)
         (animation as ILogicable).doLogic(delta)
 

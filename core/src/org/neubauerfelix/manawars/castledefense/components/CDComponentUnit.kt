@@ -26,12 +26,10 @@ class CDComponentUnit(x: Float, y: Float, width: Float, height: Float, val unit 
     private val text: IComponent
 
 
-    private val animation: IEntity
+    // TODO: Gold frame for boss?<
+    private val animation: IEntity = unit.animation.produce(x + width * 0.1f, y + height*0.05f, width*0.8f, height*0.8f)
 
     init {
-        // TODO: Gold frame for boss?
-        animation = unit.animation.produce(x + width * 0.1f, y + height*0.05f, width*0.8f, height*0.8f)
-
         val color = unit.action.displayColor
         val colorAsHexString = String.format("#%02x%02x%02x",
                 (color.r * 255f).toInt(),

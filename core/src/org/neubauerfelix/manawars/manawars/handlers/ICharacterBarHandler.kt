@@ -9,6 +9,6 @@ interface ICharacterBarHandler: IHandler {
 
     fun drawStatsBar(batcher: Batch, e: IControlled)
     fun drawFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
-                  color: Color)
+                  color: Color? = null)
 
 }

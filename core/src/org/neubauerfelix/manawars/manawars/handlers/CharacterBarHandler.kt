@@ -21,12 +21,13 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
     private lateinit var signBoss: TextureRegion
     private lateinit var armorSymbol: TextureRegion
     private lateinit var frame: TextureRegion
+    private lateinit var frameDefault: TextureRegion
 
 
 
 
     override fun isLoaded(): Boolean {
-        return ::frame.isInitialized
+        return ::frame.isInitialized && ::frameDefault.isInitialized
     }
 
     override fun load() {
@@ -43,8 +44,7 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
             signBoss = imageHandler.getTextureRegionMain("symbol.boss")
             armorSymbol = imageHandler.getTextureRegionMain("symbol.armor")
             frame = imageHandler.getTextureRegionButton("frame")
-
-
+            frameDefault = imageHandler.getTextureRegionButton("frame.default")
         }
     }
 
@@ -83,11 +83,16 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
     }
 
     override fun drawFrame(batcher: Batch, x: Float, y: Float, width: Float, height: Float,
-                           color: Color) {
-        batcher.color = color
+                           color: Color?) {
         val w = width * frame.regionWidth / frame.regionWidth
         val h = height * frame.regionHeight / frame.regionHeight
-        batcher.draw(frame, x, y , w, h)
-        batcher.color = Color.WHITE
+
+        if (color == null) {
+            batcher.draw(frameDefault, x, y , w, h)
+        } else {
+            batcher.color = color
+            batcher.draw(frame, x, y , w, h)
+            batcher.color = Color.WHITE
+        }
     }
 }
