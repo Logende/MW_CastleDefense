@@ -1,14 +1,13 @@
 package org.neubauerfelix.manawars.castledefense.player
 
+import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
+import org.neubauerfelix.manawars.castledefense.components.CDComponentButtonImage
 import org.neubauerfelix.manawars.castledefense.data.IDataLeague
-import org.neubauerfelix.manawars.castledefense.data.buildings.DataUnitBuilder
-import org.neubauerfelix.manawars.castledefense.entities.controller.ControllerBuilder
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.enums.NWRarity
 
 
 class CDControllerHuman(val league: IDataLeague) : ICDController {
@@ -26,6 +25,14 @@ class CDControllerHuman(val league: IDataLeague) : ICDController {
         val size = GameConstants.CONTROLPANEL_BUTTON_SIZE
         var x = GameConstants.CONTROLPANEL_BUTTON_BORDER
         val y = GameConstants.WORLD_HEIGHT + (GameConstants.CONTROLPANEL_HEIGHT - size) / 2f
+
+        val buildingButtonTexture = MManaWars.m.getImageHandler().getTextureRegionButton("buildings")
+        val buildingButton = CDComponentButtonImage(x, y, size, size, buildingButtonTexture, listener = Runnable {
+            hideControls()
+            showControlsBuildings()
+        })
+        x = addButton(buildingButton, x, y, size)
+
         for (unit in player.tribe.army.units) {
             val button = unit.generateIcon(x, y, size, size, Runnable {
                 if (player.castle.gold >= unit.cost) {
@@ -35,8 +42,27 @@ class CDControllerHuman(val league: IDataLeague) : ICDController {
             })
             buttons.add(button)
             MManaWars.m.screen.addComponent(button)
-            x += GameConstants.CONTROLPANEL_BUTTON_DISTANCE + button.width
+            x = addButton(button, x, y, size)
         }
+    }
+
+    private fun addButton(button: IComponent, x: Float, y: Float, size: Float) : Float {
+        buttons.add(button)
+        MManaWars.m.screen.addComponent(button)
+       return x + GameConstants.CONTROLPANEL_BUTTON_DISTANCE + button.width
+    }
+
+    fun showControlsBuildings() {
+        val size = GameConstants.CONTROLPANEL_BUTTON_SIZE
+        var x = GameConstants.CONTROLPANEL_BUTTON_BORDER
+        val y = GameConstants.WORLD_HEIGHT + (GameConstants.CONTROLPANEL_HEIGHT - size) / 2f
+
+        val unitButtonTexture = MManaWars.m.getImageHandler().getTextureRegionButton("units")
+        val unitButton = CDComponentButtonImage(x, y, size, size, unitButtonTexture, Color.WHITE, Runnable {
+            hideControls()
+            showControls() // show unit controls
+        })
+        x = addButton(unitButton, x, y, size)
 
         for (building in league.buildings) {
             val button = building.generateIcon(x, y, size, size, Runnable {
