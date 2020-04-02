@@ -74,7 +74,7 @@ army:
     mage:
       animation: 'human:l1.frost.mage'
       armor: 'none'
-      rarity: common
+      rarity: rare
       action:
         owner_animation: SUMMON_BIG
         texture: l1.frost.mage

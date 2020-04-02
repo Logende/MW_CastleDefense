@@ -35,7 +35,7 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable, IHandler {
     private val zoomIngame = 1f
 
     /** This rectangle represents the part of the playground which is currently shown by the camera. */
-    private val window: GameRectangle
+    override val window: GameRectangle
 
     private var loadingScreen: TextureRegion
 

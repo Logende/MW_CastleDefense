@@ -10,7 +10,7 @@ action:
   owner_animation: 'BUILDING_EFFECT'
   texture: building.mortar
   animation: '1:1:1'
-  sound: skill.arrow
+  sound: skill.cannon
   skillclass: NORMAL
   speed: '300:-1200'
   acceleration: 0:50*A

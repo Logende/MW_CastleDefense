@@ -42,6 +42,7 @@ open class MManaWars: GameManaWars() {
         loadHandler(CharacterBarHandler())
         loadHandler(BackgroundListHandler())
         loadHandler(BackgroundComposer())
+        loadHandler(SoundHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
@@ -132,6 +133,10 @@ open class MManaWars: GameManaWars() {
 
     fun getBackgroundComposer(): IBackgroundComposer {
         return getHandler(BackgroundComposer::class.java)
+    }
+
+    fun getSoundHandler(): ISoundHandler {
+        return getHandler(SoundHandler::class.java)
     }
 
 

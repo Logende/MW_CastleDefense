@@ -10,10 +10,11 @@ action:
   owner_animation: 'BUILDING_EFFECT'
   texture: "building.cannon"
   animation: '1:1:1'
-  sound: skill.arrow
+  sound: skill.cannon
   skillclass: NORMAL
   speed: '1400:0'
   acceleration: 0:3*A
   location: '10:-15'
   knockback: 1.0
   damage: 20
+  idle_time: 0.2

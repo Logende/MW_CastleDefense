@@ -45,6 +45,7 @@ class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDP
         loaded = true
         playerA.spawnCastle(true, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
         playerB.spawnCastle(false, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
+        league.playground.createPlayground(playerA, playerB, league)
         playerA.controller.showControls()
         playerB.controller.showControls()
         screen.addComponent(CDComponentGameInfo(30f, 200f, playerA))

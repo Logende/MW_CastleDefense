@@ -41,7 +41,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         // Set up basic values
         MManaWars.m.getSkillSetupHandler().setupLocation(this, data, o, target)
         if (! this.idle) {
-            MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
+            startMoving()
         }
 
         if (data.pickOneFrame) {
@@ -49,10 +49,11 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         }
     }
 
-    override fun spawn() {
-        super.spawn()
-        // TODO make sound
+    fun startMoving() {
+        MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
+        data.soundPath?.let { MManaWars.m.getSoundHandler().playSound(data.soundPath!!, this.centerHorizontal) }
     }
+
 
     override fun draw(delta: Float, batcher: Batch) {
         if (! (idle &&data.invisibleWhileIdle)) {
@@ -66,7 +67,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
             // Idle
             this.idleTimeLeft -= delta
             if (!this.idle) {
-                MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
+                startMoving()
             }
         } else {
             // Not Idle -> active
@@ -108,7 +109,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         if (e is IUpgraded) {
             damageFactor *= e.getArmor(collisionType).getSkillEffectivity(data.skillClass).damageFactor
 
-            if (damageFactor == 0f) { //If entity is immune to skill type
+            if (damageFactor == 0f) { // If entity is immune to skill type
                 knockbackSkill(e, MWSkillKnockbackReason.ARMOR)
                 return
             }

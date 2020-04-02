@@ -9,7 +9,7 @@ import org.neubauerfelix.manawars.game.ILoadableAsync
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IControlled
-import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
+import org.neubauerfelix.manawars.manawars.entities.ILiving
 
 
 class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
@@ -49,16 +49,17 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
     }
 
 
-    override fun drawStatsBar(batcher: Batch, e: IControlled) {
+    override fun drawStatsBar(batcher: Batch, e: ILiving) {
         val width = Math.min(MConstants.INGAME_CHARACTERBAR_WIDTH,
                 e.width + CDConstants.CASTLEDEFENSE_FORMATION_UNIT_DISTANCE)
         val height = MConstants.INGAME_CHARACTERBAR_HEIGHT
-        this.drawStatsBar(batcher, e.health, e.data.health, e.centerHorizontal, e.top - 5f, width, height,
-                e.entityAnimationType, e.data.armor)
+
+        val armor = if (e is IControlled) { e.data.armor } else { MWArmorType.NONE }
+        this.drawStatsBar(batcher, e.health, e.healthMax, e.centerHorizontal, e.top - 5f, width, height, armor)
     }
 
-    fun drawStatsBar(batcher: Batch, health: Float, maxHealth: Float, middleX: Float, bottom: Float, width: Float, height: Float,
-                     animationType: MWEntityAnimationType, armor: MWArmorType) {
+    fun drawStatsBar(batcher: Batch, health: Float, maxHealth: Float, middleX: Float, bottom: Float, width: Float,
+                     height: Float, armor: MWArmorType) {
         val x = middleX - width / 2f
         val y = bottom - height
 

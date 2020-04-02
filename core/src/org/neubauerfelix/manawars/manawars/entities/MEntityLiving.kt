@@ -41,8 +41,7 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
             require(health in 0f .. healthMax)
             field = value
         }
-
-    var healthMax: Float = health
+    final override var healthMax: Float = health
         private set(value) {
             field = value
             if (this.health > this.healthMax)

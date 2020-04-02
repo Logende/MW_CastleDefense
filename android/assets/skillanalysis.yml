@@ -62,7 +62,7 @@ action_building_buildings/icethrower:
     rangeMin: 0.0
 action_building_buildings/cannon:
   yml:
-    lifeTime: 1.02
+    lifeTime: 1.22
     rangeMax: 900.0
     rangeMin: 0.0
 action_building_buildings/mortar:

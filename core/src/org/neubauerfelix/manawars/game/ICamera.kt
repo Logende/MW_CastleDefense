@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.game
 
 import com.badlogic.gdx.utils.viewport.Viewport
+import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 
 interface ICamera {
@@ -13,5 +14,7 @@ interface ICamera {
     fun resize(width: Int, height: Int)
 
     fun getViewport(): Viewport
+
+    val window: GameRectangle
 
 }

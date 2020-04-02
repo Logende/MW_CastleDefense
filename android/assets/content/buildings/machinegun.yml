@@ -18,7 +18,7 @@ action:
       type: normal
       texture: building.machinegun
       animation: '1:1:1'
-      sound: skill.arrow
+      sound: skill.throw
       skillclass: NORMAL
       speed: '1600:0'
       acceleration: 0:2*A

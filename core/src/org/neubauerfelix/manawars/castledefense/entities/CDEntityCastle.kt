@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.castledefense.entities
 
+import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.game.entities.*
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -34,6 +35,10 @@ class CDEntityCastle(x: Float, y: Float, textureNameAlive: String, textureNameDe
         get() = super.speedX
         set(value) { }
 
+    override fun draw(delta: Float, batcher: Batch) {
+        super.draw(delta, batcher)
+        MManaWars.m.getCharacterBarHandler().drawStatsBar(batcher, this)
+    }
 
 
     override fun doLogic(delta: Float) {

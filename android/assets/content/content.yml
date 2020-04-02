@@ -17,6 +17,8 @@ actions:
   - 'skills/skills_castle.yml'
   - 'skills/skills_misc.yml'
 leagues:
-   - 'leagues/bronze.yml'
+  - 'leagues/bronze.yml'
 backgrounds:
   - 'backgrounds.yml'
+sounds:
+  - 'sounds.yml'

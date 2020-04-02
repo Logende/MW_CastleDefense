@@ -14,6 +14,7 @@ interface ILiving : ISized, IMovable, ILogicable {
 
     val invincible: Boolean
     val health: Float
+    val healthMax: Float
 
 
 

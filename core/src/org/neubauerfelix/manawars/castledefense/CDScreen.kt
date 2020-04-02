@@ -24,8 +24,8 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadScreen(): Boolean {
         val league = CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!
-        val army2 = league.getTribe("frost")!!
-        val army1 = league.getTribe("zombie")!!
+        val army1 = league.getTribe("frost")!!
+        val army2 = league.getTribe("zombie")!!
         val controllerA = CDControllerHuman(league)
         val controllerB = CDControllerBot()
         val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
@@ -43,19 +43,6 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
-
-        var x = 2500f
-        val league = CDManaWars.cd.getLeagueHandler().getLeague("bronze")
-        league!!.buildingPlaceholder.produce(2000f, team = MConstants.TEAM_PEACEFUL, league = league)
-        league!!.buildingPlaceholder.produce(3000f, team = MConstants.TEAM_PEACEFUL, league = league)
-        league!!.buildingPlaceholder.produce(2500f, team = MConstants.TEAM_PEACEFUL, league = league)
-        league!!.buildingPlaceholder.produce(1800f, team = MConstants.TEAM_PEACEFUL, league = league)
-        for (building in CDManaWars.cd.getLeagueHandler().getLeague("bronze")!!.buildings) {
-            //if (building.name.contains("heal")) {
-                //building.produce(x, team = MConstants.TEAM_PLAYER)
-                x += building.animationProducer.bodyWidth + 100f
-          //  }
-        }
     }
 
     override fun disposeScreen() {
