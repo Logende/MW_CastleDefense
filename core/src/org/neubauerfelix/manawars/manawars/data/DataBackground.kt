@@ -32,6 +32,6 @@ class DataBackground(val name: String, val mirror: Boolean) : IDataBackground {
     }
 
     override fun produce(x: Float): MBackground {
-        return MBackground("backgrounds/1/$name.jpg", x, mirror, MManaWars.m.getAssetLoader())
+        return MBackground("backgrounds/$name.jpg", x, mirror, MManaWars.m.getAssetLoader())
     }
 }

@@ -4,16 +4,10 @@ enum class MWBackgroundTheme(val id: Int) {
 
     GRASSLAND(0),
     DESERT(1),
-    GRASSLAND_WOODEN_WALL(2),
-    DESERT_WOODEN_WALL(3),
-    GRASSLAND_STONE_WALL(4),
-    GRASSLAND_DARKSTONE_WALL(5),
-    DARK_WORLD(6),
-    EXOTIC_GRASSLAND(7),
-    SNOW(8),
-    SNOW_STONE_WALL(9),
-    EXOTIC_GRASSLAND_SANDSTONE_WALL(11),
-    COAST(12);
+    EXOTIC_GRASSLAND(2),
+    SNOW(3),
+    DARK_WORLD(4),
+    COAST(5);
 
     companion object {
         fun byId(id: Int): MWBackgroundTheme? {
