@@ -4,19 +4,9 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
-import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.analysis.*
 import org.neubauerfelix.manawars.manawars.data.actions.*
 import org.neubauerfelix.manawars.manawars.entities.*
-import org.neubauerfelix.manawars.manawars.entities.MSkill
-import org.neubauerfelix.manawars.manawars.enums.*
-import org.neubauerfelix.manawars.manawars.storage.Configuration
-import org.neubauerfelix.manawars.manawars.storage.ConfigurationProvider
-import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
-import java.lang.RuntimeException
 import kotlin.math.abs
-import kotlin.math.pow
 import kotlin.math.sqrt
 
 

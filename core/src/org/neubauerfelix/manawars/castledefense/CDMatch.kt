@@ -47,7 +47,7 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
         playerB.tribe.playground.createPlayground(playerA, playerB)
         playerA.controller.showControls()
         playerB.controller.showControls()
-        screen.addComponent(CDComponentGameInfo(30f, 200f, playerA))
+        screen.addComponent(CDComponentGameInfo(20f, 50f, playerA))
     }
 
     override fun isLoaded(): Boolean {

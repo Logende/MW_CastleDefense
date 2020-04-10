@@ -76,5 +76,8 @@ open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), I
         components.remove(component)
     }
 
+    override fun clearComponents() {
+        components.clear()
+    }
 
 }
