@@ -13,6 +13,12 @@ import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 import java.lang.RuntimeException
 
 
+/*
+WARNING: This file does NOT generate instantly usable skill stats every run. Instead it creates
+skill stats that are in a file "skillanalysis.yml". That file has to be manually copied to the skills folder.
+Then the game will be able to use the stats in following game launches.
+ */
+
 class SkillStatsHandler : ISkillStatsHandler {
 
     companion object {
@@ -31,7 +37,7 @@ class SkillStatsHandler : ISkillStatsHandler {
 
 
     /**
-     * This config file contains all prepared skill analyses. Basically when a skill is loaded, the existing analysis from this config
+     * This config file contains all prepared skill analyses. Basically, when a skill is loaded, the existing analysis from this config
      * is used. If no analysis exists yet, a dummy analysis (containing placeholder values) will be created.
      *
      * That way the game can run even when analyses are missing. New analyses can be generated using the
@@ -48,6 +54,7 @@ class SkillStatsHandler : ISkillStatsHandler {
     }
 
     private fun generateDefaultStats() : ISkillStats {
+        println("Generating default stats for skill.")
         return object : ISkillStats {
             override val lifeTime: Float = 1f
             override val rangeMax = Float.MAX_VALUE
@@ -183,7 +190,7 @@ class SkillStatsHandler : ISkillStatsHandler {
                 target.doLogic(0f) // updates location
                 distanceMax = Math.max(distanceMax, owner.getDistanceHor(target))
                 // count collision if it is detected and in case of jumping skills: only when already falling down
-                if (collisionType != MWCollisionType.NONE && (!isJumpSkill || skill.speedY > 0)) {
+                if (collisionType != MWCollisionType.NONE && (!isJumpSkill || skill.speedY >= 0)) {
                     rangeMax = Math.max(rangeMax, owner.getDistanceHor(target))
                     target.right = skill.centerHorizontal
                     target.doLogic(0f) // updates location
@@ -204,6 +211,7 @@ class SkillStatsHandler : ISkillStatsHandler {
             }
 
         }
+
 
         if (data.skillClass == MWSkillClass.SHIELD) {
             rangeMin = 0f
@@ -230,6 +238,7 @@ class SkillStatsHandler : ISkillStatsHandler {
         return data.startSpeedX > 100f
                 && data.startSpeedY < -500f
                 && data.accelerationY > 5*DataSkillLoaded.ACC_FACTOR
+                &&! data.stopOnGround
     }
 
 }
