@@ -10,6 +10,7 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.*
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
+import java.security.InvalidParameterException
 
 
 final class DataSkillLoaded(final override val name: String, config: Configuration) : DataSkill() {
@@ -51,7 +52,8 @@ final class DataSkillLoaded(final override val name: String, config: Configurati
                 null
             }
 
-    final override val soundPath: String? = config.getString("sound")
+    final override val soundPath: String? = config.getString("sound", null)
+
     final override val textureScale: Float = config.getFloat("scale", 1f)
 
     final override val animationEffect: MWAnimationTypeBodyEffect? = if (config.contains("owner_animation"))
@@ -136,7 +138,7 @@ final class DataSkillLoaded(final override val name: String, config: Configurati
     /**
      * Effect: Knockback, damage, state effect, etc.
      */
-    final override var damage: Int =  config.getInt("damage")
+    final override var damage: Float =  config.getFloat("damage")
     final override val stateEffect: MWState?
     final override val stateEffectDuration: Float
     init {

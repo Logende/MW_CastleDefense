@@ -15,7 +15,7 @@ class CDComponentGameInfo(x: Float, y: Float, val player: ICDPlayer) :
     private val coinTexture = MManaWars.m.getImageHandler().getTextureRegionMain("icon.money")
 
     private val goldPlayer = MComponentTextLabelImages(x, y, "",
-            FontHandler.MWFont.TEXT, 1f)
+            FontHandler.MWFont.MAIN, 0.3f)
     private val goldEnemy = MTextLabel(x, goldPlayer.bottom + MConstants.UI_DISTANCE_COLUMNS,
             "E: ${player.enemy.castle.gold} Gold", FontHandler.MWFont.TEXT, 1f)
 

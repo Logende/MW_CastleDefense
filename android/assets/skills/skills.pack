@@ -17,7 +17,7 @@ beast.bite.huge
   orig: 1000, 300
   offset: 0, 0
   index: -1
-beast.stones
+l1.bear.ranged
   rotate: false
   xy: 803, 659
   size: 1200, 62
@@ -171,7 +171,7 @@ l1.zombie.ranged
   orig: 326, 9
   offset: 0, 0
   index: -1
-beast.rock.2
+l1.bear.boss
   rotate: false
   xy: 1805, 723
   size: 110, 109
@@ -584,13 +584,6 @@ hammer.4
   orig: 67, 143
   offset: 0, 0
   index: -1
-beast.rock.1
-  rotate: false
-  xy: 1445, 16
-  size: 74, 74
-  orig: 74, 74
-  offset: 0, 0
-  index: -1
 building.cannon
   rotate: false
   xy: 1445, 16
@@ -599,6 +592,13 @@ building.cannon
   offset: 0, 0
   index: -1
 building.mortar
+  rotate: false
+  xy: 1445, 16
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+l1.bear.tank
   rotate: false
   xy: 1445, 16
   size: 74, 74
@@ -1044,7 +1044,7 @@ boomerang.3
   orig: 41, 71
   offset: 0, 0
   index: -1
-magic.energy
+l1.bear.mage
   rotate: false
   xy: 985, 216
   size: 38, 39

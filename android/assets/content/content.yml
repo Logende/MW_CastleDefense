@@ -19,6 +19,7 @@ actions:
 tribes:
   - 'tribes/frost.yml'
   - 'tribes/zombie.yml'
+  - 'tribes/bear.yml'
 backgrounds:
   - 'backgrounds.yml'
 playgrounds:

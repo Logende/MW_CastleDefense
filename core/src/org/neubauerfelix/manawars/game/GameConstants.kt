@@ -26,7 +26,7 @@ class GameConstants {
         const val PATH_ATLAS_BUTTONS = "components/buttons_small.pack"
         const val PATH_ATLAS_MAIN = "main/main.pack"
         const val PATH_ATLAS_SKILLS = "skills/skills.pack"
-        const val PATH_BACKGROUND = "backgrounds/1/"
+        const val PATH_BACKGROUND = "backgrounds/"
         const val PATH_LOADING_SCREEN = PATH_BACKGROUND + "loading.jpg"
     }
 }

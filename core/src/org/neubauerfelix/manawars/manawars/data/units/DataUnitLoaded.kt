@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.castledefense.data.tribes.IDataArmy
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
+import org.neubauerfelix.manawars.manawars.data.actions.DataSkillMixLoaded
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.*
@@ -38,15 +39,22 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
     override val action: IDataAction = MManaWars.m.getActionHandler().loadAction("skill_$name", config.getSection("action"))!!
 
     init {
+        this.updateActionDamage(action, baseUnitStats.damage)
+    }
+
+    private fun updateActionDamage(action: IDataAction, baseUnitDamage: Float) {
         if (action is DataSkillLoaded) {
             if (action.damage <= 0) {
-                action.damage = baseUnitStats.damage.toInt()
+                action.damage = baseUnitDamage
             } else {
-                action.damage = (action.damage * baseUnitStats.damage).toInt()
+                action.damage = (action.damage * baseUnitDamage)
+            }
+        } else if (action is DataSkillMixLoaded) {
+            action.parts.forEach {
+                this.updateActionDamage(it.action, baseUnitDamage)
             }
         }
     }
-
 
     override var health: Float = if (config.contains("health")) {
         (baseUnitStats.health * config.getFloat("health"))

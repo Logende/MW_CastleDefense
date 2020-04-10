@@ -1,72 +1,95 @@
-skill_zombie:
-  boss:
-    lifeTime: 3.26
-    rangeMax: 626.6118
-    rangeMin: 0.0
-  tank:
-    lifeTime: 8.16
-    rangeMax: 560.0
-    rangeMin: 334.0
-  melee:
-    lifeTime: 2.06
-    rangeMax: 636.0
-    rangeMin: 0.0
-  ranger:
-    lifeTime: 1.02
-    rangeMax: 900.0
-    rangeMin: 0.0
-  mage:
-    lifeTime: 1.6999999
-    rangeMax: 900.0
-    rangeMin: 0.0
 skill_frost:
-  boss:
-    lifeTime: 2.6599998
-    rangeMax: 630.9115
-    rangeMin: 0.0
-  tank:
-    lifeTime: 2.6599998
-    rangeMax: 630.9115
-    rangeMin: 0.0
   melee:
-    lifeTime: 1.4399999
+    lifeTime: 1.5799999
     rangeMax: 720.0
     rangeMin: 0.0
-  ranger:
-    lifeTime: 0.85999995
-    rangeMax: 900.0
+  boss:
+    lifeTime: 2.6599998
+    rangeMax: 630.9115
     rangeMin: 0.0
   mage:
     lifeTime: 2.02
     rangeMax: 1000.0
     rangeMin: 0.0
-action_building_buildings/darts:
-  yml:
-    lifeTime: 1.04
+  tank:
+    lifeTime: 2.6
+    rangeMax: 630.9115
+    rangeMin: 0.0
+  ranger:
+    lifeTime: 1.1999999
     rangeMax: 900.0
     rangeMin: 0.0
-action_building_buildings/ballista:
-  yml:
-    lifeTime: 0.74
+skill_zombie:
+  tank:
+    lifeTime: 8.639999
+    rangeMax: 560.0
+    rangeMin: 334.0
+  melee:
+    lifeTime: 2.26
+    rangeMax: 636.0
+    rangeMin: 0.0
+  ranger:
+    lifeTime: 1.42
     rangeMax: 900.0
     rangeMin: 0.0
-action_building_buildings/firethrower:
-  yml:
-    lifeTime: 1.68
+  mage:
+    lifeTime: 2.36
     rangeMax: 900.0
     rangeMin: 0.0
-action_building_buildings/icethrower:
-  yml:
-    lifeTime: 1.68
-    rangeMax: 900.0
+  boss:
+    lifeTime: 3.48
+    rangeMax: 626.6118
     rangeMin: 0.0
-action_building_buildings/cannon:
-  yml:
-    lifeTime: 0.74
+skill_bear:
+  boss:
+    lifeTime: 2.74
     rangeMax: 900.0
+    rangeMin: 133.90411
+  ranger:
+    lifeTime: 9.5199995
+    rangeMax: 828.0
+    rangeMin: 629.0
+  tank:
+    lifeTime: 2.74
+    rangeMax: 900.0
+    rangeMin: 133.90411
+  melee:
+    lifeTime: 1.5799999
+    rangeMax: 720.0
     rangeMin: 0.0
-action_building_buildings/mortar:
-  yml:
-    lifeTime: 13.759999
-    rangeMax: 860.0
-    rangeMin: 712.0
+action_building_mortar:
+  lifeTime: 14.16
+  rangeMax: 860.0
+  rangeMin: 712.0
+action_building_cannon:
+  lifeTime: 1.22
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_ballista:
+  lifeTime: 1.04
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_firethrower:
+  lifeTime: 2.04
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_icethrower:
+  lifeTime: 2.04
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_darts:
+  lifeTime: 1.4399999
+  rangeMax: 900.0
+  rangeMin: 0.0
+magic_energy_single:
+  lifeTime: 2.7
+  rangeMax: 900.0
+  rangeMin: 0.0
+crossbow_strong:
+  lifeTime: 1.1
+  rangeMax: 900.0
+  rangeMin: 0.0
+arrow:
+  lifeTime: 1.04
+  rangeMax: 900.0
+  rangeMin: 0.0

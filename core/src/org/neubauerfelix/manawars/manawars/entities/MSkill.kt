@@ -9,8 +9,8 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.enums.*
-
-
+import kotlin.math.max
+import kotlin.math.min
 
 
 class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale,
@@ -18,7 +18,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
 
     override var owner: IEntity = o
 
-    var health: Int = data.damage
+    var health: Float = data.damage
     var direction: Int = o.direction
         set(value) {
             this.mirror = (value == -1)
@@ -53,7 +53,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         }
     }
 
-    fun startMoving() {
+    private fun startMoving() {
         MManaWars.m.getSkillSetupHandler().setupMovement(this, data, o, target)
         data.soundPath?.let { MManaWars.m.getSoundHandler().playSound(data.soundPath!!, this.centerHorizontal) }
     }
@@ -153,10 +153,10 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         }
 
         // Damage skill itself
-        val skillDamage = Math.min(MConstants.MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT, e.health.toInt())
+        val skillDamage = min(MConstants.MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT, e.health)
         // MSkill damage
         if (!killed) {
-            this.damage(Math.max(skillDamage, MConstants.MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL), e)
+            this.damage(max(skillDamage, MConstants.MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL), e)
         } else {
             this.damage(skillDamage, e)
             //if (s.getEnemiesKilled() >= 2 && getSkillClass() !== MWSkillClass.SHIELD && collision_type === EntityAnimationHuman.COLLISION_TYPE_HEAD) {
@@ -182,9 +182,9 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
     }
 
 
-    fun damage(value: Int, damager: IEntity): Boolean {
+    fun damage(value: Float, damager: IEntity): Boolean {
         var i = value / propertyScale
-        this.health -= i.toInt()
+        this.health -= i
         if (this.health <= 0) {
             remove = true
             return true

@@ -32,7 +32,7 @@ interface IDataSkill : IDataAction {
     val skillClass: MWSkillClass
 
     // attack action
-    val damage: Int
+    val damage: Float
     val stateEffect: MWState?
     val stateEffectDuration: Float
     val knockbackFactor: Float

@@ -1,0 +1,106 @@
+name: bear
+castle: "castles/wood_1.yml:1.0"
+music: last_hope_for_humanity
+background_themes:
+  - GRASSLAND
+background_subthemes:
+  - DEFAULT
+buildings:
+  - 'darts'
+  - 'ballista'
+  - 'doubleballista'
+  - 'icethrower'
+  - 'firethrower'
+playground: "default"
+
+army:
+  units:
+
+    boss:
+      animation: 'human:l1.bear.boss'
+      armor: 'anti_light'
+      rarity: rare
+      action:
+        owner_animation: SUMMON_BIG
+        texture: l1.bear.boss
+        animation: 2.0:1:1
+        sound: skill.rock
+        skillclass: NORMAL
+        speed: '300:0'
+        acceleration: 10*A:G
+        location: 0:-900
+        knockback: 1.0
+        stop_on_ground: true
+
+    tank:
+      animation: 'human:l1.bear.tank'
+      armor: 'anti_light'
+      rarity: rare
+      action:
+        owner_animation: SUMMON_BIG
+        texture: l1.bear.boss
+        animation: 2.0:1:1
+        sound: skill.rock
+        skillclass: NORMAL
+        speed: '300:0'
+        acceleration: 10*A:G
+        location: 0:-900
+        knockback: 1.0
+        stop_on_ground: true
+
+    melee:
+      animation: 'human:l1.frost.melee'
+      armor: 'anti_light'
+      rarity: common
+      action:
+        owner_animation: THROW
+        texture: l1.frost.melee
+        animation: '1:1:1'
+        sound: skill.knife.weak
+        skillclass: NORMAL
+        speed: 900:-200
+        acceleration: 0:55*A
+        location: 0:-30
+        knockback: 1.1
+
+    ranger:
+      animation: 'human:l1.bear.ranged'
+      armor: 'none'
+      rarity: common
+      action:
+        owner_animation: THROW
+        texture: l1.bear.ranged
+        animation: '1:16:1'
+        pick_one_frame: true
+        sound: skill.rock
+        skillclass: NORMAL
+        speed: 450:-800
+        acceleration: 0:60*A
+        location: 0:-70
+        knockback: 1.0
+        allow_movement_scaling: true
+
+    mage:
+      animation: 'human:l1.bear.mage'
+      armor: 'none'
+      rarity: common
+      action:
+        type: mix
+        owner_animation: SUMMON_BIG
+        sound: skill.energy
+        manacost_factor: 0.7
+        parts:
+          - magic_energy_single:0:-50:0:-20
+          - magic_energy_single:0:0:0:0
+          - magic_energy_single:0:50:0:20
+        recipes:
+          magic_energy_single:
+            texture: l1.bear.mage
+            animation: '1:1:1'
+            skillclass: MAGIC
+            speed: '200:0'
+            acceleration: 15*A:0
+            location: 0:-35
+            # the 0.4 value is multiplied with the base unit damage value
+            damage: 0.4
+            knockback: 1.0

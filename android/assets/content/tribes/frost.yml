@@ -5,8 +5,6 @@ background_themes:
   - SNOW
 background_subthemes:
   - DEFAULT
-  - ICE_FORT
-  - STONE_TOWER
 buildings:
   - 'darts'
   - 'ballista'

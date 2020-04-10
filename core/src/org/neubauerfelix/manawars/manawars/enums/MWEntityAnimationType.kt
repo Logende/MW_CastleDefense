@@ -1,7 +1,6 @@
 package org.neubauerfelix.manawars.manawars.enums
 
 import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitDummy
 import org.neubauerfelix.manawars.manawars.entities.IControlled
@@ -16,14 +15,15 @@ import org.neubauerfelix.manawars.manawars.entities.controller.ControllerDummy
 enum class MWEntityAnimationType {
 
     HUMAN {
-        override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
+        override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
             val skinName = "l1.zombie.mage"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
-            a.setLocation(x, y)
+            a.x = x
+            a.bottom = bottom
             a.team = MConstants.TEAM_BOT
             a.direction = direction
             a.animation.updateAnimation(a)
@@ -31,14 +31,15 @@ enum class MWEntityAnimationType {
         }
     },
     HUMAN_SHIELD {
-        override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
+        override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
             val skinName = "dummy.shield"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
-            a.setLocation(x, y)
+            a.x = x
+            a.bottom = bottom
             a.team = MConstants.TEAM_BOT
             a.direction = direction
             a.animation.updateAnimation(a)
@@ -49,14 +50,15 @@ enum class MWEntityAnimationType {
         }
     },
     MOUNT {
-        override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
+        override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
             val skinNameMount = "lion"
             val animationProducerMount = IEntityAnimationProducer.createProducerMount(skinNameMount)
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducerMount, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
-            a.setLocation(x, y)
+            a.x = x
+            a.bottom = bottom
             a.team = MConstants.TEAM_BOT
             a.direction = direction
             a.animation.updateAnimation(a)
@@ -64,7 +66,7 @@ enum class MWEntityAnimationType {
         }
     },
     RIDER {
-        override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
+        override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
             val skinName = "l1.zombie.mage"
             val skinNameMount = "lion"
             val animationProducerRider = IEntityAnimationProducer.createProducerRider(skinNameMount, skinName)
@@ -72,7 +74,8 @@ enum class MWEntityAnimationType {
             val a = MEntityControlled(animationProducerRider, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
-            a.setLocation(x, y)
+            a.x = x
+            a.bottom = bottom
             a.team = MConstants.TEAM_BOT
             a.direction = direction
             a.animation.updateAnimation(a)
@@ -80,13 +83,14 @@ enum class MWEntityAnimationType {
         }
     },
     BUILDING {
-        override fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled {
+        override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
             val animationProducer = EntityAnimationProducerBuilding("building.heal")
             val controller = ControllerDummy()
             val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
-            a.setLocation(x, y)
+            a.x = x
+            a.bottom = bottom
             a.team = MConstants.TEAM_BOT
             a.direction = direction
             a.animation.updateAnimation(a)
@@ -96,5 +100,5 @@ enum class MWEntityAnimationType {
 
 
     // the dummy is used for the 'how much distance does a skill need to hit the entity' simulation
-    abstract fun createDummy(x: Float, y: Float, action: IDataAction, direction: Int) : IControlled
+    abstract fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled
 }

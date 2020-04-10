@@ -10,6 +10,11 @@ bodyDataHuman:
 - l1.frost.mage
 - l1.frost.tank
 - l1.frost.boss
+- l1.bear.melee
+- l1.bear.ranged
+- l1.bear.mage
+- l1.bear.tank
+- l1.bear.boss
 - dummy.shield:big.diamond
 - builder
 bodyDataMount:
