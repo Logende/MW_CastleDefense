@@ -1,3 +1,4 @@
+name: "mortar"
 texture_alive: "building.mortar"
 texture_dead: "building.mortar"
 animation: "building.mortar.animation:0.1"

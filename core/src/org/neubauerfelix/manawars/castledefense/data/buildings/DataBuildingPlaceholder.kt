@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
-import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingPlaceholder
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.IComponent
@@ -18,8 +17,8 @@ class DataBuildingPlaceholder(textureName: String, override val name: String) :
             EntityAnimationProducerBuilding(textureName, textureName,
                     null, 0f)
 
-    override fun produce(centreHor: Float, bottom: Float, team: Int, league: IDataLeague): ILiving {
-        val e =  CDEntityBuildingPlaceholder(this, league)
+    override fun produce(centreHor: Float, bottom: Float, team: Int): ILiving {
+        val e =  CDEntityBuildingPlaceholder(this)
         e.centerHorizontal = centreHor
         e.bottom = bottom
         e.team = team

@@ -20,7 +20,7 @@ open class MManaWars: GameManaWars() {
 
 
     init {
-        MManaWars.m = this
+        m = this
     }
 
     private var loaded: Boolean = false
@@ -43,6 +43,7 @@ open class MManaWars: GameManaWars() {
         loadHandler(BackgroundListHandler())
         loadHandler(BackgroundComposer())
         loadHandler(SoundHandler())
+        loadHandler(MusicHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
@@ -60,10 +61,10 @@ open class MManaWars: GameManaWars() {
     }
 
     private fun analyseSkills() {
-        val units = CDManaWars.cd.getLeagueHandler().listLeagues().flatMap {
-            league -> league.tribes.flatMap { tribe -> tribe.army.units } }
-        val buildings = CDManaWars.cd.getLeagueHandler().listLeagues().flatMap {
-            league -> league.buildings }
+        val units = CDManaWars.cd.getTribeHandler().listTribes().flatMap {
+            tribe -> tribe.army.units }
+        val buildings = CDManaWars.cd.getTribeHandler().listTribes().flatMap {
+            tribe -> tribe.buildings }
         val actionsUnits = units.map { it.action }.filterIsInstance(IDataSkill::class.java)
         val actionsBuildings = buildings.filterIsInstance(IDataBuildingAction::class.java).map { it.action }
                 .filterIsInstance(IDataSkill::class.java)
@@ -137,6 +138,10 @@ open class MManaWars: GameManaWars() {
 
     fun getSoundHandler(): ISoundHandler {
         return getHandler(SoundHandler::class.java)
+    }
+
+    fun getMusicHandler(): IMusicHandler {
+        return getHandler(MusicHandler::class.java)
     }
 
 

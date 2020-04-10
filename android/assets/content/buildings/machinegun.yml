@@ -1,3 +1,4 @@
+name: "machinegun"
 texture_alive: "building.machinegun"
 texture_dead: "building.machinegun"
 animation: "building.machinegun.animation:0.2"

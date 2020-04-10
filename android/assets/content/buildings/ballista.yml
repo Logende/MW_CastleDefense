@@ -1,3 +1,4 @@
+name: "ballista"
 texture_alive: "building.ballista"
 texture_dead: "building.ballista"
 animation: "building.ballista.animation:0.1"

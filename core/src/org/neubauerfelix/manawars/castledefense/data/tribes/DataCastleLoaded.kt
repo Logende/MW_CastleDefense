@@ -11,10 +11,6 @@ class DataCastleLoaded(config: Configuration, multiplier: Float = 1f,
         DataCastle() {
 
 
-    override val buildings: IDataBuildings
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-
-
     override val name: String = config.getString("name")
     override val textureNameAlive: String = config.getString("texture")
     override val textureNameDead: String = config.getString("texture") + ".damaged"
@@ -32,7 +28,7 @@ class DataCastleLoaded(config: Configuration, multiplier: Float = 1f,
 
 
     override val goldPerCharge: Int = (baseGoldPerSecond * multiplier *
-            config.getFloat("goldPerCharge") * CDConstants.CASTLEDEFENSE_CASTLE_GOLD_CHARGE_DELAY).toInt()
+            config.getFloat("goldPerCharge") * CDConstants.CASTLE_GOLD_CHARGE_DELAY).toInt()
 
     init {
         this.goldStart

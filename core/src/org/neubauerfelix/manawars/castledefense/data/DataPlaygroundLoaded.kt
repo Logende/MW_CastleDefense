@@ -1,10 +1,8 @@
 package org.neubauerfelix.manawars.castledefense.data
 
+import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.data.IDataBackground
-import org.neubauerfelix.manawars.manawars.enums.MWBackgroundSubtheme
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
@@ -23,9 +21,10 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
         }
     }
 
-    override fun createPlayground(playerA: ICDPlayer, playerB: ICDPlayer, league: IDataLeague) {
+    override fun createPlayground(playerA: ICDPlayer, playerB: ICDPlayer) {
         for (buildingPlaceholderX in buildingPlaceholdersX) {
-            league.buildingPlaceholder.produce(buildingPlaceholderX, team = MConstants.TEAM_PEACEFUL, league = league)
+            CDManaWars.cd.getBuildingListHandler().buildingPlaceholder.
+                    produce(buildingPlaceholderX, team = MConstants.TEAM_PEACEFUL)
         }
     }
 

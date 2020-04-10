@@ -4,13 +4,12 @@ import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.components.CDComponentButtonImage
-import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MManaWars
 
 
-class CDControllerHuman(val league: IDataLeague) : ICDController {
+class CDControllerHuman() : ICDController {
 
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
@@ -64,7 +63,7 @@ class CDControllerHuman(val league: IDataLeague) : ICDController {
         })
         x = addButton(unitButton, x, y, size)
 
-        for (building in league.buildings) {
+        for (building in player.tribe.buildings) {
             val button = building.generateIcon(x, y, size, size, Runnable {
                 val castle = player.castle
                 if (castle.gold >= building.cost) {

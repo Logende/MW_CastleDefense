@@ -32,7 +32,7 @@ class CDControllerBot : ICDController {
         analysis.update(player)
         if (nextUnitChooseTime <= MManaWars.m.screen.getGameTime()) {
             this.chooseUnit()
-            nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLEDEFENSE_CASTLE_CHOOSE_UNIT_DELAY
+            nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_UNIT_DELAY
             System.out.println("choose ${nextUnit.name}")
         }
 

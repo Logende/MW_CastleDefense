@@ -17,7 +17,9 @@ class CDManaWars : MManaWars() {
 
     override fun loadGame() {
         super.loadGame()
-        loadHandler(LeagueHandler())
+        loadHandler(BuildingListHandler())
+        loadHandler(PlaygroundListHandler())
+        loadHandler(TribeHandler())
         loadHandler(ArmyAnalysisHandler())
     }
 
@@ -25,8 +27,16 @@ class CDManaWars : MManaWars() {
         return getHandler(ArmyAnalysisHandler::class.java)
     }
 
-    fun getLeagueHandler(): ILeagueHandler {
-        return getHandler(LeagueHandler::class.java)
+    fun getTribeHandler(): ITribeHandler {
+        return getHandler(TribeHandler::class.java)
+    }
+
+    fun getBuildingListHandler(): IBuildingListHandler {
+        return getHandler(BuildingListHandler::class.java)
+    }
+
+    fun getPlaygroundListHandler(): IPlaygroundListHandler {
+        return getHandler(PlaygroundListHandler::class.java)
     }
 
 }

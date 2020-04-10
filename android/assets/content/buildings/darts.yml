@@ -1,3 +1,4 @@
+name: "darts"
 texture_alive: "building.darts"
 texture_dead: "building.darts"
 animation: "building.darts.animation:0.1"

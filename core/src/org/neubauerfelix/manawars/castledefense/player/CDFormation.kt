@@ -100,9 +100,9 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
                 this.relativeX[e] = x - e.width/2f * direction
 
                 x += if (direction == 1) {
-                    -e.width - CDConstants.CASTLEDEFENSE_FORMATION_UNIT_DISTANCE
+                    -e.width - CDConstants.FORMATION_UNIT_DISTANCE
                 } else {
-                    e.width + CDConstants.CASTLEDEFENSE_FORMATION_UNIT_DISTANCE
+                    e.width + CDConstants.FORMATION_UNIT_DISTANCE
                 }
             }
             val oldAnchorX = this.anchorX
@@ -136,7 +136,7 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
-        val goalDistance = max(CDConstants.CASTLEDEFENSE_FORMATION_ENEMY_DISTANCE_MIN, rangeBest)
+        val goalDistance = max(CDConstants.FORMATION_ENEMY_DISTANCE_MIN, rangeBest)
         val furthestEnemyX = if (direction == 1) {
             min(this.player.enemy.controller.analysis.furthestX, this.player.enemy.formation.left)
         } else {

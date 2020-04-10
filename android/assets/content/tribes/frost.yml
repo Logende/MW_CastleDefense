@@ -1,11 +1,19 @@
 name: frost
-castle: wood_1
+castle: "castles/wood_1.yml:1.0"
+music: exploring_the_unknown
 background_themes:
   - SNOW
 background_subthemes:
   - DEFAULT
   - ICE_FORT
   - STONE_TOWER
+buildings:
+  - 'darts'
+  - 'ballista'
+  - 'doubleballista'
+  - 'icethrower'
+playground: "default"
+
 army:
   units:
 

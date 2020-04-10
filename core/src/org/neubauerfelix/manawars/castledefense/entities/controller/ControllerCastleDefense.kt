@@ -5,7 +5,6 @@ import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
@@ -19,7 +18,7 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
     override fun doLogic(delta: Float) {
         // If not in formation: Join if possible
         if (!player.formation.isContained(controlled)) {
-            if (player.formation.getDistance(this.controlled) <= CDConstants.CASTLEDEFENSE_FORMATION_JOIN_DISTANCE) {
+            if (player.formation.getDistance(this.controlled) <= CDConstants.FORMATION_JOIN_DISTANCE) {
                 player.formation.addEntity(controlled)
             }
         }

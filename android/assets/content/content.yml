@@ -16,9 +16,23 @@ actions:
   - 'skills/skills_magic.yml'
   - 'skills/skills_castle.yml'
   - 'skills/skills_misc.yml'
-leagues:
-  - 'leagues/bronze.yml'
+tribes:
+  - 'tribes/frost.yml'
+  - 'tribes/zombie.yml'
 backgrounds:
   - 'backgrounds.yml'
+playgrounds:
+  - 'playgrounds/default.yml'
+buildings:
+- 'buildings/heal.yml'
+- 'buildings/darts.yml'
+- 'buildings/ballista.yml'
+- 'buildings/doubleballista.yml'
+- 'buildings/firethrower.yml'
+- 'buildings/icethrower.yml'
+- 'buildings/cannon.yml'
+- 'buildings/mortar.yml'
+- 'buildings/machinegun.yml'
+building_placeholder_texture: "building.placeholder"
 sounds:
   - 'sounds.yml'

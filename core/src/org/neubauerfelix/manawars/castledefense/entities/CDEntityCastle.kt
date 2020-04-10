@@ -45,7 +45,7 @@ class CDEntityCastle(x: Float, y: Float, textureNameAlive: String, textureNameDe
         super.doLogic(delta)
         if (MManaWars.m.screen.getGameTime() >= nextGoldChargeTime) {
             nextGoldChargeTime = MManaWars.m.screen.getGameTime() +
-                    (1000 * CDConstants.CASTLEDEFENSE_CASTLE_GOLD_CHARGE_DELAY).toLong()
+                    (1000 * CDConstants.CASTLE_GOLD_CHARGE_DELAY).toLong()
             gold += goldPerCharge
         }
     }

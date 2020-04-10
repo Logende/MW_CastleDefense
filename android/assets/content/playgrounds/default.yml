@@ -1,0 +1,5 @@
+name: 'default'
+building_placeholders:
+  - "playground_width*0.25"
+  - "playground_width*0.5"
+  - "playground_width*0.75"

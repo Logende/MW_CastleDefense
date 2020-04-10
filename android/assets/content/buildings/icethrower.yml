@@ -1,3 +1,4 @@
+name: "icethrower"
 texture_alive: "building.icethrower"
 texture_dead: "building.icethrower"
 animation: "building.icethrower.animation:0.1"

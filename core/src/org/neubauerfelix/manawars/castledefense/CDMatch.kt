@@ -1,7 +1,6 @@
 package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.components.CDComponentGameInfo
-import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.castledefense.data.IDataPlayground
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
@@ -12,7 +11,7 @@ import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.IBackground
 import org.neubauerfelix.manawars.manawars.MManaWars
 
-class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScreen) :
+class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScreen) :
         ILoadableAsync, IDisposable, ILogicable {
 
     val backgrounds: Iterable<IBackground>
@@ -45,7 +44,7 @@ class CDMatch(val league: IDataLeague, val playerA: ICDPlayer, val playerB: ICDP
         loaded = true
         playerA.spawnCastle(true, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
         playerB.spawnCastle(false, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
-        league.playground.createPlayground(playerA, playerB, league)
+        playerB.tribe.playground.createPlayground(playerA, playerB)
         playerA.controller.showControls()
         playerB.controller.showControls()
         screen.addComponent(CDComponentGameInfo(30f, 200f, playerA))

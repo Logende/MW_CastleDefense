@@ -1,9 +1,16 @@
 name: zombie
+music: exploring_the_unknown
+castle: "castles/wood_1.yml:1.0"
 background_themes:
   - GRASSLAND
   - COAST
 background_subthemes:
   - DEFAULT
+buildings:
+  - 'ballista'
+  - 'doubleballista'
+  - 'firethrower'
+playground: "default"
 
 army:
   units:
@@ -86,8 +93,3 @@ army:
         acceleration: 0:0
         location: 0:50
         knockback: -2
-
-
-
-
-castle: wood_1

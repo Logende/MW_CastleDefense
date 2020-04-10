@@ -3,4 +3,4 @@ texture: 'castle.wood.1'
 spawn_offset: '0:0'
 goldStart: 1
 goldPerCharge: 1
-health: 4
+health: 1

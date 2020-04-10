@@ -25,6 +25,10 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
             field = value
         }
 
+    init {
+        this.mirror = (o.direction == -1)
+    }
+
     private val idle: Boolean
         get() = this.idleTimeLeft > 0
     var idleTimeLeft: Float = data.idleTime

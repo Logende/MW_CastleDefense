@@ -1,7 +1,6 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
 import org.neubauerfelix.manawars.castledefense.components.CDComponentBuilding
-import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingAction
 import org.neubauerfelix.manawars.castledefense.entities.controller.ControllerBuilder
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
@@ -14,9 +13,10 @@ import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAni
 import org.neubauerfelix.manawars.manawars.enums.NWRarity
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataBuildingActionLoaded(config: Configuration, override val name: String) :
+class DataBuildingActionLoaded(config: Configuration) :
         IDataBuildingAction {
 
+    override val name: String = config.getString("name")
     override val action: IDataAction = MManaWars.m.getActionHandler().
             loadAction("action_building_$name", config.getSection("action"))!!
     override val cooldown: Float = config.getFloat("cooldown")
@@ -55,8 +55,8 @@ class DataBuildingActionLoaded(config: Configuration, override val name: String)
     override val rarity: NWRarity = NWRarity.valueOf(config.getString("rarity").toUpperCase())
     private val dataBuilder = DataUnitBuilder(this, this.cost, this.rarity)
 
-    override fun produce(centreHor: Float, bottom: Float, team: Int, league: IDataLeague): ILiving {
-        val e =  CDEntityBuildingAction(this, league)
+    override fun produce(centreHor: Float, bottom: Float, team: Int): ILiving {
+        val e =  CDEntityBuildingAction(this)
         e.centerHorizontal = centreHor
         e.bottom = bottom
         e.team = team

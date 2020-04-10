@@ -2,7 +2,6 @@ package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
-import org.neubauerfelix.manawars.manawars.data.IDataBackground
 
 interface IDataPlayground {
 
@@ -15,5 +14,5 @@ interface IDataPlayground {
 
 
     val name: String
-    fun createPlayground(playerA: ICDPlayer, playerB: ICDPlayer, league: IDataLeague)
+    fun createPlayground(playerA: ICDPlayer, playerB: ICDPlayer)
 }

@@ -1,3 +1,4 @@
+name: "doubleballista"
 texture_alive: "building.doubleballista"
 texture_dead: "building.doubleballista"
 animation: "building.doubleballista.animation:0.1"

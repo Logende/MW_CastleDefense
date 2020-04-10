@@ -1,3 +1,4 @@
+name: "cannon"
 texture_alive: "building.cannon"
 texture_dead: "building.cannon"
 animation: "building.cannon.animation:0.1"
@@ -18,3 +19,4 @@ action:
   knockback: 1.0
   damage: 20
   idle_time: 0.2
+  invisible_while_idle: true

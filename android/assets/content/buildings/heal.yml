@@ -1,3 +1,4 @@
+name: "heal"
 texture_alive: "building.heal"
 texture_dead: "building.heal"
 animation: "building.heal.animation:0.1"

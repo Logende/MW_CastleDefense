@@ -1,24 +1,3 @@
-skill_zombie:
-  boss:
-    lifeTime: 3.26
-    rangeMax: 626.6118
-    rangeMin: 0.0
-  tank:
-    lifeTime: 8.16
-    rangeMax: 560.0
-    rangeMin: 334.0
-  melee:
-    lifeTime: 2.06
-    rangeMax: 636.0
-    rangeMin: 0.0
-  ranger:
-    lifeTime: 1.42
-    rangeMax: 900.0
-    rangeMin: 0.0
-  mage:
-    lifeTime: 2.36
-    rangeMax: 900.0
-    rangeMin: 0.0
 skill_frost:
   boss:
     lifeTime: 2.6599998
@@ -40,33 +19,40 @@ skill_frost:
     lifeTime: 2.02
     rangeMax: 1000.0
     rangeMin: 0.0
-action_building_buildings/darts:
-  yml:
-    lifeTime: 1.4399999
+skill_zombie:
+  boss:
+    lifeTime: 3.26
+    rangeMax: 626.6118
+    rangeMin: 0.0
+  tank:
+    lifeTime: 8.16
+    rangeMax: 560.0
+    rangeMin: 334.0
+  melee:
+    lifeTime: 2.06
+    rangeMax: 636.0
+    rangeMin: 0.0
+  ranger:
+    lifeTime: 1.42
     rangeMax: 900.0
     rangeMin: 0.0
-action_building_buildings/ballista:
-  yml:
-    lifeTime: 1.04
+  mage:
+    lifeTime: 2.36
     rangeMax: 900.0
     rangeMin: 0.0
-action_building_buildings/firethrower:
-  yml:
-    lifeTime: 2.04
-    rangeMax: 900.0
-    rangeMin: 0.0
-action_building_buildings/icethrower:
-  yml:
-    lifeTime: 2.04
-    rangeMax: 900.0
-    rangeMin: 0.0
-action_building_buildings/cannon:
-  yml:
-    lifeTime: 1.22
-    rangeMax: 900.0
-    rangeMin: 0.0
-action_building_buildings/mortar:
-  yml:
-    lifeTime: 13.759999
-    rangeMax: 860.0
-    rangeMin: 712.0
+action_building_darts:
+  lifeTime: 1.4399999
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_ballista:
+  lifeTime: 1.04
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_icethrower:
+  lifeTime: 2.04
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_firethrower:
+  lifeTime: 2.04
+  rangeMax: 900.0
+  rangeMin: 0.0

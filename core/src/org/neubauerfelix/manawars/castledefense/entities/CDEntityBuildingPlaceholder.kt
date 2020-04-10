@@ -1,15 +1,14 @@
 package org.neubauerfelix.manawars.castledefense.entities
 
-import org.neubauerfelix.manawars.castledefense.data.IDataLeague
 import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuilding
 import org.neubauerfelix.manawars.manawars.entities.*
 
-class CDEntityBuildingPlaceholder(val data: IDataBuilding, val league: IDataLeague) :
+class CDEntityBuildingPlaceholder(val data: IDataBuilding) :
         MEntityAnimated(data.animationProducer, data.health) {
 
     fun build(building: IDataBuilding, team: Int) {
         this.remove = true
-        building.produce(this.centerHorizontal, this.bottom, team, league)
+        building.produce(this.centerHorizontal, this.bottom, team)
     }
 
 

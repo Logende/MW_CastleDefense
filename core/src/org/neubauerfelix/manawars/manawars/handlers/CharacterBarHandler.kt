@@ -51,7 +51,7 @@ class CharacterBarHandler : ICharacterBarHandler, ILoadableAsync {
 
     override fun drawStatsBar(batcher: Batch, e: ILiving) {
         val width = Math.min(MConstants.INGAME_CHARACTERBAR_WIDTH,
-                e.width + CDConstants.CASTLEDEFENSE_FORMATION_UNIT_DISTANCE)
+                e.width + CDConstants.FORMATION_UNIT_DISTANCE)
         val height = MConstants.INGAME_CHARACTERBAR_HEIGHT
 
         val armor = if (e is IControlled) { e.data.armor } else { MWArmorType.NONE }
