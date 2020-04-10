@@ -73,10 +73,9 @@ class SkillSetupHandler : ISkillSetupHandler {
         skill.accelerationY = data.accelerationY
         skill.speedX = data.startSpeedX * owner.direction
         skill.speedY = data.startSpeedY
-
         if (data.targetEnemy && data.allowMovementScaling && target != null && target is IAnimated) {
             val distance = skill.getDistanceHor(target)
-            val speedFactor = sqrt(- (distance * skill.accelerationY) / ( 2* skill.speedX * skill.speedY))
+            val speedFactor = sqrt(- (distance * skill.accelerationY) / ( 2* abs(skill.speedX) * skill.speedY))
             skill.speedX *= speedFactor
             skill.speedY *= speedFactor
         }
