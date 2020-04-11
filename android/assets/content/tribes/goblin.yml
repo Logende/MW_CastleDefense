@@ -1,0 +1,100 @@
+name: goblin
+castle: "castles/wood_1.yml:1.0"
+music: last_hope_for_humanity
+background_themes:
+  - GRASSLAND
+  - DESERT
+background_subthemes:
+  - DEFAULT
+buildings:
+  - 'darts'
+  - 'ballista'
+  - 'doubleballista'
+  - 'icethrower'
+  - 'firethrower'
+playground: "default"
+
+army:
+  units:
+
+    boss:
+      animation: 'human:l1.goblin.boss'
+      armor: 'anti_light'
+      rarity: common
+      cooldown: 0.5
+      action:
+        owner_animation: THROW
+        texture: l1.goblin.boss
+        animation: '1:1:1'
+        sound: skill.knife
+        skillclass: NORMAL
+        speed: '1000:0'
+        acceleration: -10*A:0
+        damage: 0.5
+        location: 0:30
+        effect: BURNING:3
+
+    tank:
+      animation: 'human:l1.goblin.tank'
+      armor: 'anti_light'
+      rarity: common
+      action:
+        owner_animation: SUMMON_SMALL
+        texture: l1.goblin.tank
+        animation: '1:1:1'
+        sound: skill.knife.fast
+        skillclass: NORMAL
+        speed: 1200:-290
+        acceleration: -60*A:15*A
+        knockback: 0.5
+        location: 0:60
+        effect: FROZEN:2
+
+    melee:
+      animation: 'human:l1.goblin.melee'
+      rarity: common
+      action:
+        allow_movement_scaling: true
+        owner_animation: THROW
+        texture: l1.goblin.melee
+        animation: '1:1:1'
+        sound: skill.throw
+        skillclass: NORMAL
+        speed: 400:-700
+        acceleration: 0:60*A
+        knockback: 1.5
+
+    ranger:
+      animation: 'human:l1.goblin.ranged'
+      armor: 'none'
+      rarity: common
+      action:
+        type: normal
+        owner_animation: WEAPON
+        weapon: bow:normal_red
+        texture: l1.goblin.ranged
+        animation: '1:4:1'
+        sound: skill.arrow
+        skillclass: LIGHT
+        speed: 1000:-30
+        acceleration: 0:5*A
+        offset: '-40:20'
+        knockback: 1.0
+
+    mage:
+      animation: 'human:l1.goblin.mage'
+      armor: 'none'
+      rarity: common
+      action:
+        owner_animation: SUMMON_SMALL
+        texture: magic.torch
+        animation: '1:3:1'
+        sound: skill.fire
+        skillclass: MAGIC
+        speed: '250:0'
+        targetspeed: 0:35
+        acceleration: 0:0
+        location: 0:-50
+        damage: 0.5
+        knockback: 0.2
+        effect: BURNING:7

@@ -20,6 +20,7 @@ tribes:
   - 'tribes/frost.yml'
   - 'tribes/zombie.yml'
   - 'tribes/bear.yml'
+  - 'tribes/goblin.yml'
 backgrounds:
   - 'backgrounds.yml'
 playgrounds:
