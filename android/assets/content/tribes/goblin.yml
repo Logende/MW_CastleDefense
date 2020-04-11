@@ -87,7 +87,7 @@ army:
       rarity: common
       action:
         owner_animation: SUMMON_SMALL
-        texture: magic.torch
+        texture: l1.goblin.mage
         animation: '1:3:1'
         sound: skill.fire
         skillclass: MAGIC
@@ -95,6 +95,6 @@ army:
         targetspeed: 0:35
         acceleration: 0:0
         location: 0:-50
-        damage: 0.5
+        damage: 0.66
         knockback: 0.2
         effect: BURNING:7

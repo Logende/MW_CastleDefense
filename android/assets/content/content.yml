@@ -21,6 +21,7 @@ tribes:
   - 'tribes/zombie.yml'
   - 'tribes/bear.yml'
   - 'tribes/goblin.yml'
+  - 'tribes/human.yml'
 backgrounds:
   - 'backgrounds.yml'
 playgrounds:

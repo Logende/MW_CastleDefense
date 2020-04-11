@@ -45,7 +45,7 @@ magic.icicle.strong
   orig: 512, 115
   offset: 0, 0
   index: -1
-spear.basic
+l1.human.melee
   rotate: false
   xy: 1, 83
   size: 600, 23
@@ -255,7 +255,7 @@ building.firethrower
   orig: 200, 31
   offset: 0, 0
   index: -1
-magic.fireball
+l1.human.mage
   rotate: false
   xy: 1719, 549
   size: 200, 31
@@ -451,7 +451,7 @@ axe.dwarf2.4
   orig: 118, 190
   offset: 0, 0
   index: -1
-magic.torch
+l1.goblin.mage
   rotate: false
   xy: 942, 44
   size: 97, 42
@@ -710,7 +710,7 @@ axe.human.ice
   orig: 46, 94
   offset: 0, 0
   index: -1
-axe.human
+l1.human.tank
   rotate: false
   xy: 1235, 11
   size: 44, 94
@@ -1044,7 +1044,7 @@ magic.icespike.2
   orig: 26, 97
   offset: 0, 0
   index: -1
-boomerang.2
+l1.human.ranged
   rotate: false
   xy: 909, 182
   size: 41, 73
@@ -1191,7 +1191,7 @@ knife.normal.1
   orig: 15, 50
   offset: 0, 0
   index: -1
-sword.mighty
+l1.human.boss
   rotate: false
   xy: 359, 11
   size: 9, 93

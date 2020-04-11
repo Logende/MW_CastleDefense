@@ -9,8 +9,12 @@ public class MathUtils {
 		if (s.length() == 0) {
 			return 0;
 		}
-		Expression e = new ExpressionBuilder(s).build();
-		return e.evaluate();
+		try {
+			Expression e = new ExpressionBuilder(s).build();
+			return e.evaluate();
+		} catch (Exception e) {
+			throw new RuntimeException("Invalid expression '" + s + "'.");
+		}
 	}
 	public static int calcInt(String s) {
 		if (s.length() == 0) {

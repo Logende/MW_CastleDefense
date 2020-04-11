@@ -22,7 +22,7 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadScreen(): Boolean {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val army1 = tribeHandler.getTribe("goblin")!!
+        val army1 = tribeHandler.getTribe("human")!!
         val army2 = tribeHandler.getTribe("bear")!!
         val controllerA = CDControllerHuman()
         val controllerB = CDControllerBot()

@@ -20,6 +20,11 @@ bodyDataHuman:
 - l1.goblin.mage
 - l1.goblin.tank
 - l1.goblin.boss
+- l1.human.melee
+- l1.human.ranged
+- l1.human.mage
+- l1.human.tank
+- l1.human.boss
 - dummy.shield:big.diamond
 - builder
 bodyDataMount:
