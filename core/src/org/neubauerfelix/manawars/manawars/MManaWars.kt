@@ -9,6 +9,7 @@ import org.neubauerfelix.manawars.manawars.analysis.SkillStatsHandler
 import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
 import org.neubauerfelix.manawars.manawars.data.actions.DataSkillMixLoaded
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
+import org.neubauerfelix.manawars.manawars.data.units.IDataActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
 import org.neubauerfelix.manawars.manawars.factories.MComponentFactory
@@ -64,16 +65,12 @@ open class MManaWars: GameManaWars() {
 
     private fun analyseSkills() {
         val units = CDManaWars.cd.getUnitHandler().listUnits()
-        val buildings = CDManaWars.cd.getBuildingListHandler().buildings.values
-        val actionsUnits = units.map { it.action }
-        val actionsBuildings = buildings.filterIsInstance(IDataBuildingAction::class.java).map { it.action }
-        val actionsAll = actionsUnits + actionsBuildings
-        val skillsAll = actionsAll.filterIsInstance(DataSkillLoaded::class.java) +
-                actionsAll.filterIsInstance(DataSkillMixLoaded::class.java).flatMap {
-                    mix -> mix.parts.map { part -> part.action }.filterIsInstance(DataSkillLoaded::class.java)
-                }
-        getSkillStatsHandler().generateStats(MConstants.SKILL_STATS_FILE, skillsAll)
+        val buildings = CDManaWars.cd.getBuildingListHandler().buildings.values.
+                filterIsInstance(IDataBuildingAction::class.java)
+        val allActionUsers : Collection<IDataActionUser> = units + buildings
+        getSkillStatsHandler().analyseSkills(allActionUsers)
     }
+
 
     override fun isLoaded(): Boolean {
         return loaded

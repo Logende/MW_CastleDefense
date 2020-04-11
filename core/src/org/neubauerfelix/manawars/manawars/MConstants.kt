@@ -94,6 +94,7 @@ class MConstants {
         // skills
         const val MAXIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT = 25f
         const val MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL = 100f // Minimum damage dealt to the skill when it does not kill its target
+        const val MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_KILL = 12f // Minimum damage dealt to the skill when it does kill its target
         const val SKILL_STATS_FILE = "skillanalysis.yml"
 
         // units

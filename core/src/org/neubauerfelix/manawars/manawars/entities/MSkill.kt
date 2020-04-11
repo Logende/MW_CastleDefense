@@ -158,7 +158,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         if (!killed) {
             this.damage(max(skillDamage, MConstants.MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL), e)
         } else {
-            this.damage(skillDamage, e)
+            this.damage(max(skillDamage, MConstants.MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_KILL), e)
             //if (s.getEnemiesKilled() >= 2 && getSkillClass() !== MWSkillClass.SHIELD && collision_type === EntityAnimationHuman.COLLISION_TYPE_HEAD) {
               //  ManaWarsGame.g.getSlowMotionHandler().slowDown() TODO
         }

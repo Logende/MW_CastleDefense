@@ -1,9 +1,14 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
+import org.neubauerfelix.manawars.castledefense.CDManaWars
+import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuilding
+import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildingAction
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.actions.*
+import org.neubauerfelix.manawars.manawars.data.units.IDataActionUser
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.*
 import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.enums.*
@@ -11,6 +16,8 @@ import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.ConfigurationProvider
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 import java.lang.RuntimeException
+import kotlin.math.max
+import kotlin.math.min
 
 
 /*
@@ -22,14 +29,13 @@ Then the game will be able to use the stats in following game launches.
 class SkillStatsHandler : ISkillStatsHandler {
 
     companion object {
-        private const val MAX_RANGE = 1400f
         private const val SIMULATION_STEP_TIME = 1f / 50f
         private const val SIMULATION_MAX_LIFE_DURATION = 10f
         private const val SIMULATION_MAX_STEPS = (SIMULATION_MAX_LIFE_DURATION / SIMULATION_STEP_TIME).toInt()
         private const val SIMULATION_BORDER_BOTTOM = GameConstants.WORLD_HEIGHT + 700f
         private const val SIMULATION_BORDER_TOP = - 1000f
         private const val SIMULATION_BORDER_LEFT = - 700f
-        private const val SIMULATION_BORDER_RIGHT = MAX_RANGE + 700
+        private const val SIMULATION_BORDER_RIGHT = 2500f
 
         private const val TACTICAL_DAMAGE_FACTOR_STATEFFECT = 0.35f
         private const val TACTICAL_STRENGTH_FACTOR_VERTICAL_SKILL = 0.4f
@@ -46,6 +52,24 @@ class SkillStatsHandler : ISkillStatsHandler {
     private val config: Configuration = ConfigurationProvider.getProvider(YamlConfiguration::class.java).
             load("content/skills/${MConstants.SKILL_STATS_FILE}", true)
 
+
+    override fun analyseSkills(actionUsers: Collection<IDataActionUser>) {
+        val skillMap = HashMap<IDataSkill, Float>()
+        actionUsers.forEach {
+            this.considerAction(it.action, it.unitType.defaultRange, skillMap)
+        }
+        this.generateStats(MConstants.SKILL_STATS_FILE, skillMap)
+    }
+
+    private fun considerAction(action: IDataAction, maxPossibleRange: Float, skillMap: MutableMap<IDataSkill, Float>) {
+        if (action is IDataSkill) {
+            skillMap[action] = maxPossibleRange
+        } else if (action is DataSkillMixLoaded) {
+            action.parts.forEach {
+                this.considerAction(it.action, maxPossibleRange, skillMap)
+            }
+        }
+    }
 
 
     override fun readStats(data: IDataSkill): ISkillStats {
@@ -78,17 +102,17 @@ class SkillStatsHandler : ISkillStatsHandler {
     }
 
 
-    override fun generateStats(fileName: String, skills: Collection<IDataSkill>) {
+    override fun generateStats(fileName: String, skills: Map<IDataSkill, Float>) {
         val config = Configuration()
-        for (data in skills) {
-            generateStats(data, config)
+        for ((data, maxPossibleRange) in skills) {
+            generateStats(data, config, maxPossibleRange)
         }
         ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, fileName, false)
     }
 
-    private fun generateStats(data: IDataSkill, config: Configuration) : ISkillStats {
+    private fun generateStats(data: IDataSkill, config: Configuration, maxPossibleRange: Float) : ISkillStats {
         println("Analysing skill ${data.name}.")
-        val stats = this.generateStats(data, MWEntityAnimationType.HUMAN, MWEntityAnimationType.HUMAN)
+        val stats = this.generateStats(data, MWEntityAnimationType.HUMAN, MWEntityAnimationType.HUMAN, maxPossibleRange)
         this.writeStatsToConfig(stats, data.name, config)
         return stats
     }
@@ -100,7 +124,8 @@ class SkillStatsHandler : ISkillStatsHandler {
         section.set("rangeMin", stats.rangeMin)
     }
 
-    private fun generateStats(data: IDataSkill, entityAnimationType: MWEntityAnimationType, targetAnimationType: MWEntityAnimationType): ISkillStats {
+    private fun generateStats(data: IDataSkill, entityAnimationType: MWEntityAnimationType,
+                              targetAnimationType: MWEntityAnimationType, maxPossibleRange: Float): ISkillStats {
         // Average speed values
         var speedXAvg = 0f
 
@@ -176,7 +201,7 @@ class SkillStatsHandler : ISkillStatsHandler {
                 if (i >= SIMULATION_MAX_STEPS
                         || skill.bottom > SIMULATION_BORDER_BOTTOM || skill.top < SIMULATION_BORDER_TOP
                         || skill.left < SIMULATION_BORDER_LEFT || skill.right > SIMULATION_BORDER_RIGHT
-                        || rangeMax >= MAX_RANGE) {
+                        || rangeMax >= maxPossibleRange) {
                     lifeTime = i * SIMULATION_STEP_TIME
                     speedXAvg /= i
                     break // reached border
@@ -188,13 +213,13 @@ class SkillStatsHandler : ISkillStatsHandler {
                 val collisionType = (target as IAnimatedLiving).animation.getCollisionType(skill)
                 target.left = skill.centerHorizontal
                 target.doLogic(0f) // updates location
-                distanceMax = Math.max(distanceMax, owner.getDistanceHor(target))
+                distanceMax = max(distanceMax, owner.getDistanceHor(target))
                 // count collision if it is detected and in case of jumping skills: only when already falling down
                 if (collisionType != MWCollisionType.NONE && (!isJumpSkill || skill.speedY >= 0)) {
-                    rangeMax = Math.max(rangeMax, owner.getDistanceHor(target))
+                    rangeMax = max(rangeMax, owner.getDistanceHor(target))
                     target.right = skill.centerHorizontal
                     target.doLogic(0f) // updates location
-                    rangeMin = Math.max(0f, Math.min(rangeMin, owner.getDistanceHor(target)))
+                    rangeMin = max(0f, min(rangeMin, owner.getDistanceHor(target)))
                 }
                 skill.doLogic(SIMULATION_STEP_TIME)
                 skill.move(SIMULATION_STEP_TIME)
@@ -218,7 +243,7 @@ class SkillStatsHandler : ISkillStatsHandler {
             rangeMax = 500f
         }
         if (data.targetRange > 0) {
-            rangeMax = Math.min(rangeMax, data.targetRange)
+            rangeMax = min(rangeMax, data.targetRange)
         }
 
         if (data.allowMovementScaling) {

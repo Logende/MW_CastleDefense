@@ -7,16 +7,13 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.*
 
-interface IDataUnit : IDataPresentable {
+interface IDataUnit : IDataPresentable, IDataActionUser {
 
     val name: String
     val displayName: String
-    val unitType: MWUnitType
     val rarity: NWRarity
     val animation: IEntityAnimationProducer
     val armor: MWArmorType
-    val action: IDataAction
-    var actionCooldown: Float
 
     var health: Float
     val stateMultipliers: MutableMap<MWState, MWStateEffectivity>

@@ -10,6 +10,7 @@ import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerBuilding
+import org.neubauerfelix.manawars.manawars.enums.MWUnitType
 import org.neubauerfelix.manawars.manawars.enums.NWRarity
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
@@ -19,7 +20,7 @@ class DataBuildingActionLoaded(config: Configuration) :
     override val name: String = config.getString("name")
     override val action: IDataAction = MManaWars.m.getActionHandler().
             loadAction("action_building_$name", config.getSection("action"))!!
-    override val cooldown: Float = config.getFloat("cooldown")
+    override var actionCooldown: Float = config.getFloat("cooldown")
     override val health: Float = config.getFloat("health")
     override val cost: Int = config.getInt("cost")
 
@@ -54,6 +55,8 @@ class DataBuildingActionLoaded(config: Configuration) :
 
     override val rarity: NWRarity = NWRarity.valueOf(config.getString("rarity").toUpperCase())
     private val dataBuilder = DataUnitBuilder(this, this.cost, this.rarity)
+
+    override val unitType: MWUnitType = MWUnitType.BUILDING
 
     override fun produce(centreHor: Float, bottom: Float, team: Int): ILiving {
         val e =  CDEntityBuildingAction(this)

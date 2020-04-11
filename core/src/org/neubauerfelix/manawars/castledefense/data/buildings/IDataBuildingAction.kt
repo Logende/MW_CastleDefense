@@ -1,9 +1,5 @@
 package org.neubauerfelix.manawars.castledefense.data.buildings
 
-import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
+import org.neubauerfelix.manawars.manawars.data.units.IDataActionUser
 
-interface IDataBuildingAction : IDataBuilding {
-
-    val action: IDataAction
-    val cooldown: Float
-}
+interface IDataBuildingAction : IDataBuilding, IDataActionUser
