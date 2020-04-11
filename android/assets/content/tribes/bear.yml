@@ -49,19 +49,18 @@ army:
         stop_on_ground: true
 
     melee:
-      animation: 'human:l1.frost.melee'
-      armor: 'anti_light'
+      animation: 'human:l1.bear.melee'
       rarity: common
       action:
-        owner_animation: THROW
-        texture: l1.frost.melee
+        owner_animation: SUMMON_SMALL
+        texture: l1.bear.melee
         animation: '1:1:1'
-        sound: skill.knife.weak
         skillclass: NORMAL
-        speed: 900:-200
-        acceleration: 0:55*A
-        location: 0:-30
-        knockback: 1.1
+        sound: skill.stick
+        speed: '200:0'
+        acceleration: 0:0
+        location: 0:-70
+        knockback: 0.4
 
     ranger:
       animation: 'human:l1.bear.ranged'

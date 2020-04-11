@@ -717,6 +717,13 @@ shield.normal.1
   orig: 27, 79
   offset: 0, 0
   index: -1
+l1.bear.melee
+  rotate: false
+  xy: 1684, 7
+  size: 8, 84
+  orig: 8, 84
+  offset: 0, 0
+  index: -1
 l1.frost.melee
   rotate: false
   xy: 942, 1
@@ -729,13 +736,6 @@ magic.snowball.strong.ice
   xy: 987, 1
   size: 43, 41
   orig: 43, 41
-  offset: 0, 0
-  index: -1
-stick
-  rotate: false
-  xy: 1684, 7
-  size: 8, 84
-  orig: 8, 84
   offset: 0, 0
   index: -1
 shuriken.ice
