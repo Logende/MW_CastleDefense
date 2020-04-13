@@ -5,1681 +5,1688 @@ filter: Nearest,Nearest
 repeat: none
 controlpanel
   rotate: false
-  xy: 1, 1922
-  size: 960, 100
-  orig: 960, 100
+  xy: 1, 1839
+  size: 1920, 208
+  orig: 1920, 208
   offset: 0, 0
   index: -1
 background
   rotate: false
-  xy: 1, 1704
+  xy: 1, 1621
   size: 384, 216
   orig: 384, 216
   offset: 0, 0
   index: -1
 action.arrow.bomb
   rotate: false
-  xy: 963, 1922
+  xy: 1923, 1947
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.fire
   rotate: false
-  xy: 1, 1602
+  xy: 1, 1519
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.headshot
   rotate: false
-  xy: 387, 1820
+  xy: 387, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.ice
   rotate: false
-  xy: 1065, 1922
+  xy: 1923, 1845
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.normal
   rotate: false
-  xy: 1, 1500
+  xy: 1, 1417
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.poison
   rotate: false
-  xy: 103, 1602
+  xy: 103, 1519
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.rain
   rotate: false
-  xy: 387, 1718
+  xy: 387, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.random
   rotate: false
-  xy: 489, 1820
+  xy: 489, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.strong
   rotate: false
-  xy: 1167, 1922
+  xy: 1, 1315
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.arrow.weak
   rotate: false
-  xy: 1, 1398
+  xy: 103, 1417
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.basic
   rotate: false
-  xy: 103, 1500
+  xy: 205, 1519
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.brutal.1
   rotate: false
-  xy: 205, 1602
+  xy: 489, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.brutal.2
   rotate: false
-  xy: 489, 1718
+  xy: 591, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf1.double
   rotate: false
-  xy: 591, 1820
+  xy: 1, 1213
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf1.ice
   rotate: false
-  xy: 1269, 1922
+  xy: 103, 1315
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf1.quadruple
   rotate: false
-  xy: 1, 1296
+  xy: 205, 1417
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf1.simple
   rotate: false
-  xy: 103, 1398
+  xy: 591, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf2.1
   rotate: false
-  xy: 205, 1500
+  xy: 693, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf2.2
   rotate: false
-  xy: 591, 1718
+  xy: 1, 1111
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf2.3.fire
   rotate: false
-  xy: 693, 1820
+  xy: 103, 1213
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf2.3
   rotate: false
-  xy: 1371, 1922
+  xy: 205, 1315
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.dwarf2.4
   rotate: false
-  xy: 1, 1194
+  xy: 693, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.god.dark.ice
   rotate: false
-  xy: 103, 1296
+  xy: 795, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.god.dark
   rotate: false
-  xy: 205, 1398
+  xy: 1, 1009
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.god.dark.strong
   rotate: false
-  xy: 693, 1718
+  xy: 103, 1111
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.god.light.fire
   rotate: false
-  xy: 795, 1820
+  xy: 205, 1213
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.god.light
   rotate: false
-  xy: 1473, 1922
+  xy: 795, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.god.light.strong
   rotate: false
-  xy: 1, 1092
+  xy: 897, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.human.fire
   rotate: false
-  xy: 103, 1194
+  xy: 1, 907
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.human.fire.strong
   rotate: false
-  xy: 205, 1296
+  xy: 103, 1009
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.human.ice
   rotate: false
-  xy: 795, 1718
+  xy: 205, 1111
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.human
   rotate: false
-  xy: 897, 1820
+  xy: 897, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.kingsslayer
   rotate: false
-  xy: 1575, 1922
+  xy: 999, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.orc.1
   rotate: false
-  xy: 1, 990
+  xy: 1, 805
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.orc.2
   rotate: false
-  xy: 103, 1092
+  xy: 103, 907
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.wild
   rotate: false
-  xy: 205, 1194
+  xy: 205, 1009
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.axe.wild.strong
   rotate: false
-  xy: 897, 1718
+  xy: 999, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.bite.huge
   rotate: false
-  xy: 999, 1820
+  xy: 1101, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.bite
   rotate: false
-  xy: 1677, 1922
+  xy: 1, 703
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.bite.strong
   rotate: false
-  xy: 1, 888
+  xy: 103, 805
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.rock.1
   rotate: false
-  xy: 103, 990
+  xy: 205, 907
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.rock.2
   rotate: false
-  xy: 205, 1092
+  xy: 1101, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.stone.1
   rotate: false
-  xy: 999, 1718
+  xy: 1203, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.stone.2
   rotate: false
-  xy: 1101, 1820
+  xy: 1, 601
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.stone.3
   rotate: false
-  xy: 1779, 1922
+  xy: 103, 703
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.beast.stones
   rotate: false
-  xy: 1, 786
+  xy: 205, 805
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.1
   rotate: false
-  xy: 103, 888
+  xy: 1203, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.2
   rotate: false
-  xy: 205, 990
+  xy: 1305, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.3
   rotate: false
-  xy: 1101, 1718
+  xy: 1, 499
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.4
   rotate: false
-  xy: 1203, 1820
+  xy: 103, 601
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.5
   rotate: false
-  xy: 1881, 1922
+  xy: 205, 703
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.6
   rotate: false
-  xy: 1, 684
+  xy: 1305, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.7
   rotate: false
-  xy: 103, 786
+  xy: 1407, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.boomerang.8
   rotate: false
-  xy: 205, 888
+  xy: 1, 397
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.crossbow.curse
   rotate: false
-  xy: 1203, 1718
+  xy: 103, 499
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.crossbow.normal.double
   rotate: false
-  xy: 1305, 1820
+  xy: 205, 601
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.crossbow.normal
   rotate: false
-  xy: 1, 582
+  xy: 1407, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.crossbow.poison
   rotate: false
-  xy: 103, 684
+  xy: 1509, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.crossbow.strong.double
   rotate: false
-  xy: 205, 786
+  xy: 1, 295
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.crossbow.strong
   rotate: false
-  xy: 1305, 1718
+  xy: 103, 397
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.crossbow.weak
   rotate: false
-  xy: 1407, 1820
+  xy: 205, 499
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.1
   rotate: false
-  xy: 1, 480
+  xy: 1509, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.2
   rotate: false
-  xy: 103, 582
+  xy: 1611, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.3
   rotate: false
-  xy: 205, 684
+  xy: 1, 193
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.4.fire
   rotate: false
-  xy: 1407, 1718
+  xy: 103, 295
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.4.ice
   rotate: false
-  xy: 1509, 1820
+  xy: 205, 397
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.4
   rotate: false
-  xy: 1, 378
+  xy: 1611, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.5.curse
   rotate: false
-  xy: 103, 480
+  xy: 1713, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.5.fire
   rotate: false
-  xy: 205, 582
+  xy: 1, 91
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.hammer.6.fire
   rotate: false
-  xy: 1509, 1718
+  xy: 103, 193
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.basic
   rotate: false
-  xy: 1611, 1820
+  xy: 205, 295
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.brokensword.ice
   rotate: false
-  xy: 1, 276
+  xy: 1713, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.brokensword
   rotate: false
-  xy: 103, 378
+  xy: 1815, 1737
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.brokensword.poison
   rotate: false
-  xy: 205, 480
+  xy: 103, 91
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.brokensword.strong
   rotate: false
-  xy: 1611, 1718
+  xy: 205, 193
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.dragonwarrior.fire
   rotate: false
-  xy: 1713, 1820
+  xy: 1815, 1635
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.dragonwarrior
   rotate: false
-  xy: 1, 174
+  xy: 205, 91
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.mighty.1
   rotate: false
-  xy: 103, 276
+  xy: 307, 1519
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.mighty.2
   rotate: false
-  xy: 205, 378
+  xy: 307, 1417
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.mighty.3.fire
   rotate: false
-  xy: 1713, 1718
+  xy: 307, 1315
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.mighty.3.ice
   rotate: false
-  xy: 1815, 1820
+  xy: 307, 1213
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.normal.1
   rotate: false
-  xy: 1, 72
+  xy: 307, 1111
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.normal.2
   rotate: false
-  xy: 103, 174
+  xy: 307, 1009
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.twisted.ice
   rotate: false
-  xy: 205, 276
+  xy: 307, 907
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.knife.twisted
   rotate: false
-  xy: 1815, 1718
+  xy: 307, 805
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.energy.3
   rotate: false
-  xy: 103, 72
+  xy: 307, 703
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.energy.4
   rotate: false
-  xy: 205, 174
+  xy: 307, 601
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.energy.5
   rotate: false
-  xy: 205, 72
+  xy: 307, 499
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.fireball
   rotate: false
-  xy: 307, 1602
+  xy: 307, 397
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.fireball.rain.1
   rotate: false
-  xy: 307, 1500
+  xy: 307, 295
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.fireball.rain.2
   rotate: false
-  xy: 307, 1398
+  xy: 307, 193
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.fist.fire
   rotate: false
-  xy: 307, 1296
+  xy: 307, 91
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.fist.huge
   rotate: false
-  xy: 307, 1194
+  xy: 409, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.fist
   rotate: false
-  xy: 307, 1092
+  xy: 409, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.fist.poison
   rotate: false
-  xy: 307, 990
+  xy: 511, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.iceball
   rotate: false
-  xy: 307, 888
+  xy: 409, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.icespear
   rotate: false
-  xy: 307, 786
+  xy: 511, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.icespike.1
   rotate: false
-  xy: 307, 684
+  xy: 613, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.icespike.2
   rotate: false
-  xy: 307, 582
+  xy: 409, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.icespike.3
   rotate: false
-  xy: 307, 480
+  xy: 511, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.icespike.4
   rotate: false
-  xy: 307, 378
+  xy: 613, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.icicle
   rotate: false
-  xy: 307, 276
+  xy: 715, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.icicle.strong
   rotate: false
-  xy: 307, 174
+  xy: 409, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.meteorball
   rotate: false
-  xy: 307, 72
+  xy: 511, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.poisonball
   rotate: false
-  xy: 409, 1616
+  xy: 613, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.shadowenergy.1
   rotate: false
-  xy: 409, 1514
+  xy: 715, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.shadowenergy.2
   rotate: false
-  xy: 511, 1616
+  xy: 817, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.shadowenergy.3
   rotate: false
-  xy: 409, 1412
+  xy: 409, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.shadowenergy.4
   rotate: false
-  xy: 511, 1514
+  xy: 511, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.skull.1
   rotate: false
-  xy: 613, 1616
+  xy: 613, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.skull.2
   rotate: false
-  xy: 409, 1310
+  xy: 715, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.skull.3
   rotate: false
-  xy: 511, 1412
+  xy: 817, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.snowball.normal
   rotate: false
-  xy: 613, 1514
+  xy: 919, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.snowball.strong.ice
   rotate: false
-  xy: 715, 1616
+  xy: 409, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.snowball.strong
   rotate: false
-  xy: 409, 1208
+  xy: 511, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.torch.elite
   rotate: false
-  xy: 511, 1310
+  xy: 613, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.torch
   rotate: false
-  xy: 613, 1412
+  xy: 715, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.torch.strong
   rotate: false
-  xy: 715, 1514
+  xy: 817, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.trickyenergy.1
   rotate: false
-  xy: 817, 1616
+  xy: 919, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.trickyenergy.2
   rotate: false
-  xy: 409, 1106
+  xy: 1021, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.magic.trickyenergy.3
   rotate: false
-  xy: 511, 1208
+  xy: 409, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.misc.bomb
   rotate: false
-  xy: 613, 1310
+  xy: 511, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.misc.suicide
   rotate: false
-  xy: 715, 1412
+  xy: 613, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.ice.1
   rotate: false
-  xy: 817, 1514
+  xy: 715, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.ice.2
   rotate: false
-  xy: 919, 1616
+  xy: 817, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.ice.3
   rotate: false
-  xy: 409, 1004
+  xy: 919, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.normal.1
   rotate: false
-  xy: 511, 1106
+  xy: 1021, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.normal.2
   rotate: false
-  xy: 613, 1208
+  xy: 1123, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.normal.3
   rotate: false
-  xy: 715, 1310
+  xy: 409, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.normal.4
   rotate: false
-  xy: 817, 1412
+  xy: 511, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shield.normal.5
   rotate: false
-  xy: 919, 1514
+  xy: 613, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shuriken.basic
   rotate: false
-  xy: 1021, 1616
+  xy: 715, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shuriken.fire
   rotate: false
-  xy: 409, 902
+  xy: 817, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shuriken.ice
   rotate: false
-  xy: 511, 1004
+  xy: 919, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shuriken.lucky
   rotate: false
-  xy: 613, 1106
+  xy: 1021, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shuriken.poison
   rotate: false
-  xy: 715, 1208
+  xy: 1123, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.shuriken.strong
   rotate: false
-  xy: 817, 1310
+  xy: 1225, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.spear.basic
   rotate: false
-  xy: 919, 1412
+  xy: 409, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.spear.fire
   rotate: false
-  xy: 1021, 1514
+  xy: 511, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.spear.god
   rotate: false
-  xy: 1123, 1616
+  xy: 613, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.spear.ice
   rotate: false
-  xy: 409, 800
+  xy: 715, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.spear.normal
   rotate: false
-  xy: 511, 902
+  xy: 817, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.spear.small
   rotate: false
-  xy: 613, 1004
+  xy: 919, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.spear.strong
   rotate: false
-  xy: 715, 1106
+  xy: 1021, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.stick.brute
   rotate: false
-  xy: 817, 1208
+  xy: 1123, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.stick.pharao
   rotate: false
-  xy: 919, 1310
+  xy: 1225, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.stick
   rotate: false
-  xy: 1021, 1412
+  xy: 1327, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.stick.reapinghook
   rotate: false
-  xy: 1123, 1514
+  xy: 409, 513
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.goblin.suicide
   rotate: false
-  xy: 1225, 1616
+  xy: 511, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.golem
   rotate: false
-  xy: 409, 698
+  xy: 613, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.golem.strong
   rotate: false
-  xy: 511, 800
+  xy: 715, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.skeleton
   rotate: false
-  xy: 613, 902
+  xy: 817, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.skeleton.strong
   rotate: false
-  xy: 715, 1004
+  xy: 919, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.tomb.egypt
   rotate: false
-  xy: 817, 1106
+  xy: 1021, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.zombie
   rotate: false
-  xy: 919, 1208
+  xy: 1123, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.summon.zombie.strong
   rotate: false
-  xy: 1021, 1310
+  xy: 1225, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.bandit.1
   rotate: false
-  xy: 1123, 1412
+  xy: 1327, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.bandit.2
   rotate: false
-  xy: 1225, 1514
+  xy: 1429, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.basic
   rotate: false
-  xy: 1327, 1616
+  xy: 409, 411
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.human.fire
   rotate: false
-  xy: 409, 596
+  xy: 511, 513
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.human.gold
   rotate: false
-  xy: 511, 698
+  xy: 613, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.human.ice
   rotate: false
-  xy: 613, 800
+  xy: 715, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.katana.1
   rotate: false
-  xy: 715, 902
+  xy: 817, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.katana.2
   rotate: false
-  xy: 817, 1004
+  xy: 919, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.katana.3.dark
   rotate: false
-  xy: 919, 1106
+  xy: 1021, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.katana.3.light
   rotate: false
-  xy: 1021, 1208
+  xy: 1123, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.katana.4.fire
   rotate: false
-  xy: 1123, 1310
+  xy: 1225, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.katana.4.ice
   rotate: false
-  xy: 1225, 1412
+  xy: 1327, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.mighty.cross
   rotate: false
-  xy: 1327, 1514
+  xy: 1429, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.mighty.double
   rotate: false
-  xy: 1429, 1616
+  xy: 1531, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.mighty.gold.cross
   rotate: false
-  xy: 409, 494
+  xy: 409, 309
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.mighty.gold.double
   rotate: false
-  xy: 511, 596
+  xy: 511, 411
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.mighty.gold
   rotate: false
-  xy: 613, 698
+  xy: 613, 513
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.mighty.gold.strong
   rotate: false
-  xy: 715, 800
+  xy: 715, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.mighty
   rotate: false
-  xy: 817, 902
+  xy: 817, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.orc.1
   rotate: false
-  xy: 919, 1004
+  xy: 919, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.orc.2
   rotate: false
-  xy: 1021, 1106
+  xy: 1021, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 action.sword.twisted
   rotate: false
-  xy: 1123, 1208
+  xy: 1123, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 block
   rotate: false
-  xy: 1225, 1310
+  xy: 1225, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 block.pressed
   rotate: false
-  xy: 1327, 1412
+  xy: 1327, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 buildings
   rotate: false
-  xy: 1429, 1514
+  xy: 1429, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 close
   rotate: false
-  xy: 1531, 1616
+  xy: 1531, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 frame.background.old
   rotate: false
-  xy: 409, 392
+  xy: 1633, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 frame.background
   rotate: false
-  xy: 511, 494
+  xy: 409, 207
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 frame.background.vampire
   rotate: false
-  xy: 613, 596
+  xy: 511, 309
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 frame.default
   rotate: false
-  xy: 715, 698
+  xy: 613, 411
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 frame.old
   rotate: false
-  xy: 817, 800
+  xy: 715, 513
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 frame
   rotate: false
-  xy: 919, 902
+  xy: 817, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 move.left
   rotate: false
-  xy: 1021, 1004
+  xy: 919, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 move.left.pressed
   rotate: false
-  xy: 1123, 1106
+  xy: 1021, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 move.right
   rotate: false
-  xy: 1225, 1208
+  xy: 1123, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 move.right.pressed
   rotate: false
-  xy: 1327, 1310
+  xy: 1225, 1023
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+pause
+  rotate: false
+  xy: 1327, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 toggle.castledefense
   rotate: false
-  xy: 1429, 1412
+  xy: 1429, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 toggle.player
   rotate: false
-  xy: 1531, 1514
+  xy: 1531, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 units
   rotate: false
-  xy: 1633, 1616
+  xy: 1633, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 unknown
   rotate: false
-  xy: 409, 290
+  xy: 1735, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.aura
   rotate: false
-  xy: 511, 392
+  xy: 409, 105
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unique.rush
   rotate: false
-  xy: 511, 392
+  xy: 409, 105
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.drain
   rotate: false
-  xy: 613, 494
+  xy: 511, 207
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.follower.respawntime
   rotate: false
-  xy: 715, 596
+  xy: 613, 309
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.headshot
   rotate: false
-  xy: 817, 698
+  xy: 715, 411
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.health
   rotate: false
-  xy: 919, 800
+  xy: 817, 513
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.luck
   rotate: false
-  xy: 1021, 902
+  xy: 919, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.mana
   rotate: false
-  xy: 1123, 1004
+  xy: 1021, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.mount.drain
   rotate: false
-  xy: 1225, 1106
+  xy: 1123, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.skills.durability.light
   rotate: false
-  xy: 1327, 1208
+  xy: 1225, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.skills.heavy
   rotate: false
-  xy: 1429, 1310
+  xy: 1327, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.skills.light
   rotate: false
-  xy: 1531, 1412
+  xy: 1429, 1125
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.skills.magic
   rotate: false
-  xy: 1633, 1514
+  xy: 1531, 1227
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.steroids
   rotate: false
-  xy: 1735, 1616
+  xy: 1633, 1329
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unique.enemybook
   rotate: false
-  xy: 409, 188
+  xy: 1735, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unique.jump
   rotate: false
-  xy: 511, 290
+  xy: 511, 105
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unique.shield.big
   rotate: false
-  xy: 613, 392
+  xy: 613, 207
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unique.shield.enchanted
   rotate: false
-  xy: 715, 494
+  xy: 715, 309
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unique.skillslot
   rotate: false
-  xy: 817, 596
+  xy: 817, 411
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unique.walk_while_blocking
   rotate: false
-  xy: 919, 698
+  xy: 919, 513
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.unstoppable
   rotate: false
-  xy: 1021, 800
+  xy: 1021, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 upgrade.walkspeed
   rotate: false
-  xy: 1123, 902
+  xy: 1123, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 arrow.left
   rotate: false
-  xy: 1, 1
+  xy: 1, 20
   size: 95, 69
   orig: 95, 69
   offset: 0, 0
   index: -1
 arrow.right
   rotate: false
-  xy: 1225, 1035
+  xy: 1225, 850
   size: 95, 69
   orig: 95, 69
   offset: 0, 0
   index: -1
 credits
   rotate: false
-  xy: 1327, 1126
+  xy: 1327, 941
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 help
   rotate: false
-  xy: 1429, 1228
+  xy: 1429, 1043
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 infobook
   rotate: false
-  xy: 1531, 1330
+  xy: 1531, 1145
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 menu
   rotate: false
-  xy: 1633, 1432
+  xy: 1633, 1247
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 missions.fail
   rotate: false
-  xy: 1735, 1534
+  xy: 1735, 1349
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 missions
   rotate: false
-  xy: 409, 106
+  xy: 613, 125
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 missions.success
   rotate: false
-  xy: 511, 208
+  xy: 715, 227
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 news
   rotate: false
-  xy: 613, 310
+  xy: 817, 329
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 options
   rotate: false
-  xy: 715, 412
+  xy: 919, 431
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 shop
   rotate: false
-  xy: 817, 514
+  xy: 1021, 533
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 tips
   rotate: false
-  xy: 919, 616
+  xy: 1123, 635
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 zoom
   rotate: false
-  xy: 1021, 718
+  xy: 1225, 768
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 locked
   rotate: false
-  xy: 1983, 1955
+  xy: 1837, 1566
   size: 46, 67
   orig: 46, 67
   offset: 0, 0
   index: -1
 underline
   rotate: false
-  xy: 1917, 1918
+  xy: 1923, 1841
   size: 56, 2
   orig: 56, 2
   offset: 0, 0
   index: -1
 coin
   rotate: false
-  xy: 1837, 1691
+  xy: 98, 64
   size: 25, 25
   orig: 25, 25
   offset: 0, 0
   index: -1
+frame_blue_vertical
+  rotate: false
+  xy: 1, 1
+  size: 7, 17
+  orig: 7, 17
+  offset: 0, 0
+  index: -1
 frame_blue_corner
   rotate: false
-  xy: 2031, 2006
+  xy: 2025, 2031
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 frame_blue_horizontal
   rotate: false
-  xy: 387, 1709
+  xy: 387, 1626
   size: 17, 7
   orig: 17, 7
-  offset: 0, 0
-  index: -1
-frame_blue_vertical
-  rotate: false
-  xy: 1123, 883
-  size: 7, 17
-  orig: 7, 17
   offset: 0, 0
   index: -1

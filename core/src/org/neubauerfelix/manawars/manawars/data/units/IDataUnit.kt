@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.data.units
 
+import org.neubauerfelix.manawars.manawars.data.IDataCoreEntity
 import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.data.actions.IDataPresentable
 import org.neubauerfelix.manawars.manawars.entities.IControlled
@@ -7,12 +8,11 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.*
 
-interface IDataUnit : IDataPresentable, IDataActionUser {
+interface IDataUnit : IDataPresentable, IDataActionUser, IDataCoreEntity {
 
     val name: String
     val displayName: String
     val rarity: NWRarity
-    val animation: IEntityAnimationProducer
     val armor: MWArmorType
 
     var health: Float
@@ -23,8 +23,6 @@ interface IDataUnit : IDataPresentable, IDataActionUser {
 
     var walkSpeedMax: Float
     var walkAcceleration: Float
-
-    val cost: Int
 
 
 

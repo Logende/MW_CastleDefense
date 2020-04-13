@@ -76,10 +76,10 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         } else {
             // Not Idle -> active
 
-            if (data.stopOnGround && this.bottom > GameConstants.WORLD_HEIGHT) { // Stop moving when hitting ground
+            if (data.stopOnGround && this.bottom > GameConstants.WORLD_HEIGHT_UNITS) { // Stop moving when hitting ground
                 this.speedY = 0f
                 this.accelerationY = 0f
-                this.bottom = GameConstants.WORLD_HEIGHT
+                this.bottom = GameConstants.WORLD_HEIGHT_UNITS
             }
 
             if (data.targetEnemy && target != null) {

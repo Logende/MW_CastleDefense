@@ -23,8 +23,8 @@ open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), I
 
     override fun touch(x: Float, y: Float, pointerId: Int): Boolean {
         if(super.touch(x, y, pointerId)){
-            val translatedX = x - x
-            val translatedY = y - y
+            val translatedX = x - this.x
+            val translatedY = y - this.y
             synchronized(components) {
                 for (i in components.indices.reversed()) {
                     val c = components[i]
@@ -41,8 +41,8 @@ open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), I
 
     override fun release(x: Float, y: Float, pointerId: Int): Boolean {
         if(super.release(x, y, pointerId)){
-            val translatedX = x - x
-            val translatedY = y - y
+            val translatedX = x - this.x
+            val translatedY = y - this.y
             synchronized(components) {
                 for (i in components.indices.reversed()) {
                     val c = components[i]

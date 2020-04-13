@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.manawars.entities.MEntityActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 class CDEntityBuildingAction(val data: IDataBuildingAction) :
-        MEntityActionUser(data.animationProducer, data.health, data.action, data.actionCooldown) {
+        MEntityActionUser(data.animation, data.health, data.action, data.actionCooldown) {
 
 
 

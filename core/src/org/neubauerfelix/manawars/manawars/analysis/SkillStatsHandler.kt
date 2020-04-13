@@ -1,14 +1,10 @@
 package org.neubauerfelix.manawars.manawars.analysis
 
-import org.neubauerfelix.manawars.castledefense.CDManaWars
-import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuilding
-import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildingAction
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.actions.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataActionUser
-import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.*
 import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.enums.*
@@ -32,7 +28,7 @@ class SkillStatsHandler : ISkillStatsHandler {
         private const val SIMULATION_STEP_TIME = 1f / 50f
         private const val SIMULATION_MAX_LIFE_DURATION = 10f
         private const val SIMULATION_MAX_STEPS = (SIMULATION_MAX_LIFE_DURATION / SIMULATION_STEP_TIME).toInt()
-        private const val SIMULATION_BORDER_BOTTOM = GameConstants.WORLD_HEIGHT + 700f
+        private const val SIMULATION_BORDER_BOTTOM = GameConstants.WORLD_HEIGHT_UNITS + 700f
         private const val SIMULATION_BORDER_TOP = - 1000f
         private const val SIMULATION_BORDER_LEFT = - 700f
         private const val SIMULATION_BORDER_RIGHT = 2500f
@@ -138,9 +134,9 @@ class SkillStatsHandler : ISkillStatsHandler {
         var rangeMin = Float.MAX_VALUE
         var lifeTime = 0f
 
-        val owner = entityAnimationType.createDummy(0f, GameConstants.WORLD_HEIGHT, data, 1) // owner stands on left of screen (x = 0) looking towards right
-        val target = targetAnimationType.createDummy(0f, GameConstants.WORLD_HEIGHT, data, -1) // The target is moved with the data (target left is always on data centre); Exception: Targeting skills
-        val targetFarAway = targetAnimationType.createDummy(3000f, GameConstants.WORLD_HEIGHT, data, -1) // Far away. Used for targeting skills, which for example aim at the y pos of this target.
+        val owner = entityAnimationType.createDummy(0f, GameConstants.WORLD_HEIGHT_UNITS, data, 1) // owner stands on left of screen (x = 0) looking towards right
+        val target = targetAnimationType.createDummy(0f, GameConstants.WORLD_HEIGHT_UNITS, data, -1) // The target is moved with the data (target left is always on data centre); Exception: Targeting skills
+        val targetFarAway = targetAnimationType.createDummy(3000f, GameConstants.WORLD_HEIGHT_UNITS, data, -1) // Far away. Used for targeting skills, which for example aim at the y pos of this target.
 
 
         // If has target speed: Assign dummy target to test range of skill

@@ -3,6 +3,7 @@ package org.neubauerfelix.manawars.castledefense.data.buildings
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingPlaceholder
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.IComponent
+import org.neubauerfelix.manawars.manawars.data.actions.IDataAction
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerBuilding
@@ -13,7 +14,7 @@ class DataBuildingPlaceholder(textureName: String, override val name: String) :
 
     override val health: Float = 1f
 
-    override val animationProducer: IEntityAnimationProducer =
+    override val animation: IEntityAnimationProducer =
             EntityAnimationProducerBuilding(textureName, textureName,
                     null, 0f)
 
@@ -41,4 +42,7 @@ class DataBuildingPlaceholder(textureName: String, override val name: String) :
     override fun generateIcon(x: Float, y: Float, width: Float, height: Float, action: Runnable): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override val action: IDataAction
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 }

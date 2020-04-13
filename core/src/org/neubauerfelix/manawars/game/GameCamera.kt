@@ -51,7 +51,7 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable, IHandler {
         viewport = ExtendViewport(50f, GameConstants.SCREEN_HEIGHT)
         viewport.apply()
 
-        window = GameRectangle(0f, 0f, GameConstants.SCREEN_WIDTH, GameConstants.WORLD_HEIGHT)
+        window = GameRectangle(0f, 0f, GameConstants.SCREEN_WIDTH, GameConstants.WORLD_HEIGHT_BACKGROUNDS)
 
         batcher = SpriteBatch()
         batcher.projectionMatrix = cameraIngame.combined
@@ -158,7 +158,12 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable, IHandler {
 
     private fun setWindowLocation(x: Float) {
         window.x = x
-        cameraIngame.position.set(window.centerHorizontal, window.centerVertical + GameConstants.CONTROLPANEL_HEIGHT * zoomIngame / 2, 0f)
+        val offsetY = if (GameConstants.CONTROLPANEL_ON_TOP) {
+            0f
+        } else {
+            GameConstants.CONTROLPANEL_HEIGHT * zoomIngame / 2
+        }
+        cameraIngame.position.set(window.centerHorizontal, window.centerVertical + offsetY, 0f)
         cameraIngame.update()
     }
 

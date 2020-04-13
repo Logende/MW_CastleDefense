@@ -4,7 +4,7 @@ import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuilding
 import org.neubauerfelix.manawars.manawars.entities.*
 
 class CDEntityBuildingPlaceholder(val data: IDataBuilding) :
-        MEntityAnimated(data.animationProducer, data.health) {
+        MEntityAnimated(data.animation, data.health) {
 
     fun build(building: IDataBuilding, team: Int) {
         this.remove = true

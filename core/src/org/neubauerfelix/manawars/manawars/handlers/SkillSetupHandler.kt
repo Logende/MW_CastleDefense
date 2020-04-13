@@ -52,7 +52,7 @@ class SkillSetupHandler : ISkillSetupHandler {
         if (data.yRelativeToTarget && target != null) {
             skill.centerVertical = target.centerVertical + data.yOffset * skill.propertyScale
         } else if (data.yRelativeToGround) {
-            skill.top = GameConstants.WORLD_HEIGHT + data.yOffset * skill.propertyScale
+            skill.top = GameConstants.WORLD_HEIGHT_UNITS + data.yOffset * skill.propertyScale
         } else {
             skill.centerVertical = owner.centerVertical + data.yOffset * skill.propertyScale
         }

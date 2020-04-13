@@ -19,13 +19,13 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
         val texture = MManaWars.m.getImageHandler().getTextureRegionMain(tribe.castle.textureNameAlive)
 
         val castleLocation = if (leftSide) {
-            GameLocation(CDConstants.CASTLE_BORDER_OFFSET, GameConstants.WORLD_HEIGHT - texture.originalHeight)
+            GameLocation(CDConstants.CASTLE_BORDER_OFFSET, GameConstants.WORLD_HEIGHT_UNITS - texture.originalHeight)
         } else {
             GameLocation(mapWidth - texture.originalWidth - CDConstants.CASTLE_BORDER_OFFSET,
-                    GameConstants.WORLD_HEIGHT - texture.originalHeight)
+                    GameConstants.WORLD_HEIGHT_UNITS - texture.originalHeight)
         }
 
-        val spawnLocation = GameLocation(castleLocation.x + texture.originalWidth/2, GameConstants.WORLD_HEIGHT).
+        val spawnLocation = GameLocation(castleLocation.x + texture.originalWidth/2, GameConstants.WORLD_HEIGHT_UNITS).
                 plus(tribe.castle.unitSpawnOffset)
 
         val direction = if (leftSide) 1 else -1

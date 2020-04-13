@@ -2,24 +2,22 @@ package org.neubauerfelix.manawars.castledefense.data.buildings
 
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
+import org.neubauerfelix.manawars.manawars.data.IDataCoreEntity
 import org.neubauerfelix.manawars.manawars.data.actions.IDataPresentable
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.NWRarity
 
-interface IDataBuilding : IDataPresentable {
+interface IDataBuilding : IDataPresentable, IDataCoreEntity {
 
 
     // produces and spawns the entity
-    fun produce(centreHor: Float, bottom: Float = GameConstants.WORLD_HEIGHT, team: Int): ILiving
-    fun produceBuilder(centreHor: Float, bottom: Float = GameConstants.WORLD_HEIGHT, player: ICDPlayer): ILiving
+    fun produce(centreHor: Float, bottom: Float = GameConstants.WORLD_HEIGHT_UNITS, team: Int): ILiving
+    fun produceBuilder(centreHor: Float, bottom: Float = GameConstants.WORLD_HEIGHT_UNITS, player: ICDPlayer): ILiving
 
     val health: Float
-    val animationProducer: IEntityAnimationProducer
 
     val name: String
-    val cost: Int
-
     val rarity: NWRarity
 
 }

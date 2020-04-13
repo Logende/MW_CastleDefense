@@ -58,8 +58,8 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
         super.doLogic(delta)
 
         if (!flying && !isOnGround && speedY > 0) {
-            if (bottom >= GameConstants.WORLD_HEIGHT) { //Reached ground
-                bottom = GameConstants.WORLD_HEIGHT
+            if (bottom >= GameConstants.WORLD_HEIGHT_UNITS) { //Reached ground
+                bottom = GameConstants.WORLD_HEIGHT_UNITS
                 landOnGround()
                 return
             }

@@ -49,7 +49,7 @@ class DataBuildingActionLoaded(config: Configuration) :
 
     }
 
-    override val animationProducer: IEntityAnimationProducer =
+    override val animation: IEntityAnimationProducer =
             EntityAnimationProducerBuilding(textureNameAlive, textureNameDead,
                     textureNameAnimation, animationFrameDuration)
 
