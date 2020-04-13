@@ -143,21 +143,21 @@ arrow.headshot
   orig: 326, 9
   offset: 0, 0
   index: -1
-arrow.poison
+l1.frost.ranged
   rotate: false
   xy: 803, 159
   size: 326, 9
   orig: 326, 9
   offset: 0, 0
   index: -1
-l1.frost.ranged
+l1.lizard.ranged
   rotate: false
   xy: 803, 148
   size: 326, 9
   orig: 326, 9
   offset: 0, 0
   index: -1
-l1.lizard.ranged
+l1.skeleton.ranged
   rotate: false
   xy: 803, 137
   size: 326, 9
@@ -302,6 +302,13 @@ crossbowbolt
   xy: 1507, 333
   size: 204, 11
   orig: 204, 11
+  offset: 0, 0
+  index: -1
+l1.skeleton.mage
+  rotate: false
+  xy: 1205, 206
+  size: 180, 33
+  orig: 180, 33
   offset: 0, 0
   index: -1
 l1.zombie.mage
@@ -647,7 +654,7 @@ axe.human.fire
   orig: 47, 95
   offset: 0, 0
   index: -1
-sword.mighty.gold.strong
+l1.skeleton.boss
   rotate: false
   xy: 1936, 2
   size: 13, 94
@@ -682,7 +689,7 @@ magic.icespike.4
   orig: 63, 123
   offset: 0, 0
   index: -1
-sword.twisted
+l1.skeleton.melee
   rotate: false
   xy: 1762, 12
   size: 17, 95
@@ -822,7 +829,7 @@ knife.gold
   orig: 21, 64
   offset: 0, 0
   index: -1
-sword.mighty.gold
+l1.skeleton.tank
   rotate: false
   xy: 2035, 331
   size: 9, 94

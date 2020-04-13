@@ -23,6 +23,7 @@ tribes:
   - 'tribes/goblin.yml'
   - 'tribes/human.yml'
   - 'tribes/lizard.yml'
+  - 'tribes/skeleton.yml'
 backgrounds:
   - 'backgrounds.yml'
 playgrounds:

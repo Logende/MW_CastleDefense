@@ -30,6 +30,11 @@ bodyDataHuman:
 - l1.lizard.mage
 - l1.lizard.tank
 - l1.lizard.boss
+- l1.skeleton.melee
+- l1.skeleton.ranged
+- l1.skeleton.mage
+- l1.skeleton.tank
+- l1.skeleton.boss
 - dummy.shield:big.diamond
 - builder
 bodyDataMount:
