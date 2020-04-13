@@ -30,6 +30,12 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
     val mount: IEntityAnimation
     val human: IEntityAnimation
 
+    override var paused: Boolean
+        get() = mount.paused
+        set(value) {
+            mount.paused = paused
+            human.paused = paused
+        }
 
     override fun explode() {
         mount.playDeathAnimation(null, MWDamageCause.ANIMATION)

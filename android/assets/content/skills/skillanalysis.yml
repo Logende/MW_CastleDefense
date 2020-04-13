@@ -1,36 +1,102 @@
+arrow:
+  lifeTime: 0.82
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_mortar:
+  lifeTime: 14.16
+  rangeMax: 860.0
+  rangeMin: 712.0
 action_building_darts:
   lifeTime: 1.14
   rangeMax: 900.0
   rangeMin: 0.0
-skill_zombie:
+skill_human:
+  boss:
+    lifeTime: 1.4
+    rangeMax: 900.0
+    rangeMin: 0.0
   melee:
     lifeTime: 2.26
-    rangeMax: 636.0
+    rangeMax: 648.0
     rangeMin: 0.0
   mage:
-    lifeTime: 3.1999998
+    lifeTime: 2.44
     rangeMax: 900.0
     rangeMin: 0.0
   tank:
-    lifeTime: 8.639999
-    rangeMax: 560.0
-    rangeMin: 334.0
+    lifeTime: 7.2
+    rangeMax: 427.0
+    rangeMin: 180.0
+  ranger:
+    lifeTime: 3.48
+    rangeMax: 626.6118
+    rangeMin: 0.0
+action_building_firethrower:
+  lifeTime: 1.78
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_icethrower:
+  lifeTime: 1.78
+  rangeMax: 900.0
+  rangeMin: 0.0
+skill_goblin:
+  boss:
+    lifeTime: 1.12
+    rangeMax: 900.0
+    rangeMin: 0.0
   ranger:
     lifeTime: 2.36
     rangeMax: 900.0
     rangeMin: 0.0
-  boss:
-    lifeTime: 3.48
-    rangeMax: 626.6118
-    rangeMin: 0.0
-skill_bear:
   tank:
-    lifeTime: 1.8199999
-    rangeMax: 802.08093
-    rangeMin: 133.90411
+    lifeTime: 3.02
+    rangeMax: 718.84814
+    rangeMin: 0.0
+  melee:
+    lifeTime: 8.639999
+    rangeMax: 640.0
+    rangeMin: 396.0
+  mage:
+    lifeTime: 7.62
+    rangeMax: 900.0
+    rangeMin: 0.0
+skill_frost:
+  boss:
+    lifeTime: 2.6599998
+    rangeMax: 630.9115
+    rangeMin: 0.0
+  tank:
+    lifeTime: 2.6599998
+    rangeMax: 630.9115
+    rangeMin: 0.0
+  ranger:
+    lifeTime: 1.62
+    rangeMax: 900.0
+    rangeMin: 0.0
+  melee:
+    lifeTime: 0.79999995
+    rangeMax: 702.0
+    rangeMin: 0.0
+  mage:
+    lifeTime: 2.22
+    rangeMax: 1000.0
+    rangeMin: 0.0
+lizard_energy_single:
+  lifeTime: 1.6999999
+  rangeMax: 900.0
+  rangeMin: 0.0
+action_building_cannon:
+  lifeTime: 1.0
+  rangeMax: 900.0
+  rangeMin: 0.0
+skill_bear:
   boss:
     lifeTime: 2.1599998
     rangeMax: 900.0
+    rangeMin: 133.90411
+  tank:
+    lifeTime: 1.8199999
+    rangeMax: 802.08093
     rangeMin: 133.90411
   ranger:
     lifeTime: 9.5199995
@@ -44,94 +110,49 @@ magic_energy_single:
   lifeTime: 3.26
   rangeMax: 900.0
   rangeMin: 0.0
-skill_human:
+action_building_ballista:
+  lifeTime: 0.82
+  rangeMax: 900.0
+  rangeMin: 0.0
+skill_lizard:
   ranger:
-    lifeTime: 3.5
-    rangeMax: 620.92865
+    lifeTime: 2.36
+    rangeMax: 900.0
     rangeMin: 0.0
   tank:
-    lifeTime: 7.2
-    rangeMax: 427.0
-    rangeMin: 180.0
+    lifeTime: 6.72
+    rangeMax: 570.0
+    rangeMin: 310.0
   melee:
-    lifeTime: 2.26
-    rangeMax: 648.0
-    rangeMin: 0.0
-  boss:
-    lifeTime: 1.4
-    rangeMax: 900.0
+    lifeTime: 1.78
+    rangeMax: 704.0
     rangeMin: 0.0
   mage:
-    lifeTime: 2.44
+    lifeTime: 2.08
     rangeMax: 900.0
     rangeMin: 0.0
-skill_goblin:
-  boss:
-    lifeTime: 1.12
+skill_zombie:
+  mage:
+    lifeTime: 3.1999998
     rangeMax: 900.0
-    rangeMin: 0.0
-  tank:
-    lifeTime: 3.02
-    rangeMax: 718.84814
     rangeMin: 0.0
   ranger:
     lifeTime: 2.36
     rangeMax: 900.0
     rangeMin: 0.0
-  mage:
-    lifeTime: 7.62
-    rangeMax: 900.0
-    rangeMin: 0.0
   melee:
-    lifeTime: 8.639999
-    rangeMax: 640.0
-    rangeMin: 396.0
-action_building_cannon:
-  lifeTime: 1.0
-  rangeMax: 900.0
-  rangeMin: 0.0
-action_building_icethrower:
-  lifeTime: 1.78
-  rangeMax: 900.0
-  rangeMin: 0.0
-action_building_mortar:
-  lifeTime: 14.16
-  rangeMax: 860.0
-  rangeMin: 712.0
-skill_frost:
-  ranger:
-    lifeTime: 1.62
-    rangeMax: 900.0
+    lifeTime: 2.26
+    rangeMax: 636.0
     rangeMin: 0.0
   boss:
-    lifeTime: 2.6599998
-    rangeMax: 630.9115
-    rangeMin: 0.0
-  melee:
-    lifeTime: 0.79999995
-    rangeMax: 702.0
+    lifeTime: 3.48
+    rangeMax: 626.6118
     rangeMin: 0.0
   tank:
-    lifeTime: 2.6
-    rangeMax: 630.9115
-    rangeMin: 0.0
-  mage:
-    lifeTime: 2.02
-    rangeMax: 1000.0
-    rangeMin: 0.0
-arrow:
-  lifeTime: 0.82
-  rangeMax: 900.0
-  rangeMin: 0.0
+    lifeTime: 8.639999
+    rangeMax: 560.0
+    rangeMin: 334.0
 crossbow_strong:
   lifeTime: 0.91999996
-  rangeMax: 900.0
-  rangeMin: 0.0
-action_building_firethrower:
-  lifeTime: 1.78
-  rangeMax: 900.0
-  rangeMin: 0.0
-action_building_ballista:
-  lifeTime: 0.82
   rangeMax: 900.0
   rangeMin: 0.0

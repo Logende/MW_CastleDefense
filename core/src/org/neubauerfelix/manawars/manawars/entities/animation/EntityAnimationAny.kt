@@ -13,6 +13,12 @@ class EntityAnimationAny(val body: IBody, override val entityAnimationType: MWEn
         EntityAnimation(body, body.scale) {
 
 
+    override var paused: Boolean
+        get() = super.paused
+        set(value) {
+            super.paused = value
+            body.paused = paused
+        }
 
 
     override fun playDeathAnimation(damager: IEntity?, cause: MWDamageCause) {

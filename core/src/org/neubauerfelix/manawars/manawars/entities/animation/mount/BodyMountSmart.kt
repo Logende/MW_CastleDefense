@@ -36,9 +36,12 @@ class BodyMountSmart(bodyData: IBodyDataMount, scale: Float = 1f, sized: ISized)
     override val canFly: Boolean
         get() = false
 
+    override var paused: Boolean = false
+
+
     override fun doLogic(delta: Float) {
         next -= delta
-        if (next < 0) {
+        if (next < 0 &&! paused) {
             next = MConstants.MOUNT_ANIMATION_SPEED
             nextPosition()
         }

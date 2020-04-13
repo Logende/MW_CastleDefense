@@ -150,14 +150,14 @@ arrow.poison
   orig: 326, 9
   offset: 0, 0
   index: -1
-arrow.random
+l1.frost.ranged
   rotate: false
   xy: 803, 148
   size: 326, 9
   orig: 326, 9
   offset: 0, 0
   index: -1
-l1.frost.ranged
+l1.lizard.ranged
   rotate: false
   xy: 803, 137
   size: 326, 9
@@ -220,7 +220,7 @@ building.icethrower
   orig: 200, 34
   offset: 0, 0
   index: -1
-magic.iceball
+l1.lizard.mage
   rotate: false
   xy: 1507, 392
   size: 200, 34
@@ -255,7 +255,7 @@ building.firethrower
   orig: 200, 31
   offset: 0, 0
   index: -1
-l1.human.mage
+magic.fireball
   rotate: false
   xy: 1719, 549
   size: 200, 31
@@ -395,7 +395,7 @@ beast.waterball
   orig: 184, 26
   offset: 0, 0
   index: -1
-magic.torch.strong
+l1.human.mage
   rotate: false
   xy: 688, 17
   size: 90, 80
@@ -430,7 +430,7 @@ axe.orc.2
   orig: 52, 150
   offset: 0, 0
   index: -1
-boomerang.4
+boomerang.6
   rotate: false
   xy: 1131, 118
   size: 55, 87
@@ -605,7 +605,7 @@ l1.bear.tank
   orig: 74, 74
   offset: 0, 0
   index: -1
-boomerang.6
+l1.human.ranged
   rotate: false
   xy: 1521, 3
   size: 55, 87
@@ -689,39 +689,46 @@ sword.twisted
   orig: 17, 95
   offset: 0, 0
   index: -1
-axe.dwarf2.1
+axe.wild.strong
   rotate: false
-  xy: 1130, 12
-  size: 27, 74
-  orig: 27, 74
+  xy: 1130, 5
+  size: 39, 81
+  orig: 39, 81
   offset: 0, 0
   index: -1
 sword.human.fire
   rotate: false
-  xy: 1159, 12
+  xy: 1171, 1
   size: 26, 104
   orig: 26, 104
   offset: 0, 0
   index: -1
 axe.human.ice
   rotate: false
-  xy: 1187, 11
+  xy: 1199, 11
   size: 46, 94
   orig: 46, 94
   offset: 0, 0
   index: -1
 l1.human.tank
   rotate: false
-  xy: 1235, 11
+  xy: 1247, 11
   size: 44, 94
   orig: 44, 94
   offset: 0, 0
   index: -1
-shield.normal.1
+knife.dragonwarrior
   rotate: false
-  xy: 1281, 26
-  size: 27, 79
-  orig: 27, 79
+  xy: 1293, 55
+  size: 15, 50
+  orig: 15, 50
+  offset: 0, 0
+  index: -1
+knife.army.2
+  rotate: false
+  xy: 1293, 6
+  size: 15, 47
+  orig: 15, 47
   offset: 0, 0
   index: -1
 l1.bear.melee
@@ -801,7 +808,7 @@ hammer.1
   orig: 37, 83
   offset: 0, 0
   index: -1
-knife.dragonwarrior
+knife.normal.1
   rotate: false
   xy: 1696, 281
   size: 15, 50
@@ -1016,213 +1023,213 @@ axe.dwarf1.simple
   orig: 30, 94
   offset: 0, 0
   index: -1
-axe.wild.strong
-  rotate: false
-  xy: 868, 174
-  size: 39, 81
-  orig: 39, 81
-  offset: 0, 0
-  index: -1
-sword.human.ice
-  rotate: false
-  xy: 70, 3
-  size: 24, 103
-  orig: 24, 103
-  offset: 0, 0
-  index: -1
-sword.bandit.1
-  rotate: false
-  xy: 96, 6
-  size: 25, 100
-  orig: 25, 100
-  offset: 0, 0
-  index: -1
 magic.icespike.2
   rotate: false
-  xy: 123, 9
+  xy: 868, 158
   size: 26, 97
   orig: 26, 97
   offset: 0, 0
   index: -1
-l1.human.ranged
+sword.bandit.1
   rotate: false
-  xy: 909, 182
-  size: 41, 73
-  orig: 41, 73
+  xy: 896, 155
+  size: 25, 100
+  orig: 25, 100
   offset: 0, 0
   index: -1
-axe.dwarf2.3.fire
+sword.human.ice
   rotate: false
-  xy: 952, 190
-  size: 48, 65
-  orig: 48, 65
-  offset: 0, 0
-  index: -1
-knife.sharp
-  rotate: false
-  xy: 1002, 197
-  size: 21, 58
-  orig: 21, 58
-  offset: 0, 0
-  index: -1
-sword.orc.2
-  rotate: false
-  xy: 151, 12
-  size: 17, 94
-  orig: 17, 94
+  xy: 923, 152
+  size: 24, 103
+  orig: 24, 103
   offset: 0, 0
   index: -1
 shield.normal.2
   rotate: false
-  xy: 170, 55
+  xy: 949, 173
   size: 33, 82
   orig: 33, 82
   offset: 0, 0
   index: -1
-boomerang.3
-  rotate: false
-  xy: 205, 66
-  size: 41, 71
-  orig: 41, 71
-  offset: 0, 0
-  index: -1
-l1.goblin.boss
-  rotate: false
-  xy: 170, 1
-  size: 18, 52
-  orig: 18, 52
-  offset: 0, 0
-  index: -1
 boomerang.1
   rotate: false
-  xy: 248, 66
+  xy: 984, 184
   size: 39, 71
   orig: 39, 71
   offset: 0, 0
   index: -1
+boomerang.2
+  rotate: false
+  xy: 70, 33
+  size: 41, 73
+  orig: 41, 73
+  offset: 0, 0
+  index: -1
+boomerang.3
+  rotate: false
+  xy: 113, 35
+  size: 41, 71
+  orig: 41, 71
+  offset: 0, 0
+  index: -1
+axe.dwarf2.3.fire
+  rotate: false
+  xy: 156, 72
+  size: 48, 65
+  orig: 48, 65
+  offset: 0, 0
+  index: -1
 axe.dwarf2.3
   rotate: false
-  xy: 289, 81
+  xy: 206, 73
   size: 46, 64
   orig: 46, 64
   offset: 0, 0
   index: -1
+l1.lizard.tank
+  rotate: false
+  xy: 254, 71
+  size: 27, 74
+  orig: 27, 74
+  offset: 0, 0
+  index: -1
+shield.normal.1
+  rotate: false
+  xy: 283, 66
+  size: 27, 79
+  orig: 27, 79
+  offset: 0, 0
+  index: -1
+l1.lizard.melee
+  rotate: false
+  xy: 312, 51
+  size: 17, 94
+  orig: 17, 94
+  offset: 0, 0
+  index: -1
+l1.human.boss
+  rotate: false
+  xy: 331, 52
+  size: 9, 93
+  orig: 9, 93
+  offset: 0, 0
+  index: -1
 l1.frost.mage
   rotate: false
-  xy: 337, 79
+  xy: 342, 79
   size: 17, 66
   orig: 17, 66
   offset: 0, 0
   index: -1
+knife.sharp
+  rotate: false
+  xy: 361, 87
+  size: 21, 58
+  orig: 21, 58
+  offset: 0, 0
+  index: -1
 l1.bear.mage
   rotate: false
-  xy: 356, 106
+  xy: 384, 106
+  size: 38, 39
+  orig: 38, 39
+  offset: 0, 0
+  index: -1
+l1.lizard.boss
+  rotate: false
+  xy: 384, 106
+  size: 38, 39
+  orig: 38, 39
+  offset: 0, 0
+  index: -1
+magic.iceenergy
+  rotate: false
+  xy: 156, 31
   size: 38, 39
   orig: 38, 39
   offset: 0, 0
   index: -1
 magic.shadowenergy
   rotate: false
-  xy: 396, 107
+  xy: 384, 66
   size: 37, 38
   orig: 37, 38
   offset: 0, 0
   index: -1
-knife.frost
+misc.bomb
   rotate: false
-  xy: 190, 3
-  size: 17, 50
-  orig: 17, 50
-  offset: 0, 0
-  index: -1
-knife.mighty.3.fire
-  rotate: false
-  xy: 209, 1
-  size: 13, 63
-  orig: 13, 63
-  offset: 0, 0
-  index: -1
-magic.iceenergy
-  rotate: false
-  xy: 224, 25
-  size: 38, 39
-  orig: 38, 39
-  offset: 0, 0
-  index: -1
-knife.thin
-  rotate: false
-  xy: 264, 8
-  size: 16, 56
-  orig: 16, 56
+  xy: 70, 4
+  size: 22, 27
+  orig: 22, 27
   offset: 0, 0
   index: -1
 knife.army.1
   rotate: false
-  xy: 282, 7
+  xy: 196, 13
   size: 13, 57
   orig: 13, 57
   offset: 0, 0
   index: -1
+knife.thin
+  rotate: false
+  xy: 211, 15
+  size: 16, 56
+  orig: 16, 56
+  offset: 0, 0
+  index: -1
+l1.goblin.boss
+  rotate: false
+  xy: 229, 19
+  size: 18, 52
+  orig: 18, 52
+  offset: 0, 0
+  index: -1
+knife.frost
+  rotate: false
+  xy: 249, 19
+  size: 17, 50
+  orig: 17, 50
+  offset: 0, 0
+  index: -1
 knife.mighty.1
   rotate: false
-  xy: 297, 17
+  xy: 268, 7
   size: 13, 62
   orig: 13, 62
   offset: 0, 0
   index: -1
-knife.mighty.2
+knife.mighty.3.fire
   rotate: false
-  xy: 312, 17
-  size: 13, 62
-  orig: 13, 62
+  xy: 283, 1
+  size: 13, 63
+  orig: 13, 63
   offset: 0, 0
   index: -1
-knife.mighty.3.ice
-  rotate: false
-  xy: 327, 15
-  size: 13, 62
-  orig: 13, 62
-  offset: 0, 0
-  index: -1
-knife.normal.1
+knife.twisted.ice
   rotate: false
   xy: 342, 27
   size: 15, 50
   orig: 15, 50
   offset: 0, 0
   index: -1
-l1.human.boss
+knife.mighty.2
   rotate: false
-  xy: 359, 11
-  size: 9, 93
-  orig: 9, 93
-  offset: 0, 0
-  index: -1
-knife.twisted.ice
-  rotate: false
-  xy: 370, 54
-  size: 15, 50
-  orig: 15, 50
+  xy: 359, 15
+  size: 13, 62
+  orig: 13, 62
   offset: 0, 0
   index: -1
 knife.twisted
   rotate: false
-  xy: 387, 54
+  xy: 374, 14
   size: 15, 50
   orig: 15, 50
   offset: 0, 0
   index: -1
-knife.army.2
+knife.mighty.3.ice
   rotate: false
-  xy: 404, 58
-  size: 15, 47
-  orig: 15, 47
-  offset: 0, 0
-  index: -1
-misc.bomb
-  rotate: false
-  xy: 370, 25
-  size: 22, 27
-  orig: 22, 27
+  xy: 391, 2
+  size: 13, 62
+  orig: 13, 62
   offset: 0, 0
   index: -1

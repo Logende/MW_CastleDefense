@@ -324,7 +324,7 @@ sword_bandit_1:
   owner_animation: SUMMON_SMALL
   texture: sword.bandit.1
   animation: '1:1:1'
-  sound: skill.rost
+  sound: skill.rust
   skillclass: NORMAL
   speed: 1500:250
   acceleration: -100*A:-15*A
@@ -336,7 +336,7 @@ sword_bandit_2:
   owner_animation: SUMMON_SMALL
   texture: sword.bandit.2
   animation: '1:1:1'
-  sound: skill.rost
+  sound: skill.rust
   skillclass: NORMAL
   speed: 1500:250
   acceleration: -100*A:-15*A
@@ -435,7 +435,7 @@ sword_orc_1:
   owner_animation: SUMMON_SMALL
   texture: sword.orc.1
   animation: '1:1:1'
-  sound: skill.rost
+  sound: skill.rust
   skillclass: NORMAL
   speed: '250:0'
   acceleration: 0:0
@@ -447,7 +447,7 @@ sword_orc_2:
   owner_animation: SUMMON_SMALL
   texture: sword.orc.2
   animation: '1:1:1'
-  sound: skill.rost
+  sound: skill.rust
   skillclass: NORMAL
   speed: '400:0'
   acceleration: 0:0
@@ -923,7 +923,7 @@ axe_orc_1:
   owner_animation: THROW
   texture: axe.orc.1
   animation: '1:1:1'
-  sound: skill.rost
+  sound: skill.rust
   skillclass: NORMAL
   speed: 600:-500
   acceleration: 0:80*A
@@ -935,7 +935,7 @@ axe_orc_2:
   owner_animation: THROW
   texture: axe.orc.2
   animation: '1:1:1'
-  sound: skill.rost
+  sound: skill.rust
   skillclass: NORMAL
   speed: 800:-600
   acceleration: 0:80*A

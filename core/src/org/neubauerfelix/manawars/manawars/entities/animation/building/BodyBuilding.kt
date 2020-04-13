@@ -20,6 +20,9 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
     var alive = true
     var playAnimation = false
     var stateTime = 0f
+    override var paused: Boolean
+        get() = false
+        set(_) = throw NotImplementedError()
 
     init {
         if (animation != null) {

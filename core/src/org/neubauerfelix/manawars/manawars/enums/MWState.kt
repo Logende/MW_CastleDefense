@@ -69,7 +69,7 @@ enum class MWState (private val imageName: String, private val columns: Int, val
         val texture = AManaWars.m.getImageHandler().getTextureRegionMain(imageName)
         val width = texture.regionWidth / columns
         for (i in 0 until columns) {
-            keyFrames[i] = TextureRegion(texture, i * width, 0, width, texture.regionHeight)
+            keyFrames[i] = TextureRegion(texture, i * width, 0, width, -texture.regionHeight)
         }
         this.animation = Animation<TextureRegion>(0.07f, *keyFrames)
         this.animation!!.playMode = PlayMode.LOOP

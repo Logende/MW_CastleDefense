@@ -27,5 +27,6 @@ interface IBody: ICollidable, IDrawable, ILogicable {
     val scale: Float
     val playingBodyEffect: Boolean
     var color: Color
+    var paused: Boolean
 
 }

@@ -23,6 +23,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
     private var animationLegs = MWAnimationTypeLegs.STILL
 
     private var next = MConstants.HUMAN_ANIMATION_SPEED
+    override var paused = false
 
     private var currentEffect: MWAnimationTypeBodyEffect? = null //Type of short animation. Null if none is played at the moment.
 
@@ -41,7 +42,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
 
     override fun doLogic(delta: Float) {
         next -= delta
-        if (next < 0) {
+        if (next < 0 &&! paused) {
             next = MConstants.HUMAN_ANIMATION_SPEED
             nextPosition()
         }
