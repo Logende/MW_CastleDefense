@@ -108,7 +108,7 @@ summon.tomb.egypt
   orig: 220, 189
   offset: 0, 0
   index: -1
-magic.icicle
+l1.snowman.mage
   rotate: false
   xy: 1205, 335
   size: 300, 91
@@ -752,7 +752,7 @@ l1.frost.melee
   orig: 43, 41
   offset: 0, 0
   index: -1
-magic.snowball.strong.ice
+l1.snowman.boss
   rotate: false
   xy: 987, 1
   size: 43, 41
@@ -878,7 +878,14 @@ building.machinegun
   orig: 15, 15
   offset: 0, 0
   index: -1
-magic.snowball.normal
+l1.snowman.melee
+  rotate: false
+  xy: 1049, 1
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+l1.snowman.tank
   rotate: false
   xy: 1049, 1
   size: 15, 15
@@ -1030,7 +1037,7 @@ axe.dwarf1.simple
   orig: 30, 94
   offset: 0, 0
   index: -1
-magic.icespike.2
+l1.snowman.ranged
   rotate: false
   xy: 868, 158
   size: 26, 97

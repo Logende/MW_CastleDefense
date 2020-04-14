@@ -1,0 +1,99 @@
+name: snowman
+castle: "castles/wood_1.yml:1.0"
+music: relics_of_the_creation
+background_themes:
+  - SNOW
+background_subthemes:
+  - DEFAULT
+buildings:
+  - 'darts'
+  - 'ballista'
+  - 'doubleballista'
+  - 'icethrower'
+playground: "default"
+
+army:
+  units:
+
+    boss:
+      animation: 'human:l1.snowman.boss'
+      rarity: common
+      action:
+        owner_animation: THROW
+        texture: l1.snowman.boss
+        animation: '1:1:1'
+        sound: skill.knife.weak
+        skillclass: NORMAL
+        speed: 1000:-200
+        acceleration: 0:55*A
+        location: 0:-30
+        knockback: 1.1
+
+    tank:
+      animation: 'human:l1.snowman.tank'
+      armor: 'anti_magic'
+      rarity: epic
+      action:
+        owner_animation: THROW
+        texture: l1.snowman.tank
+        animation: '1:1:1'
+        sound: skill.knife.weak
+        skillclass: NORMAL
+        speed: 700:-200
+        acceleration: 0:40*A
+        location: 0:-30
+        knockback: 1.0
+
+    melee:
+      animation: 'human:l1.snowman.melee'
+      armor: 'anti_light'
+      rarity: common
+      action:
+        owner_animation: THROW
+        texture: l1.snowman.melee
+        animation: '1:1:1'
+        sound: skill.knife.weak
+        skillclass: NORMAL
+        speed: 900:-200
+        acceleration: 0:55*A
+        location: 0:-30
+        knockback: 1.0
+
+    ranger:
+      animation: 'human:l1.snowman.ranged'
+      armor: 'none'
+      rarity: rare
+      action:
+        owner_animation: SUMMON_BIG
+        texture: l1.snowman.ranged
+        animation: '1:1:1'
+        rotation_duration: 0
+        sound: skill.ice
+        skillclass: MAGIC
+        speed: 0:-900
+        acceleration: 0:0
+        location: 0:-35
+        y_relative_to_ground: true
+        target_range: 600
+        spawn_relative_to_target: true:false
+        idle_time: 1.0
+        knockback: 2.0
+
+    mage:
+      animation: 'human:l1.snowman.mage'
+      armor: 'none'
+      rarity: rare
+      action:
+        owner_animation: SUMMON_BIG
+        texture: l1.snowman.mage
+        animation: '1:2:1'
+        sound: skill.ice
+        skillclass: MAGIC
+        speed: 0:900
+        acceleration: 0:0
+        location: 0:-600
+        y_relative_to_ground: true
+        target_range: 600
+        spawn_relative_to_target: true:false
+        idle_time: 1.0
+        intersection_dependent_damage: true

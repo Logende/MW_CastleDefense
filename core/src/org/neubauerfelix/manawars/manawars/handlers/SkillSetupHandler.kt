@@ -39,7 +39,8 @@ class SkillSetupHandler : ISkillSetupHandler {
     override fun setupLocation(skill: IMovable, data: IDataSkill, owner: IActionUser, target: IEntity?) {
         // X
         if (data.xRelativeToTarget && target != null) {
-            skill.centerHorizontal = target.centerHorizontal + data.xOffset * owner.direction * skill.propertyScale
+            val closestTargetX = if (owner.direction == 1) target.left else target.right
+            skill.centerHorizontal = closestTargetX + data.xOffset * owner.direction * skill.propertyScale
         } else {
             if (owner.direction == 1) {
                 skill.x = owner.right - skill.width/2 + data.xOffset * skill.propertyScale

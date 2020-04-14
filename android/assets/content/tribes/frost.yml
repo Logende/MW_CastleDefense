@@ -92,7 +92,7 @@ army:
         acceleration: 0:0
         location: 0:-35
         y_relative_to_ground: true
-        target_range: 1000
+        target_range: 600
         spawn_relative_to_target: true:false
         idle_time: 1.0
         knockback: 2.0

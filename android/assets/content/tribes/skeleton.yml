@@ -21,7 +21,6 @@ army:
       animation: 'human:l1.skeleton.boss'
       armor: 'anti_light'
       rarity: rare
-      drain: 0.2
       action:
         owner_animation: SUMMON_SMALL
         texture: l1.skeleton.boss
