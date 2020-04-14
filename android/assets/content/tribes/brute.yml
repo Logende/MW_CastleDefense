@@ -1,0 +1,89 @@
+name: brute
+castle: "castles/wood_1.yml:1.0"
+music: oriental_metal
+background_themes:
+  - DESERT
+background_subthemes:
+  - DEFAULT
+buildings:
+  - 'darts'
+  - 'ballista'
+  - 'doubleballista'
+  - 'firethrower'
+  - 'cannon'
+playground: "default"
+
+army:
+  units:
+
+    boss:
+      animation: 'human:l2.brute.boss'
+      rarity: epic
+      action:
+        type: normal
+        owner_animation: THROW
+        texture: l2.brute.boss
+        animation: '1:1:1'
+        sound: skill.boomerang
+        skillclass: NORMAL
+        speed: 1000:-350
+        acceleration: 0-40*A:18*A
+        knockback: 1.0
+
+    tank:
+      animation: 'human:l2.brute.tank'
+      armor: 'anti_light'
+      rarity: rare
+      action:
+        owner_animation: SUMMON_SMALL
+        texture: l2.brute.tank
+        animation: '1:1:1'
+        sound: skill.rust
+        skillclass: NORMAL
+        speed: 1500:250
+        acceleration: -100*A:-15*A
+        location: 0:-100
+
+    melee:
+      animation: 'rider:lion:l2.brute.melee'
+      armor: 'anti_light'
+      rarity: rare
+      action:
+        owner_animation: SUMMON_SMALL
+        texture: l2.brute.melee
+        animation: '1:1:1'
+        skillclass: NORMAL
+        sound: skill.stick
+        speed: 400:-500
+        acceleration: 0:50*A
+        location: 0:-70
+        knockback: 1.0
+        allow_movement_scaling: true
+
+    ranger:
+      animation: 'human:l2.brute.ranged'
+      armor: 'none'
+      rarity: rare
+      action:
+        owner_animation: THROW
+        texture: l2.brute.ranged
+        animation: '1:4:1'
+        sound: skill.spear
+        skillclass: NORMAL
+        speed: 700:-90
+        acceleration: 0:25*A
+        location: 0:-50
+
+    mage:
+      animation: 'human:l2.brute.mage'
+      rarity: epic
+      action:
+        type: normal
+        owner_animation: SUMMON_SMALL
+        texture: l2.brute.mage
+        animation: '1:4:1'
+        sound: skill.element
+        skillclass: MAGIC
+        speed: '200:0'
+        acceleration: 30*A:0
+        effect: BURNING:3

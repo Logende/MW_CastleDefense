@@ -1121,14 +1121,14 @@ char.skin.l1.zombie.tank
   orig: 100, 180
   offset: 0, 0
   index: -1
-char.skin.l2.brute.boss.1
+char.skin.l2.brute.boss.2
   rotate: false
   xy: 1, 103
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
-char.skin.l2.brute.boss.2
+char.skin.l2.brute.boss
   rotate: false
   xy: 103, 285
   size: 100, 180

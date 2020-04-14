@@ -25,6 +25,7 @@ tribes:
   - 'tribes/lizard.yml'
   - 'tribes/skeleton.yml'
   - 'tribes/snowman.yml'
+  - 'tribes/brute.yml'
 backgrounds:
   - 'backgrounds.yml'
 playgrounds:

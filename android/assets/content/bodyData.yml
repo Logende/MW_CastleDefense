@@ -40,6 +40,11 @@ bodyDataHuman:
 - l1.snowman.mage
 - l1.snowman.tank
 - l1.snowman.boss
+- l2.brute.melee
+- l2.brute.ranged
+- l2.brute.mage
+- l2.brute.tank
+- l2.brute.boss
 - dummy.shield:big.diamond
 - builder
 bodyDataMount:

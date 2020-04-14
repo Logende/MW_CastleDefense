@@ -66,7 +66,7 @@ l1.zombie.melee
   orig: 600, 10
   offset: 0, 0
   index: -1
-spear.normal
+l2.brute.ranged
   rotate: false
   xy: 1, 45
   size: 600, 10
@@ -255,6 +255,13 @@ building.firethrower
   orig: 200, 31
   offset: 0, 0
   index: -1
+l2.brute.mage
+  rotate: false
+  xy: 1719, 549
+  size: 200, 31
+  orig: 200, 31
+  offset: 0, 0
+  index: -1
 magic.fireball
   rotate: false
   xy: 1719, 549
@@ -325,7 +332,7 @@ crossbowbolt.poison
   orig: 204, 11
   offset: 0, 0
   index: -1
-boomerang.7
+boomerang.8
   rotate: false
   xy: 1699, 466
   size: 87, 68
@@ -472,7 +479,7 @@ sword.orc.1
   orig: 20, 58
   offset: 0, 0
   index: -1
-boomerang.8
+l2.brute.boss
   rotate: false
   xy: 1041, 18
   size: 87, 68
@@ -1002,7 +1009,7 @@ sword.katana.4.ice
   orig: 18, 131
   offset: 0, 0
   index: -1
-stick.brute
+l2.brute.melee
   rotate: false
   xy: 27, 1
   size: 41, 105
@@ -1044,7 +1051,7 @@ l1.snowman.ranged
   orig: 26, 97
   offset: 0, 0
   index: -1
-sword.bandit.1
+l2.brute.tank
   rotate: false
   xy: 896, 155
   size: 25, 100
