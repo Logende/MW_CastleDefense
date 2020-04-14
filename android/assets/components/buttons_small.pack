@@ -1284,84 +1284,84 @@ buildings
   orig: 100, 100
   offset: 0, 0
   index: -1
-close
+button_charaktere
   rotate: false
   xy: 1531, 1431
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.background.old
+close
   rotate: false
   xy: 1633, 1533
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.background
+frame.background.old
   rotate: false
   xy: 409, 207
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.background.vampire
+frame.background
   rotate: false
   xy: 511, 309
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.default
+frame.background.vampire
   rotate: false
   xy: 613, 411
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame.old
+frame.default
   rotate: false
   xy: 715, 513
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-frame
+frame.old
   rotate: false
   xy: 817, 615
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.left
+frame
   rotate: false
   xy: 919, 717
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.left.pressed
+move.left
   rotate: false
   xy: 1021, 819
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.right
+move.left.pressed
   rotate: false
   xy: 1123, 921
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.right.pressed
+move.right
   rotate: false
   xy: 1225, 1023
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-pause
+move.right.pressed
   rotate: false
   xy: 1327, 1125
   size: 100, 100

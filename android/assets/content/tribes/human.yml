@@ -20,7 +20,6 @@ army:
       animation: 'human:l1.human.boss'
       armor: 'anti_light'
       rarity: rare
-      cooldown: 0.5
       action:
         owner_animation: SUMMON_SMALL
         texture: l1.human.boss

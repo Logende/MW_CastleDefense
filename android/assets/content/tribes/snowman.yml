@@ -64,20 +64,18 @@ army:
       armor: 'none'
       rarity: rare
       action:
-        owner_animation: SUMMON_BIG
+        type: normal
+        owner_animation: WEAPON
+        weapon: bow:light
         texture: l1.snowman.ranged
-        animation: '1:1:1'
-        rotation_duration: 0
-        sound: skill.ice
-        skillclass: MAGIC
-        speed: 0:-900
-        acceleration: 0:0
-        location: 0:-35
-        y_relative_to_ground: true
-        target_range: 600
-        spawn_relative_to_target: true:false
-        idle_time: 1.0
-        knockback: 2.0
+        animation: '1:4:1'
+        sound: skill.arrow
+        skillclass: LIGHT
+        speed: 1200:-30
+        acceleration: 0:5*A
+        offset: '-40:20'
+        knockback: 1.0
+        effect: FROZEN:3
 
     mage:
       animation: 'human:l1.snowman.mage'

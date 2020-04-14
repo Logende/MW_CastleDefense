@@ -42,8 +42,8 @@ open class CDComponentCoreEntity(x: Float, y: Float, width: Float, height: Float
         batcher.draw(background, parentOffsetX + x, parentOffsetY + y, width, height)
 
         animation.setLocation(animationX + parentOffsetX, animationY + parentOffsetY)
-        (animation as IDrawable).draw(delta, batcher)
         (animation as ILogicable).doLogic(delta)
+        (animation as IDrawable).draw(delta, batcher)
 
         MManaWars.m.getCharacterBarHandler().drawFrame(batcher, parentOffsetX + x, parentOffsetY + y,
                 width, height, frameColor)

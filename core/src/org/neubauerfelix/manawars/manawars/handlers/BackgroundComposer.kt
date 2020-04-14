@@ -4,31 +4,46 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.IDataBackground
 import org.neubauerfelix.manawars.manawars.enums.MWBackgroundSubtheme
 import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
+import java.lang.IllegalStateException
 import kotlin.random.Random
 
 
 class BackgroundComposer: IBackgroundComposer {
 
     override fun composeBackgrounds(backgroundCount: Int, startThemes: Iterable<MWBackgroundTheme>,
-                                    endThemes: Iterable<MWBackgroundTheme>, subthemes: Iterable<MWBackgroundSubtheme>) :
+                                    endThemes: Iterable<MWBackgroundTheme>, subthemes: Iterable<MWBackgroundSubtheme>):
             List<IDataBackground> {
         require(backgroundCount >= 3)
 
+        return try {
+            composeBackgrounds(backgroundCount, startThemes, endThemes, subthemes, false)
+        } catch (e: IllegalStateException) { // if unable to find backgrounds that contain only given themes:
+            composeBackgrounds(backgroundCount, startThemes, endThemes, subthemes, true)
+        }
+
+    }
+
+
+    fun composeBackgrounds(backgroundCount: Int, startThemes: Iterable<MWBackgroundTheme>,
+                                    endThemes: Iterable<MWBackgroundTheme>, subthemes: Iterable<MWBackgroundSubtheme>,
+                                    allowAnyThemeBetween: Boolean): List<IDataBackground> {
         val combinedThemes = startThemes.plus(endThemes)
 
         var backgrounds = MManaWars.m.getBackgroundListHandler().backgrounds
         // filter backgrounds: only allow some themes and subthemes
-        backgrounds = backgrounds.filter { subthemes.contains(it.subtheme) &&
-                combinedThemes.contains(it.startTheme) && combinedThemes.contains(it.endTheme)}
+        backgrounds = backgrounds.filter {
+            subthemes.contains(it.subtheme) && (allowAnyThemeBetween ||
+                            combinedThemes.contains(it.startTheme) && combinedThemes.contains(it.endTheme))
+        }
 
-        val possibleStart = backgrounds.filter { startThemes.contains(it.startTheme) }
-        val possibleEnd = backgrounds.filter { endThemes.contains(it.endTheme) }
-
+        var possibleStart = backgrounds.filter { startThemes.contains(it.startTheme) }
+        var possibleEnd = backgrounds.filter { endThemes.contains(it.endTheme) }
         return matchBackgrounds(backgroundCount, possibleStart, backgrounds, possibleEnd)
     }
 
+
     fun matchBackgrounds(backgroundCount: Int, possibleStart: List<IDataBackground>,
-                                 possibleBetween: List<IDataBackground>, possibleEnd: List<IDataBackground>) :
+                         possibleBetween: List<IDataBackground>, possibleEnd: List<IDataBackground>) :
             List<IDataBackground> {
         // 1. Create random ordered lists
         val possibilities = arrayListOf<List<IDataBackground>>()
@@ -41,7 +56,7 @@ class BackgroundComposer: IBackgroundComposer {
         // 2. Try out all combinations until there is success
         val result = ArrayList<IDataBackground>() // mutable! and will be changed by the following function
         val success = this.matchBackgrounds(result, possibilities)
-        require(success)
+        check(success)
         return result
     }
 
