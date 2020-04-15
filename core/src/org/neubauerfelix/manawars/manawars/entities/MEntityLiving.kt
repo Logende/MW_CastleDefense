@@ -11,6 +11,7 @@ import org.neubauerfelix.manawars.game.events.EntitySpawnEvent
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
+import kotlin.math.max
 
 /**
  * This class gives entities health, the ability to take damage/die and the ability to belong to a certain team.
@@ -90,15 +91,13 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
         }
         require(damage > 0)
 
-        health = Math.max(0f, this.health - damage)
+        health = max(0f, this.health - damage)
         val damageEvent = EntityDamageEvent(this, damage, damager, cause, this.health == 0f)
         AManaWars.m.getEventHandler().callEvent(damageEvent)
 
         if (damageEvent.cancelled) {
             return false
         }
-
-        playBloodAnimation()
         return if (damageEvent.deadlyDamage) {
             this.death(damager, cause)
         } else {

@@ -66,7 +66,6 @@ class EntityAnimationAny(val body: IBody, override val entityAnimationType: MWEn
             body.color = value
         }
 
-
-
-
+    override fun destroyed() {
+    }
 }

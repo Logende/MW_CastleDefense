@@ -22,4 +22,6 @@ open class GameEntity(width: Float, height: Float): GameRectangle(width, height)
         AManaWars.m.screen.addEntity(this)
     }
 
+    override fun destroyed() {
+    }
 }

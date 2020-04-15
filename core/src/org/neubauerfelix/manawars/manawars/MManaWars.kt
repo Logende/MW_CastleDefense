@@ -6,9 +6,6 @@ import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildingActi
 import org.neubauerfelix.manawars.game.GameManaWars
 import org.neubauerfelix.manawars.manawars.analysis.ISkillStatsHandler
 import org.neubauerfelix.manawars.manawars.analysis.SkillStatsHandler
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkillLoaded
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkillMixLoaded
-import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.data.units.IDataActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import org.neubauerfelix.manawars.manawars.factories.IComponentFactory
@@ -47,6 +44,7 @@ open class MManaWars: GameManaWars() {
         loadHandler(BackgroundComposer())
         loadHandler(SoundHandler())
         loadHandler(MusicHandler())
+        loadHandler(TextVisualizationHandler())
         startScreen(TestScreenLoad(this), true)
         print("load")
     }
@@ -143,6 +141,7 @@ open class MManaWars: GameManaWars() {
     fun getMusicHandler(): IMusicHandler {
         return getHandler(MusicHandler::class.java)
     }
+
 
 
 }

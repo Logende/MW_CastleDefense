@@ -102,6 +102,9 @@ class MConstants {
         const val UNIT_AVG_WALK_SPEED_MAX = 300f
         const val UNIT_AVG_WALK_ACC = 400f
 
+        // misc
+        const val HIT_VISUALIZATION_SHOW_ABOVE_HEAD = true
+
 
 
 
