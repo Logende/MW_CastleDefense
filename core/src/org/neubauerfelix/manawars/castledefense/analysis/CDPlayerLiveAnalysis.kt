@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.castledefense.analysis
 
+import org.neubauerfelix.manawars.castledefense.ki.features.CDKIFeaturePreparation
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -22,6 +23,9 @@ class CDPlayerLiveAnalysis : ICDPlayerLiveAnalysis {
     override var totalOffensiveStrengthPerSecond: Float = 0f
     override var totalSurvivalFactor: Float = 0f
     override var totalHealth: Float = 0f
+
+    // todo: remove this debug code
+    val featurePrep = CDKIFeaturePreparation()
 
 
 
@@ -80,5 +84,6 @@ class CDPlayerLiveAnalysis : ICDPlayerLiveAnalysis {
 
         }*/
 
+        featurePrep.prepare(player)
     }
 }

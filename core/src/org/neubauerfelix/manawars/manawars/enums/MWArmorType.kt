@@ -24,7 +24,7 @@ enum class MWArmorType(val color: Color) { //Keep those as simple as possible!
             val map = HashMap<MWSkillClass, MWSkillEffectivity>()
             map[MWSkillClass.LIGHT] = MWSkillEffectivity.IMMUNE
             map[MWSkillClass.MAGIC] = MWSkillEffectivity.IMMUNE
-            map[MWSkillClass.NORMAL] = MWSkillEffectivity.WEAK
+            //map[MWSkillClass.NORMAL] = MWSkillEffectivity.WEAK
             return map
         }
     },
