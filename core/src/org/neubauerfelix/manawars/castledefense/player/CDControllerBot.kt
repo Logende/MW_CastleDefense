@@ -3,8 +3,9 @@ package org.neubauerfelix.manawars.castledefense.player
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
-import org.neubauerfelix.manawars.castledefense.ki.CDKI
+import org.neubauerfelix.manawars.castledefense.ki.CDKIMachineLearning
 import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
+import org.neubauerfelix.manawars.castledefense.ki.ICDKI
 import org.neubauerfelix.manawars.castledefense.ki.features.CDKIFeatureExtractor
 import org.neubauerfelix.manawars.castledefense.ki.model.CDKIModelRandom
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -22,7 +23,7 @@ class CDControllerBot : ICDController {
         get() = false
 
     lateinit var nextAction: CDKILabel
-    val ki = CDKI(CDKIModelRandom(), CDKIFeatureExtractor())
+    val ki : ICDKI = CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor())
 
 
     override fun showControls() {

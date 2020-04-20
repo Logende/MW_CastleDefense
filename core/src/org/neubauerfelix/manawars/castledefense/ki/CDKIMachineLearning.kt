@@ -2,9 +2,9 @@ package org.neubauerfelix.manawars.castledefense.ki
 
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 
-class CDKI(val model: ICDKIModel, val featureExtractor: ICDKIFeatureExtractor) {
+class CDKIMachineLearning(val model: ICDKIModel, val featureExtractor: ICDKIFeatureExtractor) : ICDKI {
 
-    fun compute(player: ICDPlayer) : CDKILabel {
+    override fun compute(player: ICDPlayer) : CDKILabel {
         val features = featureExtractor.generateFeatureVector(player)
         return model.predict(features)
     }
