@@ -16,7 +16,6 @@ class CDKIFeaturePreparation {
         enemyUnitDistribution.putAll(calculateUnitDistribution(player.enemy))
         playerUnitEffectiveness.clear()
         playerUnitEffectiveness.putAll(this.calculateUnitsEffectiveness(player, enemyUnitDistribution))
-        print("distribution created")
     }
 
 

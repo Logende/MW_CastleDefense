@@ -1,18 +1,19 @@
 package org.neubauerfelix.manawars.castledefense.player
 
 import org.neubauerfelix.manawars.castledefense.CDConstants
-import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
+import org.neubauerfelix.manawars.castledefense.ki.CDKI
+import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
+import org.neubauerfelix.manawars.castledefense.ki.features.CDKIFeatureExtractor
+import org.neubauerfelix.manawars.castledefense.ki.model.CDKIModelRandom
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
 
 class CDControllerBot : ICDController {
 
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
-    private val strategicFactors: MutableMap<IDataUnit, Float> = hashMapOf()
 
     private var nextUnitChooseTime: Long = 0L
 
@@ -20,7 +21,9 @@ class CDControllerBot : ICDController {
     override val playerControlled: Boolean
         get() = false
 
-    lateinit var nextUnit: IDataUnit
+    lateinit var nextAction: CDKILabel
+    val ki = CDKI(CDKIModelRandom(), CDKIFeatureExtractor())
+
 
     override fun showControls() {
     }
@@ -31,24 +34,21 @@ class CDControllerBot : ICDController {
     override fun doLogic(delta: Float) {
         analysis.update(player)
         if (nextUnitChooseTime <= MManaWars.m.screen.getGameTime()) {
-            this.chooseUnit()
-            nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_UNIT_DELAY
-            System.out.println("choose ${nextUnit.name}")
+            this.chooseAction()
+            nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
+            println("choose ${nextAction.name}")
         }
 
-        if (player.castle.gold >= nextUnit.cost) {
-            player.castle.gold -= nextUnit.cost
-            player.spawnUnit(nextUnit)
-            this.chooseUnit()
+        val cost = nextAction.getCost(player)
+        if (player.castle.gold >= cost) {
+            player.castle.gold -= cost
+            nextAction.perform(player)
+            this.chooseAction()
         }
     }
 
-    private fun chooseUnit(): IDataUnit {
-        player.tribe.army.units.forEach { strategicFactors[it] =
-                CDManaWars.cd.getArmyAnalysisHandler().getStrategicFactor(it, player) }
-
-        val ranking = player.tribe.army.units.sortedByDescending { strategicFactors[it]!! }
-        this.nextUnit = ranking.first()
-        return this.nextUnit
+    private fun chooseAction(): CDKILabel {
+        this.nextAction = ki.compute(player)
+        return this.nextAction
     }
 }
