@@ -85,7 +85,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
     }
 
     fun updateAnimationType(sized: ISized?, updateBody: Boolean, updateLegs: Boolean){
-        val sized = if (sized != null) sized else this.sized
+        val sized = sized ?: this.sized
 
         if (updateLegs) {
             var animationLegs = MWAnimationTypeLegs.STILL

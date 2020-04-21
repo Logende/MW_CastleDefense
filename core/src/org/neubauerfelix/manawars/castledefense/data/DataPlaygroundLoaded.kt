@@ -24,7 +24,7 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
     override fun createPlayground(playerA: ICDPlayer, playerB: ICDPlayer) {
         for (buildingPlaceholderX in buildingPlaceholdersX) {
             CDManaWars.cd.getBuildingListHandler().buildingPlaceholder.
-                    produce(buildingPlaceholderX, team = MConstants.TEAM_PEACEFUL)
+                    produce(buildingPlaceholderX, team = MConstants.TEAM_PEACEFUL, direction = 1)
         }
     }
 

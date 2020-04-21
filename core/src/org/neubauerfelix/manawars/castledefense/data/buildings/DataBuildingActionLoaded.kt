@@ -58,10 +58,11 @@ class DataBuildingActionLoaded(config: Configuration) :
 
     override val unitType: MWUnitType = MWUnitType.BUILDING
 
-    override fun produce(centreHor: Float, bottom: Float, team: Int): ILiving {
+    override fun produce(centreHor: Float, bottom: Float, team: Int, direction: Int): ILiving {
         val e =  CDEntityBuildingAction(this)
         e.centerHorizontal = centreHor
         e.bottom = bottom
+        e.direction = direction
         e.team = team
         e.spawn()
         return e

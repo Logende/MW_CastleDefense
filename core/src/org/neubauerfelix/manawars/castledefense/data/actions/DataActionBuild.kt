@@ -25,7 +25,7 @@ class DataActionBuild(override val name: String, override val building: IDataBui
         val entities = getAvailableBuildingPlaceholders(owner)
         return if (entities.isNotEmpty()) {
             val placeholder = entities.first() as CDEntityBuildingPlaceholder
-            placeholder.build(this.building, owner.team)
+            placeholder.build(this.building, owner.team, owner.direction)
             owner.remove = true
             true
         } else {

@@ -6,9 +6,9 @@ import org.neubauerfelix.manawars.manawars.entities.*
 class CDEntityBuildingPlaceholder(val data: IDataBuilding) :
         MEntityAnimated(data.animation, data.health) {
 
-    fun build(building: IDataBuilding, team: Int) {
+    fun build(building: IDataBuilding, team: Int, direction: Int) {
         this.remove = true
-        building.produce(this.centerHorizontal, this.bottom, team)
+        building.produce(this.centerHorizontal, this.bottom, team, direction = direction)
     }
 
 

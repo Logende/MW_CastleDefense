@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
-import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingAction
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
+import org.neubauerfelix.manawars.manawars.entities.ILooking
 import org.neubauerfelix.manawars.manawars.entities.animation.IBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
@@ -20,6 +20,7 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
     var alive = true
     var playAnimation = false
     var stateTime = 0f
+    var mirror = false
     override var paused: Boolean
         get() = false
         set(_) = throw NotImplementedError()
@@ -55,6 +56,9 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
     }
 
     override fun updateAnimation(sized: ISized?) {
+        if (sized is ILooking) {
+            mirror = sized.direction == -1
+        }
     }
 
     override val canFly: Boolean
@@ -72,17 +76,20 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
     override fun draw(delta: Float, batcher: Batch) {
         batcher.color = color
 
+        val drawX = if (mirror) x + width else x
+        val drawWidth = if (mirror) -width else width
+
         if (playAnimation) {
-            batcher.draw(animation!!.getKeyFrame(stateTime), x, y, width, height)
+            batcher.draw(animation!!.getKeyFrame(stateTime), drawX, y, drawWidth, height)
             stateTime += delta
-            if (animation!!.isAnimationFinished(stateTime)) {
+            if (animation.isAnimationFinished(stateTime)) {
                 playAnimation = false
             }
         } else {
             if (alive) {
-                batcher.draw(textureRegionAlive, x, y, width, height)
+                batcher.draw(textureRegionAlive, drawX, y, drawWidth, height)
             } else {
-                batcher.draw(textureRegionDead, x, y, width, height)
+                batcher.draw(textureRegionDead, drawX, y, drawWidth, height)
             }
         }
         batcher.color = Color.WHITE

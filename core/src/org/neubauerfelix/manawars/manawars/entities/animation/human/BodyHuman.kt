@@ -125,26 +125,26 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
     }
 
 
-    override fun getCollisionType(other: ISized): MWCollisionType {
+    override fun getCollisionType(intersection: ISized): MWCollisionType {
         if (this.shield != null && this.shield.enabled) {
-            if (ISized.overlaps(shield, other)) {
+            if (ISized.overlaps(shield, intersection)) {
                 latestHitBodyPart = shield
                 return MWCollisionType.SHIELD
             }
         }
-        if (ISized.overlaps(body, other)) {
+        if (ISized.overlaps(body, intersection)) {
             latestHitBodyPart = body
             return MWCollisionType.HUMAN_BODY
         }
-        if (ISized.overlaps(head, other)) {
+        if (ISized.overlaps(head, intersection)) {
             latestHitBodyPart = head
             return MWCollisionType.HUMAN_HEAD
         }
-        if (ISized.overlaps(footL, other)) {
+        if (ISized.overlaps(footL, intersection)) {
             latestHitBodyPart = footL
             return MWCollisionType.HUMAN_FOOT
         }
-        if (ISized.overlaps(footR, other)) {
+        if (ISized.overlaps(footR, intersection)) {
             latestHitBodyPart = footR
             return MWCollisionType.HUMAN_FOOT
         }
@@ -229,9 +229,7 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized:
         armR.reattach(true, 0f)
         footL.reattach(true, 0f)
         footR.reattach(true, 0f)
-        if (shield != null) {
-            shield.reattach(false, 0f)
-        }
+        shield?.reattach(false, 0f)
         bodyPartsAttached = true
     }
 }

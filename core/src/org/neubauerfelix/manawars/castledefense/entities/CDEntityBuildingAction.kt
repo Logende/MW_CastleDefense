@@ -26,7 +26,7 @@ class CDEntityBuildingAction(val data: IDataBuildingAction) :
         val dies = super.death(damager, cause)
         if (dies) {
             CDManaWars.cd.getBuildingListHandler().buildingPlaceholder.
-                    produce(this.centerHorizontal, team = MConstants.TEAM_PEACEFUL)
+                    produce(this.centerHorizontal, team = MConstants.TEAM_PEACEFUL, direction = this.direction)
         }
         return dies
     }
