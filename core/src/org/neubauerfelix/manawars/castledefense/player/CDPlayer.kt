@@ -31,7 +31,7 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
         val direction = if (leftSide) 1 else -1
         this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, tribe.castle.textureNameAlive,
                 tribe.castle.textureNameDead, tribe.castle.health, direction, team, spawnLocation,
-                tribe.castle.goldStart, tribe.castle.goldPerCharge)
+                tribe.castle.goldStart, tribe.castle.goldPerCharge, this)
         this.castle.spawn()
 
         this.formation = CDFormation(tribe.army.units, this)

@@ -1,7 +1,11 @@
 package org.neubauerfelix.manawars.castledefense.ki.features
 
+import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingAction
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
+import org.neubauerfelix.manawars.manawars.data.IDataCoreEntity
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
+import org.neubauerfelix.manawars.manawars.entities.ILiving
+import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
 import kotlin.math.abs
 
 class BaseFeatures {
@@ -13,6 +17,35 @@ class BaseFeatures {
         fun gold(player: ICDPlayer): Double {
             return player.castle.gold.toDouble()
         }
+
+        /**
+         * Returns complete entity worth of player divided by entity worth of enemy
+         */
+        fun dominanceRatio(player: ICDPlayer) : Double {
+            val worthPlayer = entityWorth(player, true) + gold(player)
+            val worthEnemy = entityWorth(player.enemy, true) + gold(player.enemy)
+            return (worthPlayer / worthEnemy)
+        }
+
+        fun entityWorth(player: ICDPlayer, includeBuildings: Boolean): Double {
+            var totalWorth = 0f
+            for (entity in player.controller.analysis.entities) {
+                if (entity is ILiving) {
+                    val data: IDataCoreEntity =
+                            if (entity is MEntityControlled) {
+                                entity.data
+                            } else if (includeBuildings && entity is CDEntityBuildingAction) {
+                                entity.data
+                            } else {
+                                continue
+                            }
+
+                    totalWorth += entity.health/entity.healthMax * data.cost
+                }
+            }
+            return totalWorth.toDouble()
+        }
+
         fun distancePlayerToEnemyCastle(player: ICDPlayer): Double {
             return abs(player.controller.analysis.furthestX - player.enemy.castle.centerHorizontal).toDouble()
         }

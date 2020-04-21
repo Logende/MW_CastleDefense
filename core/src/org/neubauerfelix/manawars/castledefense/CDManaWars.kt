@@ -16,6 +16,7 @@ class CDManaWars : MManaWars() {
     }
 
     override fun loadGame() {
+        loadHandler(KIBalancingHandler()) // make sure it is loaded before TextVisualization
         super.loadGame()
         loadHandler(BuildingListHandler())
         loadHandler(PlaygroundListHandler())

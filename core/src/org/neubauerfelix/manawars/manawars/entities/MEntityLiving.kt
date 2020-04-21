@@ -4,11 +4,10 @@ package org.neubauerfelix.manawars.manawars.entities
 import com.badlogic.gdx.graphics.Color
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.entities.IEntity
-import org.neubauerfelix.manawars.game.events.EntityDamageEvent
-import org.neubauerfelix.manawars.game.events.EntityDeathEvent
-import org.neubauerfelix.manawars.game.events.EntityHealEvent
+import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
+import org.neubauerfelix.manawars.manawars.events.EntityDeathEvent
+import org.neubauerfelix.manawars.manawars.events.EntityHealEvent
 import org.neubauerfelix.manawars.game.events.EntitySpawnEvent
-import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import kotlin.math.max

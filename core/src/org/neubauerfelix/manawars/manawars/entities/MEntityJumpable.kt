@@ -4,7 +4,7 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.GameEntityMovable
 import org.neubauerfelix.manawars.game.entities.IMovable
-import org.neubauerfelix.manawars.game.events.EntityKnockbackEvent
+import org.neubauerfelix.manawars.manawars.events.EntityKnockbackEvent
 import org.neubauerfelix.manawars.manawars.MConstants
 
 

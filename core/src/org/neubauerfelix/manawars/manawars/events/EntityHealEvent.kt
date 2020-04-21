@@ -1,7 +1,7 @@
-package org.neubauerfelix.manawars.game.events
+package org.neubauerfelix.manawars.manawars.events
 
 import org.neubauerfelix.manawars.game.entities.IEntity
-import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
+import org.neubauerfelix.manawars.game.events.EntityEvent
 
 class EntityHealEvent(entity: IEntity, val value: Float): EntityEvent(entity){
 

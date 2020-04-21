@@ -13,6 +13,10 @@ class CDConstants {
         const val CASTLE_HEALTH_BASE = 500f
         const val CASTLE_GOLD_START_BASE = 80f
         const val CASTLE_GOLD_PER_SECOND_BASE = 4f
+
+        const val KI_BALANCING_ENABLED = true
+        const val KI_BALANCING_MAX_HELP_FACTOR = 1.5
+        const val KI_BALANCING_MIN_HELP_FACTOR = 1 / KI_BALANCING_MAX_HELP_FACTOR
         
     }
 }

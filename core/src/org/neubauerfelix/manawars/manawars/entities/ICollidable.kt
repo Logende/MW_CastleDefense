@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 interface ICollidable: ISized {
 
 
-    fun getCollisionType(other: ISized): MWCollisionType
+    fun getCollisionType(intersection: ISized): MWCollisionType
 
 
 

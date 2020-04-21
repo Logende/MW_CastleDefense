@@ -6,8 +6,8 @@ import org.neubauerfelix.manawars.game.IDisposable
 import org.neubauerfelix.manawars.game.IHandler
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
-import org.neubauerfelix.manawars.game.events.EntityDamageEvent
-import org.neubauerfelix.manawars.game.events.EntityGoldEvent
+import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
+import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
 import org.neubauerfelix.manawars.game.events.Event
 import org.neubauerfelix.manawars.game.events.Listener
 import org.neubauerfelix.manawars.manawars.MConstants
