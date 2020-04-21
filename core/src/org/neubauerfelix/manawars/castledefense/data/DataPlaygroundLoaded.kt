@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
@@ -9,6 +10,7 @@ import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
     override val name: String = config.getString("name")
+    override val backgroundCount: Int = config.getInt("background_count")
 
     private val buildingPlaceholdersX = ArrayList<Float>()
 
@@ -16,7 +18,7 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
         val buildingPlaceholderDefinitions = config.getStringList("building_placeholders")
         for (buildingPlaceholderDefinition in buildingPlaceholderDefinitions) {
             val x = MathUtils.calc(buildingPlaceholderDefinition, "playground_width",
-                    IDataPlayground.PLAYGROUND_WIDTH.toDouble())
+                    (backgroundCount * GameConstants.BACKGROUND_WIDTH).toDouble())
             buildingPlaceholdersX.add(x.toFloat())
         }
     }

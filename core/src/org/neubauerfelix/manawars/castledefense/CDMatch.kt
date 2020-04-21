@@ -11,13 +11,13 @@ import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.IBackground
 import org.neubauerfelix.manawars.manawars.MManaWars
 
-class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScreen) :
+class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScreen, val playground: IDataPlayground) :
         ILoadableAsync, IDisposable, ILogicable {
 
     val backgrounds: Iterable<IBackground>
 
     init {
-        val backgroundData = MManaWars.m.getBackgroundComposer().composeBackgrounds(IDataPlayground.BACKGROUND_COUNT,
+        val backgroundData = MManaWars.m.getBackgroundComposer().composeBackgrounds(playground.backgroundCount,
                 playerA.tribe.backgroundThemes,
                 playerB.tribe.backgroundThemes,
                 playerA.tribe.backgroundSubthemes.plus(playerB.tribe.backgroundSubthemes).
@@ -44,7 +44,7 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
         loaded = true
         playerA.spawnCastle(true, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
         playerB.spawnCastle(false, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
-        playerB.tribe.playground.createPlayground(playerA, playerB)
+        playground.createPlayground(playerA, playerB)
         playerA.controller.showControls()
         playerB.controller.showControls()
         screen.addComponent(CDComponentGameInfo(GameConstants.CONTROLPANEL_INFO_FIELD_X,

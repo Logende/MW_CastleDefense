@@ -32,7 +32,7 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         controllerB.player = playerB
         playerA.enemy = playerB
         playerB.enemy = playerA
-        match = CDMatch(playerA, playerB, this)
+        match = CDMatch(playerA, playerB, this, playerB.tribe.playground)
         match.load()
         MManaWars.m.getMusicHandler().loadMusic(match.playerB.tribe.musicTrack)
         Thread.sleep(500) // TODO: FIX music issue. Music seems to be loaded async. Find a way to make sure it is loaded rather than just waiting stupidly

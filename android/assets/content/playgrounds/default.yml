@@ -1,4 +1,5 @@
 name: 'default'
+background_count: 3
 building_placeholders:
   - "playground_width*0.25"
   - "playground_width*0.5"
