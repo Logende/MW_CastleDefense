@@ -1,11 +1,14 @@
 package org.neubauerfelix.manawars.castledefense
 
 import com.badlogic.gdx.Input
+import com.badlogic.gdx.graphics.g2d.Animation
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
+import org.neubauerfelix.manawars.castledefense.data.buildings.DataMine
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
 import org.neubauerfelix.manawars.game.AManaWars
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -22,8 +25,8 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadScreen(): Boolean {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val army1 = tribeHandler.getTribe("brute")!!
-        val army2 = tribeHandler.getTribe("goblin")!!
+        val army1 = tribeHandler.getTribe("lizard")!!
+        val army2 = tribeHandler.getTribe("bear")!!
         val controllerA = CDControllerHuman()
         val controllerB = CDControllerBot()
         val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
@@ -34,6 +37,7 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
         playerB.enemy = playerA
         match = CDMatch(playerA, playerB, this, playerB.tribe.playground)
         match.load()
+
         MManaWars.m.getMusicHandler().loadMusic(match.playerB.tribe.musicTrack)
         Thread.sleep(500) // TODO: FIX music issue. Music seems to be loaded async. Find a way to make sure it is loaded rather than just waiting stupidly
         return false
@@ -42,6 +46,9 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
+        val dataMine = DataMine(30f, 100, Animation(0f,
+                MManaWars.m.getImageHandler().getTextureRegionMain("building.mine")))
+        dataMine.produce(650f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerA.castle)
         MManaWars.m.getMusicHandler().playMusic()
     }
 
