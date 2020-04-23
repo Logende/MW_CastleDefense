@@ -92,4 +92,4 @@ army:
         target_speed: 0:-45
         acceleration: 0:0
         location: 0:50
-        knockback: -2
+        knockback: 1.0

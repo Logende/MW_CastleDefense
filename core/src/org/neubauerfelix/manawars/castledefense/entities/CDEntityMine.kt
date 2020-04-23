@@ -1,24 +1,21 @@
 package org.neubauerfelix.manawars.castledefense.entities
 
 import com.badlogic.gdx.graphics.g2d.Animation
-import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
-import org.neubauerfelix.manawars.castledefense.CDConstants
-import org.neubauerfelix.manawars.game.entities.*
 import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
-import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimationSimple
-import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 
 class CDEntityMine(x: Float, y: Float,
                    animation: Animation<TextureRegion>,
                    override var chargePeriod: Float,
-                   override var goldPerCharge: Int,
+                   override var goldPerChargeInitial: Int,
+                   override var goldIncreasePerCharge: Int,
                    override val castle: ICDEntityCastle) :
         MEntityAnimationSimple(animation, 1f, null, 0f, Animation.PlayMode.NORMAL),
         ICDEntityMine {
+
+    private var goldPerCharge: Int = goldPerChargeInitial
 
     init {
         this.mirror = castle.direction == -1
@@ -50,6 +47,7 @@ class CDEntityMine(x: Float, y: Float,
             MManaWars.m.getEventHandler().callEvent(event)
             if (!event.cancelled) {
                 event.castle.gold += event.goldDifference
+                this.goldPerCharge += this.goldIncreasePerCharge
             }
         }
     }

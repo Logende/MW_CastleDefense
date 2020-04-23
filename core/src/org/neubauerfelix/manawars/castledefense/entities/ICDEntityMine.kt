@@ -6,7 +6,8 @@ import org.neubauerfelix.manawars.game.entities.ISized
 
 interface ICDEntityMine : ISized, IEntity, IDrawable {
 
-    var goldPerCharge: Int
+    var goldPerChargeInitial: Int
+    var goldIncreasePerCharge: Int
     var chargePeriod: Float
     val castle: ICDEntityCastle
 

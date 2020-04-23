@@ -27,7 +27,15 @@ class KIBalancingHandler: IHandler {
                     if (!e.cancelled) {
                         val cdPlayer = e.castle.player
                         if (cdPlayer.controller is CDControllerBot) {
-                            val enemyDominanceRatio = BaseFeatures.dominanceRatio(cdPlayer.enemy)
+
+                            val playerEarnsGoldFirst = cdPlayer.castle.direction == 1
+                            val goldOffset = if (playerEarnsGoldFirst) 0 else e.goldDifference
+                            val worthPlayer = BaseFeatures.entityWorth(cdPlayer, true) +
+                                    BaseFeatures.gold(cdPlayer) + goldOffset
+                            val worthEnemy = BaseFeatures.entityWorth(cdPlayer.enemy, true) +
+                                    BaseFeatures.gold(cdPlayer.enemy)
+
+                            val enemyDominanceRatio = worthEnemy / worthPlayer
                             val helpFactor = min(CDConstants.KI_BALANCING_MAX_HELP_FACTOR,
                                     max(CDConstants.KI_BALANCING_MIN_HELP_FACTOR, enemyDominanceRatio))
                             e.goldDifference = (e.goldDifference * helpFactor).toInt()

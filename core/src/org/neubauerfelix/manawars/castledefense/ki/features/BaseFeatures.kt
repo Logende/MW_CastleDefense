@@ -18,15 +18,6 @@ class BaseFeatures {
             return player.castle.gold.toDouble()
         }
 
-        /**
-         * Returns complete entity worth of player divided by entity worth of enemy
-         */
-        fun dominanceRatio(player: ICDPlayer) : Double {
-            val worthPlayer = entityWorth(player, true) + gold(player)
-            val worthEnemy = entityWorth(player.enemy, true) + gold(player.enemy)
-            return (worthPlayer / worthEnemy)
-        }
-
         fun entityWorth(player: ICDPlayer, includeBuildings: Boolean): Double {
             var totalWorth = 0f
             for (entity in player.controller.analysis.entities) {

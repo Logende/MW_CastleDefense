@@ -8,6 +8,7 @@ import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 class CDEntityCastle(x: Float, y: Float,
                      textureNameAlive: String, textureNameDead: String,
@@ -26,6 +27,7 @@ class CDEntityCastle(x: Float, y: Float,
         this.team = team
         this.x = x
         this.y = y
+        this.animation.updateAnimation(this)
     }
 
 
@@ -62,5 +64,13 @@ class CDEntityCastle(x: Float, y: Float,
         }
     }
 
+
+    override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
+        val result =  super.death(damager, cause)
+        if (result) {
+            this.gold = Int.MIN_VALUE
+        }
+        return result
+    }
 
 }

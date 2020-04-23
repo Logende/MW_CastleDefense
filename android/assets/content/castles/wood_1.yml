@@ -1,6 +1,7 @@
 name: wood_1
-texture: 'castle.wood.1'
-spawn_offset: '0:0'
+texture: 'building.castle'
+location: '0:35'
+offset_units: '140:0'
 goldStart: 1
 goldPerCharge: 1
 health: 1

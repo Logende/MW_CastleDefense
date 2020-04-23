@@ -6,10 +6,13 @@ interface IDataCastle {
     val name: String
     val textureNameAlive: String
     val textureNameDead: String
-    val unitSpawnOffset: ILocated
+    val unitSpawnXOffset: Float
+    val unitSpawnYOffset: Float
     val goldStart: Int
     val goldPerCharge: Int
     val health: Float
+    val xOffset: Float
+    val yOffset: Float
 
 
 

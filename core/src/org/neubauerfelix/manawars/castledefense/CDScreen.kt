@@ -25,8 +25,8 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadScreen(): Boolean {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val army1 = tribeHandler.getTribe("lizard")!!
-        val army2 = tribeHandler.getTribe("bear")!!
+        val army1 = tribeHandler.getTribe("zombie")!!
+        val army2 = tribeHandler.getTribe("skeleton")!!
         val controllerA = CDControllerHuman()
         val controllerB = CDControllerBot()
         val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
@@ -46,9 +46,10 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
-        val dataMine = DataMine(30f, 100, Animation(0f,
+        val dataMine = DataMine(25f, 20, 1, Animation(0f,
                 MManaWars.m.getImageHandler().getTextureRegionMain("building.mine")))
-        dataMine.produce(650f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerA.castle)
+        dataMine.produce(800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerA.castle)
+        dataMine.produce(match.playground.width - 800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerB.castle)
         MManaWars.m.getMusicHandler().playMusic()
     }
 
