@@ -6,6 +6,7 @@ import org.neubauerfelix.manawars.castledefense.ki.CDKIFeaturePreparation
 import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
 import org.neubauerfelix.manawars.castledefense.ki.ICDKI
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.units.DataUnit
 import org.neubauerfelix.manawars.manawars.enums.MWUnitType
@@ -32,8 +33,10 @@ class CDKITraditionalFelix() : ICDKI {
 
         val situation = getSituationType(player, prep)
 
-        CDManaWars.cd.getHandler(TextVisualizationHandler::class.java).displayText(player.castle,
-                player.castle.centerHorizontal, player.castle.top, situation.name, "situation", 100)
+        if (!GameConstants.FAST_MODE) {
+            CDManaWars.cd.getHandler(TextVisualizationHandler::class.java).displayText(player.castle,
+                    player.castle.centerHorizontal, player.castle.top, situation.name, "situation", 100)
+        }
         return when (situation) {
             SITUATION_TYPE.ATTACKING_LOST, SITUATION_TYPE.IDLE -> actWithStrategy(player, prep)
             SITUATION_TYPE.ATTACKING_NEED_SUPPORT, SITUATION_TYPE.ATTACKING_STRONG -> actSupportive(player, prep)
@@ -139,11 +142,11 @@ class CDKITraditionalFelix() : ICDKI {
         val defensePoints = unitCountBoss * 6 + unitCountTank * 3 + unitCountMelee * 1
         if (defensePoints <= 4) {
 
-           /* return if (effectivenessTank > effectivenessMelee || unitCountMelee * 0.8 > unitCountTank) {
-                CDKILabel.UNIT_TANK
-            } else {
-                CDKILabel.UNIT_MELEE
-            }*/
+            /* return if (effectivenessTank > effectivenessMelee || unitCountMelee * 0.8 > unitCountTank) {
+                 CDKILabel.UNIT_TANK
+             } else {
+                 CDKILabel.UNIT_MELEE
+             }*/
             return chooseBetterPick(CDKILabel.UNIT_TANK, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
                     unitCountTank, unitCountMelee)
         }

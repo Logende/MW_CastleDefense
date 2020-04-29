@@ -16,28 +16,28 @@ class CDManaWars : MManaWars() {
     }
 
     override fun loadGame() {
-        loadHandler(KIBalancingHandler()) // make sure it is loaded before TextVisualization
+        loadHandler(KIBalancingHandler(), KIBalancingHandler::class.java) // make sure it is loaded before TextVisualization
         super.loadGame()
-        loadHandler(BuildingListHandler())
-        loadHandler(PlaygroundListHandler())
-        loadHandler(TribeHandler())
-        loadHandler(ArmyAnalysisHandler())
+        loadHandler(BuildingListHandler(), IBuildingListHandler::class.java)
+        loadHandler(PlaygroundListHandler(), IPlaygroundListHandler::class.java)
+        loadHandler(TribeHandler(), ITribeHandler::class.java)
+        loadHandler(ArmyAnalysisHandler(), IArmyAnalysisHandler::class.java)
     }
 
     fun getArmyAnalysisHandler(): IArmyAnalysisHandler {
-        return getHandler(ArmyAnalysisHandler::class.java)
+        return getHandler(IArmyAnalysisHandler::class.java)
     }
 
     fun getTribeHandler(): ITribeHandler {
-        return getHandler(TribeHandler::class.java)
+        return getHandler(ITribeHandler::class.java)
     }
 
     fun getBuildingListHandler(): IBuildingListHandler {
-        return getHandler(BuildingListHandler::class.java)
+        return getHandler(IBuildingListHandler::class.java)
     }
 
     fun getPlaygroundListHandler(): IPlaygroundListHandler {
-        return getHandler(PlaygroundListHandler::class.java)
+        return getHandler(IPlaygroundListHandler::class.java)
     }
 
 }

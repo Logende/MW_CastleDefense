@@ -22,19 +22,23 @@ abstract class GameManaWars: AManaWars(){
     }
 
     override fun load(){
-        loadHandler(GameAssetLoader())
-        loadHandler(GameCamera(getAssetLoader()))
-        loadHandler(GameImageHandler(getAssetLoader()))
-        loadHandler(EventHandler())
+        loadHandler(GameAssetLoader(), IAssetLoader::class.java)
+        if (GameConstants.FAST_MODE) {
+            loadHandler(GameCameraMock(), ICamera::class.java)
+        } else {
+            loadHandler(GameCamera(getAssetLoader()), ICamera::class.java)
+        }
+        loadHandler(GameImageHandler(getAssetLoader()), IImageHandler::class.java)
+        loadHandler(EventHandler(), IEventHandler::class.java)
         loadGame()
     }
 
-    fun loadHandler(handler: IHandler){
+    fun <T: IHandler> loadHandler(handler: IHandler, key: Class<T>){
         if(handler is ILoadable){
             handler.load()
         }
-        handlersOrder.add(handler.javaClass.name)
-        handlers.put(handler.javaClass.name, handler)
+        handlersOrder.add(key.name)
+        handlers.put(key.name, handler)
     }
 
     override fun loadedAssets() {
@@ -95,19 +99,19 @@ abstract class GameManaWars: AManaWars(){
     }
 
     override fun getCamera(): ICamera {
-        return getHandler(GameCamera::class.java)
+        return getHandler(ICamera::class.java)
     }
 
     override fun getEventHandler(): IEventHandler {
-        return getHandler(EventHandler::class.java)
+        return getHandler(IEventHandler::class.java)
     }
 
     override fun getAssetLoader(): IAssetLoader {
-        return getHandler(GameAssetLoader::class.java)
+        return getHandler(IAssetLoader::class.java)
     }
 
     override fun getImageHandler(): IImageHandler {
-        return getHandler(GameImageHandler::class.java)
+        return getHandler(IImageHandler::class.java)
     }
 
     @Deprecated(level = DeprecationLevel.ERROR,

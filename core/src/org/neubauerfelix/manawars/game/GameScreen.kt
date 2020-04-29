@@ -55,32 +55,34 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
 
         deltaStored += delta
         var delta = 0f
-        if(deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION){
+        if(deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION || GameConstants.FAST_MODE){
             deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
             delta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
         }
         delta *= timeSpeedModifier
 
-        synchronized(entities){
-            var last = entities.size-1
-            var i = 0
-            while(i <= last){
-                val entity = entities.get(i)
-                if(entity.remove){
-                    entities.removeAt(i)
-                    last--
-                    continue
+        if (delta != 0f) {
+            synchronized(entities) {
+                var last = entities.size - 1
+                var i = 0
+                while (i <= last) {
+                    val entity = entities.get(i)
+                    if (entity.remove) {
+                        entities.removeAt(i)
+                        last--
+                        continue
+                    }
+                    if (entity is ILogicable) {
+                        entity.doLogic(delta)
+                    }
+                    if (entity is IMovable) {
+                        entity.move(delta)
+                    }
+                    i++
                 }
-                if(entity is ILogicable){
-                    entity.doLogic(delta)
-                }
-                if(entity is IMovable){
-                    entity.move(delta)
-                }
-                i++
             }
+            this.logic(delta, entities)
         }
-        this.logic(delta, entities)
         game.getCamera().render(delta, backgrounds, drawBackgroundsStatic, getIngameWindowX(),
                 entities, components)
     }

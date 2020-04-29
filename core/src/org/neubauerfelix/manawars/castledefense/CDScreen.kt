@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.g2d.Animation
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
 import org.neubauerfelix.manawars.castledefense.data.buildings.DataMine
+import org.neubauerfelix.manawars.castledefense.ki.BaseFeatures
 import org.neubauerfelix.manawars.castledefense.ki.CDKIFeatureExtractor
 import org.neubauerfelix.manawars.castledefense.ki.CDKIFeaturePreparation
 import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
@@ -68,9 +69,14 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     }
 
     override fun logic(delta: Float, entities: List<IEntity>) {
+        super.logic(delta, entities)
         x += scrollDirection * delta * 1000
         match.doLogic(delta)
         MManaWars.m.getCollisionHandler().updateCollisions(entities)
+        println("units A: ${BaseFeatures.countUnitTotal(match.playerA)}. " +
+                "units B: ${BaseFeatures.countUnitTotal(match.playerB)}. " +
+                "castle health A: ${BaseFeatures.healthCastle(match.playerA)} " +
+                "castle health B: ${BaseFeatures.healthCastle(match.playerB)}")
     }
 
 

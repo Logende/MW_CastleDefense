@@ -5,7 +5,8 @@ class GameConstants {
 
     companion object {
         const val DEBUG_BOUNDING_BOXES = false
-        const val GAME_RENDER_FIX_TIME_STEPS_DURATION = 1f/60f
+        const val FAST_MODE = false // disables graphics and audio and speeds game up
+        val GAME_RENDER_FIX_TIME_STEPS_DURATION = if (FAST_MODE) 1f/30f else 1f/60f
 
         const val SCREEN_WIDTH = 1920f
         const val SCREEN_HEIGHT = 1080f

@@ -38,7 +38,6 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
         if (nextUnitChooseTime <= MManaWars.m.screen.getGameTime()) {
             this.chooseAction()
             nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
-            println("choose ${nextAction.name}")
         }
 
         val cost = nextAction.getCost(player)

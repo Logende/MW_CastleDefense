@@ -1,39 +1,27 @@
 package org.neubauerfelix.manawars.game
 
+import org.neubauerfelix.manawars.game.entities.IEntity
+
 
 abstract class GameScreenScreenTimed(game: AManaWars, drawBackgroundsStatic: Boolean): GameScreen(game, drawBackgroundsStatic), IScreenTimed {
 
 
-    private var timeStart: Long = 0
     private var timeDurationStored: Long = 0
 
 
 
     override fun loaded() {
         super.loaded()
-        timeStart = System.currentTimeMillis()
         timeDurationStored = 0
     }
 
-    override fun pause() {
-        timeDurationStored = getGameTime()
-        timeStart = -1
-        super.pause()
-    }
-
-
-    override fun resume() {
-        super.resume()
-        timeStart = System.currentTimeMillis()
+    override fun logic(delta: Float, entities: List<IEntity>) {
+        this.timeDurationStored+= (delta * 1000).toLong()
     }
 
 
     override fun getGameTime(): Long {
-        return if(getState() == ScreenState.RUNNING) {
-            ((System.currentTimeMillis() - timeStart) * getTimeSpeedModifier() + timeDurationStored).toLong()
-        }else {
-            timeDurationStored
-        }
+        return timeDurationStored
     }
 
 

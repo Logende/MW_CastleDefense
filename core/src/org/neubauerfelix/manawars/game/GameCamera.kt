@@ -13,7 +13,7 @@ import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
 
-class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable, IHandler {
+class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
 
 
     /** Camera for everything within the playground. */
@@ -177,7 +177,4 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable, IHandler {
         viewport.update(width, height)
     }
 
-    override fun getViewport(): Viewport {
-        return viewport
-    }
 }
