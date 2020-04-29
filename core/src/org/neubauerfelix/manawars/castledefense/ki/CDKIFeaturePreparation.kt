@@ -11,8 +11,8 @@ import org.neubauerfelix.manawars.manawars.events.EntityDeathEvent
 class CDKIFeaturePreparation {
 
 
-    val enemyUnitDistribution = LinkedHashMap<IDataUnit, Float>()
-    val playerUnitEffectiveness = LinkedHashMap<IDataUnit, Float>()
+    val enemyUnitDistribution = LinkedHashMap<IDataUnit, Float>() // unit, unit worth percentage. Sum of all is 1.0
+    val playerUnitEffectiveness = LinkedHashMap<IDataUnit, Float>() // unit, effectiveness percentage. Sum of all is 1.0
 
     var damageTaken = 0f
     var damageDealt = 0f
@@ -83,7 +83,9 @@ class CDKIFeaturePreparation {
     private fun calculateUnitEffectiveness(unit: IDataUnit, enemy: IDataUnit) : Float {
         val attackFactor = calculateDamageFactor(unit, enemy)
         val defenseFactor = calculateDamageFactor(enemy, unit)
-        return if(attackFactor == 0f) {
+        return if (attackFactor == 0f && defenseFactor == 0f) {
+            1f
+        } else if(attackFactor == 0f) {
             0f
         } else if (defenseFactor == 0f) {
             2f

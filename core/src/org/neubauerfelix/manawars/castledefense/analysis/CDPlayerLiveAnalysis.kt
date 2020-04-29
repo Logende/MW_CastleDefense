@@ -22,7 +22,7 @@ class CDPlayerLiveAnalysis : ICDPlayerLiveAnalysis {
     override var entities: List<IEntity> = arrayListOf()
     override var units: LinkedHashMap<IDataUnit, Int> = linkedMapOf()
     override var skills: List<IEntity> = arrayListOf() // actually just contains MSkill
-    override var furthestX: Float = 0f
+    override var furthestX: Float = -1f
 
 
     override var totalActionValue: Float = 0f

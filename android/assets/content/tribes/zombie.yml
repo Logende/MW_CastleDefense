@@ -48,7 +48,7 @@ army:
     melee:
       animation: 'rider:wolf:l1.zombie.melee'
       armor: 'none'
-      rarity: common
+      rarity: rare
       action:
         owner_animation: THROW
         texture: l1.zombie.melee

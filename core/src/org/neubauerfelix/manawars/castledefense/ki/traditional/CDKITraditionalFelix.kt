@@ -33,7 +33,7 @@ class CDKITraditionalFelix() : ICDKI {
         val situation = getSituationType(player, prep)
 
         CDManaWars.cd.getHandler(TextVisualizationHandler::class.java).displayText(player.castle,
-                player.castle.centerHorizontal, player.castle.top, situation.name, "situation", 20)
+                player.castle.centerHorizontal, player.castle.top, situation.name, "situation", 100)
         return when (situation) {
             SITUATION_TYPE.ATTACKING_LOST, SITUATION_TYPE.IDLE -> actWithStrategy(player, prep)
             SITUATION_TYPE.ATTACKING_NEED_SUPPORT, SITUATION_TYPE.ATTACKING_STRONG -> actSupportive(player, prep)
@@ -60,15 +60,15 @@ class CDKITraditionalFelix() : ICDKI {
         val unitCountTank = BaseFeatures.countUnit2(player)
         val unitCountMelee = BaseFeatures.countUnit3(player)
 
-        if (prep.damageDealt > prep.damageTaken * 1.5 &&
-                (unitCountBoss >= 1.0 || unitCountTank>=2.0 || unitCountMelee>=3.0)) {
+        val defensePoints = unitCountBoss * 6 + unitCountTank * 3 + unitCountMelee * 1
+        if (prep.damageDealt >= prep.damageTaken * 1.5 && defensePoints >= 5) {
             return SITUATION_TYPE.ATTACKING_STRONG
         }
 
 
-        if (prep.damageTaken > prep.damageDealt * 1.2 &&
-                (unitCountBoss == 0.0 && unitCountTank<=1.0 && unitCountMelee<=2.0)
-                && unitsEnemy > unitsPlayer
+        if (prep.damageTaken >= prep.damageDealt * 1.2
+                && defensePoints <= 2
+                && unitsEnemy > unitsPlayer * 1.2
                 && distanceEnemyToCastle > 2400) {
             return SITUATION_TYPE.ATTACKING_LOST
         }
@@ -81,7 +81,11 @@ class CDKITraditionalFelix() : ICDKI {
 
     fun actWithStrategy(player: ICDPlayer, prep: CDKIFeaturePreparation) : CDKILabel {
         // TODO: Plan a strong attack group and safe until it can be built. Then build it
-        return CDKILabel.NONE // TODO
+        if (player.castle.gold >= BaseFeatures.unit1(player).cost * 1.35) {
+            return CDKILabel.UNIT_BOSS // TODO
+        } else {
+            return CDKILabel.NONE
+        }
     }
 
     fun actDefensive(player: ICDPlayer, prep: CDKIFeaturePreparation) : CDKILabel {
@@ -101,10 +105,11 @@ class CDKITraditionalFelix() : ICDKI {
         val rangeRanger = BaseFeatures.unit4(player).action.rangeMax
         val rangeMage = BaseFeatures.unit5(player).action.rangeMax
 
-        // if range is big enough: make sure defensive units are there
-        if (rangeTank > distanceEnemyToCastle || rangeMelee > distanceEnemyToCastle) {
+        // if range is big enough or some units exist: make sure defensive units are there
+        if (rangeTank > distanceEnemyToCastle || rangeMelee > distanceEnemyToCastle ||
+                (unitCountMage + unitCountRanger >= 3)) {
             val defensePoints = unitCountBoss * 6 + unitCountTank * 3 + unitCountMelee * 1
-            if (defensePoints <= 1) {
+            if (defensePoints <= 2) {
 
                 return if (rangeTank > distanceEnemyToCastle) {
                     CDKILabel.UNIT_TANK
@@ -115,12 +120,8 @@ class CDKITraditionalFelix() : ICDKI {
         }
 
         // other than that, build units with high attack value
-        return if (effectivenessMage >= effectivenessRanger &&
-                (unitCountMage <= 3 ||  unitCountRanger >= unitCountMage / 2.0)) {
-            CDKILabel.UNIT_MAGE
-        } else {
-            CDKILabel.UNIT_RANGER
-        }
+        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_RANGER, effectivenessMage, effectivenessRanger,
+                unitCountMage, unitCountRanger)
 
     }
 
@@ -138,11 +139,13 @@ class CDKITraditionalFelix() : ICDKI {
         val defensePoints = unitCountBoss * 6 + unitCountTank * 3 + unitCountMelee * 1
         if (defensePoints <= 4) {
 
-            return if (effectivenessTank > effectivenessMelee || unitCountMelee * 0.8 > unitCountTank) {
+           /* return if (effectivenessTank > effectivenessMelee || unitCountMelee * 0.8 > unitCountTank) {
                 CDKILabel.UNIT_TANK
             } else {
                 CDKILabel.UNIT_MELEE
-            }
+            }*/
+            return chooseBetterPick(CDKILabel.UNIT_TANK, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
+                    unitCountTank, unitCountMelee)
         }
 
         if (effectivenessMelee > effectivenessRanger && effectivenessMelee > effectivenessMage &&
@@ -150,13 +153,19 @@ class CDKITraditionalFelix() : ICDKI {
             return CDKILabel.UNIT_MELEE
         }
 
-        return if (effectivenessMage >= effectivenessRanger &&
-                (unitCountMage <= 5 ||  unitCountRanger >= unitCountMage / 2.0)) {
-            CDKILabel.UNIT_MAGE
-        } else {
-            CDKILabel.UNIT_RANGER
-        }
+        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_RANGER, effectivenessMage, effectivenessRanger,
+                unitCountMage, unitCountRanger)
 
+    }
+
+    private fun chooseBetterPick(a: CDKILabel, b: CDKILabel, effectivenessA: Double, effectivenessB: Double,
+                                 unitCountA: Double, unitCountB: Double) : CDKILabel {
+        val ratioA = effectivenessA / effectivenessB // example: effA = 0.4 and effB = 0.2 -> ratio = 2
+        return if (unitCountA * ratioA > unitCountB) {
+            b
+        } else {
+            a
+        }
     }
 
 

@@ -18,13 +18,13 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
 
-    private var nextUnitChooseTime: Long = 0L
+    private var nextUnitChooseTime: Long = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
 
 
     override val playerControlled: Boolean
         get() = false
 
-    lateinit var nextAction: CDKILabel
+    var nextAction: CDKILabel = CDKILabel.NONE
 
 
     override fun showControls() {
