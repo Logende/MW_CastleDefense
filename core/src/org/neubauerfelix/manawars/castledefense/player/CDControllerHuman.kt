@@ -22,6 +22,7 @@ class CDControllerHuman() : ICDController {
     override val playerControlled: Boolean
         get() = true
 
+
     override fun showControls() {
         val size = GameConstants.CONTROLPANEL_BUTTON_SIZE
         var x = GameConstants.CONTROLPANEL_BUTTON_BORDER
@@ -97,5 +98,15 @@ class CDControllerHuman() : ICDController {
 
     override fun doLogic(delta: Float) {
         analysis.update(player)
+    }
+
+
+    override fun load() {
+        analysis.load()
+    }
+
+    override fun dispose() {
+        hideControls()
+        analysis.dispose()
     }
 }

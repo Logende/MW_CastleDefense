@@ -39,7 +39,7 @@ class CDEntityMine(x: Float, y: Float,
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
-        if (MManaWars.m.screen.getGameTime() >= nextGoldChargeTime) {
+        if (MManaWars.m.screen.getGameTime() >= nextGoldChargeTime && castle.health > 0f) {
             nextGoldChargeTime = MManaWars.m.screen.getGameTime() +
                     (1000 * chargePeriod).toLong()
             // TODO: Instead of just giving the money, the human player should be forced to manually collect it

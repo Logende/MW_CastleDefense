@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
 import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
-import org.neubauerfelix.manawars.game.events.Event
+import org.neubauerfelix.manawars.game.events.IEvent
 import org.neubauerfelix.manawars.game.events.Listener
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -25,7 +25,7 @@ class TextVisualizationHandler : IHandler, IDisposable {
     init {
         // Display entity damage
         MManaWars.m.getEventHandler().registerListener(EntityDamageEvent::class.java.name, object : Listener(){
-            override fun handleEvent(event: Event) {
+            override fun handleEvent(event: IEvent) {
                 val e = event as EntityDamageEvent
                 if (!e.cancelled) {
                     //this@TextVisualizationHandler.displayHit(e.entity, e.damager, e.damage)
@@ -35,7 +35,7 @@ class TextVisualizationHandler : IHandler, IDisposable {
 
         // TODO: Display gold earned (only of human player)
         MManaWars.m.getEventHandler().registerListener(EntityGoldEvent::class.java.name, object : Listener(){
-            override fun handleEvent(event: Event) {
+            override fun handleEvent(event: IEvent) {
                 val e = event as EntityGoldEvent
                 if (!e.cancelled) {
                     this@TextVisualizationHandler.displayMoneyProduced(e.entity, e.goldDifference.toFloat())
@@ -81,7 +81,7 @@ class TextVisualizationHandler : IHandler, IDisposable {
                 (target.y - 20f - Math.random() * 50f).toFloat(), text, topic, DISPLAY_DURATION)
     }
 
-    private fun displayText(target: ISized, x: Float, y: Float, text: String, topic: String, displayDuration: Int) {
+    fun displayText(target: ISized, x: Float, y: Float, text: String, topic: String, displayDuration: Int) {
         val t = pool.obtain()
         t.init(target, x, y, -1f, text, topic, displayDuration, ::freeValueStackable)
         t.spawn()

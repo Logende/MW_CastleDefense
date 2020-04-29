@@ -4,6 +4,11 @@ import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.g2d.Animation
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
 import org.neubauerfelix.manawars.castledefense.data.buildings.DataMine
+import org.neubauerfelix.manawars.castledefense.ki.CDKIFeatureExtractor
+import org.neubauerfelix.manawars.castledefense.ki.CDKIFeaturePreparation
+import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
+import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIModelRandom
+import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
@@ -25,10 +30,11 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadScreen(): Boolean {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val army1 = tribeHandler.getTribe("zombie")!!
-        val army2 = tribeHandler.getTribe("skeleton")!!
+        val army1 = tribeHandler.getTribe("human")!!
+        val army2 = tribeHandler.getTribe("human")!!
+        //val controllerA = CDControllerBot(CDKITraditionalFelix())
         val controllerA = CDControllerHuman()
-        val controllerB = CDControllerBot()
+        val controllerB = CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
         val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
         val playerB = CDPlayer(army2, controllerB, MConstants.TEAM_BOT)
         controllerA.player = playerA
@@ -46,7 +52,7 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
-        val dataMine = DataMine(25f, 20, 1, Animation(0f,
+        val dataMine = DataMine(25f, 20, 3, Animation(0f,
                 MManaWars.m.getImageHandler().getTextureRegionMain("building.mine")))
         dataMine.produce(800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerA.castle)
         dataMine.produce(match.playground.width - 800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerB.castle)

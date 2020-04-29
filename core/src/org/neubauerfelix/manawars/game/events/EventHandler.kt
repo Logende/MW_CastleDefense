@@ -25,7 +25,20 @@ class EventHandler: IEventHandler, IResetable {
         }
     }
 
-    override fun callEvent(event: Event){
+    override fun removeListener(listener: Listener) {
+        var removedCount = 0
+        synchronized(listeners) {
+            for ((_, list) in listeners) {
+                while (list.contains(listener)) {
+                    list.remove(listener)
+                    removedCount++
+                }
+            }
+        }
+        check(removedCount == 1)
+    }
+
+    override fun callEvent(event: IEvent){
         synchronized(listeners) {
             if (listeners.containsKey(event.javaClass.name)) {
                 for (listener in listeners.get(event.javaClass.name)!!) {

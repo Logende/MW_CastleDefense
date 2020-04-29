@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.castledefense.ki.features
+package org.neubauerfelix.manawars.castledefense.ki
 
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityBuildingAction
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
@@ -113,20 +113,36 @@ class BaseFeatures {
             return preparation.playerUnitEffectiveness[unit5(player)]!!.toDouble()
         }
 
-        private fun unit1(player: ICDPlayer) : IDataUnit {
+        fun unit1(player: ICDPlayer) : IDataUnit {
             return player.tribe.army.units[0]
         }
-        private fun unit2(player: ICDPlayer) : IDataUnit {
+        fun unit2(player: ICDPlayer) : IDataUnit {
             return player.tribe.army.units[1]
         }
-        private fun unit3(player: ICDPlayer) : IDataUnit {
+        fun unit3(player: ICDPlayer) : IDataUnit {
             return player.tribe.army.units[2]
         }
-        private fun unit4(player: ICDPlayer) : IDataUnit {
+        fun unit4(player: ICDPlayer) : IDataUnit {
             return player.tribe.army.units[3]
         }
-        private fun unit5(player: ICDPlayer) : IDataUnit {
+        fun unit5(player: ICDPlayer) : IDataUnit {
             return player.tribe.army.units[4]
+        }
+
+        fun recentDamageDealt(preparation: CDKIFeaturePreparation) : Double {
+            return preparation.damageDealt.toDouble()
+        }
+
+        fun recentDamageTaken(preparation: CDKIFeaturePreparation) : Double {
+            return preparation.damageTaken.toDouble()
+        }
+
+        fun recentKills(preparation: CDKIFeaturePreparation) : Double {
+            return preparation.killed.toDouble()
+        }
+
+        fun recentDeaths(preparation: CDKIFeaturePreparation) : Double {
+            return preparation.died.toDouble()
         }
 
 

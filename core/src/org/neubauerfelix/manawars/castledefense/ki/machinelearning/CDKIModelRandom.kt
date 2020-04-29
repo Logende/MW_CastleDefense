@@ -1,7 +1,6 @@
-package org.neubauerfelix.manawars.castledefense.ki.model
+package org.neubauerfelix.manawars.castledefense.ki.machinelearning
 
 import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
-import org.neubauerfelix.manawars.castledefense.ki.ICDKIModel
 
 class CDKIModelRandom : ICDKIModel {
 

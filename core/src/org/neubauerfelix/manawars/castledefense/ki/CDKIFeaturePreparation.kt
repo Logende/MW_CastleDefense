@@ -1,15 +1,24 @@
-package org.neubauerfelix.manawars.castledefense.ki.features
+package org.neubauerfelix.manawars.castledefense.ki
 
+import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.IControlled
+import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
+import org.neubauerfelix.manawars.manawars.events.EntityDeathEvent
 
 class CDKIFeaturePreparation {
 
 
     val enemyUnitDistribution = LinkedHashMap<IDataUnit, Float>()
     val playerUnitEffectiveness = LinkedHashMap<IDataUnit, Float>()
+
+    var damageTaken = 0f
+    var damageDealt = 0f
+    var died = 0
+    var killed = 0
+    var castleTookDamage = false
 
     fun prepare(player: ICDPlayer) {
         enemyUnitDistribution.clear()
@@ -18,6 +27,35 @@ class CDKIFeaturePreparation {
         playerUnitEffectiveness.putAll(this.calculateUnitsEffectiveness(player, enemyUnitDistribution))
     }
 
+    private fun calculateCombatStats(player: ICDPlayer) {
+        castleTookDamage = false
+        val a = player.controller.analysis
+        for (event in a.recentEvents) {
+            if (event is EntityDamageEvent &&! event.cancelled) {
+                val entity = event.entity
+                if (entity is IControlled) {
+                    if (entity.team == player.team) {
+                        damageTaken+= event.damage
+                    }else if (entity.team == player.enemy.team) {
+                        damageDealt+= event.damage
+                    }
+                }
+                if (entity is ICDEntityCastle) {
+                    castleTookDamage = true
+                }
+            }
+            if (event is EntityDeathEvent &&! event.cancelled) {
+                val entity = event.entity
+                if (entity is IControlled) {
+                    if (entity.team == player.team) {
+                        died++
+                    }else if (entity.team == player.enemy.team) {
+                        killed++
+                    }
+                }
+            }
+        }
+    }
 
     private fun calculateUnitsEffectiveness(player: ICDPlayer, enemyUnitDistribution: Map<IDataUnit, Float>) :
             Map<IDataUnit, Float> {

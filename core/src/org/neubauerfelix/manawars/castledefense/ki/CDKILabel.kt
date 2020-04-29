@@ -75,6 +75,19 @@ enum class CDKILabel {
             player.spawnUnit(data)
         }
     },
+
+    NONE {
+        override fun getDataInstance(player: ICDPlayer): Any {
+            return 0.0
+        }
+
+        override fun getCost(player: ICDPlayer): Int {
+            return 0
+        }
+
+        override fun perform(player: ICDPlayer) {
+        }
+    }
     /*BUILDING_ATTACK, // those will be added later
     BUILDING_STATUS,
     BUILDING_WALL,

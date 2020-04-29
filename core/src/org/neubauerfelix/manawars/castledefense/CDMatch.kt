@@ -33,6 +33,8 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
         backgrounds.forEach { background ->
             background.load()
         }
+        playerA.load()
+        playerB.load()
     }
 
     override fun loadedAssets() {
@@ -57,8 +59,8 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
 
     override fun dispose() {
         require(loaded)
-        playerA.controller.hideControls()
-        playerB.controller.hideControls()
+        playerA.dispose()
+        playerB.dispose()
         backgrounds.forEach { background ->
             screen.removeBackground(background)
             background.dispose()

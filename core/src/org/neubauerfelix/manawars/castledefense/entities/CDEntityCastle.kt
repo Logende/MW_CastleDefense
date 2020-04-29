@@ -65,12 +65,4 @@ class CDEntityCastle(x: Float, y: Float,
     }
 
 
-    override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
-        val result =  super.death(damager, cause)
-        if (result) {
-            this.gold = Int.MIN_VALUE
-        }
-        return result
-    }
-
 }

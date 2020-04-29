@@ -1,10 +1,12 @@
 package org.neubauerfelix.manawars.castledefense.player
 
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
+import org.neubauerfelix.manawars.game.IDisposable
+import org.neubauerfelix.manawars.game.ILoadable
 import org.neubauerfelix.manawars.game.entities.ILogicable
 
 
-interface ICDController : ILogicable{
+interface ICDController : ILogicable, ILoadable, IDisposable {
 
     val player: ICDPlayer
     val playerControlled: Boolean

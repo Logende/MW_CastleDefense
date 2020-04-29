@@ -3,15 +3,17 @@ package org.neubauerfelix.manawars.castledefense.player
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
-import org.neubauerfelix.manawars.castledefense.ki.CDKIMachineLearning
+import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
 import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
 import org.neubauerfelix.manawars.castledefense.ki.ICDKI
-import org.neubauerfelix.manawars.castledefense.ki.features.CDKIFeatureExtractor
-import org.neubauerfelix.manawars.castledefense.ki.model.CDKIModelRandom
+import org.neubauerfelix.manawars.castledefense.ki.CDKIFeatureExtractor
+import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIModelRandom
+import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
+import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalNaive
 import org.neubauerfelix.manawars.manawars.MManaWars
 
 
-class CDControllerBot : ICDController {
+class CDControllerBot(val ki: ICDKI) : ICDController {
 
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
@@ -23,7 +25,6 @@ class CDControllerBot : ICDController {
         get() = false
 
     lateinit var nextAction: CDKILabel
-    val ki : ICDKI = CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor())
 
 
     override fun showControls() {
@@ -44,12 +45,21 @@ class CDControllerBot : ICDController {
         if (player.castle.gold >= cost) {
             player.castle.gold -= cost
             nextAction.perform(player)
-            this.chooseAction()
+            this.nextAction = CDKILabel.NONE // wait a full tick before deciding next action
         }
     }
 
     private fun chooseAction(): CDKILabel {
         this.nextAction = ki.compute(player)
         return this.nextAction
+    }
+
+
+    override fun load() {
+        analysis.load()
+    }
+
+    override fun dispose() {
+        analysis.dispose()
     }
 }

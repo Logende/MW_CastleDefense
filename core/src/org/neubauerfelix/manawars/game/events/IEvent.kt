@@ -1,3 +1,7 @@
 package org.neubauerfelix.manawars.game.events
 
-interface Event
+interface IEvent {
+
+    val gametime: Long
+
+}

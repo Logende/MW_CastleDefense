@@ -15,6 +15,7 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
 
     override lateinit var formation: ICDFormation
 
+
     override fun spawnCastle(leftSide: Boolean, mapWidth: Float) {
         val texture = MManaWars.m.getImageHandler().getTextureRegionMain(tribe.castle.textureNameAlive)
         val direction = if (leftSide) 1 else -1
@@ -40,6 +41,14 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
 
         this.formation = CDFormation(tribe.army.units, this)
         this.formation.spawn()
+    }
+
+    override fun load() {
+        controller.load()
+    }
+
+    override fun dispose() {
+        controller.dispose()
     }
 }
 

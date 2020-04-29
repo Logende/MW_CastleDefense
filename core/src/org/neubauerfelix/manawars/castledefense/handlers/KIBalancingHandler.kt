@@ -3,9 +3,9 @@ package org.neubauerfelix.manawars.castledefense.handlers
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.game.IHandler
 import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
-import org.neubauerfelix.manawars.castledefense.ki.features.BaseFeatures
+import org.neubauerfelix.manawars.castledefense.ki.BaseFeatures
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
-import org.neubauerfelix.manawars.game.events.Event
+import org.neubauerfelix.manawars.game.events.IEvent
 import org.neubauerfelix.manawars.game.events.Listener
 import org.neubauerfelix.manawars.manawars.MManaWars
 import kotlin.math.max
@@ -22,7 +22,7 @@ class KIBalancingHandler: IHandler {
          */
         if (CDConstants.KI_BALANCING_ENABLED) {
             MManaWars.m.getEventHandler().registerListener(EntityGoldEvent::class.java.name, object : Listener() {
-                override fun handleEvent(event: Event) {
+                override fun handleEvent(event: IEvent) {
                     val e = event as EntityGoldEvent
                     if (!e.cancelled) {
                         val cdPlayer = e.castle.player
