@@ -3,6 +3,7 @@ package org.neubauerfelix.manawars.manawars.analysis
 import org.neubauerfelix.manawars.manawars.enums.MWArmorType
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWSkillClass
+import java.util.*
 
 class MAnalysisConstants {
 
@@ -18,7 +19,7 @@ class MAnalysisConstants {
         // average probability of a skill of a unit hitting an enemy
         const val UNIT_AVG_SKILL_HIT_PROBABILITY = 0.2f
 
-        val ARMOR_TYPE_SHARES = HashMap<MWArmorType, Float>()
+        val ARMOR_TYPE_SHARES = EnumMap<MWArmorType, Float>(MWArmorType::class.java)
         init {
             ARMOR_TYPE_SHARES[MWArmorType.NONE] = 0.7f
             ARMOR_TYPE_SHARES[MWArmorType.ANTI_LIGHT] = 0.2f
@@ -26,7 +27,7 @@ class MAnalysisConstants {
             ARMOR_TYPE_SHARES[MWArmorType.SHIELD] = 0.0f
         }
 
-        val ANIMATION_TYPE_SHARES = HashMap<MWEntityAnimationType, Float>()
+        val ANIMATION_TYPE_SHARES = EnumMap<MWEntityAnimationType, Float>(MWEntityAnimationType::class.java)
         init {
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.HUMAN] = 0.85f
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.HUMAN_SHIELD] = 0.0f
@@ -35,7 +36,7 @@ class MAnalysisConstants {
             ANIMATION_TYPE_SHARES[MWEntityAnimationType.BUILDING] = 0f
         }
 
-        val SKILL_CLASS_SHARES = HashMap<MWSkillClass, Float>()
+        val SKILL_CLASS_SHARES = EnumMap<MWSkillClass, Float>(MWSkillClass::class.java)
         init {
             SKILL_CLASS_SHARES[MWSkillClass.NORMAL] = 0.5f
             SKILL_CLASS_SHARES[MWSkillClass.MAGIC] = 0.25f

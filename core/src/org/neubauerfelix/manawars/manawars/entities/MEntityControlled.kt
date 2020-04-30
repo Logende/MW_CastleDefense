@@ -9,15 +9,16 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.*
+import java.util.*
 
 
 open class MEntityControlled(animationProducer: IEntityAnimationProducer,
                              health: Float,
                              action: IDataAction,
                              actionCooldown: Float,
-                             stateMultipliers: Map<MWState, MWStateEffectivity> = HashMap(),
-                             skillMultipliers: Map<MWSkillClass, Float> = HashMap(),
-                             skillDurabilityMultipliers: Map<MWSkillClass, Float> = HashMap(),
+                             stateMultipliers: Map<MWState, MWStateEffectivity> = EnumMap(MWState::class.java),
+                             skillMultipliers: Map<MWSkillClass, Float> = EnumMap(MWSkillClass::class.java),
+                             skillDurabilityMultipliers: Map<MWSkillClass, Float> = EnumMap(MWSkillClass::class.java),
                              drainMultiplier: Float = 0f,
                              armor: MWArmorType = MWArmorType.NONE,
                              override val walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX,
