@@ -38,7 +38,7 @@ class BaseFeatures {
         }
 
         fun distancePlayerToEnemyCastle(player: ICDPlayer): Double {
-            return abs(player.controller.analysis.furthestX - player.enemy.castle.centerHorizontal).toDouble()
+            return player.enemy.castle.getDistanceHor(player.controller.analysis.furthestX).toDouble()
         }
 
         fun healthTotal(player: ICDPlayer) : Double {

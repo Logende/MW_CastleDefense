@@ -1,11 +1,14 @@
 package org.neubauerfelix.manawars.castledefense
 
+import org.neubauerfelix.manawars.manawars.MConstants
+
 class CDConstants {
 
     companion object {
         const val CASTLE_BORDER_OFFSET = 20f
         const val FORMATION_UNIT_DISTANCE = -30f // does not include unit width
         const val FORMATION_JOIN_DISTANCE = 100f // does not include unit width
+        const val FORMATION_UNIT_WIDTH = -1f // MConstants.BODY_HUMAN_WIDTH.toFloat() // -1f results in dynamic width
         const val FORMATION_ENEMY_DISTANCE_MIN = 300f
         const val CASTLE_GOLD_CHARGE_DELAY = 5f
         const val CASTLE_CHOOSE_ACTION_DELAY = 500L

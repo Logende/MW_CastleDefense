@@ -7,10 +7,9 @@ import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
 import org.neubauerfelix.manawars.castledefense.ki.ICDKI
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
-import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.data.units.DataUnit
-import org.neubauerfelix.manawars.manawars.enums.MWUnitType
 import org.neubauerfelix.manawars.manawars.handlers.TextVisualizationHandler
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Naive ki which builds just units and chooses units by their effectiveness value of the current tick
@@ -97,6 +96,7 @@ class CDKITraditionalFelix() : ICDKI {
         val unitCountMelee = BaseFeatures.countUnit3(player)
         val unitCountRanger = BaseFeatures.countUnit4(player)
         val unitCountMage = BaseFeatures.countUnit5(player)
+        val unitCount = BaseFeatures.countUnitTotal(player)
         val effectivenessTank = BaseFeatures.effectivenessUnit2(player, prep)
         val effectivenessMelee = BaseFeatures.effectivenessUnit3(player, prep)
         val effectivenessRanger = BaseFeatures.effectivenessUnit4(player, prep)
@@ -110,15 +110,14 @@ class CDKITraditionalFelix() : ICDKI {
 
         // if range is big enough or some units exist: make sure defensive units are there
         if (rangeTank > distanceEnemyToCastle || rangeMelee > distanceEnemyToCastle ||
-                (unitCountMage + unitCountRanger >= 3)) {
-            val defensePoints = unitCountBoss * 6 + unitCountTank * 3 + unitCountMelee * 1
-            if (defensePoints <= 2) {
+                (unitCountMage + unitCountRanger + unitCountMelee >= 3)) {
 
-                return if (rangeTank > distanceEnemyToCastle) {
-                    CDKILabel.UNIT_TANK
-                } else {
-                    CDKILabel.UNIT_MELEE
-                }
+            val defensePoints = unitCountBoss * 2.5 + unitCountTank * 1.0 + unitCountMelee * 0.5
+            // at least 1. Not more than 4. Ideally 1/3 of team
+            val neededDefensePoints = max(1.0, min(4.0, unitCount / 3.0 ))
+            if (defensePoints <= neededDefensePoints) {
+                return chooseBetterPick(CDKILabel.UNIT_TANK, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
+                        unitCountTank, unitCountMelee)
             }
         }
 
@@ -134,19 +133,16 @@ class CDKITraditionalFelix() : ICDKI {
         val unitCountMelee = BaseFeatures.countUnit3(player)
         val unitCountRanger = BaseFeatures.countUnit4(player)
         val unitCountMage = BaseFeatures.countUnit5(player)
+        val unitCount = BaseFeatures.countUnitTotal(player)
         val effectivenessTank = BaseFeatures.effectivenessUnit2(player, prep)
         val effectivenessMelee = BaseFeatures.effectivenessUnit3(player, prep)
         val effectivenessRanger = BaseFeatures.effectivenessUnit4(player, prep)
         val effectivenessMage = BaseFeatures.effectivenessUnit5(player, prep)
 
-        val defensePoints = unitCountBoss * 6 + unitCountTank * 3 + unitCountMelee * 1
-        if (defensePoints <= 4) {
-
-            /* return if (effectivenessTank > effectivenessMelee || unitCountMelee * 0.8 > unitCountTank) {
-                 CDKILabel.UNIT_TANK
-             } else {
-                 CDKILabel.UNIT_MELEE
-             }*/
+        val defensePoints = unitCountBoss * 2.5 + unitCountTank * 1.0 + unitCountMelee * 0.5
+        // at least 1.5. Not more than 5. Ideally 1/3 of team
+        val neededDefensePoints = max(1.5, min(5.0, unitCount / 3.0 ))
+        if (defensePoints <= neededDefensePoints) {
             return chooseBetterPick(CDKILabel.UNIT_TANK, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
                     unitCountTank, unitCountMelee)
         }

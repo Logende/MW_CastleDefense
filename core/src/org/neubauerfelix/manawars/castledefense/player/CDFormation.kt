@@ -98,11 +98,14 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
             var x = 0f
             for (e in this.entities) {
                 this.relativeX[e] = x - e.width/2f * direction
+                val entityWidth = if (CDConstants.FORMATION_UNIT_WIDTH == -1f) {
+                    e.width
+                } else CDConstants.FORMATION_UNIT_WIDTH
 
                 x += if (direction == 1) {
-                    -e.width - CDConstants.FORMATION_UNIT_DISTANCE
+                    -entityWidth - CDConstants.FORMATION_UNIT_DISTANCE
                 } else {
-                    e.width + CDConstants.FORMATION_UNIT_DISTANCE
+                    entityWidth + CDConstants.FORMATION_UNIT_DISTANCE
                 }
             }
             val oldAnchorX = this.anchorX
