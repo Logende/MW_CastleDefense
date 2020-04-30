@@ -38,16 +38,16 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
         this.animation.doLogic(delta)
+        if(needsAnimationUpdate){
+            animation.updateAnimation(null)
+            needsAnimationUpdate = false
+        }
     }
 
     override fun draw(batcher: Batch) {
         if (colorRestoreTime != -1L && AManaWars.m.screen.getGameTime() > colorRestoreTime) {
             colorRestoreTime = -1
             animation.color = Color.WHITE
-        }
-        if(needsAnimationUpdate){
-            animation.updateAnimation(null)
-            needsAnimationUpdate = false
         }
         this.animation.draw(batcher)
     }

@@ -67,9 +67,9 @@ class CDEntityCastle(x: Float, y: Float,
 
     override fun destroyed() {
         super.destroyed()
-        if (GameConstants.FAST_MODE) {
+        if (GameConstants.EXIT_APP_ON_CASTLE_DEFEAT) {
+            println("winner is team ${player.enemy.team} with tribe ${player.enemy.tribe.name} at time ${MManaWars.m.screen.getGameTime()}")
             Gdx.app.exit()
-            println("winner is team ${player.enemy.team} with tribe ${player.enemy.tribe.name}")
         } else {
             // TODO
         }
