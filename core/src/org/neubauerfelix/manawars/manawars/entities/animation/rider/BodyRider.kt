@@ -3,12 +3,10 @@ package org.neubauerfelix.manawars.manawars.entities.animation.rider
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
-import org.neubauerfelix.manawars.game.IDrawable
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.entities.ICollidable
 import org.neubauerfelix.manawars.manawars.entities.ILooking
 import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IBody
@@ -97,9 +95,9 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
         return MWCollisionType.NONE
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
-        mount.draw(delta, batcher)
-        human.draw(delta, batcher)
+    override fun draw(batcher: Batch) {
+        mount.draw(batcher)
+        human.draw(batcher)
         if (mount is EntityAnimationAny) {
             if (mount.body is BodyMountSmart) {
                 mount.body.head.draw(batcher, mount, mount.body.mirror, mount.scale)

@@ -54,16 +54,24 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
             }
         }
 
-        deltaStored += delta * if (GameConstants.FAST_MODE) GameConstants.FAST_MODE_GAME_TICK_FACTOR else 1f
+        deltaStored += delta * GameConstants.GAME_TICK_FACTOR
         var fixDelta = 0f
-        if (deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION) {
-            deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
-            fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
-            simulate(fixDelta)
+        if (GameConstants.SLOW_INSTEAD_STUTTER) {
+            if (deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION) {
+                deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
+                fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
+                simulate(fixDelta)
+            }
+        } else {
+            while (deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION) {
+                deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
+                fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
+                simulate(fixDelta)
+            }
         }
 
 
-        draw(fixDelta)
+        draw()
 
     }
 
@@ -88,12 +96,19 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
                 i++
             }
         }
+        synchronized(components) {
+            for (component in components) {
+                if (component is ILogicable) {
+                    component.doLogic(delta)
+                }
+            }
+        }
         this.logic(delta, entities)
     }
 
-    fun draw(delta: Float) {
-        game.getCamera().render(delta, backgrounds, drawBackgroundsStatic, getIngameWindowX(),
-                entities, components)
+    fun draw() {
+        game.getCamera().render(backgrounds, drawBackgroundsStatic, getIngameWindowX(), entities,
+                components)
     }
 
 

@@ -27,7 +27,7 @@ open class MEntityText protected constructor() : GameEntity(0f, 0f), IDrawable, 
         }
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         font.getFont(1f).draw(batcher, text, x, y)
     }
 

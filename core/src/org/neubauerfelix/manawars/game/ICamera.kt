@@ -5,8 +5,8 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 
 interface ICamera : IHandler {
 
-    fun render(delta: Float, drawableBackgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float,
-               toDraw2Ingame: Iterable<IEntity>, toDraw3Components: Iterable<IDrawableComponent>)
+    fun render(drawableBackgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float, toDraw2Ingame: Iterable<IEntity>,
+               toDraw3Components: Iterable<IDrawableComponent>)
 
     fun renderLoadingScreen(delta: Float)
 

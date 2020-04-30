@@ -16,7 +16,7 @@ import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 open class CDComponentCoreEntity(x: Float, y: Float, width: Float, height: Float, val entity: IDataCoreEntity,
                             private val listener: Runnable, val background: TextureRegion,
                             private val frameColor : Color?) :
-        MComponent(x, y, width, height) {
+        MComponent(x, y, width, height), ILogicable {
 
 
     private val text: IComponent
@@ -38,19 +38,22 @@ open class CDComponentCoreEntity(x: Float, y: Float, width: Float, height: Float
         text = MTextLabel(x, y, "[$colorAsHexString]${entity.cost}", FontHandler.MWFont.MAIN, 0.2f)
     }
 
-    override fun draw(delta: Float, batcher: Batch, parentOffsetX: Float, parentOffsetY: Float) {
+    override fun doLogic(delta: Float) {
+        (animation as ILogicable).doLogic(delta)
+    }
+
+    override fun draw(batcher: Batch, parentOffsetX: Float, parentOffsetY: Float) {
         batcher.draw(background, parentOffsetX + x, parentOffsetY + y, width, height)
 
         animation.setLocation(animationX + parentOffsetX, animationY + parentOffsetY)
-        (animation as ILogicable).doLogic(delta)
-        (animation as IDrawable).draw(delta, batcher)
+        (animation as IDrawable).draw(batcher)
 
         MManaWars.m.getCharacterBarHandler().drawFrame(batcher, parentOffsetX + x, parentOffsetY + y,
                 width, height, frameColor)
 
         val offsetX = (width - text.width) * 0.5f
         val offsetY = (height - text.height) * 0.8f
-        text.draw(delta, batcher, parentOffsetX + offsetX, parentOffsetY + offsetY)
+        text.draw(batcher, parentOffsetX + offsetX, parentOffsetY + offsetY)
     }
 
     override fun clickAction() {

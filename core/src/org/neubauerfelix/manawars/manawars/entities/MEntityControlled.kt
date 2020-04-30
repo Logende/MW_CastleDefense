@@ -5,7 +5,6 @@ import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationPr
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
-import org.neubauerfelix.manawars.game.entities.ILocated
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
@@ -92,9 +91,9 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
     }
 
 
-    override fun draw(delta: Float, batcher: Batch) {
-        super.draw(delta, batcher)
-        controller.drawAbove(delta, batcher)
+    override fun draw(batcher: Batch) {
+        super.draw(batcher)
+        controller.drawAbove(batcher)
     }
 
     override fun damage(value: Float, damager: IEntity, cause: MWDamageCause): Boolean {

@@ -11,7 +11,7 @@ interface IController {
 
     fun doLogic(delta: Float)
 
-    fun drawAbove(delta: Float, batcher: Batch)
+    fun drawAbove(batcher: Batch)
 
     fun damage(value: Float, damager: IEntity, cause: MWDamageCause): Boolean
 

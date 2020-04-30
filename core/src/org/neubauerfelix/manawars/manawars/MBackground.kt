@@ -34,7 +34,7 @@ class MBackground(val fileName: String, val x: Float, val flipped: Boolean, val 
     }
 
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         batcher.draw(textureRegion, x, 0f, GameConstants.BACKGROUND_WIDTH, GameConstants.BACKGROUND_HEIGHT)
     }
 

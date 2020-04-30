@@ -2,7 +2,6 @@ package org.neubauerfelix.manawars.manawars.components
 
 
 import com.badlogic.gdx.graphics.g2d.Batch
-import org.neubauerfelix.manawars.game.GameImageHandler
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler.MWFont
 
 class MTextLabel : MTextButton {
@@ -16,8 +15,8 @@ class MTextLabel : MTextButton {
     override fun unclickAction() {}
 
 
-    override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
+    override fun draw(batcher: Batch, offsetX: Float, offsetY: Float) {
         //batcher.draw(GameImageHandler.imageHandler!!.getTextureRegionButton("menu"), offsetX + x, offsetY + y, width, height)
-        super.draw(delta, batcher, offsetX, offsetY)
+        super.draw(batcher, offsetX, offsetY)
     }
 }

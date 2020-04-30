@@ -38,9 +38,6 @@ abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, s
         if (rotationDuration != 0f) {
             rotation = (stateTime % rotationDuration) / rotationDuration * 360f
         }
-    }
-
-    override fun draw(delta: Float, batcher: Batch) {
         if (!isAnimationPaused) {
             stateTime += delta
         }
@@ -49,6 +46,9 @@ abstract class MEntityAnimationSimple(val animation: Animation<TextureRegion>, s
                 finishedAnimation()
             }
         }
+    }
+
+    override fun draw(batcher: Batch) {
         if (color != null) {
             batcher.color = color
         }

@@ -29,7 +29,7 @@ open class BodyMountAnimating(bodyDataMount: IBodyDataMount, scale: Float, sized
         footFR.doLogic(sized, mirror, scale)
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         val mirror = this.mirror
         footBL.draw(batcher, sized, mirror, scale)
         footBR.draw(batcher, sized, mirror, scale)

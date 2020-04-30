@@ -59,9 +59,9 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
     }
 
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         if (! (idle &&data.invisibleWhileIdle)) {
-            super.draw(delta, batcher)
+            super.draw(batcher)
         }
     }
 

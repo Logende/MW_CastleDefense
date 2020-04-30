@@ -6,7 +6,6 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
@@ -41,7 +40,7 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
         this.animation.doLogic(delta)
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         if (colorRestoreTime != -1L && AManaWars.m.screen.getGameTime() > colorRestoreTime) {
             colorRestoreTime = -1
             animation.color = Color.WHITE
@@ -50,7 +49,7 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
             animation.updateAnimation(null)
             needsAnimationUpdate = false
         }
-        this.animation.draw(delta, batcher)
+        this.animation.draw(batcher)
     }
 
     override fun getCollisionType(intersection: ISized): MWCollisionType {

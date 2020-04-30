@@ -13,7 +13,7 @@ class ControllerDummy: IController {
     override fun doLogic(delta: Float) {
     }
 
-    override fun drawAbove(delta: Float, batcher: Batch) {
+    override fun drawAbove(batcher: Batch) {
     }
 
     override fun damage(value: Float, damager: IEntity, cause: MWDamageCause): Boolean {

@@ -1,15 +1,12 @@
 package org.neubauerfelix.manawars.game
 
-import org.neubauerfelix.manawars.game.ICamera
-import org.neubauerfelix.manawars.game.IDrawable
-import org.neubauerfelix.manawars.game.IDrawableComponent
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 
 
 class GameCameraMock : ICamera {
 
-    override fun render(delta: Float, drawableBackgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float, toDraw2Ingame: Iterable<IEntity>, toDraw3Components: Iterable<IDrawableComponent>) {
+    override fun render(drawableBackgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float, toDraw2Ingame: Iterable<IEntity>, toDraw3Components: Iterable<IDrawableComponent>) {
 
     }
 

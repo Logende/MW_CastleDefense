@@ -65,8 +65,8 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
     }
 
 
-    override fun render(delta: Float, toDraw1Backgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float,
-                        toDraw2Ingame: Iterable<IEntity>, toDraw3Components: Iterable<IDrawableComponent>) {
+    override fun render(toDraw1Backgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float, toDraw2Ingame: Iterable<IEntity>,
+                        toDraw3Components: Iterable<IDrawableComponent>) {
         setWindowLocation(ingameWindowX)
 
         //Make everything ready
@@ -80,7 +80,7 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
             batcher.projectionMatrix = cameraStatic.combined
             synchronized(toDraw1Backgrounds) {
                 for (background in toDraw1Backgrounds) {
-                    background.draw(delta, batcher)
+                    background.draw(batcher)
                 }
             }
             batcher.projectionMatrix = cameraIngame.combined
@@ -88,7 +88,7 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
             batcher.projectionMatrix = cameraIngame.combined
             synchronized(toDraw1Backgrounds) {
                 for (background in toDraw1Backgrounds) {
-                    background.draw(delta, batcher)
+                    background.draw(batcher)
                 }
             }
         }
@@ -98,7 +98,7 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
         synchronized(toDraw2Ingame) {
             for (drawableIngame in toDraw2Ingame) {
                 if (drawableIngame is IDrawable) {
-                    drawableIngame.draw(delta, batcher)
+                    drawableIngame.draw(batcher)
                 }
 
             }
@@ -107,7 +107,7 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
         batcher.projectionMatrix = cameraStatic.combined
         synchronized(toDraw3Components) {
             for (drawableComponent in toDraw3Components) {
-                drawableComponent.draw(delta, batcher, 0f, 0f)
+                drawableComponent.draw(batcher, 0f, 0f)
             }
         }
         batcher.end()
@@ -121,7 +121,7 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
         synchronized(toDraw3Components) {
             for (drawableComponent in toDraw3Components) {
                 if (drawableComponent is IShapeDrawable) {
-                    drawableComponent.draw(delta, shapeRenderer)
+                    drawableComponent.draw(shapeRenderer)
                 }
             }
         }

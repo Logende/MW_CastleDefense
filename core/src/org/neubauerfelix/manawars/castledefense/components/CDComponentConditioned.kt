@@ -13,7 +13,7 @@ class CDComponentConditioned(x: Float, y: Float, subComponent: IComponent, priva
         addComponent(subComponent)
     }
 
-    override fun draw(delta: Float, shapeRenderer: ShapeRenderer) {
+    override fun draw(shapeRenderer: ShapeRenderer) {
         if (condition.locked) {
             IPercentageCondition.drawProgressbar(shapeRenderer, this.centerLocation,
                     this.height/2f*lockRadiusPercentage,

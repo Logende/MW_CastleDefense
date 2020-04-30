@@ -4,5 +4,5 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 
 interface IShapeDrawable {
 
-    fun draw(delta: Float, shapeRenderer: ShapeRenderer)
+    fun draw(shapeRenderer: ShapeRenderer)
 }

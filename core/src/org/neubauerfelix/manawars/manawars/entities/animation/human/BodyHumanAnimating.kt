@@ -37,7 +37,7 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
         }
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         val mirror = this.mirror
         armR.draw(batcher, sized, mirror, scale)
         body.draw(batcher, sized, mirror, scale)

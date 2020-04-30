@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.game.entities.ISized
-import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimation
 import org.neubauerfelix.manawars.manawars.enums.*
 
 class EntityAnimationAny(val body: IBody, override val entityAnimationType: MWEntityAnimationType) :
@@ -37,8 +36,8 @@ class EntityAnimationAny(val body: IBody, override val entityAnimationType: MWEn
         body.updateAnimation(sized)
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
-        body.draw(delta, batcher)
+    override fun draw(batcher: Batch) {
+        body.draw(batcher)
     }
 
     override fun doLogic(delta: Float) {

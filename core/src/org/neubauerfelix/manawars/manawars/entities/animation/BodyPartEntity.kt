@@ -32,7 +32,7 @@ class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized:
     }
 
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         batcher.draw(textureRegion, if (mirror) x+width else x, y,
                 if (mirror) -originX else originX, originY,
                 if (mirror) -width else width, height,

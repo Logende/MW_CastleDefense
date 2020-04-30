@@ -2,10 +2,6 @@ package org.neubauerfelix.manawars.manawars.components
 
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.IComponent
-import org.neubauerfelix.manawars.game.IImageHandler
-import org.neubauerfelix.manawars.manawars.handlers.FontHandler
-
-import java.util.ArrayList
 
 class MComponentTable(x: Float, y: Float, columns: Array<Array<IComponent>>, distanceColumns: Float, distanceRows: Float) :
         MComponentContainer(x, y){
@@ -46,9 +42,9 @@ class MComponentTable(x: Float, y: Float, columns: Array<Array<IComponent>>, dis
     }
 
 
-    override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
+    override fun draw(batcher: Batch, offsetX: Float, offsetY: Float) {
         //batcher.draw(imageHandler.getTextureRegionButton("background"), offsetX + x, offsetY + y, width, height)
-        super.draw(delta, batcher, offsetX, offsetY)
+        super.draw(batcher, offsetX, offsetY)
     }
 
 

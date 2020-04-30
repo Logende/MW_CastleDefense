@@ -23,7 +23,7 @@ class ControllerTest: IController {
         }
     }
 
-    override fun drawAbove(delta: Float, batcher: Batch) {
+    override fun drawAbove(batcher: Batch) {
     }
 
     override fun damage(value: Float, damager: IEntity, cause: MWDamageCause): Boolean {

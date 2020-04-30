@@ -154,7 +154,7 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
 
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         batcher.draw(MManaWars.m.getImageHandler().getTextureRegionButton("back"), this.anchorX - 5f, this.y, 10f, 10f)
     }
 

@@ -46,7 +46,7 @@ public abstract class MButton extends MComponent {
 
 
 	@Override
-	public void draw(float delta, Batch batcher, float offsetX, float offsetY) {
+	public void draw(Batch batcher, float offsetX, float offsetY) {
 		TextureRegion image = (isPressed() && texturePressed != null) ? texturePressed : texture;
 		batcher.draw(image, getX() + offsetX, getY() + offsetY, getWidth(), getHeight());
 	}

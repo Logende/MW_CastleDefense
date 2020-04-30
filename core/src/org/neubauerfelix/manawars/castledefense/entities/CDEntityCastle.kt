@@ -3,8 +3,6 @@ package org.neubauerfelix.manawars.castledefense.entities
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.castledefense.CDConstants
-import org.neubauerfelix.manawars.castledefense.CDManaWars
-import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.game.entities.*
 import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
@@ -12,7 +10,6 @@ import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
-import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 class CDEntityCastle(x: Float, y: Float,
                      textureNameAlive: String, textureNameDead: String,
@@ -49,8 +46,8 @@ class CDEntityCastle(x: Float, y: Float,
         get() = super.speedX
         set(_) { }
 
-    override fun draw(delta: Float, batcher: Batch) {
-        super.draw(delta, batcher)
+    override fun draw(batcher: Batch) {
+        super.draw(batcher)
         MManaWars.m.getCharacterBarHandler().drawStatsBar(batcher, this)
     }
 

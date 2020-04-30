@@ -45,7 +45,7 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
     }
 
-    override fun drawAbove(delta: Float, batcher: Batch) {
+    override fun drawAbove(batcher: Batch) {
         MManaWars.m.getCharacterBarHandler().drawStatsBar(batcher, controlled)
     }
 

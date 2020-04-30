@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
-import org.neubauerfelix.manawars.manawars.components.MComponent
 import org.neubauerfelix.manawars.manawars.components.MComponentContainer
 import org.neubauerfelix.manawars.manawars.components.MComponentTextLabelImages
 import org.neubauerfelix.manawars.manawars.components.MTextLabel
@@ -26,9 +25,9 @@ class CDComponentGameInfo(x: Float, y: Float, val player: ICDPlayer) :
         addComponent(goldPlayer)
     }
 
-    override fun draw(delta: Float, batcher: Batch, offsetX: Float, offsetY: Float) {
+    override fun draw(batcher: Batch, offsetX: Float, offsetY: Float) {
         goldPlayer.setText("icon.money# ${player.castle.gold}")
-        super.draw(delta, batcher, offsetX, offsetY)
+        super.draw(batcher, offsetX, offsetY)
     }
 
     override fun clickAction() {

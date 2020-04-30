@@ -45,7 +45,7 @@ public abstract class MTextButton extends MComponent {
 
 
 	@Override
-	public void draw(float delta, Batch batcher, float offsetX, float offsetY) {
+	public void draw(Batch batcher, float offsetX, float offsetY) {
 		font.getFont(scale).draw(batcher, text, getX() + offsetX, getY() + offsetY);
 	}
 

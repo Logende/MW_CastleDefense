@@ -73,7 +73,7 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
         return MWCollisionType.TEXTURE
     }
 
-    override fun draw(delta: Float, batcher: Batch) {
+    override fun draw(batcher: Batch) {
         batcher.color = color
 
         val drawX = if (mirror) x + width else x
@@ -81,10 +81,6 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
 
         if (playAnimation) {
             batcher.draw(animation!!.getKeyFrame(stateTime), drawX, y, drawWidth, height)
-            stateTime += delta
-            if (animation.isAnimationFinished(stateTime)) {
-                playAnimation = false
-            }
         } else {
             if (alive) {
                 batcher.draw(textureRegionAlive, drawX, y, drawWidth, height)
@@ -96,6 +92,12 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
     }
 
     override fun doLogic(delta: Float) {
+        if (playAnimation) {
+            if (animation!!.isAnimationFinished(stateTime)) {
+                playAnimation = false
+            }
+            stateTime += delta
+        }
     }
 
     override fun drawDebugging(shapeRenderer: ShapeRenderer) {
