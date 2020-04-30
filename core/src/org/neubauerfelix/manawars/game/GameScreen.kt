@@ -54,37 +54,44 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
             }
         }
 
-        deltaStored += delta
-        var delta = 0f
-        if(deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION || GameConstants.FAST_MODE){
+        deltaStored += delta * if (GameConstants.FAST_MODE) GameConstants.FAST_MODE_GAME_TICK_FACTOR else 1f
+        var fixDelta = 0f
+        if (deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION) {
             deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
-            delta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
+            fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
+            simulate(fixDelta)
         }
-        delta *= timeSpeedModifier
 
-        if (delta != 0f) {
-            synchronized(entities) {
-                var last = entities.size - 1
-                var i = 0
-                while (i <= last) {
-                    val entity = entities.get(i)
-                    if (entity.remove) {
-                        entities.removeAt(i)
-                        entity.destroyed()
-                        last--
-                        continue
-                    }
-                    if (entity is ILogicable) {
-                        entity.doLogic(delta)
-                    }
-                    if (entity is IMovable) {
-                        entity.move(delta)
-                    }
-                    i++
+
+        draw(fixDelta)
+
+    }
+
+    fun simulate(delta: Float) {
+        synchronized(entities) {
+            var last = entities.size - 1
+            var i = 0
+            while (i <= last) {
+                val entity = entities.get(i)
+                if (entity.remove) {
+                    entities.removeAt(i)
+                    entity.destroyed()
+                    last--
+                    continue
                 }
+                if (entity is ILogicable) {
+                    entity.doLogic(delta)
+                }
+                if (entity is IMovable) {
+                    entity.move(delta)
+                }
+                i++
             }
-            this.logic(delta, entities)
         }
+        this.logic(delta, entities)
+    }
+
+    fun draw(delta: Float) {
         game.getCamera().render(delta, backgrounds, drawBackgroundsStatic, getIngameWindowX(),
                 entities, components)
     }

@@ -97,7 +97,7 @@ class CDPlayerLiveAnalysis : ICDPlayerLiveAnalysis {
         this.furthestX = if (player.castle.direction == 1) furthestEntity.right else furthestEntity.left
 
         val gametime = MManaWars.m.screen.getGameTime()
-        this.recentEvents.removeIf { it.gametime < gametime + EVENT_TIMEFRAME }
+        this.recentEvents.removeIf { it.gametime < gametime - EVENT_TIMEFRAME }
 
 
 /*

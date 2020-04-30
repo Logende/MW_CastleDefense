@@ -9,6 +9,7 @@ import org.neubauerfelix.manawars.castledefense.ki.CDKIFeatureExtractor
 import org.neubauerfelix.manawars.castledefense.ki.CDKIFeaturePreparation
 import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
 import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIModelRandom
+import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalAggressive
 import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
 import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalNaive
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
@@ -32,8 +33,8 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadScreen(): Boolean {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val army1 = tribeHandler.getTribe("brute")!!
-        val army2 = tribeHandler.getTribe("bear")!!
+        val army1 = tribeHandler.getTribe("zombie")!!
+        val army2 = tribeHandler.getTribe("human")!!
         val controllerA = CDControllerBot(CDKITraditionalFelix())
         val controllerB = CDControllerBot(CDKITraditionalFelix())
         //val controllerA = CDControllerHuman()

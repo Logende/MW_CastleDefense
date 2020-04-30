@@ -12,11 +12,11 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * Naive ki which builds just units and chooses units by their effectiveness value of the current tick
+ * Smart KI which saves gold when not attacked and then launches strong attacks
  */
 class CDKITraditionalFelix() : ICDKI {
 
-    enum class SITUATION_TYPE {
+    enum class SituationType {
         ATTACKING_STRONG,
         ATTACKING_NEED_SUPPORT,
         ATTACKING_LOST,
@@ -37,25 +37,27 @@ class CDKITraditionalFelix() : ICDKI {
                     player.castle.centerHorizontal, player.castle.top, situation.name, "situation", 100)
         }
         return when (situation) {
-            SITUATION_TYPE.ATTACKING_LOST, SITUATION_TYPE.IDLE -> actWithStrategy(player, prep)
-            SITUATION_TYPE.ATTACKING_NEED_SUPPORT, SITUATION_TYPE.ATTACKING_STRONG -> actSupportive(player, prep)
-            SITUATION_TYPE.DEFENDING_FORTRESS -> actDefensive(player, prep)
+            SituationType.ATTACKING_LOST, SituationType.IDLE -> actWithStrategy(player, prep)
+            SituationType.ATTACKING_NEED_SUPPORT, SituationType.ATTACKING_STRONG -> actSupportive(player, prep)
+            SituationType.DEFENDING_FORTRESS -> actDefensive(player, prep)
         }
 
     }
 
-    private fun getSituationType(player: ICDPlayer, prep: CDKIFeaturePreparation) : SITUATION_TYPE {
+    private fun getSituationType(player: ICDPlayer, prep: CDKIFeaturePreparation) : SituationType {
         val unitsPlayer = BaseFeatures.countUnitTotal(player)
         val unitsEnemy = BaseFeatures.countUnitTotal(player.enemy)
 
+        // note that this approach (waiting until castle takes damage) will no longer be suited when the playground
+        // starts with more buildings that the player owns (e.g. barriers)
         val distanceEnemyToCastle = BaseFeatures.distancePlayerToEnemyCastle(player.enemy)
-        if (distanceEnemyToCastle <= 1500.0 || prep.castleTookDamage) {
-            return SITUATION_TYPE.DEFENDING_FORTRESS
+        if (prep.castleTookDamage) {
+            return SituationType.DEFENDING_FORTRESS
         }
 
 
-        if (unitsPlayer == 0.0 && distanceEnemyToCastle > 1500) {
-            return SITUATION_TYPE.IDLE
+        if (unitsPlayer == 0.0) {
+            return SituationType.IDLE
         }
 
         val unitCountBoss = BaseFeatures.countUnit1(player)
@@ -64,7 +66,7 @@ class CDKITraditionalFelix() : ICDKI {
 
         val defensePoints = unitCountBoss * 6 + unitCountTank * 3 + unitCountMelee * 1
         if (prep.damageDealt >= prep.damageTaken * 1.5 && defensePoints >= 5) {
-            return SITUATION_TYPE.ATTACKING_STRONG
+            return SituationType.ATTACKING_STRONG
         }
 
 
@@ -72,10 +74,10 @@ class CDKITraditionalFelix() : ICDKI {
                 && defensePoints <= 2
                 && unitsEnemy > unitsPlayer * 1.2
                 && distanceEnemyToCastle > 2400) {
-            return SITUATION_TYPE.ATTACKING_LOST
+            return SituationType.ATTACKING_LOST
         }
 
-        return SITUATION_TYPE.ATTACKING_NEED_SUPPORT
+        return SituationType.ATTACKING_NEED_SUPPORT
     }
 
 
