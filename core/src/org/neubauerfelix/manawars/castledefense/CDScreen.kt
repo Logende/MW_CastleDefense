@@ -10,6 +10,7 @@ import org.neubauerfelix.manawars.castledefense.ki.CDKIFeaturePreparation
 import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
 import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIModelRandom
 import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
+import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalNaive
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
@@ -31,11 +32,12 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false) {
 
     override fun loadScreen(): Boolean {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val army1 = tribeHandler.getTribe("lizard")!!
-        val army2 = tribeHandler.getTribe("bear")!!
+        val army1 = tribeHandler.getTribe("skeleton")!!
+        val army2 = tribeHandler.getTribe("snowman")!!
         val controllerA = CDControllerBot(CDKITraditionalFelix())
+        val controllerB = CDControllerBot(CDKITraditionalFelix())
         //val controllerA = CDControllerHuman()
-        val controllerB = CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
+        //val controllerB = CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
         val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
         val playerB = CDPlayer(army2, controllerB, MConstants.TEAM_BOT)
         controllerA.player = playerA

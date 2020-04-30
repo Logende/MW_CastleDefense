@@ -1,10 +1,14 @@
 package org.neubauerfelix.manawars.castledefense.entities
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.castledefense.CDConstants
+import org.neubauerfelix.manawars.castledefense.CDManaWars
+import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.game.entities.*
 import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
@@ -61,6 +65,16 @@ class CDEntityCastle(x: Float, y: Float,
             if (!event.cancelled) {
                 event.castle.gold += event.goldDifference
             }
+        }
+    }
+
+    override fun destroyed() {
+        super.destroyed()
+        if (GameConstants.FAST_MODE) {
+            Gdx.app.exit()
+            println("winner is team ${player.enemy.team} with tribe ${player.enemy.tribe.name}")
+        } else {
+            // TODO
         }
     }
 

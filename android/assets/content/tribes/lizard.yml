@@ -74,7 +74,7 @@ army:
       animation: 'human:l1.lizard.ranged'
       armor: 'none'
       rarity: epic
-      drain: 2.0
+      drain: 1.0
       action:
         type: normal
         owner_animation: WEAPON

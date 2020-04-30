@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars
 
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 
 class MConstants {
@@ -96,6 +97,7 @@ class MConstants {
         const val MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_NO_KILL = 100f // Minimum damage dealt to the skill when it does not kill its target
         const val MINIMUM_SKILL_DAMAGE_BY_ENEMY_ON_IMPACT_KILL = 12f // Minimum damage dealt to the skill when it does kill its target
         const val SKILL_STATS_FILE = "skillanalysis.yml"
+        const val ANALYSE_SKILLS = true &&! GameConstants.FAST_MODE
 
         // units
         const val UNIT_ANALYSIS_FILE_NAME = "unitanalysis.yml"

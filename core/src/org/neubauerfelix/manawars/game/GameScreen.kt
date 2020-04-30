@@ -14,7 +14,8 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
 
     private var deltaStored = 0f
     private var state: ScreenState = ScreenState.WAITING
-    private var timeSpeedModifier = 1f
+    private var timeSpeedModifier = if (GameConstants.FAST_MODE)
+        GameConstants.SPEED_FACTOR_FAST_MODE else GameConstants.SPEED_FACTOR_DEFAULT
 
     private val entities: MutableList<IEntity> = ArrayList()
     private val components: MutableList<IComponent> = ArrayList()
@@ -69,6 +70,7 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
                     val entity = entities.get(i)
                     if (entity.remove) {
                         entities.removeAt(i)
+                        entity.destroyed()
                         last--
                         continue
                     }

@@ -64,7 +64,9 @@ open class MManaWars: GameManaWars() {
         print("loaded")
 
         // can be called to generate new skill analysis file, which can manually be moved to assets folder
-        analyseSkills()
+        if (MConstants.ANALYSE_SKILLS) {
+            analyseSkills()
+        }
 
         MWState.values().forEach { state -> state.load() }
         startScreen(CDScreen(this), true)
