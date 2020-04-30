@@ -12,12 +12,10 @@ import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 import java.lang.RuntimeException
 
-import java.util.HashMap
-
 class BodyDataHandler: IBodyDataHandler, ILoadableContent {
 
-    private val bodyDataHuman = HashMap<String, IBodyDataHuman>()
-    private val bodyDataMount = HashMap<String, IBodyDataMount>()
+    private val bodyDataHuman = LinkedHashMap<String, IBodyDataHuman>()
+    private val bodyDataMount = LinkedHashMap<String, IBodyDataMount>()
     override var loadedContent: Boolean = false
 
     fun putBodyDataHuman(name: String, shieldType: MWShield?, defaultScale: Float): IBodyDataHuman {

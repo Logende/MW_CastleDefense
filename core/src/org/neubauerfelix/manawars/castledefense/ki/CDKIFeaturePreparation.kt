@@ -107,7 +107,7 @@ class CDKIFeaturePreparation {
     }
 
     private fun calculateUnitDistribution(player: ICDPlayer) : Map<IDataUnit, Float> {
-        val unitDistr = HashMap<IDataUnit, Float>()
+        val unitDistr = LinkedHashMap<IDataUnit, Float>()
 
         val a = player.controller.analysis
         var unitsWorth = 0f

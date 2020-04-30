@@ -9,7 +9,7 @@ import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 class TribeHandler : ITribeHandler, ILoadableContent {
 
-    private val tribes = HashMap<String, IDataTribe>()
+    private val tribes = LinkedHashMap<String, IDataTribe>()
     override var loadedContent: Boolean = false
 
     override fun putTribe(tribe: IDataTribe) {

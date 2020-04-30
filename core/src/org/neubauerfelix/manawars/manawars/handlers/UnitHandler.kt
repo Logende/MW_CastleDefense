@@ -5,7 +5,7 @@ import java.util.*
 
 class UnitHandler : IUnitHandler {
 
-    private val units = HashMap<String, IDataUnit>()
+    private val units = LinkedHashMap<String, IDataUnit>()
 
     override fun putUnit(unit: IDataUnit) {
         units[unit.name] = unit

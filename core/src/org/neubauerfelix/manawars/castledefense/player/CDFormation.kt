@@ -37,7 +37,7 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
 
 
     private val entities: MutableList<IControlled> = arrayListOf()
-    private val relativeX: MutableMap<IControlled, Float> = hashMapOf()
+    private val relativeX: MutableMap<IControlled, Float> = linkedMapOf()
 
     // Allied entities should be added, when they touch the formation rectangle
     override fun addEntity(e: IControlled) {

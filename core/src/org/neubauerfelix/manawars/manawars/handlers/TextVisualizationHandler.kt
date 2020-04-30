@@ -20,7 +20,7 @@ import kotlin.math.round
 
 class TextVisualizationHandler : IHandler, IDisposable {
     private val pool: Pool<MEntityTextStackable> = Pools.get(MEntityTextStackable::class.java, 20)
-    private val textStackable: MutableCollection<MEntityTextStackable> = HashSet()
+    private val textStackable: MutableCollection<MEntityTextStackable> = LinkedHashSet()
 
     init {
         // Display entity damage

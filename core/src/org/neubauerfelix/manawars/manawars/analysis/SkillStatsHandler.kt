@@ -50,7 +50,7 @@ class SkillStatsHandler : ISkillStatsHandler {
 
 
     override fun analyseSkills(actionUsers: Collection<IDataActionUser>) {
-        val skillMap = HashMap<IDataSkill, Float>()
+        val skillMap = LinkedHashMap<IDataSkill, Float>()
         actionUsers.forEach {
             this.considerAction(it.action, it.unitType.defaultRange, skillMap)
         }

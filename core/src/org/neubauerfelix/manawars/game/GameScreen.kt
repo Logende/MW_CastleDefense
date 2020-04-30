@@ -55,17 +55,16 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
         }
 
         deltaStored += delta * GameConstants.GAME_TICK_FACTOR
-        var fixDelta = 0f
         if (GameConstants.SLOW_INSTEAD_STUTTER) {
             if (deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION) {
                 deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
-                fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
+                val fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
                 simulate(fixDelta)
             }
         } else {
             while (deltaStored >= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION) {
                 deltaStored -= GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION
-                fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
+                val fixDelta = GameConstants.GAME_RENDER_FIX_TIME_STEPS_DURATION * timeSpeedModifier
                 simulate(fixDelta)
             }
         }

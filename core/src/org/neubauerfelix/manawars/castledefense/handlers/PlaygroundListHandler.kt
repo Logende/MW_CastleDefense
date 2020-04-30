@@ -9,7 +9,7 @@ import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 class PlaygroundListHandler: IPlaygroundListHandler, ILoadableContent {
 
-    override val playgrounds: MutableMap<String, IDataPlayground> = HashMap()
+    override val playgrounds: MutableMap<String, IDataPlayground> = LinkedHashMap()
     override var loadedContent: Boolean = false
 
 

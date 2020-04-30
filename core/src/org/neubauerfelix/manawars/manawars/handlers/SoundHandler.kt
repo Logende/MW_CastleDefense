@@ -15,7 +15,7 @@ import kotlin.math.min
 
 class SoundHandler : ISoundHandler, IDisposable, ILoadableContent {
 
-    val sounds = HashMap<String, Sound>()
+    val sounds = LinkedHashMap<String, Sound>()
     private var soundVolume: Float = 0.3f // TODO: sound volume option?
     override var loadedContent: Boolean = false
 

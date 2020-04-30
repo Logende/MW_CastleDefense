@@ -5,11 +5,9 @@ import org.neubauerfelix.manawars.manawars.enums.MWShield
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
-import java.util.HashMap
-
 class ShieldHandler: IShieldHandler, ILoadableContent {
 
-    private val shields = HashMap<String, MWShield>()
+    private val shields = LinkedHashMap<String, MWShield>()
     private lateinit var normalSmall: MWShield
     private lateinit var enchantedSmall: MWShield
     private lateinit var normalBig: MWShield

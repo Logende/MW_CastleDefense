@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 class BuildingListHandler: IBuildingListHandler, ILoadableContent {
 
-    override val buildings: MutableMap<String, IDataBuilding> = HashMap()
+    override val buildings: MutableMap<String, IDataBuilding> = LinkedHashMap()
     override var loadedContent: Boolean = false
     override lateinit var buildingPlaceholder: DataBuildingPlaceholder
 
