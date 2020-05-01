@@ -2,10 +2,12 @@ package org.neubauerfelix.manawars.manawars.components
 
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.game.IComponent
+import org.neubauerfelix.manawars.game.entities.ILogicable
 
 import java.util.ArrayList
 
-open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), IComponentContainer {
+open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), IComponentContainer,
+        ILogicable{
 
     private val components = ArrayList<IComponent>()
 
@@ -80,4 +82,16 @@ open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), I
         components.clear()
     }
 
+    override fun doLogic(delta: Float) {
+        synchronized(components) {
+            for (i in components.indices.reversed()) {
+                val c = components[i]
+                if (!c.isHidden()) {
+                    if (c is ILogicable) {
+                        c.doLogic(delta)
+                    }
+                }
+            }
+        }
+    }
 }

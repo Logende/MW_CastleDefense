@@ -25,8 +25,8 @@ class CDManaWars : MManaWars() {
     override fun loadedGame() {
         super.loadedGame()
 
-        // startScreen(CDScreen(this), true)
-        startScreen(CDMainMenu(this), true)
+        //startScreen(CDScreen(this), true)
+         startScreen(CDMainMenu(this), true)
     }
 
     fun getTribeHandler(): ITribeHandler {

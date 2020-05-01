@@ -7,8 +7,10 @@ import com.badlogic.gdx.math.Vector3
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.game.entities.IMovable
+import org.neubauerfelix.manawars.manawars.entities.MEntityTextStackable
 
-open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean): IScreen, InputProcessor {
+open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStatic: Boolean,
+                               private val drawComponentsStatic: Boolean): IScreen, InputProcessor {
 
     private val game: AManaWars = game
 
@@ -20,11 +22,10 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
     private val entities: MutableList<IEntity> = ArrayList()
     private val components: MutableList<IComponent> = ArrayList()
     private val backgrounds: MutableList<IDrawable> = ArrayList()
-    private val drawBackgroundsStatic: Boolean = drawBackgroundsStatic
 
     private var notifyAssetsLoaded: Boolean = true
 
-    private val camera: Camera
+    private val camera: Camera // used only for the purpose of projecting input from any device to MW coordinates
     private var touch = Vector3()
 
 
@@ -107,7 +108,7 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
 
     fun draw() {
         game.getCamera().render(backgrounds, drawBackgroundsStatic, getIngameWindowX(), entities,
-                components)
+                components, drawComponentsStatic)
     }
 
 
@@ -255,9 +256,15 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
     }
 
     override fun touchDown(screenX: Int, screenY: Int, pointerId: Int, button: Int): Boolean {
-        camera!!.unproject(touch.set(screenX.toFloat(), screenY.toFloat(), 0f))
-        val x = touch.x
-        val y = touch.y
+        camera.unproject(touch.set(screenX.toFloat(), screenY.toFloat(), 0f))
+
+        val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
+        val x = projected.x
+        val y = projected.y
+        val entity = MEntityTextStackable()
+        entity.init(null, x, y, 1f, "x", "point", 200){}
+        entity.spawn()
+
         synchronized(components) {
             for (i in components.indices.reversed()) {
                 val c = components[i]
@@ -273,8 +280,11 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
 
     override fun touchUp(screenX: Int, screenY: Int, pointerId: Int, button: Int): Boolean {
         camera!!.unproject(touch.set(screenX.toFloat(), screenY.toFloat(), 0f))
-        val x = touch.x
-        val y = touch.y
+
+        val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
+        val x = projected.x
+        val y = projected.y
+
         synchronized(components) {
             for (i in components.indices.reversed()) {
                 val c = components[i]
@@ -289,14 +299,23 @@ open abstract class GameScreen(game: AManaWars, drawBackgroundsStatic: Boolean):
     }
 
     override fun touchDragged(screenX: Int, screenY: Int, pointerId: Int): Boolean {
+        var previousX = touch.x
+        var previousY = touch.y
         camera!!.unproject(touch.set(screenX.toFloat(), screenY.toFloat(), 0f))
-        val x = touch.x
-        val y = touch.y
+
+        // todo: find a solution that does not require generating new projection location instances every time
+        val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
+        val x = projected.x
+        val y = projected.y
+        val projectedPrevious = game.getCamera().projectPointOnWindow(previousX, previousY)
+        previousX = projectedPrevious.x
+        previousY = projectedPrevious.y
+
         synchronized(components) {
             for (i in components.indices.reversed()) {
                 val c = components[i]
                 if (!c.isHidden()) {
-                    if (c.drag(x, y, pointerId)) {
+                    if (c.drag(x, y, previousX, previousY)) {
                         return true
                     }
                 }

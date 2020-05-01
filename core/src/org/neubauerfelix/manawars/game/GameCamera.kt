@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.utils.viewport.ExtendViewport
 import com.badlogic.gdx.utils.viewport.Viewport
+import org.neubauerfelix.manawars.game.entities.GameLocation
 import org.neubauerfelix.manawars.game.entities.GameRectangle
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
@@ -65,8 +66,9 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
     }
 
 
-    override fun render(toDraw1Backgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float, toDraw2Ingame: Iterable<IEntity>,
-                        toDraw3Components: Iterable<IDrawableComponent>) {
+    override fun render(drawableBackgrounds: Iterable<IDrawable>, drawBackgroundsStatic: Boolean, ingameWindowX: Float,
+                        drawableIngame: Iterable<IEntity>, drawableComponents: Iterable<IDrawableComponent>,
+                        drawComponentsStatic: Boolean) {
         setWindowLocation(ingameWindowX)
 
         //Make everything ready
@@ -78,16 +80,16 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
         batcher.disableBlending() //fast drawing without transparency
         if (drawBackgroundsStatic) {
             batcher.projectionMatrix = cameraStatic.combined
-            synchronized(toDraw1Backgrounds) {
-                for (background in toDraw1Backgrounds) {
+            synchronized(drawableBackgrounds) {
+                for (background in drawableBackgrounds) {
                     background.draw(batcher)
                 }
             }
             batcher.projectionMatrix = cameraIngame.combined
         } else {
             batcher.projectionMatrix = cameraIngame.combined
-            synchronized(toDraw1Backgrounds) {
-                for (background in toDraw1Backgrounds) {
+            synchronized(drawableBackgrounds) {
+                for (background in drawableBackgrounds) {
                     background.draw(batcher)
                 }
             }
@@ -95,8 +97,8 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
 
         //Enable Blending again
         batcher.enableBlending() //drawing with transparency
-        synchronized(toDraw2Ingame) {
-            for (drawableIngame in toDraw2Ingame) {
+        synchronized(drawableIngame) {
+            for (drawableIngame in drawableIngame) {
                 if (drawableIngame is IDrawable) {
                     drawableIngame.draw(batcher)
                 }
@@ -104,9 +106,11 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
             }
         }
 
-        batcher.projectionMatrix = cameraStatic.combined
-        synchronized(toDraw3Components) {
-            for (drawableComponent in toDraw3Components) {
+        if (drawComponentsStatic) {
+            batcher.projectionMatrix = cameraStatic.combined
+        }
+        synchronized(drawableComponents) {
+            for (drawableComponent in drawableComponents) {
                 drawableComponent.draw(batcher, 0f, 0f)
             }
         }
@@ -118,8 +122,8 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
         shapeRenderer.begin()
         shapeRenderer.set(ShapeRenderer.ShapeType.Filled)
         Gdx.graphics.gL20.glEnable(GL20.GL_BLEND)
-        synchronized(toDraw3Components) {
-            for (drawableComponent in toDraw3Components) {
+        synchronized(drawableComponents) {
+            for (drawableComponent in drawableComponents) {
                 if (drawableComponent is IShapeDrawable) {
                     drawableComponent.draw(shapeRenderer)
                 }
@@ -133,8 +137,8 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
             shapeRenderer.begin()
             shapeRenderer.set(ShapeRenderer.ShapeType.Line)
             shapeRenderer.color = Color.RED
-            synchronized(toDraw2Ingame) {
-                for (drawableIngame in toDraw2Ingame) {
+            synchronized(drawableIngame) {
+                for (drawableIngame in drawableIngame) {
                     shapeRenderer.polygon(drawableIngame.polygon.transformedVertices)
                     shapeRenderer.line(drawableIngame.centerHorizontal, drawableIngame.top,
                             drawableIngame.centerHorizontal, drawableIngame.bottom)
@@ -175,6 +179,12 @@ class GameCamera(assetLoader: IAssetLoader) : ICamera, IDisposable {
 
     override fun resize(width: Int, height: Int) {
         viewport.update(width, height)
+    }
+
+    override fun projectPointOnWindow(x: Float, y: Float) : GameLocation {
+        val widthRatio = GameConstants.SCREEN_WIDTH / window.width
+        val heightRatio = GameConstants.SCREEN_HEIGHT / window.height
+        return GameLocation(window.x + x / widthRatio, window.y + y / heightRatio)
     }
 
 }

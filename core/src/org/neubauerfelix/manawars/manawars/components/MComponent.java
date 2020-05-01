@@ -76,7 +76,7 @@ public abstract class MComponent extends GameComponent {
 	}
 
 	@Override
-	public boolean drag(float x, float y, int pointerId) {
+	public boolean drag(float x, float y, float previousX, float previousY) {
 		return false;
 	}
 

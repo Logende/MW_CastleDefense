@@ -22,7 +22,7 @@ class MEntityTextStackable() : MEntityText() {
      * @param topic Topic of the text.
      * @param displayTime Time in milliseconds until the text is removed.
      */
-    fun init(target: ISized, x: Float, y: Float, valueReal: Float, text: String, topic: String, displayTime: Int,
+    fun init(target: ISized?, x: Float, y: Float, valueReal: Float, text: String, topic: String, displayTime: Int,
              destroyAction: (MEntityTextStackable) -> Unit) {
         super.init(x, y, text, displayTime)
         this.target = target

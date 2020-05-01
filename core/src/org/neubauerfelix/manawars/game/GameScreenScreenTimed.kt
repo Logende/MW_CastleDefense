@@ -3,7 +3,8 @@ package org.neubauerfelix.manawars.game
 import org.neubauerfelix.manawars.game.entities.IEntity
 
 
-abstract class GameScreenScreenTimed(game: AManaWars, drawBackgroundsStatic: Boolean): GameScreen(game, drawBackgroundsStatic), IScreenTimed {
+abstract class GameScreenScreenTimed(game: AManaWars, drawBackgroundsStatic: Boolean, drawComponentsStatic: Boolean):
+        GameScreen(game, drawBackgroundsStatic, drawComponentsStatic), IScreenTimed {
 
 
     private var timeDurationStored: Long = 0

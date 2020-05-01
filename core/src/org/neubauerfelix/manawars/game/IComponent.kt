@@ -9,5 +9,5 @@ interface IComponent: IDrawableComponent, ISized {
     fun isPressed(): Boolean
     fun touch(x: Float, y: Float, pointerId: Int): Boolean
     fun release(x: Float, y: Float, pointerId: Int): Boolean
-    fun drag(x: Float, y: Float, pointerId: Int): Boolean
+    fun drag(x: Float, y: Float, previousX: Float, previousY: Float): Boolean
 }

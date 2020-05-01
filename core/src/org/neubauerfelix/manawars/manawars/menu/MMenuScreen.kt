@@ -11,7 +11,8 @@ import org.neubauerfelix.manawars.manawars.components.MTextLabel
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler.MWFont
 
 
-abstract class MMenuScreen(game: AManaWars) : GameScreenScreenTimed(game, true) {
+abstract class MMenuScreen(game: AManaWars) : GameScreenScreenTimed(game, true,
+        false) {
 
 
     val background = MBackground("backgrounds/" + MConstants.MENU_BACKGROUND_IMAGE, 0f, false,

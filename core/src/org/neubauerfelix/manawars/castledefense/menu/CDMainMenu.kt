@@ -4,8 +4,9 @@ import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.menu.MMenuScreen
+import org.neubauerfelix.manawars.manawars.menu.MMenuScreenScrollable
 
-class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
+class CDMainMenu(game: AManaWars) : MMenuScreenScrollable(game) {
 
     override fun loadMenu() {
     }
