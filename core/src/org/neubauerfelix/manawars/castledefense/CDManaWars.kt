@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.handlers.*
+import org.neubauerfelix.manawars.castledefense.menu.CDMainMenu
 import org.neubauerfelix.manawars.manawars.MManaWars
 
 class CDManaWars : MManaWars() {
@@ -19,6 +20,13 @@ class CDManaWars : MManaWars() {
         loadHandler(BuildingListHandler(), IBuildingListHandler::class.java)
         loadHandler(PlaygroundListHandler(), IPlaygroundListHandler::class.java)
         loadHandler(TribeHandler(), ITribeHandler::class.java)
+    }
+
+    override fun loadedGame() {
+        super.loadedGame()
+
+        // startScreen(CDScreen(this), true)
+        startScreen(CDMainMenu(this), true)
     }
 
     fun getTribeHandler(): ITribeHandler {

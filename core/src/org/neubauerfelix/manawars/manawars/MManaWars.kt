@@ -69,7 +69,6 @@ open class MManaWars: GameManaWars() {
         }
 
         MWState.values().forEach { state -> state.load() }
-        startScreen(CDScreen(this), true)
     }
 
     private fun analyseSkills() {

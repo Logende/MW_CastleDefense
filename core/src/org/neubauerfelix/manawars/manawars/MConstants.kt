@@ -17,6 +17,12 @@ class MConstants {
             return Math.abs(font.getFont(scale).capHeight) + 6f
         }
 
+        const val MENU_BACKGROUND_IMAGE = "menu.background.png"
+        const val MENU_ACTION_BUTTON_Y = 890f
+        const val MENU_TITLE_Y = 30f
+        const val MENU_CONTENT_WITH_HEADER_Y = 240f
+        const val MENU_CONTENT_WITHOUT_HEADER_Y = 140f
+
         //physics
         const val GRAVITY_ACCELERATION = 3500f
         const val JUMP_SPEED_DEFAULT = 1200f
