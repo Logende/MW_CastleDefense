@@ -16,7 +16,7 @@ import kotlin.collections.ArrayList
 class DataTribeLoaded(config: Configuration) : DataTribe() {
 
     override val name: String = config.getString("name")
-    override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("unit_${name}_name")
+    override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("tribe_${name}_name")
 
     init {
         println("Loading tribe $name.")

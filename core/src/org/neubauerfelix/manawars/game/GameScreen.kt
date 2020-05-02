@@ -258,12 +258,19 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
     override fun touchDown(screenX: Int, screenY: Int, pointerId: Int, button: Int): Boolean {
         camera.unproject(touch.set(screenX.toFloat(), screenY.toFloat(), 0f))
 
-        val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
-        val x = projected.x
-        val y = projected.y
-        val entity = MEntityTextStackable()
-        entity.init(null, x, y, 1f, "x", "point", 200){}
-        entity.spawn()
+        val x: Float
+        val y: Float
+        if (drawComponentsStatic) {
+            x = touch.x
+            y = touch.y
+        } else {
+            val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
+            x = projected.x
+            y = projected.y
+            val entity = MEntityTextStackable()
+            entity.init(null, x, y, 1f, "x", "point", 200) {}
+            entity.spawn()
+        }
 
         synchronized(components) {
             for (i in components.indices.reversed()) {
@@ -281,9 +288,16 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
     override fun touchUp(screenX: Int, screenY: Int, pointerId: Int, button: Int): Boolean {
         camera!!.unproject(touch.set(screenX.toFloat(), screenY.toFloat(), 0f))
 
-        val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
-        val x = projected.x
-        val y = projected.y
+        val x: Float
+        val y: Float
+        if (drawComponentsStatic) {
+            x = touch.x
+            y = touch.y
+        } else {
+            val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
+            x = projected.x
+            y = projected.y
+        }
 
         synchronized(components) {
             for (i in components.indices.reversed()) {
@@ -303,13 +317,19 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
         var previousY = touch.y
         camera!!.unproject(touch.set(screenX.toFloat(), screenY.toFloat(), 0f))
 
-        // todo: find a solution that does not require generating new projection location instances every time
-        val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
-        val x = projected.x
-        val y = projected.y
-        val projectedPrevious = game.getCamera().projectPointOnWindow(previousX, previousY)
-        previousX = projectedPrevious.x
-        previousY = projectedPrevious.y
+        val x: Float
+        val y: Float
+        if (drawComponentsStatic) {
+            x = touch.x
+            y = touch.y
+        } else {
+            val projected = game.getCamera().projectPointOnWindow(touch.x, touch.y)
+            x = projected.x
+            y = projected.y
+            val projectedPrevious = game.getCamera().projectPointOnWindow(previousX, previousY)
+            previousX = projectedPrevious.x
+            previousY = projectedPrevious.y
+        }
 
         synchronized(components) {
             for (i in components.indices.reversed()) {
@@ -349,5 +369,9 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
             throw RuntimeException("Unable to remove component: Not contained in screen.")
         }
         components.remove(component)
+    }
+
+    override fun getComponents() : Iterable<IComponent> {
+        return components
     }
 }

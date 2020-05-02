@@ -7,7 +7,8 @@ import org.neubauerfelix.manawars.game.*
 
 class MBackground(val fileName: String, val x: Float, val flipped: Boolean, val assetLoader: IAssetLoader) : IBackground {
 
-    private var textureRegion: TextureRegion? = null
+    var textureRegion: TextureRegion? = null
+        private set
 
     val nextX: Float
         get() = this.x + GameConstants.BACKGROUND_WIDTH

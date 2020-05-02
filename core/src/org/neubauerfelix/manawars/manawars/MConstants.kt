@@ -27,8 +27,6 @@ class MConstants {
         const val GRAVITY_ACCELERATION = 3500f
         const val JUMP_SPEED_DEFAULT = 1200f
         const val KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED = 100f //If abs(speedX) >= this const value: Direction of skill is knockback direction. Else direction is side of entity the skill is further away.
-        const val OUT_OF_WORLDBORDER_KNOCKBACK_POWER_X = 1500
-        const val OUT_OF_WORLDBORDER_KNOCKBACK_POWER_Y = 400
 
         //teams
         /**

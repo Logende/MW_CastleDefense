@@ -3,3 +3,13 @@ main_upgradecurrency: Crystals
 main_kills: Kills
 main_stage: Stage
 main_score: Score
+tribe_frost_name: Icerangers
+tribe_zombie_name: Zombies
+tribe_bear_name: Bears
+tribe_brute_name: Brutes
+tribe_human_name: Humans
+tribe_lizard_name: Lizards
+tribe_skeleton_name: Skeletons
+tribe_snowman_name: Frosty Creatures
+tribe_goblin_name: Goblins
+button_back: Back

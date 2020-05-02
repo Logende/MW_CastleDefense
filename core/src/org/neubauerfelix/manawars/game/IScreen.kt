@@ -18,6 +18,8 @@ interface IScreen: IDisposable, ILoadable, Screen {
 
     fun addComponent(component: IComponent)
     fun removeComponent(component: IComponent)
+    fun getComponents() : Iterable<IComponent>
+
     fun addBackground(background: IDrawable, backgroundLimit: Int = 3)
     fun removeBackground(background: IDrawable)
 

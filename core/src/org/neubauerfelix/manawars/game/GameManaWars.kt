@@ -154,6 +154,7 @@ abstract class GameManaWars: AManaWars(){
             val next = screens.peek()
             Gdx.input.inputProcessor = next.getInputProcessor()
             super.setScreen(next)
+            next.resume()
             current.dispose()
         }
     }

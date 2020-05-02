@@ -16,9 +16,9 @@ class CDComponentButtonImage(x: Float, y: Float, width: Float, height: Float, te
 
 
     override fun draw(batcher: Batch, offsetX: Float, offsetY: Float) {
-        batcher.draw(background, x, y, width, height)
-        MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x, y, width, height, color)
-        batcher.draw(main, x, y, width, height)
+        batcher.draw(background, x + offsetX, y + offsetY, width, height)
+        MManaWars.m.getCharacterBarHandler().drawFrame(batcher, x + offsetX, y + offsetY, width, height, color)
+        batcher.draw(main, x + offsetX, y + offsetY, width, height)
     }
 
     override fun clickAction() {

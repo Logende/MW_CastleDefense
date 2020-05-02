@@ -13,7 +13,7 @@ public class MTextButtonSimple extends MTextButton {
 		this.runnable = runnable;
 	}
 
-	public MTextButtonSimple(int x, int y, String text, Runnable runnable) {
+	public MTextButtonSimple(float x, float y, String text, Runnable runnable) {
 		super(x, y, text);
 		this.runnable = runnable;
 	}

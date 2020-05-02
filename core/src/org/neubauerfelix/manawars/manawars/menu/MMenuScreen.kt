@@ -3,7 +3,6 @@ package org.neubauerfelix.manawars.manawars.menu
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameScreenScreenTimed
-import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.components.MTextButtonSimple
@@ -11,8 +10,8 @@ import org.neubauerfelix.manawars.manawars.components.MTextLabel
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler.MWFont
 
 
-abstract class MMenuScreen(game: AManaWars) : GameScreenScreenTimed(game, true,
-        false) {
+abstract class MMenuScreen(game: AManaWars, drawComponentsStatic: Boolean = false) :
+        GameScreenScreenTimed(game, true, drawComponentsStatic) {
 
 
     val background = MBackground("backgrounds/" + MConstants.MENU_BACKGROUND_IMAGE, 0f, false,
@@ -39,8 +38,6 @@ abstract class MMenuScreen(game: AManaWars) : GameScreenScreenTimed(game, true,
         return 0f
     }
 
-    override fun logic(delta: Float, entities: List<IEntity>) {
-    }
 
 
     fun closeScreen() {
