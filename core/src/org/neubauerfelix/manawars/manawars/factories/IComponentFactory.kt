@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 interface IComponentFactory : IHandler{
 
 
-    fun createTable(keys: Array<String>, values: Array<String>, x: Float, y: Float,
+    fun createTable(keys: List<String>, values: List<String>, x: Float, y: Float,
                     width: Float, height: Float, maximumKeyColumnPercentage: Float = 0.7f,
                     distanceColumns: Float = MConstants.UI_DISTANCE_COLUMNS,
                     distanceRows: Float = MConstants.UI_DISTANCE_ROWS): IComponent

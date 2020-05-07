@@ -28,7 +28,7 @@ class TextVisualizationHandler : IHandler, IDisposable {
             override fun handleEvent(event: IEvent) {
                 val e = event as EntityDamageEvent
                 if (!e.cancelled) {
-                    //this@TextVisualizationHandler.displayHit(e.entity, e.damager, e.damage)
+                    this@TextVisualizationHandler.displayHit(e.entity, e.damager, e.damage)
                 }
             }
         })

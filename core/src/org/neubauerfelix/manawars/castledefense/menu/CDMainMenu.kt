@@ -37,4 +37,5 @@ class CDMainMenu(game: AManaWars) : MMenuScreenScrollable(game) {
 
     override fun disposeMenu() {
     }
+
 }

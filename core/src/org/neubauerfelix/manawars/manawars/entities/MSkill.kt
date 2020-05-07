@@ -34,12 +34,14 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
     var idleTimeLeft: Float = data.idleTime
     var lifeTimeLeft: Float = data.lifeTime
 
+    var invisible = false
+
     private val target: IEntity? = MManaWars.m.getSkillSetupHandler().findTarget( data, o)
 
     var inactive: Boolean = false
 
     val active: Boolean
-        get() = !this.idle && !this.inactive
+        get() = !this.idle && !this.inactive && !this.remove
 
     init {
         // Set up basic values
@@ -60,7 +62,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
 
 
     override fun draw(batcher: Batch) {
-        if (! (idle &&data.invisibleWhileIdle)) {
+        if (! (idle &&data.invisibleWhileIdle || invisible)) {
             super.draw(batcher)
         }
     }
@@ -120,7 +122,7 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         }
 
         if (o is IUpgraded) {
-            damageFactor += o.getSkillMultiplier(data.skillClass)
+            damageFactor *= o.getSkillMultiplier(data.skillClass)
         }
 
         if (e.invincible) {

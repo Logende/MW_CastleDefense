@@ -9,6 +9,7 @@ import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.IDataBackground
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
+import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.enums.MWBackgroundSubtheme
 import org.neubauerfelix.manawars.manawars.menu.MMenuScreen
 
@@ -16,6 +17,7 @@ class CDInfoMenuUnit(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
 
 
     val previewBackground: MBackground
+    lateinit var unitBox: UnitInfoBox
 
     init {
         val allBackgrounds = MManaWars.m.getBackgroundListHandler().backgrounds
@@ -40,14 +42,25 @@ class CDInfoMenuUnit(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
 
         val g = getGame() as CDManaWars
 
-        val box = UnitInfoBox(0f, 0f, backgroundTextureSnippet, unit)
-        addComponent(box)
+        unitBox = UnitInfoBox(0f, 0f, backgroundTextureSnippet, unit)
+        addComponent(unitBox)
 
         addExitButton(g.getLanguageHandler().getMessage("button_back"), 0f, true)
 
 
     }
 
+    override fun render(delta: Float) {
+        super.render(delta)
+        if (this::unitBox.isInitialized) {
+            // TODO: add background with frame that is cut out at preview area and drawn above skills
+            for (entity in getEntities { it is MSkill }) {
+                val s = entity as MSkill
+                s.invisible = !unitBox.background.isInside(s.x, s.y)
+            }
+        }
+        MManaWars.m.getCollisionHandler().updateCollisions(MManaWars.m.screen.getEntities { true })
+    }
 
     override fun disposeMenu() {
     }
