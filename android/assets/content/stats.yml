@@ -27,25 +27,25 @@ units:
 
   tank:
     common:
-      health: 40
+      health: 35
       damage: 5
       cooldown: 2.5
       cost: 30
 
     rare:
-      health: 65
+      health: 50
       damage: 7
       cooldown: 2.5
       cost: 50
 
     epic:
-      health: 80
+      health: 75
       damage: 9
       cooldown: 2.5
       cost: 80
 
     legendary:
-      health: 140
+      health: 120
       damage: 13
       cooldown: 2.5
       cost: 140

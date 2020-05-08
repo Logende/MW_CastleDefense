@@ -16,9 +16,9 @@ class CDMainMenu(game: AManaWars) : MMenuScreenScrollable(game) {
         addTitle("ManaWars")
 
         val m = CDManaWars.cd
-        val border = if (CDConstants.UI_MAIN_MENU_USE_DETAILED_UNIT_ICONS) 40f else 250f
+        val border = if (CDConstants.UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS) 40f else 250f
         var boxY = 200f
-        val boxWidth = if (CDConstants.UI_MAIN_MENU_USE_DETAILED_UNIT_ICONS) 800f else 550f
+        val boxWidth = if (CDConstants.UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS) 800f else 550f
         var leftSide = true
 
         // TODO: Above the tribes in the center should be a "Your Army" tribe box with an "Edit" button

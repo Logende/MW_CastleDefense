@@ -47,6 +47,7 @@ bodyDataHuman:
 - l2.brute.boss
 - dummy.shield:big.diamond
 - builder
+- dummy
 bodyDataMount:
 - wolf
 - wolf.armor

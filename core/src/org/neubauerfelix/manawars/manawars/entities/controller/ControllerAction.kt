@@ -9,8 +9,6 @@ class ControllerAction: IController {
 
     override lateinit var controlled: IControlled
 
-    var dir = 1
-
     override fun doLogic(delta: Float) {
         controlled.executeAction()
         if (controlled.canPerformAction()) {

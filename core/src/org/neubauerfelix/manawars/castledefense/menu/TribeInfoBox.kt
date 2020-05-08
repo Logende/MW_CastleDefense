@@ -22,7 +22,7 @@ class TribeInfoBox(x: Float, y: Float, width: Float, val tribe: IDataTribe) : MC
         }
 
         val unitsInfoBox = UnitsInfoBox(0f, title.bottom, width, tribe.army.units,
-                CDConstants.UI_MAIN_MENU_USE_DETAILED_UNIT_ICONS, unitRunnable)
+                CDConstants.UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS, unitRunnable)
         addComponent(unitsInfoBox)
 
         val buttonY = unitsInfoBox.bottom + MConstants.UI_DISTANCE_ROWS

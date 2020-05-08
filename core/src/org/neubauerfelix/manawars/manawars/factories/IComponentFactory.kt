@@ -9,8 +9,7 @@ interface IComponentFactory : IHandler{
 
 
     fun createTable(keys: List<String>, values: List<String>, x: Float, y: Float,
-                    width: Float, height: Float, maximumKeyColumnPercentage: Float = 0.7f,
-                    distanceColumns: Float = MConstants.UI_DISTANCE_COLUMNS,
+                    width: Float, maximumKeyColumnPercentage: Float = 0.7f, distanceColumns: Float = MConstants.UI_DISTANCE_COLUMNS,
                     distanceRows: Float = MConstants.UI_DISTANCE_ROWS): IComponent
 
     fun createComponentText(text: String, font: FontHandler.MWFont, maximumWidth: Float = Float.MAX_VALUE, distanceLines: Float = MConstants.UI_LINE_DISTANCE,

@@ -21,9 +21,11 @@ class CDConstants {
         const val KI_BALANCING_MAX_HELP_FACTOR = 1.3
         const val KI_BALANCING_MIN_HELP_FACTOR = 1 / KI_BALANCING_MAX_HELP_FACTOR
 
-        const val UI_MAIN_MENU_USE_DETAILED_UNIT_ICONS = false
-        const val UI_UNIT_PREVIEW_BOX_WIDTH = 800
-        const val UI_UNIT_PREVIEW_BOX_HEIGHT = 400
+        const val UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS = false
+        const val UI_MENU_UNITINFO_BACKGROUND = "backgrounds/menu_unitinfo.png"
+        const val UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_WIDTH = 800
+        const val UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_HEIGHT = 470
+        const val UI_MENU_UNITINFO_ICON_SIZE = 200f
         
     }
 }

@@ -16,8 +16,7 @@ class MComponentFactory(imageHandler: IImageHandler) : IComponentFactory{
 
 
     override fun createTable(keys: List<String>, values: List<String>, x: Float, y: Float,
-                    width: Float, height: Float, maximumKeyColumnPercentage: Float, distanceColumns: Float,
-                             distanceRows: Float): IComponent{
+                             width: Float, maximumKeyColumnPercentage: Float, distanceColumns: Float, distanceRows: Float): IComponent{
         assert(keys.size == values.size)
 
         val columns: Array<Array<IComponent?>> = Array(2){

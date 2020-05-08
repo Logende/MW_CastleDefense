@@ -11,7 +11,7 @@ class GameConstants {
         const val SPEED_FACTOR_DEFAULT = 1f
         const val SPEED_FACTOR_FAST_MODE = 1f // does not change tick amount but delta per tick
         const val GAME_TICK_FACTOR = 1f // does change simulation executions per tick (with fix delta)
-        const val SLOW_INSTEAD_STUTTER = false
+        const val SLOW_INSTEAD_STUTTER = true
         const val GAME_RENDER_FIX_TIME_STEPS_DURATION = 1f/60f
 
         const val SCREEN_WIDTH = 1920f
