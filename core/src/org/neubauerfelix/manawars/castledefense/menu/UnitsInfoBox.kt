@@ -6,7 +6,7 @@ import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
 class UnitsInfoBox(x: Float, y: Float, width: Float, val units: Iterable<IDataUnit>, buttonView: Boolean,
-                   unitRunnable: (IDataUnit) -> Unit) : MComponentContainer(x, y) {
+                   unitRunnable: (IDataUnit) -> Unit, unitScale: Float) : MComponentContainer(x, y) {
 
 
     init {
@@ -23,13 +23,13 @@ class UnitsInfoBox(x: Float, y: Float, width: Float, val units: Iterable<IDataUn
             }
 
         } else {
-            val unitRowHeight = units.map { it.animation.bodyHeight }.max()!!.toFloat()
-            val unitWidthSum = units.map { it.animation.bodyWidth }.sum().toFloat()
+            val unitRowHeight = units.map { it.animation.bodyHeight * unitScale }.max()!!.toFloat()
+            val unitWidthSum = units.map { it.animation.bodyWidth * unitScale }.sum()
             val unitDiff = (width - unitWidthSum) / (units.count() - 1)
             var unitX = 0f
             for (unit in units) {
-                val unitWidth = unit.animation.bodyWidth.toFloat()
-                val unitHeight = unit.animation.bodyHeight.toFloat()
+                val unitWidth = unit.animation.bodyWidth.toFloat() * unitScale
+                val unitHeight = unit.animation.bodyHeight.toFloat() * unitScale
                 val yOffset = unitRowHeight - unitHeight
                 val animation = unit.animation.produce(unitX, yOffset, unitWidth, unitHeight)
                 val component = CDComponentEntity(animation, Runnable { unitRunnable.invoke(unit) })

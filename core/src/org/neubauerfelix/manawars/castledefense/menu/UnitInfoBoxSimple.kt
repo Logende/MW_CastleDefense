@@ -26,45 +26,48 @@ class UnitInfoBoxSimple(x: Float, y: Float, width: Float, val unit: IDataUnit) :
     }
 
 
+    // TODO: Translate Keys, add number formatting (cut nachkommastelle wenn nicht vorhanden), etc.
 
     fun generateInfoTable(x: Float, y: Float, width: Float): IComponent {
+        val lang = MManaWars.m.getLanguageHandler()
         val keys = mutableListOf(
-                "Health:"
+                "${lang.getMessage("stats_health")}:"
         )
         val values = mutableListOf(
-                unit.health.toString()
+                unit.health.toInt().toString()
         )
 
         // TODO text formatting and translation
 
         val action = unit.action
         if (action is IDataSkill) {
-            keys.add("Damage:")
-            values.add(action.damage.toString())
+            keys.add("${lang.getMessage("stats_damage")}:")
+            values.add(action.damage.toInt().toString())
 
             val stateEffect = action.stateEffect
             if (stateEffect != null) {
-                keys.add("Effect:")
-                values.add(stateEffect.name)
+                keys.add("${lang.getMessage("stats_stateeffect")}:")
+                val effectDisplayName = lang.getMessage("stateeffect_${stateEffect.name.toLowerCase()}")
+                values.add("${action.stateEffectDuration}s $effectDisplayName")
             }
         } else if (action is DataSkillMixLoaded) {
-            keys.add("Damage:")
+            keys.add("${lang.getMessage("stats_damage")}:")
             val damage = action.parts.map { it.action.damage }.sum()
             values.add(damage.toString())
         }
 
-        keys.add("Cooldown:")
+        keys.add("${lang.getMessage("stats_cooldown")}:")
         values.add(unit.actionCooldown.toString() + "s")
 
         if (unit.armor != MWArmorType.NONE) {
-            keys.add("Armor:")
-            values.add(unit.armor.name)
+            keys.add("${lang.getMessage("stats_armor")}:")
+            values.add(lang.getMessage("armor_" + unit.armor.name.toLowerCase()))
         }
 
-        keys.add("Cost:")
-        values.add(unit.cost.toString())
+        keys.add("${lang.getMessage("stats_cost")}:")
+        values.add(unit.cost.toString() + " " + lang.transform("%currency%"))
 
-        return MManaWars.m.getComponentFactory().createTable(keys, values, x, y, width)
+        return MManaWars.m.getComponentFactory().createTable(keys, values, x, y, width, fontScale = 0.8f)
     }
 
 

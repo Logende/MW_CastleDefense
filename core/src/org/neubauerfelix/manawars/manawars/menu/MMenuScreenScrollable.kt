@@ -16,8 +16,8 @@ import kotlin.math.max
 
 abstract class MMenuScreenScrollable(game: AManaWars) : MMenuScreen(game) {
 
-    private val scrollComponent = MScrollComponent(0f, 0f, GameConstants.SCREEN_WIDTH,
-            GameConstants.SCREEN_HEIGHT)
+    protected val scrollComponent = MScrollComponent(0f, 0f, GameConstants.SCREEN_WIDTH,
+            GameConstants.SCREEN_HEIGHT) { this.movedCameraVertical(it) }
 
     var currentWindowY = 0f
 
@@ -51,5 +51,7 @@ abstract class MMenuScreenScrollable(game: AManaWars) : MMenuScreen(game) {
         val window = MManaWars.m.getCamera().window
         window.y = currentWindowY
     }
+
+    abstract fun movedCameraVertical(yDiff: Float)
 
 }

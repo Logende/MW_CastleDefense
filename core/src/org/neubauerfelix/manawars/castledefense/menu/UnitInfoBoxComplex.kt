@@ -47,6 +47,7 @@ class UnitInfoBoxComplex(x: Float, y: Float, val previewBackground: TextureRegio
         entity.speedY = 0f
         entity.accelerationY = 0f
 
+
         val dummyUnit = DataUnitDummy()
         dummy = dummyUnit.produce(background.left + 510f,
                 GameConstants.WORLD_HEIGHT_UNITS - dummyUnit.animation.bodyHeight,
@@ -62,6 +63,8 @@ class UnitInfoBoxComplex(x: Float, y: Float, val previewBackground: TextureRegio
         addComponent(infoBoxSimple)
 
     }
+
+
 
 
 

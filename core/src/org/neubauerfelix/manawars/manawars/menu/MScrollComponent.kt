@@ -7,7 +7,8 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import kotlin.math.max
 import kotlin.math.min
 
-class MScrollComponent(x: Float, y: Float, width: Float, height: Float) : GameRectangle(x, y, width, height),
+class MScrollComponent(x: Float, y: Float, width: Float, height: Float,
+                       val scrollAction: (Float) -> Unit) : GameRectangle(x, y, width, height),
         IComponent {
 
     override fun unclick() {
@@ -32,8 +33,10 @@ class MScrollComponent(x: Float, y: Float, width: Float, height: Float) : GameRe
     override fun drag(x: Float, y: Float, previousX: Float, previousY: Float): Boolean {
         val yDiff = y - previousY
         val window = MManaWars.m.getCamera().window
+        val previousY = window.y
         window.y = max(0f, window.y - yDiff)
         window.bottom = min(this.height, window.bottom)
+        scrollAction.invoke(window.y - previousY)
         return true
     }
 

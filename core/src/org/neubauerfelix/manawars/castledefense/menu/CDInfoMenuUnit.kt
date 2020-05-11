@@ -43,9 +43,10 @@ class CDInfoMenuUnit(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
         val g = getGame() as CDManaWars
 
         val menuBackground = MImage(0f, 0f, GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT,
-                MManaWars.m.getAssetLoader().createTextureRegion(CDConstants.UI_MENU_UNITINFO_BACKGROUND))
+                g.getAssetLoader().createTextureRegion(CDConstants.UI_MENU_UNITINFO_BACKGROUND))
         addComponent(menuBackground)
 
+        addTitle(unit.displayName)
         unitBox = UnitInfoBoxComplex(0f, 0f, backgroundTextureSnippet, unit)
         addComponent(unitBox)
 

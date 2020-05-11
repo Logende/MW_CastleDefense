@@ -9,6 +9,7 @@ import org.neubauerfelix.manawars.manawars.components.MComponentTable
 import org.neubauerfelix.manawars.manawars.components.MImage
 import org.neubauerfelix.manawars.manawars.components.MTextLabel
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler.MWFont
+import kotlin.math.max
 
 class MComponentFactory(imageHandler: IImageHandler) : IComponentFactory{
 
@@ -16,7 +17,8 @@ class MComponentFactory(imageHandler: IImageHandler) : IComponentFactory{
 
 
     override fun createTable(keys: List<String>, values: List<String>, x: Float, y: Float,
-                             width: Float, maximumKeyColumnPercentage: Float, distanceColumns: Float, distanceRows: Float): IComponent{
+                             width: Float, maximumKeyColumnPercentage: Float, distanceColumns: Float,
+                             distanceRows: Float, fontScale: Float): IComponent{
         assert(keys.size == values.size)
 
         val columns: Array<Array<IComponent?>> = Array(2){
@@ -27,17 +29,17 @@ class MComponentFactory(imageHandler: IImageHandler) : IComponentFactory{
         var keysWidth = 0f
         for(index in 0 until keys.size){
             val key = keys[index]
-            val component = createComponentText(key, MWFont.HEADING, keysWidthMax)
-            keysWidth = Math.max(keysWidth, component.width)
+            val component = createComponentText(key, MWFont.HEADING, keysWidthMax, fontScale = fontScale)
+            keysWidth = max(keysWidth, component.width)
             columns[0][index] = component
         }
         assert(keysWidth <= keysWidthMax)
 
         var valuesWidth = width - keysWidth
 
-        for(index in 0 until values.size){
+        for(index in values.indices){
             val value = values[index]
-            val component = createComponentText(value, MWFont.TEXT, valuesWidth)
+            val component = createComponentText(value, MWFont.TEXT, valuesWidth, fontScale = fontScale)
             columns[1][index] = component
         }
 

@@ -14,24 +14,18 @@ abstract class MMenuScreen(game: AManaWars, drawComponentsStatic: Boolean = fals
         GameScreenScreenTimed(game, true, drawComponentsStatic) {
 
 
-    val background = MBackground("backgrounds/" + MConstants.MENU_BACKGROUND_IMAGE, 0f, false,
-            game.getAssetLoader())
 
     override fun loadScreen(): Boolean {
-        background.load()
         loadMenu()
         return false
     }
 
     override fun loadedScreen() {
-        background.loadedAssets()
-        addBackground(background, 1)
         loadedMenu()
     }
 
     override fun disposeScreen() {
         disposeMenu()
-        background.dispose()
     }
 
     override fun getIngameWindowX(): Float {

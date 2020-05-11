@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.castledefense
 
-import org.neubauerfelix.manawars.manawars.MConstants
 
 class CDConstants {
 
@@ -22,7 +21,11 @@ class CDConstants {
         const val KI_BALANCING_MIN_HELP_FACTOR = 1 / KI_BALANCING_MAX_HELP_FACTOR
 
         const val UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS = false
+        const val UI_MENU_MAIN_UNIT_SCALE = 1.5f
         const val UI_MENU_UNITINFO_BACKGROUND = "backgrounds/menu_unitinfo.png"
+        const val UI_MENU_MAIN_BACKGROUND_TOP = "backgrounds/menu_main_top.png"
+        const val UI_MENU_MAIN_BACKGROUND_BETWEEN = "backgrounds/menu_main_between.png"
+        const val UI_MENU_MAIN_BACKGROUND_BETWEEN_COUNT = 14
         const val UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_WIDTH = 800
         const val UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_HEIGHT = 470
         const val UI_MENU_UNITINFO_ICON_SIZE = 200f

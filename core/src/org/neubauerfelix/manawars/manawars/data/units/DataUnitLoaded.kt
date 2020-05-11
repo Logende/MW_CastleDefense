@@ -18,7 +18,18 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
     private val baseUnitStats = MManaWars.m.getBaseUnitHandler().getBaseUnitStats(unitType, rarity)
 
 
-    override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("unit_${name}_name")
+    override val displayName: String
+
+    init {
+        val languageHandler = MManaWars.m.getLanguageHandler()
+        displayName = if (languageHandler.hasMessage("unit_${name}_name")) {
+            languageHandler.getMessage("unit_${name}_name")
+        } else {
+            val tribeNameSingular = languageHandler.getMessage("tribe_${army.tribe.name.toLowerCase()}_name_singular")
+            tribeNameSingular + " " + unitType.displayName
+        }
+    }
+
     override val cost: Int = if (config.contains("cost")) {
         (baseUnitStats.cost * config.getFloat("cost")).toInt()
     } else {

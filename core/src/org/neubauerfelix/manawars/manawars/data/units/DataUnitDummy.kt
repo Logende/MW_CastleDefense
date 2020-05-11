@@ -22,8 +22,8 @@ class DataUnitDummy : DataUnit() {
     override val skillMultipliers: MutableMap<MWSkillClass, Float> = EnumMap(MWSkillClass::class.java)
     override val skillDurabilityMultipliers: MutableMap<MWSkillClass, Float> = EnumMap(MWSkillClass::class.java)
     override var drainMultiplier: Float = 0f
-    override var walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX
-    override var walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC
+    override var walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX * 2f
+    override var walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC * 3f
     override val unitType: MWUnitType = MWUnitType.MELEE
 
 

@@ -44,6 +44,9 @@ class LanguageHandler(language: String): ILanguageHandler {
         return ConfigurationProvider.getProvider(YamlConfiguration::class.java).load("languages/languageset_$language.txt", true)
     }
 
+    override fun hasMessage(path: String): Boolean {
+        return storageNative.contains(path) || storageEnglish.contains(path)
+    }
 
     override fun getMessage(path: String): String {
         val message = storageNative.getString(path) ?: return getMessageEnglish(path)

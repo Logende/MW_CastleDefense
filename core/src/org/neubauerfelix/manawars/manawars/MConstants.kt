@@ -10,6 +10,7 @@ class MConstants {
         const val UI_LINE_DISTANCE = 5f
         const val UI_DISTANCE_COLUMNS = 30f
         const val UI_DISTANCE_ROWS = 30f
+        const val UI_DISTANCE_SMALL = 15f
         const val INGAME_CHARACTERBAR_WIDTH = 100f
         const val INGAME_CHARACTERBAR_HEIGHT = 10f
 
@@ -19,7 +20,7 @@ class MConstants {
 
         const val MENU_BACKGROUND_IMAGE = "menu.background.png"
         const val MENU_ACTION_BUTTON_Y = 890f
-        const val MENU_TITLE_Y = 30f
+        const val MENU_TITLE_Y = 70f
         const val MENU_CONTENT_WITH_HEADER_Y = 240f
         const val MENU_CONTENT_WITHOUT_HEADER_Y = 140f
 

@@ -14,7 +14,7 @@ open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), I
     override fun draw(batcher: Batch, offsetX: Float, offsetY: Float) {
         //batcher.draw(GameImageHandler.imageHandler!!.getTextureRegionButton("frame.skill.shield"), offsetX + x, offsetY + y, width, height)
         synchronized(components) {
-            for (i in components.indices.reversed()) {
+            for (i in components.indices) {
                 val c = components[i]
                 if (!c.isHidden()) {
                     c.draw(batcher, offsetX + x, offsetY + y)
