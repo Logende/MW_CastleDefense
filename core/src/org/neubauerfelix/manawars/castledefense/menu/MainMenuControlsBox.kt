@@ -34,7 +34,15 @@ class MainMenuControlsBox(x: Float, y: Float, width: Float, actionUp: Runnable, 
         val buttonUp = MButtonSimple(buttonX, 350f, buttonSize, buttonSize, textureArrow,
                 action = actionUp)
         addComponent(buttonUp)
-        val buttonDown = MButtonSimple(buttonX, buttonUp.bottom + MConstants.UI_DISTANCE_SMALL,
+
+        val buttonEditArmy = MButtonSimple(buttonX, buttonUp.bottom + MConstants.UI_DISTANCE_SMALL,
+                buttonSize, buttonSize,
+                imageHandler.getTextureRegionButton("menu.editarmy"),
+                action = Runnable {  })
+        addComponent(buttonEditArmy)
+        // TODO editArmy Button should show current player castle
+
+        val buttonDown = MButtonSimple(buttonX, buttonEditArmy.bottom + MConstants.UI_DISTANCE_SMALL,
                 buttonSize, buttonSize, textureArrowDown,
                 action = actionDown)
         addComponent(buttonDown)

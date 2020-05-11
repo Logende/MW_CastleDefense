@@ -7,11 +7,11 @@ class GameConstants {
         // TODO: Outsource to configuration java object
         const val DEBUG_BOUNDING_BOXES = false
         const val FAST_MODE = false // disables graphics and audio and speeds game up
-        const val EXIT_APP_ON_CASTLE_DEFEAT = true
+        const val EXIT_APP_ON_CASTLE_DEFEAT = false
         const val SPEED_FACTOR_DEFAULT = 1f
         const val SPEED_FACTOR_FAST_MODE = 1f // does not change tick amount but delta per tick
-        const val GAME_TICK_FACTOR = 1f // does change simulation executions per tick (with fix delta)
-        const val SLOW_INSTEAD_STUTTER = true
+        const val GAME_TICK_FACTOR = 12f // does change simulation executions per tick (with fix delta)
+        const val SLOW_INSTEAD_STUTTER = false
         const val GAME_RENDER_FIX_TIME_STEPS_DURATION = 1f/60f
 
         const val SCREEN_WIDTH = 1920f

@@ -9,7 +9,8 @@ import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 
-class TribeInfoBox(x: Float, y: Float, width: Float, val tribe: IDataTribe, unitsScale: Float) :
+class TribeInfoBox(x: Float, y: Float, width: Float, val tribe: IDataTribe, unitsScale: Float,
+                   fightAction: (IDataTribe) -> Unit) :
         MComponentContainer(x, y) {
 
 
@@ -30,7 +31,7 @@ class TribeInfoBox(x: Float, y: Float, width: Float, val tribe: IDataTribe, unit
 
         val buttonY = unitsInfoBox.bottom + MConstants.UI_DISTANCE_COLUMNS * 3f
         val button = MTextButtonSimple(0f, buttonY, "Fight", Runnable {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            fightAction.invoke(tribe)
         }, 0.8f)
         button.x = width / 2 - button.width / 2
         addComponent(button)

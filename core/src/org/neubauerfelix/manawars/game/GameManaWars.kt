@@ -150,12 +150,12 @@ abstract class GameManaWars: AManaWars(){
                 throw RuntimeException("Can not stop screen: Not at least two screens running.")
             }
             val current = screens.peek()
+            current.dispose()
             screens.pop()
             val next = screens.peek()
             Gdx.input.inputProcessor = next.getInputProcessor()
             super.setScreen(next)
             next.resume()
-            current.dispose()
         }
     }
 

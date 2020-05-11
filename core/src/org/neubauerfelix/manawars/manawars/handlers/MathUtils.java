@@ -67,4 +67,13 @@ public class MathUtils {
 			return (distance_to_move == 0 ? 0 : Double.POSITIVE_INFINITY);
 		}
 	}
+
+
+	public static Float truncate(Float v, Float maxLength) {
+		if (v > 0) {
+			return Math.min(v, maxLength);
+		} else {
+			return Math.max(v, -maxLength);
+		}
+	}
 }

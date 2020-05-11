@@ -5,15 +5,6 @@ import com.badlogic.gdx.graphics.g2d.Animation
 import org.neubauerfelix.manawars.castledefense.components.CDComponentControlPanel
 import org.neubauerfelix.manawars.castledefense.data.buildings.DataMine
 import org.neubauerfelix.manawars.castledefense.ki.BaseFeatures
-import org.neubauerfelix.manawars.castledefense.ki.CDKIFeatureExtractor
-import org.neubauerfelix.manawars.castledefense.ki.CDKIFeaturePreparation
-import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
-import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIModelRandom
-import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalAggressive
-import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
-import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalNaive
-import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
-import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.CDPlayer
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
@@ -23,7 +14,8 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 
 
-class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false, true) {
+class CDScreen(game: AManaWars, val configuration: CDMatchConfiguration) :
+        GameScreenScreenTimed(game, false, true) {
 
 
     lateinit var match: CDMatch
@@ -32,17 +24,18 @@ class CDScreen(game: AManaWars) : GameScreenScreenTimed(game, false, true) {
 
 
     override fun loadScreen(): Boolean {
+        /*
         val tribeHandler = CDManaWars.cd.getTribeHandler()
         val army1 = tribeHandler.getTribe("goblin")!!
         val army2 = tribeHandler.getTribe("human")!!
         val controllerA = CDControllerBot(CDKITraditionalFelix())
         val controllerB = CDControllerBot(CDKITraditionalAggressive())
         //val controllerA = CDControllerHuman()
-        //val controllerB = CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
-        val playerA = CDPlayer(army1, controllerA, MConstants.TEAM_PLAYER)
-        val playerB = CDPlayer(army2, controllerB, MConstants.TEAM_BOT)
-        controllerA.player = playerA
-        controllerB.player = playerB
+        //val controllerB = CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))*/
+        val playerA = CDPlayer(configuration.tribeA, configuration.controllerA, MConstants.TEAM_PLAYER)
+        val playerB = CDPlayer(configuration.tribeB, configuration.controllerB, MConstants.TEAM_BOT)
+        configuration.controllerA.player = playerA
+        configuration.controllerB.player = playerB
         playerA.enemy = playerB
         playerB.enemy = playerA
         match = CDMatch(playerA, playerB, this, playerB.tribe.playground)

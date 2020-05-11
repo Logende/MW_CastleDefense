@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.castledefense
 
+import com.badlogic.gdx.Gdx
 import org.neubauerfelix.manawars.castledefense.components.CDComponentGameInfo
 import org.neubauerfelix.manawars.castledefense.data.IDataPlayground
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
@@ -71,5 +72,14 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
     override fun doLogic(delta: Float) {
         playerA.controller.doLogic(delta)
         playerB.controller.doLogic(delta)
+
+        if (playerA.castle.remove || playerB.castle.remove) {
+
+            if (GameConstants.EXIT_APP_ON_CASTLE_DEFEAT) {
+                Gdx.app.exit()
+            } else {
+                MManaWars.m.screen.remove = true
+            }
+        }
     }
 }

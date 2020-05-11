@@ -23,6 +23,8 @@ interface IScreen: IDisposable, ILoadable, Screen {
     fun addBackground(background: IDrawable, backgroundLimit: Int = 3)
     fun removeBackground(background: IDrawable)
 
+    var remove: Boolean
+
 
 
 

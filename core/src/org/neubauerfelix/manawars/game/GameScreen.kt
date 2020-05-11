@@ -7,12 +7,15 @@ import com.badlogic.gdx.math.Vector3
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.game.entities.IMovable
+import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityTextStackable
 
 open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStatic: Boolean,
                                private val drawComponentsStatic: Boolean): IScreen, InputProcessor {
 
     private val game: AManaWars = game
+
+    override var remove = false
 
     private var deltaStored = 0f
     private var state: ScreenState = ScreenState.WAITING
@@ -53,6 +56,11 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
                 game.loadedAssets()
                 notifyAssetsLoaded = false
             }
+        }
+
+        if (remove) {
+            MManaWars.m.stopScreen()
+            return
         }
 
         deltaStored += delta * GameConstants.GAME_TICK_FACTOR
@@ -366,7 +374,7 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
 
     override fun removeComponent(component: IComponent) {
         if(!components.contains(component)){
-            throw RuntimeException("Unable to remove component: Not contained in screen.")
+            throw RuntimeException("Unable to remove component $component: Not contained in screen $this.")
         }
         components.remove(component)
     }

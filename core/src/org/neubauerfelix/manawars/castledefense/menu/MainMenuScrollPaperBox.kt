@@ -13,7 +13,8 @@ import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 
 class MainMenuScrollPaperBox(x: Float, y: Float, width: Float,
-                             texturePaperTop: TextureRegion, texturePaperBetween: TextureRegion) :
+                             texturePaperTop: TextureRegion, texturePaperBetween: TextureRegion,
+                             fightAction: (IDataTribe) -> Unit) :
         MComponentContainer(x, y) {
 
 
@@ -28,7 +29,7 @@ class MainMenuScrollPaperBox(x: Float, y: Float, width: Float,
 
         for (tribe in CDManaWars.cd.getTribeHandler().listTribes()) {
             val boxX = (width - boxWidth) / 2f
-            val box = TribeInfoBox(boxX, boxY, boxWidth, tribe, CDConstants.UI_MENU_MAIN_UNIT_SCALE)
+            val box = TribeInfoBox(boxX, boxY, boxWidth, tribe, CDConstants.UI_MENU_MAIN_UNIT_SCALE, fightAction)
             addComponent(box)
             tribeInfoBoxes.add(box)
 

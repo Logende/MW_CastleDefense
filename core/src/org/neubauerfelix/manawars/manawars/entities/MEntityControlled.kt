@@ -9,7 +9,10 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.*
+import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import java.util.*
+import kotlin.math.abs
+import kotlin.math.min
 
 
 open class MEntityControlled(animationProducer: IEntityAnimationProducer,
@@ -56,15 +59,15 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
         controller.doLogic(delta)
 
         if (isOnGround && !this.isKnockbacked) {
-            if (goalX != Float.NaN && canWalk()) {
+            if (!goalX.isNaN() && canWalk()) {
                 val offset = goalX - this.centerHorizontal
-                val distance = Math.abs(offset)
+                val distance = abs(offset)
                 if (distance > 10f) {
                     val slowingDistance = 200f
                     val rampedSpeed = this.walkSpeedMax * (distance / slowingDistance)
-                    val clippedSpeed = Math.min(rampedSpeed, walkSpeedMax)
+                    val clippedSpeed = min(rampedSpeed, walkSpeedMax)
                     val desiredVelocity = (clippedSpeed / distance) * offset
-                    accelerationX = truncate((desiredVelocity - this.speedX), walkAcceleration)
+                    accelerationX = MathUtils.truncate((desiredVelocity - this.speedX), walkAcceleration)
                 } else {
                     accelerationX = 0f
                     speedX = 0f
@@ -83,13 +86,6 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
         }
     }
 
-    private fun truncate(v : Float, maxLength: Float): Float {
-        return if (v > 0) {
-            Math.min(v, maxLength)
-        } else {
-            Math.max(v, -maxLength)
-        }
-    }
 
 
     override fun draw(batcher: Batch) {
