@@ -1,25 +1,25 @@
 units:
   boss:
     common:
-      health: 120
+      health: 60
       damage: 10
       cooldown: 1.5
       cost: 120
 
     rare:
-      health: 160
+      health: 75
       damage: 14
       cooldown: 1.5
       cost: 160
 
     epic:
-      health: 200
+      health: 100
       damage: 18
       cooldown: 1.5
       cost: 200
 
     legendary:
-      health: 300
+      health: 150
       damage: 25
       cooldown: 1.5
       cost: 300
@@ -27,25 +27,25 @@ units:
 
   tank:
     common:
-      health: 35
+      health: 22
       damage: 5
       cooldown: 2.5
       cost: 30
 
     rare:
-      health: 50
+      health: 30
       damage: 7
       cooldown: 2.5
       cost: 50
 
     epic:
-      health: 75
+      health: 45
       damage: 9
       cooldown: 2.5
       cost: 80
 
     legendary:
-      health: 120
+      health: 70
       damage: 13
       cooldown: 2.5
       cost: 140
@@ -53,25 +53,25 @@ units:
 
   melee:
     common:
-      health: 16
+      health: 10
       damage: 6
       cooldown: 1.5
       cost: 15
 
     rare:
-      health: 24
+      health: 15
       damage: 8
       cooldown: 1.5
       cost: 25
 
     epic:
-      health: 32
+      health: 20
       damage: 10
       cooldown: 1.5
       cost: 35
 
     legendary:
-      health: 64
+      health: 35
       damage: 14
       cooldown: 1.5
       cost: 60
@@ -79,25 +79,25 @@ units:
 
   ranger:
     common:
-      health: 10
+      health: 7
       damage: 4
       cooldown: 2
       cost: 15
 
     rare:
-      health: 15
+      health: 9
       damage: 6
       cooldown: 2
       cost: 25
 
     epic:
-      health: 20
+      health: 12
       damage: 8
       cooldown: 2
       cost: 35
 
     legendary:
-      health: 40
+      health: 20
       damage: 12
       cooldown: 2
       cost: 60
@@ -105,25 +105,25 @@ units:
 
   mage:
     common:
-      health: 5
+      health: 4
       damage: 7
       cooldown: 2.5
       cost: 15
 
     rare:
-      health: 10
+      health: 6
       damage: 9
       cooldown: 2.5
       cost: 25
 
     epic:
-      health: 15
+      health: 10
       damage: 11
       cooldown: 2.5
       cost: 35
 
     legendary:
-      health: 30
+      health: 15
       damage: 15
       cooldown: 2.5
       cost: 60

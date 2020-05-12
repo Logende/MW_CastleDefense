@@ -92,7 +92,7 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
     private fun actionFight(tribeEnemy: IDataTribe) {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
         val tribePlayer = tribeHandler.getTribe("bear")!! // TODO
-        val controllerPlayer = CDControllerBot(CDKITraditionalFelix())
+        val controllerPlayer = CDControllerHuman()  //CDControllerBot(CDKITraditionalFelix())
         val controllerEnemy = CDControllerBot(CDKITraditionalFelix())
         // CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
         val config = CDMatchConfiguration(controllerPlayer, controllerEnemy, tribePlayer, tribeEnemy)
