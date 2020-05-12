@@ -69,5 +69,6 @@ class CDInfoMenuUnit(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
     }
 
     override fun disposeMenu() {
+        getGame().getCamera().window.y = 0f
     }
 }

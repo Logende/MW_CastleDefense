@@ -18,7 +18,7 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
 
-    private var nextUnitChooseTime: Long = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
+    private var nextUnitChooseTime: Long = 0L + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
 
 
     override val playerControlled: Boolean
@@ -35,7 +35,9 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
 
     override fun doLogic(delta: Float) {
         analysis.update(player)
-        if (nextUnitChooseTime <= MManaWars.m.screen.getGameTime()) {
+        val time = MManaWars.m.screen.getGameTime()
+        println("do logic controller bot ${player.team}. game time $time next time $nextUnitChooseTime")
+        if (nextUnitChooseTime <= time) {
             this.chooseAction()
             nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
         }
