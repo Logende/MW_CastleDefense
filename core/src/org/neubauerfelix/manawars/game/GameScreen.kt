@@ -19,8 +19,7 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
 
     private var deltaStored = 0f
     private var state: ScreenState = ScreenState.WAITING
-    private var timeSpeedModifier = if (GameConstants.FAST_MODE)
-        GameConstants.SPEED_FACTOR_FAST_MODE else GameConstants.SPEED_FACTOR_DEFAULT
+    private var timeSpeedModifier = GameConstants.SPEED_FACTOR
 
     private val entities: MutableList<IEntity> = ArrayList()
     private val components: MutableList<IComponent> = ArrayList()

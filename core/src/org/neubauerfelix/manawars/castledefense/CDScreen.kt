@@ -49,8 +49,8 @@ class CDScreen(game: AManaWars, val configuration: CDMatchConfiguration) :
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
-        val dataMine = DataMine(25f, 20, 3, Animation(0f,
-                MManaWars.m.getImageHandler().getTextureRegionMain("building.mine")))
+        val dataMine = DataMine(25f, 20, 2, 50,
+                Animation(0f, MManaWars.m.getImageHandler().getTextureRegionMain("building.mine")))
         dataMine.produce(800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerA.castle)
         dataMine.produce(match.playground.width - 800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerB.castle)
         MManaWars.m.getMusicHandler().playMusic()
@@ -69,10 +69,10 @@ class CDScreen(game: AManaWars, val configuration: CDMatchConfiguration) :
         x += scrollDirection * delta * 1000
         match.doLogic(delta)
         MManaWars.m.getCollisionHandler().updateCollisions(entities)
-        println("units A: ${BaseFeatures.countUnitTotal(match.playerA)}. " +
-                "units B: ${BaseFeatures.countUnitTotal(match.playerB)}. " +
-                "castle health A: ${BaseFeatures.healthCastle(match.playerA)} " +
-                "castle health B: ${BaseFeatures.healthCastle(match.playerB)}")
+        val a = match.playerA
+        val b = match.playerB
+        println("${a.tribe.name} units/health: ${BaseFeatures.countUnitTotal(a)}/${BaseFeatures.healthCastle(a)}." +
+                "${b.tribe.name} units/health: ${BaseFeatures.countUnitTotal(b)}/${BaseFeatures.healthCastle(b)}.")
     }
 
 

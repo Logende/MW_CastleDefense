@@ -36,7 +36,6 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
     override fun doLogic(delta: Float) {
         analysis.update(player)
         val time = MManaWars.m.screen.getGameTime()
-        println("do logic controller bot ${player.team}. game time $time next time $nextUnitChooseTime")
         if (nextUnitChooseTime <= time) {
             this.chooseAction()
             nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY

@@ -1,7 +1,6 @@
 package org.neubauerfelix.manawars.manawars
 
 import org.neubauerfelix.manawars.castledefense.CDManaWars
-import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuildingAction
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.GameManaWars
@@ -47,7 +46,7 @@ open class MManaWars: GameManaWars() {
         loadHandler(BackgroundComposer(), IBackgroundComposer::class.java)
         startScreen(TestScreenLoad(this), true)
 
-        if (GameConstants.FAST_MODE) {
+        if (GameConstants.DISABLE_GRAPHICS) {
             loadHandler(SoundHandlerMock(), ISoundHandler::class.java)
             loadHandler(MusicHandlerMock(), IMusicHandler::class.java)
         } else {

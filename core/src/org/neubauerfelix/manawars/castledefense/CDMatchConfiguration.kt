@@ -8,4 +8,5 @@ data class CDMatchConfiguration(
         val controllerB: ICDController,
         val tribeA: IDataTribe,
         val tribeB: IDataTribe
+// TODO: Add playground?
 )

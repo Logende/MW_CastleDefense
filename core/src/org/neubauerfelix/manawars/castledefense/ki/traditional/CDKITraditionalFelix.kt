@@ -32,7 +32,7 @@ class CDKITraditionalFelix() : ICDKI {
 
         val situation = getSituationType(player, prep)
 
-        if (!GameConstants.FAST_MODE) {
+        if (!GameConstants.DISABLE_GRAPHICS) {
             CDManaWars.cd.getHandler(TextVisualizationHandler::class.java).displayText(player.castle,
                     player.castle.centerHorizontal, player.castle.top, situation.name, "situation", 100)
         }

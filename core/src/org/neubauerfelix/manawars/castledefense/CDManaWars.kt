@@ -2,7 +2,10 @@ package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.handlers.*
 import org.neubauerfelix.manawars.castledefense.menu.CDMainMenu
+import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.tools.Evaluation
+import org.neubauerfelix.manawars.tools.EvaluationScreen
 
 class CDManaWars : MManaWars() {
 
@@ -26,7 +29,12 @@ class CDManaWars : MManaWars() {
         super.loadedGame()
 
         //startScreen(CDScreen(this), true)
-         startScreen(CDMainMenu(this), true)
+         //startScreen(CDMainMenu(this), true)
+        if (GameConstants.EVALUATION_MODE) {
+            Evaluation.startEvaluationScreen(this)
+        } else {
+            startScreen(CDMainMenu(this), true)
+        }
     }
 
     fun getTribeHandler(): ITribeHandler {

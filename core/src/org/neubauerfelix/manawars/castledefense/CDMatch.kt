@@ -22,7 +22,7 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
                 playerA.tribe.backgroundThemes,
                 playerB.tribe.backgroundThemes,
                 playerA.tribe.backgroundSubthemes.plus(playerB.tribe.backgroundSubthemes).
-                toList())
+                        toList())
         backgrounds = backgroundData.mapIndexed { index, background ->
             background.produce(index * GameConstants.BACKGROUND_WIDTH) }
     }
@@ -75,11 +75,7 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
 
         if (playerA.castle.remove || playerB.castle.remove) {
 
-            if (GameConstants.EXIT_APP_ON_CASTLE_DEFEAT) {
-                Gdx.app.exit()
-            } else {
-                MManaWars.m.screen.remove = true
-            }
+            MManaWars.m.screen.remove = true // TODO: Victory screen
         }
     }
 }

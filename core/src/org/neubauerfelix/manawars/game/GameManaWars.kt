@@ -23,7 +23,7 @@ abstract class GameManaWars: AManaWars(){
 
     override fun load(){
         loadHandler(GameAssetLoader(), IAssetLoader::class.java)
-        if (GameConstants.FAST_MODE) {
+        if (GameConstants.DISABLE_GRAPHICS) {
             loadHandler(GameCameraMock(), ICamera::class.java)
         } else {
             loadHandler(GameCamera(getAssetLoader()), ICamera::class.java)

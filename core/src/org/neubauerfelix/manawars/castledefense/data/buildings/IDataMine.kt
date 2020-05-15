@@ -11,6 +11,7 @@ interface IDataMine {
     val chargePeriod: Float
     val goldPerChargeInitial: Int
     val goldIncreasePerCharge: Int
+    val goldPerChargeMax: Int
 
     val animation: Animation<TextureRegion>
 

@@ -1,5 +1,7 @@
 package org.neubauerfelix.manawars.castledefense
 
+import org.neubauerfelix.manawars.game.GameConstants
+
 
 class CDConstants {
 
@@ -16,7 +18,7 @@ class CDConstants {
         const val CASTLE_GOLD_START_BASE = 80f
         const val CASTLE_GOLD_PER_SECOND_BASE = 4f
 
-        const val KI_BALANCING_ENABLED = true
+        val KI_BALANCING_ENABLED = if (GameConstants.EVALUATION_MODE) false else true
         const val KI_BALANCING_MAX_HELP_FACTOR = 1.3
         const val KI_BALANCING_MIN_HELP_FACTOR = 1 / KI_BALANCING_MAX_HELP_FACTOR
 

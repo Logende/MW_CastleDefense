@@ -8,6 +8,7 @@ interface ICDEntityMine : ISized, IEntity, IDrawable {
 
     var goldPerChargeInitial: Int
     var goldIncreasePerCharge: Int
+    var goldPerChargeMax: Int
     var chargePeriod: Float
     val castle: ICDEntityCastle
 

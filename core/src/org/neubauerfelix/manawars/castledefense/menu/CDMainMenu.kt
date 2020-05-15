@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.CDMatchConfiguration
 import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
+import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalAggressive
 import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
@@ -91,9 +92,11 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
 
     private fun actionFight(tribeEnemy: IDataTribe) {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val tribePlayer = tribeHandler.getTribe("bear")!! // TODO
-        val controllerPlayer = CDControllerHuman()  //CDControllerBot(CDKITraditionalFelix())
-        val controllerEnemy = CDControllerBot(CDKITraditionalFelix())
+        val tribePlayer = tribeHandler.getTribe("zombie")!! // TODO
+        //val controllerPlayer = CDControllerHuman()  //CDControllerBot(CDKITraditionalFelix())
+        val controllerPlayer= CDControllerBot(CDKITraditionalAggressive())
+        //val controllerEnemy = CDControllerBot(CDKITraditionalFelix())
+        val controllerEnemy = CDControllerBot(CDKITraditionalAggressive())
         // CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
         val config = CDMatchConfiguration(controllerPlayer, controllerEnemy, tribePlayer, tribeEnemy)
         val screen = CDScreen(getGame(), config)

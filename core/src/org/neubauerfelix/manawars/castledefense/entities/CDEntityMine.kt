@@ -5,12 +5,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimationSimple
+import kotlin.math.min
 
 class CDEntityMine(x: Float, y: Float,
                    animation: Animation<TextureRegion>,
                    override var chargePeriod: Float,
                    override var goldPerChargeInitial: Int,
                    override var goldIncreasePerCharge: Int,
+                   override var goldPerChargeMax: Int,
                    override val castle: ICDEntityCastle) :
         MEntityAnimationSimple(animation, 1f, null, 0f, Animation.PlayMode.NORMAL),
         ICDEntityMine {
@@ -47,7 +49,7 @@ class CDEntityMine(x: Float, y: Float,
             MManaWars.m.getEventHandler().callEvent(event)
             if (!event.cancelled) {
                 event.castle.gold += event.goldDifference
-                this.goldPerCharge += this.goldIncreasePerCharge
+                this.goldPerCharge = min(goldPerChargeMax, goldPerCharge + goldIncreasePerCharge)
             }
         }
     }
