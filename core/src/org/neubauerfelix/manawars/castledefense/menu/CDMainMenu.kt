@@ -87,9 +87,10 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
     }
 
     private fun actionFight(tribeEnemy: IDataTribe) {
-        val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val tribePlayer = tribeHandler.getTribe("zombie")!! // TODO
-        val controllerPlayer= CDControllerType.AGGRESSIVE
+        val mw = CDManaWars.cd
+        val tribePlayer = mw.getProfileHandler().getProfile().tribe
+        tribePlayer.castle.enemyCastle = tribeEnemy.castle // TODO: actually already do this when a tribe is selected
+        val controllerPlayer= CDControllerType.HUMAN
         val controllerEnemy = CDControllerType.AGGRESSIVE
         val config = CDMatchConfiguration(controllerPlayer, controllerEnemy, tribePlayer, tribeEnemy)
         val screen = CDScreen(getGame(), config)

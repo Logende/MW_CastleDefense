@@ -17,10 +17,11 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
 
 
     override fun spawnCastle(leftSide: Boolean, mapWidth: Float) {
-        val texture = MManaWars.m.getImageHandler().getTextureRegionMain(tribe.castle.textureNameAlive)
+        val data = tribe.castle
+        val textureName = data.getTextureName(tribe.backgroundTheme)
+        val texture = MManaWars.m.getImageHandler().getTextureRegionMain(textureName)
         val direction = if (leftSide) 1 else -1
 
-        val data = tribe.castle
 
         val castleLocation = if (leftSide) {
             GameLocation(CDConstants.CASTLE_BORDER_OFFSET,
@@ -34,8 +35,8 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
                 GameConstants.WORLD_HEIGHT_UNITS).
                 plus(GameLocation(data.unitSpawnXOffset * direction, data.unitSpawnYOffset))
 
-        this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, data.textureNameAlive,
-                data.textureNameDead, data.health, direction, team, spawnLocation,
+        this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, textureName,
+                data.health, direction, team, spawnLocation,
                 data.goldStart, data.goldPerCharge, this)
         this.castle.spawn()
 

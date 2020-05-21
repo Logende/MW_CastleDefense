@@ -1,7 +1,9 @@
 package org.neubauerfelix.manawars.castledefense.data.tribes
 
 import org.neubauerfelix.manawars.castledefense.CDConstants
+import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
 import org.neubauerfelix.manawars.manawars.storage.Configuration
+import java.util.*
 
 class DataCastleLoaded(config: Configuration, multiplier: Float = 1f,
                        baseCastleHealth: Float, baseGoldStart: Float, baseGoldPerSecond: Float) :
@@ -9,8 +11,24 @@ class DataCastleLoaded(config: Configuration, multiplier: Float = 1f,
 
 
     override val name: String = config.getString("name")
-    override val textureNameAlive: String = config.getString("texture")
-    override val textureNameDead: String = config.getString("texture") + ".damaged"
+
+    private val textureNames: Map<MWBackgroundTheme, String>
+
+    init {
+        val textureNameDefault = config.getString("textures.default")
+        textureNames = EnumMap<MWBackgroundTheme, String>(MWBackgroundTheme::class.java)
+        MWBackgroundTheme.values().forEach {
+            textureNames[it] = config.getString(
+                    "textures.${it.name.toLowerCase(Locale.getDefault())}",
+                    textureNameDefault
+            )
+        }
+    }
+
+    override fun getTextureName(theme: MWBackgroundTheme): String {
+        return textureNames[theme] ?: error("this should not happen")
+    }
+
     override val unitSpawnXOffset: Float
     override val unitSpawnYOffset: Float
 

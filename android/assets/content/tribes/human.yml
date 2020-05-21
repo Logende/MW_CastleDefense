@@ -1,8 +1,7 @@
 name: human
 castle: "castles/wood_1.yml:1.0"
 music: demetrians_theme
-background_themes:
-  - GRASSLAND
+background_theme: GRASSLAND
 background_subthemes:
   - DEFAULT
 buildings:

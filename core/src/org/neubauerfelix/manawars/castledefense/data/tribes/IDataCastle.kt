@@ -1,11 +1,10 @@
 package org.neubauerfelix.manawars.castledefense.data.tribes
-import org.neubauerfelix.manawars.game.entities.ILocated
+
+import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
 
 interface IDataCastle {
 
     val name: String
-    val textureNameAlive: String
-    val textureNameDead: String
     val unitSpawnXOffset: Float
     val unitSpawnYOffset: Float
     val goldStart: Int
@@ -13,6 +12,8 @@ interface IDataCastle {
     val health: Float
     val xOffset: Float
     val yOffset: Float
+
+    fun getTextureName(theme: MWBackgroundTheme) : String
 
 
 

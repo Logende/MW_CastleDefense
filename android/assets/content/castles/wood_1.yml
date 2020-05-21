@@ -1,5 +1,8 @@
-name: wood_1
-texture: 'building.castle'
+name: castle_1
+textures:
+  default: 'building.castle.normal.1'
+  desert: 'building.castle.desert.1'
+  snow: 'building.castle.ice.1'
 location: '0:35'
 offset_units: '140:0'
 goldStart: 1

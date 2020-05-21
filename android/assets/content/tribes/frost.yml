@@ -1,8 +1,7 @@
 name: frost
 castle: "castles/wood_1.yml:1.0"
 music: exploring_the_unknown
-background_themes:
-  - SNOW
+background_theme: SNOW
 background_subthemes:
   - DEFAULT
 buildings:

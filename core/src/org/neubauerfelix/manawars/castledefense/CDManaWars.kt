@@ -5,7 +5,6 @@ import org.neubauerfelix.manawars.castledefense.menu.CDMainMenu
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.tools.Evaluation
-import org.neubauerfelix.manawars.tools.EvaluationScreen
 
 class CDManaWars : MManaWars() {
 
@@ -23,6 +22,7 @@ class CDManaWars : MManaWars() {
         loadHandler(BuildingListHandler(), IBuildingListHandler::class.java)
         loadHandler(PlaygroundListHandler(), IPlaygroundListHandler::class.java)
         loadHandler(TribeHandler(), ITribeHandler::class.java)
+        loadHandler(ProfileHandler(), IProfileHandler::class.java)
     }
 
     override fun loadedGame() {
@@ -47,6 +47,10 @@ class CDManaWars : MManaWars() {
 
     fun getPlaygroundListHandler(): IPlaygroundListHandler {
         return getHandler(IPlaygroundListHandler::class.java)
+    }
+
+    fun getProfileHandler(): IProfileHandler {
+        return getHandler(IProfileHandler::class.java)
     }
 
 }

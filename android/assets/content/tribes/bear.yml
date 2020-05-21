@@ -1,8 +1,7 @@
 name: bear
 castle: "castles/wood_1.yml:1.0"
 music: last_hope_for_humanity
-background_themes:
-  - GRASSLAND
+background_theme: GRASSLAND
 background_subthemes:
   - DEFAULT
 buildings:

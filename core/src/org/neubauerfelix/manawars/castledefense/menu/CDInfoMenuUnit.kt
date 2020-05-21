@@ -21,7 +21,7 @@ class CDInfoMenuUnit(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
 
     init {
         val allBackgrounds = MManaWars.m.getBackgroundListHandler().backgrounds
-        val backgroundTheme = tribe.backgroundThemes.first()
+        val backgroundTheme = tribe.backgroundTheme
         val chosenBackground = allBackgrounds.first {
             it.startTheme == backgroundTheme && it.endTheme == backgroundTheme
         }

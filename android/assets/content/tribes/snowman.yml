@@ -1,8 +1,7 @@
 name: snowman
 castle: "castles/wood_1.yml:1.0"
 music: relics_of_the_creation
-background_themes:
-  - SNOW
+background_theme: SNOW
 background_subthemes:
   - DEFAULT
 buildings:

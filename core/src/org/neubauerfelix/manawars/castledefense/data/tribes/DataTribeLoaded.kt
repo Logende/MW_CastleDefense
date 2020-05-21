@@ -9,7 +9,6 @@ import org.neubauerfelix.manawars.manawars.enums.MWBackgroundSubtheme
 import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
-import java.lang.Float
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -35,8 +34,9 @@ class DataTribeLoaded(config: Configuration) : DataTribe() {
                 CDConstants.CASTLE_GOLD_START_BASE, CDConstants.CASTLE_GOLD_PER_SECOND_BASE)
     }
 
-    override val backgroundThemes: List<MWBackgroundTheme> = config.getStringList("background_themes").
-            map { MWBackgroundTheme.valueOf(it.toUpperCase(Locale.ROOT)) }
+    override val backgroundTheme = MWBackgroundTheme.valueOf(
+            config.getString("background_theme").toUpperCase(Locale.ROOT)
+    )
     override val backgroundSubthemes: List<MWBackgroundSubtheme> = config.getStringList("background_subthemes").
             map { MWBackgroundSubtheme.valueOf(it.toUpperCase(Locale.ROOT)) }
 

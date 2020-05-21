@@ -1,8 +1,7 @@
 name: brute
 castle: "castles/wood_1.yml:1.0"
 music: oriental_metal
-background_themes:
-  - DESERT
+background_theme: DESERT
 background_subthemes:
   - DEFAULT
 buildings:

@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 
 class CDEntityCastle(x: Float, y: Float,
-                     textureNameAlive: String, textureNameDead: String,
+                     textureNameAlive: String,
                      health: Float,
                      direction: Int,
                      team: Int,
@@ -18,7 +18,7 @@ class CDEntityCastle(x: Float, y: Float,
                      startGold: Int,
                      override var goldPerCharge: Int,
                      override val player: ICDPlayer) :
-        MEntityAnimated(IEntityAnimationProducer.createProducerBuilding(textureNameAlive, textureNameDead), health),
+        MEntityAnimated(IEntityAnimationProducer.createProducerBuilding(textureNameAlive), health),
         ICDEntityCastle {
     
     init {

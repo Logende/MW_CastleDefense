@@ -1,9 +1,7 @@
 name: lizard
 music: last_hope_for_humanity
 castle: "castles/wood_1.yml:1.0"
-background_themes:
-  - GRASSLAND
-  - COAST
+background_theme: GRASSLAND # todo: change to coast
 background_subthemes:
   - DEFAULT
 buildings:

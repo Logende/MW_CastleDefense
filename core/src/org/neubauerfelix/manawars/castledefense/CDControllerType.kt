@@ -6,6 +6,7 @@ import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIModelRand
 import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalAggressive
 import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
+import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.castledefense.player.ICDController
 
 enum class CDControllerType {
@@ -23,6 +24,11 @@ enum class CDControllerType {
     RANDOM {
         override fun produce() : ICDController {
             return CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
+        }
+    },
+    HUMAN {
+        override fun produce() : ICDController {
+            return CDControllerHuman()
         }
     },
 

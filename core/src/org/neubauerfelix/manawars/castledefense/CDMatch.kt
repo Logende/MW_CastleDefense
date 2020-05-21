@@ -1,6 +1,5 @@
 package org.neubauerfelix.manawars.castledefense
 
-import com.badlogic.gdx.Gdx
 import org.neubauerfelix.manawars.castledefense.components.CDComponentGameInfo
 import org.neubauerfelix.manawars.castledefense.data.IDataPlayground
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
@@ -19,8 +18,8 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
 
     init {
         val backgroundData = MManaWars.m.getBackgroundComposer().composeBackgrounds(playground.backgroundCount,
-                playerA.tribe.backgroundThemes,
-                playerB.tribe.backgroundThemes,
+                listOf(playerA.tribe.backgroundTheme),
+                listOf(playerB.tribe.backgroundTheme),
                 playerA.tribe.backgroundSubthemes.plus(playerB.tribe.backgroundSubthemes).
                         toList())
         backgrounds = backgroundData.mapIndexed { index, background ->

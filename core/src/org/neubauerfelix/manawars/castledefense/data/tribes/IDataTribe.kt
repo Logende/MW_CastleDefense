@@ -14,7 +14,7 @@ interface IDataTribe : IDataPresentable {
     val castle: IDataCastle // castle of tribe
     val army: IDataArmy // units of tribe
 
-    val backgroundThemes: List<MWBackgroundTheme>
+    val backgroundTheme: MWBackgroundTheme
     val backgroundSubthemes: List<MWBackgroundSubtheme>
     val musicTrack: String
 

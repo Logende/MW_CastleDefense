@@ -6,6 +6,9 @@ import org.neubauerfelix.manawars.game.GameConstants
 class CDConstants {
 
     companion object {
+        const val STARTER_TRIBE = "human"
+        const val PLAYER_PROFILE_FILE_NAME = "mw_cd_profile.yml"
+
         const val CASTLE_BORDER_OFFSET = 20f
         const val FORMATION_UNIT_DISTANCE = -30f // does not include unit width
         const val FORMATION_JOIN_DISTANCE = 100f // does not include unit width
