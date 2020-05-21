@@ -1,4 +1,4 @@
-package org.neubauerfelix.manawars.tools
+package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.ki.CDKIFeatureExtractor
 import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFe
 import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.castledefense.player.ICDController
 
-enum class ControllerType {
+enum class CDControllerType {
 
     FELIX {
         override fun produce() : ICDController {

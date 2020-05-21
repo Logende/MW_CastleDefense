@@ -8,6 +8,7 @@ import org.neubauerfelix.manawars.game.entities.ILogicable
 
 interface ICDController : ILogicable, ILoadable, IDisposable {
 
+
     var player: ICDPlayer
     val playerControlled: Boolean
     val analysis: ICDPlayerLiveAnalysis

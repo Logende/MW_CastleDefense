@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.tools
 
 import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.CDMatchConfiguration
+import org.neubauerfelix.manawars.castledefense.CDControllerType
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import java.util.*
@@ -48,11 +49,11 @@ class EvaluationConfigLoaded(config: Configuration) : IEvaluationConfig {
         private fun addMatch(tribeA: IDataTribe, tribeB: IDataTribe, controllerDefinition: String,
                              matches: MutableList<CDMatchConfiguration>) {
             if (controllerDefinition.equals("all", ignoreCase = true)) {
-                for (controllerTypeA in ControllerType.values()) {
-                    for (controllerTypeB in ControllerType.values()) {
+                for (controllerTypeA in CDControllerType.values()) {
+                    for (controllerTypeB in CDControllerType.values()) {
                         matches.add(CDMatchConfiguration(
-                                controllerTypeA.produce(),
-                                controllerTypeB.produce(),
+                                controllerTypeA,
+                                controllerTypeB,
                                 tribeA,
                                 tribeB
                         ))
@@ -60,11 +61,11 @@ class EvaluationConfigLoaded(config: Configuration) : IEvaluationConfig {
                 }
             } else {
                 val controllerParts = controllerDefinition.split("-")
-                val controllerTypeA = ControllerType.valueOf(controllerParts[0].toUpperCase(Locale.getDefault()))
-                val controllerTypeB = ControllerType.valueOf(controllerParts[0].toUpperCase(Locale.getDefault()))
+                val controllerTypeA = CDControllerType.valueOf(controllerParts[0].toUpperCase(Locale.getDefault()))
+                val controllerTypeB = CDControllerType.valueOf(controllerParts[1].toUpperCase(Locale.getDefault()))
                 matches.add(CDMatchConfiguration(
-                        controllerTypeA.produce(),
-                        controllerTypeB.produce(),
+                        controllerTypeA,
+                        controllerTypeB,
                         tribeA,
                         tribeB
                 ))

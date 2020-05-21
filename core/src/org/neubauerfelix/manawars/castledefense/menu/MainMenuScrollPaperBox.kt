@@ -40,26 +40,24 @@ class MainMenuScrollPaperBox(x: Float, y: Float, width: Float,
 
     fun addBackgrounds(texturePaperTop: TextureRegion, texturePaperBetween: TextureRegion) {
         var backgroundY = 0f
+        val width = texturePaperBetween.regionWidth.toFloat()
+        val height = texturePaperBetween.regionHeight.toFloat()
         val backgroundBetweenCount = CDConstants.UI_MENU_MAIN_BACKGROUND_BETWEEN_COUNT
-        /*val menuBackgroundTop = MImage(0f, backgroundY,
-                GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT,
-                texturePaperTop)
+        val menuBackgroundTop = MImage(0f, backgroundY, width, height, texturePaperTop)
         addComponent(menuBackgroundTop)
-        backgroundY += GameConstants.SCREEN_HEIGHT*/
+        backgroundY += GameConstants.SCREEN_HEIGHT
 
         for (i in 0 until backgroundBetweenCount) {
-            val menuBackgroundBetween = MImage(0f, backgroundY,
-                    texturePaperBetween.regionWidth.toFloat(), texturePaperBetween.regionHeight.toFloat(),
-                    texturePaperBetween)
+            val menuBackgroundBetween = MImage(0f, backgroundY, width, height, texturePaperBetween)
             addComponent(menuBackgroundBetween)
             backgroundY += GameConstants.SCREEN_HEIGHT
         }
 
-        /*val textureFlipped = //TODO
+        val textureFlipped = TextureRegion(texturePaperTop)
+        textureFlipped.flip(false, true)
 
-        val menuBackgroundBottom = MImage(0f, backgroundY, GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT,
-                textureFlipped)
-        addComponent(menuBackgroundBottom)*/
+        val menuBackgroundBottom = MImage(0f, backgroundY, width, height, textureFlipped)
+        addComponent(menuBackgroundBottom)
     }
 
 

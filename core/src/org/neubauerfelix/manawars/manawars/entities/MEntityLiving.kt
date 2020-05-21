@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
 import org.neubauerfelix.manawars.manawars.events.EntityDeathEvent
 import org.neubauerfelix.manawars.manawars.events.EntityHealEvent
-import org.neubauerfelix.manawars.game.events.EntitySpawnEvent
+import org.neubauerfelix.manawars.game.events.EntityLivingSpawnEvent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import kotlin.math.max
@@ -68,7 +68,7 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
 
         remove = false
         if (!AManaWars.m.screen.containsEntity(this)) {
-            AManaWars.m.getEventHandler().callEvent(EntitySpawnEvent(this, true, healthPercentage))
+            AManaWars.m.getEventHandler().callEvent(EntityLivingSpawnEvent(this, true, healthPercentage))
             spawn()
         }
         health = healthMax * healthPercentage
@@ -110,7 +110,7 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
 
     override fun spawn() {
         super.spawn()
-        AManaWars.m.getEventHandler().callEvent(EntitySpawnEvent(this, false, 1f))
+        AManaWars.m.getEventHandler().callEvent(EntityLivingSpawnEvent(this, false, 1f))
     }
 
     /**

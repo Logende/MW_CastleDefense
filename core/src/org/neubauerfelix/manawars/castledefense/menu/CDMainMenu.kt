@@ -1,13 +1,10 @@
 package org.neubauerfelix.manawars.castledefense.menu
 
+import org.neubauerfelix.manawars.castledefense.CDControllerType
 import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.CDMatchConfiguration
 import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
-import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalAggressive
-import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
-import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
-import org.neubauerfelix.manawars.castledefense.player.CDControllerHuman
 import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MBackground
@@ -15,7 +12,6 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.menu.MMenuScreen
 import kotlin.math.abs
-import kotlin.math.max
 import kotlin.math.min
 
 class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
@@ -29,7 +25,7 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
     var accelerationY = 0f
 
     override fun loadMenu() {
-        MManaWars.m.getAssetLoader().loadTexture("backgrounds/menu_main_top.png")
+        MManaWars.m.getAssetLoader().loadTexture("backgrounds/menu_paper_top.png")
         MManaWars.m.getAssetLoader().loadTexture("backgrounds/menu_paper.png")
         backgroundWood.load()
     }
@@ -43,7 +39,7 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
         //addTitle("ManaWars")
 
         val m = CDManaWars.cd
-        val texturePaperTop = m.getAssetLoader().createTextureRegion("backgrounds/menu_paper.png") //TODO
+        val texturePaperTop = m.getAssetLoader().createTextureRegion("backgrounds/menu_paper_top.png") //TODO
         val texturePaperBetween = m.getAssetLoader().createTextureRegion("backgrounds/menu_paper.png")
         val paperWidth = texturePaperBetween.regionWidth.toFloat()
         scrollPaper = MainMenuScrollPaperBox(100f, 0f, paperWidth, texturePaperTop, texturePaperBetween) {
@@ -65,7 +61,7 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
 
 
     override fun disposeMenu() {
-        MManaWars.m.getAssetLoader().unloadAsset("backgrounds/menu_main_top.png")
+        MManaWars.m.getAssetLoader().unloadAsset("backgrounds/menu_paper_top.png")
         MManaWars.m.getAssetLoader().unloadAsset("backgrounds/menu_paper.png")
         backgroundWood.dispose()
     }
@@ -93,11 +89,8 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
     private fun actionFight(tribeEnemy: IDataTribe) {
         val tribeHandler = CDManaWars.cd.getTribeHandler()
         val tribePlayer = tribeHandler.getTribe("zombie")!! // TODO
-        //val controllerPlayer = CDControllerHuman()  //CDControllerBot(CDKITraditionalFelix())
-        val controllerPlayer= CDControllerBot(CDKITraditionalAggressive())
-        //val controllerEnemy = CDControllerBot(CDKITraditionalFelix())
-        val controllerEnemy = CDControllerBot(CDKITraditionalAggressive())
-        // CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))
+        val controllerPlayer= CDControllerType.AGGRESSIVE
+        val controllerEnemy = CDControllerType.AGGRESSIVE
         val config = CDMatchConfiguration(controllerPlayer, controllerEnemy, tribePlayer, tribeEnemy)
         val screen = CDScreen(getGame(), config)
         getGame().startScreen(screen, false)

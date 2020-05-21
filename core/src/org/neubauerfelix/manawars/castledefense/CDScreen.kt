@@ -24,18 +24,12 @@ class CDScreen(game: AManaWars, val configuration: CDMatchConfiguration) :
 
 
     override fun loadScreen(): Boolean {
-        /*
-        val tribeHandler = CDManaWars.cd.getTribeHandler()
-        val army1 = tribeHandler.getTribe("goblin")!!
-        val army2 = tribeHandler.getTribe("human")!!
-        val controllerA = CDControllerBot(CDKITraditionalFelix())
-        val controllerB = CDControllerBot(CDKITraditionalAggressive())
-        //val controllerA = CDControllerHuman()
-        //val controllerB = CDControllerBot(CDKIMachineLearning(CDKIModelRandom(), CDKIFeatureExtractor()))*/
-        val playerA = CDPlayer(configuration.tribeA, configuration.controllerA, MConstants.TEAM_PLAYER)
-        val playerB = CDPlayer(configuration.tribeB, configuration.controllerB, MConstants.TEAM_BOT)
-        configuration.controllerA.player = playerA
-        configuration.controllerB.player = playerB
+        val controllerA = configuration.controllerA.produce()
+        val controllerB = configuration.controllerB.produce()
+        val playerA = CDPlayer(configuration.tribeA, controllerA, MConstants.TEAM_PLAYER)
+        val playerB = CDPlayer(configuration.tribeB, controllerB, MConstants.TEAM_BOT)
+        controllerA.player = playerA
+        controllerB.player = playerB
         playerA.enemy = playerB
         playerB.enemy = playerA
         match = CDMatch(playerA, playerB, this, playerB.tribe.playground)
@@ -69,10 +63,10 @@ class CDScreen(game: AManaWars, val configuration: CDMatchConfiguration) :
         x += scrollDirection * delta * 1000
         match.doLogic(delta)
         MManaWars.m.getCollisionHandler().updateCollisions(entities)
-        val a = match.playerA
+        /*val a = match.playerA
         val b = match.playerB
         println("${a.tribe.name} units/health: ${BaseFeatures.countUnitTotal(a)}/${BaseFeatures.healthCastle(a)}." +
-                "${b.tribe.name} units/health: ${BaseFeatures.countUnitTotal(b)}/${BaseFeatures.healthCastle(b)}.")
+                "${b.tribe.name} units/health: ${BaseFeatures.countUnitTotal(b)}/${BaseFeatures.healthCastle(b)}.")*/
     }
 
 
