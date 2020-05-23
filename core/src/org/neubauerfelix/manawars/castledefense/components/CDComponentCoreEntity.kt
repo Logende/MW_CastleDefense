@@ -9,6 +9,7 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.MTextLabel
 import org.neubauerfelix.manawars.manawars.data.IDataCoreEntity
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler
+import org.neubauerfelix.manawars.manawars.handlers.StringUtils
 
 open class CDComponentCoreEntity(x: Float, y: Float, width: Float, height: Float, val entity: IDataCoreEntity,
                                 runnable: Runnable, val background: TextureRegion,
@@ -22,11 +23,8 @@ open class CDComponentCoreEntity(x: Float, y: Float, width: Float, height: Float
 
     init {
         val color = entity.action.displayColor
-        val colorAsHexString = String.format("#%02x%02x%02x",
-                (color.r * 255f).toInt(),
-                (color.g * 255f).toInt(),
-                (color.b * 255f).toInt())
-        text = MTextLabel(x, y, "[$colorAsHexString]${entity.cost}", FontHandler.MWFont.MAIN, 0.2f)
+        val colorAsColorCode = StringUtils.colorAsColorCode(color)
+        text = MTextLabel(x, y, "$colorAsColorCode${entity.cost}", FontHandler.MWFont.MAIN, 0.2f)
     }
 
     override fun doLogic(delta: Float) {

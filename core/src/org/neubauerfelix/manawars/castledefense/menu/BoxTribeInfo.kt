@@ -2,15 +2,14 @@ package org.neubauerfelix.manawars.castledefense.menu
 
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
-import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 
-class TribeInfoBox(x: Float, y: Float, width: Float, val tribe: IDataTribe, unitsScale: Float,
-                   fightAction: (IDataTribe) -> Unit) :
+class BoxTribeInfo(x: Float, y: Float, width: Float, val tribe: IDataTribe, unitsScale: Float,
+                   buttonText: String, buttonAction: (IDataTribe) -> Unit) :
         MComponentContainer(x, y) {
 
 
@@ -20,18 +19,18 @@ class TribeInfoBox(x: Float, y: Float, width: Float, val tribe: IDataTribe, unit
         addComponent(title)
 
         val unitRunnable: (IDataUnit) -> Unit = {
-            val submenu = CDInfoMenuUnit(MManaWars.m, it, tribe)
+            val submenu = CDMenuUnitInfo(MManaWars.m, it, tribe)
             MManaWars.m.startScreen(submenu, false)
         }
 
         val unitBoxY = title.bottom + MConstants.UI_DISTANCE_COLUMNS * 3
-        val unitsInfoBox = UnitsInfoBox(0f, unitBoxY, width, tribe.army.units,
+        val unitsInfoBox = BoxUnitsInfo(0f, unitBoxY, width, tribe.army.units,
                 CDConstants.UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS, unitRunnable, unitsScale)
         addComponent(unitsInfoBox)
 
         val buttonY = unitsInfoBox.bottom + MConstants.UI_DISTANCE_COLUMNS * 3f
-        val button = MTextButtonSimple(0f, buttonY, "Fight", Runnable {
-            fightAction.invoke(tribe)
+        val button = MTextButtonSimple(0f, buttonY, buttonText, Runnable {
+            buttonAction.invoke(tribe)
         }, 0.8f)
         button.x = width / 2 - button.width / 2
         addComponent(button)

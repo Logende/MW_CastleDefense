@@ -9,30 +9,38 @@ import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.*
-import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
-import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 
-class MainMenuScrollPaperBox(x: Float, y: Float, width: Float,
+class BoxMainMenuScrollpaper(x: Float, y: Float, width: Float,
                              texturePaperTop: TextureRegion, texturePaperBetween: TextureRegion,
-                             fightAction: (IDataTribe) -> Unit) :
+                             fightAction: (IDataTribe) -> Unit,
+                             editArmyAction: (IDataTribe) -> Unit) :
         MComponentContainer(x, y) {
 
 
     val tribeInfoBoxes = mutableListOf<IComponent>()
 
     init {
+        val lang = MManaWars.m.getLanguageHandler()
         addBackgrounds(texturePaperTop, texturePaperBetween)
 
 
         val boxWidth = if (CDConstants.UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS) 1000f else 1000f
+        val boxX = (width - boxWidth) / 2f
         var boxY = 200f
 
+        val playerTribe = CDManaWars.cd.getProfileHandler().getProfile().tribe
+        val boxEdit = BoxTribeInfo(boxX, boxY, boxWidth, playerTribe, CDConstants.UI_MENU_MAIN_UNIT_SCALE,
+                lang.getMessage("menu_edit_army"), editArmyAction)
+        addComponent(boxEdit)
+        tribeInfoBoxes.add(boxEdit)
+        boxY += boxEdit.height + MConstants.UI_DISTANCE_COLUMNS * 14
+
+
         for (tribe in CDManaWars.cd.getTribeHandler().listTribes()) {
-            val boxX = (width - boxWidth) / 2f
-            val box = TribeInfoBox(boxX, boxY, boxWidth, tribe, CDConstants.UI_MENU_MAIN_UNIT_SCALE, fightAction)
+            val box = BoxTribeInfo(boxX, boxY, boxWidth, tribe, CDConstants.UI_MENU_MAIN_UNIT_SCALE,
+                    lang.getMessage("menu_fight"), fightAction)
             addComponent(box)
             tribeInfoBoxes.add(box)
-
             boxY += box.height + MConstants.UI_DISTANCE_COLUMNS * 14
         }
     }

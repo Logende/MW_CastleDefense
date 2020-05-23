@@ -5,7 +5,7 @@ import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
-class UnitsInfoBox(x: Float, y: Float, width: Float, val units: Iterable<IDataUnit>, buttonView: Boolean,
+class BoxUnitsInfo(x: Float, y: Float, width: Float, val units: Iterable<IDataUnit>, buttonView: Boolean,
                    unitRunnable: (IDataUnit) -> Unit, unitScale: Float) : MComponentContainer(x, y) {
 
 

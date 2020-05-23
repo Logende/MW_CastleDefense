@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.manawars.enums
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode
 import com.badlogic.gdx.graphics.g2d.TextureRegion
@@ -7,9 +8,10 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.manawars.entities.IAnimatedLiving
 import org.neubauerfelix.manawars.manawars.entities.IStateable
 
-enum class MWState (private val imageName: String, private val columns: Int, val tacticalDamage: Float //Defines state priorities and skill mana cost for the state (additonal cost = duration*strategicValue).
-) {
-    BURNING("effect.state.burning", 3, 1.7f) {
+ // tactical damage is used for state priorities and possibly worth calculations of skills).
+enum class MWState (private val imageName: String, private val columns: Int, val tacticalDamage: Float,
+                    val color: Color) {
+    BURNING("effect.state.burning", 3, 1.7f, Color.RED) {
         override fun effect(s: IStateable, eff: Boolean) {
             s.damage(1.7f * if (eff) 2f else 1f, s.stateTrigger!!, MWDamageCause.STATEEFFECT)
         }
@@ -18,7 +20,7 @@ enum class MWState (private val imageName: String, private val columns: Int, val
         override fun start(s: IStateable) {}
     },
 
-    POISONED("effect.state.poisoned", 3, 2.5f) {
+    POISONED("effect.state.poisoned", 3, 2.5f, Color.GREEN) {
         override fun effect(s: IStateable, eff: Boolean) {
             s.damage(2.5f * if (eff) 2f else 1f, s.stateTrigger!!, MWDamageCause.STATEEFFECT)
         }
@@ -27,7 +29,7 @@ enum class MWState (private val imageName: String, private val columns: Int, val
         override fun start(s: IStateable) {}
     },
 
-    SLAGGED("effect.state.slagged", 3, 4f) {
+    SLAGGED("effect.state.slagged", 3, 4f, Color.PURPLE) {
         override fun effect(s: IStateable, eff: Boolean) {}
 
         override fun end(s: IStateable) {}
@@ -38,7 +40,7 @@ enum class MWState (private val imageName: String, private val columns: Int, val
     /**
      * While frozen entities are unable to walk / execute actions. They still can be moved by knockback and other external influences.
      */
-    FROZEN("effect.state.frozen", 1, 2f) {
+    FROZEN("effect.state.frozen", 1, 2f, Color.CYAN) {
         override fun effect(s: IStateable, eff: Boolean) {
             if (eff) {
                 s.damage(0.5f, s.stateTrigger!!, MWDamageCause.STATEEFFECT)

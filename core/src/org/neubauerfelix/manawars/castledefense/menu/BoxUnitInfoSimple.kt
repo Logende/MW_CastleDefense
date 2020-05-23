@@ -10,8 +10,9 @@ import org.neubauerfelix.manawars.manawars.data.actions.DataSkillMixLoaded
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.enums.MWArmorType
+import org.neubauerfelix.manawars.manawars.handlers.StringUtils
 
-class UnitInfoBoxSimple(x: Float, y: Float, width: Float, val unit: IDataUnit) : MComponentContainer(x, y) {
+class BoxUnitInfoSimple(x: Float, y: Float, width: Float, val unit: IDataUnit) : MComponentContainer(x, y) {
 
 
 
@@ -37,32 +38,46 @@ class UnitInfoBoxSimple(x: Float, y: Float, width: Float, val unit: IDataUnit) :
                 unit.health.toInt().toString()
         )
 
-        // TODO text formatting and translation
+        if (unit.armor != MWArmorType.NONE) {
+            keys.add("${lang.getMessage("stats_armor")}:")
+            val armor = unit.armor
+            val colorAsColorCode = StringUtils.colorAsColorCode(armor.color)
+            values.add(colorAsColorCode + lang.getMessage("armor_" +armor.name.toLowerCase()))
+        }
+
 
         val action = unit.action
         if (action is IDataSkill) {
             keys.add("${lang.getMessage("stats_damage")}:")
             values.add(action.damage.toInt().toString())
 
+            keys.add("${lang.getMessage("stats_skillclass")}:")
+            val skillclass = action.skillClass
+            val skillclassDisplayName = lang.getMessage("skillclass_${skillclass.name.toLowerCase()}")
+            val colorAsColorCode = StringUtils.colorAsColorCode(skillclass.color)
+            values.add(colorAsColorCode + skillclassDisplayName)
+
             val stateEffect = action.stateEffect
             if (stateEffect != null) {
                 keys.add("${lang.getMessage("stats_stateeffect")}:")
                 val effectDisplayName = lang.getMessage("stateeffect_${stateEffect.name.toLowerCase()}")
-                values.add("${action.stateEffectDuration}s $effectDisplayName")
+                val colorAsColorCode = StringUtils.colorAsColorCode(stateEffect.color)
+                values.add("${action.stateEffectDuration}s $colorAsColorCode$effectDisplayName")
             }
         } else if (action is DataSkillMixLoaded) {
             keys.add("${lang.getMessage("stats_damage")}:")
             val damage = action.parts.map { it.action.damage }.sum()
-            values.add(damage.toString())
+            values.add(damage.toInt().toString())
+
+            keys.add("${lang.getMessage("stats_skillclass")}:")
+            val skillclass = action.parts.first().action.skillClass
+            val skillclassDisplayName = lang.getMessage("skillclass_${skillclass.name.toLowerCase()}")
+            val colorAsColorCode = StringUtils.colorAsColorCode(skillclass.color)
+            values.add(colorAsColorCode + skillclassDisplayName)
         }
 
         keys.add("${lang.getMessage("stats_cooldown")}:")
         values.add(unit.actionCooldown.toString() + "s")
-
-        if (unit.armor != MWArmorType.NONE) {
-            keys.add("${lang.getMessage("stats_armor")}:")
-            values.add(lang.getMessage("armor_" + unit.armor.name.toLowerCase()))
-        }
 
         keys.add("${lang.getMessage("stats_cost")}:")
         values.add(unit.cost.toString() + " " + lang.transform("%currency%"))

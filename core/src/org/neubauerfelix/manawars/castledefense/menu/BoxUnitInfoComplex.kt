@@ -1,24 +1,19 @@
 package org.neubauerfelix.manawars.castledefense.menu
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion
-import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.game.GameConstants
-import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.*
-import org.neubauerfelix.manawars.manawars.data.actions.DataSkillMixLoaded
-import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.data.units.DataUnitDummy
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.MEntityImage
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerAction
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerDummy
-import org.neubauerfelix.manawars.manawars.enums.MWArmorType
 
-class UnitInfoBoxComplex(x: Float, y: Float, val previewBackground: TextureRegion, val unit: IDataUnit) : MComponentContainer(x, y) {
+class BoxUnitInfoComplex(x: Float, y: Float, val previewBackground: TextureRegion, val unit: IDataUnit) : MComponentContainer(x, y) {
 
 
     val background: IEntity
@@ -58,7 +53,7 @@ class UnitInfoBoxComplex(x: Float, y: Float, val previewBackground: TextureRegio
         dummy.goalX = dummy.centerHorizontal
 
         val tableX = GameConstants.SCREEN_WIDTH - boxBorder - boxWidth
-        val infoBoxSimple = UnitInfoBoxSimple(tableX, background.top + offsetY, boxWidth, unit)
+        val infoBoxSimple = BoxUnitInfoSimple(tableX, background.top + offsetY, boxWidth, unit)
         infoBoxSimple.centerVertical = background.centerVertical + offsetY
         addComponent(infoBoxSimple)
 

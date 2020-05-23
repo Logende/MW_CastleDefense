@@ -13,11 +13,11 @@ import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.MSkill
 import org.neubauerfelix.manawars.manawars.menu.MMenuScreen
 
-class CDInfoMenuUnit(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe) : MMenuScreen(game, true) {
+class CDMenuUnitInfo(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe) : MMenuScreen(game, true) {
 
 
     val previewBackground: MBackground
-    lateinit var unitBox: UnitInfoBoxComplex
+    lateinit var unitBox: BoxUnitInfoComplex
 
     init {
         val allBackgrounds = MManaWars.m.getBackgroundListHandler().backgrounds
@@ -47,7 +47,7 @@ class CDInfoMenuUnit(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
         addComponent(menuBackground)
 
         addTitle(unit.displayName)
-        unitBox = UnitInfoBoxComplex(0f, 0f, backgroundTextureSnippet, unit)
+        unitBox = BoxUnitInfoComplex(0f, 0f, backgroundTextureSnippet, unit)
         addComponent(unitBox)
 
 

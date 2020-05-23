@@ -12,7 +12,7 @@ import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.handlers.FontHandler
 
-class MainMenuControlsBox(x: Float, y: Float, width: Float, actionUp: Runnable, actionDown: Runnable) :
+class BoxMainMenuControls(x: Float, y: Float, width: Float, actionUp: Runnable, actionDown: Runnable) :
         MComponentContainer(x, y) {
 
 

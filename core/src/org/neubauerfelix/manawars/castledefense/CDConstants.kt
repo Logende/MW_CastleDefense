@@ -27,6 +27,7 @@ class CDConstants {
 
         const val UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS = false
         const val UI_MENU_MAIN_UNIT_SCALE = 1.5f
+        const val UI_MENU_EDIT_ARMY_ICON_SCALE = 1.5f
         const val UI_MENU_UNITINFO_BACKGROUND = "backgrounds/menu_unitinfo.png"
         const val UI_MENU_MAIN_BACKGROUND_TOP = "backgrounds/menu_main_top.png"
         const val UI_MENU_MAIN_BACKGROUND_BETWEEN = "backgrounds/menu_main_between.png"

@@ -21,6 +21,7 @@ tribe_skeleton_name: Skeletons
 tribe_skeleton_name_singular: Skeleton
 tribe_snowman_name: Snowmen
 tribe_snowman_name_singular: Snowman
+tribe_player_name: Your Army
 button_back: Back
 unittype_boss: Boss
 unittype_tank: Tank
@@ -37,5 +38,11 @@ stats_cooldown: Cooldown
 stats_stateeffect: Effect
 stats_armor: Armor
 stats_cost: Cost
+stats_skillclass: Skill Class
 armor_anti_light: Light
 armor_anti_magic: Magic
+menu_fight: Fight
+menu_edit_army: Edit
+skillclass_normal: Normal
+skillclass_light: Light
+skillclass_magic: Magic

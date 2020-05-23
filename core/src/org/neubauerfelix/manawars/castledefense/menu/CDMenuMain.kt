@@ -14,11 +14,11 @@ import org.neubauerfelix.manawars.manawars.menu.MMenuScreen
 import kotlin.math.abs
 import kotlin.math.min
 
-class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
+class CDMenuMain(game: AManaWars) : MMenuScreen(game) {
 
     val backgroundWood = MBackground("backgrounds/menu_wood.png", 0f, false, game.getAssetLoader())
     var currentTribeIndex = 0
-    lateinit var scrollPaper: MainMenuScrollPaperBox
+    lateinit var scrollPaper: BoxMainMenuScrollpaper
 
     var currentYGoal = 0f
     var speedY = 0f
@@ -42,13 +42,15 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
         val texturePaperTop = m.getAssetLoader().createTextureRegion("backgrounds/menu_paper_top.png") //TODO
         val texturePaperBetween = m.getAssetLoader().createTextureRegion("backgrounds/menu_paper.png")
         val paperWidth = texturePaperBetween.regionWidth.toFloat()
-        scrollPaper = MainMenuScrollPaperBox(100f, 0f, paperWidth, texturePaperTop, texturePaperBetween) {
-            actionFight(it)
-        }
+
+        val fightLamba = { tribe: IDataTribe -> actionFight(tribe) }
+        val editArmyLamba = { tribe: IDataTribe -> actionEditArmy(tribe) }
+        scrollPaper = BoxMainMenuScrollpaper(100f, 0f, paperWidth, texturePaperTop, texturePaperBetween,
+                fightLamba, editArmyLamba)
         addComponent(scrollPaper)
 
         val controlsWidth = GameConstants.SCREEN_WIDTH - scrollPaper.right
-        val controlsBox = MainMenuControlsBox(scrollPaper.right, 0f, controlsWidth,
+        val controlsBox = BoxMainMenuControls(scrollPaper.right, 0f, controlsWidth,
                 Runnable {
                     actionUp()
                 },
@@ -93,8 +95,14 @@ class CDMainMenu(game: AManaWars) : MMenuScreen(game) {
         val controllerPlayer= CDControllerType.HUMAN
         val controllerEnemy = CDControllerType.AGGRESSIVE
         val config = CDMatchConfiguration(controllerPlayer, controllerEnemy, tribePlayer, tribeEnemy)
-        val screen = CDScreen(getGame(), config)
-        getGame().startScreen(screen, false)
+        val screen = CDScreen(mw, config)
+        mw.startScreen(screen, false)
+    }
+
+    private fun actionEditArmy(tribePlayer: IDataTribe) {
+        val mw = CDManaWars.cd
+        val screen = CDMenuEditArmy(mw)
+        mw.startScreen(screen, false)
     }
 
     private fun updateCurrentYGoal() {

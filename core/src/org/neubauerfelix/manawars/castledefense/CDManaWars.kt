@@ -1,7 +1,7 @@
 package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.castledefense.handlers.*
-import org.neubauerfelix.manawars.castledefense.menu.CDMainMenu
+import org.neubauerfelix.manawars.castledefense.menu.CDMenuMain
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.tools.Evaluation
@@ -33,7 +33,7 @@ class CDManaWars : MManaWars() {
         if (GameConstants.EVALUATION_MODE) {
             Evaluation.startEvaluationScreen(this)
         } else {
-            startScreen(CDMainMenu(this), true)
+            startScreen(CDMenuMain(this), true)
         }
     }
 
