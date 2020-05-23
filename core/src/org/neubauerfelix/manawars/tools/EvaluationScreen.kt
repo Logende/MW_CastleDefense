@@ -15,7 +15,7 @@ import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
 import org.neubauerfelix.manawars.manawars.events.EntityHealEvent
 import java.util.*
 
-class EvaluationScreen(game: AManaWars, val config: IEvaluationConfig) :
+class EvaluationScreen(game: AManaWars, val config: IEvaluationConfig, val outputConfigPath: String) :
         GameScreenScreenTimed(game, true, true) {
 
     val matches: MutableList<CDMatchConfiguration> = ArrayList(config.matches)
@@ -82,7 +82,7 @@ class EvaluationScreen(game: AManaWars, val config: IEvaluationConfig) :
                 startMatch()
             } else {
                 println("Finished all matches. Exiting")
-                Evaluation.writeResults(results)
+                Evaluation.writeResults(results, outputConfigPath)
                 Gdx.app.exit()
             }
         }

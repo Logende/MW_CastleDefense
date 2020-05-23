@@ -1,7 +1,9 @@
 package org.neubauerfelix.manawars.castledefense.menu
 
+import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.components.CDComponentEntity
 import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
@@ -11,12 +13,12 @@ class BoxUnitsInfo(x: Float, y: Float, width: Float, val units: Iterable<IDataUn
 
     init {
         if (buttonView) {
-            val unitDiff = 5f
-            val availableWidth = width - unitDiff * (units.count() -1)
-            val buttonSize = availableWidth / units.count()
+            val unitWidth = CDConstants.UI_MENU_UNITINFO_ICON_SIZE * unitScale
+            val unitWidthSum = unitWidth * units.count()
+            val unitDiff = (width - unitWidthSum) / (units.count() - 1)
             var unitX = 0f
             for (unit in units) {
-                val component = CDComponentUnit(unitX, 0f, buttonSize, buttonSize, unit,
+                val component = CDComponentUnit(unitX, 0f, unitWidth, unitWidth, unit,
                         Runnable { unitRunnable.invoke(unit) })
                 addComponent(component)
                 unitX += component.width + unitDiff

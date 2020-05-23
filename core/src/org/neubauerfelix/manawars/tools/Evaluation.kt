@@ -9,22 +9,32 @@ class Evaluation {
 
     companion object {
 
-        const val CONFIG_NAME = "evaluation_config.yml"
-        const val RESULTS_NAME = "evaluation_results.yml"
         const val ADVANCED_EVALUATION = true
 
-        fun startEvaluationScreen(game: MManaWars) {
-            game.startScreen(EvaluationScreen(game, readConfig()), true)
+        fun startEvaluationScreen(game: MManaWars, args: Array<String>) {
+            val inputConfigPath = if (args.size >= 2) {
+                args[1]
+            } else {
+                "evaluation_config.yml"
+            }
+
+            val outputConfigPath = if (args.size >= 3) {
+                args[2]
+            } else {
+                "evaluation_results.yml"
+            }
+
+            game.startScreen(EvaluationScreen(game, readConfig(inputConfigPath), outputConfigPath), true)
         }
 
         // TODO: Read config instead from file
-        fun readConfig() : IEvaluationConfig {
+        fun readConfig(inputConfigPath: String) : IEvaluationConfig {
             val config = ConfigurationProvider.getProvider(YamlConfiguration::class.java).
-                    load(CONFIG_NAME, false)
+                    load(inputConfigPath, false)
             return EvaluationConfigLoaded(config)
         }
 
-        fun writeResults(results: Iterable<IEvaluationResult>) {
+        fun writeResults(results: Iterable<IEvaluationResult>, outputConfigPath: String) {
             val config = Configuration()
             var i = 0
             for (result in results) {
@@ -40,7 +50,7 @@ class Evaluation {
 
                 i++
             }
-            ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, RESULTS_NAME, false)
+            ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, outputConfigPath, false)
         }
     }
 }

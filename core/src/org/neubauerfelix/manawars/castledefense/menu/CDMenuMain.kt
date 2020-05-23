@@ -102,7 +102,7 @@ class CDMenuMain(game: AManaWars) : MMenuScreen(game) {
     private fun actionEditArmy(tribePlayer: IDataTribe) {
         val mw = CDManaWars.cd
         val screen = CDMenuEditArmy(mw)
-        mw.startScreen(screen, false)
+        mw.startScreen(screen, true)
     }
 
     private fun updateCurrentYGoal() {

@@ -9,12 +9,14 @@ import org.neubauerfelix.manawars.game.AManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.menu.MMenuScreen
+import org.neubauerfelix.manawars.manawars.menu.MMenuScreenScrollable
 import kotlin.math.abs
 import kotlin.math.min
 
-class CDMenuEditArmy(game: AManaWars) : MMenuScreen(game) {
+class CDMenuEditArmy(game: AManaWars) : MMenuScreenScrollable(game) {
 
     val backgroundWood = MBackground("backgrounds/menu_wood.png", 0f, false, game.getAssetLoader())
     var currentTribeIndex = 0
@@ -43,9 +45,25 @@ class CDMenuEditArmy(game: AManaWars) : MMenuScreen(game) {
         val texturePaperBetween = m.getAssetLoader().createTextureRegion("backgrounds/menu_paper.png")
         val paperWidth = texturePaperBetween.regionWidth.toFloat()
 
-        scrollPaper = BoxEditArmyMenuScrollpaper(100f, 0f, paperWidth, texturePaperTop, texturePaperBetween)
+        val editArmyAction = { unit: IDataUnit -> editArmyAction(unit) }
+        scrollPaper = BoxEditArmyMenuScrollpaper(100f, 0f, paperWidth, texturePaperTop, texturePaperBetween,
+                editArmyAction)
         addComponent(scrollPaper)
 
+
+        addActionButton("Back",  Runnable {
+            val screen = CDMenuMain(getGame())
+            getGame().startScreen(screen, true)
+        }, 0f, true)
+
+    }
+
+    fun editArmyAction(unit: IDataUnit) {
+        // TODO: Open unit comparison screen where unit can be changed or kept
+        val mw = CDManaWars.cd
+        val tribe = IDataTribe.findTribe(mw.getTribeHandler().listTribes(), unit)
+        val prof = mw.getProfileHandler().getProfile()
+        prof.tribe.replaceUnit(unit.unitType, tribe)
     }
 
 
@@ -55,11 +73,6 @@ class CDMenuEditArmy(game: AManaWars) : MMenuScreen(game) {
         backgroundWood.dispose()
     }
 
-    private fun updateCurrentYGoal() {
-        val tribeBox = scrollPaper.tribeInfoBoxes[currentTribeIndex]
-        currentYGoal = - tribeBox.centerVertical + GameConstants.SCREEN_HEIGHT / 2f
+    override fun movedCameraVertical(yDiff: Float) {
     }
-
-
-
 }

@@ -12,7 +12,8 @@ import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
 class BoxEditArmyMenuScrollpaper(x: Float, y: Float, width: Float,
-                                 texturePaperTop: TextureRegion, texturePaperBetween: TextureRegion) :
+                                 texturePaperTop: TextureRegion, texturePaperBetween: TextureRegion,
+                                 editArmyAction: (IDataUnit) -> Unit) :
         MComponentContainer(x, y) {
 
 
@@ -21,16 +22,15 @@ class BoxEditArmyMenuScrollpaper(x: Float, y: Float, width: Float,
     init {
         addBackgrounds(texturePaperTop, texturePaperBetween)
 
-        val boxWidth = 1000f
+        val boxWidth = 1400f
         val boxX = (width - boxWidth) / 2f
         var boxY = 200f
 
-        val unitRunnable = { unit: IDataUnit -> unit.name.forEach {  } }
         for (tribe in CDManaWars.cd.getTribeHandler().listTribes()) {
-            val box = BoxUnitsInfo(boxX, boxY, boxWidth, tribe.army.units, true, unitRunnable,-1f)
+            val box = BoxUnitsInfo(boxX, boxY, boxWidth, tribe.army.units, true, editArmyAction,1.0f)
             addComponent(box)
             tribeInfoBoxes.add(box)
-            boxY += box.height + MConstants.UI_DISTANCE_COLUMNS * 3
+            boxY += box.height + MConstants.UI_DISTANCE_COLUMNS * 1
         }
     }
 

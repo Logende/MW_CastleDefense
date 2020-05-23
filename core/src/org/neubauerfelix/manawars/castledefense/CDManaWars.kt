@@ -6,7 +6,7 @@ import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.tools.Evaluation
 
-class CDManaWars : MManaWars() {
+class CDManaWars(private val args: Array<String>) : MManaWars() {
 
     companion object {
         lateinit var cd: CDManaWars
@@ -31,7 +31,7 @@ class CDManaWars : MManaWars() {
         //startScreen(CDScreen(this), true)
          //startScreen(CDMainMenu(this), true)
         if (GameConstants.EVALUATION_MODE) {
-            Evaluation.startEvaluationScreen(this)
+            Evaluation.startEvaluationScreen(this, args)
         } else {
             startScreen(CDMenuMain(this), true)
         }
