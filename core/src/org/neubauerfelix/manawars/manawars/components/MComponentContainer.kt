@@ -65,6 +65,9 @@ open class MComponentContainer(x: Float, y: Float) : MComponent(x, y, 0f, 0f), I
     override fun unclickAction() {
     }
 
+    override fun intendedUserAction() {
+    }
+
     override fun addComponent(component: IComponent, above: Boolean) {
         if(above) {
             components.add(component)

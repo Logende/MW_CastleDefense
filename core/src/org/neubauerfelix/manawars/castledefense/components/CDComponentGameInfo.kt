@@ -30,11 +30,6 @@ class CDComponentGameInfo(x: Float, y: Float, val player: ICDPlayer) :
         super.draw(batcher, offsetX, offsetY)
     }
 
-    override fun clickAction() {
-    }
-
-    override fun unclickAction() {
-    }
 
 }
 

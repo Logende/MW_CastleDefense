@@ -41,8 +41,8 @@ class EvaluationScreen(game: AManaWars, val config: IEvaluationConfig, val outpu
         currentResult = if (Evaluation.ADVANCED_EVALUATION) EvaluationResultAdvanced() else EvaluationResult()
         currentResult.match = matchConfig
 
-        currentScreen = CDScreen(getGame(), matchConfig)
-        getGame().startScreen(currentScreen, false)
+        currentScreen = CDScreen(game, matchConfig)
+        game.startScreen(currentScreen, false)
 
         EvaluationEntity(config).spawn()
         if (this::currentResult.isInitialized) {

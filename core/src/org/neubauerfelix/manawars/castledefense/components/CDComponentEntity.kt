@@ -33,11 +33,13 @@ open class CDComponentEntity(x: Float, y: Float, width: Float, height: Float, va
     }
 
     override fun clickAction() {
-        runnable.run()
     }
 
     override fun unclickAction() {
     }
 
+    override fun intendedUserAction() {
+        runnable.run()
+    }
 }
 

@@ -20,13 +20,14 @@ public class MTextButtonSimple extends MTextButton {
 
 	@Override
 	public void clickAction() {
-		if(runnable != null){
-			runnable.run();
-		}
 	}
 
 	@Override
 	public void unclickAction() {
 	}
 
+	@Override
+	public void intendedUserAction() {
+		runnable.run();
+	}
 }

@@ -22,10 +22,13 @@ class CDComponentButtonImage(x: Float, y: Float, width: Float, height: Float, te
     }
 
     override fun clickAction() {
-        listener.run()
     }
 
     override fun unclickAction() {
+    }
+
+    override fun intendedUserAction() {
+        listener.run()
     }
 
 }

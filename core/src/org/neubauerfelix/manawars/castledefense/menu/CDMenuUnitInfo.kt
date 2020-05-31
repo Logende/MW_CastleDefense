@@ -40,7 +40,7 @@ class CDMenuUnitInfo(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
                 0,
                 CDConstants.UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_WIDTH, -CDConstants.UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_HEIGHT)
 
-        val g = getGame() as CDManaWars
+        val g = game as CDManaWars
 
         val menuBackground = MImage(0f, 0f, GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT,
                 g.getAssetLoader().createTextureRegion(CDConstants.UI_MENU_UNITINFO_BACKGROUND))
@@ -69,6 +69,6 @@ class CDMenuUnitInfo(game: AManaWars, val unit: IDataUnit, val tribe: IDataTribe
     }
 
     override fun disposeMenu() {
-        getGame().getCamera().window.y = 0f
+        game.getCamera().window.y = 0f
     }
 }

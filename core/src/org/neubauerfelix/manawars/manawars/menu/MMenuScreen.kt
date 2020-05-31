@@ -35,8 +35,8 @@ abstract class MMenuScreen(game: AManaWars, drawComponentsStatic: Boolean = fals
 
 
     fun closeScreen() {
-        require(this.getGame().screen == this)
-        getGame().stopScreen()
+        require(game.screen == this)
+        game.stopScreen()
     }
 
 

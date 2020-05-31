@@ -3,13 +3,13 @@ package org.neubauerfelix.manawars.castledefense.menu
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.CDManaWars
-import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
+import org.neubauerfelix.manawars.manawars.enums.MWUnitType
+import java.util.*
 
 class BoxEditArmyMenuScrollpaper(x: Float, y: Float, width: Float,
                                  texturePaperTop: TextureRegion, texturePaperBetween: TextureRegion,
@@ -26,12 +26,18 @@ class BoxEditArmyMenuScrollpaper(x: Float, y: Float, width: Float,
         val boxX = (width - boxWidth) / 2f
         var boxY = 200f
 
-        for (tribe in CDManaWars.cd.getTribeHandler().listTribes()) {
-            val box = BoxUnitsInfo(boxX, boxY, boxWidth, tribe.army.units, true, editArmyAction,1.0f)
-            addComponent(box)
-            tribeInfoBoxes.add(box)
-            boxY += box.height + MConstants.UI_DISTANCE_COLUMNS * 1
+
+        for (unitType in MWUnitType.values()) {
+            if (unitType.main) {
+
+                val box = BoxUnitTypeInfo(boxX, boxY, boxWidth, unitType, 1f, editArmyAction)
+                addComponent(box)
+                tribeInfoBoxes.add(box)
+                boxY += box.height + MConstants.UI_DISTANCE_COLUMNS * 6
+
+            }
         }
+
     }
 
 

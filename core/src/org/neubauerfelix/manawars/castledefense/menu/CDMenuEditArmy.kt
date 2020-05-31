@@ -1,20 +1,12 @@
 package org.neubauerfelix.manawars.castledefense.menu
 
-import org.neubauerfelix.manawars.castledefense.CDControllerType
 import org.neubauerfelix.manawars.castledefense.CDManaWars
-import org.neubauerfelix.manawars.castledefense.CDMatchConfiguration
-import org.neubauerfelix.manawars.castledefense.CDScreen
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
 import org.neubauerfelix.manawars.game.AManaWars
-import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MBackground
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
-import org.neubauerfelix.manawars.manawars.handlers.MathUtils
-import org.neubauerfelix.manawars.manawars.menu.MMenuScreen
 import org.neubauerfelix.manawars.manawars.menu.MMenuScreenScrollable
-import kotlin.math.abs
-import kotlin.math.min
 
 class CDMenuEditArmy(game: AManaWars) : MMenuScreenScrollable(game) {
 
@@ -52,8 +44,8 @@ class CDMenuEditArmy(game: AManaWars) : MMenuScreenScrollable(game) {
 
 
         addActionButton("Back",  Runnable {
-            val screen = CDMenuMain(getGame())
-            getGame().startScreen(screen, true)
+            val screen = CDMenuMain(game)
+            game.startScreen(screen, true)
         }, 0f, true)
 
     }

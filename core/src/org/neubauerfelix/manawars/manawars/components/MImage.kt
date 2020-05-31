@@ -9,9 +9,15 @@ open class MImage : MButton {
     constructor(x: Float, y: Float, width: Float, height: Float, texture: TextureRegion) : super(x, y, width, height, texture)
 
 
-    override fun clickAction() {}
+    override fun clickAction() {
+    }
 
-    override fun unclickAction() {}
+
+    override fun unclickAction() {
+    }
+
+    override fun intendedUserAction() {
+    }
 
 
     override fun touch(x: Float, y: Float, pointerId: Int): Boolean {

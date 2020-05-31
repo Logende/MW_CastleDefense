@@ -19,5 +19,7 @@ class CDComponentBackground(x: Float, y: Float, width: Float, height: Float, val
     override fun unclickAction() {
     }
 
+    override fun intendedUserAction() {
+    }
 }
 

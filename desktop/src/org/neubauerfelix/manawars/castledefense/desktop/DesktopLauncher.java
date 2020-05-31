@@ -9,7 +9,6 @@ import org.neubauerfelix.manawars.tools.Evaluation;
 public class DesktopLauncher {
 	public static void main (String[] args) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		System.out.println("args: " + args);
 		new LwjglApplication(new CDManaWars(args), config);
 	}
 }

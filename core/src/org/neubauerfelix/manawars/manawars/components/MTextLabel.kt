@@ -12,7 +12,11 @@ class MTextLabel : MTextButton {
 
     override fun clickAction() {}
 
-    override fun unclickAction() {}
+    override fun unclickAction() {
+    }
+
+    override fun intendedUserAction() {
+    }
 
 
     override fun draw(batcher: Batch, offsetX: Float, offsetY: Float) {

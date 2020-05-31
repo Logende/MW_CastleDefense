@@ -10,10 +10,9 @@ import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityTextStackable
 
-open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStatic: Boolean,
-                               private val drawComponentsStatic: Boolean): IScreen, InputProcessor {
+abstract class GameScreen(override val game: AManaWars, private val drawBackgroundsStatic: Boolean,
+                          private val drawComponentsStatic: Boolean): IScreen, InputProcessor {
 
-    private val game: AManaWars = game
 
     override var remove = false
 
@@ -180,10 +179,6 @@ open abstract class GameScreen(game: AManaWars, private val drawBackgroundsStati
         game.getCamera().resize(width, height)
     }
 
-
-    override fun getGame(): AManaWars{
-        return game
-    }
 
     override fun getState(): ScreenState {
         return state

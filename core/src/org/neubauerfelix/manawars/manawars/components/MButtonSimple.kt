@@ -7,6 +7,9 @@ class MButtonSimple(x: Float, y: Float, width: Float, height: Float, texture: Te
         MButton(x, y, width, height, texture, texturePressed) {
 
     override fun clickAction() {
+    }
+
+    override fun intendedUserAction() {
         action.run()
     }
 

@@ -68,6 +68,9 @@ public abstract class MComponent extends GameComponent {
 	@Override
 	public boolean release(float x, float y, int pointerId){
 		if(pointerId == this.pointerId){
+			if (pressed && isInside(x, y)) {
+				intendedUserAction();
+			}
 			unclick();
 			this.pointerId=-1;
 			return true;
@@ -86,6 +89,9 @@ public abstract class MComponent extends GameComponent {
 
 	@Deprecated
 	public abstract void unclickAction();
+
+	@Deprecated
+	public abstract void intendedUserAction();
 
 
 

@@ -6,7 +6,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 
 interface IScreen: IDisposable, ILoadable, Screen {
 
-    fun getGame(): AManaWars
+    val game: AManaWars
     fun getState(): ScreenState
     fun getInputProcessor(): InputProcessor
 

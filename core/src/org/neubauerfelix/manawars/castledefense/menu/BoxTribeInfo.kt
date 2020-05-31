@@ -24,8 +24,7 @@ class BoxTribeInfo(x: Float, y: Float, width: Float, val tribe: IDataTribe, unit
         }
 
         val unitBoxY = title.bottom + MConstants.UI_DISTANCE_COLUMNS * 3
-        val unitsInfoBox = BoxUnitsInfo(0f, unitBoxY, width, tribe.army.units,
-                CDConstants.UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS, unitRunnable, unitsScale)
+        val unitsInfoBox = BoxUnitsInfoNatural(0f, unitBoxY, width, tribe.army.units, unitRunnable, unitsScale)
         addComponent(unitsInfoBox)
 
         val buttonY = unitsInfoBox.bottom + MConstants.UI_DISTANCE_COLUMNS * 3f

@@ -24,7 +24,7 @@ class BoxMainMenuScrollpaper(x: Float, y: Float, width: Float,
         addBackgrounds(texturePaperTop, texturePaperBetween)
 
 
-        val boxWidth = if (CDConstants.UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS) 1000f else 1000f
+        val boxWidth = 1000f
         val boxX = (width - boxWidth) / 2f
         var boxY = 200f
 
