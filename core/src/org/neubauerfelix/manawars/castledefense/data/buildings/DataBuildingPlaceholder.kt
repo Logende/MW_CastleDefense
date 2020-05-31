@@ -18,7 +18,7 @@ class DataBuildingPlaceholder(textureName: String, override val name: String) :
             EntityAnimationProducerBuilding(textureName, textureName,
                     null, 0f)
 
-    override fun produce(centreHor: Float, bottom: Float, team: Int, direction: Int): ILiving {
+    override fun produce(centreHor: Float, bottom: Float, team: Int, direction: Int, spawnPlaceholderOnDeath: Boolean): ILiving {
         val e =  CDEntityBuildingPlaceholder(this)
         e.centerHorizontal = centreHor
         e.bottom = bottom

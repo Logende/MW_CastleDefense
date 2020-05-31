@@ -7,12 +7,19 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.handlers.MathUtils
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
+class DataPlaygroundBuilding(
+        val name: String,
+        val xCentre: Float,
+        val leftSide: Boolean
+)
+
 
 class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
     override val name: String = config.getString("name")
     override val backgroundCount: Int = config.getInt("background_count")
 
-    private val buildingPlaceholdersX = ArrayList<Float>()
+    private val buildingPlaceholdersX = arrayListOf<Float>()
+    private val buildings = arrayListOf<DataPlaygroundBuilding>()
 
     init {
         val buildingPlaceholderDefinitions = config.getStringList("building_placeholders")
@@ -21,12 +28,36 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
                     (backgroundCount * GameConstants.BACKGROUND_WIDTH).toDouble())
             buildingPlaceholdersX.add(x.toFloat())
         }
+
+        val buildingsDefinitions = config.getStringList("buildings")
+        for (buildingDefinition in buildingsDefinitions) {
+            val parts = buildingDefinition.split(":")
+            val buildingName = parts[0]
+            val x = MathUtils.calc(parts[1], "playground_width",
+                    (backgroundCount * GameConstants.BACKGROUND_WIDTH).toDouble())
+            val leftSide = when (parts[2]) {
+                "left" -> true
+                "right" -> false
+                else -> error("Unknown side in building definition: ${parts[2]}. Expected left or right.")
+            }
+            buildings.add(DataPlaygroundBuilding(buildingName, x.toFloat(), leftSide))
+        }
+
     }
 
     override fun createPlayground(playerA: ICDPlayer, playerB: ICDPlayer) {
+        val buildingHandler = CDManaWars.cd.getBuildingListHandler()
         for (buildingPlaceholderX in buildingPlaceholdersX) {
-            CDManaWars.cd.getBuildingListHandler().buildingPlaceholder.
-                    produce(buildingPlaceholderX, team = MConstants.TEAM_PEACEFUL, direction = 1)
+            buildingHandler.buildingPlaceholder.
+                    produce(buildingPlaceholderX, team = MConstants.TEAM_PEACEFUL, direction = 1,
+                            spawnPlaceholderOnDeath = true)
+        }
+        for (building in buildings) {
+            val direction = if (building.leftSide) 1 else -1
+            val team = if (building.leftSide) MConstants.TEAM_PLAYER else MConstants.TEAM_BOT
+            (buildingHandler.buildings[building.name]
+                    ?: error("Unknown building in playground definition: ${building.name}")).
+                    produce(building.xCentre, team = team, direction = direction, spawnPlaceholderOnDeath = false)
         }
     }
 

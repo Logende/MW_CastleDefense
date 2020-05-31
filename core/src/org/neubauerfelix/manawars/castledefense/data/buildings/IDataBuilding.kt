@@ -11,7 +11,8 @@ interface IDataBuilding : IDataPresentable, IDataCoreEntity {
 
 
     // produces and spawns the entity
-    fun produce(centreHor: Float, bottom: Float = GameConstants.WORLD_HEIGHT_UNITS, team: Int, direction: Int): ILiving
+    fun produce(centreHor: Float, bottom: Float = GameConstants.WORLD_HEIGHT_UNITS, team: Int, direction: Int,
+                spawnPlaceholderOnDeath: Boolean): ILiving
     fun produceBuilder(centreHor: Float, bottom: Float = GameConstants.WORLD_HEIGHT_UNITS, player: ICDPlayer): ILiving
 
     val health: Float

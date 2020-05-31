@@ -8,7 +8,8 @@ class CDEntityBuildingPlaceholder(val data: IDataBuilding) :
 
     fun build(building: IDataBuilding, team: Int, direction: Int) {
         this.remove = true
-        building.produce(this.centerHorizontal, this.bottom, team, direction = direction)
+        building.produce(this.centerHorizontal, this.bottom, team, direction = direction,
+                spawnPlaceholderOnDeath = true)
     }
 
 

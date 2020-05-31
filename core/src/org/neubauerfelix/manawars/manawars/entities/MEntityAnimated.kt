@@ -39,7 +39,7 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
         super.doLogic(delta)
         this.animation.doLogic(delta)
         if(needsAnimationUpdate){
-            animation.updateAnimation(null)
+            animation.updateAnimation(this)
             needsAnimationUpdate = false
         }
     }

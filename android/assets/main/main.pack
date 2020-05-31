@@ -619,1127 +619,1134 @@ filter: Nearest,Nearest
 repeat: none
 building.castle.normal.3
   rotate: false
-  xy: 1, 1550
+  xy: 1, 1571
   size: 509, 470
   orig: 509, 470
   offset: 0, 0
   index: -1
 pet.dragon.small.gold
   rotate: false
-  xy: 1, 1439
+  xy: 1, 1460
   size: 406, 109
   orig: 406, 109
   offset: 0, 0
   index: -1
 pet.dragon.small.green
   rotate: false
-  xy: 512, 1911
+  xy: 512, 1932
   size: 406, 109
   orig: 406, 109
   offset: 0, 0
   index: -1
 pet.dragon.small.purple
   rotate: false
-  xy: 1, 1328
+  xy: 1, 1349
   size: 406, 109
   orig: 406, 109
   offset: 0, 0
   index: -1
 pet.dragon.small.red
   rotate: false
-  xy: 512, 1800
+  xy: 512, 1821
   size: 406, 109
   orig: 406, 109
   offset: 0, 0
   index: -1
 effect.state.burning
   rotate: false
-  xy: 920, 1840
+  xy: 920, 1861
   size: 300, 180
   orig: 300, 180
   offset: 0, 0
   index: -1
 effect.state.poisoned
   rotate: false
-  xy: 1, 1146
+  xy: 1, 1167
   size: 300, 180
   orig: 300, 180
   offset: 0, 0
   index: -1
 effect.state.slagged
   rotate: false
-  xy: 512, 1618
+  xy: 512, 1639
   size: 300, 180
   orig: 300, 180
   offset: 0, 0
   index: -1
 consumable.cage.damaged
   rotate: false
-  xy: 1, 913
+  xy: 1, 934
   size: 207, 231
   orig: 207, 231
   offset: 0, 0
   index: -1
 consumable.cage
   rotate: false
-  xy: 1, 680
+  xy: 1, 701
   size: 207, 231
   orig: 207, 231
   offset: 0, 0
   index: -1
+building.barrier.a
+  rotate: false
+  xy: 1, 508
+  size: 188, 191
+  orig: 188, 191
+  offset: 0, 0
+  index: -1
 mount.skin.tiger
   rotate: false
-  xy: 1222, 1862
+  xy: 1222, 1883
   size: 176, 158
   orig: 176, 158
   offset: 0, 0
   index: -1
 mount.skin.tortoise
   rotate: false
-  xy: 1, 520
+  xy: 1, 348
   size: 176, 158
   orig: 176, 158
   offset: 0, 0
   index: -1
 mount.skin.whitetiger
   rotate: false
-  xy: 1400, 1862
+  xy: 1400, 1883
   size: 176, 158
   orig: 176, 158
   offset: 0, 0
   index: -1
 mount.skin.wolf.armor
   rotate: false
-  xy: 1, 360
+  xy: 1, 188
   size: 176, 158
   orig: 176, 158
   offset: 0, 0
   index: -1
 mount.skin.wolf
   rotate: false
-  xy: 1578, 1862
+  xy: 1578, 1883
   size: 176, 158
   orig: 176, 158
   offset: 0, 0
   index: -1
 char.bow.red
   rotate: false
-  xy: 1756, 1921
+  xy: 1756, 1942
   size: 234, 99
   orig: 234, 99
   offset: 0, 0
   index: -1
 building.firethrower
   rotate: false
-  xy: 1, 231
+  xy: 1, 59
   size: 192, 127
   orig: 192, 127
   offset: 0, 0
   index: -1
-building.icethrower
-  rotate: false
-  xy: 1, 102
-  size: 190, 127
-  orig: 190, 127
-  offset: 0, 0
-  index: -1
 char.bow.wild
   rotate: false
-  xy: 512, 1517
+  xy: 512, 1538
   size: 234, 99
   orig: 234, 99
   offset: 0, 0
   index: -1
 char.crossbow.dark.double
   rotate: false
-  xy: 1756, 1820
-  size: 234, 99
-  orig: 234, 99
-  offset: 0, 0
-  index: -1
-char.crossbow.dark
-  rotate: false
-  xy: 1, 1
+  xy: 1756, 1841
   size: 234, 99
   orig: 234, 99
   offset: 0, 0
   index: -1
 char.skin.l1.aquarion.3
   rotate: false
-  xy: 303, 1146
+  xy: 303, 1167
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
+building.icethrower
+  rotate: false
+  xy: 210, 1038
+  size: 190, 127
+  orig: 190, 127
+  offset: 0, 0
+  index: -1
+char.crossbow.dark
+  rotate: false
+  xy: 210, 937
+  size: 234, 99
+  orig: 234, 99
+  offset: 0, 0
+  index: -1
 char.crossbow.dark.strong
   rotate: false
-  xy: 210, 1045
+  xy: 210, 836
   size: 234, 99
   orig: 234, 99
   offset: 0, 0
   index: -1
 char.crossbow.elite.double
   rotate: false
-  xy: 210, 944
-  size: 234, 99
-  orig: 234, 99
-  offset: 0, 0
-  index: -1
-char.crossbow.elite
-  rotate: false
-  xy: 210, 843
-  size: 234, 99
-  orig: 234, 99
-  offset: 0, 0
-  index: -1
-char.crossbow.simple
-  rotate: false
-  xy: 210, 742
-  size: 234, 99
-  orig: 234, 99
-  offset: 0, 0
-  index: -1
-char.crossbow.skull
-  rotate: false
-  xy: 210, 641
+  xy: 210, 735
   size: 234, 99
   orig: 234, 99
   offset: 0, 0
   index: -1
 char.skin.l1.bear.boss
   rotate: false
-  xy: 814, 1618
+  xy: 814, 1639
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.bear.mage
   rotate: false
-  xy: 409, 1368
+  xy: 409, 1389
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
+char.crossbow.elite
+  rotate: false
+  xy: 511, 1437
+  size: 234, 99
+  orig: 234, 99
+  offset: 0, 0
+  index: -1
+char.crossbow.simple
+  rotate: false
+  xy: 511, 1336
+  size: 234, 99
+  orig: 234, 99
+  offset: 0, 0
+  index: -1
+char.crossbow.skull
+  rotate: false
+  xy: 920, 1760
+  size: 234, 99
+  orig: 234, 99
+  offset: 0, 0
+  index: -1
 building.cannon
   rotate: false
-  xy: 511, 1401
+  xy: 916, 1644
   size: 160, 114
   orig: 160, 114
   offset: 0, 0
   index: -1
 char.skin.l1.bear.melee
   rotate: false
-  xy: 179, 459
+  xy: 748, 1457
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.bear.ranged
   rotate: false
-  xy: 281, 459
+  xy: 850, 1457
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.bear.tank
   rotate: false
-  xy: 383, 459
+  xy: 952, 1462
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.frost.boss
   rotate: false
-  xy: 405, 1146
+  xy: 747, 1275
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.frost.mage
   rotate: false
-  xy: 446, 964
+  xy: 849, 1275
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.frost.melee
   rotate: false
-  xy: 446, 782
+  xy: 1054, 1462
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
-pet.dragon.small.gold.preview
-  rotate: false
-  xy: 446, 680
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
 char.skin.l1.frost.ranged
   rotate: false
-  xy: 485, 498
+  xy: 191, 519
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.frost.tank
   rotate: false
-  xy: 748, 1436
+  xy: 293, 553
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.goblin.boss
   rotate: false
-  xy: 850, 1436
+  xy: 395, 553
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.goblin.mage
   rotate: false
-  xy: 916, 1618
+  xy: 409, 1207
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.goblin.melee
   rotate: false
-  xy: 952, 1436
+  xy: 511, 1154
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.goblin.ranged
   rotate: false
-  xy: 1018, 1658
+  xy: 613, 1154
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.goblin.tank
   rotate: false
-  xy: 1120, 1658
+  xy: 179, 326
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
+pet.dragon.small.gold.preview
+  rotate: false
+  xy: 179, 224
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
 char.skin.l1.human.boss.2
   rotate: false
-  xy: 1222, 1680
+  xy: 195, 42
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.human.boss
   rotate: false
-  xy: 1324, 1680
+  xy: 715, 1093
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.human.mage
   rotate: false
-  xy: 1426, 1680
+  xy: 817, 1093
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.human.melee
   rotate: false
-  xy: 1528, 1680
+  xy: 919, 1093
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.human.ranged
   rotate: false
-  xy: 1630, 1680
+  xy: 951, 1275
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.human.tank
   rotate: false
-  xy: 1054, 1476
+  xy: 1053, 1280
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.lizard.boss
   rotate: false
-  xy: 1156, 1476
+  xy: 1021, 1093
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.lizard.mage
   rotate: false
-  xy: 1258, 1498
+  xy: 1123, 1098
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.lizard.melee
   rotate: false
-  xy: 1360, 1498
+  xy: 1155, 1280
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.lizard.ranged
   rotate: false
-  xy: 1462, 1498
+  xy: 1225, 1098
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.lizard.tank
   rotate: false
-  xy: 1564, 1498
+  xy: 281, 337
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l1.skeleton.boss
   rotate: false
-  xy: 1666, 1498
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.skeleton.mage
-  rotate: false
-  xy: 195, 277
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.skeleton.melee
-  rotate: false
-  xy: 297, 277
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.skeleton.ranged
-  rotate: false
-  xy: 399, 277
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.skeleton.tank
-  rotate: false
-  xy: 501, 316
+  xy: 383, 371
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 pet.dragon.small.green.preview
   rotate: false
-  xy: 1732, 1718
+  xy: 281, 235
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-char.skin.l1.snowman.boss
+char.skin.l1.skeleton.mage
   rotate: false
-  xy: 1768, 1536
+  xy: 297, 53
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 pet.dragon.small.purple.preview
   rotate: false
-  xy: 1834, 1718
+  xy: 383, 269
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-char.skin.l1.snowman.mage
+char.skin.l1.skeleton.melee
   rotate: false
-  xy: 1870, 1536
+  xy: 399, 87
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.skeleton.ranged
+  rotate: false
+  xy: 485, 371
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 pet.dragon.small.red.preview
   rotate: false
-  xy: 1936, 1718
+  xy: 485, 269
   size: 100, 100
   orig: 100, 100
+  offset: 0, 0
+  index: -1
+char.skin.l1.skeleton.tank
+  rotate: false
+  xy: 501, 87
+  size: 100, 180
+  orig: 100, 180
   offset: 0, 0
   index: -1
 pet.griffin.small.black.preview
   rotate: false
-  xy: 195, 175
+  xy: 1078, 1658
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
+char.skin.l1.snowman.boss
+  rotate: false
+  xy: 1156, 1476
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.snowman.mage
+  rotate: false
+  xy: 1257, 1294
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
 char.skin.l1.snowman.melee
   rotate: false
-  xy: 297, 95
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.snowman.ranged
-  rotate: false
-  xy: 399, 95
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.snowman.tank
-  rotate: false
-  xy: 501, 134
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.villager.boss
-  rotate: false
-  xy: 507, 1186
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.villager.mage
-  rotate: false
-  xy: 609, 1219
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.villager.melee
-  rotate: false
-  xy: 711, 1254
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.villager.ranged
-  rotate: false
-  xy: 813, 1254
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.villager.tank
-  rotate: false
-  xy: 915, 1254
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.zombie.boss
-  rotate: false
-  xy: 1017, 1254
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.zombie.mage
-  rotate: false
-  xy: 1119, 1294
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.zombie.melee
-  rotate: false
-  xy: 1221, 1294
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.zombie.ranged
-  rotate: false
-  xy: 1323, 1316
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l1.zombie.tank
-  rotate: false
-  xy: 1425, 1316
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.brute.boss.2
-  rotate: false
-  xy: 1527, 1316
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.brute.boss
-  rotate: false
-  xy: 1629, 1316
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.brute.mage
-  rotate: false
-  xy: 1731, 1316
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.brute.melee
-  rotate: false
-  xy: 1833, 1354
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.brute.ranged
-  rotate: false
-  xy: 1935, 1354
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.brute.tank
-  rotate: false
-  xy: 548, 1004
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.creature.boss
-  rotate: false
-  xy: 548, 822
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.creature.mage
-  rotate: false
-  xy: 650, 1037
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.creature.melee
-  rotate: false
-  xy: 650, 855
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.creature.ranged
-  rotate: false
-  xy: 752, 1072
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.creature.tank
-  rotate: false
-  xy: 752, 890
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.dwarf.boss
-  rotate: false
-  xy: 854, 1072
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.dwarf.mage
-  rotate: false
-  xy: 854, 890
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.dwarf.melee
-  rotate: false
-  xy: 956, 1072
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.dwarf.ranged
-  rotate: false
-  xy: 956, 890
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.dwarf.tank
-  rotate: false
-  xy: 1058, 1072
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.egypt.boss
-  rotate: false
-  xy: 1058, 890
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.egypt.mage
-  rotate: false
-  xy: 1160, 1112
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.egypt.melee
-  rotate: false
-  xy: 1160, 930
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.egypt.ranged
-  rotate: false
-  xy: 1262, 1112
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.egypt.tank
-  rotate: false
-  xy: 1262, 930
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.goblin.boss
-  rotate: false
-  xy: 1364, 1134
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.goblin.mage
-  rotate: false
-  xy: 1364, 952
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.goblin.melee
-  rotate: false
-  xy: 1466, 1134
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.goblin.ranged
-  rotate: false
-  xy: 1466, 952
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.goblin.tank
-  rotate: false
-  xy: 1568, 1134
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.human.mage
-  rotate: false
-  xy: 1568, 952
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.human.melee
-  rotate: false
-  xy: 1670, 1134
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.human.ranged
-  rotate: false
-  xy: 1670, 952
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.human.tank
-  rotate: false
-  xy: 1772, 1134
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.ork.boss
-  rotate: false
-  xy: 1772, 952
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.ork.mage
-  rotate: false
-  xy: 1874, 1172
-  size: 100, 180
-  orig: 100, 180
-  offset: 0, 0
-  index: -1
-char.skin.l2.ork.melee
-  rotate: false
-  xy: 1874, 990
+  xy: 1327, 1112
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 pet.griffin.small.brown.preview
   rotate: false
-  xy: 548, 720
+  xy: 405, 1105
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
+char.skin.l1.snowman.ranged
+  rotate: false
+  xy: 446, 923
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.snowman.tank
+  rotate: false
+  xy: 446, 741
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.villager.boss
+  rotate: false
+  xy: 548, 972
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.villager.mage
+  rotate: false
+  xy: 548, 790
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.villager.melee
+  rotate: false
+  xy: 497, 559
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.villager.ranged
+  rotate: false
+  xy: 650, 911
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.villager.tank
+  rotate: false
+  xy: 752, 911
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.zombie.boss
+  rotate: false
+  xy: 854, 911
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.zombie.mage
+  rotate: false
+  xy: 956, 911
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.zombie.melee
+  rotate: false
+  xy: 1058, 911
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.zombie.ranged
+  rotate: false
+  xy: 1160, 916
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l1.zombie.tank
+  rotate: false
+  xy: 1262, 916
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.brute.boss.2
+  rotate: false
+  xy: 1364, 930
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.brute.boss
+  rotate: false
+  xy: 650, 729
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.brute.mage
+  rotate: false
+  xy: 752, 729
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.brute.melee
+  rotate: false
+  xy: 854, 729
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.brute.ranged
+  rotate: false
+  xy: 956, 729
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.brute.tank
+  rotate: false
+  xy: 1058, 729
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.creature.boss
+  rotate: false
+  xy: 1160, 734
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.creature.mage
+  rotate: false
+  xy: 1262, 734
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.creature.melee
+  rotate: false
+  xy: 1364, 748
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.creature.ranged
+  rotate: false
+  xy: 599, 547
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.creature.tank
+  rotate: false
+  xy: 701, 547
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.dwarf.boss
+  rotate: false
+  xy: 803, 547
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.dwarf.mage
+  rotate: false
+  xy: 905, 547
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.dwarf.melee
+  rotate: false
+  xy: 1007, 547
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.dwarf.ranged
+  rotate: false
+  xy: 587, 365
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.dwarf.tank
+  rotate: false
+  xy: 689, 365
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.egypt.boss
+  rotate: false
+  xy: 791, 365
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.egypt.mage
+  rotate: false
+  xy: 893, 365
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.egypt.melee
+  rotate: false
+  xy: 995, 365
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.egypt.ranged
+  rotate: false
+  xy: 1109, 547
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.egypt.tank
+  rotate: false
+  xy: 1097, 365
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.goblin.boss
+  rotate: false
+  xy: 1211, 552
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.goblin.mage
+  rotate: false
+  xy: 1313, 552
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.goblin.melee
+  rotate: false
+  xy: 1415, 566
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.goblin.ranged
+  rotate: false
+  xy: 1199, 365
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.goblin.tank
+  rotate: false
+  xy: 1301, 370
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.human.mage
+  rotate: false
+  xy: 1403, 370
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.human.melee
+  rotate: false
+  xy: 603, 183
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.human.ranged
+  rotate: false
+  xy: 705, 183
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.human.tank
+  rotate: false
+  xy: 807, 183
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.ork.boss
+  rotate: false
+  xy: 909, 183
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.ork.mage
+  rotate: false
+  xy: 1011, 183
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
+char.skin.l2.ork.melee
+  rotate: false
+  xy: 1113, 183
+  size: 100, 180
+  orig: 100, 180
+  offset: 0, 0
+  index: -1
 char.skin.l2.ork.ranged
   rotate: false
-  xy: 650, 673
+  xy: 1215, 183
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.ork.tank
   rotate: false
-  xy: 752, 708
+  xy: 1317, 188
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.panda.boss
   rotate: false
-  xy: 854, 708
+  xy: 1419, 188
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.panda.mage
   rotate: false
-  xy: 956, 708
+  xy: 603, 1
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.panda.melee
   rotate: false
-  xy: 1058, 708
+  xy: 705, 1
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.panda.ranged
   rotate: false
-  xy: 1160, 748
+  xy: 807, 1
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.panda.tank
   rotate: false
-  xy: 1262, 748
+  xy: 909, 1
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.pirate.boss
   rotate: false
-  xy: 1364, 770
+  xy: 1011, 1
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.pirate.mage
   rotate: false
-  xy: 1466, 770
+  xy: 1113, 1
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.pirate.melee
   rotate: false
-  xy: 1568, 770
+  xy: 1215, 1
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.pirate.ranged
   rotate: false
-  xy: 1670, 770
+  xy: 1317, 6
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l2.pirate.tank
   rotate: false
-  xy: 1772, 770
+  xy: 1419, 6
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.human.boss
   rotate: false
-  xy: 1874, 808
+  xy: 1505, 384
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.human.mage
   rotate: false
-  xy: 1160, 566
+  xy: 1521, 202
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.human.melee
   rotate: false
-  xy: 1262, 566
+  xy: 1521, 20
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.human.ranged
   rotate: false
-  xy: 1364, 588
+  xy: 1222, 1701
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.human.tank
   rotate: false
-  xy: 1466, 588
+  xy: 1324, 1701
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.magma.boss
   rotate: false
-  xy: 1568, 588
+  xy: 1426, 1701
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.magma.mage
   rotate: false
-  xy: 1670, 588
+  xy: 1528, 1701
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.magma.melee
   rotate: false
-  xy: 1772, 588
+  xy: 1630, 1701
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.magma.ranged
   rotate: false
-  xy: 1874, 626
+  xy: 1258, 1519
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
-pet.spikedragon.big.flame.preview
-  rotate: false
-  xy: 501, 32
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
-pet.spikedragon.big.frost.preview
-  rotate: false
-  xy: 587, 571
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
 char.skin.l3.magma.tank
   rotate: false
-  xy: 603, 389
+  xy: 1360, 1519
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.netherlord.boss
   rotate: false
-  xy: 603, 207
+  xy: 1462, 1519
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.netherlord.mage
   rotate: false
-  xy: 603, 25
+  xy: 1564, 1519
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.netherlord.melee
   rotate: false
-  xy: 705, 384
+  xy: 1666, 1519
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.netherlord.ranged
   rotate: false
-  xy: 705, 202
+  xy: 1359, 1337
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.netherlord.tank
   rotate: false
-  xy: 705, 20
+  xy: 1461, 1337
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.samurai.boss
   rotate: false
-  xy: 807, 384
+  xy: 1563, 1337
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.samurai.mage
   rotate: false
-  xy: 807, 202
+  xy: 1665, 1337
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.samurai.melee
   rotate: false
-  xy: 807, 20
+  xy: 1429, 1155
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.samurai.ranged
   rotate: false
-  xy: 909, 384
+  xy: 1531, 1155
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.samurai.tank
   rotate: false
-  xy: 909, 202
+  xy: 1633, 1155
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.saracene.boss
   rotate: false
-  xy: 909, 20
+  xy: 1466, 973
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.saracene.mage
   rotate: false
-  xy: 1011, 384
+  xy: 1466, 791
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.saracene.melee
   rotate: false
-  xy: 1011, 202
+  xy: 1568, 973
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.saracene.ranged
   rotate: false
-  xy: 1011, 20
+  xy: 1568, 791
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.saracene.tank
   rotate: false
-  xy: 1113, 384
+  xy: 1670, 973
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.shadow.boss
   rotate: false
-  xy: 1113, 202
+  xy: 1670, 791
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.shadow.mage
   rotate: false
-  xy: 1215, 384
+  xy: 1735, 1155
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.shadow.melee
   rotate: false
-  xy: 1113, 20
+  xy: 1767, 1337
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.shadow.ranged
   rotate: false
-  xy: 1215, 202
+  xy: 1772, 973
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
 char.skin.l3.shadow.tank
   rotate: false
-  xy: 1215, 20
+  xy: 1772, 791
   size: 100, 180
   orig: 100, 180
   offset: 0, 0
   index: -1
+pet.spikedragon.big.flame.preview
+  rotate: false
+  xy: 1732, 1739
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+pet.spikedragon.big.frost.preview
+  rotate: false
+  xy: 1834, 1739
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
 pet.spikedragon.small.ashes.preview
   rotate: false
-  xy: 689, 571
+  xy: 1768, 1637
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 pet.spikedragon.small.forest.preview
   rotate: false
-  xy: 791, 606
+  xy: 1768, 1535
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 pet.spikedragon.small.shadow.preview
   rotate: false
-  xy: 893, 606
+  xy: 1870, 1637
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 char.shield.woodfair.gray
   rotate: false
-  xy: 1992, 1947
+  xy: 1992, 1968
   size: 19, 73
   orig: 19, 73
   offset: 0, 0

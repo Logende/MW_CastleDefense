@@ -1,0 +1,12 @@
+name: 'pg_3'
+background_count: 3
+buildings:
+  - 'barrier_a:playground_width*0.2:left'
+  - 'barrier_a:playground_width*0.8:right'
+  - 'barrier_a:playground_width*0.3:left'
+  - 'barrier_a:playground_width*0.7:right'
+building_placeholders:
+  - "playground_width*0.17"
+  - "playground_width*0.27"
+  - "playground_width*0.83"
+  - "playground_width*0.73"

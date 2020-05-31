@@ -1,5 +1,6 @@
 package org.neubauerfelix.manawars.castledefense.profile
 
+import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.castledefense.data.IDataPlayground
 import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuilding
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
@@ -49,7 +50,12 @@ class PlayerTribe(config: Configuration) : IDataTribe {
     override val musicTrack: String = "demetrians_theme"
     override val playground: IDataPlayground
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val buildings: List<IDataBuilding> = arrayListOf()
+    override val buildings: MutableList<IDataBuilding> = arrayListOf()
+
+    init {
+        // TODO!!
+        buildings.addAll(CDManaWars.cd.getBuildingListHandler().buildings.values)
+    }
 
     override fun generateInfo(x: Int, y: Int, width: Int, height: Int): IComponent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

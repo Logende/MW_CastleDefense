@@ -43,10 +43,6 @@ class CDMenuEditArmy(game: AManaWars) : MMenuScreenScrollable(game) {
         addComponent(scrollPaper)
 
 
-        addActionButton("Back",  Runnable {
-            val screen = CDMenuMain(game)
-            game.startScreen(screen, true)
-        }, 0f, true)
 
     }
 

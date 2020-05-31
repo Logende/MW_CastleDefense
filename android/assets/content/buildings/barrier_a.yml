@@ -1,0 +1,10 @@
+name: "barrier_a"
+type: 'barrier'
+texture_alive: "building.barrier.a"
+texture_dead: "building.barrier.a"
+cooldown: 1.5
+health: 150
+rarity: common
+cost: 50
+action:
+  type: none

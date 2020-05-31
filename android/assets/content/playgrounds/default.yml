@@ -4,3 +4,6 @@ building_placeholders:
   - "playground_width*0.25"
   - "playground_width*0.5"
   - "playground_width*0.75"
+buildings:
+  - 'barrier_a:playground_width*0.3:left'
+  - 'barrier_a:playground_width*0.7:right'

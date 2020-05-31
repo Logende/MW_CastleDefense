@@ -7,6 +7,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.enums.MWState
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.manawars.enums.MWStateEffectivity
+import kotlin.math.max
 
 
 open class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, action: IDataAction,
@@ -62,11 +63,16 @@ open class MEntityStateable(animationProducer: IEntityAnimationProducer, health:
         if (state === this.state && state === MWState.FROZEN) { //FROZEN state can not be extended: Needs to time out before it can be set again
             return
         }
-        if (getStateEffectivity(state) === MWStateEffectivity.IMMUNE) {
+        if (getStateEffectivity(state) === MWStateEffectivity.IMMUNE) { // Immune -> do nothing
             return
         }
         if (this.state != null) {
-            if (this.state!!.getWorth(this) > state.getWorth(this)) {
+            if (this.state!!.getWorth(this) > state.getWorth(this)) { // has more severe state --> do nothing
+                return
+            }
+            if (this.state == state) { // has same state already -> just extend time and update trigger
+                this.stateTimeLeft = max(duration, this.stateTimeLeft)
+                this.stateTrigger = stateTrigger
                 return
             }
             resetState()

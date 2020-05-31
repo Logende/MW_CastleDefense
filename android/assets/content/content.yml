@@ -30,6 +30,10 @@ backgrounds:
   - 'backgrounds.yml'
 playgrounds:
   - 'playgrounds/default.yml'
+  - 'playgrounds/empty.yml'
+  - 'playgrounds/pg_1.yml'
+  - 'playgrounds/pg_2.yml'
+  - 'playgrounds/pg_3.yml'
 buildings:
 - 'buildings/heal.yml'
 - 'buildings/darts.yml'
@@ -40,6 +44,7 @@ buildings:
 - 'buildings/cannon.yml'
 - 'buildings/mortar.yml'
 - 'buildings/machinegun.yml'
+- 'buildings/barrier_a.yml'
 building_placeholder_texture: "building.placeholder"
 sounds:
   - 'sounds.yml'

@@ -6,6 +6,7 @@ import org.neubauerfelix.manawars.castledefense.CDManaWars
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.manawars.MConstants
+import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.*
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.enums.MWUnitType
@@ -37,6 +38,14 @@ class BoxEditArmyMenuScrollpaper(x: Float, y: Float, width: Float,
 
             }
         }
+
+        val backButton = MTextButtonSimple(0f, boxY, "Back",  Runnable {
+            val game = MManaWars.m
+            val screen = CDMenuMain(game)
+            game.startScreen(screen, true)
+        })
+        backButton.centerHorizontal = width / 2f
+        addComponent(backButton)
 
     }
 

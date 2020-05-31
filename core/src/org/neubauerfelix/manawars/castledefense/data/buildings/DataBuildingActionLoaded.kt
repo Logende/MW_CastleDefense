@@ -14,7 +14,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWUnitType
 import org.neubauerfelix.manawars.manawars.enums.NWRarity
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
-class DataBuildingActionLoaded(config: Configuration) :
+open class DataBuildingActionLoaded(config: Configuration) :
         IDataBuildingAction {
 
     override val name: String = config.getString("name")
@@ -58,8 +58,9 @@ class DataBuildingActionLoaded(config: Configuration) :
 
     override val unitType: MWUnitType = MWUnitType.BUILDING
 
-    override fun produce(centreHor: Float, bottom: Float, team: Int, direction: Int): ILiving {
-        val e =  CDEntityBuildingAction(this)
+    override fun produce(centreHor: Float, bottom: Float, team: Int, direction: Int,
+                         spawnPlaceholderOnDeath: Boolean): ILiving {
+        val e =  CDEntityBuildingAction(this, spawnPlaceholderOnDeath)
         e.centerHorizontal = centreHor
         e.bottom = bottom
         e.direction = direction

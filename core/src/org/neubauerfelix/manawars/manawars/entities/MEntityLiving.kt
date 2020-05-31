@@ -91,6 +91,7 @@ abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEnti
         require(damage > 0)
 
         health = max(0f, this.health - damage)
+        playBloodAnimation()
         val damageEvent = EntityDamageEvent(this, damage, damager, cause, this.health == 0f)
         AManaWars.m.getEventHandler().callEvent(damageEvent)
 
