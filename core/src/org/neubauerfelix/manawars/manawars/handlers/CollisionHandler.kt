@@ -2,6 +2,7 @@ package org.neubauerfelix.manawars.manawars.handlers
 
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.ICollidable
 import org.neubauerfelix.manawars.manawars.entities.ILiving
 import org.neubauerfelix.manawars.manawars.entities.ITeamable
@@ -12,7 +13,7 @@ import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 class CollisionHandler: ICollisionHandler {
 
     override fun updateCollisions(entities: List<IEntity>) {
-        for (i in 0 until entities.size) {
+        for (i in entities.indices) {
             for (j in i+1 until entities.size) {
                 var a = entities[i]
                 var b = entities[j]
@@ -27,7 +28,7 @@ class CollisionHandler: ICollisionHandler {
                     }
 
                     if (a is MSkill) {
-                        if (b is MSkill) {
+                        if (b is MSkill && MConstants.SKILLS_COLLIDE_WITH_EACH_OTHER) {
                             // Two skills
                             if (!ITeamable.isTeamed(a, b)) {
                                 if (ISized.overlaps(a, b)) {
