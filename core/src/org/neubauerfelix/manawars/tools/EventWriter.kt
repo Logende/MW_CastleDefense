@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.tools
 
 import com.badlogic.gdx.utils.Json
+import com.badlogic.gdx.utils.JsonWriter
 import org.neubauerfelix.manawars.game.events.EntityLivingSpawnEvent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IControlled
@@ -55,7 +56,11 @@ class EventWriter {
 
         private val json = Json()
 
-        fun writeDamageEvent(e: EntityDamageEvent, entity: IControlled) : String {
+        init {
+            json.setOutputType(JsonWriter.OutputType.json)
+        }
+
+        fun writeDamageEvent(e: EntityDamageEvent, entity: IControlled) : Any {
             val data = entity.data
             val evaluationEvent = EvaluationEventEntityDamage(
                     e::class.java.name,
@@ -68,10 +73,10 @@ class EventWriter {
                     e.deadlyDamage,
                     e.cause.name
             )
-            return json.toJson(evaluationEvent)
+            return evaluationEvent
         }
 
-        fun writeHealEvent(e: EntityHealEvent, entity: IControlled) : String {
+        fun writeHealEvent(e: EntityHealEvent, entity: IControlled) : Any {
             val data = entity.data
             val evaluationEvent = EvaluationEventEntityHeal(
                     e::class.java.name,
@@ -82,10 +87,10 @@ class EventWriter {
                     MManaWars.m.screen.getGameTime(),
                     e.value
             )
-            return json.toJson(evaluationEvent)
+            return evaluationEvent
         }
 
-        fun writeSpawnEvent(e: EntityLivingSpawnEvent, entity: IControlled) : String {
+        fun writeSpawnEvent(e: EntityLivingSpawnEvent, entity: IControlled) : Any {
             val data = entity.data
             val evaluationEvent = EvaluationEventEntitySpawn(
                     e::class.java.name,
@@ -95,7 +100,7 @@ class EventWriter {
                     entity.team,
                     MManaWars.m.screen.getGameTime()
             )
-            return json.toJson(evaluationEvent)
+            return evaluationEvent
         }
     }
 }

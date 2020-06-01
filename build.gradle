@@ -95,6 +95,7 @@ project(":core") {
         api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
         implementation "net.objecthunter:exp4j:0.4.8"
         api 'org.yaml:snakeyaml:1.12'
+        implementation 'com.google.code.gson:gson:2.8.6'
 
         testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
         testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')

@@ -1,7 +1,7 @@
 maxMatchLength: 1800000
 maxUnitsCount: 60
 matches:
-#  - all:random
-#  - zombie-goblin:felix-aggressive
-#  - all-aggressive:aggressive
-  - all:all
+  - zombie-goblin:felix-aggressive
+  - brute-goblin:felix-aggressive
+#  - all:all
+#  - all:aggressive-aggressive

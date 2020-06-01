@@ -23,6 +23,7 @@ class EvaluationScreen(game: AManaWars, val config: IEvaluationConfig, val outpu
 
     lateinit var currentScreen: CDScreen
     lateinit var currentResult: EvaluationResult
+    var wroteResults = false
 
     init {
         require(matches.isNotEmpty())
@@ -80,7 +81,8 @@ class EvaluationScreen(game: AManaWars, val config: IEvaluationConfig, val outpu
             writeMatchResults(currentScreen, currentResult)
             if (matches.isNotEmpty()) {
                 startMatch()
-            } else {
+            } else if (!wroteResults){
+                wroteResults = true
                 println("Finished all matches. Exiting")
                 Evaluation.writeResults(results, outputConfigPath)
                 Gdx.app.exit()

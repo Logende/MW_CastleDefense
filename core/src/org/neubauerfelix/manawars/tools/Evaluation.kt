@@ -3,6 +3,7 @@ package org.neubauerfelix.manawars.tools
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import org.neubauerfelix.manawars.manawars.storage.ConfigurationProvider
+import org.neubauerfelix.manawars.manawars.storage.JsonConfiguration
 import org.neubauerfelix.manawars.manawars.storage.YamlConfiguration
 
 class Evaluation {
@@ -21,7 +22,7 @@ class Evaluation {
             val outputConfigPath = if (args.size >= 3) {
                 args[2]
             } else {
-                "evaluation_results.yml"
+                "evaluation_results.json"
             }
 
             game.startScreen(EvaluationScreen(game, readConfig(inputConfigPath), outputConfigPath), true)
@@ -29,6 +30,7 @@ class Evaluation {
 
         // TODO: Read config instead from file
         fun readConfig(inputConfigPath: String) : IEvaluationConfig {
+            println("Reading Evaluation config file from path '$inputConfigPath'.")
             val config = ConfigurationProvider.getProvider(YamlConfiguration::class.java).
                     load(inputConfigPath, false)
             return EvaluationConfigLoaded(config)
@@ -50,7 +52,8 @@ class Evaluation {
 
                 i++
             }
-            ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(config, outputConfigPath, false)
+            println("Writing Evaluation result file to path '$outputConfigPath'.")
+            ConfigurationProvider.getProvider(JsonConfiguration::class.java).save(config, outputConfigPath, false)
         }
     }
 }

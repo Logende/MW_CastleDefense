@@ -1,25 +1,26 @@
+# Those stats are well suited if MConstants#SKILLS_COLLIDE_WITH_EACH_OTHER is true
 units:
   boss:
     common:
-      health: 120
+      health: 60
       damage: 10
       cooldown: 1.5
       cost: 120
 
     rare:
-      health: 150
+      health: 75
       damage: 14
       cooldown: 1.5
       cost: 160
 
     epic:
-      health: 190
+      health: 100
       damage: 18
       cooldown: 1.5
       cost: 200
 
     legendary:
-      health: 250
+      health: 150
       damage: 25
       cooldown: 1.5
       cost: 300
@@ -27,25 +28,25 @@ units:
 
   tank:
     common:
-      health: 45
+      health: 22
       damage: 5
       cooldown: 2.5
       cost: 30
 
     rare:
-      health: 60
+      health: 30
       damage: 7
       cooldown: 2.5
       cost: 50
 
     epic:
-      health: 75
+      health: 45
       damage: 9
       cooldown: 2.5
       cost: 80
 
     legendary:
-      health: 120
+      health: 70
       damage: 13
       cooldown: 2.5
       cost: 140
@@ -53,25 +54,25 @@ units:
 
   melee:
     common:
-      health: 20
+      health: 10
       damage: 6
       cooldown: 1.5
       cost: 15
 
     rare:
-      health: 25
+      health: 15
       damage: 8
       cooldown: 1.5
       cost: 25
 
     epic:
-      health: 30
+      health: 20
       damage: 10
       cooldown: 1.5
       cost: 35
 
     legendary:
-      health: 50
+      health: 35
       damage: 14
       cooldown: 1.5
       cost: 60
@@ -79,25 +80,25 @@ units:
 
   ranger:
     common:
-      health: 10
+      health: 7
       damage: 4
       cooldown: 2
       cost: 15
 
     rare:
-      health: 13
+      health: 9
       damage: 6
       cooldown: 2
       cost: 25
 
     epic:
-      health: 16
+      health: 12
       damage: 8
       cooldown: 2
       cost: 35
 
     legendary:
-      health: 25
+      health: 20
       damage: 12
       cooldown: 2
       cost: 60
