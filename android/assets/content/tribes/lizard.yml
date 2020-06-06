@@ -1,7 +1,7 @@
 name: lizard
 music: last_hope_for_humanity
 castle: "castles/wood_1.yml:1.0"
-background_theme: GRASSLAND # todo: change to coast
+background_theme: Desert # todo: change to coast
 background_subthemes:
   - DEFAULT
 buildings:
@@ -9,7 +9,7 @@ buildings:
   - 'doubleballista'
   - 'firethrower'
   - 'icethrower'
-playground: "default"
+playground: "pg_5"
 
 army:
   units:

@@ -10,7 +10,7 @@ buildings:
   - 'doubleballista'
   - 'firethrower'
   - 'cannon'
-playground: "default"
+playground: "pg_8"
 
 army:
   units:

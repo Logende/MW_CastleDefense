@@ -13,7 +13,8 @@ class BackgroundComposer: IBackgroundComposer {
     override fun composeBackgrounds(backgroundCount: Int, startThemes: Iterable<MWBackgroundTheme>,
                                     endThemes: Iterable<MWBackgroundTheme>, subthemes: Iterable<MWBackgroundSubtheme>):
             List<IDataBackground> {
-        require(backgroundCount >= 3)
+        require(backgroundCount >= 2 && endThemes.contains(MWBackgroundTheme.GRASSLAND)
+                || backgroundCount >= 3)
 
         return try {
             composeBackgrounds(backgroundCount, startThemes, endThemes, subthemes, false)

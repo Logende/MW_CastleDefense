@@ -9,7 +9,7 @@ class GameConstants {
         const val GAME_RENDER_FIX_TIME_STEPS_DURATION = 1f/60f
 
         // can be changed for evaluation purposes:
-        const val EVALUATION_MODE = true // for evaluation: package jar with this value set to true
+        const val EVALUATION_MODE = false // for evaluation: package jar with this value set to true
         val FAST_MODE = EVALUATION_MODE || false // speeds game up
         val DISABLE_GRAPHICS = if (EVALUATION_MODE) true else false // disables graphics and audio and speeds game up
         val SPEED_FACTOR = if (FAST_MODE) 2f else 1f // does not change tick amount but delta per tick

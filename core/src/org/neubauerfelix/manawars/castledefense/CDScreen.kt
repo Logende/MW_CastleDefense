@@ -43,10 +43,6 @@ class CDScreen(game: AManaWars, val configuration: CDMatchConfiguration) :
     override fun loadedScreen() {
         addComponent(CDComponentControlPanel())
         match.loadedAssets()
-        val dataMine = DataMine(25f, 20, 2, 50,
-                Animation(0f, MManaWars.m.getImageHandler().getTextureRegionMain("building.mine")))
-        dataMine.produce(800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerA.castle)
-        dataMine.produce(match.playground.width - 800f, GameConstants.BACKGROUND_HEIGHT - 300f, match.playerB.castle)
         MManaWars.m.getMusicHandler().playMusic()
     }
 

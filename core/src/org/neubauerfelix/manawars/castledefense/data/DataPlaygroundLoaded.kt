@@ -1,6 +1,8 @@
 package org.neubauerfelix.manawars.castledefense.data
 
 import org.neubauerfelix.manawars.castledefense.CDManaWars
+import org.neubauerfelix.manawars.castledefense.data.buildings.DataMineLoaded
+import org.neubauerfelix.manawars.castledefense.data.buildings.IDataMine
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -20,6 +22,8 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
 
     private val buildingPlaceholdersX = arrayListOf<Float>()
     private val buildings = arrayListOf<DataPlaygroundBuilding>()
+
+    private val mine: IDataMine?
 
     init {
         val buildingPlaceholderDefinitions = config.getStringList("building_placeholders")
@@ -43,6 +47,12 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
             buildings.add(DataPlaygroundBuilding(buildingName, x.toFloat(), leftSide))
         }
 
+        mine = if (config.contains("mine")) {
+            DataMineLoaded(config.getSection("mine"))
+        } else {
+            null
+        }
+
     }
 
     override fun createPlayground(playerA: ICDPlayer, playerB: ICDPlayer) {
@@ -58,6 +68,11 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
             (buildingHandler.buildings[building.name]
                     ?: error("Unknown building in playground definition: ${building.name}")).
                     produce(building.xCentre, team = team, direction = direction, spawnPlaceholderOnDeath = false)
+        }
+        if (mine != null) {
+            mine.produce(800f, GameConstants.BACKGROUND_HEIGHT - 300f, playerA.castle)
+            mine.produce(backgroundCount * GameConstants.BACKGROUND_WIDTH - 800f,
+                    GameConstants.BACKGROUND_HEIGHT - 300f, playerB.castle)
         }
     }
 

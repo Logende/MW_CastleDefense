@@ -1,7 +1,5 @@
 name: 'pg_2'
 background_count: 3
 buildings:
-  - 'barrier_a:playground_width*0.2:left'
-  - 'barrier_a:playground_width*0.8:right'
   - 'barrier_a:playground_width*0.3:left'
   - 'barrier_a:playground_width*0.7:right'

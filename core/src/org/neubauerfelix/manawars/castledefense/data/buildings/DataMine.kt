@@ -6,7 +6,7 @@ import org.neubauerfelix.manawars.castledefense.entities.CDEntityMine
 import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
 import org.neubauerfelix.manawars.game.entities.IEntity
 
-class DataMine(override val chargePeriod: Float, override val goldPerChargeInitial: Int,
+open class DataMine(override val chargePeriod: Float, override val goldPerChargeInitial: Int,
                override val goldIncreasePerCharge: Int, override val goldPerChargeMax: Int,
                override val animation: Animation<TextureRegion>) :
         IDataMine {
