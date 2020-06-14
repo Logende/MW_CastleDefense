@@ -5,6 +5,7 @@ import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.data.actions.IDataSkill
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.IControlled
+import org.neubauerfelix.manawars.manawars.enums.MWUnitType
 import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
 import org.neubauerfelix.manawars.manawars.events.EntityDeathEvent
 
@@ -84,23 +85,14 @@ class CDKIFeaturePreparation {
     private fun calculateUnitEffectiveness(unit: IDataUnit, enemy: IDataUnit) : Float {
         val attackFactor = calculateDamageFactor(unit, enemy)
         val defenseFactor = calculateDamageFactor(enemy, unit)
-        return if (attackFactor == 0f && defenseFactor == 0f) {
-            1f
-        } else if(attackFactor == 0f) {
-            0f
-        } else if (defenseFactor == 0f) {
-            2f
-        } else if (defenseFactor == 1f && attackFactor == 1f) {
-            1f
-        } else {
-            throw NotImplementedError()
-        }
+        return attackFactor - defenseFactor
     }
 
     private fun calculateDamageFactor(attacker: IDataUnit, victim: IDataUnit) : Float {
         val action = attacker.action
         return if (action is IDataSkill) {
-            victim.armor.getSkillEffectivity(action.skillClass).damageFactor
+            victim.armor.getSkillEffectivity(action.skillClass).damageFactor *
+                    MWUnitType.getEffectivity(attacker.unitType, victim.unitType).damageFactor
         } else {
             1f
         }

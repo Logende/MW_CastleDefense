@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.castledefense.handlers
 
 import org.neubauerfelix.manawars.castledefense.CDConstants
+import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
 import org.neubauerfelix.manawars.game.IHandler
 import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
 import org.neubauerfelix.manawars.castledefense.ki.BaseFeatures
@@ -8,6 +9,7 @@ import org.neubauerfelix.manawars.castledefense.player.CDControllerBot
 import org.neubauerfelix.manawars.game.events.IEvent
 import org.neubauerfelix.manawars.game.events.Listener
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
 import kotlin.math.max
 import kotlin.math.min
 
@@ -39,6 +41,29 @@ class KIBalancingHandler: IHandler {
                             val helpFactor = min(CDConstants.KI_BALANCING_MAX_HELP_FACTOR,
                                     max(CDConstants.KI_BALANCING_MIN_HELP_FACTOR, enemyDominanceRatio))
                             e.goldDifference = (e.goldDifference * helpFactor).toInt()
+                        }
+                    }
+                }
+
+            })
+
+
+            MManaWars.m.getEventHandler().registerListener(EntityDamageEvent::class.java.name, object : Listener() {
+                override fun handleEvent(event: IEvent) {
+                    val e = event as EntityDamageEvent
+                    if (!e.cancelled) {
+                        if (e.entity is ICDEntityCastle) {
+                            val castle = e.entity
+                            val cdPlayer = castle.player
+                            if (!cdPlayer.controller.playerControlled) {
+                                val healthBefore = castle.health
+                                val healthAfter = healthBefore - event.damage
+                                val supportHealth = castle.healthMax * CDConstants.KI_BALANCING_CASTLE_SUPPORT_HEALTH
+                                if (healthAfter > 0 && healthBefore > supportHealth && healthAfter < supportHealth) {
+                                    val boss = cdPlayer.tribe.army.units[0]
+                                    cdPlayer.spawnUnit(boss)
+                                }
+                            }
                         }
                     }
                 }

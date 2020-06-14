@@ -8,6 +8,7 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
+import kotlin.math.min
 
 class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
@@ -25,8 +26,10 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
         // If (now) in formation: try to keep up with assigned position
         if (player.formation.isContained(controlled)) {
+            controlled.walkSpeedMax = min(controlled.data.walkSpeedMax, player.formation.moveSpeed)
             controlled.goalX = player.formation.getAssignedX(controlled)+ player.castle.direction * 15f
         } else {
+            controlled.walkSpeedMax = controlled.data.walkSpeedMax
             controlled.goalX = player.formation.centerHorizontal
         }
 

@@ -19,11 +19,11 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
 
     override var direction: Int = player.castle.direction
     override var team: Int =  player.castle.team
+    override var moveSpeed = 0f // speed of slowest entity in formation
 
 
     private var rangeBest = 0f // range which enables most units to use their action
     private var rangeFirst = 0f // range which enables at least one unit to use their action
-    private var moveSpeed = 0f // speed of slowest entity in formation
 
     private var anchorX: Float
         get() { return if (direction == 1) this.right else this.left }

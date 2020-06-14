@@ -132,6 +132,10 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
             return
         }
 
+        if (e is IControlled && o is IControlled) {
+            damageFactor *= MWUnitType.getEffectivity(o.data.unitType, e.data.unitType).damageFactor
+        }
+
 
         // Knockback
         if (e is IJumpable) {

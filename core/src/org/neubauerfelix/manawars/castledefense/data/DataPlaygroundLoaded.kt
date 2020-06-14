@@ -12,6 +12,7 @@ import org.neubauerfelix.manawars.manawars.storage.Configuration
 class DataPlaygroundBuilding(
         val name: String,
         val xCentre: Float,
+        val yOffset: Float,
         val leftSide: Boolean
 )
 
@@ -26,6 +27,7 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
     private val mine: IDataMine?
 
     init {
+        println("Loading playground $name.")
         val buildingPlaceholderDefinitions = config.getStringList("building_placeholders")
         for (buildingPlaceholderDefinition in buildingPlaceholderDefinitions) {
             val x = MathUtils.calc(buildingPlaceholderDefinition, "playground_width",
@@ -39,12 +41,13 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
             val buildingName = parts[0]
             val x = MathUtils.calc(parts[1], "playground_width",
                     (backgroundCount * GameConstants.BACKGROUND_WIDTH).toDouble())
-            val leftSide = when (parts[2]) {
+            val yOffset = parts[2].toFloat()
+            val leftSide = when (parts[3]) {
                 "left" -> true
                 "right" -> false
-                else -> error("Unknown side in building definition: ${parts[2]}. Expected left or right.")
+                else -> error("Unknown side in building definition: ${parts[3]}. Expected left or right.")
             }
-            buildings.add(DataPlaygroundBuilding(buildingName, x.toFloat(), leftSide))
+            buildings.add(DataPlaygroundBuilding(buildingName, x.toFloat(), yOffset, leftSide))
         }
 
         mine = if (config.contains("mine")) {
@@ -67,7 +70,8 @@ class DataPlaygroundLoaded(config: Configuration) : IDataPlayground {
             val team = if (building.leftSide) MConstants.TEAM_PLAYER else MConstants.TEAM_BOT
             (buildingHandler.buildings[building.name]
                     ?: error("Unknown building in playground definition: ${building.name}")).
-                    produce(building.xCentre, team = team, direction = direction, spawnPlaceholderOnDeath = false)
+                    produce(building.xCentre, bottom = GameConstants.WORLD_HEIGHT_UNITS + building.yOffset,
+                            team = team, direction = direction, spawnPlaceholderOnDeath = false)
         }
         if (mine != null) {
             mine.produce(800f, GameConstants.BACKGROUND_HEIGHT - 300f, playerA.castle)

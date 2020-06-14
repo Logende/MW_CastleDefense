@@ -1,11 +1,11 @@
 name: 'pg_7'
 background_count: 3
 buildings:
-  - 'barrier_a:playground_width*0.2:left'
-  - 'barrier_a:playground_width*0.8:right'
-  - 'barrier_a:playground_width*0.3:left'
-  - 'barrier_a:playground_width*0.7:right'
-  - 'pg_darts:playground_width*0.83:right'
+  - 'barrier_a:playground_width*0.2:25:left'
+  - 'barrier_a:playground_width*0.8:25:right'
+  - 'barrier_a:playground_width*0.3:25:left'
+  - 'barrier_a:playground_width*0.7:25:right'
+  - 'darts:playground_width*0.83:0:right'
 building_placeholders:
   - "playground_width*0.17"
   - "playground_width*0.27"

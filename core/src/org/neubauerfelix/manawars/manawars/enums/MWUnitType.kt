@@ -17,5 +17,16 @@ enum class MWUnitType(val defaultRange: Float, val main: Boolean, val index: Int
     val displayName: String
         get() = MManaWars.m.getLanguageHandler().getMessage("unittype_${name.toLowerCase()}")
 
+    companion object {
+        fun getEffectivity(attackerType: MWUnitType, victimType: MWUnitType) : MWSkillEffectivity {
+            return when(attackerType) {
+                TANK -> if (victimType == MELEE) MWSkillEffectivity.EFFECTIVE else MWSkillEffectivity.NORMAL
+                MELEE -> if (victimType == RANGER) MWSkillEffectivity.EFFECTIVE else MWSkillEffectivity.NORMAL
+                RANGER -> if (victimType == MAGE) MWSkillEffectivity.EFFECTIVE else MWSkillEffectivity.NORMAL
+                MAGE -> if (victimType == TANK) MWSkillEffectivity.EFFECTIVE else MWSkillEffectivity.NORMAL
+                else -> MWSkillEffectivity.NORMAL
+            }
+        }
+    }
 
 }

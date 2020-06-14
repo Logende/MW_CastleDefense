@@ -24,7 +24,7 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
                              skillDurabilityMultipliers: Map<MWSkillClass, Float> = EnumMap(MWSkillClass::class.java),
                              drainMultiplier: Float = 0f,
                              armor: MWArmorType = MWArmorType.NONE,
-                             override val walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX,
+                             override var walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX,
                              override val walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC,
                              override var controller: IController,
                              override val data: IDataUnit): // data is just a reference for CD classes which need data. It is not used for the entity properties

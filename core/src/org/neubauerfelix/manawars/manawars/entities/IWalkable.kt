@@ -8,7 +8,7 @@ import org.neubauerfelix.manawars.manawars.entities.controller.IController
 interface IWalkable {
 
 
-    val walkSpeedMax: Float
+    var walkSpeedMax: Float
     val walkAcceleration: Float
 
 

@@ -3,15 +3,15 @@ package org.neubauerfelix.manawars.manawars.enums
 import com.badlogic.gdx.graphics.Color
 import java.util.*
 
-enum class MWArmorType(val color: Color) { //Keep those as simple as possible!
+enum class MWArmorType(val color: Color, val walkSpeedFactor: Float) { //Keep those as simple as possible!
 
-    NONE(MWSkillClass.NORMAL.color) {
+    NONE(MWSkillClass.NORMAL.color, 1f) {
         override fun createSkillEffectivity(): EnumMap<MWSkillClass, MWSkillEffectivity> {
             return EnumMap(MWSkillClass::class.java)
         }
     },
 
-    ANTI_LIGHT(MWSkillClass.LIGHT.color) {
+    ANTI_LIGHT(MWSkillClass.LIGHT.color, 0.75f) {
         override fun createSkillEffectivity(): EnumMap<MWSkillClass, MWSkillEffectivity> {
             val map = EnumMap<MWSkillClass, MWSkillEffectivity>(MWSkillClass::class.java)
             map[MWSkillClass.LIGHT] = MWSkillEffectivity.IMMUNE
@@ -19,7 +19,7 @@ enum class MWArmorType(val color: Color) { //Keep those as simple as possible!
         }
     },
 
-    SHIELD(Color.BLACK) {
+    SHIELD(Color.BLACK, -1f) {
         override fun createSkillEffectivity(): EnumMap<MWSkillClass, MWSkillEffectivity> {
             val map = EnumMap<MWSkillClass, MWSkillEffectivity>(MWSkillClass::class.java)
             map[MWSkillClass.LIGHT] = MWSkillEffectivity.IMMUNE
@@ -29,7 +29,7 @@ enum class MWArmorType(val color: Color) { //Keep those as simple as possible!
         }
     },
 
-    ANTI_MAGIC(MWSkillClass.MAGIC.color) {
+    ANTI_MAGIC(MWSkillClass.MAGIC.color, 0.75f) {
         override fun createSkillEffectivity(): EnumMap<MWSkillClass, MWSkillEffectivity> {
             val map = EnumMap<MWSkillClass, MWSkillEffectivity>(MWSkillClass::class.java)
             map[MWSkillClass.MAGIC] = MWSkillEffectivity.IMMUNE

@@ -3,7 +3,7 @@ bodyData:
 shields:
   - 'shields.yml'
 stats:
-  - 'stats.yml'
+  - 'stats_original.yml'
 actions:
   - 'skills/skills_arrow.yml'
   - 'skills/skills_sword.yml'

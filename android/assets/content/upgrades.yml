@@ -1,0 +1,110 @@
+upgrades:
+  - spawn_barrier_a_1:
+      type: building_spawn
+      definition: barrier_a:playground_width*0.2:25
+  - spawn_slot_1:
+      dependency: spawn_barrier_a_1
+      type: placeholder
+      definition: playground_width*0.17
+      addition: unlock_darts
+  - unlock_darts:
+      dependency: spawn_slot_1
+      type: building_unlock
+      definition: darts
+  - goldmine_1:
+      type: goldmine
+      definition: 25.0:20:2:50
+  - spawn_barrier_a_2:
+      type: building_spawn
+      definition: barrier_a:playground_width*0.3:25
+      dependency: spawn_barrier_a_1
+  - spawn_slot_2:
+      dependency: spawn_barrier_a_2
+      type: placeholder
+      definition: playground_width*0.27
+
+  - unlock_firethrower:
+      dependency: unlock_darts
+      type: building_unlock
+      definition: firethrower
+
+  - spawn_barrier_b_1:
+      type: building_spawn
+      definition: barrier_b:playground_width*0.2:25
+      dependency: spawn_slot_1
+      replaces: spawn_barrier_a_1
+  - spawn_barrier_b_2:
+      type: building_spawn
+      definition: barrier_b:playground_width*0.3:25
+      dependency: spawn_slot_2
+      replaces: spawn_barrier_a_2
+
+  - castle_2:
+      type: castle
+      definition: 2
+      dependency: spawn_barrier_b_2:unlock_darts:spawn_barrier_b_1
+
+  - unlock_ballista:
+      dependency: unlock_darts
+      type: building_unlock
+      definition: ballista
+
+  - goldmine_2:
+      type: goldmine
+      definition: 25.0:30:3:60
+      dependency: castle_2
+
+  - unlock_icethrower:
+      dependency: unlock_firethrower
+      type: building_unlock
+      definition: icethrower
+      replaces: unlock_firethrower
+
+  - unlock_doubleballista:
+      dependency: unlock_ballista
+      type: building_unlock
+      definition: doubleballista
+      replaces: unlock_ballista
+
+  - spawn_barrier_c_1:
+      type: building_spawn
+      definition: barrier_c:playground_width*0.2:25
+      dependency: goldmine_2
+      replaces: spawn_barrier_b_1
+  - spawn_barrier_c_2:
+      type: building_spawn
+      definition: barrier_c:playground_width*0.3:25
+      dependency: goldmine_2
+      replaces: spawn_barrier_b_2
+
+  - unlock_mortar:
+      dependency: unlock_ballista
+      type: building_unlock
+      definition: mortar
+
+  - unlock_heal:
+      dependency: unlock_doubleballista
+      type: building_unlock
+      definition: heal
+
+  - unlock_cannon:
+      dependency: unlock_mortar
+      type: building_unlock
+      definition: cannon
+      replaces: unlock_doubleballista
+
+  - goldmine_3:
+      type: goldmine
+      definition: 25.0:35:3:75
+      dependency: goldmine_2:unlock_cannon
+
+  - unlock_machinegun:
+      dependency: unlock_cannon
+      type: building_unlock
+      definition: machinegun
+      replaces: unlock_darts
+
+  - castle_3:
+      type: castle
+      definition: 3
+      dependency: goldmine_3:unlock_machinegun

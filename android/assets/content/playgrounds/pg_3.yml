@@ -1,8 +1,8 @@
 name: 'pg_3'
 background_count: 3
 buildings:
-  - 'barrier_a:playground_width*0.3:left'
-  - 'barrier_a:playground_width*0.7:right'
+  - 'barrier_a:playground_width*0.3:25:left'
+  - 'barrier_a:playground_width*0.7:25:right'
 mine:
   chargePeriod: 25.0
   goldPerChargeInitial: 20

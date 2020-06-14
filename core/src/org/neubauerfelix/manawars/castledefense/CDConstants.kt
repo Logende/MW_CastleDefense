@@ -6,7 +6,7 @@ import org.neubauerfelix.manawars.game.GameConstants
 class CDConstants {
 
     companion object {
-        const val STARTER_TRIBE = "human"
+        const val STARTER_TRIBE = "bear"
         const val PLAYER_PROFILE_FILE_NAME = "mw_cd_profile.yml"
 
         const val CASTLE_BORDER_OFFSET = 20f
@@ -24,6 +24,8 @@ class CDConstants {
         val KI_BALANCING_ENABLED = if (GameConstants.EVALUATION_MODE) false else true
         const val KI_BALANCING_MAX_HELP_FACTOR = 1.3
         const val KI_BALANCING_MIN_HELP_FACTOR = 1 / KI_BALANCING_MAX_HELP_FACTOR
+        // percentage of health the castle needs to fall below to get unit support (boss is spawned)
+        const val KI_BALANCING_CASTLE_SUPPORT_HEALTH = 0.33f
 
         const val UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS = false
         const val UI_MENU_MAIN_UNIT_SCALE = 1.5f

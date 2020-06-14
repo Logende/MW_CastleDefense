@@ -83,23 +83,23 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
     override val skillDurabilityMultipliers: MutableMap<MWSkillClass, Float> = EnumMap(MWSkillClass::class.java)
     override var drainMultiplier: Float = config.getFloat("drain")
 
-    override var walkSpeedMax: Float = if (config.contains("walkSpeedMax")) {
-        config.getFloat("walkSpeedMax", 1f) * MConstants.UNIT_AVG_WALK_SPEED_MAX
+    override var walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX * if (config.contains("walkSpeedMax")) {
+        config.getFloat("walkSpeedMax")
     } else {
-        if (animation.animationType == MWEntityAnimationType.RIDER) {
-            MConstants.UNIT_AVG_WALK_SPEED_MAX * 2f
+        armor.walkSpeedFactor * if (animation.animationType == MWEntityAnimationType.RIDER) {
+           2f
         } else {
-            MConstants.UNIT_AVG_WALK_SPEED_MAX * 1f
+            1f
         }
     }
 
-    override var walkAcceleration: Float = if (config.contains("walkAcceleration")) {
-        config.getFloat("walkAcceleration", 1f) * MConstants.UNIT_AVG_WALK_ACC
+    override var walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC * if (config.contains("walkAcceleration")) {
+        config.getFloat("walkAcceleration")
     } else {
-        if (animation.animationType == MWEntityAnimationType.RIDER) {
-            MConstants.UNIT_AVG_WALK_ACC * 2f
+        armor.walkSpeedFactor * if (animation.animationType == MWEntityAnimationType.RIDER) {
+           2f
         } else {
-            MConstants.UNIT_AVG_WALK_ACC * 1f
+            1f
         }
     }
 

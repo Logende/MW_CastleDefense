@@ -23,7 +23,7 @@ tribe_snowman_name: Snowmen
 tribe_snowman_name_singular: Snowman
 tribe_player_name: Your Army
 button_back: Back
-unittype_boss: Boss
+unittype_boss: Hero
 unittype_tank: Tank
 unittype_melee: Warrior
 unittype_ranger: Ranger
