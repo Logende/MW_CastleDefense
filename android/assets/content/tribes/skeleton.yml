@@ -81,7 +81,8 @@ army:
       armor: 'ANTI_MAGIC'
       rarity: rare
       action:
-        owner_animation: SUMMON_SMALL
+        owner_animation: WEAPON
+        weapon: wand:default
         texture: l1.skeleton.mage
         animation: '1:6:1'
         sound: skill.skull

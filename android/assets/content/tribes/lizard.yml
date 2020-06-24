@@ -17,6 +17,7 @@ army:
       animation: 'human:l1.lizard.boss'
       armor: 'anti_light'
       rarity: common
+      sound: skill.energy
       action:
         type: mix
         owner_animation: SUMMON_BIG

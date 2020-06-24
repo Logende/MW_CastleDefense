@@ -17,10 +17,10 @@ enum class MWWeaponClass {
         }
 
         override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
-            body.updateArms(-90f, -70f)
             when (position) {
                 0 -> {
                     weapon.setPosition(0)
+                    body.updateArms(-90f, -70f)
                     return
                 }
                 1 -> {
@@ -32,9 +32,6 @@ enum class MWWeaponClass {
                     weapon.setPosition(2)
                     body.updateArms(-40f, -70f)
                     body.head.addLocation(0, 1)
-                    weapon.setPosition(3)
-                    body.updateArms(-30f, -70f)
-                    body.head.addLocation(0, 1)
                     return
                 }
                 3 -> {
@@ -45,7 +42,35 @@ enum class MWWeaponClass {
                 }
             }
         }
+
+        override fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(10f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+        }
     },
+
     CROSSBOW {
         override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
             val sprites = generateTextures("char.crossbow." + weaponType.textureName, 4)
@@ -82,14 +107,41 @@ enum class MWWeaponClass {
                 }
             }
         }
+
+        override fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(10f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+        }
     },
 
     HORN {
-        override val positionCount: Int
+        override val positionCountBodyEffect: Int
             get() = 16
 
         override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
-            val sprites = generateTextures("char.horn." + weaponType.textureName, 4)
+            val sprites = generateTextures("char.horn." + weaponType.textureName, 1)
             val bodyPartData = BodyPartData(sprites[0], 81f, 50f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
             return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
         }
@@ -123,14 +175,108 @@ enum class MWWeaponClass {
                 }
             }
         }
+
+        override fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(10f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+        }
+
+    },
+
+    WAND {
+        override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
+            val sprites = generateTextures("char.wand." + weaponType.textureName, 1)
+            val bodyPartData = BodyPartData(sprites[0], 81f, 50f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
+            return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
+        }
+
+        override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            body.armR.update(-70f)
+            println("animate wand body effect")
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    body.armL.update(5f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    body.armL.update(10f)
+                    body.head.addLocation(0, 1)
+                    body.armL.update(5f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    body.armL.update(5f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+        }
+
+        override fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(10f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(5f, -70f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+        }
+
     };
 
-    open val positionCount: Int
+    open val positionCountBodyEffect: Int
         get() = 4
-
 
     abstract fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon
     abstract fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int)
+    abstract fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) // idle always has a position count of 4
 
     protected fun generateTextures(textureName: String, columns: Int): Array<TextureRegion> {
         val all = AManaWars.m.getImageHandler().getTextureRegionMain(textureName)

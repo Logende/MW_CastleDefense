@@ -8,7 +8,7 @@ class MWWeaponType(private val weaponClass: MWWeaponClass, val textureName: Stri
 
 
     val positionCount: Int
-        get() = weaponClass.positionCount
+        get() = weaponClass.positionCountBodyEffect
 
     fun createBodyPart(bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
         return weaponClass.createBodyPart(this, bodyData, scale)
@@ -16,5 +16,8 @@ class MWWeaponType(private val weaponClass: MWWeaponClass, val textureName: Stri
 
     fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
         weaponClass.animateBodyEffect(body, weapon, position)
+    }
+    fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+        weaponClass.animateIdle(body, weapon, position)
     }
 }

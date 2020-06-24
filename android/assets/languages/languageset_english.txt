@@ -24,9 +24,9 @@ tribe_snowman_name_singular: Snowman
 tribe_player_name: Your Army
 button_back: Back
 unittype_boss: Hero
-unittype_tank: Tank
+unittype_tank: Knight
 unittype_melee: Warrior
-unittype_ranger: Ranger
+unittype_ranger: Archer
 unittype_mage: Mage
 stateeffect_burning: Burn
 stateeffect_frozen: Freeze

@@ -69,11 +69,10 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
             shield.enabled = false
             //do not update shield height here because it is never changed
         }
-        if (weapon != null) {
-            weapon!!.setPosition(0)
-            if (!MConstants.ALWAYS_EQUIP_WEAPONS) {
-                weapon!!.enabled = false
-            }
+        val w = weapon
+        if (w != null) {
+            w.setPosition(0)
+            w.enabled = MConstants.ALWAYS_EQUIP_WEAPONS
         }
     }
 
@@ -111,24 +110,36 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
 
     private fun animateBody(animation: MWAnimationTypeBody, position: Int, effect: MWAnimationTypeBodyEffect?) {
         when (animation) {
-            MWAnimationTypeBody.NORMAL -> when (position) {
-                0 -> return
-                1 -> {
-                    armL.update(5f)
-                    armR.update(-5f)
+            MWAnimationTypeBody.NORMAL -> {
+
+                // if unit carries weapon, why not continue showing weapon idle animation?
+                val w = weapon
+                if (w != null) {
+                }
+                if (w != null && w.enabled) {
+                    w.weaponType.animateIdle(this, w, position)
                     return
                 }
-                2 -> {
-                    armL.update(10f)
-                    armR.update(-10f)
-                    head.addLocation(0, 1)
-                    return
-                }
-                3 -> {
-                    armL.update(5f)
-                    armR.update(-5f)
-                    head.addLocation(0, 1)
-                    return
+
+                when (position) {
+                    0 -> return
+                    1 -> {
+                        armL.update(5f)
+                        armR.update(-5f)
+                        return
+                    }
+                    2 -> {
+                        armL.update(10f)
+                        armR.update(-10f)
+                        head.addLocation(0, 1)
+                        return
+                    }
+                    3 -> {
+                        armL.update(5f)
+                        armR.update(-5f)
+                        head.addLocation(0, 1)
+                        return
+                    }
                 }
             }
 
@@ -161,6 +172,7 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
                     check(weapon != null)
                     weapon!!.enabled = true
                     this.weapon!!.weaponType.animateBodyEffect(this, this.weapon!!, position)
+                    return
                 }
 
                 MWAnimationTypeBodyEffect.THROW -> {

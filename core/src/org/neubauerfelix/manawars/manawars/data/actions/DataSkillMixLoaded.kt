@@ -14,7 +14,7 @@ import kotlin.collections.ArrayList
 
 class DataSkillMixLoaded(override val name: String, config: Configuration) : IDataAction {
 
-    override val soundPath: String? = null
+    override val soundPath: String? = config.getString("sound", null)
 
     override val displayName: String = MManaWars.m.getLanguageHandler().getMessage("skill_${name}_name")
 
@@ -68,7 +68,11 @@ class DataSkillMixLoaded(override val name: String, config: Configuration) : IDa
 
 
     override fun action(owner: IActionUser): Boolean {
-        return parts.map { part -> part.spawnSkill(owner) }.contains(true)
+        val success = parts.map { part -> part.spawnSkill(owner) }.contains(true)
+        if (success) {
+            soundPath?.let { MManaWars.m.getSoundHandler().playSound(soundPath, owner.centerHorizontal) }
+        }
+        return success
     }
 
     override fun canUse(owner: IActionUser): Boolean {

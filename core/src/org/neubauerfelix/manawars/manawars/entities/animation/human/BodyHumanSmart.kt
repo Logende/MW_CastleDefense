@@ -74,7 +74,7 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         if (weaponType != null) {
             this.positionCountMain = weaponType!!.positionCount
         } else {
-            this.positionCountMain = (if (currentEffect == null) BodyHumanAnimating.POSITION_COUNT_MAIN_NORMAL else currentEffect!!.positionCount)
+            this.positionCountMain = (if (currentEffect == null) POSITION_COUNT_MAIN_NORMAL else currentEffect!!.positionCount)
         }
         setWeapon(weaponType)
         this.updateAnimationType(this.sized, true, false)
@@ -123,7 +123,8 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
             //Upper body animation is finished.
             if (currentEffect != null) {
                 currentEffect = null
-                positionCountMain = (BodyHumanAnimating.POSITION_COUNT_MAIN_NORMAL)
+                animationBody = MWAnimationTypeBody.NORMAL
+                positionCountMain = (POSITION_COUNT_MAIN_NORMAL)
             }
         }
         if (positionLegs >= positionCountLegs) {

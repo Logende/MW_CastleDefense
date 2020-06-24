@@ -21,7 +21,7 @@ open class BodyPartAnimation(private val textures: Array<TextureRegion>, bodyPar
      * @pre `0 <= i < textures.length`
      */
     fun setPosition(pos: Int) {
-        assert(pos in 0 until textures.size)
+        require(pos in textures.indices)
         this.position = pos
     }
 
