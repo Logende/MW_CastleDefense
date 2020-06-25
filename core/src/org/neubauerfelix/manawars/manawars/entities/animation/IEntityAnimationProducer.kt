@@ -8,6 +8,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimat
 import org.neubauerfelix.manawars.manawars.entities.animation.mount.EntityAnimationProducerMount
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.EntityAnimationProducerRider
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
+import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 
 interface IEntityAnimationProducer: IBodyData {
@@ -59,7 +60,7 @@ interface IEntityAnimationProducer: IBodyData {
     }
 
     fun produce(entity: ISized, scale: Float = defaultScale): IEntityAnimation
-    fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity
+    fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float, weaponType: MWWeaponType?): IEntity
 
 
     val animationType: MWEntityAnimationType

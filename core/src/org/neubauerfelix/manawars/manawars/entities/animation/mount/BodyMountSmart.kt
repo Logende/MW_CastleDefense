@@ -64,10 +64,14 @@ class BodyMountSmart(bodyData: IBodyDataMount, scale: Float = 1f, sized: ISized)
      * @param currentEffect Animation to play.
      */
     @Synchronized
-    override fun playEffect(currentEffect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+    override fun playEffect(currentEffect: MWAnimationTypeBodyEffect?) {
         this.currentEffect = currentEffect
         this.positionBody = 0
         this.updateAnimationType(this, true, false)
+    }
+
+    override fun equipWeapon(weaponType: MWWeaponType) {
+        throw NotImplementedError()
     }
 
     override fun updateAnimation(sized: ISized?) {

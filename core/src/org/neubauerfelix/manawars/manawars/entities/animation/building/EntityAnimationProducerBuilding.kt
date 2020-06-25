@@ -10,6 +10,8 @@ import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
+import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
+import kotlin.math.min
 
 /***
  * textureNameAnimation: the animation image is automatically split into 4 frames (horizontally split)
@@ -49,8 +51,10 @@ open class EntityAnimationProducerBuilding(val textureNameAlive: String, val tex
         return EntityAnimationAny(body, animationType)
     }
 
-    override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
-        val scale = Math.min(availableWidth / bodyWidth, availableHeight / bodyHeight)
+    override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float,
+                         weaponType: MWWeaponType?): IEntity {
+        require(weaponType == null)
+        val scale = min(availableWidth / bodyWidth, availableHeight / bodyHeight)
         val offsetX = (availableWidth - bodyWidth * scale) / 2f
         val offsetY = (availableHeight - bodyHeight * scale) / 2f
         val rectangle = GameEntity( bodyWidth * scale, bodyHeight * scale)

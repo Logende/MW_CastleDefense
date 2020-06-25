@@ -23,7 +23,7 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
         IBody, ISized by sized {
 
 
-    private val rectMount: GameRectangle
+    private val rectMount: GameRectangle = GameRectangle(0f,0f,producerMount.bodyWidth * scaleMount,producerMount.bodyHeight * scaleMount)
     private val rectHuman: GameRectangleRider
     val mount: IEntityAnimation
     val human: IEntityAnimation
@@ -50,16 +50,21 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
         human.playDeathAnimation(null, MWDamageCause.STATEEFFECT)
     }
 
-    override fun playEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+    override fun playEffect(effect: MWAnimationTypeBodyEffect?) {
         //TODO: Bei Abspielen von Effekt scheint der Mensch den falschen Mirror zu übernehmen
         if (sized is ILooking) {
             rectHuman.direction = sized.direction
         }
-        human.playBodyEffect(effect, weaponType)
+        human.playBodyEffect(effect)
+    }
+
+
+    override fun equipWeapon(weaponType: MWWeaponType) {
+        return human.equipWeapon(weaponType)
     }
 
     override fun updateAnimation(sized: ISized?) {
-        val sized = if (sized != null) sized else this.sized
+        val sized = sized ?: this.sized
         if (sized is ILooking) {
             rectHuman.direction = sized.direction
         }
@@ -74,7 +79,6 @@ class BodyRider(val sized: ISized, producerMount: IEntityAnimationProducer, prod
         get() = mount.scale
 
     init {
-        rectMount = GameRectangle(0f,0f,producerMount.bodyWidth * scaleMount,producerMount.bodyHeight * scaleMount)
         mount = producerMount.produce(rectMount, scaleMount)
 
         rectHuman = GameRectangleRider(0f,0f,producerHuman.bodyWidth * scaleHuman,producerHuman.bodyHeight * scaleHuman)

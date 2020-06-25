@@ -2,9 +2,11 @@ package org.neubauerfelix.manawars.manawars.data.units
 
 import org.neubauerfelix.manawars.castledefense.components.CDComponentUnit
 import org.neubauerfelix.manawars.game.IComponent
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.MEntityControlled
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
+import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 
 abstract class DataUnit : IDataUnit {
 
@@ -35,6 +37,12 @@ abstract class DataUnit : IDataUnit {
         entity.team = team
         entity.gravity()
         entity.animation.updateAnimation(entity)
+        if (MConstants.ALWAYS_EQUIP_WEAPONS) {
+            val weaponType = entity.action.weaponType
+            if (weaponType != null) {
+                entity.animation.equipWeapon(weaponType)
+            }
+        }
         entity.spawn()
         return entity
     }

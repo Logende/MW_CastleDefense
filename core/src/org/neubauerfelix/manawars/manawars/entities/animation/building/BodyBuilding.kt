@@ -42,7 +42,7 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
         alive = false
     }
 
-    override fun playEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+    override fun playEffect(effect: MWAnimationTypeBodyEffect?) {
         if (animation == null) {
             return
         }
@@ -53,6 +53,10 @@ class BodyBuilding(val sized: ISized, val textureRegionAlive: TextureRegion, val
                 stateTime = 0f
             }
         }
+    }
+
+    override fun equipWeapon(weaponType: MWWeaponType) {
+        throw NotImplementedError()
     }
 
     override fun updateAnimation(sized: ISized?) {

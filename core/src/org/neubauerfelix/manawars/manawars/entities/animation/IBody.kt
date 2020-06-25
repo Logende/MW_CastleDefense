@@ -15,7 +15,8 @@ interface IBody: ICollidable, IDrawable, ILogicable {
     fun explode()
     fun deadlyHit(killer: IMovable)
     fun deadlyHit()
-    fun playEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?)
+    fun playEffect(effect: MWAnimationTypeBodyEffect?)
+    fun equipWeapon(weaponType: MWWeaponType)
     fun drawDebugging(shapeRenderer: ShapeRenderer)
 
     /** Sized is used to determine the animation type. It can be different from the actual ISized instance behind

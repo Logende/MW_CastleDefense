@@ -7,6 +7,8 @@ import org.neubauerfelix.manawars.manawars.entities.animation.EntityAnimationAny
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimation
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
+import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
+import kotlin.math.min
 
 class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimationProducer, IBodyDataHuman by bodyDataHuman{
 
@@ -16,13 +18,18 @@ class EntityAnimationProducerHuman(bodyDataHuman: IBodyDataHuman): IEntityAnimat
         return EntityAnimationAny(body, animationType)
     }
 
-    override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float): IEntity {
-        val scale = Math.min(availableWidth / bodyWidth, availableHeight / bodyHeight)
+    override fun produce(x: Float, y: Float, availableWidth: Float, availableHeight: Float,
+                         weaponType: MWWeaponType?): IEntity {
+        val scale = min(availableWidth / bodyWidth, availableHeight / bodyHeight)
         val offsetX = (availableWidth - bodyWidth * scale) / 2f
         val offsetY = (availableHeight - bodyHeight * scale) / 2f
         val rectangle = GameEntity( availableWidth, availableHeight)
         rectangle.setLocation(x + offsetX, y + offsetY)
         val body = BodyHumanSmart(this, rectangle, scale)
+        if (weaponType != null) {
+            body.equipWeapon(weaponType)
+            body.updateAnimation(rectangle)
+        }
         return EntityAnimationAny(body, animationType)
     }
 

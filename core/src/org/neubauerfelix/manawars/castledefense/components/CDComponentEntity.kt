@@ -6,6 +6,7 @@ import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.components.MComponent
 import org.neubauerfelix.manawars.manawars.entities.animation.IEntityAnimationProducer
+import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
 open class CDComponentEntity(x: Float, y: Float, width: Float, height: Float, val animation: IEntity,
                              val runnable: Runnable) :
@@ -15,8 +16,8 @@ open class CDComponentEntity(x: Float, y: Float, width: Float, height: Float, va
             this(animation.x, animation.y, animation.width, animation.height, animation, runnable)
 
     constructor(x: Float, y: Float, width: Float, height: Float, animationProducer: IEntityAnimationProducer,
-                runnable: Runnable) :
-            this(x, y, width, height, animationProducer.produce(x, y, width, height), runnable)
+                runnable: Runnable, weaponType: MWWeaponType?) :
+            this(x, y, width, height, animationProducer.produce(x, y, width, height, weaponType), runnable)
 
 
     private val animationX = animation.x

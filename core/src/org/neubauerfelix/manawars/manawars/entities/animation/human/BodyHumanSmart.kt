@@ -59,7 +59,11 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
         shapeRenderer.polygon(armL.polygon.transformedVertices)
         shapeRenderer.polygon(armR.polygon.transformedVertices)
         if (shield != null)
-        shapeRenderer.polygon(shield!!.polygon.transformedVertices)
+        shapeRenderer.polygon(shield.polygon.transformedVertices)
+    }
+
+    override fun equipWeapon(weaponType: MWWeaponType) {
+        setWeapon(weaponType)
     }
 
     /**
@@ -68,15 +72,14 @@ class BodyHumanSmart(bodyData: IBodyDataHuman, sized: ISized, scale: Float = 1.0
      * @param weaponType Weapontype used by the animation. Can be null.
      */
     @Synchronized
-    override fun playEffect(currentEffect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
+    override fun playEffect(currentEffect: MWAnimationTypeBodyEffect?) {
         this.currentEffect = currentEffect
         this.positionBody = 0
-        if (weaponType != null) {
-            this.positionCountMain = weaponType!!.positionCount
+        if (weapon != null && currentEffect == MWAnimationTypeBodyEffect.WEAPON) {
+            this.positionCountMain = weapon!!.weaponType.positionCount
         } else {
             this.positionCountMain = (if (currentEffect == null) POSITION_COUNT_MAIN_NORMAL else currentEffect!!.positionCount)
         }
-        setWeapon(weaponType)
         this.updateAnimationType(this.sized, true, false)
     }
 

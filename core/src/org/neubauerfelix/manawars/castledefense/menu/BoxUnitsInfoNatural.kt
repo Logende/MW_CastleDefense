@@ -18,7 +18,7 @@ class BoxUnitsInfoNatural(x: Float, y: Float, width: Float, val units: Iterable<
             val unitWidth = unit.animation.bodyWidth.toFloat() * unitScale
             val unitHeight = unit.animation.bodyHeight.toFloat() * unitScale
             val yOffset = unitRowHeight - unitHeight
-            val animation = unit.animation.produce(unitX, yOffset, unitWidth, unitHeight)
+            val animation = unit.animation.produce(unitX, yOffset, unitWidth, unitHeight, unit.action.weaponType)
             val component = CDComponentEntity(animation, Runnable { unitRunnable.invoke(unit) })
             addComponent(component)
             unitX += component.width + unitDiff

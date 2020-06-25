@@ -28,8 +28,12 @@ class EntityAnimationAny(val body: IBody, override val entityAnimationType: MWEn
         }
     }
 
-    override fun playBodyEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?) {
-        this.body.playEffect(effect, weaponType)
+    override fun playBodyEffect(effect: MWAnimationTypeBodyEffect?) {
+        this.body.playEffect(effect)
+    }
+
+    override fun equipWeapon(weaponType: MWWeaponType) {
+        this.body.equipWeapon(weaponType)
     }
 
     override fun updateAnimation(sized: ISized?) {

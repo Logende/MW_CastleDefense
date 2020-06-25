@@ -27,7 +27,8 @@ interface IEntityAnimation: IDrawable, ILogicable, ICollidable{
     fun playDeathAnimation(damager: IEntity?, cause: MWDamageCause)
     fun drawDebugging(shapeRenderer: ShapeRenderer)
 
-    fun playBodyEffect(effect: MWAnimationTypeBodyEffect?, weaponType: MWWeaponType?)
+    fun playBodyEffect(effect: MWAnimationTypeBodyEffect?)
+    fun equipWeapon(weaponType: MWWeaponType)
 
     /**
      * Needs to be called, whenever the type of animation requires to be updated.

@@ -15,7 +15,7 @@ open class CDComponentCoreEntity(x: Float, y: Float, width: Float, height: Float
                                 runnable: Runnable, val background: TextureRegion,
                                  private val frameColor : Color?) :
         CDComponentEntity(x, y, width, height, entity.animation.produce(x + width * 0.1f, y + height*0.05f,
-                width*0.8f, height*0.8f), runnable), ILogicable {
+                width*0.8f, height*0.8f, entity.action.weaponType), runnable), ILogicable {
 
 
     private val text: IComponent
