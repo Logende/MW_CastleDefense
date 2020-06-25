@@ -9,7 +9,7 @@ import org.neubauerfelix.manawars.manawars.entities.animation.BodyPartAttached
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
 
-open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, var sized: ISized): ICollidable, ISized by sized {
+open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, val sized: ISized): ICollidable, ISized by sized {
 
 
     var head: BodyPartAttached

@@ -84,7 +84,8 @@ army:
       rarity: common
       action:
         type: mix
-        owner_animation: SUMMON_BIG
+        owner_animation: WEAPON
+        weapon: wand:default
         sound: skill.energy
         manacost_factor: 0.7
         parts:

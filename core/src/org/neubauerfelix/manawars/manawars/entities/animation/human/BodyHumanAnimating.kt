@@ -73,6 +73,8 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
         if (w != null) {
             w.setPosition(0)
             w.enabled = MConstants.ALWAYS_EQUIP_WEAPONS
+            val weaponData = w.bodyPartData
+            w.update(weaponData.relativeX, weaponData.relativeY, weaponData.rotation)
         }
     }
 

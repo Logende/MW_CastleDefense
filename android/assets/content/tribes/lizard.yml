@@ -92,7 +92,8 @@ army:
       armor: 'none'
       rarity: common
       action:
-        owner_animation: SUMMON_SMALL
+        owner_animation: WEAPON
+        weapon: wand:ice
         texture: l1.lizard.mage
         animation: '1:4:1'
         sound: skill.ice

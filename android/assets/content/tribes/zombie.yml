@@ -80,7 +80,8 @@ army:
       armor: 'none'
       rarity: common
       action:
-        owner_animation: SUMMON_SMALL
+        owner_animation: WEAPON
+        weapon: wand:default
         texture: l1.zombie.mage
         animation: '1:6:1'
         preview: magic.skull.2

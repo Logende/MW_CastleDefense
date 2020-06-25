@@ -81,7 +81,8 @@ army:
       armor: 'none'
       rarity: rare
       action:
-        owner_animation: SUMMON_BIG
+        owner_animation: WEAPON
+        weapon: wand:default
         texture: l1.snowman.mage
         animation: '1:2:1'
         sound: skill.ice

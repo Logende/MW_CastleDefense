@@ -208,33 +208,39 @@ enum class MWWeaponClass {
     WAND {
         override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
             val sprites = generateTextures("char.wand." + weaponType.textureName, 1)
-            val bodyPartData = BodyPartData(sprites[0], 81f, 50f, 0f, 0f, 0f, bodyData, 0, 0 ,0 ,0)
+            val bodyPartData = BodyPartData(sprites[0], 78f, 50f, 12f, 80f, 30f, bodyData, 0, 0 ,0 ,0)
             return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
         }
 
         override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
-            body.armR.update(-70f)
-            println("animate wand body effect")
             when (position) {
                 0 -> {
                     weapon.setPosition(0)
+                    body.updateArms(0f, -70f)
                     return
                 }
                 1 -> {
                     weapon.setPosition(0)
+                    weapon.update(38f)
+                    weapon.addLocation(0, 2)
+                    body.updateArms(0f, -65f)
                     body.armL.update(5f)
                     return
                 }
                 2 -> {
                     weapon.setPosition(0)
-                    body.armL.update(10f)
-                    body.head.addLocation(0, 1)
+                    weapon.update(42f)
+                    weapon.addLocation(0, 4)
+                    body.updateArms(0f, -60f)
                     body.armL.update(5f)
                     body.head.addLocation(0, 1)
                     return
                 }
                 3 -> {
                     weapon.setPosition(0)
+                    weapon.update(34f)
+                    weapon.addLocation(0, 2)
+                    body.updateArms(0f, -65f)
                     body.armL.update(5f)
                     body.head.addLocation(0, 1)
                     return
@@ -251,18 +257,21 @@ enum class MWWeaponClass {
                 }
                 1 -> {
                     weapon.setPosition(0)
-                    body.updateArms(5f, -70f)
+                    weapon.addLocation(0, 1)
+                    body.updateArms(5f, -68f)
                     return
                 }
                 2 -> {
                     weapon.setPosition(0)
-                    body.updateArms(10f, -70f)
+                    weapon.addLocation(0, 2)
+                    body.updateArms(10f, -65f)
                     body.head.addLocation(0, 1)
                     return
                 }
                 3 -> {
                     weapon.setPosition(0)
-                    body.updateArms(5f, -70f)
+                    weapon.addLocation(0, 1)
+                    body.updateArms(5f, -68f)
                     body.head.addLocation(0, 1)
                     return
                 }

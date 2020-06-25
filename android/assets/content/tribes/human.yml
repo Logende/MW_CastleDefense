@@ -79,8 +79,9 @@ army:
       armor: 'none'
       rarity: rare
       action:
+        owner_animation: WEAPON
+        weapon: wand:fire
         type: normal
-        owner_animation: SUMMON_SMALL
         texture: l1.human.mage
         animation: '1:4:1'
         sound: skill.element

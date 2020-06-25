@@ -81,7 +81,8 @@ army:
       armor: 'none'
       rarity: rare
       action:
-        owner_animation: SUMMON_BIG
+        owner_animation: WEAPON
+        weapon: wand:default
         texture: l1.frost.mage
         animation: '1:1:1'
         rotation_duration: 0

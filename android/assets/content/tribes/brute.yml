@@ -78,7 +78,8 @@ army:
       rarity: epic
       action:
         type: normal
-        owner_animation: SUMMON_SMALL
+        owner_animation: WEAPON
+        weapon: wand:fire
         texture: l2.brute.mage
         animation: '1:4:1'
         sound: skill.element
