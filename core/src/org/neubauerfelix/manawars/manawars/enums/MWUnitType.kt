@@ -8,7 +8,7 @@ enum class MWUnitType(val defaultRange: Float, val main: Boolean, val index: Int
     BOSS(1000f, true, 0),
     MELEE(700f, true, 1),
     KNIGHT(800f, true, 2),
-    ARCHER(2000f, true, 3),
+    ARCHER(1500f, true, 3),
     MAGE(900f, true, 4),
     BUILDER(0f, false, -1),
     BUILDING(1100f, false, -1);

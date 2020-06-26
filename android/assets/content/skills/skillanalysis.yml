@@ -16,8 +16,8 @@ skill_zombie:
     rangeMax: 1440.0
     rangeMin: 0.0
   mage:
-    lifeTime: 1.6999999
-    rangeMax: 1008.0
+    lifeTime: 1.52
+    rangeMax: 900.0
     rangeMin: 0.0
 skill_snowman:
   boss:
@@ -33,8 +33,8 @@ skill_snowman:
     rangeMax: 686.0
     rangeMin: 0.0
   archer:
-    lifeTime: 1.6999999
-    rangeMax: 2016.0
+    lifeTime: 1.28
+    rangeMax: 1512.0
     rangeMin: 0.0
   mage:
     lifeTime: 1.3399999
@@ -54,8 +54,8 @@ skill_skeleton:
     rangeMax: 819.8397
     rangeMin: 0.0
   archer:
-    lifeTime: 1.6999999
-    rangeMax: 2016.0
+    lifeTime: 1.28
+    rangeMax: 1512.0
     rangeMin: 0.0
   mage:
     lifeTime: 3.4199998
@@ -79,8 +79,8 @@ skill_human:
     rangeMax: 572.37555
     rangeMin: 0.0
   mage:
-    lifeTime: 1.68
-    rangeMax: 1001.31165
+    lifeTime: 1.5799999
+    rangeMax: 903.55164
     rangeMin: 0.0
 skill_frost:
   boss:
@@ -96,8 +96,8 @@ skill_frost:
     rangeMax: 630.9115
     rangeMin: 0.0
   archer:
-    lifeTime: 1.6999999
-    rangeMax: 2016.0
+    lifeTime: 1.28
+    rangeMax: 1512.0
     rangeMin: 0.0
   mage:
     lifeTime: 2.22
@@ -117,12 +117,12 @@ skill_lizard:
     rangeMax: 560.0
     rangeMin: 310.0
   archer:
-    lifeTime: 2.36
-    rangeMax: 1860.0
+    lifeTime: 1.52
+    rangeMax: 1500.0
     rangeMin: 0.0
   mage:
-    lifeTime: 1.48
-    rangeMax: 1010.31995
+    lifeTime: 1.4
+    rangeMax: 910.7999
     rangeMin: 0.0
 skill_goblin:
   boss:
@@ -138,12 +138,12 @@ skill_goblin:
     rangeMax: 738.04816
     rangeMin: 0.0
   archer:
-    lifeTime: 2.36
-    rangeMax: 1860.0
+    lifeTime: 1.52
+    rangeMax: 1500.0
     rangeMin: 0.0
   mage:
-    lifeTime: 4.02
-    rangeMax: 1000.0
+    lifeTime: 3.62
+    rangeMax: 900.0
     rangeMin: 0.0
 skill_bear:
   boss:
@@ -163,8 +163,8 @@ skill_bear:
     rangeMax: 828.0
     rangeMin: 629.0
 magic_energy_single:
-  lifeTime: 2.2
-  rangeMax: 1011.5188
+  lifeTime: 2.06
+  rangeMax: 912.287
   rangeMin: 0.0
 skill_brute:
   boss:
@@ -184,8 +184,8 @@ skill_brute:
     rangeMax: 742.0
     rangeMin: 0.0
   mage:
-    lifeTime: 1.68
-    rangeMax: 1001.31165
+    lifeTime: 1.5799999
+    rangeMax: 903.5517
     rangeMin: 0.0
 action_building_darts:
   lifeTime: 1.14
