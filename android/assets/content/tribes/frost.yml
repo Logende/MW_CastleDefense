@@ -29,13 +29,13 @@ army:
         location: 0:-50
         knockback: 1.5
 
-    tank:
-      animation: 'human:l1.frost.tank'
+    knight:
+      animation: 'rider:tortoise:l1.frost.knight'
       armor: 'anti_light'
       rarity: common
       action:
         owner_animation: SUMMON_SMALL
-        texture: l1.frost.tank
+        texture: l1.frost.knight
         animation: '1:1:1'
         sound: skill.wind
         skillclass: NORMAL
@@ -58,15 +58,15 @@ army:
         location: 0:-30
         knockback: 1.1
 
-    ranger:
-      animation: 'human:l1.frost.ranged'
+    archer:
+      animation: 'human:l1.frost.archer'
       armor: 'none'
       rarity: common
       action:
         type: normal
         owner_animation: WEAPON
         weapon: bow:light
-        texture: l1.frost.ranged
+        texture: l1.frost.archer
         animation: '1:4:1'
         sound: skill.arrow
         skillclass: LIGHT

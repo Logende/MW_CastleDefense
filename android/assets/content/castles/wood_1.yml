@@ -6,5 +6,5 @@ textures:
 location: '0:35'
 offset_units: '140:0'
 goldStart: 1
-goldPerCharge: 1
+goldPerCharge: 0
 health: 1

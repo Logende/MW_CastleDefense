@@ -33,7 +33,7 @@ class CDKITraditionalAggressive() : ICDKI {
         // at least 1.5. Not more than 5. Ideally 1/3 of team
         val neededDefensePoints = max(1.5, min(5.0, unitCount / 3.0 ))
         if (defensePoints < neededDefensePoints) {
-            return chooseBetterPick(CDKILabel.UNIT_TANK, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
+            return chooseBetterPick(CDKILabel.UNIT_KNIGHT, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
                     unitCountTank, unitCountMelee)
         }
 
@@ -42,7 +42,7 @@ class CDKITraditionalAggressive() : ICDKI {
             return CDKILabel.UNIT_MELEE
         }
 
-        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_RANGER, effectivenessMage, effectivenessRanger,
+        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_ARCHER, effectivenessMage, effectivenessRanger,
                 unitCountMage, unitCountRanger)
 
     }

@@ -30,14 +30,14 @@ army:
         knockback: 0.5
         location: 0:10
 
-    tank:
-      animation: 'human:l1.human.tank'
+    knight:
+      animation: 'rider:tortoise:l1.human.knight'
       armor: 'anti_light'
       rarity: common
       action:
         allow_movement_scaling: true
         owner_animation: THROW
-        texture: l1.human.tank
+        texture: l1.human.knight
         animation: '1:1:1'
         sound: skill.throw
         skillclass: NORMAL
@@ -59,19 +59,19 @@ army:
         location: 0:-50
         knockback: 1.6
 
-    ranger:
-      animation: 'human:l1.human.ranged'
+    archer:
+      animation: 'human:l1.human.archer'
       armor: 'none'
       rarity: common
       action:
         type: normal
         owner_animation: THROW
-        texture: l1.human.ranged
+        texture: l1.human.archer
         animation: '1:1:1'
         sound: skill.boomerang
         skillclass: NORMAL
         speed: 900:-320
-        acceleration: 0-39*A:19*A
+        acceleration: 0-39*A:10*A
         knockback: 1.0
 
     mage:

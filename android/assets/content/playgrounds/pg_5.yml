@@ -12,7 +12,7 @@ building_placeholders:
 #  - "playground_width*0.83"
 #  - "playground_width*0.73"
 mine:
-  chargePeriod: 25.0
-  goldPerChargeInitial: 20
-  goldIncreasePerCharge: 2
-  goldPerChargeMax: 50
+  chargePeriod: 15.0
+  goldPerChargeInitial: 60
+  goldIncreasePerCharge: 1
+  goldPerChargeMax: 60

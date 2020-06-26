@@ -20,6 +20,7 @@ open class CDComponentEntity(x: Float, y: Float, width: Float, height: Float, va
             this(x, y, width, height, animationProducer.produce(x, y, width, height, weaponType), runnable)
 
 
+
     private val animationX = animation.x
     private val animationY = animation.y
 

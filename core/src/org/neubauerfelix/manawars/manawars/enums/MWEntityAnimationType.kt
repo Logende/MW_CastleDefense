@@ -82,6 +82,22 @@ enum class MWEntityAnimationType {
             return a
         }
     },
+    PET {
+        override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
+            val skinName = "dragon.small.green"
+            val animationProducer = IEntityAnimationProducer.createProducerPet(skinName)
+            val controller = ControllerDummy()
+            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
+                    data = DataUnitDummy())
+            controller.controlled = a
+            a.x = x
+            a.bottom = bottom
+            a.team = MConstants.TEAM_BOT
+            a.direction = direction
+            a.animation.updateAnimation(a)
+            return a
+        }
+    },
     BUILDING {
         override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
             val animationProducer = EntityAnimationProducerBuilding("building.heal")

@@ -32,13 +32,13 @@ army:
         location: 0:30
         effect: BURNING:3
 
-    tank:
-      animation: 'human:l1.goblin.tank'
+    knight:
+      animation: 'rider:wolf:l1.goblin.knight'
       armor: 'anti_light'
       rarity: common
       action:
         owner_animation: SUMMON_SMALL
-        texture: l1.goblin.tank
+        texture: l1.goblin.knight
         animation: '1:1:1'
         sound: skill.knife.fast
         skillclass: NORMAL
@@ -62,15 +62,15 @@ army:
         acceleration: 0:60*A
         knockback: 1.5
 
-    ranger:
-      animation: 'human:l1.goblin.ranged'
+    archer:
+      animation: 'human:l1.goblin.archer'
       armor: 'none'
       rarity: common
       action:
         type: normal
         owner_animation: WEAPON
         weapon: bow:normal_red
-        texture: l1.goblin.ranged
+        texture: l1.goblin.archer
         animation: '1:4:1'
         sound: skill.arrow
         skillclass: LIGHT

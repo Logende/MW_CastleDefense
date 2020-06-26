@@ -208,7 +208,7 @@ enum class MWWeaponClass {
     WAND {
         override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
             val sprites = generateTextures("char.wand." + weaponType.textureName, 1)
-            val bodyPartData = BodyPartData(sprites[0], 90f, 50f, 12f, 50f, 30f, bodyData, 0, 0 ,0 ,0)
+            val bodyPartData = BodyPartData(sprites[0], 85f, 50f, 12f, 50f, 30f, bodyData, 0, 0 ,0 ,0)
             return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
         }
 

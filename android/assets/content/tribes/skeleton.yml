@@ -30,13 +30,13 @@ army:
         knockback: 0.5
         location: 0:-40
 
-    tank:
-      animation: 'human:l1.skeleton.tank'
+    knight:
+      animation: 'rider:wolf:l1.skeleton.knight'
       armor: 'anti_light'
       rarity: epic
       action:
         owner_animation: SUMMON_SMALL
-        texture: l1.skeleton.tank
+        texture: l1.skeleton.knight
         animation: '1:1:1'
         sound: skill.wind
         skillclass: NORMAL
@@ -58,15 +58,15 @@ army:
         acceleration: 10*A:0
         location: 0:-30
 
-    ranger:
-      animation: 'human:l1.skeleton.ranged'
+    archer:
+      animation: 'human:l1.skeleton.archer'
       armor: 'none'
       rarity: common
       action:
         type: normal
         owner_animation: WEAPON
         weapon: bow:bones
-        texture: l1.skeleton.ranged
+        texture: l1.skeleton.archer
         animation: '1:4:1'
         sound: skill.arrow
         skillclass: LIGHT

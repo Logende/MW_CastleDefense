@@ -28,13 +28,13 @@ army:
         location: 0:-30
         knockback: 1.1
 
-    tank:
-      animation: 'human:l1.snowman.tank'
+    knight:
+      animation: 'rider:tortoise:l1.snowman.knight'
       armor: 'anti_magic'
       rarity: epic
       action:
         owner_animation: THROW
-        texture: l1.snowman.tank
+        texture: l1.snowman.knight
         animation: '1:1:1'
         sound: skill.knife.weak
         skillclass: NORMAL
@@ -58,15 +58,15 @@ army:
         location: 0:-30
         knockback: 1.0
 
-    ranger:
-      animation: 'human:l1.snowman.ranged'
+    archer:
+      animation: 'human:l1.snowman.archer'
       armor: 'none'
       rarity: rare
       action:
         type: normal
         owner_animation: WEAPON
         weapon: bow:light
-        texture: l1.snowman.ranged
+        texture: l1.snowman.archer
         animation: '1:4:1'
         sound: skill.arrow
         skillclass: LIGHT

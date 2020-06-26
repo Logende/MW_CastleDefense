@@ -39,8 +39,8 @@ class EntityAnimationProducerRider(val producerMount: IEntityAnimationProducer, 
         val body = BodyRider(rectangle, producerMount, producerHuman, scale, scale)
         if (weaponType != null) {
             body.equipWeapon(weaponType)
-            body.updateAnimation(rectangle)
         }
+        body.updateAnimation(rectangle)
         return EntityAnimationAny(body, animationType)
     }
 

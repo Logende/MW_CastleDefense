@@ -18,6 +18,6 @@ interface IDataBuilding : IDataPresentable, IDataCoreEntity {
     val health: Float
 
     val name: String
-    val rarity: NWRarity
+    override val rarity: NWRarity
 
 }

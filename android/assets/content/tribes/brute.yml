@@ -29,13 +29,13 @@ army:
         acceleration: 0-40*A:18*A
         knockback: 1.0
 
-    tank:
-      animation: 'human:l2.brute.tank'
+    knight:
+      animation: 'rider:lion:l2.brute.knight'
       armor: 'anti_light'
       rarity: rare
       action:
         owner_animation: SUMMON_SMALL
-        texture: l2.brute.tank
+        texture: l2.brute.knight
         animation: '1:1:1'
         sound: skill.rust
         skillclass: NORMAL
@@ -44,7 +44,7 @@ army:
         location: 0:-100
 
     melee:
-      animation: 'rider:lion:l2.brute.melee'
+      animation: 'human:l2.brute.melee'
       armor: 'anti_light'
       rarity: rare
       action:
@@ -59,13 +59,13 @@ army:
         knockback: 1.0
         allow_movement_scaling: true
 
-    ranger:
-      animation: 'human:l2.brute.ranged'
+    archer:
+      animation: 'human:l2.brute.archer'
       armor: 'none'
       rarity: rare
       action:
         owner_animation: THROW
-        texture: l2.brute.ranged
+        texture: l2.brute.archer
         animation: '1:4:1'
         sound: skill.spear
         skillclass: NORMAL

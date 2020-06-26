@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.game.IComponent
 import org.neubauerfelix.manawars.game.entities.ILogicable
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.components.MTextLabel
 import org.neubauerfelix.manawars.manawars.data.IDataCoreEntity
@@ -22,7 +23,11 @@ open class CDComponentCoreEntity(x: Float, y: Float, width: Float, height: Float
 
 
     init {
-        val color = entity.action.displayColor
+        val color = if (MConstants.USE_ARMOR_MECHANIC) {
+            entity.action.displayColor // action type is relevant if armor is used
+        } else {
+            entity.rarity.displayColor
+        }
         val colorAsColorCode = StringUtils.colorAsColorCode(color)
         text = MTextLabel(x, y, "$colorAsColorCode${entity.cost}", FontHandler.MWFont.MAIN, 0.2f)
     }

@@ -2,12 +2,13 @@ package org.neubauerfelix.manawars.castledefense.ki
 
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.data.units.DataUnit
+import org.neubauerfelix.manawars.manawars.enums.MWUnitType
 
 enum class CDKILabel {
 
     UNIT_BOSS {
         override fun getDataInstance(player: ICDPlayer): Any {
-            return player.tribe.army.units[0]
+            return player.tribe.army.units[MWUnitType.BOSS.index]
         }
 
         override fun getCost(player: ICDPlayer): Int {
@@ -19,9 +20,9 @@ enum class CDKILabel {
             player.spawnUnit(data)
         }
     },
-    UNIT_TANK {
+    UNIT_KNIGHT {
         override fun getDataInstance(player: ICDPlayer): Any {
-            return player.tribe.army.units[1]
+            return player.tribe.army.units[MWUnitType.KNIGHT.index]
         }
 
         override fun getCost(player: ICDPlayer): Int {
@@ -35,7 +36,7 @@ enum class CDKILabel {
     },
     UNIT_MELEE {
         override fun getDataInstance(player: ICDPlayer): Any {
-            return player.tribe.army.units[2]
+            return player.tribe.army.units[MWUnitType.MELEE.index]
         }
 
         override fun getCost(player: ICDPlayer): Int {
@@ -47,9 +48,9 @@ enum class CDKILabel {
             player.spawnUnit(data)
         }
     },
-    UNIT_RANGER {
+    UNIT_ARCHER {
         override fun getDataInstance(player: ICDPlayer): Any {
-            return player.tribe.army.units[3]
+            return player.tribe.army.units[MWUnitType.ARCHER.index]
         }
 
         override fun getCost(player: ICDPlayer): Int {
@@ -63,7 +64,7 @@ enum class CDKILabel {
     },
     UNIT_MAGE {
         override fun getDataInstance(player: ICDPlayer): Any {
-            return player.tribe.army.units[4]
+            return player.tribe.army.units[MWUnitType.MAGE.index]
         }
 
         override fun getCost(player: ICDPlayer): Int {

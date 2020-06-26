@@ -40,7 +40,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
     override val animation: IEntityAnimationProducer = IEntityAnimationProducer
             .createProducer(config.getString("animation"))
 
-    override val armor: MWArmorType = if (!config.contains("armor")) {
+    override val armor: MWArmorType = if (!config.contains("armor") ||! MConstants.USE_ARMOR_MECHANIC) {
         MWArmorType.NONE
     } else {
         MWArmorType.valueOf(config.getString("armor").toUpperCase())
@@ -87,7 +87,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
         config.getFloat("walkSpeedMax")
     } else {
         armor.walkSpeedFactor * if (animation.animationType == MWEntityAnimationType.RIDER) {
-           2f
+            MConstants.UNIT_RIDER_SPEED_FACTOR
         } else {
             1f
         }
@@ -97,7 +97,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
         config.getFloat("walkAcceleration")
     } else {
         armor.walkSpeedFactor * if (animation.animationType == MWEntityAnimationType.RIDER) {
-           2f
+            MConstants.UNIT_RIDER_SPEED_FACTOR
         } else {
             1f
         }

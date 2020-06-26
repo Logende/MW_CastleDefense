@@ -51,11 +51,13 @@ class BoxUnitInfoSimple(x: Float, y: Float, width: Float, val unit: IDataUnit) :
             keys.add("${lang.getMessage("stats_damage")}:")
             values.add(action.damage.toInt().toString())
 
-            keys.add("${lang.getMessage("stats_skillclass")}:")
-            val skillclass = action.skillClass
-            val skillclassDisplayName = lang.getMessage("skillclass_${skillclass.name.toLowerCase()}")
-            val colorAsColorCode = StringUtils.colorAsColorCode(skillclass.color)
-            values.add(colorAsColorCode + skillclassDisplayName)
+            if (MConstants.USE_ARMOR_MECHANIC) {
+                keys.add("${lang.getMessage("stats_skillclass")}:")
+                val skillclass = action.skillClass
+                val skillclassDisplayName = lang.getMessage("skillclass_${skillclass.name.toLowerCase()}")
+                val colorAsColorCode = StringUtils.colorAsColorCode(skillclass.color)
+                values.add(colorAsColorCode + skillclassDisplayName)
+            }
 
             val stateEffect = action.stateEffect
             if (stateEffect != null) {
@@ -69,11 +71,13 @@ class BoxUnitInfoSimple(x: Float, y: Float, width: Float, val unit: IDataUnit) :
             val damage = action.parts.map { it.action.damage }.sum()
             values.add(damage.toInt().toString())
 
-            keys.add("${lang.getMessage("stats_skillclass")}:")
-            val skillclass = action.parts.first().action.skillClass
-            val skillclassDisplayName = lang.getMessage("skillclass_${skillclass.name.toLowerCase()}")
-            val colorAsColorCode = StringUtils.colorAsColorCode(skillclass.color)
-            values.add(colorAsColorCode + skillclassDisplayName)
+            if (MConstants.USE_ARMOR_MECHANIC) {
+                keys.add("${lang.getMessage("stats_skillclass")}:")
+                val skillclass = action.parts.first().action.skillClass
+                val skillclassDisplayName = lang.getMessage("skillclass_${skillclass.name.toLowerCase()}")
+                val colorAsColorCode = StringUtils.colorAsColorCode(skillclass.color)
+                values.add(colorAsColorCode + skillclassDisplayName)
+            }
         }
 
         keys.add("${lang.getMessage("stats_cooldown")}:")

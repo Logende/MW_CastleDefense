@@ -1,0 +1,130 @@
+# Those stats are well suited if MConstants#SKILLS_COLLIDE_WITH_EACH_OTHER is false and for the new RPS system
+units:
+  boss:
+    common:
+      health: 120
+      damage: 12
+      cooldown: 1.5
+      cost: 100
+
+    rare:
+      health: 180
+      damage: 18
+      cooldown: 1.5
+      cost: 150
+
+    epic:
+      health: 240
+      damage: 24
+      cooldown: 1.5
+      cost: 200
+
+    legendary:
+      health: 360
+      damage: 36
+      cooldown: 1.5
+      cost: 300
+
+
+  knight:
+    common:
+      health: 24
+      damage: 6
+      cooldown: 2
+      cost: 20
+
+    rare:
+      health: 36
+      damage: 9
+      cooldown: 2
+      cost: 30
+
+    epic:
+      health: 48
+      damage: 12
+      cooldown: 2
+      cost: 40
+
+    legendary:
+      health: 72
+      damage: 18
+      cooldown: 2
+      cost: 60
+
+
+  melee:
+    common:
+      health: 12
+      damage: 6
+      cooldown: 2
+      cost: 10
+
+    rare:
+      health: 18
+      damage: 9
+      cooldown: 1.5
+      cost: 15
+
+    epic:
+      health: 24
+      damage: 12
+      cooldown: 1.5
+      cost: 20
+
+    legendary:
+      health: 36
+      damage: 18
+      cooldown: 1.5
+      cost: 30
+
+
+  archer:
+    common:
+      health: 12
+      damage: 6
+      cooldown: 1
+      cost: 20
+
+    rare:
+      health: 18
+      damage: 9
+      cooldown: 1
+      cost: 30
+
+    epic:
+      health: 24
+      damage: 12
+      cooldown: 1
+      cost: 40
+
+    legendary:
+      health: 36
+      damage: 18
+      cooldown: 1
+      cost: 60
+
+
+  mage:
+    common:
+      health: 12
+      damage: 12
+      cooldown: 2.5
+      cost: 20
+
+    rare:
+      health: 18
+      damage: 18
+      cooldown: 2.5
+      cost: 30
+
+    epic:
+      health: 24
+      damage: 24
+      cooldown: 2.5
+      cost: 40
+
+    legendary:
+      health: 36
+      damage: 36
+      cooldown: 2.5
+      cost: 60

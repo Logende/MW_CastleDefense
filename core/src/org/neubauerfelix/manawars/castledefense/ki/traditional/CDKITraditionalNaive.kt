@@ -21,9 +21,9 @@ class CDKITraditionalNaive() : ICDKI {
 
         return when(pick.unitType) {
             MWUnitType.BOSS -> CDKILabel.UNIT_BOSS
-            MWUnitType.TANK -> CDKILabel.UNIT_TANK
+            MWUnitType.KNIGHT -> CDKILabel.UNIT_KNIGHT
             MWUnitType.MELEE -> CDKILabel.UNIT_MELEE
-            MWUnitType.RANGER -> CDKILabel.UNIT_RANGER
+            MWUnitType.ARCHER -> CDKILabel.UNIT_ARCHER
             MWUnitType.MAGE -> CDKILabel.UNIT_MAGE
             else -> CDKILabel.NONE
         }

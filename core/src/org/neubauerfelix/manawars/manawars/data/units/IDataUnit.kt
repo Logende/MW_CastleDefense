@@ -12,7 +12,7 @@ interface IDataUnit : IDataPresentable, IDataActionUser, IDataCoreEntity {
 
     val name: String
     val displayName: String
-    val rarity: NWRarity
+    override val rarity: NWRarity
     val armor: MWArmorType
 
     var health: Float

@@ -106,7 +106,7 @@ final class DataSkillLoaded(final override val name: String, config: Configurati
     final override val allowMovementScaling: Boolean = config.getBoolean("allow_movement_scaling")
     final override val targetEnemy: Boolean = config.contains("target_range") || config.contains("target_speed") ||
             config.contains("allow_movement_scaling") // todo: fix: seems like setting was renamed
-    final override val targetRange: Float = config.getFloat("target_range", 900f)
+    final override val targetRange: Float = config.getFloat("target_range", Float.MAX_VALUE)
     final override val xRelativeToTarget: Boolean
     final override val yRelativeToTarget: Boolean
     final override val targetSpeedX: Float

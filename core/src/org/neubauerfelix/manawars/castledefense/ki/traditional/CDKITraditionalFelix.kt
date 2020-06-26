@@ -118,13 +118,13 @@ class CDKITraditionalFelix() : ICDKI {
             // at least 1. Not more than 4. Ideally 1/3 of team
             val neededDefensePoints = max(1.0, min(4.0, unitCount / 3.0 ))
             if (defensePoints <= neededDefensePoints) {
-                return chooseBetterPick(CDKILabel.UNIT_TANK, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
+                return chooseBetterPick(CDKILabel.UNIT_KNIGHT, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
                         unitCountTank, unitCountMelee)
             }
         }
 
         // other than that, build units with high attack value
-        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_RANGER, effectivenessMage, effectivenessRanger,
+        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_ARCHER, effectivenessMage, effectivenessRanger,
                 unitCountMage, unitCountRanger)
 
     }
@@ -145,7 +145,7 @@ class CDKITraditionalFelix() : ICDKI {
         // at least 1.5. Not more than 5. Ideally 1/3 of team
         val neededDefensePoints = max(1.5, min(5.0, unitCount / 3.0 ))
         if (defensePoints <= neededDefensePoints) {
-            return chooseBetterPick(CDKILabel.UNIT_TANK, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
+            return chooseBetterPick(CDKILabel.UNIT_KNIGHT, CDKILabel.UNIT_MELEE, effectivenessTank, effectivenessMelee,
                     unitCountTank, unitCountMelee)
         }
 
@@ -154,7 +154,7 @@ class CDKITraditionalFelix() : ICDKI {
             return CDKILabel.UNIT_MELEE
         }
 
-        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_RANGER, effectivenessMage, effectivenessRanger,
+        return chooseBetterPick(CDKILabel.UNIT_MAGE, CDKILabel.UNIT_ARCHER, effectivenessMage, effectivenessRanger,
                 unitCountMage, unitCountRanger)
 
     }

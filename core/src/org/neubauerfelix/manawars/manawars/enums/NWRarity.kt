@@ -1,10 +1,14 @@
 package org.neubauerfelix.manawars.manawars.enums
 
-enum class NWRarity  {
+import com.badlogic.gdx.graphics.Color
 
-    COMMON,
-    RARE,
-    EPIC,
-    LEGENDARY
+enum class NWRarity(val displayColor: Color)  {
+
+    COMMON(Color.FOREST),
+    RARE(Color.ROYAL),
+    EPIC(Color.PURPLE),
+    LEGENDARY(Color.ORANGE);
+
+
 
 }

@@ -27,15 +27,15 @@ army:
         acceleration: 0-39*A:19*A
         knockback: 1.0
 
-    tank:
-      animation: 'human:l1.zombie.tank'
+    knight:
+      animation: 'rider:wolf:l1.zombie.knight'
       armor: 'none'
       rarity: common
       drain: 0.5
       action:
         allow_movement_scaling: true
         owner_animation: THROW
-        texture: l1.zombie.tank
+        texture: l1.zombie.knight
         animation: '1:1:1'
         sound: skill.throw
         skillclass: NORMAL
@@ -44,7 +44,7 @@ army:
         knockback: 1.5
 
     melee:
-      animation: 'rider:wolf:l1.zombie.melee'
+      animation: 'human:l1.zombie.melee'
       armor: 'none'
       rarity: rare
       action:
@@ -58,15 +58,15 @@ army:
         location: 0:-50
         knockback: 1.6
 
-    ranger:
-      animation: 'human:l1.zombie.ranged'
+    archer:
+      animation: 'human:l1.zombie.archer'
       armor: 'none'
       rarity: common
       action:
         type: normal
         owner_animation: WEAPON
         weapon: bow:normal_blue
-        texture: l1.zombie.ranged
+        texture: l1.zombie.archer
         animation: '1:4:1'
         sound: skill.arrow
         skillclass: LIGHT

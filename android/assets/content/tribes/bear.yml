@@ -27,12 +27,12 @@ army:
         skillclass: NORMAL
         speed: '300:0'
         acceleration: 10*A:G
-        location: 0:-900
+        location: -300:-900
         knockback: 1.0
         stop_on_ground: true
 
-    tank:
-      animation: 'human:l1.bear.tank'
+    knight:
+      animation: 'rider:bear:l1.bear.knight'
       armor: 'anti_light'
       rarity: rare
       action:
@@ -43,7 +43,7 @@ army:
         skillclass: NORMAL
         speed: '300:0'
         acceleration: 10*A:G
-        location: 0:-900
+        location: -300:-900
         knockback: 1.0
         stop_on_ground: true
 
@@ -61,13 +61,13 @@ army:
         location: 0:-70
         knockback: 0.4
 
-    ranger:
-      animation: 'human:l1.bear.ranged'
+    archer:
+      animation: 'human:l1.bear.archer'
       armor: 'none'
       rarity: common
       action:
         owner_animation: THROW
-        texture: l1.bear.ranged
+        texture: l1.bear.archer
         animation: '1:16:1'
         pick_one_frame: true
         sound: skill.rock

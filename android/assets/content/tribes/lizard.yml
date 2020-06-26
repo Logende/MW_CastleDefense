@@ -38,14 +38,14 @@ army:
             knockback: 1.0
             damage: 0.33334
 
-    tank:
-      animation: 'human:l1.lizard.tank'
+    knight:
+      animation: 'rider:tortoise:l1.lizard.knight'
       armor: 'none'
       rarity: common
       action:
         allow_movement_scaling: true
         owner_animation: THROW
-        texture: l1.lizard.tank
+        texture: l1.lizard.knight
         animation: '1:1:1'
         sound: skill.throw
         skillclass: NORMAL
@@ -69,8 +69,8 @@ army:
         location: 0:-20
         knockback: 1.5
 
-    ranger:
-      animation: 'human:l1.lizard.ranged'
+    archer:
+      animation: 'human:l1.lizard.archer'
       armor: 'none'
       rarity: epic
       drain: 1.0
@@ -78,7 +78,7 @@ army:
         type: normal
         owner_animation: WEAPON
         weapon: bow:normal_red
-        texture: l1.lizard.ranged
+        texture: l1.lizard.archer
         animation: '1:4:1'
         sound: skill.arrow
         skillclass: LIGHT

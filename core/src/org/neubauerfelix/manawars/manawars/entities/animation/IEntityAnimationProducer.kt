@@ -6,6 +6,7 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.animation.building.EntityAnimationProducerBuilding
 import org.neubauerfelix.manawars.manawars.entities.animation.human.EntityAnimationProducerHuman
 import org.neubauerfelix.manawars.manawars.entities.animation.mount.EntityAnimationProducerMount
+import org.neubauerfelix.manawars.manawars.entities.animation.pet.EntityAnimationProducerPet
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.EntityAnimationProducerRider
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 import org.neubauerfelix.manawars.manawars.enums.MWWeaponType
@@ -28,6 +29,10 @@ interface IEntityAnimationProducer: IBodyData {
             val producerHuman = createProducerHuman(skinHuman)
             return EntityAnimationProducerRider(producerMount, producerHuman)
         }
+        fun createProducerPet(skinName: String, frames: Int = 4, frameDuration: Float = 0.12f): IEntityAnimationProducer{
+            val texture = MManaWars.m.getImageHandler().getTextureRegionMain("pet.$skinName")
+            return EntityAnimationProducerPet(skinName, texture, frames, frameDuration)
+        }
         fun createProducerBuilding(textureNameAlive: String, textureNameDead: String = textureNameAlive,
                                    animationTextureName: String? = null,
                                    animationFrameDuration: Float = 0f): IEntityAnimationProducer{
@@ -46,6 +51,9 @@ interface IEntityAnimationProducer: IBodyData {
                 }
                 MWEntityAnimationType.MOUNT -> {
                     createProducerMount(animationParts[1])
+                }
+                MWEntityAnimationType.PET -> {
+                    createProducerPet(animationParts[1])
                 }
 
                 // first mount then human skin in arguments
