@@ -15,8 +15,9 @@ class BaseFeatures {
         // Note that does features can be applied to the enemy player as well
 
         fun gold(player: ICDPlayer): Double {
-            return player.castle.gold.toDouble()
+            return player.castle.storedMoney.toDouble()
         }
+        // TODO add money per cycle as feature
 
         fun entityWorth(player: ICDPlayer, includeBuildings: Boolean): Double {
             var totalWorth = 0f

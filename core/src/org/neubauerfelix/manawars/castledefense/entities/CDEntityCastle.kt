@@ -15,8 +15,8 @@ class CDEntityCastle(x: Float, y: Float,
                      direction: Int,
                      team: Int,
                      override val unitSpawnLocation: ILocated,
-                     startGold: Int,
-                     override var goldPerCharge: Int,
+                     startMoney: Int,
+                     override var moneyPerCycle: Int,
                      override val player: ICDPlayer) :
         MEntityAnimated(IEntityAnimationProducer.createProducerBuilding(textureNameAlive), health),
         ICDEntityCastle {
@@ -30,11 +30,8 @@ class CDEntityCastle(x: Float, y: Float,
     }
 
 
-    private var nextGoldChargeTime = MManaWars.m.screen.getGameTime() +
-            (1000 * CDConstants.CASTLE_GOLD_CHARGE_DELAY).toLong()
 
-    override var gold: Int = startGold
-
+    override var storedMoney: Int = startMoney
 
     override var speedX: Float
         get() = super.speedX
@@ -52,7 +49,7 @@ class CDEntityCastle(x: Float, y: Float,
 
     override fun doLogic(delta: Float) {
         super.doLogic(delta)
-        if (MManaWars.m.screen.getGameTime() >= nextGoldChargeTime) {
+        /*if (MManaWars.m.screen.getGameTime() >= nextGoldChargeTime) {
             nextGoldChargeTime = MManaWars.m.screen.getGameTime() +
                     (1000 * CDConstants.CASTLE_GOLD_CHARGE_DELAY).toLong()
             val event = EntityGoldEvent(this, this, goldPerCharge)
@@ -60,7 +57,7 @@ class CDEntityCastle(x: Float, y: Float,
             if (!event.cancelled) {
                 event.castle.gold += event.goldDifference
             }
-        }
+        }*/
     }
 
 

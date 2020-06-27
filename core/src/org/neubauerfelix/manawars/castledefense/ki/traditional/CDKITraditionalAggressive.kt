@@ -5,6 +5,7 @@ import org.neubauerfelix.manawars.castledefense.ki.CDKIFeaturePreparation
 import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
 import org.neubauerfelix.manawars.castledefense.ki.ICDKI
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import kotlin.math.max
 import kotlin.math.min
 
@@ -13,6 +14,9 @@ import kotlin.math.min
  */
 class CDKITraditionalAggressive() : ICDKI {
 
+    override fun getUnitsToBuildNextCycle(player: ICDPlayer): List<IDataUnit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun compute(player: ICDPlayer) : CDKILabel {
         val prep = CDKIFeaturePreparation()

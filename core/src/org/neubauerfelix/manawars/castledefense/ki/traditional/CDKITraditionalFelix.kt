@@ -7,6 +7,7 @@ import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
 import org.neubauerfelix.manawars.castledefense.ki.ICDKI
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.GameConstants
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.handlers.TextVisualizationHandler
 import kotlin.math.max
 import kotlin.math.min
@@ -15,6 +16,10 @@ import kotlin.math.min
  * Smart KI which saves gold when not attacked and then launches strong attacks
  */
 class CDKITraditionalFelix() : ICDKI {
+
+    override fun getUnitsToBuildNextCycle(player: ICDPlayer): List<IDataUnit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     enum class SituationType {
         ATTACKING_STRONG,
@@ -85,7 +90,7 @@ class CDKITraditionalFelix() : ICDKI {
 
     fun actWithStrategy(player: ICDPlayer, prep: CDKIFeaturePreparation) : CDKILabel {
         // TODO: Plan a strong attack group and safe until it can be built. Then build it
-        if (player.castle.gold >= BaseFeatures.unit1(player).cost * 1.35) {
+        if (player.castle.storedMoney >= BaseFeatures.unit1(player).cost * 1.35) {
             return CDKILabel.UNIT_BOSS // TODO
         } else {
             return CDKILabel.NONE

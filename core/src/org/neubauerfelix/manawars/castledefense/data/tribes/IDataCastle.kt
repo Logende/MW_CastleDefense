@@ -7,8 +7,8 @@ interface IDataCastle {
     val name: String
     val unitSpawnXOffset: Float
     val unitSpawnYOffset: Float
-    val goldStart: Int
-    val goldPerCharge: Int
+    val moneyStart: Int
+    val moneyPerCycle: Int
     val health: Float
     val xOffset: Float
     val yOffset: Float

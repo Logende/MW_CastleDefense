@@ -18,6 +18,8 @@ interface ICDPlayer : ITeamable, ILoadable, IDisposable {
 
     val enemy: ICDPlayer
 
+    val unitsToBuildNextCycle: MutableList<IDataUnit>
+
 
     fun spawnUnit(unit: IDataUnit): IControlled {
         val loc = castle.unitSpawnLocation
@@ -26,5 +28,7 @@ interface ICDPlayer : ITeamable, ILoadable, IDisposable {
     }
 
     fun spawnCastle(leftSide: Boolean, mapWidth: Float)
+
+    fun executeUnitBuilding()
 
 }

@@ -31,7 +31,7 @@ class DataTribeLoaded(config: Configuration) : DataTribe() {
         val castleConfig = YamlConfiguration.getProvider(YamlConfiguration::class.java).
                 load("content/$castleConfigName", true)
         this.castle = DataCastleLoaded(castleConfig, castleMultiplier, CDConstants.CASTLE_HEALTH_BASE,
-                CDConstants.CASTLE_GOLD_START_BASE, CDConstants.CASTLE_GOLD_PER_SECOND_BASE)
+                CDConstants.CASTLE_MONEY_START_BASE, CDConstants.CASTLE_MONEY_PER_CYCLE_BASE)
     }
 
     override val backgroundTheme = MWBackgroundTheme.valueOf(

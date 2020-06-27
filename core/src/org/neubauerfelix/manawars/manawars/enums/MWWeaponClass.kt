@@ -278,6 +278,162 @@ enum class MWWeaponClass {
             }
         }
 
+    },
+
+
+    MISC_WEAPON {
+        override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
+            val sprites = generateTextures("char.miscweapon." + weaponType.textureName, 1)
+            val bodyPartData = BodyPartData(sprites[0], 45f, 50f, 50f, 50f, 0f, bodyData, 0, 0 ,0 ,0)
+            return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
+        }
+
+        override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            /*when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    weapon.update(10f)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    weapon.update(20f)
+                    weapon.addLocation(0, 10)
+                    body.updateArms(0f, -65f)
+                    body.armL.update(5f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    weapon.update(30f)
+                    weapon.addLocation(0, 20)
+                    body.updateArms(0f, -60f)
+                    body.armL.update(5f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    weapon.update(15f)
+                    weapon.addLocation(0, 10)
+                    body.updateArms(0f, -65f)
+                    body.armL.update(5f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }*/
+            animateIdle(body, weapon, position)
+        }
+
+        override fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    weapon.addLocation(0, 1)
+                    body.updateArms(5f, -68f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    weapon.addLocation(0, 2)
+                    body.updateArms(10f, -65f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    weapon.addLocation(0, 1)
+                    body.updateArms(5f, -68f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+        }
+
+    },
+
+    // Note: does not really look good (yet?)!
+    MELEE {
+        override fun createBodyPart(weaponType: MWWeaponType, bodyData: IBodyData, scale: Float): BodyPartAnimationWeapon {
+            val sprites = generateTextures("char.melee." + weaponType.textureName, 1)
+            val bodyPartData = BodyPartData(sprites[0], 80f, 13f, 22f, 72f, 0f, bodyData, 0, 0 ,0 ,0)
+            return BodyPartAnimationWeapon(weaponType, sprites, bodyPartData, scale)
+        }
+
+        override fun animateBodyEffect(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    weapon.update(10f)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    weapon.update(25f)
+                    weapon.addLocation(0, 10)
+                    body.updateArms(0f, -65f)
+                    body.armL.update(5f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    weapon.update(40f)
+                    weapon.addLocation(0, 20)
+                    body.updateArms(0f, -60f)
+                    body.armL.update(5f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    weapon.update(20f)
+                    weapon.addLocation(0, 10)
+                    body.updateArms(0f, -65f)
+                    body.armL.update(5f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+            animateIdle(body, weapon, position)
+        }
+
+        override fun animateIdle(body: BodyHumanAnimating, weapon: BodyPartAnimationWeapon, position: Int) {
+            when (position) {
+                0 -> {
+                    weapon.setPosition(0)
+                    body.updateArms(0f, -70f)
+                    return
+                }
+                1 -> {
+                    weapon.setPosition(0)
+                    weapon.addLocation(0, 1)
+                    body.updateArms(5f, -68f)
+                    return
+                }
+                2 -> {
+                    weapon.setPosition(0)
+                    weapon.addLocation(0, 2)
+                    body.updateArms(10f, -65f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+                3 -> {
+                    weapon.setPosition(0)
+                    weapon.addLocation(0, 1)
+                    body.updateArms(5f, -68f)
+                    body.head.addLocation(0, 1)
+                    return
+                }
+            }
+        }
+
     };
 
     open val positionCountBodyEffect: Int

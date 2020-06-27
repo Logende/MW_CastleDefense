@@ -31,7 +31,7 @@ army:
         location: 0:10
 
     knight:
-      animation: 'rider:tortoise:l1.human.knight'
+      animation: 'rider:orc:l1.human.knight'
       armor: 'anti_light'
       rarity: common
       action:
@@ -65,13 +65,14 @@ army:
       rarity: common
       action:
         type: normal
-        owner_animation: THROW
+        owner_animation: WEAPON
+        weapon: misc_weapon:boomerang
         texture: l1.human.archer
         animation: '1:1:1'
         sound: skill.boomerang
         skillclass: NORMAL
-        speed: 900:-320
-        acceleration: 0-39*A:10*A
+        speed: 1400:-400
+        acceleration: 0-50*A:18*A
         knockback: 1.0
 
     mage:

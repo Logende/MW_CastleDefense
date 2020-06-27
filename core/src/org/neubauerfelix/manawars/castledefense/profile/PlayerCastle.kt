@@ -14,10 +14,10 @@ class PlayerCastle() : IDataCastle {
         get() = enemyCastle.unitSpawnXOffset
     override val unitSpawnYOffset: Float
         get() = enemyCastle.unitSpawnYOffset
-    override val goldStart: Int
-    get() = enemyCastle.goldStart
-    override val goldPerCharge: Int
-    get() = enemyCastle.goldPerCharge
+    override val moneyStart: Int
+    get() = enemyCastle.moneyStart
+    override val moneyPerCycle: Int
+    get() = enemyCastle.moneyPerCycle
     override val health: Float
     get() = enemyCastle.health
     override val xOffset: Float

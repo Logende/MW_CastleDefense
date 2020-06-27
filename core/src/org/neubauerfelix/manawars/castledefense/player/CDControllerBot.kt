@@ -3,13 +3,8 @@ package org.neubauerfelix.manawars.castledefense.player
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.analysis.CDPlayerLiveAnalysis
 import org.neubauerfelix.manawars.castledefense.analysis.ICDPlayerLiveAnalysis
-import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIMachineLearning
 import org.neubauerfelix.manawars.castledefense.ki.CDKILabel
 import org.neubauerfelix.manawars.castledefense.ki.ICDKI
-import org.neubauerfelix.manawars.castledefense.ki.CDKIFeatureExtractor
-import org.neubauerfelix.manawars.castledefense.ki.machinelearning.CDKIModelRandom
-import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalFelix
-import org.neubauerfelix.manawars.castledefense.ki.traditional.CDKITraditionalNaive
 import org.neubauerfelix.manawars.manawars.MManaWars
 
 
@@ -18,7 +13,7 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
     override lateinit var player: ICDPlayer
     override val analysis: ICDPlayerLiveAnalysis = CDPlayerLiveAnalysis() // analysis of own entities
 
-    private var nextUnitChooseTime: Long = 0L + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
+    private var nextActionChooseTime: Long = 0L + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
 
 
     override val playerControlled: Boolean
@@ -36,17 +31,21 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
     override fun doLogic(delta: Float) {
         analysis.update(player)
         val time = MManaWars.m.screen.getGameTime()
-        if (nextUnitChooseTime <= time) {
+        if (nextActionChooseTime <= time) {
             this.chooseAction()
-            nextUnitChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
+            nextActionChooseTime = MManaWars.m.screen.getGameTime() + CDConstants.CASTLE_CHOOSE_ACTION_DELAY
         }
 
         val cost = nextAction.getCost(player)
-        if (player.castle.gold >= cost) {
-            player.castle.gold -= cost
+        /*if (player.castle.storedMoney >= cost) {
+            player.castle.storedMoney -= cost
             nextAction.perform(player)
             this.nextAction = CDKILabel.NONE // wait a full tick before deciding next action
-        }
+        }*/ // TODO
+
+        player.unitsToBuildNextCycle.clear()
+        player.unitsToBuildNextCycle.addAll(ki.getUnitsToBuildNextCycle(player)) // todo: do not execute this often
+
     }
 
     private fun chooseAction(): CDKILabel {

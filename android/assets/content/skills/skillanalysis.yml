@@ -9,11 +9,11 @@ skill_zombie:
     rangeMin: 0.0
   knight:
     lifeTime: 8.639999
-    rangeMax: 553.0
+    rangeMax: 800.0
     rangeMin: 334.0
   archer:
-    lifeTime: 2.36
-    rangeMax: 1440.0
+    lifeTime: 1.38
+    rangeMax: 1360.0
     rangeMin: 0.0
   mage:
     lifeTime: 1.52
@@ -29,12 +29,12 @@ skill_snowman:
     rangeMax: 702.0
     rangeMin: 0.0
   knight:
-    lifeTime: 1.92
-    rangeMax: 686.0
+    lifeTime: 1.88
+    rangeMax: 616.0
     rangeMin: 0.0
   archer:
-    lifeTime: 1.28
-    rangeMax: 1512.0
+    lifeTime: 1.16
+    rangeMax: 1368.0
     rangeMin: 0.0
   mage:
     lifeTime: 1.3399999
@@ -54,12 +54,12 @@ skill_skeleton:
     rangeMax: 819.8397
     rangeMin: 0.0
   archer:
-    lifeTime: 1.28
-    rangeMax: 1512.0
+    lifeTime: 1.16
+    rangeMax: 1368.0
     rangeMin: 0.0
   mage:
-    lifeTime: 3.4199998
-    rangeMax: 728.0
+    lifeTime: 1.3199999
+    rangeMax: 910.0
     rangeMin: 0.0
 skill_human:
   boss:
@@ -72,11 +72,11 @@ skill_human:
     rangeMin: 0.0
   knight:
     lifeTime: 7.2
-    rangeMax: 434.0
+    rangeMax: 800.0
     rangeMin: 173.0
   archer:
-    lifeTime: 3.58
-    rangeMax: 572.37555
+    lifeTime: 3.98
+    rangeMax: 1003.67993
     rangeMin: 0.0
   mage:
     lifeTime: 1.5799999
@@ -96,8 +96,8 @@ skill_frost:
     rangeMax: 630.9115
     rangeMin: 0.0
   archer:
-    lifeTime: 1.28
-    rangeMax: 1512.0
+    lifeTime: 1.16
+    rangeMax: 1368.0
     rangeMin: 0.0
   mage:
     lifeTime: 2.22
@@ -114,11 +114,11 @@ skill_lizard:
     rangeMin: 0.0
   knight:
     lifeTime: 6.72
-    rangeMax: 560.0
+    rangeMax: 800.0
     rangeMin: 310.0
   archer:
-    lifeTime: 1.52
-    rangeMax: 1500.0
+    lifeTime: 1.38
+    rangeMax: 1360.0
     rangeMin: 0.0
   mage:
     lifeTime: 1.4
@@ -131,15 +131,15 @@ skill_goblin:
     rangeMin: 0.0
   melee:
     lifeTime: 8.639999
-    rangeMax: 640.0
+    rangeMax: 700.0
     rangeMin: 388.0
   knight:
     lifeTime: 3.02
     rangeMax: 738.04816
     rangeMin: 0.0
   archer:
-    lifeTime: 1.52
-    rangeMax: 1500.0
+    lifeTime: 1.38
+    rangeMax: 1360.0
     rangeMin: 0.0
   mage:
     lifeTime: 3.62
@@ -160,7 +160,7 @@ skill_bear:
     rangeMin: 0.0
   archer:
     lifeTime: 9.5199995
-    rangeMax: 828.0
+    rangeMax: 1350.0
     rangeMin: 629.0
 magic_energy_single:
   lifeTime: 2.06
@@ -172,16 +172,16 @@ skill_brute:
     rangeMax: 688.8649
     rangeMin: 0.0
   melee:
-    lifeTime: 8.639999
-    rangeMax: 616.0
+    lifeTime: 1.02
+    rangeMax: 700.0
     rangeMin: 0.0
   knight:
     lifeTime: 2.3
     rangeMax: 688.16003
     rangeMin: 0.0
   archer:
-    lifeTime: 2.26
-    rangeMax: 742.0
+    lifeTime: 8.639999
+    rangeMax: 1350.0
     rangeMin: 0.0
   mage:
     lifeTime: 1.5799999
@@ -213,7 +213,7 @@ action_building_cannon:
   rangeMin: 0.0
 action_building_mortar:
   lifeTime: 14.16
-  rangeMax: 860.0
+  rangeMax: 1100.0
   rangeMin: 706.0
 crossbow_strong:
   lifeTime: 0.91999996

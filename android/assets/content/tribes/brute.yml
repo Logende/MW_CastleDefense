@@ -48,8 +48,23 @@ army:
       armor: 'anti_light'
       rarity: rare
       action:
-        owner_animation: SUMMON_SMALL
+        owner_animation: THROW
         texture: l2.brute.melee
+        animation: '1:4:1'
+        sound: skill.spear
+        skillclass: NORMAL
+        speed: 700:-90
+        acceleration: 0:25*A
+        location: 0:-50
+
+    archer:
+      animation: 'human:l2.brute.archer'
+      armor: 'none'
+      rarity: rare
+      action:
+        owner_animation: WEAPON
+        weapon: misc_weapon:cudgel
+        texture: l2.brute.archer
         animation: '1:1:1'
         skillclass: NORMAL
         sound: skill.stick
@@ -58,20 +73,6 @@ army:
         location: 0:-70
         knockback: 1.0
         allow_movement_scaling: true
-
-    archer:
-      animation: 'human:l2.brute.archer'
-      armor: 'none'
-      rarity: rare
-      action:
-        owner_animation: THROW
-        texture: l2.brute.archer
-        animation: '1:4:1'
-        sound: skill.spear
-        skillclass: NORMAL
-        speed: 700:-90
-        acceleration: 0:25*A
-        location: 0:-50
 
     mage:
       animation: 'human:l2.brute.mage'

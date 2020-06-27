@@ -17,7 +17,7 @@ class CDComponentGameInfo(x: Float, y: Float, val player: ICDPlayer) :
     private val goldPlayer = MComponentTextLabelImages(0f, 0f, "",
             FontHandler.MWFont.MAIN, 0.3f)
     private val goldEnemy = MTextLabel(0f, goldPlayer.bottom + MConstants.UI_DISTANCE_COLUMNS,
-            "E: ${player.enemy.castle.gold} Gold", FontHandler.MWFont.TEXT, 1f)
+            "E: ${player.enemy.castle.storedMoney} Gold", FontHandler.MWFont.TEXT, 1f)
 
 
 
@@ -26,7 +26,7 @@ class CDComponentGameInfo(x: Float, y: Float, val player: ICDPlayer) :
     }
 
     override fun draw(batcher: Batch, offsetX: Float, offsetY: Float) {
-        goldPlayer.setText("icon.money# ${player.castle.gold}")
+        goldPlayer.setText("icon.money# ${player.castle.storedMoney}")
         super.draw(batcher, offsetX, offsetY)
     }
 

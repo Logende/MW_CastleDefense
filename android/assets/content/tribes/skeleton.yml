@@ -88,7 +88,7 @@ army:
         sound: skill.skull
         skillclass: MAGIC
         speed: '700:0'
-        target_speed: 0:-45
+        target_speed: 0:45
         acceleration: 0:0
         location: 0:50
         knockback: 1.0

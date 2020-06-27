@@ -6,8 +6,8 @@ import org.neubauerfelix.manawars.game.entities.ILocated
 interface ICDEntityCastle : ICDEntityBuilding{
 
     val unitSpawnLocation: ILocated
-    var gold: Int
-    var goldPerCharge: Int
+    var storedMoney: Int // for special actions
+    var moneyPerCycle: Int // for units
     val player: ICDPlayer
 
 }

@@ -15,6 +15,7 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
         ILoadableAsync, IDisposable, ILogicable {
 
     val backgrounds: Iterable<IBackground>
+    var nextCycleTime: Long = Long.MAX_VALUE
 
     init {
         val backgroundData = MManaWars.m.getBackgroundComposer().composeBackgrounds(playground.backgroundCount,
@@ -44,6 +45,7 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
             screen.addBackground(background, backgrounds.count())
         }
         loaded = true
+        nextCycleTime = MManaWars.m.screen.getGameTime() + CDConstants.UNIT_BUILD_CYCLE_TIME
         playerA.spawnCastle(true, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
         playerB.spawnCastle(false, GameConstants.BACKGROUND_WIDTH * backgrounds.count())
         playground.createPlayground(playerA, playerB)
@@ -69,6 +71,12 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
     }
 
     override fun doLogic(delta: Float) {
+        if (MManaWars.m.screen.getGameTime() >= nextCycleTime) {
+            println("next cycle with money for playerB ${playerB.castle.moneyPerCycle}.")
+            playerA.executeUnitBuilding()
+            playerB.executeUnitBuilding()
+            nextCycleTime = MManaWars.m.screen.getGameTime() + CDConstants.UNIT_BUILD_CYCLE_TIME
+        }
         playerA.controller.doLogic(delta)
         playerB.controller.doLogic(delta)
 

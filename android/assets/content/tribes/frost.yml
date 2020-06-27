@@ -74,7 +74,7 @@ army:
         acceleration: 0:5*A
         offset: '-40:20'
         knockback: 1.0
-        effect: FROZEN:1
+        effect: FROZEN:0.3
 
     mage:
       animation: 'human:l1.frost.mage'

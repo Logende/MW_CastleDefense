@@ -7,6 +7,7 @@ import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.GameLocation
 import org.neubauerfelix.manawars.manawars.MManaWars
+import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 
 class CDPlayer(override val tribe: IDataTribe, override val controller: ICDController, override var team: Int) : ICDPlayer {
 
@@ -14,6 +15,8 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
     override lateinit var enemy: ICDPlayer
 
     override lateinit var formation: ICDFormation
+
+    override val unitsToBuildNextCycle: MutableList<IDataUnit> = arrayListOf()
 
 
     override fun spawnCastle(leftSide: Boolean, mapWidth: Float) {
@@ -37,11 +40,21 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
 
         this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, textureName,
                 data.health, direction, team, spawnLocation,
-                data.goldStart, data.goldPerCharge, this)
+                data.moneyStart, data.moneyPerCycle, this)
         this.castle.spawn()
 
         this.formation = CDFormation(tribe.army.units, this)
         this.formation.spawn()
+    }
+
+    override fun executeUnitBuilding() {
+        val totalCost = unitsToBuildNextCycle.map { it.cost }.sum()
+        val moneyLeft = castle.moneyPerCycle - totalCost
+        require(moneyLeft >= 0)
+        unitsToBuildNextCycle.forEach {
+            this.spawnUnit(it)
+        }
+        castle.storedMoney += moneyLeft
     }
 
     override fun load() {

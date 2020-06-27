@@ -1,12 +1,11 @@
 package org.neubauerfelix.manawars.castledefense.data.tribes
 
-import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.manawars.enums.MWBackgroundTheme
 import org.neubauerfelix.manawars.manawars.storage.Configuration
 import java.util.*
 
 class DataCastleLoaded(config: Configuration, multiplier: Float = 1f,
-                       baseCastleHealth: Float, baseGoldStart: Float, baseGoldPerSecond: Float) :
+                       baseCastleHealth: Float, baseGoldStart: Float, baseMoneyPerCycle: Float) :
         DataCastle() {
 
 
@@ -46,14 +45,14 @@ class DataCastleLoaded(config: Configuration, multiplier: Float = 1f,
     }
 
 
-    override val goldStart: Int = (baseGoldStart * multiplier * config.getFloat("goldStart")).toInt()
+    override val moneyStart: Int = (baseGoldStart * multiplier * config.getFloat("moneyStart")).toInt()
 
 
-    override val goldPerCharge: Int = (baseGoldPerSecond * multiplier *
-            config.getFloat("goldPerCharge") * CDConstants.CASTLE_GOLD_CHARGE_DELAY).toInt()
+    override val moneyPerCycle: Int = (baseMoneyPerCycle * multiplier *
+            config.getFloat("moneyPerCycle")).toInt()
 
     init {
-        this.goldStart
+        this.moneyStart
     }
 
     override val health: Float  = baseCastleHealth * multiplier *

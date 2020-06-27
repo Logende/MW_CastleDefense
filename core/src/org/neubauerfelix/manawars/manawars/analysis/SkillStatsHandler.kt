@@ -238,12 +238,14 @@ class SkillStatsHandler : ISkillStatsHandler {
             rangeMin = 0f
             rangeMax = 500f
         }
-        if (data.targetRange > 0) {
-            rangeMax = min(rangeMax, data.targetRange)
-        }
 
         if (data.allowMovementScaling) {
+            rangeMax = maxPossibleRange
             lifeTime *= 4
+        }
+
+        if (data.targetRange > 0) {
+            rangeMax = min(rangeMax, data.targetRange)
         }
 
         // TODO: think about finding one common range for every animation type.

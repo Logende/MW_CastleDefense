@@ -115,7 +115,8 @@ class CDKIFeaturePreparation {
                 unitCount++
             }
         }
-        val goldWorth = player.castle.gold
+        val goldWorth = player.castle.storedMoney
+        // TODO: add money per cycle
         val totalWorth = goldWorth + unitsWorth
         val unitsWorthPercentage = unitsWorth / totalWorth
         val goldWorthPercentage = goldWorth / totalWorth

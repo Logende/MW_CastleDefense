@@ -9,8 +9,10 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.enums.*
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.pow
 
 
 class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(data.animation!!, data.textureScale,
@@ -139,10 +141,10 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
 
         // Knockback
         if (e is IJumpable) {
-            val knockbackFactor = Math.pow(damageFactor.toDouble(), 0.3).toFloat() * data.knockbackFactor * this.propertyScale
-            val knockbackX = Math.abs(speedX / 3) + 60
-            val knockbackY = Math.abs(Math.max(speedY, speedX / 3)) + 50
-            e.knockback(knockbackX * knockbackFactor, knockbackY * Math.abs(knockbackFactor), direction)
+            val knockbackFactor = damageFactor.toDouble().pow(0.7).toFloat() * data.knockbackFactor * this.propertyScale
+            val knockbackX = abs(speedX / 3) + 60
+            val knockbackY = abs(speedY.coerceAtLeast(speedX / 3)) + 50
+            e.knockback(knockbackX * knockbackFactor, knockbackY * abs(knockbackFactor), direction)
         }
 
         // Damage
