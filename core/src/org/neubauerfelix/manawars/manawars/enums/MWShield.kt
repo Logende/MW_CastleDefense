@@ -7,6 +7,7 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.animation.BodyPartDataShield
 import org.neubauerfelix.manawars.manawars.entities.animation.IBodyData
 import org.neubauerfelix.manawars.manawars.entities.animation.IBodyPartData
+import org.neubauerfelix.manawars.manawars.entities.animation.IBodyPartDataScalable
 
 
 class MWShield(val textureName: String, val isEnchanted: Boolean) {
@@ -19,7 +20,7 @@ class MWShield(val textureName: String, val isEnchanted: Boolean) {
     private val textureRegion: TextureRegion
         get() = AManaWars.m.getImageHandler().getTextureRegionMain("char.shield.$textureName")
 
-    fun createBodyPartData(bodyData: IBodyData): IBodyPartData{
+    fun createBodyPartData(bodyData: IBodyData): IBodyPartDataScalable {
         return BodyPartDataShield(textureRegion, bodyData, MConstants.SHIELD_SCALE)
     }
 }

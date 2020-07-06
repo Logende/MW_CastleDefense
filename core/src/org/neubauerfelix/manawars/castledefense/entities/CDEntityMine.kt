@@ -2,10 +2,8 @@ package org.neubauerfelix.manawars.castledefense.entities
 
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
-import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimationSimple
-import kotlin.math.min
 
 class CDEntityMine(x: Float, y: Float,
                    animation: Animation<TextureRegion>,

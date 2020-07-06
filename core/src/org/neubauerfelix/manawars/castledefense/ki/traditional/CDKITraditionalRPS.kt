@@ -33,42 +33,47 @@ class CDKITraditionalRPS() : ICDKI {
 
         val unitsForNextCycle = arrayListOf<IDataUnit>()
 
-        var moneyLeft = player.castle.moneyPerCycle // TODO: later only use some of the money
+        var moneyLeft = player.castle.storedMoney // TODO: later only use some of the money
+        println("money stored is $moneyLeft")
         val units = player.tribe.army.units
         val cheapestUnitCost = units.map { it.cost }.min()!!
-        val mostEnemiesType = prep.enemyUnitDistribution.maxBy { it.value }!!.key
-        when (mostEnemiesType.unitType) {
-            MWUnitType.KNIGHT -> {
-                val unit = units[MWUnitType.MAGE.index]
-                val unitCount = moneyLeft / unit.cost
-                for (i in 0 .. (unitCount)) {
-                    unitsForNextCycle.add(unit)
-                    moneyLeft -= unit.cost
-                }
-            }
-            MWUnitType.ARCHER ->  {
-                val unit = units[MWUnitType.KNIGHT.index]
-                val unitCount = moneyLeft / unit.cost
-                for (i in 0 .. (unitCount)) {
-                    unitsForNextCycle.add(unit)
-                    moneyLeft -= unit.cost
-                }
-            }
-            MWUnitType.MAGE ->  {
-                val unit = units[MWUnitType.ARCHER.index]
-                val unitCount = moneyLeft / unit.cost
-                for (i in 0 .. (unitCount)) {
-                    unitsForNextCycle.add(unit)
-                    moneyLeft -= unit.cost
-                }
-            }
-            else -> {}
-        }
 
-        while (moneyLeft >= cheapestUnitCost) {
-            val unit = units.minBy { it.cost }!!
-            unitsForNextCycle.add(unit)
-            moneyLeft -= unit.cost
+        if (moneyLeft >= cheapestUnitCost) {
+            val mostEnemiesType = prep.enemyUnitDistribution.maxBy { it.value }!!.key
+            when (mostEnemiesType.unitType) {
+                MWUnitType.KNIGHT -> {
+                    val unit = units[MWUnitType.MAGE.index]
+                    val unitCount = moneyLeft / unit.cost
+                    for (i in 1..(unitCount)) {
+                        unitsForNextCycle.add(unit)
+                        moneyLeft -= unit.cost
+                    }
+                }
+                MWUnitType.ARCHER -> {
+                    val unit = units[MWUnitType.KNIGHT.index]
+                    val unitCount = moneyLeft / unit.cost
+                    for (i in 1..(unitCount)) {
+                        unitsForNextCycle.add(unit)
+                        moneyLeft -= unit.cost
+                    }
+                }
+                MWUnitType.MAGE -> {
+                    val unit = units[MWUnitType.ARCHER.index]
+                    val unitCount = moneyLeft / unit.cost
+                    for (i in 1..(unitCount)) {
+                        unitsForNextCycle.add(unit)
+                        moneyLeft -= unit.cost
+                    }
+                }
+                else -> {
+                }
+            }
+
+            while (moneyLeft >= cheapestUnitCost) {
+                val unit = units.minBy { it.cost }!!
+                unitsForNextCycle.add(unit)
+                moneyLeft -= unit.cost
+            }
         }
 
         return unitsForNextCycle

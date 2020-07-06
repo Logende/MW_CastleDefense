@@ -37,17 +37,16 @@ class CDControllerHuman() : ICDController {
 
         for (unit in player.tribe.army.units) {
             val button = unit.generateIcon(0f, 0f, size, size, Runnable {
-                // TODO
-                //if (player.castle.gold >= unit.cost) {
-                //    player.castle.gold -= unit.cost
-                //    player.spawnUnit(unit)
-               // }
+                // TODO: display currently ordered units in GUI
+                if (player.castle.storedMoney >= unit.cost) {
+                    player.orderUnitToBuild(unit)
+                }
             })
             val buttonConditioned = CDComponentConditioned(x, y, button, object : IPercentageCondition{
                 override val needed: Float
                     get() = unit.cost.toFloat()
                 override val available: Float
-                    get() = 0f //player.castle.gold.toFloat()
+                    get() = player.castle.storedMoney.toFloat()
             }, 0.8f)
             x = addButton(buttonConditioned, x)
         }
@@ -57,7 +56,7 @@ class CDControllerHuman() : ICDController {
     private fun addButton(button: IComponent, x: Float) : Float {
         buttons.add(button)
         MManaWars.m.screen.addComponent(button)
-       return x + GameConstants.CONTROLPANEL_BUTTON_DISTANCE + button.width
+        return x + GameConstants.CONTROLPANEL_BUTTON_DISTANCE + button.width
     }
 
     fun showControlsBuildings() {
@@ -77,9 +76,9 @@ class CDControllerHuman() : ICDController {
                 val castle = player.castle
                 // TODO
                 //if (castle.gold >= building.cost) {
-                 //   castle.gold -= building.cost
-                  //  building.produceBuilder(castle.centerHorizontal, player = player)
-               // }
+                //   castle.gold -= building.cost
+                //  building.produceBuilder(castle.centerHorizontal, player = player)
+                // }
             })
             val buttonConditioned = CDComponentConditioned(x, y, button, object : IPercentageCondition{
                 override val needed: Float

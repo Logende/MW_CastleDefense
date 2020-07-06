@@ -5,25 +5,25 @@ units:
       health: 120
       damage: 12
       cooldown: 1.5
-      cost: 100
+      cost: 20
 
     rare:
       health: 180
       damage: 18
       cooldown: 1.5
-      cost: 150
+      cost: 30
 
     epic:
       health: 240
       damage: 24
       cooldown: 1.5
-      cost: 200
+      cost: 40
 
     legendary:
       health: 360
       damage: 36
       cooldown: 1.5
-      cost: 300
+      cost: 60
 
 
   knight:
@@ -31,77 +31,77 @@ units:
       health: 24
       damage: 6
       cooldown: 2
-      cost: 20
+      cost: 4
 
     rare:
       health: 36
       damage: 9
       cooldown: 2
-      cost: 30
+      cost: 6
 
     epic:
       health: 48
       damage: 12
       cooldown: 2
-      cost: 40
+      cost: 8
 
     legendary:
       health: 72
       damage: 18
       cooldown: 2
-      cost: 60
+      cost: 12
 
 
   melee:
     common:
       health: 12
       damage: 6
-      cooldown: 2
-      cost: 10
+      cooldown: 1
+      cost: 2
 
     rare:
       health: 18
       damage: 9
-      cooldown: 1.5
-      cost: 15
+      cooldown: 1
+      cost: 3
 
     epic:
       health: 24
       damage: 12
-      cooldown: 1.5
-      cost: 20
+      cooldown: 1
+      cost: 4
 
     legendary:
       health: 36
       damage: 18
-      cooldown: 1.5
-      cost: 30
+      cooldown: 1
+      cost: 6
 
 
   archer:
     common:
       health: 12
       damage: 6
-      cooldown: 1
-      cost: 20
+      cooldown: 2
+      cost: 4
 
     rare:
       health: 18
       damage: 9
-      cooldown: 1
-      cost: 30
+      cooldown: 2
+      cost: 6
 
     epic:
       health: 24
       damage: 12
-      cooldown: 1
-      cost: 40
+      cooldown: 2
+      cost: 8
 
     legendary:
       health: 36
       damage: 18
-      cooldown: 1
-      cost: 60
+      cooldown: 2
+      cost: 12
 
 
   mage:
@@ -109,22 +109,22 @@ units:
       health: 12
       damage: 12
       cooldown: 2.5
-      cost: 20
+      cost: 4
 
     rare:
       health: 18
       damage: 18
       cooldown: 2.5
-      cost: 30
+      cost: 6
 
     epic:
       health: 24
       damage: 24
       cooldown: 2.5
-      cost: 40
+      cost: 7
 
     legendary:
       health: 36
       damage: 36
       cooldown: 2.5
-      cost: 60
+      cost: 12

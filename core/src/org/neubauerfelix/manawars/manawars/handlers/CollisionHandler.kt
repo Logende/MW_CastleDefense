@@ -3,10 +3,7 @@ package org.neubauerfelix.manawars.manawars.handlers
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
-import org.neubauerfelix.manawars.manawars.entities.ICollidable
-import org.neubauerfelix.manawars.manawars.entities.ILiving
-import org.neubauerfelix.manawars.manawars.entities.ITeamable
-import org.neubauerfelix.manawars.manawars.entities.MSkill
+import org.neubauerfelix.manawars.manawars.entities.*
 import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 
 
@@ -50,6 +47,14 @@ class CollisionHandler: ICollisionHandler {
                                     if (collisionTypeA != MWCollisionType.NONE && collisionTypeB != MWCollisionType.NONE) {
                                         a.collisionEnemy(b, collisionTypeB)
                                     }
+                                }
+                            }
+                        }
+
+                        if (b is MEntityDestructiveWave) {
+                            if (!ITeamable.isTeamed(a, b)) {
+                                if (ISized.overlaps(a, b)) {
+                                    b.collide(a)
                                 }
                             }
                         }

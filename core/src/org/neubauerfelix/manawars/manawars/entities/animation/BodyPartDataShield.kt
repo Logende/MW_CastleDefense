@@ -2,8 +2,8 @@ package org.neubauerfelix.manawars.manawars.entities.animation
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 
-class BodyPartDataShield(override val textureRegion: TextureRegion, override val bodyData: IBodyData, val scale: Float) :
-        IBodyPartData {
+class BodyPartDataShield(override val textureRegion: TextureRegion, override val bodyData: IBodyData, override val scale: Float) :
+        IBodyPartDataScalable {
 
 
 

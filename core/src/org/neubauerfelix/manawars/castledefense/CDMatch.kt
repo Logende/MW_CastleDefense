@@ -72,10 +72,10 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
 
     override fun doLogic(delta: Float) {
         if (MManaWars.m.screen.getGameTime() >= nextCycleTime) {
-            println("next cycle with money for playerB ${playerB.castle.moneyPerCycle}.")
             playerA.executeUnitBuilding()
             playerB.executeUnitBuilding()
             nextCycleTime = MManaWars.m.screen.getGameTime() + CDConstants.UNIT_BUILD_CYCLE_TIME
+            println("unit building tick")
         }
         playerA.controller.doLogic(delta)
         playerB.controller.doLogic(delta)

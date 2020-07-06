@@ -4,6 +4,7 @@ import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
 import org.neubauerfelix.manawars.castledefense.entities.CDEntityCastle
 import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
+import org.neubauerfelix.manawars.castledefense.events.EntityMoneyEvent
 import org.neubauerfelix.manawars.game.GameConstants
 import org.neubauerfelix.manawars.game.entities.GameLocation
 import org.neubauerfelix.manawars.manawars.MManaWars
@@ -18,6 +19,23 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
 
     override val unitsToBuildNextCycle: MutableList<IDataUnit> = arrayListOf()
 
+    override fun orderUnitToBuild(unit: IDataUnit) {
+        println("stored money ${castle.storedMoney} and cost ${unit.cost} and units planned ${unitsToBuildNextCycle.size}")
+        require(castle.storedMoney >= unit.cost)
+        unitsToBuildNextCycle.add(unit)
+        castle.storedMoney -= unit.cost
+    }
+
+    override  fun cancelUnitToBuild(index: Int) {
+        castle.storedMoney += unitsToBuildNextCycle[index].cost
+        unitsToBuildNextCycle.removeAt(index)
+    }
+
+    override fun clearUnitsToBuild() {
+        val moneyBack = unitsToBuildNextCycle.map { it.cost }.sum()
+        unitsToBuildNextCycle.clear()
+        castle.storedMoney += moneyBack
+    }
 
     override fun spawnCastle(leftSide: Boolean, mapWidth: Float) {
         val data = tribe.castle
@@ -48,13 +66,15 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
     }
 
     override fun executeUnitBuilding() {
-        val totalCost = unitsToBuildNextCycle.map { it.cost }.sum()
-        val moneyLeft = castle.moneyPerCycle - totalCost
-        require(moneyLeft >= 0)
         unitsToBuildNextCycle.forEach {
             this.spawnUnit(it)
         }
-        castle.storedMoney += moneyLeft
+        unitsToBuildNextCycle.clear()
+        val event = EntityMoneyEvent(castle, castle, castle.moneyPerCycle)
+        MManaWars.m.getEventHandler().callEvent(event)
+        if (!event.cancelled) {
+            event.castle.storedMoney += event.moneyDifference
+        }
     }
 
     override fun load() {

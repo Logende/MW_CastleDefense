@@ -97,7 +97,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
         config.getFloat("walkAcceleration")
     } else {
         armor.walkSpeedFactor * if (animation.animationType == MWEntityAnimationType.RIDER) {
-            MConstants.UNIT_RIDER_SPEED_FACTOR
+            MConstants.UNIT_RIDER_ACC_FACTOR
         } else {
             1f
         }

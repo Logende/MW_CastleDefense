@@ -5,6 +5,6 @@ textures:
   snow: 'building.castle.ice.1'
 location: '0:35'
 offset_units: '140:0'
-moneyStart: 1
-moneyPerCycle: 1
-health: 1
+moneyStart: 20
+moneyPerCycle: 24
+health: 500

@@ -46,6 +46,16 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
         }
 
+        /*if (abs(controlled.speedX) >= controlled.data.walkSpeedMax*0.95 && controlled.data.walkSpeedMax > MConstants.UNIT_AVG_WALK_SPEED_MAX) {
+            val ownsAura = MManaWars.m.screen.getEntities { it is MEntityDestructiveWave && it.owner == controlled }.isNotEmpty()
+            if (!ownsAura) {
+                val aura = MEntityDestructiveWave(controlled.centerHorizontal, controlled.centerVertical,
+                        controlled.width, controlled.height, 100,
+                        controlled.width * 1.5f, controlled.height * 1.5f, controlled)
+                aura.spawn()
+            }
+        }*/
+
     }
 
     override fun drawAbove(batcher: Batch) {

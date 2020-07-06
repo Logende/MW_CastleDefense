@@ -41,10 +41,14 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
             player.castle.storedMoney -= cost
             nextAction.perform(player)
             this.nextAction = CDKILabel.NONE // wait a full tick before deciding next action
-        }*/ // TODO
+        }*/ // TODO: also care about mana actions and not just units
 
-        player.unitsToBuildNextCycle.clear()
-        player.unitsToBuildNextCycle.addAll(ki.getUnitsToBuildNextCycle(player)) // todo: do not execute this often
+        player.clearUnitsToBuild()
+        val unitsToBuild = ki.getUnitsToBuildNextCycle(player)
+        for (unit in unitsToBuild) {
+            player.orderUnitToBuild(unit)
+        }
+        // todo: do not execute this often
 
     }
 

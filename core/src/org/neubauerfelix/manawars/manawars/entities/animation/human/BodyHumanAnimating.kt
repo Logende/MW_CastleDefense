@@ -9,6 +9,7 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBody
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeBodyEffect
 import org.neubauerfelix.manawars.manawars.enums.MWAnimationTypeLegs
+import java.lang.Error
 
 open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized: ISized) : BodyHuman(bodyDataHuman, scale, sized), IDrawable, ILogicable {
 
@@ -76,6 +77,9 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
             val weaponData = w.bodyPartData
             w.update(weaponData.relativeX, weaponData.relativeY, weaponData.rotation)
         }
+        if (shield != null) {
+            shield.enabled = MConstants.ALWAYS_WEAR_SHIELD
+        }
     }
 
     protected fun animate(animationLegs: MWAnimationTypeLegs, positionLegs: Int, animationBody: MWAnimationTypeBody,
@@ -111,14 +115,25 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
     }
 
     private fun animateBody(animation: MWAnimationTypeBody, position: Int, effect: MWAnimationTypeBodyEffect?) {
+
+        // special case: should use shield but has different animation
+        if (shield != null && shield.enabled && MConstants.ALWAYS_WEAR_SHIELD && animation != MWAnimationTypeBody.SHIELD) {
+            // 1. play usual animation
+            shield.enabled = false
+            this.animateBody(animation, position, effect)
+
+            // 2. update right arm and draw shield
+            shield.enabled = true
+            armR.update(-45f)
+            return
+        }
+
         when (animation) {
             MWAnimationTypeBody.NORMAL -> {
 
                 // if unit carries weapon, why not continue showing weapon idle animation?
                 val w = weapon
-                if (w != null) {
-                }
-                if (w != null && w.enabled) {
+                if (w != null && w.enabled && MConstants.ALWAYS_EQUIP_WEAPONS) {
                     w.weaponType.animateIdle(this, w, position)
                     return
                 }
@@ -145,6 +160,7 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
                 }
             }
 
+
             MWAnimationTypeBody.SHIELD -> {
                 check(shield != null)
                 shield!!.enabled = true
@@ -167,6 +183,7 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
                     }
                 }
             }
+
 
             MWAnimationTypeBody.EFFECT -> when (effect) {
 
@@ -281,9 +298,7 @@ open class BodyHumanAnimating(bodyDataHuman: IBodyDataHuman, scale: Float, sized
                     }
                 }
 
-
-                MWAnimationTypeBodyEffect.NONE -> {
-                }
+                else ->  {}
             }
         }
     }

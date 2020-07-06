@@ -7,7 +7,7 @@ import org.neubauerfelix.manawars.game.IHandler
 import org.neubauerfelix.manawars.game.entities.IEntity
 import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.events.EntityDamageEvent
-import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
+import org.neubauerfelix.manawars.castledefense.events.EntityMoneyEvent
 import org.neubauerfelix.manawars.game.events.IEvent
 import org.neubauerfelix.manawars.game.events.Listener
 import org.neubauerfelix.manawars.manawars.MConstants
@@ -34,11 +34,11 @@ class TextVisualizationHandler : IHandler, IDisposable {
         })
 
         // TODO: Display gold earned (only of human player)
-        MManaWars.m.getEventHandler().registerListener(EntityGoldEvent::class.java.name, object : Listener(){
+        MManaWars.m.getEventHandler().registerListener(EntityMoneyEvent::class.java.name, object : Listener(){
             override fun handleEvent(event: IEvent) {
-                val e = event as EntityGoldEvent
+                val e = event as EntityMoneyEvent
                 if (!e.cancelled) {
-                    this@TextVisualizationHandler.displayMoneyProduced(e.entity, e.goldDifference.toFloat())
+                    this@TextVisualizationHandler.displayMoneyProduced(e.entity, e.moneyDifference.toFloat())
                 }
             }
         })

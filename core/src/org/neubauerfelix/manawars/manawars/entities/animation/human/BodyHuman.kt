@@ -73,7 +73,7 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, val sized:
         footL = BodyPartAttached(bodyDataHuman.footL, scale)
         footR = BodyPartAttached(bodyDataHuman.footR, scale)
         if(bodyDataHuman.shield != null){
-            this.shield = BodyPartAttached(bodyDataHuman.shield!!, scale)
+            this.shield = BodyPartAttached(bodyDataHuman.shield!!, scale * bodyDataHuman.shield!!.scale)
             this.shield.enabled = false
         }else{
             this.shield = null

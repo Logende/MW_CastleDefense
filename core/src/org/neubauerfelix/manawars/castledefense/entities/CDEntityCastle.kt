@@ -1,9 +1,7 @@
 package org.neubauerfelix.manawars.castledefense.entities
 
 import com.badlogic.gdx.graphics.g2d.Batch
-import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.game.entities.*
-import org.neubauerfelix.manawars.castledefense.events.EntityGoldEvent
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityAnimated
@@ -47,18 +45,6 @@ class CDEntityCastle(x: Float, y: Float,
     }
 
 
-    override fun doLogic(delta: Float) {
-        super.doLogic(delta)
-        /*if (MManaWars.m.screen.getGameTime() >= nextGoldChargeTime) {
-            nextGoldChargeTime = MManaWars.m.screen.getGameTime() +
-                    (1000 * CDConstants.CASTLE_GOLD_CHARGE_DELAY).toLong()
-            val event = EntityGoldEvent(this, this, goldPerCharge)
-            MManaWars.m.getEventHandler().callEvent(event)
-            if (!event.cancelled) {
-                event.castle.gold += event.goldDifference
-            }
-        }*/
-    }
 
 
 

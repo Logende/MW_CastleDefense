@@ -3,7 +3,7 @@ bodyDataHuman:
 - l1.zombie.melee
 - l1.zombie.archer
 - l1.zombie.mage
-- l1.zombie.knight
+- l1.zombie.knight:big.wood.gray.round
 - l1.zombie.boss
 - l1.frost.melee
 - l1.frost.archer

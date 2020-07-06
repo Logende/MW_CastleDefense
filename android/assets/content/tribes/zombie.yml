@@ -28,7 +28,7 @@ army:
         knockback: 1.0
 
     knight:
-      animation: 'rider:wolf:l1.zombie.knight'
+      animation: 'human:l1.zombie.knight'
       armor: 'none'
       rarity: common
       drain: 0.5
@@ -44,7 +44,7 @@ army:
         knockback: 1.5
 
     melee:
-      animation: 'human:l1.zombie.melee'
+      animation: 'rider:wolf:l1.zombie.melee'
       armor: 'none'
       rarity: rare
       action:

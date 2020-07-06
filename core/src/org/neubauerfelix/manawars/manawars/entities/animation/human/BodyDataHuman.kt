@@ -3,7 +3,9 @@ package org.neubauerfelix.manawars.manawars.entities.animation.human
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.entities.animation.BodyPartData
+import org.neubauerfelix.manawars.manawars.entities.animation.BodyPartDataShield
 import org.neubauerfelix.manawars.manawars.entities.animation.IBodyPartData
+import org.neubauerfelix.manawars.manawars.entities.animation.IBodyPartDataScalable
 import org.neubauerfelix.manawars.manawars.enums.MWShield
 
 class BodyDataHuman(override val skinName: String, textureRegion: TextureRegion, override val shieldType: MWShield?, override val defaultScale: Float = 1f):
@@ -16,7 +18,7 @@ class BodyDataHuman(override val skinName: String, textureRegion: TextureRegion,
     override val footR: IBodyPartData
     override val armL: IBodyPartData
     override val armR: IBodyPartData
-    override val shield: IBodyPartData?
+    override val shield: IBodyPartDataScalable?
 
 
     init {

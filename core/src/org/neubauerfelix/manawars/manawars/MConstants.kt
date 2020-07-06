@@ -77,7 +77,8 @@ class MConstants {
         const val SKIN_HUMAN_WIDTH = 100
         const val SKIN_HUMAN_HEIGHT = 180
 
-        const val SHIELD_SCALE = 1.2f
+        const val SHIELD_SCALE = 1f
+        const val ALWAYS_WEAR_SHIELD = true
 
         const val HUMAN_ANIMATION_SPEED = 0.1f
 
@@ -113,7 +114,8 @@ class MConstants {
         const val UNIT_ANALYSIS_FILE_NAME = "unitanalysis.yml"
         const val UNIT_AVG_WALK_SPEED_MAX = 300f
         const val UNIT_AVG_WALK_ACC = 400f
-        const val UNIT_RIDER_SPEED_FACTOR = 1f
+        const val UNIT_RIDER_SPEED_FACTOR = 3f
+        const val UNIT_RIDER_ACC_FACTOR = 2f
 
         // misc
         const val HIT_VISUALIZATION_SHOW_ABOVE_HEAD = true

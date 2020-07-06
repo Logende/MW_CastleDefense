@@ -18,7 +18,10 @@ interface ICDPlayer : ITeamable, ILoadable, IDisposable {
 
     val enemy: ICDPlayer
 
-    val unitsToBuildNextCycle: MutableList<IDataUnit>
+    val unitsToBuildNextCycle: List<IDataUnit>
+    fun orderUnitToBuild(unit: IDataUnit)
+    fun cancelUnitToBuild(index: Int)
+    fun clearUnitsToBuild()
 
 
     fun spawnUnit(unit: IDataUnit): IControlled {
