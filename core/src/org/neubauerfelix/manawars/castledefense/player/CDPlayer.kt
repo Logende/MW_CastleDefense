@@ -19,8 +19,11 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
 
     override val unitsToBuildNextCycle: MutableList<IDataUnit> = arrayListOf()
 
+
+    private val unitsToBuildNow: MutableList<IDataUnit> = arrayListOf()
+    private var nextUnitBuildTime = 0L
+
     override fun orderUnitToBuild(unit: IDataUnit) {
-        println("stored money ${castle.storedMoney} and cost ${unit.cost} and units planned ${unitsToBuildNextCycle.size}")
         require(castle.storedMoney >= unit.cost)
         unitsToBuildNextCycle.add(unit)
         castle.storedMoney -= unit.cost
@@ -61,20 +64,35 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
                 data.moneyStart, data.moneyPerCycle, this)
         this.castle.spawn()
 
-        this.formation = CDFormation(tribe.army.units, this)
+        this.formation = CDFormationStrategic(tribe.army.units, this)
         this.formation.spawn()
     }
 
     override fun executeUnitBuilding() {
-        unitsToBuildNextCycle.forEach {
-            this.spawnUnit(it)
-        }
+        unitsToBuildNow.addAll(unitsToBuildNextCycle)
         unitsToBuildNextCycle.clear()
         val event = EntityMoneyEvent(castle, castle, castle.moneyPerCycle)
         MManaWars.m.getEventHandler().callEvent(event)
         if (!event.cancelled) {
             event.castle.storedMoney += event.moneyDifference
         }
+    }
+
+    override fun doLogic(delta: Float) {
+        // build units who are waiting to be built
+        synchronized(unitsToBuildNow) {
+            if (unitsToBuildNow.isNotEmpty()) {
+                val gameTime = MManaWars.m.screen.getGameTime()
+                if (nextUnitBuildTime <= gameTime) {
+                    this.spawnUnit(unitsToBuildNow.first())
+                    unitsToBuildNow.removeAt(0)
+                    nextUnitBuildTime = gameTime + CDConstants.CASTLE_SPAWN_UNIT_DELAY
+                }
+            }
+        }
+
+        // rest
+        controller.doLogic(delta)
     }
 
     override fun load() {

@@ -13,13 +13,13 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-class CDFormation(private val units: List<IDataUnit>, private val player: ICDPlayer) :
+class CDFormationUnified(private val units: List<IDataUnit>, private val player: ICDPlayer) :
         GameEntityMovable(0f, GameConstants.BACKGROUND_HEIGHT), ICDFormation, IDrawable {
 
 
     override var direction: Int = player.castle.direction
     override var team: Int =  player.castle.team
-    override var moveSpeed = 0f // speed of the front entity in formation
+    override var unitMoveSpeedLimit = 0f // speed of slowest entity in formation
 
 
     private var rangeBest = 0f // range which enables most units to use their action
@@ -67,20 +67,7 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
     // Entities should manually try to keep up with the assigned x
     override fun getAssignedX(e: IControlled): Float {
         require(entities.contains(e))
-        var goalX = anchorX + relativeX[e]!!
-
-        // if entity is in front, do not walk past it
-        val index = entities.indexOf(e)
-        if (index > 0) {
-            val entityInFront = entities[index - 1]
-            goalX = if (direction == 1) {
-                min(goalX, entityInFront.left - e.width / 2)
-            } else {
-                max(goalX, entityInFront.right + e.width / 2)
-            }
-        }
-
-        return goalX
+        return anchorX + relativeX[e]!!
     }
 
     fun updateFormation(updateAnchor: Boolean) {
@@ -96,7 +83,7 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
             this.x = left
             rangeFirst = 0f
             rangeBest = 0f
-            moveSpeed = 0f
+            unitMoveSpeedLimit = 0f
 
         } else {
             // 1. Simply sort the units in the right order
@@ -129,13 +116,13 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
 
             rangeFirst = 0f
             rangeBest = Float.MAX_VALUE
-            moveSpeed = entities[0].walkSpeedMax //Float.MAX_VALUE
+            unitMoveSpeedLimit = Float.MAX_VALUE
             // 3. Upgrade formation ranges
-            relativeX.forEach { (e, x) ->
+            relativeX.forEach { e, x ->
                 val range = e.data.action.rangeMax - abs(x)
                 rangeFirst = max(rangeFirst, range)
                 rangeBest = min(rangeBest, range)
-                //moveSpeed = min(moveSpeed, e.walkSpeedMax)
+                unitMoveSpeedLimit = min(unitMoveSpeedLimit, e.walkSpeedMax)
             }
 
             // 4. Update Formation anchor: every time the units change, the formation anchor is set to x of furthest unit
@@ -162,7 +149,7 @@ class CDFormation(private val units: List<IDataUnit>, private val player: ICDPla
         }
         val actualDistance = this.getDistanceHor(furthestEnemyX)
         speedX = if (actualDistance > goalDistance) {
-             moveSpeed * direction
+             unitMoveSpeedLimit * direction
         } else {
             0f
         }

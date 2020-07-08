@@ -5,9 +5,9 @@ import org.neubauerfelix.manawars.manawars.MManaWars
 enum class MWUnitType(val defaultRange: Float, val main: Boolean, val index: Int) {
 
     // Note that the main units here need to be in the same order as the indices
-    BOSS(1000f, true, 0),
-    MELEE(300f, true, 1),
-    KNIGHT(800f, true, 2),
+    BOSS(700f, true, 0),
+    MELEE(650f, true, 1),
+    KNIGHT(600f, true, 2),
     ARCHER(1350f, true, 3),
     MAGE(900f, true, 4),
     BUILDER(0f, false, -1),
@@ -20,7 +20,9 @@ enum class MWUnitType(val defaultRange: Float, val main: Boolean, val index: Int
     companion object {
         fun getEffectivity(attackerType: MWUnitType, victimType: MWUnitType) : MWSkillEffectivity {
             return when(attackerType) {
-                ARCHER -> if (victimType == KNIGHT) MWSkillEffectivity.SUPER_WEAK else MWSkillEffectivity.NORMAL
+                ARCHER -> if (victimType == KNIGHT) MWSkillEffectivity.SUPER_WEAK else
+                    if (victimType == MELEE) MWSkillEffectivity.WEAK else MWSkillEffectivity.NORMAL
+                MAGE -> if (victimType == MELEE) MWSkillEffectivity.WEAK else MWSkillEffectivity.NORMAL
                 else -> MWSkillEffectivity.NORMAL
             }
         }

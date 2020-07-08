@@ -1,15 +1,15 @@
 skill_zombie:
   boss:
-    lifeTime: 3.48
+    lifeTime: 1.74
     rangeMax: 614.2471
     rangeMin: 0.0
   melee:
-    lifeTime: 0.52
-    rangeMax: 300.0
+    lifeTime: 1.02
+    rangeMax: 600.0
     rangeMin: 0.0
   knight:
     lifeTime: 8.639999
-    rangeMax: 800.0
+    rangeMax: 600.0
     rangeMin: 334.0
   archer:
     lifeTime: 1.38
@@ -21,16 +21,16 @@ skill_zombie:
     rangeMin: 0.0
 skill_snowman:
   boss:
-    lifeTime: 1.5799999
-    rangeMax: 820.0
+    lifeTime: 0.38
+    rangeMax: 360.0
     rangeMin: 0.0
   melee:
-    lifeTime: 0.35999998
-    rangeMax: 306.0
+    lifeTime: 0.7
+    rangeMax: 612.0
     rangeMin: 0.0
   knight:
-    lifeTime: 1.88
-    rangeMax: 616.0
+    lifeTime: 0.88
+    rangeMax: 602.0
     rangeMin: 0.0
   archer:
     lifeTime: 1.16
@@ -42,16 +42,16 @@ skill_snowman:
     rangeMin: 0.0
 skill_skeleton:
   boss:
-    lifeTime: 1.16
-    rangeMax: 1009.5847
+    lifeTime: 0.48
+    rangeMax: 357.3281
     rangeMin: 0.0
   melee:
-    lifeTime: 0.76
-    rangeMax: 303.9922
+    lifeTime: 1.3399999
+    rangeMax: 603.5045
     rangeMin: 0.0
   knight:
-    lifeTime: 1.6999999
-    rangeMax: 819.8397
+    lifeTime: 1.56
+    rangeMax: 613.5358
     rangeMin: 0.0
   archer:
     lifeTime: 1.16
@@ -63,16 +63,16 @@ skill_skeleton:
     rangeMin: 0.0
 skill_human:
   boss:
-    lifeTime: 1.4
-    rangeMax: 1026.7203
+    lifeTime: 1.0
+    rangeMax: 352.80005
     rangeMin: 0.0
   melee:
-    lifeTime: 0.52
-    rangeMax: 300.0
+    lifeTime: 1.02
+    rangeMax: 600.0
     rangeMin: 0.0
   knight:
     lifeTime: 7.2
-    rangeMax: 800.0
+    rangeMax: 600.0
     rangeMin: 173.0
   archer:
     lifeTime: 3.98
@@ -84,16 +84,16 @@ skill_human:
     rangeMin: 0.0
 skill_frost:
   boss:
-    lifeTime: 2.6599998
-    rangeMax: 630.9115
+    lifeTime: 0.38
+    rangeMax: 355.39194
     rangeMin: 0.0
   melee:
-    lifeTime: 0.35999998
-    rangeMax: 306.0
+    lifeTime: 0.7
+    rangeMax: 612.0
     rangeMin: 0.0
   knight:
-    lifeTime: 2.6599998
-    rangeMax: 630.9115
+    lifeTime: 0.85999995
+    rangeMax: 603.4558
     rangeMin: 0.0
   archer:
     lifeTime: 1.16
@@ -104,17 +104,17 @@ skill_frost:
     rangeMax: 600.0
     rangeMin: 0.0
 lizard_energy_single:
-  lifeTime: 1.6999999
-  rangeMax: 1006.65564
+  lifeTime: 0.82
+  rangeMax: 355.4561
   rangeMin: 0.0
 skill_lizard:
   melee:
-    lifeTime: 0.78
-    rangeMax: 304.0
+    lifeTime: 1.52
+    rangeMax: 600.0
     rangeMin: 0.0
   knight:
     lifeTime: 6.72
-    rangeMax: 800.0
+    rangeMax: 600.0
     rangeMin: 310.0
   archer:
     lifeTime: 1.38
@@ -126,16 +126,16 @@ skill_lizard:
     rangeMin: 0.0
 skill_goblin:
   boss:
-    lifeTime: 1.12
-    rangeMax: 1001.4397
+    lifeTime: 0.39999998
+    rangeMax: 367.83994
     rangeMin: 0.0
   melee:
-    lifeTime: 4.96
-    rangeMax: 300.0
+    lifeTime: 6.08
+    rangeMax: 600.0
     rangeMin: 388.0
   knight:
-    lifeTime: 3.02
-    rangeMax: 738.04816
+    lifeTime: 0.74
+    rangeMax: 608.25616
     rangeMin: 0.0
   archer:
     lifeTime: 1.38
@@ -147,16 +147,16 @@ skill_goblin:
     rangeMin: 0.0
 skill_bear:
   boss:
-    lifeTime: 2.6
-    rangeMax: 1010.64197
+    lifeTime: 1.56
+    rangeMax: 354.19272
     rangeMin: 0.0
   melee:
-    lifeTime: 1.52
-    rangeMax: 300.0
+    lifeTime: 3.02
+    rangeMax: 600.0
     rangeMin: 0.0
   knight:
-    lifeTime: 2.3
-    rangeMax: 803.5216
+    lifeTime: 2.0
+    rangeMax: 610.8012
     rangeMin: 0.0
   archer:
     lifeTime: 9.5199995
@@ -168,16 +168,16 @@ magic_energy_single:
   rangeMin: 0.0
 skill_brute:
   boss:
-    lifeTime: 3.74
-    rangeMax: 688.8649
+    lifeTime: 0.44
+    rangeMax: 360.86404
     rangeMin: 0.0
   melee:
-    lifeTime: 0.45999998
-    rangeMax: 308.0
+    lifeTime: 0.88
+    rangeMax: 602.0
     rangeMin: 0.0
   knight:
-    lifeTime: 2.3
-    rangeMax: 688.16003
+    lifeTime: 0.62
+    rangeMax: 602.4
     rangeMin: 0.0
   archer:
     lifeTime: 8.639999

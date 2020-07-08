@@ -5,11 +5,12 @@ import org.neubauerfelix.manawars.castledefense.data.tribes.IDataTribe
 import org.neubauerfelix.manawars.castledefense.entities.ICDEntityCastle
 import org.neubauerfelix.manawars.game.IDisposable
 import org.neubauerfelix.manawars.game.ILoadable
+import org.neubauerfelix.manawars.game.entities.ILogicable
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.entities.IControlled
 import org.neubauerfelix.manawars.manawars.entities.ITeamable
 
-interface ICDPlayer : ITeamable, ILoadable, IDisposable {
+interface ICDPlayer : ITeamable, ILoadable, IDisposable, ILogicable {
 
     val tribe: IDataTribe
     val controller: ICDController

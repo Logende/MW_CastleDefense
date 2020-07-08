@@ -13,7 +13,7 @@ interface ICDFormation : IMovable, ILooking, ITeamable {
     fun getAssignedX(e: IControlled): Float
     fun isContained(e: IControlled): Boolean
 
-    val moveSpeed: Float
+    val unitMoveSpeedLimit: Float
 
 
 

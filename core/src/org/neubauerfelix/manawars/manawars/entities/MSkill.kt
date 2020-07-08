@@ -142,9 +142,11 @@ class MSkill(val data: IDataSkill, val o: IActionUser): MEntityAnimationSimple(d
         // Knockback
         if (e is IJumpable) {
             val knockbackFactor = damageFactor.toDouble().pow(0.7).toFloat() * data.knockbackFactor * this.propertyScale
-            val knockbackX = abs(speedX / 3) + 60
-            val knockbackY = abs(speedY.coerceAtLeast(speedX / 3)) + 50
-            e.knockback(knockbackX * knockbackFactor, knockbackY * abs(knockbackFactor), direction)
+            if (knockbackFactor != 0f) {
+                val knockbackX = abs(speedX / 3) + 60
+                val knockbackY = abs(speedY.coerceAtLeast(speedX / 3)) + 50
+                e.knockback(knockbackX * knockbackFactor, knockbackY * abs(knockbackFactor), direction)
+            }
         }
 
         // Damage

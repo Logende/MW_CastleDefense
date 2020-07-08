@@ -1,89 +1,115 @@
-# Those stats are well suited if MConstants#SKILLS_COLLIDE_WITH_EACH_OTHER is false and for the new RPS system (knight > archer > mage > knight)
+# Those stats are well suited if MConstants#SKILLS_COLLIDE_WITH_EACH_OTHER is false and for the new RPS system
 units:
   boss:
     common:
       health: 120
-      damage: 12
-      cooldown: 1.5
-      cost: 20
+      damage: 24
+      cooldown: 3.0
+      cost: 12
+      acclerationFactor: 1.0
+      walkSpeedFactor: 0.5
+      # todo: make bosses more knockback-resistant
 
     rare:
       health: 180
       damage: 18
       cooldown: 1.5
       cost: 30
+      walkSpeedFactor: 0.5
+      acclerationFactor: 0.5
 
     epic:
       health: 240
       damage: 24
       cooldown: 1.5
       cost: 40
+      walkSpeedFactor: 0.5
+      acclerationFactor: 0.5
 
     legendary:
       health: 360
       damage: 36
       cooldown: 1.5
       cost: 60
+      walkSpeedFactor: 0.5
+      acclerationFactor: 0.5
 
-
+# actually heavy warrior
   knight:
     common:
-      health: 24
-      damage: 6
-      cooldown: 2
+      health: 32
+      damage: 12
+      cooldown: 1.5
       cost: 4
+      walkSpeedFactor: 0.7
+      acclerationFactor: 0.7
 
     rare:
       health: 36
       damage: 9
       cooldown: 2
       cost: 6
+      walkSpeedFactor: 0.7
+      acclerationFactor: 0.7
 
     epic:
       health: 48
       damage: 12
       cooldown: 2
       cost: 8
+      walkSpeedFactor: 0.7
+      acclerationFactor: 0.7
 
     legendary:
       health: 72
       damage: 18
       cooldown: 2
       cost: 12
+      walkSpeedFactor: 0.7
+      acclerationFactor: 0.7
 
 
+  # actually rider
   melee:
     common:
       health: 12
-      damage: 6
-      cooldown: 1
+      damage: 9
+      cooldown: 1.5
       cost: 2
+      walkSpeedFactor: 3.0
+      acclerationFactor: 4.0
 
     rare:
       health: 18
       damage: 9
       cooldown: 1
       cost: 3
+      walkSpeedFactor: 2.0
+      acclerationFactor: 3.0
 
     epic:
       health: 24
       damage: 12
       cooldown: 1
       cost: 4
+      walkSpeedFactor: 2.0
+      acclerationFactor: 3.0
 
     legendary:
       health: 36
       damage: 18
       cooldown: 1
       cost: 6
+      walkSpeedFactor: 2.0
+      acclerationFactor: 3.0
 
 
   archer:
     common:
-      health: 12
+      health: 9
       damage: 6
-      cooldown: 2
-      cost: 4
+      cooldown: 1.5
+      cost: 2
 
     rare:
       health: 18
@@ -106,9 +132,9 @@ units:
 
   mage:
     common:
-      health: 12
-      damage: 12
-      cooldown: 2.5
+      health: 18
+      damage: 18
+      cooldown: 3.0
       cost: 4
 
     rare:

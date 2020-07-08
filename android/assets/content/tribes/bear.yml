@@ -32,7 +32,7 @@ army:
         stop_on_ground: true
 
     knight:
-      animation: 'rider:bear:l1.bear.knight'
+      animation: 'human:l1.bear.knight'
       armor: 'anti_light'
       rarity: rare
       action:
@@ -48,7 +48,7 @@ army:
         stop_on_ground: true
 
     melee:
-      animation: 'human:l1.bear.melee'
+      animation: 'rider:bear:l1.bear.melee'
       rarity: common
       action:
         owner_animation: SUMMON_SMALL
@@ -58,7 +58,7 @@ army:
         sound: skill.stick
         speed: '200:0'
         acceleration: 0:0
-        location: 0:-70
+        location: 0:-20
         knockback: 0.4
 
     archer:
@@ -76,7 +76,7 @@ army:
         speed: 450:-800
         acceleration: 0:60*A
         location: 0:-70
-        knockback: 1.0
+        knockback: 0.0
         allow_movement_scaling: true
 
     mage:

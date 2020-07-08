@@ -14,7 +14,7 @@ import java.util.*
 class DataUnitLoaded(override val name: String, config: Configuration, val army: IDataArmy,
                      override val unitType: MWUnitType) : DataUnit() {
 
-    override val rarity: NWRarity = NWRarity.valueOf(config.getString("rarity").toUpperCase())
+    override val rarity: NWRarity = NWRarity.COMMON // NWRarity.valueOf(config.getString("rarity").toUpperCase())
     private val baseUnitStats = MManaWars.m.getBaseUnitHandler().getBaseUnitStats(unitType, rarity)
 
 
@@ -90,7 +90,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
             MConstants.UNIT_RIDER_SPEED_FACTOR
         } else {
             1f
-        }
+        } * baseUnitStats.walkSpeedFactor
     }
 
     override var walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC * if (config.contains("walkAcceleration")) {
@@ -100,7 +100,7 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
             MConstants.UNIT_RIDER_ACC_FACTOR
         } else {
             1f
-        }
+        } * baseUnitStats.accelerationFactor
     }
 
 }

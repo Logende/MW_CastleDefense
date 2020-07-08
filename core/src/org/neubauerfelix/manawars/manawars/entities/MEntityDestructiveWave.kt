@@ -13,8 +13,6 @@ class MEntityDestructiveWave(xCentre: Float, yCentre: Float, widthInitial: Float
                 MManaWars.m.getImageHandler().getTextureRegionMain("aura")),
                 1.0f, Color.WHITE, 0f, Animation.PlayMode.NORMAL), IOwned {
 
-    private val xCentre: Float
-    private val yCentre: Float
     private val widthInitial: Float
     private val heightInitial: Float
     private val widthFinal: Float
@@ -37,8 +35,8 @@ class MEntityDestructiveWave(xCentre: Float, yCentre: Float, widthInitial: Float
         val progressPercentage = 1.0f * progressDone / progressTotal
         val width = widthInitial + ((widthFinal - widthInitial) * progressPercentage)
         val height = heightInitial + ((heightFinal - heightInitial) * progressPercentage)
-        val x = xCentre - width / 2f
-        val y = yCentre - width / 2f
+        val x = owner.centerHorizontal - width / 2f
+        val y = owner.centerVertical - width / 2f
         setSize(width, height)
         setLocation(x, y)
     }
@@ -54,8 +52,6 @@ class MEntityDestructiveWave(xCentre: Float, yCentre: Float, widthInitial: Float
         timeStart = screen.getGameTime()
         timeEnd = timeStart + duration
         this.owner = owner
-        this.xCentre = xCentre
-        this.yCentre = yCentre
         this.widthInitial = widthInitial
         this.heightInitial = heightInitial
         this.widthFinal = widthFinal

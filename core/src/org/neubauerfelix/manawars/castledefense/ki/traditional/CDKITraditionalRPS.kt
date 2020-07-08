@@ -41,8 +41,16 @@ class CDKITraditionalRPS() : ICDKI {
         if (moneyLeft >= cheapestUnitCost) {
             val mostEnemiesType = prep.enemyUnitDistribution.maxBy { it.value }!!.key
             when (mostEnemiesType.unitType) {
-                MWUnitType.KNIGHT -> {
-                    val unit = units[MWUnitType.MAGE.index]
+                MWUnitType.MELEE -> {
+                    val unit = units[MWUnitType.BOSS.index]
+                    val unitCount = moneyLeft / unit.cost
+                    for (i in 1..(unitCount)) {
+                        unitsForNextCycle.add(unit)
+                        moneyLeft -= unit.cost
+                    }
+                }
+                MWUnitType.BOSS -> {
+                    val unit = units[MWUnitType.ARCHER.index]
                     val unitCount = moneyLeft / unit.cost
                     for (i in 1..(unitCount)) {
                         unitsForNextCycle.add(unit)
@@ -57,8 +65,16 @@ class CDKITraditionalRPS() : ICDKI {
                         moneyLeft -= unit.cost
                     }
                 }
+                MWUnitType.KNIGHT -> {
+                    val unit = units[MWUnitType.MAGE.index]
+                    val unitCount = moneyLeft / unit.cost
+                    for (i in 1..(unitCount)) {
+                        unitsForNextCycle.add(unit)
+                        moneyLeft -= unit.cost
+                    }
+                }
                 MWUnitType.MAGE -> {
-                    val unit = units[MWUnitType.ARCHER.index]
+                    val unit = units[MWUnitType.MELEE.index]
                     val unitCount = moneyLeft / unit.cost
                     for (i in 1..(unitCount)) {
                         unitsForNextCycle.add(unit)

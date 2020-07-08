@@ -4,10 +4,13 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import org.neubauerfelix.manawars.castledefense.CDConstants
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.game.entities.IEntity
+import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.IControlled
+import org.neubauerfelix.manawars.manawars.entities.MEntityDestructiveWave
 import org.neubauerfelix.manawars.manawars.entities.controller.IController
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
+import kotlin.math.abs
 import kotlin.math.min
 
 class ControllerCastleDefense(val player: ICDPlayer) : IController {
@@ -26,7 +29,7 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
         // If (now) in formation: try to keep up with assigned position
         if (player.formation.isContained(controlled)) {
-            controlled.walkSpeedMax = min(controlled.data.walkSpeedMax, player.formation.moveSpeed)
+            controlled.walkSpeedMax = min(controlled.data.walkSpeedMax, player.formation.unitMoveSpeedLimit)
             controlled.goalX = player.formation.getAssignedX(controlled)+ player.castle.direction * 15f
         } else {
             controlled.walkSpeedMax = controlled.data.walkSpeedMax
@@ -46,15 +49,15 @@ class ControllerCastleDefense(val player: ICDPlayer) : IController {
 
         }
 
-        /*if (abs(controlled.speedX) >= controlled.data.walkSpeedMax*0.95 && controlled.data.walkSpeedMax > MConstants.UNIT_AVG_WALK_SPEED_MAX) {
+        if (abs(controlled.speedX) > MConstants.UNIT_AVG_WALK_SPEED_MAX && controlled.speedY == 0f) {
             val ownsAura = MManaWars.m.screen.getEntities { it is MEntityDestructiveWave && it.owner == controlled }.isNotEmpty()
             if (!ownsAura) {
                 val aura = MEntityDestructiveWave(controlled.centerHorizontal, controlled.centerVertical,
-                        controlled.width, controlled.height, 100,
-                        controlled.width * 1.5f, controlled.height * 1.5f, controlled)
+                        controlled.width * 1.2f, controlled.height * 1.2f, 200,
+                        controlled.width * 1.8f, controlled.height * 1.8f, controlled)
                 aura.spawn()
             }
-        }*/
+        }
 
     }
 

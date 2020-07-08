@@ -6,4 +6,6 @@ interface IDataBaseUnitStats {
     val cost: Int
     val cooldown: Float
     val damage: Float
+    val walkSpeedFactor: Float
+    val accelerationFactor: Float
 }

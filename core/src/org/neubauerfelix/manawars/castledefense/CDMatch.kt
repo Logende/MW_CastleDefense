@@ -75,13 +75,11 @@ class CDMatch(val playerA: ICDPlayer, val playerB: ICDPlayer, val screen: IScree
             playerA.executeUnitBuilding()
             playerB.executeUnitBuilding()
             nextCycleTime = MManaWars.m.screen.getGameTime() + CDConstants.UNIT_BUILD_CYCLE_TIME
-            println("unit building tick")
         }
-        playerA.controller.doLogic(delta)
-        playerB.controller.doLogic(delta)
+        playerA.doLogic(delta)
+        playerB.doLogic(delta)
 
         if (playerA.castle.remove || playerB.castle.remove) {
-
             MManaWars.m.screen.remove = true // TODO: Victory screen
         }
     }

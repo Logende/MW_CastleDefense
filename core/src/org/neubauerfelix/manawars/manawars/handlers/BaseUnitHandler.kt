@@ -37,7 +37,9 @@ class BaseUnitHandler : IBaseUnitHandler, ILoadableContent {
                                 val stats = DataBaseUnitStats(baseUnitStatsConfig.getFloat("health"),
                                         baseUnitStatsConfig.getFloat("damage"),
                                         baseUnitStatsConfig.getFloat("cooldown"),
-                                        baseUnitStatsConfig.getInt("cost"))
+                                        baseUnitStatsConfig.getInt("cost"),
+                                        baseUnitStatsConfig.getFloat("walkSpeedFactor", 1f),
+                                        baseUnitStatsConfig.getFloat("accelerationFactor", 1f))
                                 baseUnitStats[unitType]!![unitRarity] = stats
                             }
                         }

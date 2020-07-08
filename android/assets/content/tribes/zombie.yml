@@ -73,7 +73,7 @@ army:
         speed: '1000:0'
         acceleration: 0:5*A
         offset: '-40:20'
-        knockback: 1.0
+        knockback: 0.0
 
     mage:
       animation: 'human:l1.zombie.mage'

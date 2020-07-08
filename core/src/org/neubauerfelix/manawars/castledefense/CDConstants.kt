@@ -16,6 +16,7 @@ class CDConstants {
         const val FORMATION_ENEMY_DISTANCE_MIN = 300f
         const val FORMATION_ORDER_BY_UNIT_TYPE = false
         const val CASTLE_CHOOSE_ACTION_DELAY = 500L
+        const val CASTLE_SPAWN_UNIT_DELAY = 500L
         const val UNIT_BUILD_CYCLE_TIME = 1000L * 15L
 
         const val CASTLE_HEALTH_BASE = 1f

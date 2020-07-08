@@ -13,7 +13,7 @@ bodyDataHuman:
 - l1.bear.melee
 - l1.bear.archer
 - l1.bear.mage
-- l1.bear.knight
+- l1.bear.knight:big.wood.gray.round
 - l1.bear.boss
 - l1.goblin.melee
 - l1.goblin.archer
