@@ -21,6 +21,7 @@ abstract class DataUnit : IDataUnit {
 
     override fun produce(x: Float, y: Float, controller: IController, team: Int) : IControlled {
         val entity = MEntityControlled(this.animation,
+                this.knockbackFactor,
                 this.health,
                 action,
                 actionCooldown,

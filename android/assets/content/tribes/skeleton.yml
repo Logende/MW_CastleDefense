@@ -31,7 +31,7 @@ army:
         location: 0:-40
 
     knight:
-      animation: 'rider:wolf:l1.skeleton.knight'
+      animation: 'human:l1.skeleton.knight'
       armor: 'anti_light'
       rarity: epic
       action:
@@ -46,7 +46,7 @@ army:
         location: 0:-10
 
     melee:
-      animation: 'human:l1.skeleton.melee'
+      animation: 'rider:wolf:l1.skeleton.melee'
       rarity: common
       action:
         owner_animation: SUMMON_SMALL

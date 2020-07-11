@@ -11,10 +11,10 @@ import org.neubauerfelix.manawars.manawars.enums.MWCollisionType
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 import org.neubauerfelix.manawars.manawars.enums.MWEntityAnimationType
 
-open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: Float) :
+open class MEntityAnimated(animationProducer: IEntityAnimationProducer, knockbackFactor: Float, health: Float) :
         MEntityLiving(animationProducer.bodyWidth * animationProducer.defaultScale,
-                animationProducer.bodyHeight * animationProducer.defaultScale, health), IAnimatedLiving,
-        ICollidable {
+                animationProducer.bodyHeight * animationProducer.defaultScale, knockbackFactor, health),
+        IAnimatedLiving, ICollidable {
 
 
     private var colorRestoreTime: Long = -1L
@@ -22,7 +22,8 @@ open class MEntityAnimated(animationProducer: IEntityAnimationProducer, health: 
     final override val animation = animationProducer.produce(this)
 
     init {
-        propertyScale = animation.scale
+        //propertyScale = animation.scale
+        // property scale needs to be set manually, because otherwise it might be confusing
     }
 
     var animationPaused: Boolean

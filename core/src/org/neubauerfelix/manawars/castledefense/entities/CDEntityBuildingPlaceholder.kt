@@ -4,7 +4,7 @@ import org.neubauerfelix.manawars.castledefense.data.buildings.IDataBuilding
 import org.neubauerfelix.manawars.manawars.entities.*
 
 class CDEntityBuildingPlaceholder(val data: IDataBuilding) :
-        MEntityAnimated(data.animation, data.health) {
+        MEntityAnimated(data.animation, 0f, data.health) {
 
     fun build(building: IDataBuilding, team: Int, direction: Int) {
         this.remove = true
@@ -12,8 +12,4 @@ class CDEntityBuildingPlaceholder(val data: IDataBuilding) :
                 spawnPlaceholderOnDeath = true)
     }
 
-
-    override fun knockback(power_x: Float, power_y: Float): Boolean {
-        return false
-    }
 }

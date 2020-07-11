@@ -16,7 +16,7 @@ class CDEntityCastle(x: Float, y: Float,
                      startMoney: Int,
                      override var moneyPerCycle: Int,
                      override val player: ICDPlayer) :
-        MEntityAnimated(IEntityAnimationProducer.createProducerBuilding(textureNameAlive), health),
+        MEntityAnimated(IEntityAnimationProducer.createProducerBuilding(textureNameAlive), 0f, health),
         ICDEntityCastle {
     
     init {
@@ -31,13 +31,6 @@ class CDEntityCastle(x: Float, y: Float,
 
     override var storedMoney: Int = startMoney
 
-    override var speedX: Float
-        get() = super.speedX
-        set(_) { }
-
-    override var speedY: Float
-        get() = super.speedX
-        set(_) { }
 
     override fun draw(batcher: Batch) {
         super.draw(batcher)

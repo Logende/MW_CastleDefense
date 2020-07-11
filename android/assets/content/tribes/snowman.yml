@@ -29,7 +29,7 @@ army:
         knockback: 1.1
 
     knight:
-      animation: 'rider:tortoise:l1.snowman.knight'
+      animation: 'human:l1.snowman.knight'
       armor: 'anti_magic'
       rarity: epic
       action:
@@ -44,7 +44,7 @@ army:
         knockback: 1.0
 
     melee:
-      animation: 'human:l1.snowman.melee'
+      animation: 'rider:tortoise:l1.snowman.melee'
       armor: 'anti_light'
       rarity: common
       action:

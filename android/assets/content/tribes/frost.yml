@@ -30,7 +30,7 @@ army:
         knockback: 1.5
 
     knight:
-      animation: 'rider:tortoise:l1.frost.knight'
+      animation: 'human:l1.frost.knight'
       armor: 'anti_light'
       rarity: common
       action:
@@ -44,7 +44,7 @@ army:
         location: 0:-50
 
     melee:
-      animation: 'human:l1.frost.melee'
+      animation: 'rider:tortoise:l1.frost.melee'
       armor: 'anti_light'
       rarity: common
       action:

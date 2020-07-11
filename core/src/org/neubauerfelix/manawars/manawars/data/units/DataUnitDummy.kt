@@ -25,8 +25,7 @@ class DataUnitDummy : DataUnit() {
     override var walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX * 2f
     override var walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC * 3f
     override val unitType: MWUnitType = MWUnitType.MELEE
-
-
+    override val knockbackFactor: Float = 1f
     override val rarity: NWRarity = NWRarity.COMMON
 
 

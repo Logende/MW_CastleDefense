@@ -19,7 +19,7 @@ enum class MWEntityAnimationType {
             val skinName = "l1.zombie.mage"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
+            val a = MEntityControlled(animationProducer, 1f, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
             a.x = x
@@ -35,7 +35,7 @@ enum class MWEntityAnimationType {
             val skinName = "dummy.shield"
             val animationProducer = IEntityAnimationProducer.createProducerHuman(skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
+            val a = MEntityControlled(animationProducer, 1f, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
             a.x = x
@@ -54,7 +54,7 @@ enum class MWEntityAnimationType {
             val skinNameMount = "lion"
             val animationProducerMount = IEntityAnimationProducer.createProducerMount(skinNameMount)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducerMount, 1f, action, 0f, controller = controller,
+            val a = MEntityControlled(animationProducerMount, 1f, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
             a.x = x
@@ -71,7 +71,7 @@ enum class MWEntityAnimationType {
             val skinNameMount = "lion"
             val animationProducerRider = IEntityAnimationProducer.createProducerRider(skinNameMount, skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducerRider, 1f, action, 0f, controller = controller,
+            val a = MEntityControlled(animationProducerRider, 1f, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
             a.x = x
@@ -87,7 +87,7 @@ enum class MWEntityAnimationType {
             val skinName = "dragon.small.green"
             val animationProducer = IEntityAnimationProducer.createProducerPet(skinName)
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
+            val a = MEntityControlled(animationProducer, 1f, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
             a.x = x
@@ -102,7 +102,7 @@ enum class MWEntityAnimationType {
         override fun createDummy(x: Float, bottom: Float, action: IDataAction, direction: Int) : IControlled {
             val animationProducer = EntityAnimationProducerBuilding("building.heal")
             val controller = ControllerDummy()
-            val a = MEntityControlled(animationProducer, 1f, action, 0f, controller = controller,
+            val a = MEntityControlled(animationProducer, 1f, 1f, action, 0f, controller = controller,
                     data = DataUnitDummy())
             controller.controlled = a
             a.x = x

@@ -10,13 +10,13 @@ class BoxUnitsInfoNatural(x: Float, y: Float, width: Float, val units: Iterable<
 
 
     init {
-        val unitRowHeight = units.map { it.animation.bodyHeight * unitScale }.max()!!.toFloat()
-        val unitWidthSum = units.map { it.animation.bodyWidth * unitScale }.sum()
+        val unitRowHeight = units.map { it.animation.bodyHeight * unitScale * it.animation.defaultScale }.max()!!.toFloat()
+        val unitWidthSum = units.map { it.animation.bodyWidth * unitScale * it.animation.defaultScale }.sum()
         val unitDiff = (width - unitWidthSum) / (units.count() - 1)
         var unitX = 0f
         for (unit in units) {
-            val unitWidth = unit.animation.bodyWidth.toFloat() * unitScale
-            val unitHeight = unit.animation.bodyHeight.toFloat() * unitScale
+            val unitWidth = unit.animation.bodyWidth.toFloat() * unitScale * unit.animation.defaultScale
+            val unitHeight = unit.animation.bodyHeight.toFloat() * unitScale * unit.animation.defaultScale
             val yOffset = unitRowHeight - unitHeight
             val animation = unit.animation.produce(unitX, yOffset, unitWidth, unitHeight, unit.action.weaponType)
             val component = CDComponentEntity(animation, Runnable { unitRunnable.invoke(unit) })

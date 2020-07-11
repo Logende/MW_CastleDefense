@@ -39,7 +39,7 @@ army:
             damage: 0.33334
 
     knight:
-      animation: 'rider:tortoise:l1.lizard.knight'
+      animation: 'human:l1.lizard.knight'
       armor: 'none'
       rarity: common
       action:
@@ -55,7 +55,7 @@ army:
         location: 0:-50
 
     melee:
-      animation: 'human:l1.lizard.melee'
+      animation: 'rider:tortoise:l1.lizard.melee'
       armor: 'none'
       rarity: common
       action:

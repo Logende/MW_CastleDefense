@@ -103,4 +103,6 @@ class DataUnitLoaded(override val name: String, config: Configuration, val army:
         } * baseUnitStats.accelerationFactor
     }
 
+    override val knockbackFactor: Float = baseUnitStats.knockbackFactor
+
 }

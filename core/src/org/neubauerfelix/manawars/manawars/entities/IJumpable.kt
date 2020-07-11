@@ -13,6 +13,7 @@ interface IJumpable: IMovable {
     val isKnockbacked: Boolean
     val isFalling: Boolean
     val isJumping: Boolean
+    val knockbackFactor: Float
 
 
 

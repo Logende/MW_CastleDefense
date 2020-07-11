@@ -6,6 +6,7 @@ import org.neubauerfelix.manawars.manawars.enums.*
 import java.util.*
 
 open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
+                           knockbackFactor: Float,
                            health: Float,
                            action: IDataAction,
                            actionCooldown: Float,
@@ -14,7 +15,7 @@ open class MEntityUpgraded(animationProducer: IEntityAnimationProducer,
                            val skillDurabilityMultipliers: Map<MWSkillClass, Float> = EnumMap(MWSkillClass::class.java),
                            final override val drainMultiplier: Float = 0f,
                            val armor: MWArmorType = MWArmorType.NONE):
-        MEntityStateable(animationProducer, health, action, actionCooldown, stateMultipliers), IUpgraded {
+        MEntityStateable(animationProducer, knockbackFactor, health, action, actionCooldown, stateMultipliers), IUpgraded {
 
 
     init {

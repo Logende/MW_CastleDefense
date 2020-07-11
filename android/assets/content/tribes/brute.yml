@@ -30,7 +30,7 @@ army:
         knockback: 1.0
 
     knight:
-      animation: 'rider:lion:l2.brute.knight'
+      animation: 'human:l2.brute.knight'
       armor: 'anti_light'
       rarity: rare
       action:
@@ -44,7 +44,7 @@ army:
         location: 0:-100
 
     melee:
-      animation: 'human:l2.brute.melee'
+      animation: 'rider:lion:l2.brute.melee'
       armor: 'anti_light'
       rarity: rare
       action:

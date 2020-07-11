@@ -10,9 +10,10 @@ import org.neubauerfelix.manawars.manawars.enums.MWStateEffectivity
 import kotlin.math.max
 
 
-open class MEntityStateable(animationProducer: IEntityAnimationProducer, health: Float, action: IDataAction,
-                       actionCooldown: Float, private val stateMultipliers: Map<MWState, MWStateEffectivity>):
-        MEntityActionUser(animationProducer, health, action, actionCooldown), IStateable {
+open class MEntityStateable(animationProducer: IEntityAnimationProducer, knockbackFactor: Float, health: Float,
+                            action: IDataAction, actionCooldown: Float,
+                            private val stateMultipliers: Map<MWState, MWStateEffectivity>):
+        MEntityActionUser(animationProducer, knockbackFactor, health, action, actionCooldown), IStateable {
 
 
     companion object {

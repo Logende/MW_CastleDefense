@@ -10,7 +10,7 @@ import org.neubauerfelix.manawars.manawars.entities.MEntityActionUser
 import org.neubauerfelix.manawars.manawars.enums.MWDamageCause
 
 class CDEntityBuildingAction(val data: IDataBuildingAction, private val spawnPlaceholderOnDeath: Boolean) :
-        MEntityActionUser(data.animation, data.health, data.action, data.actionCooldown) {
+        MEntityActionUser(data.animation, 0f, data.health, data.action, data.actionCooldown) {
 
 
 
@@ -18,11 +18,6 @@ class CDEntityBuildingAction(val data: IDataBuildingAction, private val spawnPla
         super.doLogic(delta)
         executeAction() // tries performing action. Includes cooldown, etc.
     }
-
-    override fun knockback(power_x: Float, power_y: Float): Boolean {
-        return false
-    }
-
 
     override fun death(damager: IEntity, cause: MWDamageCause): Boolean {
         val dies = super.death(damager, cause)

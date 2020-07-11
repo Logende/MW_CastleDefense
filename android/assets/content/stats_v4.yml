@@ -2,13 +2,13 @@
 units:
   boss:
     common:
-      health: 120
+      health: 150
       damage: 24
       cooldown: 3.0
       cost: 12
       acclerationFactor: 1.0
       walkSpeedFactor: 0.5
-      # todo: make bosses more knockback-resistant
+      knockbackFactor: 0.0
 
     rare:
       health: 180

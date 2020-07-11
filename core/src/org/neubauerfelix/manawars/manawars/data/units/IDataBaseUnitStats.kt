@@ -8,4 +8,5 @@ interface IDataBaseUnitStats {
     val damage: Float
     val walkSpeedFactor: Float
     val accelerationFactor: Float
+    val knockbackFactor: Float
 }

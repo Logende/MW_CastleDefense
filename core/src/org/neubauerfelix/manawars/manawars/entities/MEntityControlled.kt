@@ -16,6 +16,7 @@ import kotlin.math.min
 
 
 open class MEntityControlled(animationProducer: IEntityAnimationProducer,
+                             knockbackFactor: Float,
                              health: Float,
                              action: IDataAction,
                              actionCooldown: Float,
@@ -28,7 +29,7 @@ open class MEntityControlled(animationProducer: IEntityAnimationProducer,
                              override val walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC,
                              override var controller: IController,
                              override val data: IDataUnit): // data is just a reference for CD classes which need data. It is not used for the entity properties
-        MEntityUpgraded(animationProducer, health, action, actionCooldown, stateMultipliers, skillMultipliers,
+        MEntityUpgraded(animationProducer, knockbackFactor, health, action, actionCooldown, stateMultipliers, skillMultipliers,
                 skillDurabilityMultipliers, drainMultiplier, armor), IControlled {
 
 

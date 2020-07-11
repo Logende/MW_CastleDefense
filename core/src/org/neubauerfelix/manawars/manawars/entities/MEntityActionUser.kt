@@ -10,8 +10,9 @@ import org.neubauerfelix.manawars.manawars.entities.animation.human.BodyHumanAni
 import org.neubauerfelix.manawars.manawars.entities.animation.rider.BodyRider
 
 
-open class MEntityActionUser(animationProducer: IEntityAnimationProducer, health: Float, override val action: IDataAction,
-                             override val actionCooldown: Float): MEntityAnimated(animationProducer, health), IActionUser {
+open class MEntityActionUser(animationProducer: IEntityAnimationProducer, knockbackFactor: Float, health: Float,
+                             override val action: IDataAction, override val actionCooldown: Float):
+        MEntityAnimated(animationProducer, knockbackFactor, health), IActionUser {
 
     private var actionCooldownTime = 0L
 

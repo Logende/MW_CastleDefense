@@ -2,7 +2,6 @@ package org.neubauerfelix.manawars.manawars.entities.animation
 
 
 import org.neubauerfelix.manawars.game.entities.IMovable
-import org.neubauerfelix.manawars.game.entities.ISized
 import org.neubauerfelix.manawars.manawars.MConstants
 
 /**
@@ -15,33 +14,33 @@ class BodyPartAttached(bodyPartData: IBodyPartData, scale: Float) : BodyPart(bod
     var attached = true
         private set
 
-    fun detach(sized: ISized, knockbackSpeedX: Float = 0f, knockbackSpeedY: Float = 0f): BodyPartEntity {
-        return this.detach(sized, knockbackSpeedX, knockbackSpeedY, MConstants.RANDOM_ANIMATION_DESPAWN_TIME)
+    fun detach(knockbackSpeedX: Float = 0f, knockbackSpeedY: Float = 0f): BodyPartEntity {
+        return this.detach(knockbackSpeedX, knockbackSpeedY, MConstants.RANDOM_ANIMATION_DESPAWN_TIME)
     }
 
-    fun detach(sized: ISized, knockbackFactorX: Float, knockbackFactorY: Float, despawnTime: Int): BodyPartEntity {
-        val e = detach(sized, despawnTime)
+    fun detach(knockbackFactorX: Float, knockbackFactorY: Float, despawnTime: Int): BodyPartEntity {
+        val e = detach(despawnTime)
         e.knockback(knockbackFactorX, knockbackFactorY, false, true)
         return e
     }
 
-    fun detach(sized: ISized, cause: IMovable, knockbackFactorX: Float, knockbackFactorY: Float): BodyPartEntity {
-        return this.detach(sized, cause, knockbackFactorX, knockbackFactorY, MConstants.RANDOM_ANIMATION_DESPAWN_TIME)
+    fun detach(cause: IMovable, knockbackFactorX: Float, knockbackFactorY: Float): BodyPartEntity {
+        return this.detach(cause, knockbackFactorX, knockbackFactorY, MConstants.RANDOM_ANIMATION_DESPAWN_TIME)
     }
 
-    fun detach(sized: ISized, cause: IMovable?, knockbackFactorX: Float, knockbackFactorY: Float, despawnTime: Int): BodyPartEntity {
-        val e = detach(sized, despawnTime)
+    fun detach(cause: IMovable?, knockbackFactorX: Float, knockbackFactorY: Float, despawnTime: Int): BodyPartEntity {
+        val e = detach(despawnTime)
         if (cause != null) {
             e.knockback(cause.speedX * knockbackFactorX, cause.speedY * knockbackFactorY, true)
         }
         return e
     }
 
-    private fun detach(sized: ISized, despawnTime: Int): BodyPartEntity {
+    private fun detach(despawnTime: Int): BodyPartEntity {
         check(attached)
         attached = false
 
-        val e = BodyPartEntity(bodyPartData, sized, tr, despawnTime, mirror, bloodColor = this.color)
+        val e = BodyPartEntity(bodyPartData, this, tr, despawnTime, mirror, bloodColor = this.color)
         e.x = this.x
         e.y = this.y
 

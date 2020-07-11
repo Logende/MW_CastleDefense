@@ -39,7 +39,8 @@ class BaseUnitHandler : IBaseUnitHandler, ILoadableContent {
                                         baseUnitStatsConfig.getFloat("cooldown"),
                                         baseUnitStatsConfig.getInt("cost"),
                                         baseUnitStatsConfig.getFloat("walkSpeedFactor", 1f),
-                                        baseUnitStatsConfig.getFloat("accelerationFactor", 1f))
+                                        baseUnitStatsConfig.getFloat("accelerationFactor", 1f),
+                                        baseUnitStatsConfig.getFloat("knockbackFactor", 1f))
                                 baseUnitStats[unitType]!![unitRarity] = stats
                             }
                         }

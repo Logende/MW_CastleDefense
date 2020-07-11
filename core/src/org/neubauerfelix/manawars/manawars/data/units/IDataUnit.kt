@@ -23,6 +23,7 @@ interface IDataUnit : IDataPresentable, IDataActionUser, IDataCoreEntity {
 
     var walkSpeedMax: Float
     var walkAcceleration: Float
+    val knockbackFactor: Float
 
 
 

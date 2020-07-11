@@ -24,7 +24,6 @@ class DataUnitBuilder(building: IDataBuilding, override val cost: Int, override 
     override var drainMultiplier: Float = 0f
     override var walkSpeedMax: Float = MConstants.UNIT_AVG_WALK_SPEED_MAX
     override var walkAcceleration: Float = MConstants.UNIT_AVG_WALK_ACC
-
-
+    override val knockbackFactor: Float = 1f
     override val action: IDataAction = DataActionBuild(building.name, building)
 }

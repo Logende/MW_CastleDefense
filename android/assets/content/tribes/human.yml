@@ -31,7 +31,7 @@ army:
         location: 0:10
 
     knight:
-      animation: 'rider:orc:l1.human.knight'
+      animation: 'human:l1.human.knight'
       armor: 'anti_light'
       rarity: common
       action:
@@ -46,7 +46,7 @@ army:
         knockback: 1.5
 
     melee:
-      animation: 'human:l1.human.melee'
+      animation: 'rider:orc:l1.human.melee'
       rarity: common
       action:
         owner_animation: THROW

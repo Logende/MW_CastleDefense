@@ -154,15 +154,14 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, val sized:
 
     fun deadlyHit() {
         assert(bodyPartsAttached)
-        val sized = this.sized
-        head.detach(sized)
-        body.detach(sized)
-        armL.detach(sized)
-        armR.detach(sized)
-        footL.detach(sized)
-        footR.detach(sized)
+        head.detach()
+        body.detach()
+        armL.detach()
+        armR.detach()
+        footL.detach()
+        footR.detach()
         if (shield != null && shield.enabled) {
-            shield.detach(sized)
+            shield.detach()
         }
         bodyPartsAttached = false
     }
@@ -170,32 +169,31 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, val sized:
 
     fun deadlyHit(killer: IMovable) {
         assert(bodyPartsAttached)
-        val sized = this.sized
         if (latestHitBodyPart != null) {
             val ySpeedOffset = (-200 - if (latestHitBodyPart == head) 400 else 0).toFloat()
-            latestHitBodyPart!!.detach(sized, killer.speedX * 0.5f, killer.speedY + ySpeedOffset)
+            latestHitBodyPart!!.detach(killer.speedX * 0.5f, killer.speedY + ySpeedOffset)
         }
 
         if (head != latestHitBodyPart)
-        head.detach(sized, killer, 0.5f, 0.5f)
+        head.detach(killer, 0.5f, 0.5f)
 
         if (body != latestHitBodyPart)
-        body.detach(sized, killer, 0.5f, 0.5f)
+        body.detach(killer, 0.5f, 0.5f)
 
         if (armL != latestHitBodyPart)
-        armL.detach(sized, killer, 0.5f, 0.5f)
+        armL.detach(killer, 0.5f, 0.5f)
 
         if (armR != latestHitBodyPart)
-        armR.detach(sized, killer, 0.5f, 0.5f)
+        armR.detach(killer, 0.5f, 0.5f)
 
         if (footL != latestHitBodyPart)
-        footL.detach(sized, killer, 0.5f, 0.5f)
+        footL.detach(killer, 0.5f, 0.5f)
 
         if (footR != latestHitBodyPart)
-        footR.detach(sized, killer, 0.5f, 0.5f)
+        footR.detach(killer, 0.5f, 0.5f)
 
         if (shield != null && shield.enabled && shield != latestHitBodyPart) {
-            shield.detach(sized, killer, 0.5f, 0.5f)
+            shield.detach(killer, 0.5f, 0.5f)
         }
         bodyPartsAttached = false
     }
@@ -203,17 +201,17 @@ open class BodyHuman(val bodyDataHuman: IBodyDataHuman, scale: Float, val sized:
     fun explode() {
         assert(bodyPartsAttached)
         val sized = this.sized
-        head.detach(sized, Math.random().toFloat() * 400 - 200, (-Math.random()).toFloat() * 300 - 2000)
-        body.detach(sized, Math.random().toFloat() * 2000 - 1000, Math.random().toFloat() * 2000 - 1000)
-        armL.detach(sized, (-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
-        armR.detach(sized, (+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
-        footL.detach(sized, (-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
-        footR.detach(sized, (+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
+        head.detach(Math.random().toFloat() * 400 - 200, (-Math.random()).toFloat() * 300 - 2000)
+        body.detach(Math.random().toFloat() * 2000 - 1000, Math.random().toFloat() * 2000 - 1000)
+        armL.detach((-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
+        armR.detach((+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
+        footL.detach((-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
+        footR.detach((+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
         if (shield != null) {
             if(sized is IMovable){
-                shield.detach(sized, sized , 10f, 10f)
+                shield.detach(10f, 10f)
             }else{
-                shield.detach(sized , 10f, 10f)
+                shield.detach(10f, 10f)
             }
         }
         bodyPartsAttached = false

@@ -6,14 +6,16 @@ import org.neubauerfelix.manawars.game.entities.GameEntityMovable
 import org.neubauerfelix.manawars.game.entities.IMovable
 import org.neubauerfelix.manawars.manawars.events.EntityKnockbackEvent
 import org.neubauerfelix.manawars.manawars.MConstants
+import kotlin.math.abs
 
 
-open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(width, height), ILooking, IJumpable {
+open class MEntityJumpable(width: Float, height: Float, override val knockbackFactor: Float) :
+        GameEntityMovable(width, height), ILooking, IJumpable {
 
 
     override var direction = 1
         set(value){
-            assert(Math.abs(value) == 1)
+            assert(abs(value) == 1)
             field = value
         }
 
@@ -74,7 +76,7 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
 
 
     override fun knockback(power_x: Float, power_y: Float, source: IMovable): Boolean {
-        return if (source is ILooking && Math.abs(source.speedX) >= MConstants.KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED) {
+        return if (source is ILooking && abs(source.speedX) >= MConstants.KNOCKBACK_MIRROR_DIRECTION_MIN_SPEED) {
             knockback(power_x, power_y, source.direction)
         }else{
             knockback(power_x, power_y, if (source.centerHorizontal > this.centerHorizontal) -1 else 1)
@@ -95,22 +97,26 @@ open class MEntityJumpable(width: Float, height: Float) : GameEntityMovable(widt
      */
     open fun knockback(powerX: Float, powerY: Float): Boolean {
         AManaWars.m.getEventHandler().callEvent(EntityKnockbackEvent(this, powerX, powerY))
-        jumpsAmount = Math.max(1, jumpsAmount) //Knockback counts as jump when being on the ground when knocked back!
+        jumpsAmount = 1.coerceAtLeast(jumpsAmount) //Knockback counts as jump when being on the ground when knocked back!
+        val strengthFactor = knockbackFactor / propertyScale // bigger entities suffer less knockback
+        if (strengthFactor == 0f) {
+            return false
+        }
 
         if (!isKnockbacked) {
             isKnockbacked = true
-            speedX = powerX / propertyScale //Bigger entities suffer less knockback
-            speedY = -powerY * 1 / propertyScale
+            speedX = powerX * strengthFactor
+            speedY = -powerY * strengthFactor
         } else { //Already knocked back: Add speed to existing knockback speed
             val sameDirHor = speedX > 0 == powerX > 0
             if (sameDirHor) {
                 val dirHor = direction
-                val speedHor = Math.max(Math.abs(speedX), Math.abs(powerX / propertyScale)) //Set speed to max of both speeds but do not add together
+                val speedHor = abs(speedX).coerceAtLeast(abs(powerX  * strengthFactor)) //Set speed to max of both speeds but do not add together
                 speedX = speedHor * dirHor
             } else {
-                speedX = speedX + powerX / propertyScale
+                speedX += powerX * strengthFactor
             }
-            speedY = -Math.max(speedY, powerY / propertyScale)
+            speedY = -speedY.coerceAtLeast(powerY * strengthFactor)
         }
         gravity()
         //setLockedMovementEnd(500)

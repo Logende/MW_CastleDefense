@@ -33,7 +33,7 @@ army:
         effect: BURNING:3
 
     knight:
-      animation: 'rider:wolf:l1.goblin.knight'
+      animation: 'human:l1.goblin.knight'
       armor: 'anti_light'
       rarity: common
       action:
@@ -49,7 +49,7 @@ army:
         effect: FROZEN:2
 
     melee:
-      animation: 'human:l1.goblin.melee'
+      animation: 'rider:wolf:l1.goblin.melee'
       rarity: common
       action:
         allow_movement_scaling: true

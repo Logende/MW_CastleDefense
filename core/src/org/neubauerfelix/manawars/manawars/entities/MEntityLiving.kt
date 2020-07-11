@@ -16,7 +16,8 @@ import kotlin.math.max
  * This class gives entities health, the ability to take damage/die and the ability to belong to a certain team.
  * @author Felix Neubauer
  */
-abstract class MEntityLiving(width: Float, height: Float, health: Float) : MEntityJumpable(width, height), ILiving, ITeamable {
+abstract class MEntityLiving(width: Float, height: Float, knockbackFactor: Float, health: Float) :
+        MEntityJumpable(width, height, knockbackFactor), ILiving, ITeamable {
 
     companion object {
         fun getClosestEntity(condition: (IEntity) -> Boolean, mainEntity: IEntity, maxDistance: Float): IEntity?{

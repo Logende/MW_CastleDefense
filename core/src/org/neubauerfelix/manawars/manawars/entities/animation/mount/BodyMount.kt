@@ -97,52 +97,50 @@ open class BodyMount(val bodyDataMount: IBodyDataMount, scale: Float, var sized:
     fun deadlyHit() {
         assert(bodyPartsAttached)
         val sized = this.sized
-        head.detach(sized)
-        body.detach(sized)
-        footBL.detach(sized)
-        footBR.detach(sized)
-        footFL.detach(sized)
-        footFR.detach(sized)
+        head.detach()
+        body.detach()
+        footBL.detach()
+        footBR.detach()
+        footFL.detach()
+        footFR.detach()
         bodyPartsAttached = false
     }
 
 
     fun deadlyHit(killer: IMovable) {
         assert(bodyPartsAttached)
-        val sized = this.sized
         if (latestHitBodyPart != null) {
             val ySpeedOffset = (-200 - if (latestHitBodyPart == head) 400 else 0).toFloat()
-            latestHitBodyPart!!.detach(sized, killer.speedX * 0.5f, killer.speedY + ySpeedOffset)
+            latestHitBodyPart!!.detach(killer.speedX * 0.5f, killer.speedY + ySpeedOffset)
         }
         if (head != latestHitBodyPart)
-        head.detach(sized, killer, 0.5f, 0.5f)
+        head.detach(killer, 0.5f, 0.5f)
 
         if (body != latestHitBodyPart)
-        body.detach(sized, killer, 0.5f, 0.5f)
+        body.detach(killer, 0.5f, 0.5f)
 
         if (footBL != latestHitBodyPart)
-        footBL.detach(sized, killer, 0.5f, 0.5f)
+        footBL.detach(killer, 0.5f, 0.5f)
 
         if (footBR != latestHitBodyPart)
-        footBR.detach(sized, killer, 0.5f, 0.5f)
+        footBR.detach(killer, 0.5f, 0.5f)
 
         if (footFL != latestHitBodyPart)
-        footFL.detach(sized, killer, 0.5f, 0.5f)
+        footFL.detach(killer, 0.5f, 0.5f)
 
         if (footFR != latestHitBodyPart)
-        footFR.detach(sized, killer, 0.5f, 0.5f)
+        footFR.detach(killer, 0.5f, 0.5f)
         bodyPartsAttached = false
     }
 
     fun explode() {
         assert(bodyPartsAttached)
-        val sized = this.sized
-        head.detach(sized, Math.random().toFloat() * 400 - 200, (-Math.random()).toFloat() * 300 - 2000)
-        body.detach(sized, Math.random().toFloat() * 2000 - 1000, Math.random().toFloat() * 2000 - 1000)
-        footBL.detach(sized, (-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
-        footBR.detach(sized, (+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
-        footFL.detach(sized, (-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
-        footFR.detach(sized, (+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
+        head.detach(Math.random().toFloat() * 400 - 200, (-Math.random()).toFloat() * 300 - 2000)
+        body.detach(Math.random().toFloat() * 2000 - 1000, Math.random().toFloat() * 2000 - 1000)
+        footBL.detach((-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
+        footBR.detach((+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
+        footFL.detach((-Math.random()).toFloat() * 1000 - 1100, Math.random().toFloat() * 600 - 1000)
+        footFR.detach((+Math.random()).toFloat() * 1000 + 1100, Math.random().toFloat() * 600 - 1000)
         bodyPartsAttached = false
     }
 

@@ -11,10 +11,14 @@ import org.neubauerfelix.manawars.manawars.MConstants
 import org.neubauerfelix.manawars.manawars.MManaWars
 import org.neubauerfelix.manawars.manawars.entities.MEntityJumpable
 
-class BodyPartEntity(private val bodyPartData: IBodyPartData, private val sized: ISized, private val textureRegion: TextureRegion, duration: Int,
+class BodyPartEntity(private val bodyPartData: IBodyPartData, sized: ISized, private val textureRegion: TextureRegion, duration: Int,
                      private val mirror: Boolean, private val maxRotationAngle: Float = MConstants.BODY_PART_DETACH_MAX_ROTATION_ANGLE,
                      private val bloodColor: Color) :
-        MEntityJumpable(textureRegion.regionWidth.toFloat(), textureRegion.regionHeight.toFloat()), IDrawable {
+        MEntityJumpable(textureRegion.regionWidth.toFloat(), textureRegion.regionHeight.toFloat(), 1f), IDrawable {
+
+    init {
+        setSize(sized.width, sized.height)
+    }
 
     private var currentRotationSummand: Float = 0f
     private val despawnTime: Long = AManaWars.m.screen.getGameTime() + duration
