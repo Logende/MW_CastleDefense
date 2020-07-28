@@ -36,7 +36,7 @@ class BoxUnitInfoComplex(x: Float, y: Float, val previewBackground: TextureRegio
         val offsetY = previousWindowY - window.y
 
         entity = unit.produce(background.left + 80f,
-                GameConstants.WORLD_HEIGHT_UNITS - unit.animation.bodyHeight,
+                GameConstants.WORLD_HEIGHT_UNITS - unit.animation.bodyHeight * unit.animation.defaultScale,
                 ControllerAction(),
                 MConstants.TEAM_PLAYER)
         entity.speedY = 0f
@@ -45,7 +45,7 @@ class BoxUnitInfoComplex(x: Float, y: Float, val previewBackground: TextureRegio
 
         val dummyUnit = DataUnitDummy()
         dummy = dummyUnit.produce(background.left + 510f,
-                GameConstants.WORLD_HEIGHT_UNITS - dummyUnit.animation.bodyHeight,
+                GameConstants.WORLD_HEIGHT_UNITS - dummyUnit.animation.bodyHeight * dummyUnit.animation.defaultScale,
                 ControllerDummy(),
                 MConstants.TEAM_BOT)
         dummy.speedY = 0f

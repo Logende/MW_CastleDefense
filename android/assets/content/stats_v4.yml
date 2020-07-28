@@ -3,8 +3,8 @@ units:
   boss:
     common:
       health: 150
-      damage: 24
-      cooldown: 3.0
+      damage: 48
+      cooldown: 2.0
       cost: 12
       acclerationFactor: 1.0
       walkSpeedFactor: 0.5
@@ -39,7 +39,7 @@ units:
     common:
       health: 32
       damage: 12
-      cooldown: 1.5
+      cooldown: 2
       cost: 4
       walkSpeedFactor: 0.7
       acclerationFactor: 0.7
@@ -108,7 +108,7 @@ units:
     common:
       health: 9
       damage: 6
-      cooldown: 1.5
+      cooldown: 2.0
       cost: 2
 
     rare:

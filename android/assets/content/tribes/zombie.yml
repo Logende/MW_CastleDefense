@@ -31,7 +31,6 @@ army:
       animation: 'human:l1.zombie.knight'
       armor: 'none'
       rarity: common
-      drain: 0.5
       action:
         allow_movement_scaling: true
         owner_animation: THROW

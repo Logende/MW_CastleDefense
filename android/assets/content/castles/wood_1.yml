@@ -6,5 +6,5 @@ textures:
 location: '0:35'
 offset_units: '140:0'
 moneyStart: 20
-moneyPerCycle: 24
+moneyPerCycle: 20
 health: 500
