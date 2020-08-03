@@ -1389,289 +1389,296 @@ frame
   orig: 100, 100
   offset: 0, 0
   index: -1
-menu.settings
+frame.scheduled
   rotate: false
   xy: 409, 199
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.left
+menu.settings
   rotate: false
   xy: 511, 301
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.left.pressed
+move.left
   rotate: false
   xy: 613, 403
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.right
+move.left.pressed
   rotate: false
   xy: 715, 505
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-move.right.pressed
+move.right
   rotate: false
   xy: 817, 607
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-toggle.castledefense
+move.right.pressed
   rotate: false
   xy: 919, 709
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-toggle.player
+toggle.castledefense
   rotate: false
   xy: 1021, 811
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-units
+toggle.player
   rotate: false
   xy: 1123, 913
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-unknown
+units
   rotate: false
   xy: 1225, 1015
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
+unknown
+  rotate: false
+  xy: 1327, 1117
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
 upgrade.aura
-  rotate: false
-  xy: 1327, 1117
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
-upgrade.unique.rush
-  rotate: false
-  xy: 1327, 1117
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
-upgrade.drain
   rotate: false
   xy: 1429, 1219
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.follower.respawntime
+upgrade.unique.rush
+  rotate: false
+  xy: 1429, 1219
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+upgrade.drain
   rotate: false
   xy: 1531, 1321
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.headshot
+upgrade.follower.respawntime
   rotate: false
   xy: 409, 97
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.health
+upgrade.headshot
   rotate: false
   xy: 511, 199
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.luck
+upgrade.health
   rotate: false
   xy: 613, 301
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.mana
+upgrade.luck
   rotate: false
   xy: 715, 403
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.mount.drain
+upgrade.mana
   rotate: false
   xy: 817, 505
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.durability.light
+upgrade.mount.drain
   rotate: false
   xy: 919, 607
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.heavy
+upgrade.skills.durability.light
   rotate: false
   xy: 1021, 709
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.light
+upgrade.skills.heavy
   rotate: false
   xy: 1123, 811
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.skills.magic
+upgrade.skills.light
   rotate: false
   xy: 1225, 913
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.steroids
+upgrade.skills.magic
   rotate: false
   xy: 1327, 1015
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.enemybook
+upgrade.steroids
   rotate: false
   xy: 1429, 1117
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.jump
+upgrade.unique.enemybook
   rotate: false
   xy: 1531, 1219
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.shield.big
+upgrade.unique.jump
   rotate: false
   xy: 1633, 1321
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.shield.enchanted
+upgrade.unique.shield.big
   rotate: false
   xy: 511, 97
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.skillslot
+upgrade.unique.shield.enchanted
   rotate: false
   xy: 613, 199
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unique.walk_while_blocking
+upgrade.unique.skillslot
   rotate: false
   xy: 715, 301
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.unstoppable
+upgrade.unique.walk_while_blocking
   rotate: false
   xy: 817, 403
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-upgrade.walkspeed
+upgrade.unstoppable
   rotate: false
   xy: 919, 505
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-menu
+upgrade.walkspeed
   rotate: false
-  xy: 1021, 627
-  size: 80, 80
-  orig: 80, 80
+  xy: 1021, 607
+  size: 100, 100
+  orig: 100, 100
   offset: 0, 0
   index: -1
-missions.fail
+menu
   rotate: false
   xy: 1123, 729
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
-missions
+missions.fail
   rotate: false
   xy: 1225, 831
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
-missions.success
+missions
   rotate: false
   xy: 1327, 933
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
-news
+missions.success
   rotate: false
   xy: 1429, 1035
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
-options
+news
   rotate: false
   xy: 1531, 1137
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
-shop
+options
   rotate: false
   xy: 1633, 1239
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
-tips
+shop
   rotate: false
   xy: 1735, 1341
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
-zoom
+tips
   rotate: false
   xy: 613, 117
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
+zoom
+  rotate: false
+  xy: 715, 219
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
 locked
   rotate: false
-  xy: 715, 232
+  xy: 817, 334
   size: 46, 67
   orig: 46, 67
   offset: 0, 0

@@ -8,6 +8,7 @@ interface ICDEntityCastle : ICDEntityBuilding{
     val unitSpawnLocation: ILocated
     var storedMoney: Int // for special actions
     var moneyPerCycle: Int // for units
+    val unitCostPerCycle: Int // max allowed unit cost (space) per cycle
     val player: ICDPlayer
 
 }

@@ -16,5 +16,7 @@ interface ICDController : ILogicable, ILoadable, IDisposable {
     fun showControls()
     fun hideControls()
 
+    fun executedUnitBuilding()
+
 
 }

@@ -20,7 +20,7 @@ interface ICDPlayer : ITeamable, ILoadable, IDisposable, ILogicable {
     val enemy: ICDPlayer
 
     val unitsToBuildNextCycle: List<IDataUnit>
-    fun orderUnitToBuild(unit: IDataUnit)
+    fun orderUnitToBuild(unit: IDataUnit): Int // returns index of unit to build in the schedule
     fun cancelUnitToBuild(index: Int)
     fun clearUnitsToBuild()
 

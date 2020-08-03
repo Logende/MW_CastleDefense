@@ -13,7 +13,7 @@ import org.neubauerfelix.manawars.manawars.entities.MEntityImage
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerAction
 import org.neubauerfelix.manawars.manawars.entities.controller.ControllerDummy
 
-class BoxUnitInfoComplex(x: Float, y: Float, val previewBackground: TextureRegion, val unit: IDataUnit) : MComponentContainer(x, y) {
+class BoxUnitInfoComplex(x: Float, y: Float, previewBackground: TextureRegion, val unit: IDataUnit) : MComponentContainer(x, y) {
 
 
     val background: IEntity

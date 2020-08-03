@@ -65,4 +65,7 @@ class CDControllerBot(val ki: ICDKI) : ICDController {
     override fun dispose() {
         analysis.dispose()
     }
+
+    override fun executedUnitBuilding() {
+    }
 }

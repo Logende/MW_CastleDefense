@@ -113,7 +113,7 @@ class MConstants {
         // units
         const val UNIT_ANALYSIS_FILE_NAME = "unitanalysis.yml"
         const val UNIT_AVG_WALK_SPEED_MAX = 300f
-        const val UNIT_AVG_WALK_ACC = 400f
+        const val UNIT_AVG_WALK_ACC = 600f
         const val UNIT_RIDER_SPEED_FACTOR = 1f
         const val UNIT_RIDER_ACC_FACTOR = 1f
 

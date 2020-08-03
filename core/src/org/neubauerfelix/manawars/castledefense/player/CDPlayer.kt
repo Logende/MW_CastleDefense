@@ -23,10 +23,12 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
     private val unitsToBuildNow: MutableList<IDataUnit> = arrayListOf()
     private var nextUnitBuildTime = 0L
 
-    override fun orderUnitToBuild(unit: IDataUnit) {
-        require(castle.storedMoney >= unit.cost)
+    override fun orderUnitToBuild(unit: IDataUnit) : Int {
+        require(castle.storedMoney >= unit.cost &&
+                castle.unitCostPerCycle >= unit.cost + unitsToBuildNextCycle.sumBy { it.cost })
         unitsToBuildNextCycle.add(unit)
         castle.storedMoney -= unit.cost
+        return unitsToBuildNextCycle.size - 1
     }
 
     override  fun cancelUnitToBuild(index: Int) {
@@ -61,7 +63,7 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
 
         this.castle = CDEntityCastle(castleLocation.x, castleLocation.y, textureName,
                 data.health, direction, team, spawnLocation,
-                data.moneyStart, data.moneyPerCycle, this)
+                data.moneyStart, data.moneyPerCycle, data.moneyPerCycle, this)
         this.castle.spawn()
 
         this.formation = CDFormationStrategic(tribe.army.units, this)
@@ -76,6 +78,7 @@ class CDPlayer(override val tribe: IDataTribe, override val controller: ICDContr
         if (!event.cancelled) {
             event.castle.storedMoney += event.moneyDifference
         }
+        controller.executedUnitBuilding()
     }
 
     override fun doLogic(delta: Float) {

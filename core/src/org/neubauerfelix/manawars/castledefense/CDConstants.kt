@@ -1,6 +1,7 @@
 package org.neubauerfelix.manawars.castledefense
 
 import org.neubauerfelix.manawars.game.GameConstants
+import org.neubauerfelix.manawars.manawars.MConstants
 
 
 class CDConstants {
@@ -24,10 +25,10 @@ class CDConstants {
         const val CASTLE_MONEY_PER_CYCLE_BASE = 1f
 
         val KI_BALANCING_ENABLED = if (GameConstants.EVALUATION_MODE) false else true
-        const val KI_BALANCING_MAX_HELP_FACTOR = 1.3
+        const val KI_BALANCING_MAX_HELP_FACTOR = 1.0
         const val KI_BALANCING_MIN_HELP_FACTOR = 1 / KI_BALANCING_MAX_HELP_FACTOR
         // percentage of health the castle needs to fall below to get unit support (boss is spawned)
-        const val KI_BALANCING_CASTLE_SUPPORT_HEALTH = 0.33f
+        const val KI_BALANCING_CASTLE_SUPPORT_HEALTH = -1f
 
         const val UI_MENU_MAIN_USE_DETAILED_UNIT_ICONS = false
         const val UI_MENU_MAIN_UNIT_SCALE = 1.5f
@@ -39,6 +40,12 @@ class CDConstants {
         const val UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_WIDTH = 800
         const val UI_MENU_UNITINFO_UNIT_PREVIEW_BOX_HEIGHT = 470
         const val UI_MENU_UNITINFO_ICON_SIZE = 200f
+        const val UI_SCHEDULED_UNIT_ICON_SIZE = 120f
+        const val UI_SCHEDULED_UNIT_ICON_HOR_MIN = 100f
+        const val UI_SCHEDULED_UNIT_ICON_VER_MIN = 240f
+        const val UI_SCHEDULED_UNIT_ICON_HOR_MAX = GameConstants.SCREEN_WIDTH - 100f
+        const val UI_SCHEDULED_UNIT_ICON_HOR_DIST = 10f
+        const val UI_SCHEDULED_UNIT_ICON_VER_DIST = 15f
         
     }
 }

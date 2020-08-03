@@ -15,6 +15,7 @@ class CDEntityCastle(x: Float, y: Float,
                      override val unitSpawnLocation: ILocated,
                      startMoney: Int,
                      override var moneyPerCycle: Int,
+                     override val unitCostPerCycle: Int,
                      override val player: ICDPlayer) :
         MEntityAnimated(IEntityAnimationProducer.createProducerBuilding(textureNameAlive), 0f, health),
         ICDEntityCastle {

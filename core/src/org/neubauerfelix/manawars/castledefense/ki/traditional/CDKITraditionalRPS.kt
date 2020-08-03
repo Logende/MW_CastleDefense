@@ -6,6 +6,7 @@ import org.neubauerfelix.manawars.castledefense.ki.ICDKI
 import org.neubauerfelix.manawars.castledefense.player.ICDPlayer
 import org.neubauerfelix.manawars.manawars.data.units.IDataUnit
 import org.neubauerfelix.manawars.manawars.enums.MWUnitType
+import kotlin.math.min
 
 /**
  * Smart KI which saves gold when not attacked and then launches strong attacks
@@ -33,7 +34,7 @@ class CDKITraditionalRPS() : ICDKI {
 
         val unitsForNextCycle = arrayListOf<IDataUnit>()
 
-        var moneyLeft = player.castle.storedMoney // TODO: later only use some of the money
+        var moneyLeft = min(player.castle.storedMoney, player.castle.unitCostPerCycle) // TODO: later only use some of the money
         println("money stored is $moneyLeft")
         val units = player.tribe.army.units
         val cheapestUnitCost = units.map { it.cost }.min()!!

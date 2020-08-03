@@ -20,5 +20,19 @@ class CDComponentConditioned(x: Float, y: Float, subComponent: IComponent, priva
                     condition, 0L)
         }
     }
+
+    override fun touch(x: Float, y: Float, pointerId: Int): Boolean {
+        if (condition.locked) {
+            return false
+        }
+        return super.touch(x, y, pointerId)
+    }
+
+    override fun release(x: Float, y: Float, pointerId: Int): Boolean {
+        if (condition.locked) {
+            return false
+        }
+        return super.release(x, y, pointerId)
+    }
 }
 
